@@ -1,0 +1,246 @@
+//
+//
+// 	  SASS Variables and Interpolation
+//
+//
+
+SASS
+
+$defaultLinkColor: #46EAC2;
+
+a {
+	color: $defaultLinkColor;
+}
+
+$wk: -webkit-;
+
+.rounded-box {
+  #{$wk}border-radius: 4px;
+}
+
+CSS
+
+a {
+  color: #46EAC2;
+}
+
+.rounded-box {
+  -webkit-border-radius: 4px;
+}
+
+//
+//
+// 	  SASS Nesting
+//
+//
+
+SASS
+
+ul {
+  list-style-type: none;  
+  li {
+	border: {
+		style: solid;
+		left: {
+			width: 1px;
+			color: #999999;
+		}
+	}
+	display: inline-block;
+	margin: 0;
+	padding: 0 5px;
+    a { 
+			text-decoration: none;
+			&:hover { text-decoration: underline; }
+		}
+  }
+}
+
+CSS
+
+ul {
+  list-style-type: none;
+}
+ul li {
+  border-style: solid;
+  border-left-width: 1px;
+  border-left-color: #999999;
+  display: inline-block;
+  margin: 0;
+  padding: 0 5px;
+}
+ul li a {
+  text-decoration: none;
+}
+ul li a:hover {
+  text-decoration: underline;
+}
+
+//
+//
+// 	  SASS Operations and Functions
+//
+//
+
+SASS
+
+$defaultWindowSize: 960px;
+
+#nav.side {
+	float: right;
+	width: $defaultWindowSize / 3;
+	a {
+		color: lighten($defaultLinkColor, 10%);
+	}
+}
+
+CSS
+	
+#nav.side {
+  float: right;
+  width: 320px;
+}
+#nav.side a {
+  color: #74EFD1;
+}
+
+//
+//
+// 	  SASS Mixins
+//
+//
+
+
+SASS
+
+	
+@mixin default-box {
+	$borderColor: #666;
+	border: 1px solid $borderColor;
+	clear: both;
+	display: block;
+	margin: 5px 0;
+	padding: 5px 10px;
+}
+
+footer, header{ @include default-box; }
+
+
+CSS
+
+	
+footer, header {  
+  border: 1px solid #666;
+  clear: both;
+  display: block;
+  margin: 5px 0;
+  padding: 5px 10px;
+}
+
+//
+//
+// 	  SASS Arguments
+//
+//
+
+
+SASS
+
+@mixin default-box($color, $boxModel, $padding) {
+	$borderColor: $color;
+	border: 1px solid $borderColor;
+	clear: both;
+	display: $boxModel;
+	margin: 5px 0;
+	padding: 5px $padding;
+}
+
+header{ @include default-box(#666, block, 10px); }
+footer{ @include default-box(#999, inline-block, 5px); }
+
+
+CSS
+
+	
+header {
+  border: 1px solid #666;
+  clear: both;
+  display: block;
+  margin: 5px 0;
+  padding: 5px 10px;
+}
+
+footer {
+  border: 1px solid #999;
+  clear: both;
+  display: inline-block;
+  margin: 5px 0;
+  padding: 5px 5px;
+}
+
+//
+//
+// 	  SASS Inheritance
+//
+//
+
+
+SASS
+
+	
+.error {
+  border: 1px #F00;
+  background: #FDD;
+}
+
+.badError {
+  @extend .error;
+  border-width: 3px;
+}
+
+
+CSS
+
+	
+.error, .badError {
+  border: 1px #F00;
+  background: #FDD;
+}
+
+.badError {
+  border-width: 3px;
+}
+
+//
+//
+// 	  SASS Import
+//
+//
+
+
+SASS
+
+	
+@import "partials/_vars";
+
+body {
+	color: $color;
+}
+
+/* content of _vars.scss */
+$color: #333;
+
+
+CSS
+
+	
+body {
+  color: #333;
+}
+
+
+
+
+
+
+
