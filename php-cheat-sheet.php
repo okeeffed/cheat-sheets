@@ -11,7 +11,7 @@
 
 // recipe.php
 
-<?php 
+<?php
 
 class Recipe
 {
@@ -34,7 +34,7 @@ class Recipe
 		"gallon"
 	);
 
-	public function displayRecipe() 
+	public function displayRecipe()
 	{
 		return $this->title . "by" . $this->source;
 	}
@@ -56,7 +56,7 @@ class Recipe
 		);
 	}
 
-	public function getIngredients() 
+	public function getIngredients()
 	{
 		return $this->ingredients;
 	}
@@ -118,15 +118,15 @@ var_dump($recipe1);
 <?php
 
 class Render {
-  
+
   public static function displayDimensions($size) {
       return $size[0] . " x " . $size[1];
   }
-  
+
   public static function detailsKitchen($room) {
        return "Kitchen Dimensions: " . self::displayDimensions($room->getDimensions());
   }
-  
+
 }
 
 ?>
@@ -141,8 +141,8 @@ Some magic constants:
 
 __CLASS__
 __FILE__
-<?php 
-class Example 
+<?php
+class Example
 {
 
 	public function __construct($title = null)
@@ -150,7 +150,7 @@ class Example
 		$this->setTitle($title);
 	}
 
-	public function __toString() 
+	public function __toString()
 	{
 		$output = "You are calling a " . __CLASS__ . " object with the title \"";
 		$output .= $this->getTitle() . "\"";
@@ -162,10 +162,10 @@ class Example
 	}
 }
 
-class Render 
+class Render
 {
 
-	public function __toString() 
+	public function __toString()
 	{
 		$output = "The following methods are available for " . __CLASS__ . " objects: \n";
 		$output .= implode("\n", get_class_methods(__CLASS__));
@@ -185,7 +185,7 @@ class Fish
     public $common_name;
     public $flavor;
     public $record_weight;
-  
+
     public function __construct($name, $flavor, $record) {
       $this->common_name = $name;
       $this->flavor = $flavor;
@@ -219,11 +219,11 @@ class RecipeCollection
 	// has constructor here and setter and getters
 
 	public function addRecipe($recipe) {
-		$this->recipes[] = $recipe;	
+		$this->recipes[] = $recipe;
 	}
 
 	public function getRecipe() {
-		return $this->recipes;	
+		return $this->recipes;
 	}
 }
 
@@ -288,8 +288,8 @@ in_array (needle, haystack)
 	// add code below this comment
 class Subdivision
 {
-  public $houses = array(); 
-  
+  public $houses = array();
+
   public function filterHouseColor($color)
   {
     $return = array();
@@ -370,6 +370,38 @@ break;
 default:
 ...
 }
+
+//
+//
+// 	  PHP if/elseif statements within a web document
+//
+//
+
+<?php
+
+$bool = false;
+
+?>
+
+<?php if ($bool) : ?>
+
+	<div>
+		<p><?php echo "Bool is true"?></p>
+	</div>
+
+<?php elseif (!$bool) : ?>
+
+	<div>
+		<p><?php echo "Elseif works"?></p>
+	</div>
+
+<?php else : ?>
+
+	<div>
+		<p><?php echo "Bool is false"?></p>
+	</div>
+
+<?php endif; ?>
 
 //
 //
@@ -513,7 +545,7 @@ d
 Day ⁴ (01 to 31)
 j
 Day (1 to 31)
- 
+
 h
 12 Hour ⁴ (01 to 12)
 g
@@ -526,7 +558,7 @@ i
 Minutes ⁴ (00 to 59)
 s
 Seconds ⁴ (00 to 59)
- 
+
 w
 Day of week ¹ (0 to 6)
 z
@@ -535,7 +567,7 @@ W
 Week of year ² (1 to 53)
 t
 Days in month (28 to 31)
- 
+
 a
 am or pm
 A
@@ -544,7 +576,7 @@ B
 Swatch Internet Time (000 to 999)
 S
 Ordinal Suffix (st, nd, rd, th)
- 
+
 T
 Timezone of machine (GMT)
 Z
@@ -555,13 +587,10 @@ I
 Daylight saving (1 or 0)
 L
 Leap year (1 or 0)
- 
+
 U
 Seconds since Epoch ³
 c
 ISO 8601 (PHP 5) (2008-­07-­31T­18:­30:­13+­01:00)
 r
 RFC 2822 (Thu, 31 Jul 2008 18:30:13 +0100)
-
-
-

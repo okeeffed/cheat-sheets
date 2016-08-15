@@ -23,6 +23,191 @@ var person = {
 
 //
 //
+//  AJAX
+//
+//
+
+// example one
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo"><h2>Let AJAX change this text</h2></div>
+
+<button type="button" onclick="loadDoc()">Change Content</button>
+
+<script>
+function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("demo").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
+
+// example database
+
+<!DOCTYPE html>
+<html>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+</style>
+<body>
+
+<form action="">
+<select name="customers" onchange="showCustomer(this.value)">
+<option value="">Select a customer:</option>
+<option value="ALFKI">Alfreds Futterkiste</option>
+<option value="NORTS ">North/South</option>
+<option value="WOLZA">Wolski Zajazd</option>
+</select>
+</form>
+<br>
+<div id="txtHint">Customer info will be listed here...</div>
+
+<script>
+function showCustomer(str) {
+  var xhttp;
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (xhttp.readyState == 4 && xhttp.status == 200) {
+      document.getElementById("txtHint").innerHTML = xhttp.responseText;
+    }
+  };
+  xhttp.open("GET", "getcustomer.asp?q="+str, true);
+  xhttp.send();
+}
+</script>
+
+</body>
+</html>
+
+//
+//
+//  LOCAL STORAGE
+//
+//
+
+localStorage.getItem();
+localStorage.setItem();
+localStorage.removeItem();
+
+//
+//
+//  JAVASCRIPT PROMISES
+//
+//
+
+Updating an AJAX call to use promises
+
+BEFORE ADDING THE PROMISE
+
+var xhr = new XMLHttpRequest();
+xhr.open('GET', '../data/employees.json');
+xhr.onreadystatechange = handleResponse;
+xhr.send();
+
+function handleResponse() {
+  if(xhr.readyState === 4 && xhr.status === 200) {
+    var employees = JSON.parse(xhr.responseText);
+    addEmployeesToPage(employees)
+  }
+};
+
+function generatListItems(employees)  {
+    var statusHTML = '';
+    for (var i=0; i<employees.length; i += 1) {
+        if (employees[i].inoffice === true) {
+            statusHTML += '<li class="in">';
+        } else {
+            statusHTML += '<li class="out">';
+        }
+        statusHTML += employees[i].name;
+        statusHTML += '</li>';
+    }
+
+    return statusHTML;
+}
+
+function generateUnorderedList(listItems) {
+    return '<ul class="bulleted">' + listItems +  '</ul>';
+}
+
+function addEmployeesToPage(employees) {
+    document.getElementById('employeeList').innerHTML = generateUnorderedList(generatListItems(employees));
+}
+
+AFTER ADDING THE PROMISE
+
+function generatListItems(employees)  {
+    var statusHTML = '';
+    for (var i=0; i<employees.length; i += 1) {
+        if (employees[i].inoffice === true) {
+            statusHTML += '<li class="in">';
+        } else {
+            statusHTML += '<li class="out">';
+        }
+        statusHTML += employees[i].name;
+        statusHTML += '</li>';
+    }
+
+    return statusHTML;
+}
+
+function generateUnorderedList(listItems) {
+    return '<ul class="bulleted">' + listItems +  '</ul>';
+}
+
+function addEmployeesToPage(ul) {
+    document.getElementById('employeeList').innerHTML = ul;
+}
+
+function getJSON(url) {
+        return new Promise(function(resolve, reject) {
+            var xhr = new XMLHttpRequest();
+            xhr.open('GET', url);
+            xhr.onreadystatechange = handleResponse;
+            xhr.onerror = function(error) { reject(error); };
+            xhr.send();
+
+            function handleResponse() {
+                if(this.readyState === this.DONE)
+                    if(this.status === 200) {
+                        resolve(JSON.parse(this.responseText));
+                    } else {
+                        reject(this.statusText);
+                    }
+            }
+        });
+}
+
+
+var p = getJSON('../data/employees.json').then(generatListItems)
+                                         .then(generateUnorderedList)
+                                         .then(addEmployeesToPage).catch(function(e){
+                                            console.log(e);
+                                         });
+
+//
+//
 //  JAVASCRIPT OBJECT
 //
 //
@@ -79,7 +264,7 @@ var futureRoaming = {
       } else {
         console.log("Not there");
       }
-      
+
     });
   },
 

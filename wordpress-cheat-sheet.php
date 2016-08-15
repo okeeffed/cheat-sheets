@@ -177,10 +177,56 @@ is_search() – Returns true if the current page is a search results page
 is_404() – Returns true if the current page does not exist
 has_excerpt() – Returns true if the post or page has an excerpt
 
+/****************************
+*							*
+	TREEHOUSE THEME DEV
+*							*
+****************************/
 
+Themes are within the wp-content hierarchy.
+- You can manually move a folder into there.
 
+// template hierarchy
 
+wphierarchy.com
+- left hand side shows the different types of pages
+- different types of pages towards the right that you can create
+- TH course designated for this
 
+// setting up the folder
 
+- in the themes folder
+create themes > treehouse-portfolio
 
+...then
 
+themes > treehouse-portfolio > index.php
+themes > treehouse-portfolio > style.css
+themes > treehouse-portfolio > functions.php
+
+Example setup: in style.css (from website)
+
+/*
+Theme Name: Twenty Thirteen
+Theme URI: http://wordpress.org/themes/twentythirteen
+Author: the WordPress team
+Author URI: http://wordpress.org/
+Description: The 2013 theme for WordPress takes us back to the blog, featuring a full range of post formats, each displayed beautifully in their own unique way. Design details abound, starting with a vibrant color scheme and matching header images, beautiful typography and icons, and a flexible layout that looks great on any device, big or small.
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, brown, orange, tan, white, yellow, light, one-column, two-columns, right-sidebar, flexible-width, custom-header, custom-menu, editor-style, featured-images, microformats, post-formats, rtl-language-support, sticky-post, translation-ready
+Text Domain: twentythirteen
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+*/
+
+After this, it should show up!
+
+To fix the blank thumbnail, you can use a screenshot.png file that is 880 x 660
+
+// broken themes
+
+- this will show up in the CMS under "appearance"
+- gives insight into issues for themes that don't appear
