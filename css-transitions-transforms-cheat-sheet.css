@@ -248,3 +248,13 @@ img:hover {
 .photo {
   transform: rotate3d(0,1,0,30deg);
 }
+
+/* =================================
+  Load JavaScript after Transition
+==================================== */
+
+map.$elem.toggleClass('-active').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+	if (!map.map) {
+		map.initMap();
+	}
+});
