@@ -1,5 +1,19 @@
 # Chef Cheat Sheet
 
+## Chef Terms
+
+action :periodic
+action :delete
+action :create 		// default
+action :install		// also default
+action [:enable, :start]
+action [:stop, :disable]
+
+Verify apache is running:
+curl -I localhost
+
+## Online learn.chef.io
+
 Chef helps you express your infrastructure policy – how your software is delivered and maintained on your servers – as code. When infrastructure is code, it becomes more maintainable, versionable, testable, and collaborative.
 
 A great way to get started with Chef is to log in to a server, or node, and configure it directly.
@@ -140,3 +154,195 @@ apt_update 'Update the apt cache daily' do
 	frequency 86_400
 	action :periodic
 end
+
+In a production environment, you might run Chef periodically to ensure your systems are kept up to date. As an example, you might run Chef multiple times in a day. However, you likely don't need to update the apt cache every time you run Chef. The frequency property specifies how often to update the apt cache (in seconds.) Here, we specify 86,400 seconds to update the cache once every 24 hours. (The _ notation is a Ruby convention that helps make numeric values more readable.)
+
+The :periodic action means that the update occurs periodically. Another option would be to use the :update action to update the apt cache each time Chef runs.
+
+## 2. Install the Apache package
+
+Now let's install the Apache package, apache2. Modify webserver.rb to look like this.
+
+** webserver.rb **
+
+apt_update 'Update the apt cache daily' do
+	frequency 86_400
+	action :periodic
+end
+
+package 'apache2'
+
+To apply the recipe...
+
+sudo chef-client --local-mode webserver.rb
+
+- if you run it a second time it will know it is not time to update etc
+
+## 3. Start and enable the Apache service
+
+Now let's first enable the Apache service when the server boots and then start the service. Modify webserver.rb to look like this.
+
+** webserver.rb **
+
+apt_update 'Update the apt cache daily' do
+	frequency 86_400
+	action :periodic
+end
+
+package 'apache2'
+
+service 'apache2' do
+	supports :status => true
+	action [:enable, :start]
+end
+
+Ubuntu 14.04 provides two init systems. The supports :status => true part tells Chef that the apache2 init script supports the status message. This information helps Chef use the appropriate strategy to determine if the apache2 service is running. If you're interested, read [this blog post](https://blog.chef.io/2014/09/18/chef-where-is-my-ubuntu-14-04-service-support/) for more information.
+
+Apply it with main command.
+
+The package will already be installed, so there will be nothing to do.
+
+## 4. Add a home page
+
+** webserver.rb **
+
+apt_update 'Update the apt cache daily' do
+	frequency 86_400
+	action :periodic
+end
+
+package 'apache2'
+
+service 'apache2' do
+	supports :status => true
+	action [:enable, :start]
+end
+
+file '/var/www/html/index.html' do
+	content '<html
+	<body>
+		<h1>hello world</h1>
+	</body>
+end
+
+- from here, the website should be running
+
+## 5. Confirm your web site is running
+
+curl localhost
+// shows the data back
+
+### Summary
+
+You saw how to work with the package and service resources. You now know how to work with four types of resources: file, apt_update, package, and service.
+
+You also saw how to apply multiple actions. But how does Chef know what order to apply resources and actions?
+
+** Chef works in the order you specify**
+
+# Make your recipe more manageable
+
+A cookbook provides structure to your recipes and enables you to more easily reference external files, such as our web server's home page. In essence, a cookbook helps you stay organized.
+
+Let's create a cookbook to make our web server recipe easier to manage.
+
+## 1. Create a cookbook
+
+First, from ~/chef-repo
+
+mkdir cookbooks
+cd cookbooks
+
+chef generate cookbook learn_chef_apache2
+
+Note the default recipe, named default.rb. This is where we'll move our Apache recipe in a moment.
+
+## 2. Create a template
+
+chef generate template learn_chef_apache2 index.html
+
+The file index.html.erb get created under learn_chef_apache2/templates/default
+
+We can now move our html files to here
+
+*** NOTE *** Here, you're adding the web site content directly to your cookbook for learning purposes. In practice, your web site content would more likely be some build artifact, for example a .zip file on your build server. With Chef, you could pull updated web content from your build server and deploy it to your web server.
+
+** Write our default.rb **
+
+apt_update 'Update the apt cache daily' do
+	frequency 86_400
+	action :periodic
+end
+
+package 'apache2'
+
+service 'apache2' do
+	supports :status => true
+	action [:enable, :start]
+end
+
+template '/var/www/html/index.html' do
+	source 'index.html.erb'
+end
+
+## 4. Run the cookbook
+
+sudo chef-client --local-mode --runlist 'recipe[learn_chef_apache2]'
+
+
+in this example, recipe[learn_chef_apache2] is the same as specifying recipe[learn_chef_apache2::default], meaning we want to run the learn_chef_apache2 cookbook's default recipe, default.rb
+
+curl localhost
+- again this will confirm our website
+
+** Summary **
+
+Your web server is shaping up! With a cookbook you're now better organized. A cookbook adds structure to your work. You can now author your HTML code in its own file and use a template resource to reference it from your recipe.
+
+You also saw the run-list. The run-list lets you specify which recipes to run, and the order in which to run them. This is handy once you have lots of cookbooks, and the order in which they run is important.
+
+Keep in mind that the web server cookbook you wrote in this lesson likely won't be the one you'd use in production. Only you know the specific needs for your infrastructure. You bring your requirements and Chef provides the tools that help you meet them.
+
+# Managing a node
+
+## Manage a Ubuntu node
+
+Chef is comprised of 3 elements:
+
+1. Your Workstation
+2. A Chef server
+3. Nodes
+
+Chef server acts as a central repository for your cookbooks as well as for information about every node it manages. For example, the Chef server knows a node's fully qualified domain name (FQDN) and its platform.
+
+A node is any computer that is managed by a Chef server. Every node has the Chef client installed on it. The Chef client talks to the Chef server. A node can be any physical or virtual machine in your network
+
+## Set up your Chef Server
+
+Chef server acts as a central repository for your cookbooks as well as for information about every node it manages.
+The knife command enables you to communicate with the Chef server from your workstation.
+
+There are two ways to work with a Chef server.
+
+1. Install an instance on your own infrastructure.
+2. Sign up for hosted Chef and let us host it for you
+
+In production, the decision to use hosted Chef or manage your own Chef server depends on your organization's requirements and preferences. If you're interested in setting up your own Chef server, we recommend that you first complete this tutorial using hosted Chef. Then you can follow the [Install and manage your own Chef server](https://learn.chef.io/install-and-manage-your-own-chef-server/linux/) tutorial to set up a Chef server in your environment..
+
+## Configure your workstation to communicate with the Chef server
+
+knife is the command-line tool that provides an interface between your workstation and the Chef server. knife enables you to upload your cookbooks to the Chef server and work with nodes, the servers that you manage.
+
+knife requires two files to communicate with the Chef server – an RSA private key and a configuration file.
+
+The configuration file is typically named knife.rb. It contains information such as the Chef server's URL, the location of your RSA private key, and the default location of your cookbooks.
+
+Both of these files are typically located in a directory named .chef. Every time knife runs, it looks in the current working directory for the .chef directory. If the .chef directory does not exist, knife searches up the directory tree for a .chef directory. This process is similar to how tools such as Git work.
+
+The next step is to create the ~/learn-chef/.chef directory and add your RSA private key and knife configuration files.
+
+** Generate your knife configuration file **
+
+1. Sign in to https://manage.chef.io/.
+2. From the Administration tab, select your organization.
+3. From the menu on the left, select Generate Knife Config and save the file.
