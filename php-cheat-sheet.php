@@ -594,3 +594,34 @@ c
 ISO 8601 (PHP 5) (2008-­07-­31T­18:­30:­13+­01:00)
 r
 RFC 2822 (Thu, 31 Jul 2008 18:30:13 +0100)
+
+
+## Accessing deep arrays to find values 
+
+```php
+$locations = Timber::get_terms('locations');
+
+		$data = [];
+		$exclusion = [];
+
+		foreach($locations as $location) {
+			$data[] = [
+				"location" => $location,
+				"posts" => Locations::getPostsForLocation($location,$count,$exclusion)
+			];
+
+			// add posts with current ids to array to check against
+			foreach ($data as $key => $value) {
+				if ($value["posts"]) {
+					$posts = $value["posts"];
+					foreach($posts as $key => $value) {
+						if (in_array($value->id, $exclusion)) {
+							unset($posts[$key]);
+						} else {
+							array_push($exclusion, $value->id);
+						}
+					}
+				}
+			}
+		}
+```

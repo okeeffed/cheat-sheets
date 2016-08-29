@@ -1,9 +1,6 @@
-//
-//
-// 	  CSS Gradient Syntax
-//
-//
+# CSS Gradient Syntax
 
+```css
 background: linear-gradient(direction, color-stop1, color-stop2, ...);
 
 // TOP TO BOTTOM (RED TO YELLOW)
@@ -35,13 +32,11 @@ background: linear-gradient(direction, color-stop1, color-stop2, ...);
   background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
 }
+```
 
-//
-//
-// 	  CSS Using Angles
-//
-//
+### CSS Using Angles
 
+```css
 background: linear-gradient(angle, color-stop1, color-stop2);
 
 #grad {
@@ -99,13 +94,11 @@ background: linear-gradient(angle, color-stop1, color-stop2);
   /* Standard syntax */
   background: repeating-linear-gradient(red, yellow 10%, green 20%);
 }
+```
 
-//
-//
-// 	  CSS RADIAL GRADIENTS
-//
-//
+### CSS Radial Gradients
 
+```css
 background: radial-gradient(shape size at position, start-color, ..., last-color);
 
 // EVENLY COLOURED SPACING
@@ -176,3 +169,4 @@ background: radial-gradient(shape size at position, start-color, ..., last-color
   /* Standard syntax */
   background: repeating-radial-gradient(red, yellow 10%, green 15%);
 }
+```

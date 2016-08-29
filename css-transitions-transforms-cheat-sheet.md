@@ -1,3 +1,6 @@
+# CSS Transitions and Transforms Cheat Sheet
+
+```css
 /* =================================
   Photo Overlay Transition
 ==================================== */
@@ -122,7 +125,11 @@ img:hover {
 .logo:hover {
 	transform: rotate(-20deg);
 }
+```
 
+### Photo 3D Transforms & Transitions
+
+```html
 /* =================================
   Photo 3D Transforms & Transitions
 ==================================== */
@@ -194,7 +201,8 @@ img:hover {
 	</div>
 </body>
 </html>
-
+```
+```css
 .cube-container {
 	box-shadow: 0 18px 40px 5px rgba(0,0,0,.4);
 	perspective: 800px;
@@ -248,7 +256,8 @@ img:hover {
 .photo {
   transform: rotate3d(0,1,0,30deg);
 }
-
+```
+```javascript
 /* =================================
   Load JavaScript after Transition
 ==================================== */
@@ -258,3 +267,4 @@ map.$elem.toggleClass('-active').one("transitionend webkitTransitionEnd oTransit
 		map.initMap();
 	}
 });
+```

@@ -1,9 +1,6 @@
-//
-//
-// 	  CSS Syntax
-//
-//
+# CSS Syntax
 
+```css
 selector {property: value;}
 
 External Style Sheet
@@ -14,21 +11,17 @@ selector {property: value;}
 </style>
 Inline Style
 <tag style="property: value">
+```
 
-//
-//
-// 	  Antialiasing
-//
-//
+### Antialiasing
 
+```css
 -webkit-font-smoothing: antialiased;
+```
 
-//
-//
-// 	  CSS Ordering
-//
-//
+### CSS Ordering
 
+```css
 .selector {
   /* Positioning */
   position: absolute;
@@ -59,12 +52,9 @@ Inline Style
   /* Other */
   cursor: pointer;
 }
+```
 
-//
-//
-// 	  CSS General
-//
-//
+### CSS General
 
 Class				String preceded by a period
 ID					String preceded by a hash mark
@@ -77,11 +67,7 @@ overflow			How content overflowing its box is handled
 					visible, hidden, scroll, auto
 visibility			visible, hidden
 
-//
-//
-// 	  CSS Position
-//
-//
+### CSS Position
 
 clear			Any floating elements around the element?
 				both, left, right, none
@@ -95,11 +81,7 @@ position		static, relative, absolute
 z-index			Element above or below overlapping elements?
 				auto, integer (higher numbers on top)
 
-//
-//
-// 	  CSS Font
-//
-//
+### CSS Font
 
 font-style			Italic, normal
 font-variant		normal, small-caps
@@ -107,11 +89,7 @@ font-weight			bold, normal, lighter, bolder, integer (100-900)
 font-size			Size of the font
 font-family			Specific font(s) to be used
 
-//
-//
-// 	  CSS Background
-//
-//
+### CSS Background
 
 background-color		Background color
 background-image		Background image
@@ -120,11 +98,7 @@ background-attachment	Background image scroll with the element?
 						scroll, fixed
 background-position		(x y), top, center, bottom, left, right
 
-//
-//
-// 	  CSS List
-//
-//
+### CSS List
 
 list-style-type			Type of bullet or numbering in the list
 						disc; circle; square; decimal; lower-roman; upper-roman; lower-alpha; upper-alpha; none
@@ -132,12 +106,7 @@ list-style-position		Position of the bullet or number in a list
 						inside; outside
 list-style-image		Image to be used as the bullet in a list
 
-//
-//
-// 	  CSS Text
-//
-//
-
+### CSS Text
 
 letter-spacing		Space between letters
 line-height			Vertical distance between baselines
@@ -148,11 +117,7 @@ text-transform		capitalize, lowercase, uppercase
 vertical-align		Vertical alignment
 word-spacing		Spacing between words
 
-//
-//
-// 	 Box Model
-//
-//
+### Box Model
 
 height;
 width;
@@ -165,11 +130,7 @@ padding-right;
 padding-bottom;
 padding-left;
 
-//
-//
-// 	 Border
-//
-//
+### Border 
 
 border-width	Width of the border
 border-style	dashed; dotted; double; groove; inset; outset; ridge; solid; none
