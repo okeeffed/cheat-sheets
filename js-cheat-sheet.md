@@ -1,32 +1,27 @@
-//
-//
-//  JAVASCRIPT DOC READY
-//
-//
+# JavaScript Cheat Sheet
 
+## JAVASCRIPT DOC READY
+
+```javascript
 $(document).ready(function () {
   futureRoaming.init();
 });
+```
 
-//
-//
-//  JAVASCRIPT BASIC OBJECT
-//
-//
+## JAVSCRIPT BASIC OBJECT
 
+```javascript
 var person = {
     firstName:"John",
     lastName:"Doe",
     age:50,
     eyeColor:"blue"
 };
+```
 
-//
-//
-//  AJAX
-//
-//
+## AJAX
 
+```html
 // example one
 
 <!DOCTYPE html>
@@ -99,26 +94,22 @@ function showCustomer(str) {
 
 </body>
 </html>
+```
 
-//
-//
-//  LOCAL STORAGE
-//
-//
+## LOCAL STORAGE
 
+```javascript
 localStorage.getItem();
 localStorage.setItem();
 localStorage.removeItem();
+```
 
-//
-//
-//  JAVASCRIPT PROMISES
-//
-//
+## JAVASCRIPT PROMISES
 
 Updating an AJAX call to use promises
 
-BEFORE ADDING THE PROMISE
+```javascript
+// BEFORE ADDING THE PROMISE
 
 var xhr = new XMLHttpRequest();
 xhr.open('GET', '../data/employees.json');
@@ -155,7 +146,7 @@ function addEmployeesToPage(employees) {
     document.getElementById('employeeList').innerHTML = generateUnorderedList(generatListItems(employees));
 }
 
-AFTER ADDING THE PROMISE
+// AFTER ADDING THE PROMISE
 
 function generatListItems(employees)  {
     var statusHTML = '';
@@ -205,21 +196,13 @@ var p = getJSON('../data/employees.json').then(generatListItems)
                                          .then(addEmployeesToPage).catch(function(e){
                                             console.log(e);
                                          });
+```
 
-//
-//
-//  JAVASCRIPT OBJECT
-//
-//
+## JAVASCRIPT OBJECT BEFORE ES6
 
+```javascript
 var futureRoaming = {
   themeUrl: $('meta[name=theme_url]').attr('content'),
-
-  //
-  //
-  //  JAVASCRIPT OBJECT FUNCTION
-  //
-  //
 
   init: function () {
     $.ajax({
@@ -382,3 +365,4 @@ var futureRoaming = {
     $('.post-content .post-body p').first().after(futureRoaming.$elem);
   }
 };
+```

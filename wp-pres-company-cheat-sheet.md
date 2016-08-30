@@ -1,14 +1,11 @@
-WP PRES COMPANY CHEAT SHEET
+# WP PRES COMPANY CHEAT SHEET
 
-//
-//
-// 	  Custom Type Relationships
-//
-//
+## Custom Type Relationships
 
+```php
 // in author-articles.php
 
-- be sure to require it in the functions.php file!
+// be sure to require it in the functions.php file!
 
 <?php
 
@@ -67,18 +64,17 @@ $data['breadcrumbs'] = [
 Timber::render('author.twig', $data);
 
 ?>
+```
 
-//
-//
-// 	  Example of Rendering a .twig file using Timber WP functions
-//		- using the above examples
-//
+## Example of Rendering a .twig file using Timber WP functions
+- using the above examples
 
-	********************
+```html
+/********************
 
-	 	author.twig
+ 	 author.twig
 
-	********************
+********************/
 
 {% if post.article_author %}
 {% set author = TimberPost(post.get_field('article_author')) %}
@@ -110,11 +106,11 @@ Timber::render('author.twig', $data);
 </div>
 {% endif %}
 
-	********************
+/********************
 
-		  list.twig
+      list.twig
 
-	********************
+********************/
 
 <div class="list -post">
 	<ul class="list-items">
@@ -126,11 +122,11 @@ Timber::render('author.twig', $data);
 	</ul>
 </div>
 
-	********************
+/********************
 
-	   list-item.twig
+   list-item.twig
 
-	********************
+********************/
 
 <li class="list-item -post tile">
 	<a href="#">
@@ -146,14 +142,11 @@ Timber::render('author.twig', $data);
 		</div>
 	</a>
 </li>
+```
 
+## Example PHP functions.php
 
-//
-//
-// 	  Example PHP functions.php
-//
-//
-
+```php
 <?php
 
 add_filter('show_admin_bar', '__return_false');
@@ -174,3 +167,4 @@ if (!is_admin()) {
 }
 
 ?>
+```

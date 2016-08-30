@@ -1,5 +1,8 @@
--- CREATE TABLE
+# mySQL Cheat Sheet
 
+## CREATE TABLE
+
+```sql
 CREATE TABLE pet (
 	name VARCHAR(20),
 	owner VARCHAR(20),
@@ -8,3 +11,4 @@ CREATE TABLE pet (
 	birth DATE,
 	death DATE
 );
+```

@@ -1,3 +1,6 @@
+# JavaScript Grid Alignment Cheat Sheet
+
+```javascript
 /*
 	This example comes from the NPWS grid system
 */
@@ -59,3 +62,4 @@ var grid = {
 		}
 	},
 };
+```

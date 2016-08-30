@@ -1,12 +1,15 @@
+# LinkedIn API Cheat Sheet
+
+```php
 <?php
 	// Change these back to your things
-	define('API_KEY',      '752cmnp06ee9z6');
-	define('API_SECRET',   'HvLZrPuG26cq4hxD');
+	define('API_KEY',      'YOUR API KEY');
+	define('API_SECRET',   'YOUR API SECRET');
 	define('REDIRECT_URI',  'http://localhost/');
 
 	// I've changed the scope to work for what we generally have access to
 	define('SCOPE', 'r_basicprofile r_emailaddress');
-	
+
 	// This stuff I believe it used if you have a database
 	session_name('linkedin');
 	session_start();
@@ -25,7 +28,7 @@
 			// CSRF attack? Or did you mix up your states?
 			exit;
 		}
-	} else { 
+	} else {
 		if ((empty($_SESSION['expires_at'])) || (time() > $_SESSION['expires_at'])) {
 			// Token has expired, clear the state
 			$_SESSION = array();
@@ -36,7 +39,7 @@
 		}
 	}
 
-	// You have a valid token. Now fetch your profile. 
+	// You have a valid token. Now fetch your profile.
 	// I've just put in some dummy fields for now, but hopefully these should do it.
 	$user = fetch('GET', '/v1/people/~:(first-name,last-name,email-address,phone-numbers,num-connections,picture-url,location,positions,summary,specialties,industry)');
 
@@ -83,14 +86,14 @@
 				  );
 		// Authentication request
 		$url = 'https://www.linkedin.com/uas/oauth2/authorization?' . http_build_query($params);
-		
+
 		// Needed to identify request when it returns to us
 		$_SESSION['state'] = $params['state'];
 		// Redirect user to authenticate
 		header("Location: $url");
 		exit;
 	}
-		
+
 	function getAccessToken() {
 		$params = array('grant_type' => 'authorization_code',
 						'client_id' => API_KEY,
@@ -98,13 +101,13 @@
 						'code' => $_GET['code'],
 						'redirect_uri' => REDIRECT_URI,
 				  );
-		
+
 		// Access Token request
 		$url = 'https://www.linkedin.com/uas/oauth2/accessToken?' . http_build_query($params);
-		
+
 		// Tell streams to make a POST request
 		$context = stream_context_create(
-						array('http' => 
+						array('http' =>
 							array('method' => 'POST',
 		                    )
 		                )
@@ -114,10 +117,10 @@
 		// Native PHP object, please
 		$token = json_decode($response);
 		// Store access token and expiration time
-		$_SESSION['access_token'] = $token->access_token; // guard this! 
+		$_SESSION['access_token'] = $token->access_token; // guard this!
 		$_SESSION['expires_in']   = $token->expires_in; // relative time (in seconds)
 		$_SESSION['expires_at']   = time() + $_SESSION['expires_in']; // absolute time
-		
+
 		return true;
 	}
 
@@ -127,12 +130,12 @@
 		$params = array('oauth2_access_token' => $_SESSION['access_token'],
 						'format' => 'json',
 				  );
-		
+
 		// Need to use HTTPS
 		$url = 'https://api.linkedin.com' . $resource . '?' . http_build_query($params);
 		// Tell streams to make a (GET, POST, PUT, or DELETE) request
 		$context = stream_context_create(
-						array('http' => 
+						array('http' =>
 							array('method' => $method,
 		                    )
 		                )
@@ -145,3 +148,4 @@
 	}
 
 ?>
+```

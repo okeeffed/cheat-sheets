@@ -1,11 +1,8 @@
-//
-//
-// 	  JQuery Core
-//
-//
+# jQuery Core
 
 Core
 
+```javascript
 //jQuery function
 
 $.jQuery( selector [, context] | element | elementArray | jQueryObject ), .jQuery( )
@@ -31,13 +28,11 @@ arr.toArray( )
 //Interoperability
 
 $jQuery.noConflict( [extreme] )
+```
 
-//
-//
-// 	  JQuery Attributes
-//
-//
+## jQuery Attributes
 
+```javascript
 // Attributes
 
 str.attr( name | name , value )
@@ -61,15 +56,12 @@ $.text( val | fn(index, html) )
 // Value
 str,arr.val( )
 $.val( val | fn() )
+```
 
-//
-//
-// 	  JQuery Selectors
-//
-//
+## jQuery Selectors
 
 
-Basics
+#### Basics
 #id
 element
 .class, .class.class
@@ -81,7 +73,7 @@ parent > child
 prev + next
 prev ~ siblings
 
-Basic Filters
+#### Basic Filters
 :first
 :last
 :not(selector)
@@ -94,23 +86,23 @@ Basic Filters
 :animated
 :focus
 
-Content Filters
+#### Content Filters
 :contains(text)
 :empty
 :has(selector)
 :parent
 
-Visibility Filters
+#### Visibility Filters
 :hidden
 :visible
 
-Child Filters
+#### Child Filters
 :nth-child(expr)
 :first-child
 :last-child
 :only-child
 
-Attribute Filters
+#### Attribute Filters
 [attribute]
 [attribute=value]
 [attribute!=value]
@@ -121,7 +113,7 @@ Attribute Filters
 [attribute~=value]
 [attribute][attribute2]
 
-Forms
+#### Forms
 :input
 :text
 :password
@@ -133,19 +125,15 @@ Forms
 :button
 :file
 
-Form Filters
+#### Form Filters
 :enabled
 :disabled
 :checked
 :selected
 
-//
-//
-// 	  JQuery Traversing
-//
-//
+## jQuery Traversing
 
-// Filtering
+#### Filtering
 $.eq( index )
 $.first( )
 $.last( )
@@ -156,7 +144,7 @@ $.map( fn(index, element) )
 $.not( selector ), .not( elements ), .not( fn( index ) )
 $.slice( start [, end] )
 
-// Tree traversal
+#### Tree traversal
 $.children( [selector] )
 $.closest( selector [, context] | jQuery object | element )
 arr.closest( selectors [, context] )removed
@@ -173,32 +161,23 @@ $.prevAll( [selector] )
 $.prevUntil( [selector] )
 $.siblings( [selector] )
 
-// Miscellaneous
+#### Miscellaneous
 $.add( selector [, context] | elements | html )
 $.andSelf( )
 $.contents( )
 $.end( )
 
-//
-//
-// 	  JQuery Ajax
-//
-//
+## jQuery Ajax
 
 // GET BACK AND DO THIS!
 
+## jQuery CSS
 
-//
-//
-// 	  JQuery CSS
-//
-//
-
-// CSS
+#### CSS
 str.css( name )
 $.css( name, val | map | name, fn(index, val) )
 
-//Positioning
+#### Positioning
 obj.offset( )
 
 $.offset( coord | fn( index, coord ) )
@@ -212,7 +191,7 @@ $.scrollTop( val )
 int.scrollLeft( )
 $.scrollLeft( val )
 
-//Height and Width
+#### Height and Width
 
 int.height( )
 $.height( val | fn(index, height ) )
@@ -229,59 +208,49 @@ $.outerHeight( val | fn(index, outerHeight ) ) 1.8+
 int.outerWidth( [includeMargin] )
 $.outerWidth( val | fn(index, outerWidth ) ) 1.8+
 
-//
-//
-// 	  JQuery Manipulation
-//
-//
+## jQuery Manipulation
 
-Manipulation
-
-//Inserting Inside
+#### Inserting Inside
 
 $.append( content | fn( index, html ) )
 $.appendTo( target )
 $.prepend( content | fn( index, html ) )
 $.prependTo( target )
 
-// Inserting Outside
+#### Inserting Outside
 $.after( content | fn() )
 $.before( content | fn() )
 $.insertAfter( target )
 $.insertBefore( target )
 
 
-// Inserting Around
+#### Inserting Around
 $.unwrap( )
 $.wrap( wrappingElement | fn )
 $.wrapAll( wrappingElement | fn )
 $.wrapInner( wrappingElement | fn )
 
-// Replacing
+#### Replacing
 $.replaceWith( content | fn )
 $.replaceAll( selector )
 
-// Removing
+#### Removing
 $.detach( [selector] )
 $.empty( )
 $.remove( [selector] )
 
-// Copying
+#### Copying
 $.clone( [withDataAndEvents], [deepWithDataAndEvents] )
 
-//
-//
-// 	  JQuery Events
-//
-//
+## jQuery Events
 
-//Events
+#### Events
 
-//Page Load
+#### Page Load
 
 $.ready( fn() )
 
-//Event Handling
+#### Event Handling
 
 $.on( events [, selector] [, data], handler )1.7+
 $.on( events-map [, selector] [, data] )1.7+
@@ -297,17 +266,17 @@ obj.triggerHandler( event [, data])
 $.delegate( selector, type, [data], handler)
 $.undelegate( [selector, type, [handler]]) | selector, events | namespace )
 
-// Live Events
+#### Live Events
 
 $.live( eventType [, data], fn() )
 $.die( ), .die( [eventType] [, fn() ])
 
-// Interaction Helpers
+#### Interaction Helpers
 
 $.hover( fnIn(eventObj), fnOut(eventObj))
 $.toggle( fn(eventObj), fn2(eventObj) [, ...])
 
-// Event Helpers
+#### Event Helpers
 
 function ( [data,] [fn] )
 $.blur,
@@ -335,38 +304,31 @@ $.blur,
 .load( [data,] fn ),
 .unload( [data,] fn )
 
-//
-//
-// 	  JQuery Effects
-//
-//
+## jQuery Effects
 
-// Basics
+#### Basics
 
 $.show( [ duration [, easing] [, fn] ]  )
 $.hide( [ duration [, easing] [, fn] ]  )
 $.toggle( [showOrHide] )
 $.toggle( duration [, easing] [, fn] )
 
-// Sliding
+#### Sliding
 
 $.slideDown( duration [, easing] [, fn] )
 $.slideUp( duration [, easing] [, fn] )
 $.slideToggle( [duration] [, easing] [, fn] )
 
-// Fading
+#### Fading
 
 $.fadeIn( duration [, easing] [, fn] )
 $.fadeOut( duration [, easing] [, fn] )
 $.fadeTo( [duration,] opacity [, easing] [, fn] )
 $.fadeToggle( [duration,] [, easing] [, fn] )
 
-// Custom
+#### Custom
 
 $.animate( params [, duration] [, easing] [, fn] )
 $.animate( params, options )
 $.stop( [queue] [, clearQueue] [, jumpToEnd] )1.7*
 $.delay( duration [, queueName] )
-
-
-

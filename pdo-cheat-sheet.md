@@ -1,13 +1,12 @@
+# PDO Help Sheet
+
 // Full website list
 
 http://php.net/manual/en/class.pdostatement.php
 
-//
-//
-//		Setting making a query
-//
-//
+## Setting up and making a query
 
+```php
 <?php
 
 // SET TCP/IP CONNECTION IN SEQUEL PRO TO CONNECT TO MAMP FIRST
@@ -45,13 +44,11 @@ catch(PDOException $e)
 $conn = null;
 
 ?>
+```
 
-//
-//
-//		Treehouse Query Challenge
-//
-//
+## Treehouse Query Challenge
 
+```php
 <?php
 include "helper.php";
 
@@ -69,3 +66,4 @@ foreach ($user as $key)
     $key['level']);
 }
 ?>
+```
