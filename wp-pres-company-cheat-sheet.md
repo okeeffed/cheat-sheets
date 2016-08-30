@@ -1,5 +1,12 @@
 # WP PRES COMPANY CHEAT SHEET
 
+## FAQ
+
+**Q: Where can I find what I need?**
+
+A: Check against the staging website if it is up to grab things like taxonomies, types, and to figure out the layout.
+
+
 ## Custom Type Relationships
 
 ```php
