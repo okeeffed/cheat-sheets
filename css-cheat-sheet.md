@@ -130,8 +130,12 @@ padding-right;
 padding-bottom;
 padding-left;
 
-### Border 
+### Border
 
 border-width	Width of the border
 border-style	dashed; dotted; double; groove; inset; outset; ridge; solid; none
 border-color	Color of the border
+
+### Setting a default browser outline
+
+outline 

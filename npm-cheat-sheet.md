@@ -1,28 +1,38 @@
-// install npm dependencies
+# npm help sheet
 
+## install npm dependencies
+
+```
 npm install
+```
 
-/*									*/
-/* 		USEFUL NPM DEPENDENCIES		*/
-/* 									*/
+## USEFUL NPM DEPENDENCIES
 
-/* MONGOOSE - database helper for MongoDB */
+#### MONGOOSE - database helper for MongoDB
 
+```
 npm install --save mongoose
 
 mongod // starts the daemon
 mongo // check out the documents
+```
 
+
+```javascript
 var User = mongoose.model('User', UserSchema);
 module.exports = User;
 
 // in app.js
 var User = require('../models/user');
+```
 
-/* BCRYPT - used for hashing and salting */
+#### BCRYPT - used for hashing and salting
 
+```
 npm install --save bcrypt
+```
 
+```javascript
 // in User.js
 var bcrypt = require('bcrypt');
 UserSchema.pre('save', function(next) {
@@ -76,12 +86,16 @@ router.post('/login', function(req, res, next) {
 		return next(err);
 	}
 });
+```
 
 
-/* EXPRESS SESSION - save sessions to use throughout the website */
+#### EXPRESS SESSION - save sessions to use throughout the website
 
+```
 npm install express-session --save
+```
 
+```javascript
 // in app.js
 
 var session = require('express-session');
@@ -93,14 +107,18 @@ app.use(session({
 	saveUninitialized: false
 }));
 
-- not useful when in production. check https://github.com/expressjs/session#compatible-session-stores
+// not useful when in production. check https://github.com/expressjs/session#compatible-session-stores
+```
 
-/* CONNECT-MONGO - used for quick middleware access to Mongo */
+#### CONNECT-MONGO - used for quick middleware access to Mongo
 
 connect-mongo is a middleware already written for us!
 
+```
 npm install connect-mongo --save
+```
 
+```javascript
 require MongoStore = require('connect-mongo')(session);
 
 // in app.js
@@ -113,3 +131,4 @@ app.use(session({
 		mongooseConnection: db
 	})
 }));
+```

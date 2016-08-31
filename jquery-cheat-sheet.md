@@ -332,3 +332,39 @@ $.animate( params [, duration] [, easing] [, fn] )
 $.animate( params, options )
 $.stop( [queue] [, clearQueue] [, jumpToEnd] )1.7*
 $.delay( duration [, queueName] )
+
+# jQuery FAQ
+
+### Issue: How to target something within an anchor tag
+
+In the bottom example from NPWS YAC, we are targeting a div within an anchor tag that will allow us to open a map. That being said, we do not want the anchor tag to activate in this example, so we use the `e.target` capability to find whether or not we are targeting what we want, and if not - we ensure the href doesn't activate.
+
+```javascript
+$('.hero .toggle').on('click', function (e) {
+			if ($(e.target).hasClass('geolocation')) {
+				console.log('here');
+				map.$elem.toggleClass('-active').one('transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd', function () {
+					if (!map.map) {
+						map.initMap();
+					}
+				});
+
+				if ($('html').hasClass('ie9') || $('html').hasClass('lt-ie9')) {
+					if (!map.map) {
+						map.initMap();
+					}
+				}
+
+				if (map.$elem.hasClass('-active')) {
+					map.$toggle.text('Close the map');
+				} else {
+					map.$toggle.text('View the ' + map.title + ' map');
+				}
+
+				return false;
+			} else {
+				e.preventDefault();
+				$(this).parent().toggleClass('-active');
+			}
+		});
+```

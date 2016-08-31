@@ -1,14 +1,13 @@
-//
-//
-// 	  Treehouse PHP Classes
-//
-//
+# PHP Help Sheet
+
+## Treehouse PHP Classes
 
 > PHP OOP
 	> classes
 		> recipe.php
 		> cookbook.php
 
+```php
 // recipe.php
 
 <?php
@@ -108,13 +107,11 @@ foreach ($recipe1->getIngredients() as $ing) {
 var_dump($recipe1);
 
 ?>
+```
 
-//
-//
-// 	  PHP Access Modifiers
-//
-//
+## PHP Access Modifiers
 
+```php
 <?php
 
 class Render {
@@ -130,17 +127,16 @@ class Render {
 }
 
 ?>
+```
 
-//
-//
-// 	  PHP MAGIC METHODS AND CONSTANTS
-//
-//
+## PHP Magic Methods and Constants
 
 Some magic constants:
 
 __CLASS__
 __FILE__
+
+```php
 <?php
 class Example
 {
@@ -200,15 +196,13 @@ class Fish
 $bass = new Fish("Largemouth Bass", "Excellent", "22 pounds 5 ounces");
 
 ?>
+```
 
-//
-//
-// 	  PHP Collections
-//
-//
+## PHP Collections
 
 recipecollection.php
 
+```php
 <?
 
 class RecipeCollection
@@ -228,12 +222,9 @@ class RecipeCollection
 }
 
 ?>
+```
 
-//
-//
-// 	  PHP Arrays
-//
-//
+## PHP Arrays
 
 Create
 $myArray = array();
@@ -262,11 +253,7 @@ Keys are strings
 Numeric arrays
 Keys are numbers: 0,1,2,3,4
 
-//
-//
-// 	  PHP Array Functions
-//
-//
+## PHP Array Functions
 
 array_diff (arr1, arr2 ...)
 array_filter (arr, function)
@@ -284,6 +271,7 @@ in_array (needle, haystack)
 
 // ARRAY EXAMPLES
 
+```php
 <?php
 	// add code below this comment
 class Subdivision
@@ -334,12 +322,9 @@ public function getCombinedIngredients()
 }
 
 ?>
+```
 
-//
-//
-// 	  PHP Control Flow Logic
-//
-//
+## PHP Control Flow Logic
 
 if (condi­tion) {
 ... }
@@ -371,12 +356,9 @@ default:
 ...
 }
 
-//
-//
-// 	  PHP if/elseif statements within a web document
-//
-//
+## PHP if/elseif statements within a web document
 
+```php
 <?php
 
 $bool = false;
@@ -402,12 +384,9 @@ $bool = false;
 	</div>
 
 <?php endif; ?>
+```
 
-//
-//
-// 	  PHP General Functions
-//
-//
+## PHP General Functions
 
 isset()
 test for variable exists
@@ -440,11 +419,7 @@ matches regular expres­sions
 preg_r­epl­ace­('r­egex', $replace, $string)
 replaces characters in a string by regex
 
-//
-//
-// 	  PHP Regex Functions
-//
-//
+##	PHP Regex Functions
 
 ereg (pattern, str)
 split (pattern, str)
@@ -455,11 +430,7 @@ preg_match_all (pattern, str, arr)
 preg_replace (pattern, replace, str)
 preg_split (pattern, str)
 
-//
-//
-// 	  PHP String Functions
-//
-//
+## PHP String Functions
 
 crypt (str, salt)
 explode (sep, str)
@@ -475,11 +446,7 @@ strtolower (str)
 strtoupper (str)
 substr (string, start, len)
 
-//
-//
-// 	  PHP File System Functions
-//
-//
+## PHP File System Functions
 
 clearstatcache ()
 copy (source, dest)
@@ -505,11 +472,7 @@ fread (handle, len)
 fwrite (handle, str)
 readfile (file)
 
-//
-//
-// 	  PHP Date/Time Functions
-//
-//
+## PHP Date/Time Functions
 
 checkdate (month, day, year)
 date (format, timestamp)
@@ -519,11 +482,7 @@ strftime (formatstring, timestamp)
 strtotime (str)
 time ()
 
-//
-//
-// 	  PHP Date Formatting
-//
-//
+## PHP Date Formatting
 
 Y
 4 digit year (2008)
@@ -596,7 +555,7 @@ r
 RFC 2822 (Thu, 31 Jul 2008 18:30:13 +0100)
 
 
-## Accessing deep arrays to find values 
+## Accessing deep arrays to find values
 
 ```php
 $locations = Timber::get_terms('locations');
