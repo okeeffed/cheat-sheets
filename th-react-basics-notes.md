@@ -1332,3 +1332,765 @@ ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById(
 ```
 
 ## Component Lifecyle
+
+#### Designing a Stopwatch
+
+Let's build a more advanced component. A stopwatch.
+
+We will need a timer in seconds. We will have a button to stop and start the timer.
+
+- The clock will continue ticking, so this presents the unique challenge of continually changing State.
+
+
+```javascript
+let PLAYERS = [
+	{
+		name: "Dennis",
+		score: 33,
+		id:1,
+	},
+	{
+		name: "Ben",
+		score: 34,
+		id:2,
+	},
+	{
+		name: "Clark From InVision",
+		score: 12,
+		id:3,
+	}
+];
+
+var nextId = 4;
+
+var StopWatch = React.createClass({
+	render: function() {
+		return (
+			<div className="stopwatch">
+				<h2>Stopwatch</h2>
+				<div className="stopwatch-time">0</div>
+				<button>Start</button>
+				<button>Reset</button>
+			</div>
+		);
+	}
+});
+
+var AddPlayerForm = React.createClass({
+	propTypes: {
+		onAdd: React.PropTypes.func.isRequired,
+	},
+	getInitialState: function() {
+		return {
+			name: ""
+		};
+	},
+	onNameChange: function(e) {
+		// uncomment to see the changes on target value
+		// console.log("onNameChange", e.target.value);
+		this.setState({name: e.target.value});
+	},
+	onSubmit: function(e) {
+		e.preventDefault();
+
+		this.props.onAdd(this.state.name);
+		this.setState({name: ""});
+	},
+	render: function() {
+		return (
+			<div className="add-player-form">
+				<form onSubmit={this.onSubmit}>
+					<input type="text" value={this.state.name} onChange={this.onNameChange} />
+					<input type="submit" value="Add Player" />
+				</form>
+			</div>
+		);
+	}
+});
+
+function Stats(props) {
+	// you don't have to store it, but it's handy for organisation
+	var totalPlayers = props.players.length;
+	var totalPoints = props.players.reduce(function(total, player){
+		return total + player.score;
+	}, 0)
+
+	return (
+		<table className="stats">
+			<tbody>
+				<tr>
+					<td>Players:</td>
+					<td>{totalPlayers}</td>
+				</tr>
+				<tr>
+					<td>Total Points:</td>
+					<td>{totalPoints}</td>
+				</tr>
+			</tbody>
+		</table>
+	);
+}
+
+Stats.propTypes = {
+	players: React.PropTypes.array.isRequired,
+};
+
+function Header(props) {
+	return (
+		<div className="header">
+			<Stats />
+			<h1>{props.title}</h1>
+			<Stopwatch />
+		</div>
+	);
+}
+
+Header.propTypes = {
+	title: React.PropTypes.string.isRequired,
+};
+
+function Counter(props) {
+	return (
+		<div className="counter">
+			<button className="counter-action decrement" onClick={function() {props.onChange(-1)}}> - </button>
+			<div className="counter-score"> {props.score }</div>
+			<button className="counter-action increment" onClick={function() {props.onChange(1)}}> + </button>
+		</div>
+	);
+}
+
+Counter.propTypes = {
+	score: React.PropTypes.number.isRequired,
+	onChange: React.PropTypes.func.isRequired,
+}
+
+function Player(props) {
+	return (
+		<div className="player">
+			<div className="player-name">
+				<a className="remove-player" onClick={props.onRemove}>x</a>
+				{props.name}
+			</div>
+			<div className="player-score">
+				<Counter score={props.score} onChange={props.onScoreChange}/>
+			</div>
+		</div>
+	);
+}
+
+Player.propTypes = {
+	name: React.PropTypes.string.isRequired,
+	score: React.PropTypes.number.isRequired,
+	onScoreChange: React.PropTypes.func.isRequired,
+	onRemove: React.PropTypes.func.isRequired,
+}
+
+var Application = React.createClass({
+	propTypes: {
+		title: React.PropTypes.string,
+		initialPlayers: React.PropTypes.arrayOf(React.PropTypes.shape({
+			name: React.PropTypes.string.isRequired,
+			score: React.PropTypes.number.isRequired,
+			id: React.PropTypes.number.isRequired,
+		})).isRequired,
+	},
+
+	getDefaultProps: function() {
+		return {
+			title: "Scoreboard",
+		}
+	},
+	getInitialState: function() {
+		return {
+			players: this.props.initialPlayers,
+		};
+	},
+	onScoreChange: function(index, delta) {
+		// uncomment this to double check value change on the application
+		// console.log('onScoreChange', index, delta);
+		this.state.players[index].score += delta;
+		this.setState(this.state);
+	},
+	onPlayerRemove: function(index) {
+		// uncomment to see the player index
+		// console.log('remove', index);
+		this.state.players.splice(index, 1);
+		setState(this.state);
+	},
+	onPlayerAdd: function() {
+		// uncomment to see new player name
+		//console.log('Player added:', name);
+		this.state.players.push({
+			name: name,
+			score: 0,
+			id: nextId,
+		});
+
+		/*
+			NOTE: in something like Redux, we don't update the state itself, we actually create a brand new state object
+		*/
+
+		this.setState(this.state);
+		nextId += 1;
+	};
+	render: function() {
+		return(
+			<div className="scoreboard">
+				<Header title={this.props.title} players={this.state.players} />
+
+				<div className="players">
+					{this.state.players.map(function (player, index) {
+						return (
+							<Player
+							onScoreChange={function(delta) {
+								this.onScoreChange(index,delta)}.bind(this)
+							}
+							onRemove={function() {
+								this.onRemovePlayer(index);
+								}.bind(this)
+							}
+							name={player.name}
+							score{player.score}
+							key={player.id} />
+						);
+					}.bind(this))}
+				</div>
+				<AddPlayerForm onAdd={this.onPlayerAdd} />
+			</div>
+		);
+	}
+});
+
+ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
+```
+
+#### Stopwatch State
+
+Stopwatch will either be running, or it won't be.
+- Implement the getInitialState method for Stopwatch
+- One way to implement the button name depending on the state is to have control logic and a var that equals <button>[state]</button>
+- The other way is to use a ternary operator. We can use this in a JSX expression!
+
+```javascript
+let PLAYERS = [
+	{
+		name: "Dennis",
+		score: 33,
+		id:1,
+	},
+	{
+		name: "Ben",
+		score: 34,
+		id:2,
+	},
+	{
+		name: "Clark From InVision",
+		score: 12,
+		id:3,
+	}
+];
+
+var nextId = 4;
+
+var StopWatch = React.createClass({
+	getInitialState: function () {
+		return {
+			running: false,
+
+		};
+	},
+	onStop: function() {
+		this.setState({ running: false });
+	},
+	onStart: function() {
+		this.setState({ running: true });
+	},
+	onReset: function() {
+
+	},
+	render: function() {
+		return (
+			<div className="stopwatch">
+				<h2>Stopwatch</h2>
+				<div className="stopwatch-time">0</div>
+				{ this.state.running ?
+					<button onClick={this.onStop}>Stop</button>
+					:
+					<button onClick={this.onStart}>Start</button>;
+				}
+				<button onClick={this.onReset}>Reset</button>
+			</div>
+		);
+	}
+});
+
+var AddPlayerForm = React.createClass({
+	propTypes: {
+		onAdd: React.PropTypes.func.isRequired,
+	},
+	getInitialState: function() {
+		return {
+			name: ""
+		};
+	},
+	onNameChange: function(e) {
+		// uncomment to see the changes on target value
+		// console.log("onNameChange", e.target.value);
+		this.setState({name: e.target.value});
+	},
+	onSubmit: function(e) {
+		e.preventDefault();
+
+		this.props.onAdd(this.state.name);
+		this.setState({name: ""});
+	},
+	render: function() {
+		return (
+			<div className="add-player-form">
+				<form onSubmit={this.onSubmit}>
+					<input type="text" value={this.state.name} onChange={this.onNameChange} />
+					<input type="submit" value="Add Player" />
+				</form>
+			</div>
+		);
+	}
+});
+
+function Stats(props) {
+	// you don't have to store it, but it's handy for organisation
+	var totalPlayers = props.players.length;
+	var totalPoints = props.players.reduce(function(total, player){
+		return total + player.score;
+	}, 0)
+
+	return (
+		<table className="stats">
+			<tbody>
+				<tr>
+					<td>Players:</td>
+					<td>{totalPlayers}</td>
+				</tr>
+				<tr>
+					<td>Total Points:</td>
+					<td>{totalPoints}</td>
+				</tr>
+			</tbody>
+		</table>
+	);
+}
+
+Stats.propTypes = {
+	players: React.PropTypes.array.isRequired,
+};
+
+function Header(props) {
+	return (
+		<div className="header">
+			<Stats />
+			<h1>{props.title}</h1>
+			<Stopwatch />
+		</div>
+	);
+}
+
+Header.propTypes = {
+	title: React.PropTypes.string.isRequired,
+};
+
+function Counter(props) {
+	return (
+		<div className="counter">
+			<button className="counter-action decrement" onClick={function() {props.onChange(-1)}}> - </button>
+			<div className="counter-score"> {props.score }</div>
+			<button className="counter-action increment" onClick={function() {props.onChange(1)}}> + </button>
+		</div>
+	);
+}
+
+Counter.propTypes = {
+	score: React.PropTypes.number.isRequired,
+	onChange: React.PropTypes.func.isRequired,
+}
+
+function Player(props) {
+	return (
+		<div className="player">
+			<div className="player-name">
+				<a className="remove-player" onClick={props.onRemove}>x</a>
+				{props.name}
+			</div>
+			<div className="player-score">
+				<Counter score={props.score} onChange={props.onScoreChange}/>
+			</div>
+		</div>
+	);
+}
+
+Player.propTypes = {
+	name: React.PropTypes.string.isRequired,
+	score: React.PropTypes.number.isRequired,
+	onScoreChange: React.PropTypes.func.isRequired,
+	onRemove: React.PropTypes.func.isRequired,
+}
+
+var Application = React.createClass({
+	propTypes: {
+		title: React.PropTypes.string,
+		initialPlayers: React.PropTypes.arrayOf(React.PropTypes.shape({
+			name: React.PropTypes.string.isRequired,
+			score: React.PropTypes.number.isRequired,
+			id: React.PropTypes.number.isRequired,
+		})).isRequired,
+	},
+
+	getDefaultProps: function() {
+		return {
+			title: "Scoreboard",
+		}
+	},
+	getInitialState: function() {
+		return {
+			players: this.props.initialPlayers,
+		};
+	},
+	onScoreChange: function(index, delta) {
+		// uncomment this to double check value change on the application
+		// console.log('onScoreChange', index, delta);
+		this.state.players[index].score += delta;
+		this.setState(this.state);
+	},
+	onPlayerRemove: function(index) {
+		// uncomment to see the player index
+		// console.log('remove', index);
+		this.state.players.splice(index, 1);
+		setState(this.state);
+	},
+	onPlayerAdd: function() {
+		// uncomment to see new player name
+		//console.log('Player added:', name);
+		this.state.players.push({
+			name: name,
+			score: 0,
+			id: nextId,
+		});
+
+		/*
+			NOTE: in something like Redux, we don't update the state itself, we actually create a brand new state object
+		*/
+
+		this.setState(this.state);
+		nextId += 1;
+	};
+	render: function() {
+		return(
+			<div className="scoreboard">
+				<Header title={this.props.title} players={this.state.players} />
+
+				<div className="players">
+					{this.state.players.map(function (player, index) {
+						return (
+							<Player
+							onScoreChange={function(delta) {
+								this.onScoreChange(index,delta)}.bind(this)
+							}
+							onRemove={function() {
+								this.onRemovePlayer(index);
+								}.bind(this)
+							}
+							name={player.name}
+							score{player.score}
+							key={player.id} />
+						);
+					}.bind(this))}
+				</div>
+				<AddPlayerForm onAdd={this.onPlayerAdd} />
+			</div>
+		);
+	}
+});
+
+ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
+```
+
+#### Making the Stopwatch Tick
+
+- Create the onTick function.
+	- We don't want this function in Render.
+	- There are several lifecycle methods in React, we'll use componentDidMount.
+- Be careful with componentDidMount. The memory attachment with 'this' creates a strong cycle. We need to also use componentWillUnmount.
+
+```javascript
+let PLAYERS = [
+	{
+		name: "Dennis",
+		score: 33,
+		id:1,
+	},
+	{
+		name: "Ben",
+		score: 34,
+		id:2,
+	},
+	{
+		name: "Clark From InVision",
+		score: 12,
+		id:3,
+	}
+];
+
+var nextId = 4;
+
+var StopWatch = React.createClass({
+	getInitialState: function () {
+		return {
+			running: false,
+			elapsedTime: 0,
+			previousTime: 0,
+		};
+	},
+	componentDidMount: function() {
+		this.interval = setInterval(this.onTick, 100);
+	},
+	componentWillUnmount: function() {
+		clearInterval(this.setInterval);
+	},
+	onTick: function() {
+		//uncomment to confirm the tick in the console.
+		//console.log('onTick');
+		if (this.state.running) {
+			var now = Date.now();
+			this.setState({
+				previousTime: now,
+				elapsedTime: this.state.elapsedTime + (now - this.state.previousTime),
+			});
+		}
+	},
+	onStop: function() {
+		this.setState({ running: false });
+	},
+	onStart: function() {
+		this.setState({
+			running: true,
+			previousTime: Date.now(),
+		});
+	},
+	onReset: function() {
+		this.setState({
+			elapsedTime: 0,
+			previousTime: Date.now(),
+		});
+	},
+	render: function() {
+		var seconds = Math.floor(this.state.elapsedTime / 1000);
+		return (
+			<div className="stopwatch">
+				<h2>Stopwatch</h2>
+				<div className="stopwatch-time">{seconds}</div>
+				{ this.state.running ?
+					<button onClick={this.onStop}>Stop</button>
+					:
+					<button onClick={this.onStart}>Start</button>;
+				}
+				<button onClick={this.onReset}>Reset</button>
+			</div>
+		);
+	}
+});
+
+var AddPlayerForm = React.createClass({
+	propTypes: {
+		onAdd: React.PropTypes.func.isRequired,
+	},
+	getInitialState: function() {
+		return {
+			name: ""
+		};
+	},
+	onNameChange: function(e) {
+		// uncomment to see the changes on target value
+		// console.log("onNameChange", e.target.value);
+		this.setState({name: e.target.value});
+	},
+	onSubmit: function(e) {
+		e.preventDefault();
+
+		this.props.onAdd(this.state.name);
+		this.setState({name: ""});
+	},
+	render: function() {
+		return (
+			<div className="add-player-form">
+				<form onSubmit={this.onSubmit}>
+					<input type="text" value={this.state.name} onChange={this.onNameChange} />
+					<input type="submit" value="Add Player" />
+				</form>
+			</div>
+		);
+	}
+});
+
+function Stats(props) {
+	// you don't have to store it, but it's handy for organisation
+	var totalPlayers = props.players.length;
+	var totalPoints = props.players.reduce(function(total, player){
+		return total + player.score;
+	}, 0)
+
+	return (
+		<table className="stats">
+			<tbody>
+				<tr>
+					<td>Players:</td>
+					<td>{totalPlayers}</td>
+				</tr>
+				<tr>
+					<td>Total Points:</td>
+					<td>{totalPoints}</td>
+				</tr>
+			</tbody>
+		</table>
+	);
+}
+
+Stats.propTypes = {
+	players: React.PropTypes.array.isRequired,
+};
+
+function Header(props) {
+	return (
+		<div className="header">
+			<Stats />
+			<h1>{props.title}</h1>
+			<Stopwatch />
+		</div>
+	);
+}
+
+Header.propTypes = {
+	title: React.PropTypes.string.isRequired,
+};
+
+function Counter(props) {
+	return (
+		<div className="counter">
+			<button className="counter-action decrement" onClick={function() {props.onChange(-1)}}> - </button>
+			<div className="counter-score"> {props.score }</div>
+			<button className="counter-action increment" onClick={function() {props.onChange(1)}}> + </button>
+		</div>
+	);
+}
+
+Counter.propTypes = {
+	score: React.PropTypes.number.isRequired,
+	onChange: React.PropTypes.func.isRequired,
+}
+
+function Player(props) {
+	return (
+		<div className="player">
+			<div className="player-name">
+				<a className="remove-player" onClick={props.onRemove}>x</a>
+				{props.name}
+			</div>
+			<div className="player-score">
+				<Counter score={props.score} onChange={props.onScoreChange}/>
+			</div>
+		</div>
+	);
+}
+
+Player.propTypes = {
+	name: React.PropTypes.string.isRequired,
+	score: React.PropTypes.number.isRequired,
+	onScoreChange: React.PropTypes.func.isRequired,
+	onRemove: React.PropTypes.func.isRequired,
+}
+
+var Application = React.createClass({
+	propTypes: {
+		title: React.PropTypes.string,
+		initialPlayers: React.PropTypes.arrayOf(React.PropTypes.shape({
+			name: React.PropTypes.string.isRequired,
+			score: React.PropTypes.number.isRequired,
+			id: React.PropTypes.number.isRequired,
+		})).isRequired,
+	},
+
+	getDefaultProps: function() {
+		return {
+			title: "Scoreboard",
+		}
+	},
+	getInitialState: function() {
+		return {
+			players: this.props.initialPlayers,
+		};
+	},
+	onScoreChange: function(index, delta) {
+		// uncomment this to double check value change on the application
+		// console.log('onScoreChange', index, delta);
+		this.state.players[index].score += delta;
+		this.setState(this.state);
+	},
+	onPlayerRemove: function(index) {
+		// uncomment to see the player index
+		// console.log('remove', index);
+		this.state.players.splice(index, 1);
+		setState(this.state);
+	},
+	onPlayerAdd: function() {
+		// uncomment to see new player name
+		//console.log('Player added:', name);
+		this.state.players.push({
+			name: name,
+			score: 0,
+			id: nextId,
+		});
+
+		/*
+			NOTE: in something like Redux, we don't update the state itself, we actually create a brand new state object
+		*/
+
+		this.setState(this.state);
+		nextId += 1;
+	};
+	render: function() {
+		return(
+			<div className="scoreboard">
+				<Header title={this.props.title} players={this.state.players} />
+
+				<div className="players">
+					{this.state.players.map(function (player, index) {
+						return (
+							<Player
+							onScoreChange={function(delta) {
+								this.onScoreChange(index,delta)}.bind(this)
+							}
+							onRemove={function() {
+								this.onRemovePlayer(index);
+								}.bind(this)
+							}
+							name={player.name}
+							score{player.score}
+							key={player.id} />
+						);
+					}.bind(this))}
+				</div>
+				<AddPlayerForm onAdd={this.onPlayerAdd} />
+			</div>
+		);
+	}
+});
+
+ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
+```
+
+#### Review and Next Steps
+
+What did we learn?
+
+- Managing State, a key component of design we focused on.
+- We used intermediate components to use callbacks to send upwards.
+- Redux can give us useful utilities for managing state.
+- Babel.js has been used to precompile our JSX.
+- React for mobile doesn't render to the DOM, but the native components for the platform. 
