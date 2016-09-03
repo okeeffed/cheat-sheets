@@ -8,6 +8,107 @@ $(document).ready(function () {
 });
 ```
 
+## GRID ALIGNMENT
+
+```javascript
+var grid = {
+
+	row: [],
+	perRow: 0,
+	height: 0,
+	small: 668,
+	medium: 1025,
+	buffer: 14,
+
+	$grid: $('.grid'),
+	$tile: $('.grid .tile'),
+
+	init: function () {
+		grid.resize();
+
+		var id;
+
+		$(window).resize(function () {
+			window.clearTimeout(id);
+			id = window.setTimeout(grid.doneResizing, 5);
+		});
+	},
+
+	doneResizing: function () {
+		grid.$tile.find('.title-tagline').height('auto');
+		grid.height = 0;
+		grid.row = [];
+		grid.resize();
+	},
+
+	resize: function () {
+		if ($(window).outerWidth() < grid.small) {
+			grid.$tile.find('.title-tagline').height('auto');
+		} else {
+			grid.$tile.each(function () {
+
+				grid.row.push(this);
+
+				var siblingCount = $(grid.row[grid.row.length - 1]).siblings().size();
+
+				if (siblingCount === 0 || siblingCount < grid.row.length) {
+					grid.setHeight();
+					grid.height = 0;
+					grid.row = [];
+				} else {
+					if ($(this).find('.title-tagline').height() > grid.height) {
+						grid.height = $(this).find('.title-tagline').height();
+					}
+				}
+			});
+
+			if (grid.row.length) {
+				grid.setHeight();
+			}
+		}
+	},
+
+	setHeight: function () {
+		for (var i in grid.row) {
+			if ($(grid.row[i]).siblings().size() > 0) {
+				if ($(window).outerWidth() < grid.small) {
+					$(grid.row[i]).find('.title-tagline').height('inherit');
+				} else if (($(window).outerWidth() < grid.medium) && (parseInt(i) === $(grid.row[i]).siblings().size()) && (($(grid.row[i]).siblings().size() - 1) % 2 !== 0)) {
+					$(grid.row[i]).find('.title-tagline').height('auto');
+				} else {
+					$(grid.row[i]).find('.title-tagline').height(grid.height + grid.buffer);
+				}
+			} else {
+				$(grid.row[i]).find('.title-tagline').height('auto');
+			}
+		}
+	},
+};
+
+module.exports = {
+	init: grid.init,
+};
+```
+
+## CHECK IF LOCAL STORAGE IS IN PRIVATE BROWSING MODE
+
+```javascript
+checkStorageSupport: function () {
+    var testKey = 'test';
+    var storage = window.sessionStorage;
+
+    try {
+        storage.setItem(testKey, '1');
+        storage.removeItem(testKey);
+        return true;
+    }
+
+    catch (error) {
+        return false;
+    }
+}
+```
+
 ## JAVSCRIPT BASIC OBJECT
 
 ```javascript
