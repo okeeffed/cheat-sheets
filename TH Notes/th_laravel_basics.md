@@ -62,10 +62,28 @@ Run `composer global require "laravel/installer"`
 ** Composer Create-Project **
 
 ```
-composer create-project --prefer-dist laravel/laravel [laravel-basics]
+composer create-project --prefer-dist laravel/laravel laravel-basics
 ```
 
-Run pwd and check this against what you have in ~/.homestead/Homestead.yaml 
+Alternatively...
+
+```
+laravel new laravel-basics
+```
+
+**Note** laravel-basics can be swapped for anything.
+
+Run pwd and check this against what you have in ~/.homestead/Homestead.yaml
+
+Then jump to the site (127.0.0.1:8000) to see if it is running successfully.
+
+To get rid of the 127.0.0.1, we can change it to another host.
+
+cd /etc from the Homestead file and adjust the hosts file in a text editor to make the website easier to navigate to.
+
+#### Laravel Folder Structure
+
+
 
 ***
 

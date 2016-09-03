@@ -2,6 +2,10 @@
 
 ## FAQ
 
+**Q: Adjust get_posts posts_per_page for a data["term"] request**
+
+A: Add it as an argument in twig or create a custom function adjusting the posts_per_page.
+
 **Q: Where can I find what I need?**
 
 A: Check against the staging website if it is up to grab things like taxonomies, types, and to figure out the layout.
