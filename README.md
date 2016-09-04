@@ -7,3 +7,4 @@
 3. Use `***` for line breaks between major sections
 4. Use `__<title>__` for subheadings that aren't worthy enough to require a heading tag to prevent Section increases in Dash.
 5. For hints, have `***` above and below and put "hint" in bold italics.
+6. Add `<div id="..."></div>` above each section with a separator in order to target sections and create indexes. 
