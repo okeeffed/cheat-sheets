@@ -12,8 +12,8 @@ Justin Ellingwood form [Digital Ocean](https://www.digitalocean.com/community/tu
 
 __Major Section Index__
 
-<a href="SSH-1"><p>SSH-1: How SSH Works</p></a>
-<a href="UBU-1"><p>UBU-1: Installing Ubuntu Onto Virtual Box</p></a>
+- <a href="#SSH-1"><p>SSH-1: How SSH Works</p></a>
+- <a href="#UBU-1"><p>UBU-1: Installing Ubuntu Onto Virtual Box</p></a>
 
 ***
 
@@ -24,7 +24,7 @@ SSH is a secure protocol used as the primary means of connecting to Linux server
 The most common way of connecting to a remote Linux server is through SSH. SSH stands for Secure Shell and provides a safe and secure way of executing commands, making changes, and configuring services remotely. When you connect through SSH, you log in using an account that exists on the remote server.
 
 ***
-<div class="SSH-1"></div>
+<div id="SSH-1"></div>
 ## SSH-1: How SSH Works
 
 When you connect through SSH, you will be dropped into a shell session, which is a text-based interface where you can interact with your server. For the duration of your SSH session, any commands that you type into your local terminal are sent through an encrypted SSH tunnel and executed on your server.
@@ -427,5 +427,5 @@ Now, restart the SSH daemon to implement your changes with `sudo service ssh res
 ## SSH-18: Disabling Root Login
 
 ***
-<div class="UBU-1"></div>
+<div id="#UBU-1"></div>
 ## UBU-1: Installing Ubuntu onto VirtualBox
