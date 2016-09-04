@@ -62,7 +62,7 @@ The first option is quicker but the second gives you a lot more control as you c
 You can follow pretty much all of the default prompts but make sure you install openssh-server so you can log in to the machine.
 
 ***
-##### SSH-Server installation
+__SSH-Server Installation__
 
 Installation
 Installation of the OpenSSH client and server applications is simple. To install the OpenSSH client applications on your Ubuntu system, use this command at a terminal prompt:
