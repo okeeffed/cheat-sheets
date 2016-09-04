@@ -1,10 +1,10 @@
 # Introducing ES2015
 
-## 1. ES2015 Basics
+## ES6-1: ES2015 Basics
 
 6th Edition to ECMA Script
 
-### Getting Started with ES2015
+### ES6-2: Getting Started with ES2015
 
 - biggest change up to JS since its inception
 - JS built in 10 days
@@ -14,7 +14,7 @@
 - Most browsers are using the latest
 - Babel can be used to compile for those using older browsers
 
-### Let and Const
+__Let and Const__
 
 - so far, we need to be on top of scope
 
@@ -72,9 +72,9 @@ We can fix this with the let keyword
 })
 ```
 
-** this will throw an error at us! **
+**this will throw an error at us!**
 
-### Duplicate values
+### ES6-3: Duplicate values
 
 ```javascript
 'use strict';
@@ -118,7 +118,7 @@ console.log(student);
 
 ** Use let when you need to reassign, use const when you do not want the value to change. **
 
-### Template Strings
+### ES6-4: Template Strings
 
 ** ES5 Strings **
 
@@ -136,7 +136,7 @@ ${student.name}
 
 ` <this stuff is neatly formatted> `
 
-### String search methods
+### ES6-5: String search methods
 
 new functions:
 
@@ -153,9 +153,11 @@ console.log(strToSearch.includes('example-in-the-middle'));
 startsWith('example', 5); //start search from 5th index
 endsWith('example', 21); //searches the first 21 characters
 
-## 2. The Cooler Parts of ES2015
+***
 
-### Arrow Functions
+## ES6-6: The Cooler Parts of ES2015
+
+### ES6-7: Arrow Functions
 
 - Bound to its parent scope
 
@@ -187,7 +189,7 @@ console.log(getKeys()); // 'this' refers to the node process
 // throws error get getKeys()
 ```
 
-** ES2015 **
+**ES2015**
 
 ```javascript
 'use strict';
@@ -260,7 +262,7 @@ var myClassroom = new Classroom({ name: 'The Future of JavaScript', teacher: myT
 myClassroom.addStudent({ name: 'Dave' });
 ```
 
-** ES 2015 Promises **
+**ES 2015 Promises**
 
 ```javascript
 'use strict';
@@ -300,11 +302,11 @@ var myClassroom = new Classroom({ name: 'The Future of JavaScript', teacher: myT
 myClassroom.addStudent({ name: 'Dave' });
 ```
 
-### Default Parameters
+###  ES6-8: Default Parameters
 
 Set default parameters for a function -> similar to other languages
 
-** ES5 **
+**ES5**
 
 ```javascript
 'use strict'
@@ -317,7 +319,7 @@ function greet(name, timeOfDay) {
 
 greet();
 
-** ES 2015 **
+**ES 2015**
 
 'use strict'
 
@@ -328,9 +330,9 @@ function greet(name = 'Guil', timeOfDay = 'Day') {
 greet(undefined, 'Afternoon');	// defaults are optional, need to undefine
 ```
 
-### Rest Parameters and Spread Operator
+### ES6-9: Rest Parameters and Spread Operator
 
-** How to use the rest parameters **
+**How to use the rest parameters**
 
 - rest must be the last parameter
 
@@ -344,7 +346,7 @@ myFunction('Andrew', 1, 2, 3);
 // output Andrew [1, 2, 3]
 ```
 
-** Spread parameters **
+**Spread parameters**
 
 ```javascript
 
@@ -367,7 +369,7 @@ let args = ['Gabe', 'Vanilla'];
 myFunction(...args);	// sends as separate arguments
 ```
 
-### Destructuring
+### ES6-10: Destructuring
 
 Relatively simple concept
 
@@ -388,9 +390,11 @@ let widgets = ['wid1','wid2','wid3','wid4','wid5'];
 let [a,b,c, ...d] = widgets;
 ```
 
-## 3. Objects and New Collection Types
+***
 
-### Object Property Shorthand
+## ES6-11: Objects and New Collection Types
+
+### ES6-12: Object Property Shorthand
 
 ```javascript
 
@@ -410,7 +414,7 @@ submit('English', 'Great course!');
 // works with all forms
 ```
 
-### for...of
+### ES6-13: for...of
 
 For iterating over a data set
 
@@ -430,7 +434,7 @@ for (let number of myNumbers) {
 // still use for...in for iterating over regular objects
 ```
 
-### Set
+### ES6-14: Set
 
 ```javascript
 let classroom = new Set(); // unique collection of values
@@ -477,7 +481,7 @@ console.log(arrayOfStudents);
 let alumni = new Set(arrayOfStudents);
 ```
 
-### Map
+### ES6-15: Map
 
 ```javascript
 'use strict'
@@ -508,9 +512,9 @@ for (let student of classroom) {
 }
 ```
 
-## 4. Classes
+## ES6-16: Classes
 
-### Structure of a Class
+### ES6-17: Structure of a Class
 
 A class is a blueprint for those that share similar properties or methods
 
@@ -538,7 +542,7 @@ let sarah = new Student('Sarah', 11);
 console.log(Array.from(sarah.grades));
 ```
 
-### Subclasses
+### ES6-18: Subclasses
 
 - classes can inherit from other classes
 - var hoisting
@@ -603,7 +607,7 @@ let stevenJ = new Student({name: 'Steven', age: 22, interestLevel: 3 });
 stevenJ.dance();
 ```
 
-## Static Methods
+## ES6-19: Static Methods
 
 ```javascript
 class Bird {
@@ -629,7 +633,7 @@ console.log(redBird.color);
 */
 ```
 
-## Getter and Setter methods in a class
+## ES6-20: Getter and Setter methods in a class
 
 ```javascript
 class Bird {
