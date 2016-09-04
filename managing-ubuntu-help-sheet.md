@@ -61,6 +61,21 @@ The first option is quicker but the second gives you a lot more control as you c
 
 You can follow pretty much all of the default prompts but make sure you install openssh-server so you can log in to the machine.
 
+***
+##### SSH-Server installation
+
+Installation
+Installation of the OpenSSH client and server applications is simple. To install the OpenSSH client applications on your Ubuntu system, use this command at a terminal prompt:
+
+`sudo apt install openssh-client`
+
+To install the OpenSSH server application, and related support files, use this command at a terminal prompt:
+
+`sudo apt install openssh-server`
+The openssh-server package can also be selected to install during the Server Edition installation process.
+
+***
+
 Note: You'll probably want to put the Virtual Machine in Bridged Adapter Mode for networking. You can do this by going to Settings → Network → Adapter 1 and changing the 'Attached to' option. You'll need to restart the virtual machine after making that change.
 
 # Connecting to a Server using SSH
@@ -90,7 +105,7 @@ To get the IP address of your virtual machine you'll need to use the command ifc
 
 The bit you're interested in is the inet addr (10.240.112.151). Once you have this you can now ssh into your machine w/out worrying about that horrible console.
 
-## Running commands as Root 
+## Running commands as Root
 
 To run commands as root simply prepend `sudo` to the command.
 
