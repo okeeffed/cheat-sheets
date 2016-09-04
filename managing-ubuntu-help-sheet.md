@@ -16,7 +16,7 @@ By the end of it you should have a better idea of:
 
 Ubuntu is the most popular Linux server distribution at the time of writing. This is unlikely to change anytime soon. This distro is well supported, has loads of great docs and is easy + free to use with Amazon Web Services.
 
-### Choosing a version
+__Choosing a version__
 
 ** Four Main Choices **
 
@@ -39,7 +39,7 @@ Ubuntu is the most popular Linux server distribution at the time of writing. Thi
 
 Mostly run on 64-bit version with the latest releases
 
-### Why LTS?
+__Why LTS?__
 
 LTS: Long Term Support
 
@@ -47,11 +47,11 @@ A new Ubuntu version is released every 6 months. Non-LTS versions have support f
 
 As an example PHP 5.5 is the version of PHP installed in Ubuntu 14.04. It was deprecated in July 2016. This means it will no longer receive any more support or security patches from PHP. This is terrible news if you have a server running PHP as it is a frequent target for would-be hackers. As Ubuntu 14.04 is an LTS release with support until 2019 the Ubuntu security team will 'backport' security fixes for PHP 5.5 until Ubuntu 14.04 is deprecated. You can spend way less time mucking around with your hosting environment if you just stick with LTS releases.
 
-### Ubuntu 16.0.4?
+__Ubuntu 16.0.4?__
 
 A new LTS version of Ubuntu came out recently. I haven't rushed to adopt it as it sometimes takes a little while to work the kinks out of it. Ideally all developers and servers would be running the same package versions (Node, PHP etc.). Given the latest Ubuntu version uses PHP 7 we'd need to move everyone to that version locally, test all of our code and then update all of our servers. It's quite a big job and we don't need to rush.
 
-### Getting familiar with Ubuntu
+__Getting familiar with Ubuntu__
 
 The best way to get familiar with Ubuntu is to create a virtual machine. You have two options here:
 - Download a pre-built Ubuntu Virtual Machine
@@ -78,7 +78,7 @@ The openssh-server package can also be selected to install during the Server Edi
 
 Note: You'll probably want to put the Virtual Machine in Bridged Adapter Mode for networking. You can do this by going to Settings → Network → Adapter 1 and changing the 'Attached to' option. You'll need to restart the virtual machine after making that change.
 
-# Connecting to a Server using SSH
+## Connecting to a Server using SSH
 
 You'll need to use SSH to connect to a running instance. Here's a pretty standard connection string:
 
@@ -99,13 +99,17 @@ Now the connection becomes
 $ ssh my-ubuntu-server
 ```
 
-## Finding your Virtual Machine IP Address
+***
+
+__Finding your Virtual Machine IP Address__
 
 To get the IP address of your virtual machine you'll need to use the command ifconfig. Look for the eth0 interface (the primary ethernet adapter).
 
 The bit you're interested in is the inet addr (10.240.112.151). Once you have this you can now ssh into your machine w/out worrying about that horrible console.
 
-## Running commands as Root
+***
+
+__Running commands as Root__
 
 To run commands as root simply prepend `sudo` to the command.
 
