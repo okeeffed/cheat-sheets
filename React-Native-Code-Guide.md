@@ -2,7 +2,7 @@
 
 ## RN-1: Importing from React
 
-### In index.ios.js
+__in index.ios.js__
 
 ```javascript
 // import from React and React-Native
@@ -21,6 +21,8 @@ import {
 import { Featured } from './Featured.js';
 import { Search } from './Search.js';
 ```
+
+***
 
 ## RN-2: Example classes
 
@@ -69,11 +71,15 @@ class BookSearch extends Component {
 }
 ```
 
+***
+
 ## RN-3: Registry for an App
 
 ```javascript
 AppRegistry.registerComponent('BookSearch', () => BookSearch);
 ```
+
+***
 
 ## RN-4: Debugging - Important things to note
 
@@ -83,7 +89,9 @@ If the AppRegistry is not working (error regarding App not registered)
 2. Try running the command npm link from the main directory of the project
 3. Check the moduleName in the AppDelegate.m file in the Xcode Project
 
-## RN-4: StyleSheet.create
+***
+
+## RN-5: StyleSheet.create
 
 In this example, you can see how the 'const styles' variable is declared and how it is implemented in the render() function.
 
@@ -112,13 +120,17 @@ class Search extends Component {
 }
 ```
 
-# iOS Views
+***
+
+__iOS Views__
 
 ** ! important **
 
 <View> tags are treated similar to as if they are <div> tags
 
-## RN-5: Navigation View
+***
+
+## RN-6: Navigation View
 
 Example: Search.js from the BookSearch project
 
@@ -159,7 +171,9 @@ class Search extends Component {
 export { Search };
 ```
 
-## RN-6: UITableCellView replica (ListView)
+***+
+
+## RN-7: UITableCellView replica (ListView)
 
 BookList.js - taken from BookSearch
 
