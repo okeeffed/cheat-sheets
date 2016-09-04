@@ -1,6 +1,6 @@
-# jQuery Core
+# jQuery Cheat Sheet
 
-Core
+## JQ-1: Core
 
 ```javascript
 //jQuery function
@@ -30,7 +30,9 @@ arr.toArray( )
 $jQuery.noConflict( [extreme] )
 ```
 
-## jQuery Attributes
+***
+
+## JQ-2: jQuery Attributes
 
 ```javascript
 // Attributes
@@ -58,11 +60,12 @@ str,arr.val( )
 $.val( val | fn() )
 ```
 
-## jQuery Selectors
+***
 
+## JQ-3: jQuery Selectors
 
-#### Basics
-#id
+#### JQ-4: Basics
+\#id
 element
 .class, .class.class
 *
@@ -73,7 +76,7 @@ parent > child
 prev + next
 prev ~ siblings
 
-#### Basic Filters
+#### JQ-5: Basic Filters
 :first
 :last
 :not(selector)
@@ -86,23 +89,23 @@ prev ~ siblings
 :animated
 :focus
 
-#### Content Filters
+#### JQ-6: Content Filters
 :contains(text)
 :empty
 :has(selector)
 :parent
 
-#### Visibility Filters
+#### JQ-7: Visibility Filters
 :hidden
 :visible
 
-#### Child Filters
+#### JQ-8: Child Filters
 :nth-child(expr)
 :first-child
 :last-child
 :only-child
 
-#### Attribute Filters
+#### JQ-9: Attribute Filters
 [attribute]
 [attribute=value]
 [attribute!=value]
@@ -113,7 +116,7 @@ prev ~ siblings
 [attribute~=value]
 [attribute][attribute2]
 
-#### Forms
+#### JQ-10: Forms
 :input
 :text
 :password
@@ -125,15 +128,17 @@ prev ~ siblings
 :button
 :file
 
-#### Form Filters
+#### JQ-11: Form Filters
 :enabled
 :disabled
 :checked
 :selected
 
-## jQuery Traversing
+***
 
-#### Filtering
+## JQ-12: jQuery Traversing
+
+#### JQ-13: Filtering
 $.eq( index )
 $.first( )
 $.last( )
@@ -144,7 +149,7 @@ $.map( fn(index, element) )
 $.not( selector ), .not( elements ), .not( fn( index ) )
 $.slice( start [, end] )
 
-#### Tree traversal
+#### JQ-14: Tree traversal
 $.children( [selector] )
 $.closest( selector [, context] | jQuery object | element )
 arr.closest( selectors [, context] )removed
@@ -161,23 +166,25 @@ $.prevAll( [selector] )
 $.prevUntil( [selector] )
 $.siblings( [selector] )
 
-#### Miscellaneous
+#### JQ-15: Miscellaneous
 $.add( selector [, context] | elements | html )
 $.andSelf( )
 $.contents( )
 $.end( )
 
-## jQuery Ajax
+***
+
+## JQ-16: jQuery Ajax
 
 // GET BACK AND DO THIS!
 
-## jQuery CSS
+## JQ-17: jQuery CSS
 
-#### CSS
+#### JQ-18: CSS
 str.css( name )
 $.css( name, val | map | name, fn(index, val) )
 
-#### Positioning
+#### JQ-19: Positioning
 obj.offset( )
 
 $.offset( coord | fn( index, coord ) )
@@ -191,7 +198,7 @@ $.scrollTop( val )
 int.scrollLeft( )
 $.scrollLeft( val )
 
-#### Height and Width
+#### JQ-20: Height and Width
 
 int.height( )
 $.height( val | fn(index, height ) )
@@ -208,49 +215,53 @@ $.outerHeight( val | fn(index, outerHeight ) ) 1.8+
 int.outerWidth( [includeMargin] )
 $.outerWidth( val | fn(index, outerWidth ) ) 1.8+
 
-## jQuery Manipulation
+***
 
-#### Inserting Inside
+## JQ-21: jQuery Manipulation
+
+#### JQ-22: Inserting Inside
 
 $.append( content | fn( index, html ) )
 $.appendTo( target )
 $.prepend( content | fn( index, html ) )
 $.prependTo( target )
 
-#### Inserting Outside
+#### JQ-23: Inserting Outside
 $.after( content | fn() )
 $.before( content | fn() )
 $.insertAfter( target )
 $.insertBefore( target )
 
 
-#### Inserting Around
+#### JQ-24: Inserting Around
 $.unwrap( )
 $.wrap( wrappingElement | fn )
 $.wrapAll( wrappingElement | fn )
 $.wrapInner( wrappingElement | fn )
 
-#### Replacing
+#### JQ-25: Replacing
 $.replaceWith( content | fn )
 $.replaceAll( selector )
 
-#### Removing
+#### JQ-26: Removing
 $.detach( [selector] )
 $.empty( )
 $.remove( [selector] )
 
-#### Copying
+#### JQ-27: Copying
 $.clone( [withDataAndEvents], [deepWithDataAndEvents] )
 
-## jQuery Events
+***
 
-#### Events
+## JQ-28: jQuery Events
 
-#### Page Load
+#### JQ-29: Events
+
+#### JQ-30: Page Load
 
 $.ready( fn() )
 
-#### Event Handling
+#### JQ-31: Event Handling
 
 $.on( events [, selector] [, data], handler )1.7+
 $.on( events-map [, selector] [, data] )1.7+
@@ -266,17 +277,17 @@ obj.triggerHandler( event [, data])
 $.delegate( selector, type, [data], handler)
 $.undelegate( [selector, type, [handler]]) | selector, events | namespace )
 
-#### Live Events
+#### JQ-32: Live Events
 
 $.live( eventType [, data], fn() )
 $.die( ), .die( [eventType] [, fn() ])
 
-#### Interaction Helpers
+#### JQ-33: Interaction Helpers
 
 $.hover( fnIn(eventObj), fnOut(eventObj))
 $.toggle( fn(eventObj), fn2(eventObj) [, ...])
 
-#### Event Helpers
+#### JQ-34: Event Helpers
 
 function ( [data,] [fn] )
 $.blur,
@@ -304,38 +315,42 @@ $.blur,
 .load( [data,] fn ),
 .unload( [data,] fn )
 
-## jQuery Effects
+***
 
-#### Basics
+## JQ-35: jQuery Effects
+
+#### JQ-36: Effect Basics
 
 $.show( [ duration [, easing] [, fn] ]  )
 $.hide( [ duration [, easing] [, fn] ]  )
 $.toggle( [showOrHide] )
 $.toggle( duration [, easing] [, fn] )
 
-#### Sliding
+#### JQ-37: Sliding
 
 $.slideDown( duration [, easing] [, fn] )
 $.slideUp( duration [, easing] [, fn] )
 $.slideToggle( [duration] [, easing] [, fn] )
 
-#### Fading
+#### JQ-38: Fading
 
 $.fadeIn( duration [, easing] [, fn] )
 $.fadeOut( duration [, easing] [, fn] )
 $.fadeTo( [duration,] opacity [, easing] [, fn] )
 $.fadeToggle( [duration,] [, easing] [, fn] )
 
-#### Custom
+#### JQ-39: Custom
 
 $.animate( params [, duration] [, easing] [, fn] )
 $.animate( params, options )
 $.stop( [queue] [, clearQueue] [, jumpToEnd] )1.7*
 $.delay( duration [, queueName] )
 
-# jQuery FAQ
+***
 
-### Issue: How to target something within an anchor tag
+# JQ-40: jQuery FAQ
+
+### JQ-41: Example - How to target something within an anchor tag
 
 In the bottom example from NPWS YAC, we are targeting a div within an anchor tag that will allow us to open a map. That being said, we do not want the anchor tag to activate in this example, so we use the `e.target` capability to find whether or not we are targeting what we want, and if not - we ensure the href doesn't activate.
 
