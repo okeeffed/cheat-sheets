@@ -13,7 +13,7 @@ The most common way of connecting to a remote Linux server is through SSH. SSH s
 
 ***
 
-## How SSH Works
+## SSH-1: How SSH Works
 
 When you connect through SSH, you will be dropped into a shell session, which is a text-based interface where you can interact with your server. For the duration of your SSH session, any commands that you type into your local terminal are sent through an encrypted SSH tunnel and executed on your server.
 
@@ -25,15 +25,14 @@ Refer to the "Managing Ubuntu Help Sheet" MU-1 for more information about settin
 
 ***
 
-## How SSH Authenticates Users
+## SSH-2: How SSH Authenticates Users
 
 Clients generally authenticate either using passwords (less secure and not recommended) or SSH keys, which are very secure.
 
 We recommend always setting up SSH-based authentication for most configurations.
 
-***
+```
 **Hint: _SSH keys_**
 
 SSH keys are a matching set of cryptographic keys which can be used for authentication. Each set contains a public and a private key. The public key can be shared freely without concern, while the private key must be vigilantly guarded and never exposed to anyone.
-
-***
+```
