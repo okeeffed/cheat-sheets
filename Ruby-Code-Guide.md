@@ -1,10 +1,10 @@
 # Ruby Basics Help Sheet
 
-## Comments
+## RUBY-1: Comments
 
 # This is an example comment
 
-## Variables
+## RUBY-2: Variables
 
 ```ruby
 variable = some_value
@@ -16,7 +16,7 @@ sum = 18 + 5
 sum # => 23
 ```
 
-## Console puts
+## RUBY-3: Console puts
 
 ```ruby
 puts something
@@ -25,7 +25,7 @@ puts "Hello World"
 puts [1, 5, "mooo"]
 ```
 
-## Call a method
+## RUBY-4: Call a method
 
 ```ruby
 object.method(args)
@@ -35,7 +35,7 @@ array.delete_at(2)
 string.gsub("ae", "ä")
 ```
 
-## Define a method
+## RUBY-5: Define a method
 
 ```ruby
 def name(parameter)
@@ -47,7 +47,7 @@ def greet(name)
 end
 ```
 
-## Equality
+## RUBY-6: Equality
 
 ```ruby
 object == other
@@ -57,7 +57,7 @@ true == true # => true
 "Hello" == "Hello" # => true
 ```
 
-## Inequality
+## RUBY-7: Inequality
 
 ```ruby
 object != other
@@ -66,7 +66,7 @@ true != true # => false
 3 != 4 # => true
 ```
 
-## Decisions with if
+## RUBY-8: Decisions with if
 
 ```ruby
 if condition
@@ -82,7 +82,7 @@ else
 end
 ```
 
-## Constants
+## RUBY-9: Constants
 
 ```ruby
 CONSTANT = some_value
@@ -90,7 +90,7 @@ CONSTANT = some_value
 PI = 3.1415926535
 ```
 
-## Strings
+## RUBY-10: Strings
 
 ```ruby
 'This is a string'
@@ -100,14 +100,14 @@ example = 'This is another string'
 example.length
 ```
 
-## Concatentation
+## RUBY-11: Concatentation
 
 ```ruby
 string + string2
 "Hello " + "reader"
 ```
 
-## Substitute
+## RUBY-12: Substitute
 
 ```ruby
 string.gsub(a_string, substitute)
@@ -115,13 +115,13 @@ string.gsub(a_string, substitute)
 # => "Boo"
 ```
 
-## String Access
+## RUBY-13: String Access
 
 ```ruby
 string[position] "Hello"[1] # => "e"
 ```
 
-## Arrays
+## RUBY-14: Arrays
 
 ```ruby
 [contents]
@@ -138,7 +138,7 @@ array.size
 array[position]
 ```
 
-## add an array element
+## RUBY-15: add an array element
 
 ```ruby
 array << element
@@ -161,7 +161,7 @@ numbers.each do |n|
 end
 ```
 
-## Hashes
+## RUBY-16: Hashes
 
 Hashes associate a key to some value. You may then retrieve the value based upon its key. This construct is called a dictionary in other languages, which is appropriate because you use the key to "look up" a value, as you would look up a definition for a word in a dictionary. Each key must be unique for a given hash but values can be repeated.
 
@@ -191,7 +191,7 @@ hash.delete(:a)
 hash # => {:b=>10}
 ```
 
-# TH Ruby Basics
+# RUBY-17: TH Ruby Basics
 
 Interactive environment: irb (in the terminal)
 
@@ -235,7 +235,7 @@ end
 greeter = Greeter.new("Pat")
 ```
 
-# Using attr_accessor defined two new methods for us, name to get the value, and name= to set it.
+- Using attr_accessor defined two new methods for us, name to get the value, and name= to set it.
 
 LOOPING
 
