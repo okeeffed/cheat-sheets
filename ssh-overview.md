@@ -123,7 +123,7 @@ You may also be prompted to enter the old passphrase if you had one before gener
 
 ***
 
-### SSH-5 Displaying the SSH Key Fingerprint
+### SSH-5: Displaying the SSH Key Fingerprint
 
 Each SSH key pair share a single cryptographic "fingerprint" which can be used to uniquely identify the keys. This can be useful in a variety of situations.
 
