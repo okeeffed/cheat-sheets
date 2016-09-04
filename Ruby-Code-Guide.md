@@ -191,7 +191,9 @@ hash.delete(:a)
 hash # => {:b=>10}
 ```
 
-# RUBY-17: TH Ruby Basics
+***
+
+## THRUBY-1: TH Ruby Basics
 
 Interactive environment: irb (in the terminal)
 
@@ -199,14 +201,14 @@ Interactive environment: irb (in the terminal)
 puts "hello world!"
 ```
 
-// mathematics
+**Mathematics**
 
 ```ruby
 3**2 // this means three to the square of two
 Math.sqrt(a+b)	// this is a static method
 ```
 
-// methods
+**Methods**
 
 ```ruby
 def hi
@@ -216,7 +218,7 @@ end
 
 - if the method does not take parameters, then you do not need to define the curly braces
 
-// classes
+**Classes**
 
 ```ruby
 class Greeter
@@ -237,7 +239,7 @@ greeter = Greeter.new("Pat")
 
 - Using attr_accessor defined two new methods for us, name to get the value, and name= to set it.
 
-LOOPING
+**LOOPING**
 
 ```ruby
 @names.each do |name|
@@ -256,3 +258,57 @@ def say_bye
   end
 end
 ```
+
+**Input and Output**
+
+Giving input to the variable.
+
+- puts auto creates \n
+- print does not
+
+```ruby
+# name = "Jason"
+
+print "Please enter your name: "
+name = gets # this is what is going to take the input
+puts "Hello #{name}!"
+```
+
+***
+
+## THRUBY-2: Ruby Strings
+
+__What are Strings?__
+
+- Using double quotes when creating a string will cause variables in the string to be interpolated.
+
+```ruby
+# this will all print out as is
+name="Dennis"
+string = <<-STRING
+Hello
+My name is #{name}
+Workspaces is fun!
+STRING
+thisAlsoWorks="This is
+a multiline String
+"
+```
+
+__Whitespace__
+
+\n -> new line
+\s -> space
+\t -> new tab 
+
+```ruby
+example = "New line \nhere"
+```
+
+***
+
+## THRUBY-2: Ruby Numbers
+
+***
+
+## THRUBY-2: Ruby Methods

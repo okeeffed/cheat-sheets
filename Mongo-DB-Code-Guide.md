@@ -1,6 +1,6 @@
 # Mongo Cheat Sheet
 
-## Mongo Install
+## MONGO-1: Mongo Install
 
 ```
 npm install mongoose --save
@@ -11,7 +11,7 @@ mongod // starts the daemon
 mongo // check out the documents
 ```
 
-## Mongo Shell
+## MONGO-2: Mongo Shell
 
 ```
 show dbs — // display the databases
@@ -22,7 +22,7 @@ db.users.find().pretty() — // nicer format for output documents within the she
 db.users.drop() — // remove the users collection from the current database
 ```
 
-## Mongo Sample Usage
+## MONGO-3: Mongo Sample Usage
 
 ```javascript
 // models > user.js
