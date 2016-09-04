@@ -12,12 +12,12 @@ Flux is an architecture that Facebook uses internally when working with React. I
 
 That said, Facebook does provide a repo that includes a Dispatcher library. The dispatcher is a sort of global pub/sub handler that broadcasts payloads to registered callbacks.
 
-__3 Components__
+__4 Components__
 
-1. Actions – Helper methods that facilitate passing data to the Dispatcher
-2. Dispatcher – Receives actions and broadcasts payloads to registered callbacks
-3. Stores – Containers for application state & logic that have callbacks registered to the dispatcher
-4. Controller Views – React Components that grab the state from Stores and pass it down via props to child components
+__1. Actions__ – Helper methods that facilitate passing data to the Dispatcher
+__2. Dispatcher__ – Receives actions and broadcasts payloads to registered callbacks
+__3. Stores__ – Containers for application state & logic that have callbacks registered to the dispatcher
+__4. Controller Views__ – React Components that grab the state from Stores and pass it down via props to child components
 
 Flux helps to solve some of the difficulty we run into with unidirectional data flow when it comes to changing Application State that is higher up the virtual DOM than the Components that alter that State themselves.
 

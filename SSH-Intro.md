@@ -1,7 +1,19 @@
 # SSH Overview
 
 __Sources__
+
 Justin Ellingwood form [Digital Ocean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
+
+[Daemon (computing)](https://en.wikipedia.org/wiki/Daemon_(computing))
+
+[Grymoire](http://www.grymoire.com/Unix/) - Great resource for UNIX!
+
+***
+
+__Major Section Index__
+
+<a href="SSH-1"><p>SSH-1: How SSH Works</p></a>
+<a href="UBU-1"><p>UBU-1: Installing Ubuntu Onto Virtual Box</p></a>
 
 ***
 
@@ -12,7 +24,7 @@ SSH is a secure protocol used as the primary means of connecting to Linux server
 The most common way of connecting to a remote Linux server is through SSH. SSH stands for Secure Shell and provides a safe and secure way of executing commands, making changes, and configuring services remotely. When you connect through SSH, you log in using an account that exists on the remote server.
 
 ***
-
+<div class="SSH-1"></div>
 ## SSH-1: How SSH Works
 
 When you connect through SSH, you will be dropped into a shell session, which is a text-based interface where you can interact with your server. For the duration of your SSH session, any commands that you type into your local terminal are sent through an encrypted SSH tunnel and executed on your server.
@@ -271,3 +283,149 @@ Host remote_alias
 ***
 
 ### SSH-12: Adding your SSH Keys to an SSH Agent to Avoid Typing the Passphrase
+
+If you have an passphrase on your private SSH key, you will be prompted to enter the passphrase every time you use it to connect to a remote host.
+
+To avoid having to repeatedly do this, you can run an SSH agent. This small utility stores your private key after you have entered the passphrase for the first time. It will be available for the duration of your terminal session, allowing you to connect in the future without re-entering the passphrase.
+
+This is also important if you need to forward your SSH credentials (shown below).
+
+To start the SSH Agent, type the following into your local terminal session:
+
+`eval $(ssh-agent)`
+
+`Agent pid 10891`
+
+This will start the agent program and place it into the background. Now, you need to add your private key to the agent, so that it can manage your key:
+
+```
+ssh-add
+
+Enter passphrase for /home/demo/.ssh/id_rsa:
+Identity added: /home/demo/.ssh/id_rsa (/home/demo/.ssh/id_rsa)
+```
+
+You will have to enter your passphrase (if one is set). Afterwards, your identity file is added to the agent, allowing you to use your key to sign in without having re-enter the passphrase again.
+
+***
+
+## SSH-13: Forwarding your SSH Credentials to Use on a Server
+
+If you wish to be able to connect without a password to one server from within another server, you will need to forward your SSH key information. This will allow you to authenticate to another server through the server you are connected to, using the credentials on your local computer.
+
+To start, you must have your SSH agent started and your SSH key added to the agent (see above). After this is done, you need to connect to your first server using the -A option. This forwards your credentials to the server for this session:
+
+`ssh -A username@remote_host`
+
+From here, you can SSH into any other host that your SSH key is authorized to access. You will connect as if your private SSH key were located on this server.
+
+***
+
+## SSH-14: Server-Side Configuration Options
+
+This section will explain server-side config options and the way the server responds and what types of connection are allowed.
+
+***
+
+### SSH-15: Disabling Password Authentication
+
+If you have SSH keys configured, tested, and working properly, it is probably a good idea to disable password authentication.
+
+To do this, connect to your remote server and open the /etc/ssh/sshd_config file with root or sudo privileges:
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+Inside of the file, search for the `PasswordAuthentication` directive. If it is commented out, uncomment it. Set it to "no" to disable password logins:
+
+```
+PasswordAuthentication no
+```
+
+After you save, you should restart the SSH service to implement changes:
+
+```
+sudo service ssh restart
+#sshd on CentOS/Fedora
+```
+
+### SSH-16: Changing the Port that the SSH Daemon Runs On
+
+***
+__Definition: Daemon__ A daemon is a computer program that runs as a background process rather than being in direct control of an interactive user. Traditionally, the process names of a daemon end with the letter d, for clarification that the process is, in fact, a daemon, and for differentiation between a daemon and a normal computer program. For example, syslogd is the daemon that implements the system logging facility, and sshd is a daemon that serves incoming SSH connections.
+
+In a Unix environment, the parent process of a daemon is often, but not always, the init process. A daemon is usually either created by a process forking a child process and then immediately exiting, thus causing init to adopt the child process, or by the init process directly launching the daemon. In addition, a daemon launched by forking and exiting typically must perform other operations, such as dissociating the process from any controlling terminal (tty). Such procedures are often implemented in various convenience routines such as daemon(3) in Unix.
+
+Systems often start daemons at boot time and serve the function of responding to network requests, hardware activity, or other programs by performing some task. Daemons can also configure hardware (like udevd on some Linux systems), run scheduled tasks (like cron), and perform a variety of other tasks.  
+***
+
+Some administrators suggest that you change the default port that SSH runs on. This can help decrease the number of authentication attempts your server is subjected to from automated bots.
+
+To change the port that the SSH daemon listens on, you will have to log into your remote server. Open the `sshd_config` file on the remote system with root privileges, either by logging in with that user or by using sudo:
+
+`sudo nano /etc/ssh/sshd_config`
+
+This is the same file that you would use to turn off the PasswordAuthentication property.
+
+Once you are inside, you can change the port that SSH runs on by finding the Port 22 specification and modifying it to reflect the port you wish to use. For instance, to change the port to 4444, put this in your file:
+
+```
+#Port 22
+Port 4444
+```
+
+Afterwards, run the `sudo service ssh restart` command
+
+After the daemon restarts, you will need to authenticate by specifying the port number (demonstrated in SSH-11).
+
+***
+
+## SSH-17: Limiting the Users who can connect through SSH
+
+To explicitly limit the user accounts who are able to login through SSH, you can take a few different approaches, each of which involve editing the SSH daemon config file.
+
+On your remote server, open this file now with root or sudo privileges:
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+The first method of specifying the accounts that are allowed to login is using the AllowUsers directive. Search for the AllowUsers directive in the file. If one does not exist, create it anywhere. After the directive, list the user accounts that should be allowed to login through SSH:
+
+```
+AllowUsers user1 user2
+```
+
+Save and close the file, and run `sudo service sshd restart`
+
+If you are more comfortable with group management, you can use the `AllowGroups` directive instead. If this is the case, just add a single group that should be allowed SSH access (we will create this group and add members momentarily):
+
+```
+AllowGroups sshmembers
+```
+
+Save and close the file.
+
+Now, you can create a system group (without a home directory) matching the group you specified by typing:
+
+```
+sudo groupadd -r sshmembers
+```
+
+Make sure that you add whatever user accounts you need to this group. This can be done by typing:
+
+```
+sudo usermod -a -G sshmembers user1
+sudo usermod -a -G sshmembers user2
+```
+
+Now, restart the SSH daemon to implement your changes with `sudo service ssh restart`.
+
+***
+
+## SSH-18: Disabling Root Login
+
+***
+<div class="UBU-1"></div>
+## UBU-1: Installing Ubuntu onto VirtualBox
