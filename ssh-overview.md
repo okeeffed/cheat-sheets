@@ -31,7 +31,8 @@ Clients generally authenticate either using passwords (less secure and not recom
 
 We recommend always setting up SSH-based authentication for most configurations.
 
-*** SSH keys
+***
+**Hint: _SSH keys_**
 
 SSH keys are a matching set of cryptographic keys which can be used for authentication. Each set contains a public and a private key. The public key can be shared freely without concern, while the private key must be vigilantly guarded and never exposed to anyone.
 
