@@ -1,6 +1,6 @@
 # React-Native Cheat Sheet using ES6
 
-## Importing from React
+## RN-1: Importing from React
 
 ### In index.ios.js
 
@@ -22,7 +22,7 @@ import { Featured } from './Featured.js';
 import { Search } from './Search.js';
 ```
 
-## Example classes
+## RN-2: Example classes
 
 ```javascript
 // this is an example class
@@ -69,13 +69,13 @@ class BookSearch extends Component {
 }
 ```
 
-## Registry for an App
+## RN-3: Registry for an App
 
 ```javascript
 AppRegistry.registerComponent('BookSearch', () => BookSearch);
 ```
 
-### Debugging: Important things to note
+## RN-4: Debugging - Important things to note
 
 If the AppRegistry is not working (error regarding App not registered)
 
@@ -83,7 +83,7 @@ If the AppRegistry is not working (error regarding App not registered)
 2. Try running the command npm link from the main directory of the project
 3. Check the moduleName in the AppDelegate.m file in the Xcode Project
 
-## StyleSheet.create
+## RN-4: StyleSheet.create
 
 In this example, you can see how the 'const styles' variable is declared and how it is implemented in the render() function.
 
@@ -118,7 +118,7 @@ class Search extends Component {
 
 <View> tags are treated similar to as if they are <div> tags
 
-## Navigation View
+## RN-5: Navigation View
 
 Example: Search.js from the BookSearch project
 
@@ -159,7 +159,7 @@ class Search extends Component {
 export { Search };
 ```
 
-## UITableCellView replica (ListView)
+## RN-6: UITableCellView replica (ListView)
 
 BookList.js - taken from BookSearch
 

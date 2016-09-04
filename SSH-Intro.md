@@ -8,11 +8,15 @@ Justin Ellingwood form [Digital Ocean](https://www.digitalocean.com/community/tu
 
 [Grymoire](http://www.grymoire.com/Unix/) - Great resource for UNIX!
 
+Setting up [Ubuntu on Virtual Box](http://www.simplehelp.net/2015/06/09/how-to-install-ubuntu-on-your-mac/)
+
 ***
 
 __Major Section Index__
 
 - <a href="#SSH-1"><p>SSH-1: How SSH Works</p></a>
+
+__Pre-requisites__
 - <a href="#UBU-1"><p>UBU-1: Installing Ubuntu Onto Virtual Box</p></a>
 
 ***
@@ -426,6 +430,263 @@ Now, restart the SSH daemon to implement your changes with `sudo service ssh res
 
 ## SSH-18: Disabling Root Login
 
+It is often advisable to completely disable root login through SSH after you have set up an SSH user account that has sudo privileges.
+
+To do this, open the SSH daemon configuration file with root or sudo on your remote server.
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+Inside, search for a directive called PermitRootLogin. If it is commented, uncomment it. Change the value to "no":
+
+```
+PermitRootLogin no
+```
+
+Save the file and run `sudo service ssh restart`
+
+## SSH-19: Allowing Root Access for Specific Commands
+
+There are some cases where you might want to disable root access generally, but enable it in order to allow certain applications to run correctly. An example of this might be a backup routine.
+
+This can be accomplished through the root user's `authorized_keys` file, which contains SSH keys that are authorized to use the account.
+
+Add the key from your local computer that you wish to use for this process (we recommend creating a new key for each automatic process) to the root user's `authorized_keys` file on the server. We will demonstrate with the `ssh-copy-id` command here, but you can use any of the methods of copying keys we discuss in other sections:
+
+```
+ssh-copy-id root@remote_host
+```
+
+For all the other methods on how to copy across the key:
+
+<a href="#SSH-6">SSH-6 Copying with ssh-copy-id</a>
+<a href="#SSH-7">SSH-7 Copying without ssh-copy-id</a>
+<a href="#SSH-8">SSH-8 Manually adding the key</a>
+
+Now, log into the remote server. We will need to adjust the entry in the authorized_keys file, so open it with root or sudo access:
+
+```
+sudo nano /root/.ssh/authorized_keys
+```
+
+At the beginning of the line with the key you uploaded, add a command= listing that defines the command that this key is valid for. This should include the full path to the executable, plus any arguments:
+
+```
+command="/path/to/command arg1 arg2" ssh-rsa ...
+```
+
+Save and close the file when you are finished.
+
+Now, open the sshd_config file with root or sudo privileges:
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+Find the directive PermitRootLogin, and change the value to forced-commands-only. This will only allow SSH key logins to use root when a command has been specified for the key:
+
+```
+PermitRootLogin forced-commands-only
+```
+
+Save and close the file. Restart the SSH daemon to implement your changes. `sudo service ssh restart`
+
 ***
-<div id="#UBU-1"></div>
+<div id="SSH-20"></div>
+## SSH-20: Forwarding X Application Displays to the Client
+
+The SSH daemon can be configured to automatically forward the display of X applications on the server to the client machine. For this to function correctly, the client must have an X windows system configured and enabled.
+
+To enable this functionality, log into your remote server and edit the sshd_config file as root or with sudo privileges:
+
+```
+sudo nano /etc/ssh/sshd_config
+```
+
+Search for the X11Forwarding directive. If it is commented out, uncomment it. Create it if necessary and set the value to "yes":
+
+`X11Forwarding yes`
+
+Save and restart `sudo service ssh restart`
+
+To connect to the server and forward an application's display, you have to pass the -X option from the client upon connection:
+
+```
+ssh -X username@remote_host
+```
+
+Graphical applications started on the server through this session should be displayed on the local computer. The performance might be a bit slow, but it is very helpful in a pinch.
+
+***
+<div id="SSH-21"></div>
+## SSH-21: Client Side Configuration Options
+
+__Defining Server-Specific Connection Info__
+
+On your local computer, you can define individual configurations for some or all of the servers you connect to. These can be stored in the ~/.ssh/config file, which is read by your SSH client each time it is called.
+
+Create or open this file in your text editor on your local computer:
+
+```
+nano ~/.ssh/config
+```
+
+Inside, you can define individual configuration options by introducing each with a Host keyword, followed by an alias. Beneath this and indented, you can define any of the directives found in the ssh_config man page:
+
+```
+man ssh_config
+```
+
+An example configuration would be:
+
+```
+Host testhost
+    HostName example.com
+    Port 4444
+    User demo
+```
+
+You could then connect to example.com on port 4444 using the username "demo" by simply typing:
+
+```
+ssh testhost
+```
+
+You can also use wildcards to match more than one host. Keep in mind that later matches can override earlier ones. Because of this, you should put your most general matches at the top. For instance, you could default all connections to not allow X forwarding, with an override for example.com by having this in your file:
+
+```
+Host *
+    ForwardX11 no
+
+Host testhost
+    HostName example.com
+    ForwardX11 yes
+    Port 4444
+    User demo
+```
+
+Save and close the file when you are done.
+
+***
+<div id="SSH-22"></div>
+### SSH-22: Keep Connections Alive to Avoid Timeout
+
+If you find yourself being disconnected from SSH sessions before you are ready, it is possible that your connection is timing out.
+
+You can configure your client to send a packet to the server every so often in order to avoid this situation:
+
+On your local computer, you can configure this for every connection by editing your ~/.ssh/config file.
+
+If one does not already exist, at the top of the file, define a section that will match all hosts. Set the ServerAliveInterval to "120" to send a packet to the server every two minutes. This should be enough to notify the server not to close the connection:
+
+```
+Host *
+    ServerAliveInterval 120
+```
+
+Save and close.
+
+***
+<div id="SSH-23"></div>
+## SSH-23: Disabling Host Checking
+
+By default, whenever you connect to a new server, you will be shown the remote SSH daemon's host key fingerprint.
+
+```
+The authenticity of host '111.111.11.111 (111.111.11.111)' can't be established.
+ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
+Are you sure you want to continue connecting (yes/no)? yes
+```
+
+This is configured so that you can verify the authenticity of the host you are attempting to connect to and spot instances where a malicious user may be trying to masquerade as the remote host.
+
+In certain circumstances, you may wish to disable this feature. Note: This can be a big security risk, so make sure you know what you are doing if you set your system up like this.
+
+To make the change, the open the ~/.ssh/config file on your local computer.
+
+If one does not already exist, at the top of the file, define a section that will match all hosts. Set the StrictHostKeyChecking directive to "no" to add new hosts automatically to the known_hosts file. Set the UserKnownHostsFile to /dev/null to not warn on new or changed hosts:
+
+```
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+```
+
+You can enable the checking on a case-by-case basis by reversing those options for other hosts. The default for StrictHostKeyChecking is "ask":
+
+```
+Host *
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+```
+
+```
+Host testhost
+    HostName example.com
+    StrictHostKeyChecking ask
+    UserKnownHostsFile /home/demo/.ssh/known_hosts
+```
+
+***
+<div id="SSH-24"></div>
+### SSH-24: Multiplexing SSH Over a Single TCP Connection
+
+***
+
+__Definition: Multiplexing__
+
+Generally speaking, multiplexing is the ability to carry multiple signals over a single connection. Similarly, SSH multiplexing is the ability to carry multiple SSH sessions over a single TCP connection. [This Wikibook article](https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Multiplexing) goes into more detail on SSH multiplexing; in particular, I would call your attention to the table under the “Advantages of Multiplexing” to better understand the idea of multiple SSH sessions with a single TCP connection.
+
+***
+
+There are situations where establishing a new TCP connection can take longer than you would like. If you are making multiple connections to the same machine, you can take advantage of multiplexing.
+
+SSH multiplexing re-uses the same TCP connection for multiple SSH sessions. This removes some of the work necessary to establish a new session, possibly speeding things up. Limiting the number of connections may also be helpful for other reasons.
+
+To set up multiplexing, you can manually set up the connections, or you can configure your client to automatically use multiplexing when available. We will demonstrate the second option here.
+
+To configure multiplexing, edit your SSH client's configuration file on your local machine:
+
+```
+nano ~/.ssh/config
+```
+
+If you do not already have a wildcard host definition at the top of the file, add one now (as Host *). We will be setting the `ControlMaster, ControlPath, and ControlPersist` values to establish our multiplexing configuration.
+
+The `ControlMaster` should be set to "auto" in able to automatically allow multiplexing if possible. The `ControlPath` will establish the path to control socket. The first session will create this socket and subsequent sessions will be able to find it because it is labeled by username, host, and port.
+
+Setting the `ControlPersist` option to "1" will allow the initial master connection to be backgrounded. The "1" specifies that the TCP connection should automatically terminate one second after the last SSH session is closed:
+
+```
+Host *
+    ControlMaster auto
+    ControlPath ~/.ssh/multiplex/%r@%h:%p
+    ControlPersist 1
+```
+
+Save and close the file when you are finished. Now, we need to actually create the directory we specified in the control path:
+
+```
+mkdir ~/.ssh/multiplex
+```
+
+Now, any sessions that are established with the same machine will attempt to use the existing socket and TCP connection. When the last session exists, the connection will be torn down after one second.
+
+If for some reason you need to bypass the multiplexing configuration temporarily, you can do so by passing the -S flag with "none":
+
+```
+ssh -S none username@remote_host
+```
+
+***
+<div id="SSH-25"></div>
+## SSH-25: Setting Up SSH Tunnels
+
+// todo 
+
+***
+<div id="UBU-1"></div>
 ## UBU-1: Installing Ubuntu onto VirtualBox
+
+// todo

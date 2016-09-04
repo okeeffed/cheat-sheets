@@ -1,8 +1,8 @@
 # TH React Basics Notes
 
-## First Steps in React
+## THREACT-1: First Steps in React
 
-#### Why React
+#### THREACT-2: Why React
 
 React is a library for creating UIs.
 
@@ -31,7 +31,7 @@ Example, if the second item in the data model is removed, then we would also nee
 
 React makes an efficient and fast way to "remove a DOM and reload". This is done by using a *Virtual DOM*
 
-#### State and the Virtual DOM
+#### THREACT-3: State and the Virtual DOM
 
 We describe the application entirely in the .js files.
 
@@ -43,7 +43,7 @@ When we write our React markup code, React takes on the responsibility of render
 
 It's smart to remember the previous and current DOM and makes the minimum changes needed.
 
-#### Understanding JSX
+#### THREACT-3: Understanding JSX
 
 DOM Elements have:
 1. The name eg. div, span
@@ -68,7 +68,7 @@ const myLink = (<a href="https://abc.com">abc</a>);
 
 The compiler that we change JSX to what we need is Babel.
 
-#### First Application
+#### THREACT-4: First Application
 
 app.css
 app.jsx
@@ -127,7 +127,7 @@ function Application() {
 ReactDOM.render(<Application />, document.getElementById('container'));
 ```
 
-#### React Developer Tools
+#### THREACT-5: React Developer Tools
 
 It is a lot easier to debug with the React DevTools extension.
 
@@ -137,9 +137,9 @@ This represents the virtual DOM.
 
 React also highlights what is being inspected if you click on the React tab after highlighting the section you are looking for.
 
-## Thinking in Components
+## THREACT-6: Thinking in Components
 
-#### Mocking up an App
+#### THREACT-7: Mocking up an App
 
 It's best to mock up the application in JSX.
 
@@ -178,7 +178,7 @@ function Application() {
 }
 ```
 
-#### Properties
+#### THREACT-8: Properties
 
 The application so far is pretty useless. We can use properties to customise our components. We can then use the attribute syntax which is used to create the virtual DOM.
 
@@ -217,7 +217,7 @@ function Application(props) {
 ReactDOM.render(<Application title="My Scoreboard"/>, document.getElementById('container'));
 ```
 
-#### PropTypes and DefaultProps
+#### THREACT-9: PropTypes and DefaultProps
 
 PropTypes is an object that contains all the keys our object can take and a special type definition.
 - if you place a numeral instead of a string, it will render, but it will cause a React error because PropTypes "title" is looking for a string
@@ -264,7 +264,7 @@ Application.defaultProps = {
 ReactDOM.render(<Application title="My Scoreboard"/>, document.getElementById('container'));
 ```
 
-#### Decomposing our Application
+#### THREACT-10: Decomposing our Application
 
 Breaking down our Application into smaller components.
 
@@ -344,7 +344,7 @@ Application.defaultProps = {
 ReactDOM.render(<Application title="My Scoreboard"/>, document.getElementById('container'));
 ```
 
-#### Loops and Lists in JSX
+#### THREACT-11: Loops and Lists in JSX
 
 Currently, we have two hard coded players, but we want to be able to loop through an array of this.
 
@@ -447,9 +447,9 @@ Application.defaultProps = {
 ReactDOM.render(<Application players={PLAYERS}/>, document.getElementById('container'));
 ```
 
-## Stateful Components
+## THREACT-12: Stateful Components
 
-#### Creating a Component Class
+#### THREACT-13: Creating a Component Class
 
 Right now, our application is still static. We cannot update any data details.
 
@@ -560,7 +560,7 @@ Application.defaultProps = {
 ReactDOM.render(<Application players={PLAYERS}/>, document.getElementById('container'));
 ```
 
-#### Understanding State
+#### THREACT-14: Understanding State
 
 Managing data that can change. React has a mechanism to deal with State. React doesn't provide everything, and you're encouraged to use other libraries to deal with things such as AJAX and State Management.
 
@@ -692,9 +692,9 @@ Application.defaultProps = {
 ReactDOM.render(<Application players={PLAYERS}/>, document.getElementById('container'));
 ```
 
-## Designing Data Flow
+## THREACT-15: Designing Data Flow
 
-#### Unidirectional Data Flow
+#### THREACT-16: Unidirectional Data Flow
 
 It's cumbersome to maintain State when applications scale. We should think of State as the following:
 
@@ -713,7 +713,7 @@ Since children cannot talk to parents, we can implement callback functions to up
 
 Currently, we have State in a number of places. We will change this to become more unidirectional.
 
-#### Restructuring State
+#### THREACT-17: Restructuring State
 
 At the moment, we have one State. Our counter component. However, as useful as it has been to show how States work by using counter, the State of the counter is really a state of a Player Score.
 
@@ -833,7 +833,7 @@ var Application = React.createClass({
 ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
 ```
 
-#### Communicating Events
+#### THREACT-18: Communicating Events
 
 We now need to implement these callback functions so that we can change our counter.
 
@@ -962,7 +962,7 @@ var Application = React.createClass({
 ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
 ```
 
-#### Building the Statistics Component
+#### THREACT-19: Building the Statistics Component
 
 The problem with keeping the score locally is that if wanted to do something (eg show to total score) we wouldn't have had access to that.
 
@@ -1116,7 +1116,7 @@ var Application = React.createClass({
 ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
 ```
 
-#### Adding Players to the Scoreboard
+#### THREACT-20: Adding Players to the Scoreboard
 
 In React, States are our responsibility. What happens if we need to add players?
 
@@ -1331,9 +1331,9 @@ var Application = React.createClass({
 ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
 ```
 
-## Component Lifecyle
+## THREACT-21: Component Lifecyle
 
-#### Designing a Stopwatch
+#### THREACT-22: Designing a Stopwatch
 
 Let's build a more advanced component. A stopwatch.
 
@@ -1564,7 +1564,7 @@ var Application = React.createClass({
 ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
 ```
 
-#### Stopwatch State
+#### THREACT-23: Stopwatch State
 
 Stopwatch will either be running, or it won't be.
 - Implement the getInitialState method for Stopwatch
@@ -1812,7 +1812,7 @@ var Application = React.createClass({
 ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
 ```
 
-#### Making the Stopwatch Tick
+#### THREACT-24: Making the Stopwatch Tick
 
 - Create the onTick function.
 	- We don't want this function in Render.
@@ -2085,7 +2085,7 @@ var Application = React.createClass({
 ReactDOM.render(<Application intialPlayers={PLAYERS}/>, document.getElementById('container'));
 ```
 
-#### Review and Next Steps
+#### THREACT-25: Review and Next Steps
 
 What did we learn?
 
@@ -2093,4 +2093,4 @@ What did we learn?
 - We used intermediate components to use callbacks to send upwards.
 - Redux can give us useful utilities for managing state.
 - Babel.js has been used to precompile our JSX.
-- React for mobile doesn't render to the DOM, but the native components for the platform. 
+- React for mobile doesn't render to the DOM, but the native components for the platform.

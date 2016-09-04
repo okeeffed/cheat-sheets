@@ -1,6 +1,6 @@
 ########
 
-! CHECK THE READ ME BEFORE ANYHTING ELSE
+! CHECK THE READ ME BEFORE ANYTHING ELSE
 
 ### 1. Install Bower
 
@@ -10,23 +10,23 @@ bower install
 
 npm install
 
-### 2. Install Composer Dependencies
+### 3. Install Composer Dependencies
 
 composer install	// if others needed, check and manually move into folder in wp-content
 
-### 3. Copy Across WordPress Files
+### 4. Copy Across WordPress Files
 
 Locate the folder in finder, copy the files and paste them at the root of the project
 
-### 4. Set MAMP to the correct folder
+### 5. Set MAMP to the correct folder
 
 Create the Database in Sequel Pro
 
-### 5. Create Database
+### 6. Create Database
 
 Create the Database in Sequel Pro
 
-### 6. Open the Localhost and begin the WP set up
+### 7. Open the Localhost and begin the WP set up
 
 ! Ensure that the database is created in Sequel Pro
 
@@ -34,15 +34,15 @@ Set the database field to the database name
 Set username and password to what is set for MAMP
 Run the Install
 
-### 7. Open the Localhost and begin the WP set up
+### 8. Open the Localhost and begin the WP set up
 
-### 8. Ensure that any other files/plugins required in the correct folder (in reference to 3)
+### 9. Ensure that any other files/plugins required in the correct folder (in reference to 3)
 
 ### 10. gulp watch - ensure that the gulpfile.js is all sweet!
 
-### 9. Ensure the correct plugins are active
+### 11. Ensure the correct plugins are active
 
-### 10. Active the appropriate theme
+### 12. Active the appropriate theme
 
 
 
@@ -88,16 +88,3 @@ Steps:
 Ensure the database has been set up
 Ensure gulp watch has compiled the file
 Ensure that the wp_config file is correctly set up for the wordpress admin stuff
-
-
-
-
-
-
-
-
-
-
-
-
-

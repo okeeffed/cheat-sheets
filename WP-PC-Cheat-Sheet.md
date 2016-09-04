@@ -1,17 +1,17 @@
 # WP PRES COMPANY CHEAT SHEET
 
-## FAQ
+## WPPRES-1: FAQ
 
 **Q: Adjust get_posts posts_per_page for a data["term"] request**
 
-A: Add it as an argument in twig or create a custom function adjusting the posts_per_page.
+A: Add it as an argument in twig or create a custom function adjusting the posts_per_page. You can pass any get_posts properties as arguments here.
 
 **Q: Where can I find what I need?**
 
 A: Check against the staging website if it is up to grab things like taxonomies, types, and to figure out the layout.
 
 
-## Custom Type Relationships
+## WPPRES-2: Custom Type Relationships
 
 ```php
 // in author-articles.php
@@ -77,15 +77,12 @@ Timber::render('author.twig', $data);
 ?>
 ```
 
-## Example of Rendering a .twig file using Timber WP functions
+## WPPRES-3: Example of Rendering a .twig file using Timber WP functions
 - using the above examples
 
 ```html
-/********************
 
- 	 author.twig
-
-********************/
+// __author.twig__
 
 {% if post.article_author %}
 {% set author = TimberPost(post.get_field('article_author')) %}
@@ -117,11 +114,9 @@ Timber::render('author.twig', $data);
 </div>
 {% endif %}
 
-/********************
+***
 
-      list.twig
-
-********************/
+// __list.twig__
 
 <div class="list -post">
 	<ul class="list-items">
@@ -133,11 +128,9 @@ Timber::render('author.twig', $data);
 	</ul>
 </div>
 
-/********************
+***
 
-   list-item.twig
-
-********************/
+__list-item.twig__
 
 <li class="list-item -post tile">
 	<a href="#">
@@ -155,7 +148,7 @@ Timber::render('author.twig', $data);
 </li>
 ```
 
-## Example PHP functions.php
+## WPPRES-4: Example PHP functions.php
 
 ```php
 <?php
