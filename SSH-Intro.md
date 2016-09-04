@@ -212,4 +212,62 @@ echo public_key_string >> ~/.ssh/authorized_keys
 
 ***
 
-## SSH-9: Server-Side Config Options
+## SSH-9: Basic Connection Instructions
+
+__Connecting to a Remote Server__
+
+`ssh remote_host`
+
+You can set up the remote_host to be an actual name in your ~/.ssh/config files. See the Managing Ubuntu file for more information.
+
+If your username is different on a remote server, you may need to pass the remote user's name like so:
+
+`ssh user@remote_host`
+
+First time connecting, you'll get a warning.
+
+```
+The authenticity of host '111.111.11.111 (111.111.11.111)' can't be established.
+ECDSA key fingerprint is fd:fd:d4:f9:77:fe:73:84:e1:55:00:ad:d6:6d:22:fe.
+Are you sure you want to continue connecting (yes/no)? yes
+```
+
+If you are using password authentication, you will be prompted for the password for the remote account here. If you are using SSH keys, you will be prompted for your private key's passphrase if one is set, otherwise you will be logged in automatically.
+
+***
+
+### SSH-10: Running a Single Command on a Remote Server
+
+Instead of spawning a shell session, you can do this:
+
+`ssh username@remote_host command_to_run`
+
+eg.
+
+`ssh my_remote_host 'touch ~/hello.txt'`
+
+The connection immediately closes afterwards.
+
+***
+
+### SSH-11: Logging into a Server with a Different Port
+
+By default the SSH daemon on a server runs on port 22. Your SSH client will assume that this is the case when trying to connect. If your SSH server is listening on a non-standard port (this is demonstrated in a later section), you will have to specify the new port number when connecting with your client.
+
+You can do this by specifying the port number with the -p option:
+
+`ssh -p port_num username@remote_host`
+
+To avoid having to do this every time you log into your remote server, you can create or edit a configuration file in the ~/.ssh directory within the home directory of your local computer.
+
+This can also be done in the config file.
+
+```
+Host remote_alias
+    HostName remote_host
+    Port port_num
+```
+
+***
+
+### SSH-12: Adding your SSH Keys to an SSH Agent to Avoid Typing the Passphrase
