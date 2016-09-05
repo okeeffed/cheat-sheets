@@ -1,5 +1,11 @@
 # iOS Cheat Sheet
 
+## OBJIOS-1: Open Settings
+
+```objective-c
+[[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
+```
+
 # Dates and Time
 
 ## Check if the time is between two hours

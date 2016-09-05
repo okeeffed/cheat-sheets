@@ -1,0 +1,197 @@
+# Certified Solutions Architect - Associate 2016
+
+## AWSCSA-1: Introduction Amazon
+
+- Fastest growing cloud computing platform on the planet
+- Also the largest
+- More and more organisations are outsourcing their IT to AWS
+- Certifications started in 2013
+
+__How the exams fit together__
+
+1. The Associate Tier
+- Certified Solutions Architect Associate
+- Certified Developer Associate
+- Certified Sysops Administrator Associate
+
+2. Professional Tier
+- CSA Professional
+- Sysops Pro
+
+[Acloud Guru](https://acloud.guru)
+
+## AWSCSA-2: Exam Blueprint and what you'll need
+
+__The Exam__
+
+__60%__ Designing highly available, cost efficient, fault tolerant, scaleable systems
+__10%__ Implementing/Deploying
+__20%__ Data Security
+__10%__ Troubleshooting
+
+80 minutes in length
+60 questions
+
+All Multiple Choice
+Pass mark is on a bell curve
+
+Qualification is valid for two years
+
+__What you need__
+
+1. An account - [An AWS Free Tier Account](https://aws.amazon.com/free/)
+2. A computer with a SSH terminal
+3. A domain name (optional)
+
+## AWSCSA-3: 10,000 Foot Overview
+
+Each of the AWS Components
+
+Tier 1: AWS Global Infrastructure
+Tier 2: Networking
+Tier 3: Compute, Storage, Databases
+Tier 4: Analytics, Security and ID, Management Tools
+Tier 5: App Services, Dev Tools, Mobile Services
+Tier 6: Enterprise Applications. Internet of things
+
+There are a number of different regions spread across the world for AWS.
+
+What's a region? Geographical area.
+
+Each have two availability zones. These are data centers.
+
+What are edge locations? CDN locations for CloudFront. CloudFront is AWS CDN service. Currently over 50 edge locations.
+
+__Networking__
+
+VPC: Virtual Private Cloud - A virtual data center. You can have multiple VPCs. Basically a data center in your AWS account. Isolated set of resources.
+
+Direct Connect - A way of connecting into AWS without an internet connection.
+
+Route53 - Amazons DNS service. 53 because of the port that the service sits on.
+
+__Compute__
+
+EC2: Elastic Cloud 2 - A virtual server you can provision fast.
+
+EC2 Container Service - Sometimes ECS. A highly scalable service for Docker.
+
+Elastic Beanstalk - Easy to use service for deploying and scalable web services that have been developed with Java, .NET, Node, PHP, JS, Go, Docker and more. It is designed for developers to upload code and have AWS provision services. It is essentially AWS for beginners.
+
+Lambda - By far the most powerful service. Let's you run code without provisioning or managing servers. You only pay for the compute time. You pay for execution time.
+
+__Storage__
+
+S3 - Object Based Storage as a place to store your flat files in the cloud. It is secure, scalable and durable. You pay for the storage amount.
+
+CloudFront - AWS CDN service. It integrates with other applications. It is an edge location for cacheing files.
+
+Glacier - Low cost storage for long term storage and back up. Up to 4 hours to access it. Think of it as an archiving service.
+
+EFS - Elastic File Storage - used for EC2. NAS for the cloud. Connects up to multiple EC2 instanges. Block level. It is still in preview, and not currently in exams.
+
+Snowball - Import/Export service. It allows you to send in your own hard disks and they will load the data onto the platform using their own internal network. Amazon give you the device and you pay for it daily.
+
+Storage Gateway - The service connecting on-premise storage. Essentially a little VM you run in your office or data centers and replicates AWS.
+
+__Databases__
+
+RDS: Relational Database Services - Plenty of well known platforms.
+
+DynamoDB - NoSQL Database Storage. Comes up a lot in the dev exam.
+
+Elasticache - A way of cacheing the databases in the cloud.
+
+Redshift - Amazon's data warehousing service. Extremely good performance.
+
+DMS: Database Migration Services - Essentially a way of migrating DB into AWS. You can even convert DBs.
+
+__Analytics__
+
+EMR: Elastic Map Reduce - This can come up in the exam. It's a way of processing big data.
+
+Data Pipeline - Moving data from one service to another. Required for pro.
+
+Elastic Search: A managed service that makes it easy to deploy, operate and scale Elastic Search in the AWS cloud. A popular search and analytics option.
+
+Kinesis - Streaming data on AWS. This is a way of collecting, storing and processing large flows of data.
+
+Machine Learning - Service that makes it easy for devs to use machine learning. Amazon use it for things like products you might be interested in etc.
+
+Quick Sight - A new service. It's a business intelligence service. Fast cloud-powered service.
+
+__Security and Identity__
+
+IAM: Identity Access Management - Where you can control your users, groups, roles etc. - multifactor auth etc etc
+
+Directory Service - required to know
+
+Inspector - allows you to install agents onto your EC2 instances. It searches for weaknesses.
+
+WAF: Web App Firewall service - Recent product.
+
+Cloud HSM (Hardware Security Module) - Comes up in the professional exam.
+
+KMS: Key Management Service - Comes up lightly.
+
+__Management Tools__
+
+Cloud Watch - Different metrics you can create
+
+Cloud Formation - Deploying a Wordpress Site. Does an amazing amount of autonomous work for you.
+
+Cloud Trail - A way of providing audit access to what people are doing on the platform. Eg. changes to EC2 instances etc.
+
+OpsWorks - Configuration Management service using Chef. We will create our own OpsWork Stack.
+
+Config - Relatively new service. Fully managed service with a AWS history and change notifications for security and governance etc. Auto checks the configuration of services. Eg. ensure all encrypted services attached to EC2 etc.
+
+Service Catalog - Manage service catalogs approved by AWS.
+
+Trusted Advisor - Does come up in the exam. Automated service that scans the environment and gives way you can be more secure and save money.
+
+__Application Services__
+
+API Gateway - A way to monitor APIs.
+
+AppStream - AWS version of ZenApp. Stream Windows apps from the cloud.
+
+CloudSearch - Managed service on the cloud that makes it manageable for a scale solution and supports multiple languages etc.
+
+Elastic Transcoder - A media transcoding service in the cloud. A way to convert media into a format that will play on varying devices.
+
+SES: Simple Email Service - Transactional emails, marketing messages etc. Also can be used to received emails that can be integrated.
+
+SQS - Decoupling the infrastructure. First service ever launched.
+
+SWF: Simple Workflow Services - Think of when you place an order on AWS, they use SWF so that people in the warehouse can start the process of collecting and sending packages.
+
+__Developer Tools__
+
+CodeCommit - Host secure private .git repositories
+CodeDeploy - A service that deploys code to any instance
+CodePipeline - Continuous Delivery Services for fast updates. Based on code modes you define.
+
+__Mobile Services__
+
+Mobile Hub - Building, testing and running use of phone apps.
+
+Cognito - Save User preference data.
+
+Device Farm - Improve the quality of apps tested against real phones.
+
+Mobile analytics - Manage app usage etc.
+
+SNS: Simple Notification Service - Big topic in the exam. Sending notifications from the cloud. You use it all the time in production.
+
+__Enterprise Apps__
+
+Workspaces - Virtual Desktop in the Cloud
+
+WorkDocs - Fully managed enterprise equivalent to Dropbox etc. (safe and secure)
+
+WorkMail - Amazon's answer to Exchange. Their email service.
+
+__Internet of Things__
+
+Internet of things - 

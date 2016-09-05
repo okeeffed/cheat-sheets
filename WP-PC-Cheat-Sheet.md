@@ -2,6 +2,12 @@
 
 ## WPPRES-1: FAQ
 
+**Q: I'm having a database connection failure through MAMP**
+
+A: Double check the wp_options in the siteurl and home settings and that they correctly match MAMP. If you are on the default MAMP ports, you may need localhost:8888 in both addresses. Also check the wp_config.php file in your text editor to ensure the content URL is also correct.
+
+Also be sure to check your /etc/hosts file to see what address and terms are set up and that you restart the mySQL daemon, MAMP and Sequel Pro. 
+
 **Q: Adjust get_posts posts_per_page for a data["term"] request**
 
 A: Add it as an argument in twig or create a custom function adjusting the posts_per_page. You can pass any get_posts properties as arguments here.
