@@ -194,4 +194,72 @@ WorkMail - Amazon's answer to Exchange. Their email service.
 
 __Internet of Things__
 
-Internet of things - 
+Internet of things - A new service that may become the most important.
+
+***
+
+## AWSCSA-4: Identity Access Management (IAM)
+
+__IAM 101__
+
+It's the best place to start with AWS.
+
+It allows you to manage users and their level of access to the AWS Console. It is important to understand IAM and how it works, both for the exam and for administrating a companies AWS account in real life.
+
+What does IAM give you?
+
+- Centralised control of your AWS account
+- Shared Access to your AWS account
+- Granular permissions
+- Identity Federation (including FB, LinkedIn etc)
+- Multifactor Auth
+- Provide temporary access for users/devices and services where necessary
+- Allows you to set up your own password rotation policy
+- Integrates with many AWS service
+- Supports PCI DSS Compliance
+
+__Critical Terms__
+
+1. User - End Users (people)
+2. Group - A collection of users under one set of permissions
+3. Roles - You create roles and can then assign them to AWS resources
+4. Policies - document that defines permissions. Attach these to the above.
+
+## AWSCSA-5: Identity Access Management Crash Course
+
+Log into IAM.
+
+You'll find the IAM users sign-in link near the top.
+
+- You can customize this sign-in link instead of the number
+
+Go through the Security Status and tick off all the boxes!
+
+__Activate MFA on your root account__
+
+- you can add multifactor auth to secure your root account.
+- select the appropriate device
+
+__Create individual IAM users__
+
+- Currently we'll be logged in as the root account
+- Manage and create the user
+- The keys given are for the command line or API interaction. Download and store.
+- Add a password.
+- By default, users have no permissions.
+- You can use policies to give permissions. Policies in JSON. Attach them to a user.
+- Instead, you can create a group with these policies. Afterwards, you can attach users to the group.
+
+__Apply an IAM password policy__
+
+Manage the password policy.
+
+__Configuring a Role__
+
+It'll make sense when you start using EC2. It's about having resources access other resources in AWS.
+
+Create a role.
+
+_Different Types of Roles_
+
+We'll choose Amazon EC2 for our role. Select S3 full access as your policy for now. 
