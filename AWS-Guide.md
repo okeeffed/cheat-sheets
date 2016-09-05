@@ -194,3 +194,42 @@ shopt -s checkwinsize
 	```
 
 Log out and then log back in to pick up the new nickname value.
+
+## AWS-7: How do I assign a static hostname to a private Amazon EC2 instance running Ubuntu Linux?
+
+The Linux hostname command can be used by administrators to change the hostname of an EC2 Linux instance. If you want the new hostname to persist between instance stops/starts and reboots, you must add the new hostname to the appropriate configuration files on your EC2 Linux instance.
+
+1. Update the /etc/hosts file on your Ubuntu Linux instance with the new hostname, and add IPv6 configuration data if your instance is using IPv6.
+     sudo vim /etc/hosts
+Change the name associated with the IP address 127.0.0.1 to the hostname that you want the instance to use even after a restart or reboot. Typically this involves changing localhost to the new hostname.
+     127.0.0.1    persistent_host_name
+Add the following configuration information to the hosts file if the instance uses IPv6.
+     ::1 ip6-localhost ip6-loopback
+      fe00::0 ip6-localnet
+      ff00::0 ip6-mcastprefix
+      ff02::1 ip6-allnodes
+      ff02::2 ip6-allrouters
+      ff02::3 ip6-allhosts
+Save and exit the vim editor.
+Note
+After making this change, press SHIFT + : [colon] to open a new command entry box in the vim editor. Type wq, and then press Enter to save changes and exit vim.
+
+2. Update the /etc/hostname file on your Ubuntu Linux instance with the new hostname.
+
+```
+sudo vim /etc/hostname
+```
+
+Save and exit the vim editor. You can also use nano.
+
+3. If you have not already done so, run the Linux hostname command and specify the new hostname if you want to begin using the new hostname without restarting.
+
+     `sudo hostname persistent_host_name`
+
+4. The next time that you restart or reboot the EC2 instance, run the Linux hostname command again without any parameters to verify that the hostname change persisted.
+
+     `hostname`
+
+The command should return the new hostname.
+
+     `persistent_host_name`
