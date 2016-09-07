@@ -1,8 +1,6 @@
-EXPRESS BASICS
+# EXPRESS BASICS
 
-/////////////////////////////////////////////////////////
-
-PART 1: GETTING STARTED WITH EXPRESS
+## EXP-1: Getting Started with Express
 
 /****************************
 *							*
@@ -446,9 +444,9 @@ html(lang="en")
         .row
           .col-lg-8.col-lg-offset-2.text-center
             h2.section-heading I like to run!
-            
+
             hr.light
-            
+
             p.text-faded
               | Fanny pack vinyl put a bird on it, small batch viral migas 8-bit meditation Shoreditch keytar health goth bespoke sustainable. Viral you probably haven't heard of them try-hard ennui, pug Thundercats selfies. Normcore cray health goth, umami ennui beard art party skateboard squid distillery.
             .article
@@ -557,7 +555,7 @@ Static files: sent to client as is eg. images etc.
 public dir:
 - Contains other folders:
 	css
-	js 
+	js
 	img etc.
 
 Middleware:
@@ -601,7 +599,7 @@ In the blog...
 res.render('index')
 
 We need files to be in an array from the .json file.
-- eg. 
+- eg.
 
 var postsLists = Object.keys(posts).map(function(value) {
 	return posts[value];
@@ -631,7 +629,7 @@ app.get('/', function(req, res) {
 	var path = req.path;
 	//res.locals.path = path;
 	//res.render('index');
-	
+
 	//OR
 
 	res.render('index', {path: path});
@@ -679,11 +677,3 @@ app.get('/posts', function(req,res) {
 
 To allow to access as a hash:
 - We can have /posts?raw=true
-
-
-
-
-
-
-
-
