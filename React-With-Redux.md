@@ -21,6 +21,8 @@ __Key Imports__
 
 __The flow of how the Application Reacts in Redux__
 
+<img src="./img/react-diagram-1.png" />
+
 1. An interaction calls the `Action Creator`
 2. The `Action Creator` returns an `Action` that is a plain JS Object
 3. The `Action` is automatically sent to all Reducers (through the combineReducers function)
