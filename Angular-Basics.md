@@ -2,7 +2,7 @@
 
 ## JSANG-1: Getting Started with Angular
 
-## -	JSANG-1.1: __Intro to Angular__
+#### -    JSANG-1.1: Intro to Angular
 
 Angular is known for rapid dev cycles and one page apps that are responsive.
 
@@ -118,7 +118,7 @@ angular.module('todoListApp') //no second param, since no new module. It will th
 
 ## JSANG-2: Controllers and Scope
 
-## -	JSANG-2.1: Creating a Controller
+#### -    JSANG-2.1: Creating a Controller
 
 The glue that hold the apps together
 
