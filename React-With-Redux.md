@@ -1,5 +1,176 @@
 # React with Redux
 
+## REDUX-0: Crash Course
+
+__Key Imports__
+
+// used to extend the react Component class
+`import React, { Component } from 'react';`
+
+// used to connect the container/component class, mapStateToProps and
+// the mapDispatchToProps functions
+`import { connect } from 'react-redux';`
+
+// used to pass the result to all the reducers
+`import { bindActionCreators } from 'redux';`
+
+// used to import the combineReducers function in reducers/index.js
+`import { combineReducers } from 'redux';`
+
+***
+
+__The flow of how the Application Reacts in Redux__
+
+1. An interaction calls the `Action Creator`
+2. The `Action Creator` returns an `Action` that is a plain JS Object
+3. The `Action` is automatically sent to all Reducers (through the combineReducers function)
+4. If the property contains a case for that `Action`, the relevant property on `State` set to the value returned by from the `Reducer`
+5. All `Reducers` process the `Action` and return the new `State`. The new `State` has been assembled. The `Containers` are notified of any changes to `State`. On notification, `Containers` will re-render with new props.
+
+***
+
+__src folders__
+
+_actions_
+
+Contains `index.js` which is about exporting functions that are used to update the state.
+
+**_Example: actions/index.js_**
+
+```javascript
+export function selectBook(book) {
+	return {
+		type: 'BOOK_SELECTED',
+		payload: book
+	};
+}
+```
+
+_components_
+
+Contains all the "children" components that do not deal with `Application State`.
+
+Also contains the main `app.js` file that renders the `containers` and `components`.
+
+__*Example: components/app.js*__
+
+```javascript
+import React, { Component } from 'react';
+
+import BookList from '../containers/book-list';
+import BookDetail from '../containers/book-detail';
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+      	<BookList />
+      	<BookDetail />
+      </div>
+    );
+  }
+}
+```
+
+_containers_  
+
+These are the "parent" components that are most significant to changing `Application State`.
+
+In this example, we return a view that shows all the book titles and has an onClick action associated with it.
+
+__*Example: containers/book-list.js*__
+
+```javascript
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+// let's import the action creator
+import { selectBook } from '../actions/index';
+import { bindActionCreators } from 'redux';
+
+class BookList extends Component {
+
+	renderList() {
+		return this.props.books.map((book) => {
+			return (
+				<li
+					key={book.title}
+					onClick={() => this.props.selectBook(book)}
+					className="list-group-item">
+					{book.title}
+				</li>			
+			);
+		});
+	}
+
+	render() {
+		return (
+				<ul className="list-group col-sm-4">
+					{this.renderList()}
+				</ul>
+			)
+	}
+}
+
+function mapStateToProps(state) {
+	// What is returned will show up as props
+	// inside of BookList
+	return {
+		books: state.books
+	};
+
+}
+
+// define our dispatch to props
+// anything returned from this function will end up as props
+// on the BookList container
+function mapDispatchToProps(dispatch) {
+	// Whenever selectBook is called, the result should be passed
+	// to all of our reducers
+	return bindActionCreators({ selectBook: selectBook }, dispatch);
+}
+
+// add the dispatch as the second argument!
+// Promote bookList from component to container, so it needs to know
+// about this new dispatch method, selectBook. Make it available
+// as a prop
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+```
+
+_reducers_
+
+Deal with the data and how the state is handled.
+
+Contains index.js that combines all the reducers and the other reducer files.
+
+__*Example: reducers/index.js*__
+
+```javascript
+import { combineReducers } from 'redux';
+import BooksReducer from './reducer_books.js';
+import ActiveBook from './reducer_active_book.js';
+
+const rootReducer = combineReducers({
+  books: BooksReducer,
+  activeBook: ActiveBook
+});
+
+export default rootReducer;
+```
+
+__*Example: reducers/reducer_active_books.js*__
+
+```javascript
+export default function(state = null, action) {
+	switch(action.type) {
+		case 'BOOK_SELECTED':
+			return action.payload;
+	}
+
+	return state;
+}
+```
+
 ## REDUX-1: Modelling Application State
 
 Inherently difficult in terms of the concept.
@@ -40,3 +211,597 @@ Controller Views
 3. ConversationList
 4. TextItem (individual message)
 5. TextList (list of chat messages)
+
+## REDUX-2: Reducers
+
+`npm start` from the ReduxSimpleStarter
+
+#### ---- REDUX-2.1: What is a Reducer?
+
+A function that returns the state.
+
+One reducer would be responsible for each function that returns an Application State.
+
+For example, if we're looking at a list of books where one is currently selected, we are then looking to have two reducers.
+
+The important thing is the value of the state.
+
+Key of state, value of state. That's the pairing.
+
+{
+	// Books Reducer
+
+	books: [
+		{
+			title: 'Harry Potter'
+		},
+		{
+			title: 'JavaScript'
+		}
+	],
+
+	// ActiveBook Reducer
+	activeBook: {
+		title: 'JavaScript: The Good Parts'
+	}
+}
+
+We want a function to produce these states.
+
+__In src/reducers/__, we'll create a reducer file "reducer_books.js"
+
+```javascript
+export default function() {
+	return [
+		{ title: 'Book 1' },
+		{ title: 'Book 2' },
+		{ title: 'Book 3' },
+		{ title: 'Book 4' }
+	]
+}
+```
+
+Step 1 - Create the reducer is now done. Now, Step 2 - we want to re-wire the reducer.
+
+__reducers/index.js__
+
+```javascript
+import { combineReducers } from 'redux';
+
+//import in the file
+import BooksReducer from './reducer_books.js';
+
+const rootReducer = combineReducers({
+ 	// wire BooksReducer to books
+ 	books: BooksReducer
+});
+
+export default rootReducer;
+
+```
+
+#### ---- REDUX-2.2: Containers - Connecting Redux to React
+
+__In components/book-list.js__
+
+```javascript
+import React, { Component } from 'react';
+
+export default class BookList extends Component {
+
+	renderList() {
+		return this.props.books.map((book) => {
+			return (
+				<li key={book.title} className="list-group-item">{book.title}</li>
+			);
+		});
+	}
+
+	render() {
+		return (
+				<ul className="list-group col-sm-4">
+					{this.renderList()}
+				</ul>
+			)
+	}
+}
+```
+
+Combining React and Redux is done with a library called react-redux
+
+To make use of that library, we define one of our components as a __container__.
+
+To separate components and containers, we create a container directory.
+
+Cut and move the file into the containers folder!
+
+__Now in containers/book-list.js__
+
+```javascript
+import React, { Component } from 'react';
+
+export default class BookList extends Component {
+
+	renderList() {
+		return this.props.books.map((book) => {
+			return (
+				<li key={book.title} className="list-group-item">{book.title}</li>
+			);
+		});
+	}
+
+	render() {
+		return (
+				<ul className="list-group col-sm-4">
+					{this.renderList()}
+				</ul>
+			)
+	}
+}
+```
+
+How do we decide what becomes a container and what stays as a component? It varies. The most parent component that cares about a particular state should become a container.
+
+The app component should be a "dumb component".
+
+__Remember: Only the most parent component should become the container__
+
+#### ---- REDUX-2.3: Implementation of a container class
+
+__in app.js__
+
+```javascript
+import React, { Component } from 'react';
+
+import BookList from '../containers/book-list';
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+      	<BookList />
+      </div>
+    );
+  }
+}
+```
+
+Back in containers/book-list, ensure that you have imported react-redux.
+
+The function mapStateToProps(state) {} will use the function map the state to the props.
+
+The connect function is what will be used to connect all of this.
+
+`connect(arg)(state)`
+
+```javascript
+import React, { Component } from 'react';
+
+// importing connect
+import { connect } from 'react-redux';
+
+class BookList extends Component {
+
+	renderList() {
+		return this.props.books.map((book) => {
+			return (
+				<li key={book.title} className="list-group-item">{book.title}</li>
+			);
+		});
+	}
+
+	render() {
+		return (
+				<ul className="list-group col-sm-4">
+					{this.renderList()}
+				</ul>
+			)
+	}
+}
+
+// mapping the state to props
+function mapStateToProps(state) {
+	// What is returned will show up as props
+	// inside of BookList
+	return {
+		books: state.books
+	};
+
+}
+
+export default connect(mapStateToProps)(BookList);
+```
+
+Whenever the app state changes, our container will automatically re-render. The object in the state function will assigned as the prop.
+
+__Containers and Reducers Review__
+
+1. We promoted a component to a container
+2. Redux serves to produce the state, React shows the state
+3. App state is produced by reducer functions
+
+***
+
+## REDUX-3: Actions and Action Containers
+
+Currently, the books reducer ALWAYS brings back the same books. We don't want this. We want an "active" book.
+
+Actions and Action Creators solve this.
+
+Example: A user clicks on the Book List at Book #2
+
+The event starts with an "action" eg. AJAX, clicks, hovers etc. This creates the action creator.
+
+1. The click calls the action creator
+
+The function will return an object.
+
+```javascript
+function(
+	return {
+		type: BOOK_SELECTED
+		// the book here is the payload
+		book: { title: 'Book 2' }
+	}
+)
+```
+
+2. Action creator returns an action
+
+```javascript
+{
+	type: BOOK_SELECTED
+	book: { title: 'Book 2' }
+}
+```
+
+3. Action automatically send to all reducers
+
+This is sent to all of our reducers.
+
+Reducers don't have to react, so it just returns the currentState and there are no changes.
+
+```javascript
+// in the ActionBook Reducer
+
+switch (action.type) {
+	case BOOK_SELECTED
+		return actionBook
+	default
+		// do nothing
+		return currentState
+}
+```
+
+4. activeBook property on the state set to the value returned fom the active book reducer
+
+```javascript
+{
+	activeBook: { title: 'JS '}
+	books: [
+		{
+			title: 'dark'
+		},
+		{
+			title: 'JS'
+		}
+	]
+}
+```
+
+5. All reducers processed the action and returned new state. New state has been assembled. Notify containers of the changes to state. On notification, containers will re-render with new props.
+
+#### ---- REDUX-3.1: Binding Action Creators
+
+__In actions/index.js__
+
+- Export the function to make use of the action creator in other parts of the function.
+
+```javascript
+export function selectBook(book) {
+	console.log('A book has been selected: ', book.title);
+}
+```
+
+__In containers/book-list.js__
+
+We are going to bind this action to the component.
+
+We call the function mapDispatchToProps with the return bindActionCreators() to say that we know we're going to call this at some stage and we want the result to flow through the `dispatch` function which will pass it to all of our Reducers.
+
+```javascript
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+// let's import the action creator
+import { selectBook } from '../actions/index';
+import { bindActionCreators } from 'redux';
+
+class BookList extends Component {
+
+	renderList() {
+		return this.props.books.map((book) => {
+			return (
+				<li key={book.title} className="list-group-item">{book.title}</li>
+			);
+		});
+	}
+
+	render() {
+		return (
+				<ul className="list-group col-sm-4">
+					{this.renderList()}
+				</ul>
+			)
+	}
+}
+
+function mapStateToProps(state) {
+	// What is returned will show up as props
+	// inside of BookList
+	return {
+		books: state.books
+	};
+
+}
+
+// define our dispatch to props
+// anything returned from this function will end up as props
+// on the BookList container
+function mapDispatchToProps(dispatch) {
+	// Whenever selectBook is called, the result should be passed
+	// to all of our reducers
+	return bindActionCreators({ selectBook: selectBook }, dispatch);
+}
+
+// add the dispatch as the second argument!
+// Promote bookList from component to container, so it needs to know
+// about this new dispatch method, selectBook. Make it available
+// as a prop
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+```
+
+#### ---- REDUX-3.2: Creating an Action
+
+__In containers/book-list.js__
+
+Whenever a user clicks on a line item for a particular book, we want an action.
+
+If we add a click handler, we can create this.
+
+Use the console log to see the results from this!
+
+```javascript
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+// let's import the action creator
+import { selectBook } from '../actions/index';
+import { bindActionCreators } from 'redux';
+
+class BookList extends Component {
+
+	renderList() {
+		return this.props.books.map((book) => {
+
+			// ACTION - add in the onClick function
+			return (
+				<li
+					key={book.title}
+					onClick={() => this.props.selectBook(book)}
+					className="list-group-item">
+					{book.title}
+				</li>
+			);
+		});
+	}
+
+	render() {
+		return (
+				<ul className="list-group col-sm-4">
+					{this.renderList()}
+				</ul>
+			)
+	}
+}
+
+function mapStateToProps(state) {
+	// What is returned will show up as props
+	// inside of BookList
+	return {
+		books: state.books
+	};
+
+}
+
+// define our dispatch to props
+// anything returned from this function will end up as props
+// on the BookList container
+function mapDispatchToProps(dispatch) {
+	// Whenever selectBook is called, the result should be passed
+	// to all of our reducers
+	return bindActionCreators({ selectBook: selectBook }, dispatch);
+}
+
+// add the dispatch as the second argument!
+// Promote bookList from component to container, so it needs to know
+// about this new dispatch method, selectBook. Make it available
+// as a prop
+export default connect(mapStateToProps, mapDispatchToProps)(BookList);
+```
+
+__in actions/index.js__
+
+Change the result from console.log to whatever you want!
+
+```javascript
+export function selectBook(book) {
+	// selectBook is an action creator! Return an action.
+	// this is an object with a property type
+	return {
+		type: 'BOOK_SELECTED',
+		payload: book
+	};
+}
+```
+
+#### ---- REDUX-3.3: Consuming Actions in Reducers
+
+The result of the action container is automatically being sent to our reducers because of the dispatch.
+
+Let's now create a new reducer to show our active book!
+
+For the switch case, you must ALWAYS return a value. Set state = null for if the state is undefined.
+
+__after creating reducers/reducer_active_book.js__
+
+```javascript
+// State argument is not application state, just the state
+// that this reducer is responsible for
+export default function(state = null, action) {
+	switch(action.type) {
+		case 'BOOK_SELECTED':
+			return action.payload;
+	}
+
+	return state;
+}
+```
+
+__in reducers/index.js__
+
+Let's now import the new reducer.
+
+Remember, any key we pass into this comes back as a key to a global state.
+
+```javascript
+import { combineReducers } from 'redux';
+import BooksReducer from './reducer_books.js';
+
+// new reducer
+import ActiveBook from './reducer_active_book'
+
+const rootReducer = combineReducers({
+  books: BooksReducer,
+  activeBook: ActiveBook
+});
+
+export default rootReducer;
+```
+
+__Let's see how this now works__
+
+Do we want a component or a container? The app doesn't really care about the active book. So, this book detail view/component should be a container.
+
+__create containers/book-detail.js__
+
+```javascript
+import React, { Component } from 'react';
+
+export default class BookDetail extends Component {
+	render() {
+		return (
+			<div>Book Details!</div>
+		);
+	}
+}
+```
+
+__import this into components/app.js__
+
+```javascript
+import React, { Component } from 'react';
+
+import BookList from '../containers/book-list';
+import BookDetail from '../container/book-detail';
+
+export default class App extends Component {
+  render() {
+    return (
+      <div>
+      	<BookList />
+		<BookDetail />
+      </div>
+    );
+  }
+}
+```
+
+Now we start connecting everything up!
+
+```javascript
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+class BookDetail extends Component {
+	render() {
+		return (
+			<div>Book Details!</div>
+		);
+	}
+}
+
+function mapStateToProps(state) {
+	return {
+		// activeBook from our activeBook pierce of state
+		// in reducers/index.js in the combineReducers
+		book: state.activeBook;
+	};
+}
+
+export default connect(mapStateToProps)(BookDetail);
+```
+
+#### ---- REDUX-3.4: Conditional Rendering
+
+__in containers/book-detail.js__
+
+```javascript
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+class BookDetail extends Component {
+	render() {
+		if (!this.props.book) {
+			return <div>Select a book to begin</div>
+		}
+
+		return (
+			<div>
+				<h3>Details for:</h3>
+				<div>{this.props.book.titile}</div>
+			</div>
+		);
+	}
+}
+
+function mapStateToProps(state) {
+	return {
+		// activeBook from our activeBook pierce of state
+		// in reducers/index.js in the combineReducers
+		book: state.activeBook;
+	};
+}
+
+export default connect(mapStateToProps)(BookDetail);
+```
+
+An action comes through, but we don't know what that is yet. So when the app first boots up, it will always currently be `null`.
+
+What we will do, is add an initial check in the BookDetail class. We can run a conditional check with `if (!this.props.book)` Then, we can render an initial view!
+
+The idea is that the application is now malleable enough to start adding things like extra book details etc.
+
+#### ---- REDUX-3.5: Redux intro review
+
+Things to take away:
+
+- Redux is entirely responsible for the Application State
+	- Component State is still separate from our Application state, so you could still use setState in the components.
+	- Reducers form the application state. Everything gets combined together in the combineReducers function.
+	- Reducers are in charge of changing the Application State over time using actions. All actions flow through all the reducers and they react depending on what has been set for them to react to.
+
+- Actions and action creators
+	- Action creators are just functions that return an action
+	- An action is just a plain JS object
+	- Must have a type defined. Normally has payload as convention for what it is passing along.
