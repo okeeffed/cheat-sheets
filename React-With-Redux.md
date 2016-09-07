@@ -4,18 +4,20 @@
 
 __Key Imports__
 
+```javascript 
 // used to extend the react Component class
-`import React, { Component } from 'react';`
+import React, { Component } from 'react';
 
 // used to connect the container/component class, mapStateToProps and
 // the mapDispatchToProps functions
-`import { connect } from 'react-redux';`
+import { connect } from 'react-redux';
 
 // used to pass the result to all the reducers
-`import { bindActionCreators } from 'redux';`
+import { bindActionCreators } from 'redux';
 
 // used to import the combineReducers function in reducers/index.js
-`import { combineReducers } from 'redux';`
+import { combineReducers } from 'redux';
+```
 
 ***
 
