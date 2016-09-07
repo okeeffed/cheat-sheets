@@ -2,7 +2,7 @@
 
 ## JSANG-1: Getting Started with Angular
 
-#### -    JSANG-1.1: Intro to Angular
+#### ---- JSANG-1.1: Intro to Angular
 
 Angular is known for rapid dev cycles and one page apps that are responsive.
 
@@ -26,7 +26,7 @@ App can even send data back to the server.
 
 Other examples: Backbone, Ember.
 
-__Nuts and Bolts of Angular__
+#### ---- JSANG-1.2: Nuts and Bolts of Angular
 
 _Four main concepts:_
 1. Templates/Views
@@ -53,7 +53,7 @@ QUESTIONS
 
 A: False
 
-__3. Setting up your first Angular App__
+#### ---- JSANG-1.3: Setting up your first Angular App
 
 CDN for Angular: <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
 
@@ -69,7 +69,7 @@ angular.module("todoListApp", []); //array defines the dependencies
 <body ng-app="todoListApp"> //tells angular where to bootstrap
 ```
 
-__4. Your first custom directive__
+#### ---- JSANG-1.4: Your first custom directive
 
 in the Angular set up so far...
 
@@ -118,7 +118,7 @@ angular.module('todoListApp') //no second param, since no new module. It will th
 
 ## JSANG-2: Controllers and Scope
 
-#### -    JSANG-2.1: Creating a Controller
+#### ---- JSANG-2.1: Creating a Controller
 
 The glue that hold the apps together
 
@@ -126,6 +126,7 @@ To create the controller, we use the controller method in app.js
 
 //scripts/app.js
 
+```javascript
 angular.module("todoListApp", [])
 .controller("mainCtrl", function($scope) {
 	//to us controller, you need to inject with ng-controller in html
@@ -140,26 +141,18 @@ angular.module("todoListApp", [])
 	<a href="" ng-click="helloWorld()">Save</a> //fires the ctrl function
 	...
 </div>
+```
 
 "Injecting a controller": Use the controller here.
 
-/****************************
-*							*
-  6. Tools to make you an
-  		Angular Pro
-*							*
-****************************/
+#### ---- JSANG-2.2: Tools to make you an Angular Pro
 
 2 Angular Chrome Plugins
 
 ng-inspector
 AngularJS Batarang
 
-/****************************
-*							*
-   7. Understanding Scope
-*							*
-****************************/
+#### ---- JSANG-2.3: Understanding Scope
 
 Scope works with prototypical inheritance
 - best practise not to use $rootScope
@@ -170,17 +163,11 @@ helloWorld() now is defined by the closest scope! Ctrl only inherits if it is no
 Only flows from parent to child.
 Sibling controllers do not have access to other scopes.
 
+***
 
-/////////////////////////////////////////////////////////
+## JSANG-3: Using Angular's Built In Directives
 
-PART 3: Using Angular's Built In Directives
-
-/****************************
-*							*
-   8. Adding Data to Your
-   	  App Using ng-model
-*							*
-****************************/
+#### ---- JSANG-3.1: Adding Data to Your App Using ng-model
 
 Helps a lot out of the box.
 
@@ -213,19 +200,17 @@ Inside label...
 - todo.name = $scope.todo.name
 - ng-model used on <input>
 
-/****************************
-*							*
-     9. Using ng-click
-*							*
-****************************/
+#### ---- JSANG-3.2: Using ng-click
 
 ng-click="editing = !editing" //can be used with any elements as an attribute
 
 ng-hide="editing" //in the appropriate element
 ng-show="editing"
 
+
 //index.html
 
+```xml
 <!doctype html>
 <html lang="en">
 <head>
@@ -251,64 +236,60 @@ ng-show="editing"
   <script src="scripts/app.js"></script>
 </body>
 </html>
+```
 
-/****************************
-*							*
-     9. Using ng-repeat
-     to inject HTML for
-     every data element
-*							*
-****************************/
+#### ---- JSANG-3.3: Using ng-repeat to inject HTML for every data element
 
 Paste array and check if within scope.
 
+```xml
 <div ng-repeat="todo in todos">
 ...
 </div>
+```
 
 Each item makes each unique item from repeat.
 The directives and controller data also repeats with new scopes.
 
-/****************************
-*							*
-     10. Using ng-blur
-     	and ng-class
-*							*
-****************************/
+#### ---- JSANG-3.4: Using ng-blur and ng-class
 
 NG-BLUR
 - ng-blur is fired during click actions.
 
 in the input...
 
+```xml
 <input ng-blur="editing = false;" ng-show="editing" ng-model="todo.name" class="editing-label" type="text"/> //false because it only goes one way
+```
 
 NG-CLASS
 - this is for the CSS to apply when scope it in editing mode
 
+```javascript
 ng-class="{'editing-item': editing}" //class is editing-item
+```
 
-/****************************
-*							*
-    11. NG-change to set
-     	Data State
-*							*
-****************************/
+#### ---- JSANG-3.5: NG-change to set Data State
 
 //fires any time the value of the input changes
 
+```javascript
 ng-change="learningNgChange()" //scope function
 
-in the controller...
+// in the controller...
 $scope.learningNgChange = function() {
 	console.log("Input change");
 };
 
 //making the directive useful
 ng-change="todo.edited = true"
+```
 
-CHALLENGE:
+***
 
+__CHALLENGE__
+
+```xml
 <!doctype html>
 <html lang="en">
 <head>
@@ -336,18 +317,13 @@ CHALLENGE:
   <script src="scripts/app.js"></script>
 </body>
 </html>
+```
 
+***
 
+## JSANG-4: Services in Angular
 
-/////////////////////////////////////////////////////////
-
-PART 4: Services in Angular
-
-/****************************
-*							*
-   12. What are services?
-*							*
-****************************/
+#### ---- JSANG-4.1: What are services?
 
 Services used for dependency injection.
 
@@ -355,6 +331,7 @@ Multiple controllers can use the service is declared as a dependency.
 
 Useful for many things eg. REST API etc
 
+```javascript
 //in app.js
 
 .service("dataService", function() {
@@ -375,17 +352,14 @@ Useful for many things eg. REST API etc
 	... //info
 
 });
+```
 
-/****************************
-*							*
-   13. Using Services to
-   		  get data
-*							*
-****************************/
+#### ---- JSANG-4.2: Using Services to get data
 
 Request fake data from a server.
 - put a todo list in another file: mock/todos.json
 
+```javascript
 //in app.js
 
 .controller("mainCtrl", function($scope, dataService) {
@@ -412,14 +386,11 @@ Request fake data from a server.
 	}
 
 });
+```
 
-/****************************
-*							*
-   14. Using Services to
-   	save and delete data
-*							*
-****************************/
+#### ---- JSANG-4.3: Using Services to save and delete data
 
+```javascript
 //in app.js
 
 .controller("mainCtrl", function($scope, dataService) {
@@ -468,21 +439,19 @@ Request fake data from a server.
 	};
 
 });
+```
 
-/****************************
-*							*
-   15. Creating new data
-   in the UI and Saving
-   	  with a Service
-*							*
-****************************/
+#### ---- JSANG-4.4: Creating new data in the UI and Saving with a Service
 
+```xml
 //in index/html
 
 <div class="add">
 	<a href="">Add a New Task</a>
 </div>
+```
 
+```javascript
 //in app.js
 
 .controller("mainCtrl", function($scope, dataService) {
@@ -547,17 +516,13 @@ angular.module('foobar', [])
      console.log("This is my service!");
   }
 });
+```
 
-/////////////////////////////////////////////////////////
+***
 
-PART 5: Improving Our Todo App
+## JSANG-5: Improving Our Todo App
 
-/****************************
-*							*
-   16. Scaffolding our
-   			App
-*							*
-****************************/
+#### ---- JSANG-5.1: Scaffolding our App
 
 - small application so far
 - more controllers and services
@@ -565,6 +530,7 @@ PART 5: Improving Our Todo App
 For managing, we scaffold:
 - for small apps, all controllers, directories and services in different folders
 
+```javascript
 main.js //controllers folder -> main controller
 
 'use strict'; //interpreted in strict mode
@@ -583,19 +549,16 @@ Make sure you load the scripts!
 
 angular.module("todoListApp")
 .service(...)
+```
 
 App.js may appear empty
 - other things can be configured and set up here
 
-/****************************
-*							*
-   17. Using Filters for
-   		 ng-repeats
-*							*
-****************************/
+#### ---- JSANG-5.2: Using Filters for ng-repeats
 
 ng-repeat saves a ton of time, but we need complete UI states etc.
 
+```
 Adds complete class when todo.completed = true
 ng-class="{..., "complete": todo.completed}
 
@@ -605,15 +568,11 @@ ng-repeat="todo in todos | orderBy: 'completed'" //sets or using the pipe
 
 ng-repeat="todo in todos | orderBy: 'completed' : true"
 ng-init="todo.completed = false" //only used with ng-repeat
+```
 
 Need to also make sure that in the controller, we have unshift instead of push for the array.
 
-/****************************
-*							*
-    18. Custom directive
-   		 for todos
-*							*
-****************************/
+#### ---- JSANG-5.3: Custom directive for todos
 
 Remove todos and create custom directive <todos></todos>
 - name file the same as directive
@@ -621,6 +580,8 @@ Remove todos and create custom directive <todos></todos>
 Create templates/todos.html
 
 Create scripts/directives/todos.js
+
+```javascript
 angular.module("todoListApp")
 .directive('todos' function() {
 	return {
@@ -629,21 +590,18 @@ angular.module("todoListApp")
 		replace: true
 	}
 });
+```
 
 To get rid of directive tags, use the replace key.
 
-/****************************
-*							*
-    19. Finalising the
-    		App
-*							*
-****************************/
+#### ---- JSANG-5.4: Finalising the App
 
 - adding a save all function
 - ng-click and start editing
 
 for the save in main.js...
 
+```javascript
 .controller(... function() {
 
 	...
@@ -658,6 +616,7 @@ for the save in main.js...
 	}
 
 })
+```
 
 QUESTIONS
 
