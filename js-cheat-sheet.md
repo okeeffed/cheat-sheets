@@ -109,6 +109,12 @@ checkStorageSupport: function () {
 }
 ```
 
+### JS Find Active Element 
+
+```javascript
+document.activeElement
+```
+
 ## JAVSCRIPT BASIC OBJECT
 
 ```javascript

@@ -54,6 +54,18 @@ Inline Style
 }
 ```
 
+### CSS Outline
+
+```css
+outline: outline-color outline-style outline-width|initial|inherit;
+```
+
+### CSS find active element 
+
+```javascript
+document.activeElement
+```
+
 ### CSS General
 
 Class				String preceded by a period
@@ -138,4 +150,4 @@ border-color	Color of the border
 
 ### Setting a default browser outline
 
-outline 
+outline

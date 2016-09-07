@@ -383,3 +383,17 @@ $('.hero .toggle').on('click', function (e) {
 			}
 		});
 ```
+
+### JQ-42: Wait for a transition to finish
+
+```javascript
+/* =================================
+  Load JavaScript after Transition
+==================================== */
+
+map.$elem.toggleClass('-active').one("transitionend webkitTransitionEnd oTransitionEnd MSTransitionEnd", function () {
+	if (!map.map) {
+		map.initMap();
+	}
+});
+```

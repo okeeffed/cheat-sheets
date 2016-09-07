@@ -225,7 +225,7 @@ __Critical Terms__
 3. Roles - You create roles and can then assign them to AWS resources
 4. Policies - document that defines permissions. Attach these to the above.
 
-## AWSCSA-5: Identity Access Management Crash Course
+## AWSCSA-5: IAM - Identity Access Management Crash Course
 
 Log into IAM.
 
@@ -262,4 +262,48 @@ Create a role.
 
 _Different Types of Roles_
 
-We'll choose Amazon EC2 for our role. Select S3 full access as your policy for now. 
+We'll choose Amazon EC2 for our role. Select S3 full access as your policy for now.
+
+## AWSCSA-6: S3 Crash Course
+
+S3 provides developer and IT teams with secure, durable, highly-scalable object storage.
+
+It's easy to use, has a simple web services interface to store and retrieve any amount of data from anywhere on the web. Think of a hard drive on the web.
+
+- Data is stored across multiple devices and facilities. It's built for failure.
+- Not a place for databases etc. you need block storage for that.
+- Files from 1 byte to 5TB. You can store up to the petabyte if you wanted to.
+- Files are stored in buckets - like the directories.
+- When you create a bucket, you are reserving that name.
+- Read after Write consistency for PUTS of new objects
+- Eventual Consistency for overwrite PUTS and DELETES (can take some time to propagate)
+
+__S3 is a key, value store__
+
+- You have your "key" - the name of the object
+- You have your value - simply the data and is made up of a sequence of bytes
+- You have the version ID (important for versioning)
+- Metadata (data about the data)
+- Subresources
+- Access Control Lists
+
+__The basics__
+
+- It guarantees 99.99% availability.
+- 11 9's durability for S3 info.
+- Tiered Storage available
+- Lifecycle Management
+- Versioning
+- Encryption
+- Secure through access control lists and bucket policies
+
+__S3 Storage Tiers/Classes__
+
+1. S3 - Normal
+2. S3 IA (Infrequently Accessed) - retrieval fee
+3. RRS - Reduced Redundancy Storage. Great for objects that can be lost.
+4. Glacier - Very cheap, but 3-5 hours to restore from Glacier! As low $0.01 per gigabytes per month
+
+S3 is charged for the amount of storage, the number of requests and data transfer pricing.
+
+Not a place to upload an OS or a database. 
