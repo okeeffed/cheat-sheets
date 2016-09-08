@@ -649,8 +649,6 @@ __In Images__
 <img src="https://d1din05d4116wx.cloudfront.net/aws-csa/ec2-create-key.png" />
 <img src="https://d1din05d4116wx.cloudfront.net/aws-csa/ec2-dashboard.png" />
 
-
-
 ***
 
 Initially, there will be no instances etc. except for 1 Security Group.
@@ -718,3 +716,293 @@ __Review__
 - The default action for an EBS-backed instance is to be deleted.
 - Root Volumes cannot be encrypted by default. You need a third party tool.
 - Additional Volumes can be encrypted.
+
+#### ---- AWSCSA-12.4: Security Groups Basics
+
+Go to the EC2 section in the AWS console and select Security Groups.
+
+You can edit Security Groups on the fly that takes effect immediately.
+
+__In terminal__
+
+1. SSH in
+2. Turn to root
+3. Install apache `yum install httpd -y`
+
+We check the server status using `service httpd status`
+
+_To enable the server_ - use `service httpd start`
+
+_To auto start up_ - use `chkconfig httpd on`
+
+For everything that is publicly accessible, we move in `/var/www/html`
+
+Feel free to nano a website and test it out. We can see the website by navigating to `52.65.112.142` on a web browser.
+
+__Note:__ You need to ensure that HTTP access is allowed from anywhere on your security group! You can only allow rules, not deny rules.
+
+If we were to delete the _Outbound_ traffic, it won't change anything just yet as it is "stateful". If something can go in, it can also go back out.
+
+#### ---- AWSCSA-12.5: Volumes VS Snapshots + Creating From Snapshots
+
+- Volumes exist on EBS
+	- Virtual Hard Disk
+- Snapshots exist on S3
+- You can take a snapshot of a volume, this will store that volume on S3
+- Snapshots are point in time copies of Volumes
+- Snapshots are incremental, this means that only the blocks that have changed since your last snapshot are moved to S3.
+- If this is the first snapshot, it may take some time to create.
+
+From the EC2 Dashboard, you can select "Volumes" and then set a name for the volume. It is best practice to name your volumes.
+
+You can `Create Volumes` and set them available.
+
+<img src="https://d1din05d4116wx.cloudfront.net/aws-csa/ec2-volume-dashboard.png" />
+
+You can use `Actions` to attach this to an `Instance`
+
+To check what volumes are attached to an instance, you can run the following from the command line: `lsblk` (think list block)
+
+The first thing we generally want to do is to check if there is any data on it.
+
+`file -s /dev/xvdf` for this particular example.
+
+__Format the volume__
+
+```
+mkfs -t ext4 /dev/xvdf
+```
+
+Now we want to make a fileserver directory.
+
+```
+mkdir /fileserver
+mount /dev/xvdf /fileserver
+cd /fileserver
+ls // shows lost+found
+rm -rf lost+found/
+ls
+nano helloworld.txt
+nano index.html
+
+# now let's unmount the volume
+cd ..
+umount /dev/xvdf
+cd /fileserver
+# check there are no files
+ls
+```
+
+Now go ahead and detach that volume. This will change the state back to available.
+
+__Create a snapshot__
+
+Select Action > Create Snapshot and fill in the details and select `Create`
+
+You can select Snapshot on the left and check the Snapshot is there. If you delete the volume, and then go back to the snapshot, you can select it and go to actions and you can create a new volume and create it with this Snapshot.
+
+We can then `attach` the new volume. Now we can go through the above process and mount again.
+
+Using the command `file -s /dev/xvdf` we can check the files available.
+
+__Security__
+
+Snapshots of encrypted volumes are encrypted automatically.
+
+You can share Snapshots if they are unencrypted.
+
+To create a snapshot for Amazon EBS volumes that serve as root devices, you should stop the instance before taking the snapshot.
+
+## AWSCSA-13: Create an Amazon Machine Image (AMI)
+
+You specify the AMI you want when you launch an instance, and you can launch as many instances from the AMI as you need.
+
+__Three Components__
+
+1. A template for the root volume for the instance
+2. Launch permissions that control which AWS accounts can use the AMI to launch instances
+3. A block device mapping that specifies the volumes to attach to the instance when it's launched
+
+If you have a running instance (from before), we can create a snapshot of the volume that is attached to that instance.
+
+From here, we can select that Snapshot and select "Create Image". Set the name and choose settings, then select create.
+
+Under the Images > AMIs on the left hand bar, you can see the images owned by you and the public image. You can share these AMIs if you know the AWS Account Number.
+
+If you are looking to make a public AMI, there are a few things that you would like to consider. Check the website for that.
+
+There is also a segment for Shared usage.
+
+You will also want to delete you bash history.
+
+`history -c`
+
+__Summary__
+
+- The snapshot is stored in S3.
+- AMIs are regional. You can copy them to other regions, but you need to do this with the console or the command line.
+
+## AWSCSA-13.1: EBS root volumes vs Instance Store
+
+What is the difference between AMI types?
+
+EBS backed and Instance Store backed are two different types.
+
+We can select our AMI based on Region, OS, Architecture, Launch Permissions and Storage for the Root Device.
+
+You can choose...
+	- Instance Store
+	- EBS Backed Volumes
+
+When launching an instance, it will also mention what type of AMI type it is.
+
+After IS have been launched, you can only add additional EBS from then on.
+
+You cannot stop an IS. However, with EBS, you can. So why would I want to stop an instance? If the underlining hypervisor is in a failed state, you can stop and start and it will start on another hypervisor. However, you cannot do that on an IS. You also cannot detach. Better for provisioning speed times.
+
+IS volumes are created from a template stored in S3 (and may take more time). Also know as Ephemeral Storage.
+
+EBS you can tell to keep the root device volume if you so wish.
+
+## AWSCSA-14: Load Balancer and Health Checks
+
+In the terminal
+
+```
+cd /var/www/html
+```
+
+Now head back to the console for EC2. Head to the load balancer section.
+
+Leave the other defaults and move on to choose the security groups.
+
+Configure the health check, which will use the `healthcheck.html` file.
+
+Under the Adv Settings:
+
+The Check will hit the file. The unhealthy thresh hold will check twice before bringing in the load balancer. The healthy threshold will then wait for 10 successful checks before bringing back our service.
+
+_Repose Timeout_: How long to check for the response
+_Interval_: How often to check
+_Unhealthy Threshold_: How many fails before the load balancer comes in.
+_Healthy Threshold_: How many successes it needs to take load balancer off.
+
+Move on and select the instance.
+
+Move on and add tags.
+
+Back on the dashboard, it should then come `InService` after the given time limit.
+
+If this isn't working...
+
+1. Check the website
+2. Check the zone status
+3. Ensure the web server is running
+
+The DNS name in the information is what you will use to resolve the load balancer.
+
+The Elastic Load Balancer is never given a static IP address. You have public instance static IPs, but not the ELB.
+
+## AWSCSA-15: CloudWatch for EC2
+
+CloudWatch looks after all of your obervations for things like CPU usage etc.
+
+You can set up detailed monitoring from the instances.
+
+__In CloudWatch__
+
+We have Dashboards, Alarms, Events, Logs and Metrics.
+
+_Metrics_ are added to our dashboards. Create a dashboard to check this.
+
+EC2 metrics are only on a Hypervisor level. Memory itself is actually missing.
+
+EC2 Metrics include CPU, Disk, Network and Status.
+
+You can update the time frame on the top right hand side.
+
+This whole thing is about being to keep a heads up on the different instances etc.
+
+__Events__
+
+CW Events help you react to changes in the state of the AWS environment. Auto invoke things like a AWS Lambda function to update DNS entries for that event.
+
+__Logs__
+
+You can store an agent on an EC2 instance and it will monitor data about that and send it to CloudWatch. These will be things like HTTP response codes in Apache logs.
+
+__Alarms__
+
+Eg. When CPUUtilization is higher than a certain amount.
+
+You can then send actions to send emails.
+
+You can select the Period and Statistics on how you want this to work etc.
+
+__Summary__
+
+- Standard memory is on by default at 5 minutes.
+- You can have dashboards that tell you about the environment
+- Set alarms and take actions
+- Events help you respond to state changes in your AWS resources
+- Logs can be used to help aggregate, monitor and store logs
+
+## AWSCSA-16: The AWS Command Line
+
+Create a new instance without an IAM role.
+
+You can use an existing key pair if you wish.
+
+If we create a new user in IAM with certain permissions. After downloading the keys for this new user, we can create a group that has full access for S3.
+
+Back on the EC2, we can see on the dashboard a running instance that has no IAM role. You can only assign this role when you create this instance.
+
+Then, after connecting to the instance in the terminal.
+
+Jump up to `root` using `sudo su`.
+
+Then we can use the AWS command line tool to check certain things. Ensure that you have the AWS CLI installed.
+
+We can configure things from here.
+
+```
+aws configure
+```
+
+If it needs the Access Key ID and Access Key, then copy and paste it in. Then choose the default region. You do not to put anything for the output format.
+
+We can retype `aws s3 ls` to see our list of what is in that environment.
+
+For things like help, you can type things like `aws s3 help`
+
+__Where are credentials stored?__
+
+```
+cd ~
+cd .aws
+ls
+#shows config and credentials
+```
+
+You can nano into credentials. Others could easily get into this. You can access someone's environment using these credentials. Therefore, it can unsafe to store these here.
+
+That's where roles come in. An EC2 instance can assume a role.
+
+#### ---- AWSCSA-16.1: Using IAM roles with EC2
+
+Under Roles, we an either create a new role with AmazonS3FullAccess.
+
+Then go back to EC2 and launch a new instance. You can select the role for IAM role and go through and create the instance.
+
+Again, roles can have permissions changed that will take effect, but you cannot assign a new role to an EC2 instance after launching __again, this is important.__
+
+Now if we ssh into our instance, we will find that in the root file there is no .aws file. Therefore, there are no credentials that we have to be worried about.
+
+__Summary__
+
+1. Roles are more secure
+2. Roles are much easier to manage
+3. Roles can only be assigned when the EC2 instance is provisioned
+4. Roles are universal, you can use them in any region
+
+## AWSCSA-17: Using Bootstrap Scripts 
