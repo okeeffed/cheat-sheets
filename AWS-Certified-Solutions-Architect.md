@@ -312,11 +312,11 @@ Not a place to upload an OS or a database.
 
 #### ---- AWSCSA-6.1: Create an S3 Bucket
 
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-s3-bucket-properties.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/aws-s3-bucket-properties.png" />
 
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-s3-inside-bucket.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/aws-s3-inside-bucket.png" />
 
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-s3-cross-region.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/aws-s3-cross-region.png" />
 
 From the Console, select `S3`
 
@@ -390,9 +390,9 @@ It's important to understand the key fundamentals.
 
 **_A CDN is a system of distributed servers (network) that deliver webpages and other web content to a user based on the geographic locations of the user, the origin of the webpage and a content delivery server._**
 
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/cf-dashboard.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/cf-dashboard.png" />
 
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/cf-settings.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/cf-settings.png" />
 
 
 __Key Terms__
@@ -640,14 +640,14 @@ __Volume Types__
 
 __In Images__
 
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-step-2.png" />
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-step-3.png" />
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-step-4.png" />
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-step-5.png" />
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-step-6.png" />
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-step-7.png" />
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-create-key.png" />
-<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/ec2-dashboard.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-step-2.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-step-3.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-step-4.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-step-5.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-step-6.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-step-7.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-create-key.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-basics/aws-csa/ec2-dashboard.png" />
 
 
 
