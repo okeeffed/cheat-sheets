@@ -1005,4 +1005,65 @@ __Summary__
 3. Roles can only be assigned when the EC2 instance is provisioned
 4. Roles are universal, you can use them in any region
 
-## AWSCSA-17: Using Bootstrap Scripts 
+## AWSCSA-17: Using Bootstrap Bash Scripts
+
+These are scripts that our EC2 instances will run when they are created.
+
+For an example, just create and save a html file.
+
+In the AWS console itself, go into S3, create a bucket. This bucket will contain all the website code. Upload the code.
+
+All new buckets have objects that are by default private.
+
+Create a new instance of the EC2 instance, use T2 micro and then go into advanced details and add in some text.
+
+```
+#!/bin/bash
+yum install httpd -y
+yum update -y
+aws s3 cp s3://dok-example/index.html /var/www/html
+service httpd start
+chkconfig httpd on
+```
+
+Now after the instance is up, we should be easily about to navigate to the IP address and every thing should be running.
+
+## AWSCSA-18: EC2 Instance Meta-data
+
+This is data about the EC-2 instance and how we can access this data from the command line.
+
+ssh into an instance.
+
+Elevate the privileges and the use the following to get some details.
+
+```
+curl http://169.254.169.254/latest/meta-data/
+```
+
+What is returned is the meta-data values you can pass after the url again to recieve data about.
+
+Commands like this can write it to a html file:
+
+```
+curl http://169.254.169.254/latest/meta-data/public-ipv4 > mypublicip.html
+```
+
+## AWSCSA-19: Autoscaling 101
+
+How to use launch configs and autoscaling gorups.
+
+In a text editor, we can create the healthcheck.html test.
+
+```
+I am healthy.
+```
+
+Drop that guy into the relevant bucket. Ensure the load balancer is set up.
+
+Head to launch configurations under autoscaling.
+
+First, you need to creat this launch config. Click Launch Config.
+
+From here, you can select the AMIs related. Select the T2 micro from Amazon if you wish.
+
+Add the roles etc and add in the advanced details if required.
