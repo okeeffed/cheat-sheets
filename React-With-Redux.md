@@ -23,7 +23,7 @@ import { combineReducers } from 'redux';
 
 __The flow of how the Application Reacts in Redux__
 
-<img src="https://s3-ap-southeast-2.amazonaws.com/dok-basics/react-diagram-1.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/react-with-redux/react-diagram-1.png" />
 
 1. An interaction calls the `Action Creator`
 2. The `Action Creator` returns an `Action` that is a plain JS Object

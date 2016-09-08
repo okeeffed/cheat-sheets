@@ -408,4 +408,72 @@ You can also PUT to a Edge Location, not just READ.
 
 You can also removed cached objects, but it will cost you.
 
-#### ---- AWSCSA-7.1: Create a CloudFront CDN 
+#### ---- AWSCSA-7.1: Create a CloudFront CDN
+
+Head to CloudFront from the Dashboard.
+
+Create a `distribution` and create a `web distribution`.
+
+Select the bucket domain name. The origin path is the folder path if you just want something from individual folders.
+
+You can have multiple distributions from the one bucket.
+
+You can restrict the bucket access to come only from the CDN.
+
+Follow the steps to allow things like Read Permissions and Cache Behaviour.
+
+__Distribution Settings__
+
+If you want to use CNAMEs, you can upload the certificate for SSL.
+
+Default Root Object is if you access the naked URL.
+
+Turn Logging "on" if you want.
+
+__Once the Distribution is Ready__
+
+After it is done, you can use the domain name provided to start accessing the cached version.
+
+You can create multiple Origins for the CDN, and you can also updates behaviours etc. for accessing certain files from certain types of buckets.
+
+You can also create custom error pages, restrict content based on Geography etc.
+
+## AWSCSA-8: Securing Buckets
+
+By default, all newly created buckets are PRIVATE.
+
+__Access Controls__
+
+- Bucket Policies
+- Access Control Lists
+- S3 buckets can be configured to create access logs which log all requests made to the S3 bucket
+
+__Encryption__
+
+_2 types_
+
+- In Trasit: SSL/TLS (using HTTPS)
+- At Rest:
+	- Server-side
+		- S3 Managed Keys - SSE-S3
+		- AWS Key Management Service, Managed Keys - SSE-KMS
+		- Server-Side Encryption with Customer Provided Keys - SSE-C
+	- Client Side Encryption
+
+ ## AWSCSA-9: Storage Gateway
+
+ This is just a theoretical level intro.
+
+ _AWS Storage Gateway is a service that connects an on-premises software appliance with cloud-based storage to provide seamless and secure integration between an organization's on-premises IT environment and AWS's storage infrastructure. The service enables you to securely store data to the AWS cloud for scalable and cost-effective storage._
+
+ Essentially replicates data from your own data center to AWS. You install it as a host on your data center.
+
+ You can use the Management Console to create the right console for you.
+
+ __Three Types of Storage Gateways__
+
+ 1. Gateway Stored Volumes - To keep your entire data set on site. SG then bacs this data up asynchronously to Amazon S3. GS volumes provide durable and inexpensive off-site backups that you can recover locally or on Amazon EC2.
+
+ 2. Gateway Cached Volumes - Only your most frequently accessed data is stored. Your entire data set is stored in S3. You don't have to go out and buy large SAN arrays for your office/data center, so you can get significant cost savings. If you lose internet connectivity however, you will not be able to access all of your data.
+
+ 3. Gateway Virtual Tape Libraries (VTL) -
