@@ -306,4 +306,106 @@ __S3 Storage Tiers/Classes__
 
 S3 is charged for the amount of storage, the number of requests and data transfer pricing.
 
-Not a place to upload an OS or a database. 
+Not a place to upload an OS or a database.
+
+***
+
+#### ---- AWSCSA-6.1: Create an S3 Bucket
+
+From the Console, select `S3`
+
+Again, think of the bucket as a "folder".
+
+If it is the first time accessing it, you will be greeted with a screen that simply allows you to create a bucket.
+
+Top right hand side gives you options for what the side bar view is.
+
+Under properties, you can change things such as Permissions, Static Website Hosting etc.
+
+- For the Static Websites, you don't have to worry about load balances etc.
+	- You can't server-side scripts on these websites eg. php etc.
+- Logging can be used to keep a log
+- Events are about triggering something on a given action eg. notifications etc.
+- You can allow versioning
+- Cross-Region Replication can be done for other regions
+
+If you click on a bucket, you can see details of what is there. By default, permissions are set that access is denied.
+
+You can set the Storage class and Server-Side Encryption from here too.
+
+__Allowing public read of the bucket__
+
+```
+{
+	"Version": "2008-09-17",
+	"Statement": [
+		{
+			"Sid": "AllowPublicRead",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "*"
+			},
+			"Action": "s3:GetObject",
+			"Resource": "arn:aws:s3:::dok-basics/*"
+		}
+	]
+}
+```
+
+#### ---- AWSCSA-6.2: S3 Version Control
+
+If you turn Versioning on for the bucket, you can only suspend it you. You cannot turn it off. Click it and you can set the versions.
+
+To add files, you can go and select "Actions" and select upload.
+
+If you show the Versions, it will give you the version ID.
+
+If you delete the file, it will show you the file and the delete markers. You can restore the file by selecting the delete marker and selecting actions and delete.
+
+Bear in mind, if you do versioning, you will have copies of the same file.
+
+__Cross-Region Replication__
+
+To enable this, go to your properties. You will need to `Enable Versioning` for this to be enabled.
+
+In order for this to happen, you also need to Create/Select IAM Roles for policies etc.
+
+Existing Objects will not be replicated, only uploads from then on.
+
+Amazon handle all the secure transfers of the data for you.
+
+Versioning integrates with Lifecycle rules. You can turn on MFA so that it requires an auth code to delete.
+
+***
+
+## AWSCSA-7: CloudFront
+
+It's important to understand the key fundamentals.
+
+**_A CDN is a system of distributed servers (network) that deliver webpages and other web content to a user based on the geographic locations of the user, the origin of the webpage and a content delivery server._**
+
+__Key Terms__
+
+_Edge Location:_ The location where content will be cached. This is separate to a AWS Region/Avail Zone.
+
+_Origin:_ This is the origin of all the files that the CDN will distribute. This can be a S3 bucket, EC2, Route53, Elastic Load Balancer etc. that comes from the source region.
+
+_Distribution:_ This is the name given to the CDN which consists of a collection of Edge Locations.
+
+_TTL (Time to Live):_ TTL is the time that is remains cached at this CDN. This cacheing will make is more useful for other users.
+
+_Web Distribution:_ Typically used for Websites.
+
+_RTMP:_ Used for Media Streaming.
+
+__Summary__
+
+__*Amazon CloudFront can be used to deliver your entire website, including dynamic, static, streaming and interactive content using a global network of edge locations. Requests for your content are automatically routed to the nearest edge location, so content is delivered with the best possible performance.
+
+CloudFront is optimized to work with other AWS. CloudFront also works seamlessly with any non-AWS origin server, which stores the original, definitive versions of your files.*__
+
+You can also PUT to a Edge Location, not just READ.
+
+You can also removed cached objects, but it will cost you.
+
+#### ---- AWSCSA-7.1: Create a CloudFront CDN 

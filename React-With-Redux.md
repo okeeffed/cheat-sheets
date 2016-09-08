@@ -4,7 +4,7 @@
 
 __Key Imports__
 
-```javascript 
+```javascript
 // used to extend the react Component class
 import React, { Component } from 'react';
 
@@ -23,7 +23,7 @@ import { combineReducers } from 'redux';
 
 __The flow of how the Application Reacts in Redux__
 
-<img src="./img/react-diagram-1.png" />
+<img src="https://s3-ap-southeast-2.amazonaws.com/dok-basics/react-diagram-1.png" />
 
 1. An interaction calls the `Action Creator`
 2. The `Action Creator` returns an `Action` that is a plain JS Object
@@ -232,9 +232,9 @@ The important thing is the value of the state.
 
 Key of state, value of state. That's the pairing.
 
+```
 {
 	// Books Reducer
-
 	books: [
 		{
 			title: 'Harry Potter'
@@ -249,8 +249,9 @@ Key of state, value of state. That's the pairing.
 		title: 'JavaScript: The Good Parts'
 	}
 }
+```
 
-We want a function to produce these states.
+We want a function to produce these types of states.
 
 __In src/reducers/__, we'll create a reducer file "reducer_books.js"
 
