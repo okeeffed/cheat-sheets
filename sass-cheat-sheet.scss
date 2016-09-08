@@ -1,3 +1,38 @@
+### Property Ordering
+
+```css
+.selector {
+  /* Positioning */
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  right: 0;
+
+  /* Display & Box Model */
+  display: inline-block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 100px;
+  height: 100px;
+  padding: 10px;
+  border: 10px solid #333;
+  margin: 10px;
+
+  /* Color */
+  background: #000;
+  color: #fff
+  
+  /* Text */
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: right;
+
+  /* Other */
+  cursor: pointer;
+}
+```
+
 //
 //
 // 	  SASS Variables and Interpolation
@@ -37,7 +72,7 @@ a {
 SASS
 
 ul {
-  list-style-type: none;  
+  list-style-type: none;
   li {
 	border: {
 		style: solid;
@@ -49,7 +84,7 @@ ul {
 	display: inline-block;
 	margin: 0;
 	padding: 0 5px;
-    a { 
+    a {
 			text-decoration: none;
 			&:hover { text-decoration: underline; }
 		}
@@ -95,7 +130,7 @@ $defaultWindowSize: 960px;
 }
 
 CSS
-	
+
 #nav.side {
   float: right;
   width: 320px;
@@ -113,7 +148,7 @@ CSS
 
 SASS
 
-	
+
 @mixin default-box {
 	$borderColor: #666;
 	border: 1px solid $borderColor;
@@ -128,8 +163,8 @@ footer, header{ @include default-box; }
 
 CSS
 
-	
-footer, header {  
+
+footer, header {
   border: 1px solid #666;
   clear: both;
   display: block;
@@ -161,7 +196,7 @@ footer{ @include default-box(#999, inline-block, 5px); }
 
 CSS
 
-	
+
 header {
   border: 1px solid #666;
   clear: both;
@@ -187,7 +222,7 @@ footer {
 
 SASS
 
-	
+
 .error {
   border: 1px #F00;
   background: #FDD;
@@ -201,7 +236,7 @@ SASS
 
 CSS
 
-	
+
 .error, .badError {
   border: 1px #F00;
   background: #FDD;
@@ -220,7 +255,7 @@ CSS
 
 SASS
 
-	
+
 @import "partials/_vars";
 
 body {
@@ -233,14 +268,7 @@ $color: #333;
 
 CSS
 
-	
+
 body {
   color: #333;
 }
-
-
-
-
-
-
-

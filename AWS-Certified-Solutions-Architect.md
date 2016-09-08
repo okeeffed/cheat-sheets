@@ -312,6 +312,12 @@ Not a place to upload an OS or a database.
 
 #### ---- AWSCSA-6.1: Create an S3 Bucket
 
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/aws-s3-bucket-properties.png" />
+
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/aws-s3-inside-bucket.png" />
+
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/aws-s3-cross-region.png" />
+
 From the Console, select `S3`
 
 Again, think of the bucket as a "folder".
@@ -384,6 +390,11 @@ It's important to understand the key fundamentals.
 
 **_A CDN is a system of distributed servers (network) that deliver webpages and other web content to a user based on the geographic locations of the user, the origin of the webpage and a content delivery server._**
 
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/cf-dashboard.png" />
+
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/cf-settings.png" />
+
+
 __Key Terms__
 
 _Edge Location:_ The location where content will be cached. This is separate to a AWS Region/Avail Zone.
@@ -438,6 +449,8 @@ You can create multiple Origins for the CDN, and you can also updates behaviours
 
 You can also create custom error pages, restrict content based on Geography etc.
 
+***
+
 ## AWSCSA-8: Securing Buckets
 
 By default, all newly created buckets are PRIVATE.
@@ -460,7 +473,9 @@ _2 types_
 		- Server-Side Encryption with Customer Provided Keys - SSE-C
 	- Client Side Encryption
 
- ## AWSCSA-9: Storage Gateway
+***
+
+## AWSCSA-9: Storage Gateway
 
  This is just a theoretical level intro.
 
@@ -476,4 +491,230 @@ _2 types_
 
  2. Gateway Cached Volumes - Only your most frequently accessed data is stored. Your entire data set is stored in S3. You don't have to go out and buy large SAN arrays for your office/data center, so you can get significant cost savings. If you lose internet connectivity however, you will not be able to access all of your data.
 
- 3. Gateway Virtual Tape Libraries (VTL) -
+ 3. Gateway Virtual Tape Libraries (VTL) - Limitless collection or VT. Each VT can be stored in a VTL. If it is stored in Glacier, is it a VT Shelf. If you use products like NetBackup etc you can do away with this and just the VTL. It will get rid of your physical tapes and create the virtual ones.
+
+ __Tips__
+
+ - Know and understand the different gateways.
+ 	- GSV
+	- GCV
+	- GVTL
+
+## AWSCSA-10: Import/Export
+
+AWS Import/Export Disk accelerates moving large amounts of data into and out of the AWS cloud using portable storage devices for transport. AWS Import/Export Disk transfers your data directly onto and off of storage devices using Amazon's high-speed internal network and bypassing the Internet.
+
+You essentially go out and buy a disk and then send it to Amazon who will then import all that data, then send your disks back.
+
+There is a table that shows how connection speed equates to a certain amount of data uploaded in a time frame to give you an idea of what is worthwhile.
+
+#### ---- AWSCSA-10.1: Snowball
+
+Amazon's product that you can use to transfer large amounts of data in the Petabytes. It can be as little as one fifth the price.
+
+Check the FAQ table on when they recommend to use Snowball.
+
+__Summary__
+
+Import/Export Disk:
+- Import to EBS
+- Import to S3
+- Import to Glacier
+- Export from S3
+
+Import/Export Snowball:
+- Only S3
+- Only currently in the US (check this out on the website for the latest)
+
+## AWSCSA-11: S3 Transfer Acceleration
+
+Uses the CloudFront Edge Network to accelerate the uploads to S3. Instead of uploading directly to S3, you can use a distinct URL to upload directly to an edge location which will then transfer that file to S3. You will get a distinct URL to upload to.
+
+eg `prefix.s3-accelerate.amazonaws.com`
+
+Using the new URL, you just send the file to the edge location, and that edge location will send that to S3 over their Backbone network.
+
+#### ---- AWSCSA-11.1: Turning on S3 Transfer Acceleration
+
+From the console, access your bucket. From here, what you want to do is "enable" Transfer Acceleration. This endpoint will incur an additonal fee.
+
+You can check the speed comparison and it will show you how effective it is depending on distance from a region. If you see similar results, the bandwith may be limiting the speed.
+
+***
+
+## AWSCSA-12: EC2 - Elastic Compute Cloud
+
+#### ---- AWSCSA-12.1: EC2 Intro
+
+Arguably the most important topics.
+
+EC2 is a web service that provides resizable compute capacity in the cloud. Amazon EC2 reduces the time required to obtain and boot new server instances to minutes, allowing you to quickly scale capacity, both up and down, as your computing requirements change.
+
+To get a new server online used to take a long time, but then public cloud came online and you could provision virtual instances in a matter of time.
+
+EC2 changes the economics of computer by allow you to pay only for capacity that you actually use. Amazon EC2 provides developers the tools to build failure resilient applications and isolate themselves from common failure scenarios.
+
+__Pricing Models__
+
+1. On Demand - allows you to pay a fixed rate by the hour with no commitment.
+2. Reserved - provide you with a capacity reservation, and offer a significant discount on the hourly charge for an instance. 1 year or 3 year terms.
+3. Spot - enable you to bid whatever price you want for instance capacity, providing for even greater savings if your applications have flexible start and end times.
+
+***
+
+You would use _Reserved_ if you have a steady state eg. two web servers that you must always have running.
+
+Used for applications that required reserved capacity.
+
+Users are able to make upfront payments to reduce their total computing costs even further.
+
+It makes more sense to use this if you know the amount of memory etc you may need and that you'll need it. Useful after understanding the steady state.
+
+***
+
+_On Demand_ would be for things like a "black Friday" sale where you spin up some web servers for a certain amount of time.
+
+This is for low cost and flexible EC2 without any up-front payment or long-term commitment. Useful for Applications with short term, spiky, or unpredictable workloads that cannot be interrupted, or being tested or developed on EC2 for the first time.
+
+***
+
+_Spot Instances_ go with your bidding, but if the spot price goes above your bid, you will be given an hour notice before the instance is terminated. Large compute requirements are normally used this way. They basically time these instances and search where to get the best pricing.
+
+You can check Spot Pricing on the AWS website to see the history etc. to make an educated guess.
+
+This is for applications on feasible at low costs, and for users with urgent computing needs for large amounts of additional capacity.
+
+Spot is always the most commercially feasible.
+
+Spot won't charge a partial hour if Amazon terminate the instance.
+
+__Instance Types__
+
+<img src="insert" />
+
+- T2 is the lowest of the family.
+- Applications use M normally.
+- C4/3 is for processor intensive.
+- R3 is memory optimized.
+- I2 - noSQL databases etc.
+- D2 Data warehouses etc.
+
+To think of it, think of the MCG digging up the dirt.
+
+__DIRTMCG__
+
+D for density
+I for IOPS
+R for RAM
+T for cheap general purpose (this T2)
+M for main choice for apps
+C for compute
+G for Graphics
+
+This is VERY useful for working professionally.
+
+#### ---- AWSCSA-12.2: What is EBS? (Elastic Block Store)
+
+Amazon EBS allows you to create storage volumes and attach them to Amazon EC2 instances. Once attached, you can create a file system on top of these volumes, run a database, or use them in any other way you would use a block device.
+
+Amazon EBS volumes are placed in a specific Availability Zone, where they are automatically replicated to protect you from the failure of a single component.
+
+It is basically a disk in the cloud. The OS is installed on here + any DB and applications. You can add multiple EBS instances to one EC2 instance.
+
+You cannot share one EBS with multiple EC2.
+
+__Volume Types__
+
+1. General Purpose SSD (GP2)
+	- 99.999% availability
+	- Ratio of 3 IOPS per GB with up to 10,000 IOPS and the ability to burt up to 3000 IOPS for short periods for volumes under 1GB.
+	- IOPS are Input/Output Per Second to measure how fast the computer is from a read/write capacity.
+2. Provisioned IOPS SSD (IO1)
+	- Designed for I/O intensive apps like relational/NoSQL databases. Use if you need more than 10,000 IOPS.
+3. Magnetic (standard)
+	- Lowest cost per GB, where data is accessed frequently and applications where the lowest storage cost is important.
+
+#### ---- AWSCSA-12.3: Launching a First EC2 Instance
+
+***
+
+__In Images__
+
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-step-2.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-step-3.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-step-4.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-step-5.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-step-6.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-step-7.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-create-key.png" />
+<img src="https://d1din05d4116wx.cloudfront.net/dok-aws-csa/img/ec2-dashboard.png" />
+
+
+
+***
+
+Initially, there will be no instances etc. except for 1 Security Group.
+
+Click on "Launch Instance" and will take you to choose an AMI (Amazon Machine Image).
+
+You will see different classification types in the brackets:
+
+1. HVM: Hardware Virtual Machine.
+2. PV: Para Virtual
+
+For this example, we will choose Amazon Linux because it comes with a suite of things already available. This will then take you to choose the Instance Types.
+
+You can then Configure your Instance Details.
+
+Subnets can choose different availability zone.
+
+You can choose the IAM role from here too.
+
+The Advanced Details is us running a set of bash scripts.
+
+Example: run updates after launch.
+
+```
+#!/bin/bash
+yum update -y
+```
+
+In Step 4: Add Storage, we can change the IOPS by changing the size of the instance and we can alter the Volume Type.
+
+By default, the instance will terminate the EBS volume.
+
+We can also add a new volume etc.
+
+Step 5: Tag Instance is used to give a key value pair for the tag.
+
+- This is useful for things like resource tagging and billing purposes. You can monitor which staff are using what resources.
+
+
+Step 6: Security Groups
+
+Add in the security groups you need eg. HTTP, SSH
+
+After reviewing and Selecting launch, you will need to download a new key pair.
+
+***
+
+From here, we are back to the EC2 Dashboard and that shows us the status.
+
+Once the status is available, head to terminal and configure the file the way you normally would in your /.ssh/config file (for easy access - refer to the SSH-Intro.md SSH-7 file for more info).
+
+__Note:__ Ensure that you change the permissions on the .pem key first!
+
+```
+chmod 600 <keyname.pem>
+```
+
+We can use `sudo su` to update our privileges to root.
+
+Then `yum update -y` to run the updates.
+
+__Review__
+
+- Termination Protection is turned off by default
+- The default action for an EBS-backed instance is to be deleted.
+- Root Volumes cannot be encrypted by default. You need a third party tool.
+- Additional Volumes can be encrypted.

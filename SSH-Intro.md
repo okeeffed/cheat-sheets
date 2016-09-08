@@ -200,6 +200,8 @@ You can output the contents of the key and pipe it into the `ssh` command. On th
 cat ~/.ssh/id_rsa.pub | ssh username@remote_host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
+__Note:__ You may also need to include the -i <yourkey.pem> flat in the ssh command to gain access for this.
+
 ***
 
 ### SSH-8: Manually copy your Public SSH Key to a Server
@@ -683,7 +685,7 @@ ssh -S none username@remote_host
 <div id="SSH-25"></div>
 ## SSH-25: Setting Up SSH Tunnels
 
-// todo 
+// todo
 
 ***
 <div id="UBU-1"></div>
