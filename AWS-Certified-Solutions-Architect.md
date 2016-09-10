@@ -1062,8 +1062,283 @@ Drop that guy into the relevant bucket. Ensure the load balancer is set up.
 
 Head to launch configurations under autoscaling.
 
-First, you need to creat this launch config. Click Launch Config.
+First, you need to create this launch config. Click Launch Config.
 
 From here, you can select the AMIs related. Select the T2 micro from Amazon if you wish.
 
 Add the roles etc and add in the advanced details if required.
+
+__Note:__ Using the aws command line, you can copy files from a bucket.
+
+You can also assign the IP type.
+
+Select the security group, and then getting a warning about the file.
+
+Create your key etc. too.
+
+***
+
+__Auto Scaling Group__
+
+After, you will create the Auto Scaling Group. You can choose the group size too. Using the subnet, you can create a subnet and network.
+
+If you have three groups and three availability zones, it will put each group in each availability zone.
+
+In the advanced details, we can set up the Elastic Load Balance and Health Check Type (ELB in this case).
+
+_Health Grace Period_ is how often the health is checked. The health check will also fail until Apache is turned on.
+
+__Scaling Policies__
+
+This allows us to automatically increase and decrease the number of instances depending on the number of settings that we do.
+
+We can scale between 1 and 5 instances. You will choose to create and alarm and execute a policy at a certain time. These will grow and shrink depending on the settings.
+
+Once they are up, you can check each IP address and see if they are up. If you choose the DNS, it will go towards one of the addresses.
+
+We can use things like Route 53 and use it to help start sending traffic to other parts of the world.
+
+## AWSCSA-20: EC2 Placement Groups
+
+What is it? A logical grouping of instances within a single available zones. This enables applications to participate in a low-latency, 10 Gbps network. Placement groups are recommended for applications that benefit from low network latency, high network throughput, or both.
+
+Recommended for things like group computer and you need a low latency for things like Cassandra Notes.
+
+High network throughput, low latency - they're the goals!
+
+- A placement group cannot span multiple Availability Zones.
+- The name you specify must be unique with your AWS account.
+- Only certain types of instances can be launched in a placement group (Compute Optimized, GPU, Memory Optimized, Storage Optimized.)
+- AWS recommend homogenous instances within placement groups (same size and family)
+- You can't merge placement groups.
+- You can't move an existing instance into a placement group. You can create an AMI from your existing instance, and then launch a new instance from the AMI into a placement group.
+
+## AWSCSA-21: EFS (Elastic File System) Concepts and Lab
+
+EFS is a file storage service for EC2. It is easy to use and has a simple interface for configuration. Storage grows and shrinks as needed.
+
+- Pay for used storage.
+- Supports NFSv4 protocol.
+- Scale to petabytes
+- Supports thousands of concurrent NFS connections
+- Read after write consistency
+
+You can create an EFS from the dashboard.
+
+Set up is similar to other set ups. We can predetermine our IP addresses and security groups.
+
+While the set up is created, you can create a two or more instances and provision them.
+
+If you have set up security groups, feel free to use them.
+
+Provision a load balance for this as well.
+
+Once they are all up, head back to the EFS and if it is ready in the availability zones, go and note down the public ips for the instances.
+
+__Note:__ Make sure that the instances are in the same security group as the EFS.
+
+If they are all set up, we can head back to EC2. Again, grab the ips and run the two instances in two different windows.
+
+Once you've ssh'd into the instanes, instance Apache to run for the webserver. Start the server up!
+
+`service httpd start`
+
+Now we can `cd /var/www/html`
+
+However, head to the root folder for both and then move to EFS.
+
+You can select the EC2 Mount Instructions, then run the command to mount the EFS and ensure that it moves to /var/www/html/.
+
+Now these will be mounted on EFS, and if we now `nano index.html` and create a home page.
+
+This will move the files across both instances!
+
+## AWSCSA-22: Lambda
+
+Very, very advanced!
+
+What is Lambda? It's a compute servie where you can upload your code and create a Lambda function. AWS Lambda takes care of provisioning and managing the servers that you use to run the code. You don't have to worry about OS, patching, scaling, etc.
+
+You can use Lambda in the following ways:
+- Event driven compute service. Lambda can run code in response to events. eg. uploading a photo to S3 and then Lambda triggers and turns the photo into a thumbnail etc.
+- Transcoding for media
+- As a compute service to run your code in response to HTTP requests using Amazon API Gateway or API calls made using AWS SDKs.
+
+__The Structure__
+
+- Data Centres
+- Hardware
+- Assembly Code/Protocols
+- High Level Languages
+- OS
+- App Layer/AWS APIs
+
+Lambda captures ALL of this. You only have to worry about the code, Lambda looks after everything else.
+
+Pricing is ridiculously cheap. You pay for number of requests and duration. You only pay for this when the code executes.
+
+__Why is it cool?__
+
+No servers. No worry for security vulnerabilities etc! Continuously scales. No need to worry about auto scaling.
+
+## AWSCSA-23: Route53
+
+#### ---- AWSCSA-23.1: DNS101
+
+DNS is used to convert human friendly domain names into an Internet Protocol address (IP).
+
+IP addresses come in 2 different forms: IPv4 and IPv6.
+
+IPv4 is 32-bit. IPv6 is 128 bits.
+
+IPv4 is used, but IPv6 is for the future.
+
+Top Level Domains
+
+- .com
+- .edu
+- etc
+
+__Domain Registrars__
+
+Names are registered with InterNIC - a service of ICANN. They enforce the uniqueness.
+
+Route53 isn't free, but domain registrars include things like GoDaddy.com etc.
+
+__SOA Records__
+
+The record stores info about:
+
+- supplies name of the server
+- admin of the zone
+- current version of the data file
+- number of seconds a server should wait before retrying a failed zone
+- Default number of seconds for TTL on resource records
+
+__NS Records__
+
+Name Server Records
+
+- used by Top Level Domains to direct traffic to the Content DNS servers which contains the authoritative DNS records.
+
+__A Records__
+
+Address record - used to translate from a domain name to the IP address. A records are always IPv4. IPv6 is AAA.
+
+__TTL__
+
+Length that the DNS is cached on either the Resolving Server or on your PC. This is important from an architectural point of view.
+
+__CNAMES__
+
+Canonical Name (CName) can be used to resolve one domain name to another. eg. you may have a mobile website m.example.com that is used for when users browse to your domain on a mobile. You may also want mobile.example.com to point there as well.
+
+__Alias Records__
+
+Used to map resource record sets in your hosted zone to Elastic Load Balancers, CloudFront Distribution, or S3 buckets that are configured as websites.
+
+Alias records work like a CNAME record in that you can map one DNS name (www.example.com) to another 'target' DNS name (aeijrioea.elb.amazonaws.com)
+
+__*Key Difference*__ - A CNAME can't be used for naked domain names (zone apex). You can't have a CNAME for acloud.guru. It must be either an A record or an Alias.
+
+The naked domain name MUST always be an A record, not a C name. eg dennis.com.
+
+The Alias will map this A record to an ELB.
+
+__Summary__
+
+For an ELB, you need a DNS name to resolve to an ELB. You will always need an IPv4 domain to resolve this... which is why you have the Alias Record.
+
+Records with alias records won't have you charged, whereas CName will.
+
+#### ---- AWSCSA-23.2: Creating a Route 53 Zone
+
+Going from Route 53 to a load balancer to an EC2 Instance.
+
+In EC2, launch an instance.
+
+Bootstrap Script
+```
+#!/bin/bash
+yum install httpd -y
+service httpd start
+yum update -y
+echo "Hello Cloud Gurus" > /var/www/html/index.html
+```
+
+After moving through and launching the instance, create a load balancer.
+
+Configure the health check for index.html.
+
+Once the ELB is up.
+
+Head to Route53 afterwards.
+
+1. Create a Hosted Zone
+2. Use a domain name you have purchased for the Domain Name and you can have a Public Hosted Zone or a private for VPC
+3. Create this and it will create a Start of Authority record and a Name Server name.
+4. Cut and paste the NS record, head back to the name server and customise that and enter in the NS values.
+
+__Configure the naked domain name__
+
+Create a Record Set. You need to create an alias and the target address will have your ELB DNS addresses.
+
+There are routing policies (see the next section).
+
+Once this is created, we should be able to type in the domain name and visit the website!
+
+#### ---- AWSCSA-23.3: Routing Policies
+
+__Simple:__ This is the default. Most commonly used when you have a single resource that performs a given function for your domain eg. one web server that serves content for the a website.
+
+Think of one EC2 instance.
+
+__Weighted:__ Example you can send a percentage of users to be directed to one region, and the rest to others. Or split to different ELBs etc.
+
+Used for splitting traffic regionally or if you want to do some A/B testing on a new website.
+
+__Latency:__ This is based on the lowest network latency for your end user (routing to the best region). You create a latency resource set for each region.
+
+Route53 will select the latency resource set for the region that will give them the best result and repond with be resource set.
+
+```
+User -> DNS -> the better latency for an EC2 instance
+```
+
+__Failover:__ When you want to create an active/passive set up. Route53 will monitor the health of your primary site using a health check.
+
+__Geolocation:__ Sending the user somewhere based on the location of the user.
+
+__Summary__
+
+- ELBs don't have a IPv4 address, you need to resolve to them.
+- Understand the different between a CName and an alias. CName reqs are billed, alias are free. A domain name will want an alias record because you cannot use a CName. Always cheaper for alias.
+
+## AWSCSA-24: Databases
+
+#### ---- AWSCSA-24.1: Launching an RDS Instance
+
+Head into EC2 and create a webserver.
+
+There is a Bootstrap bash script you can use for practising purposes from this course.
+
+```
+#!/bin/bash
+yum install httpd php php-mysql -y
+yum update -y
+chkconfig httpd on
+service httpd start
+echo "<?php phpinfo();?>" > /var/www/html/index.php
+cd /var/www/html
+wget https://s3-eu-west-1.amazonaws.com/acloudguru/connect.php
+```
+
+_To create an RDS instance_
+
+Select an engine - MySQL. Select production or dev/test.
+
+Choose an instance class, "No" for Multi-AZ Deployment and leave everything else as default.
+
+Set up the Settings Instance ID, username etc.
+
+Ensure the current selection is available for free tier.

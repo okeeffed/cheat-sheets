@@ -1,6 +1,17 @@
 # CSS Gradient Syntax
 
 ```css
+// CREATE A TRIANGLE
+
+.arrow-down {
+	margin: 0 auto;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-top: 20px solid #f00;
+}
+
 background: linear-gradient(direction, color-stop1, color-stop2, ...);
 
 // TOP TO BOTTOM (RED TO YELLOW)
