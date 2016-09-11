@@ -1830,3 +1830,66 @@ Example uploading media to an S3 bucket will trigger a Lambda function that then
 Check https://read.acloud.guru to read some more about that.
 
 #### ---- AWSCSA-26.5: Application Services Summary
+
+__SQS__
+
+- It is a web service that gives you access to a message queue that can be used to store messages while waiting for a computer to process them.
+- Eg. Processing images for memes and then storing in a S3 bucket.
+- Not FIFO.
+- 12 hour visability time out.
+- At least once messaging.
+- Messages are 256kb but billed in 6kb chunks
+- You can use two SQS queues and the premium can be polled first and when it is emptied then you can use the second queue.
+
+__SWF__
+
+- SQS has a retnetion period of 14 days vs a year for SWS
+- SQS is message orientated whereas SWF is task-orientated
+- SWF ensures that a task is assigned only once and never duplicated
+- SWF keeps track of all the tasks and events in an application. With Amazon SQS, you need to implement your own application-level tracing, especially if your application uses multiple queues.
+
+3 Different types of actors:
+
+1. Workflow Starter - starts a workflow
+2. Deciders - Control the flow of activity tasks in a workflow execution
+3. Activity workers - carry out the activity tasks
+
+__SNS__
+
+- HTTP, HTTPS, Email, Application, Lambda etc etc
+- SNS and SQS are both messaging services in AWS. SNS is push, whereas SQS is polling (pull)
+- Pay based on the minutes that you transcode and the resolution at which you transcode
+
+## AWSCSA-27: Real World Application - Wordpress Deployment
+
+#### ---- AWSCSA-27.1: Setting up the environment
+
+First of all, create a new role in AMI.
+
+It will be for Amazon S3 access.
+
+Set up the two security groups: one for the EC2 and the other for the RDS.
+
+After that has been creating, go into the web security group and ensure that you can allow port 80 for HTTP and 22 for SSH.
+
+For the RDS group, allow MySQL traffic and choose the source as the web security group.
+
+Head to S3 and create a new bucket for the WordPress code. Choose the region for the security groups that you just made.
+
+Once the bucket has been created, sort out the CDN. So head to CloudFront and create a new distribution. Use the web distribution and use the bucket domain. The Origin path would be the subdirectory. Restrict the Bucket Access to hit CloudFront only and not S3. Ensure that you update the bucket policy so that it always has read permissions for the public.
+
+Head and create the RDS instance. Launch the MySQL instance. You can use a free-tier if you want, but multi-AZ will require an incurred cost.
+
+Ensure you've set the correct settings that you would like.
+
+Add that to the RDS security group and ensure that it is not publicly accessible.
+
+Head over to EC2 and provision a load balancer. Put that within the web security group and configure the health checks.
+
+Once the Load Balancer is up, head to Route 53 and set up the correct info for the naked domain name. You will need to set an alias record, and set that to the ELB.
+
+#### ---- AWSCSA-27.2: Setting up EC2
+
+Head to EC2 and provision an instance. The example uses the Amazon Linux of course.
+
+Ensure you assign the S3 role to this. Add the bootstrap script from the course if you want.
