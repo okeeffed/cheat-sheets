@@ -1342,3 +1342,133 @@ Choose an instance class, "No" for Multi-AZ Deployment and leave everything else
 Set up the Settings Instance ID, username etc.
 
 Ensure the current selection is available for free tier.
+
+For the options, select the database name and port.
+- some instances can be encrypted at rest
+- there is also a back up window
+- select launch at the end when you're ready  
+
+__Back in EC2__
+
+We want to check if the bootstrap has worked successfully. We can do so by checking the site.
+
+We can also try `<ip>/connect.php` to try and call a connection string.
+
+In connect.php, we can check the settings. Ensure that this isn't from the bootstrap bash script from the course.
+
+ssh into EC2 and move into `/var/www/html` and see the files.
+
+For the hostname, we need to point it towards our RDS instance _endpoint_.
+
+Ensure the webserver security can talk to the RDS instance.
+
+In the security group, we want to allow security MYSQL/aurora to be able to connect and work for our security group. It's an inbound rule.
+
+#### ---- AWSCSA-24.2: Backups, Multi AZ and Read Replicas
+
+__Automated Backups__
+
+2 Different Types
+
+1. Automated Backups
+2. Database Snapshots
+
+Auto back ups allow you to recover your database to any point in time within a retention period. That can last between one and 35 days.
+
+Auto Backups will take a full daily snapshot and will also store transaction logs throughout the day.
+
+When you do a recovery, AWS will first choose the most recent daily back up and then apply transaction logs relevant to that day.
+
+This allows you to do a point in time recovery down to a second, within a retention period.
+
+Snapshots are done manually, and they are stored even after you delete the original RDS instance, unlike automated back ups.
+
+Whenever you restore the database, it will come on a new RDS instance with a new RDS endpoint.
+
+__Encryption__
+
+Encryption at rest is supported for MySQL, Oracle, SQL Server, PostgreSQL & MariaDB. Encryption is done using the AWS Key Management Service (KMS).
+
+Once your RDS instance is encrypted the data stored at rest in the underlying storage is encrypted, as are its automated backups, read replicas and snapshots.
+
+In the instance actions, you can take a snapshot.
+
+To restore, you can click in and restore. It will create a new database.
+
+For Point In Time, you can select the option and click back to a point in time.
+
+You can migrate the Snapshot onto another database, you can also copy it and move it to another region and you can of course restore it.
+
+If it is encrypted, you will need to then use the KMS key ID and more.
+
+__Multi-AZ__
+
+If you have three instances, they can connect to another database which will then move data across to another database. You will then not need to move the entry point over.
+
+It is for Disaster Recovery only. It is not primarily used for improving performance. For performance improvement, you need Read Replicas.
+
+__Read Replica__
+
+Different to Multi-AZ. Again with the three instances to an RDS, it creates an exact copy that you can read from. Multi-AZ is more for Disaster Recovery. This way you can improve your performance.
+
+You can change the connection strings to your instances to read from the read replicas etc.
+
+You can also have read replicas of read replicas.
+
+They allow you to have a read-only replica. This is achieved using Async replication form the primary RDS instance to the read replica. You use read replica's primarily for very read-heavy database workloads.
+
+Remember, RR is used for SCALING. You can also use things like Elasticache. This comes later.
+
+__YOU MUST__ have auto back ups turned on in order to deploy a read replica. You can have up to 5 read replica copies of any database. You can have more read replicas, but then you could have latency issues.
+
+Each replica will have its own DNS end point. You cannot have a RR with Multi-AZ.
+
+You can however create Read Replicas of a DB with Multi-AZ.
+
+RR can be promoted to be their own databases. This breaks the replication.
+
+You can create this from the Instance Actions menu.
+
+__DynamoDB vs RDS__
+
+In RDS, we have to manually create a snapshot and then scale etc. - not automatic. You can only really scale up (read only) and not out (RW).
+
+"Push button" scaling is DynamoDB.
+
+#### ---- AWSCSA-24.3: DynamoDB
+
+__What is it?__
+
+A fast and flexible noSQL database service for all applications that need consistent, single-digit millisecond latency at any scale.
+
+It is a fully managed database and support both document and key-value data models. The flexible data model and reliable performance make it a great fit for mobile, web, gaming, ad-tech, IoT and many other applications.
+
+__Facts__
+
+- Always stored on SSD storage
+- Stored across 3 geographically distinct data centres.
+- Eventual Consistency Reads (default): consistency across all copies of data is usually reached within a second. (Best read performance). If the data can wait after being read for 1s, then this is the best option.
+- Strong Consistency Reads: A strongly consistent read returns a result that reflects all writes that received a successful response prior to the read.
+
+Pricing is based on Provision Throughput Capacity:
+- Write for 10units for hour
+- Read is for 50units for hour
+- Storage also factors in
+
+DynamoDB can be expensive for writes, but cheap for reads.
+
+__Creating DynamoDB__
+
+To create it, go through the dashboard.
+
+Add in a primary key (eg. number - student ID).
+
+You can even go into the tables and start creating an _item_ from the dashboard. rom here, you can start creating fields.
+
+You can then add in more columns for documents as your grow.
+
+You can then scan and from the same dashboard.
+
+There is no downtime during scaling.
+
+#### ---- AWSCSA-24.4: 
