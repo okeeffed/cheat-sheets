@@ -1471,4 +1471,362 @@ You can then scan and from the same dashboard.
 
 There is no downtime during scaling.
 
-#### ---- AWSCSA-24.4: 
+#### ---- AWSCSA-24.4: Redshift
+
+- Data warehousing service in the cloud. You can start small and then scale for $1000/TB/year.
+
+The example shows a massive record set of summing things up and what is sold etc.
+
+__Config__
+
+You can start at a single node (160GB)
+
+You can also have a Multi Node (think Toyota level)
+	- Leader Node (manages client connections and receives queries).
+	- Compute Node (store data and perform queries and computations). Up to 128 compute nodes.
+	- These two Nodes work in tandem.
+
+__Columnar Data Storage__
+
+Instead of storing data as a series of rows, Redshift organises data by column. While row-based is ideal for transaction processing, column-based are ideal for data warehousing and analytics where queries often involve aggregate performed over large data sets.
+
+Since only the columns involved in the queries are processed and columnar data is stored sequentially on the storage media, column-based systems require far fewer I/Os, greatly improving query performance.
+
+_Advanced Compression_ - columnar data stores can be compressed much more than row-based data stores because similar data is stored sequentially on disk.
+
+Redshift employs multiple compression techniques and can often achieve significant compression relative to traditional relational data stores.
+
+In addition, Amazon Redshift doesn't require indexes or materialised views and so uses less space than traditional relational database systems. When loading into an empty table, Amazon Redshift automatically samples your data and selects the most appropriate compression scheme.
+
+_Massive Parallel Processing (MPP)_
+
+Redshift auto distributes data and query load across all nodes. Redshift makes it easy to add nodes to your data warehouse and enables you to maintain fast query performance as your data warehouse grows.
+
+Massive advantage when you start using multi nodes.
+
+This whole thing is priced on compute nodes. 1 unit per node per hour. Eg. a 3-node data warehouse cluster running persistently for an entire month would incur 2160 instance hours. You will not be charged for the leader node hours; only compute nodes will incur charges.
+
+Also charged for a back up and data transfer (within a VPC).
+
+__Security__
+
+- Encrypted in transit using SSL
+- Encrypted at rest using AES-256 encryption
+- By default Redshift takes care of key management
+
+_Design_
+
+- Not multi AZ. 1 AZ at this point in time.
+- Can restore snapshots to new AZ's in the event of an outage.
+- Extremely efficient on infrastructure and software layer.
+
+#### ---- AWSCSA-24.5: Elasticache
+
+__What is it?__
+
+It's a web service that makes it easy to deploy, operate and scale an in-memory cache in the cloud. The service improves the performance of web applications by allowing you to retrieve info from fast, managed, in-memory caches, instead of relying entirely on slow disk-based databases.
+
+It can be used to significantly improve latency and throughput for many read-heavy application workload or compute-intensive workloads.
+
+Caching improves application performance by storing critical pieces of data in memory for low-latency access. Cached info may include the results of I/O-intensive database queries or the results of computationally intensive calculations.
+
+__Two different engines__
+
+1. Memcached
+	- Widely adopted memory object caching system. ElastiCache is protocol compliant with Memcached, so popular tools that you use today with existing Memcached environments will work seamlessly with the service.
+
+2. Redis
+ 	- Open-source in-memory key-value store that supports data structures such as sorted sets and lists. ElastiCache supports Master/Slave replication and Multi-AZ which can be used to achieve cross AZ redundancy.
+
+ElastiCache is a good choice if your database is particularly read heavy and not prone to frequent change.
+
+Redshift is a good answer if there is management running OLAP transactions on it.
+
+***
+
+## AWSCSA-25: VPC
+
+Most important thing for that CSA exam. You should know how to build this from memory for the exam.
+
+__What is it?__
+
+Think of a virtual data centre in the cloud.
+
+It lets you provision a logically isolated section of AWS where you can launch AWS resources in a virtual network that you define.
+
+You have complete control over your virtual networking environment, including selection of your own IP address range, creation of subnets, and configuration of route tables and network gateways.
+
+Easily customizable config for your VPC. Eg. you can create a public-facing subnet for your webservers that has access to the Internet, and place your backend systems such as databases or application servers in a private facing subnet with no Internet access. You can leverage multiple layers of security to help control access to EC2 instances in each subnet.
+
+This is multiple tier architecture.
+
+You can also create Hardware Virtual Private Network (VPN) connections between your corporate datacenter and your VPC and leverage the AWS cloud as an extension of your corporate datacenter.
+
+__What can you do with a VPC?__
+
+- You can launch instances into a subnet of your choosing
+- Assign custom IP address ranges in each subnet
+- Configure route tables between subnets
+- Create internet gateways and attach them to subnets
+- Better security control over AWS resources
+- Create instant security groups for each instance
+- ACLs - subnet network control lists
+
+__Default VPC vs Custom VPC__
+
+- Default is very user friendly allowing you to immediately deploy instances
+- All Subnets in default VPC have an internet gateway attached
+- Each EC2 instance has both a public and private IP address
+- If you delete the default VPC, you can only get it back by contacting AWS
+
+__VPC Peering__
+
+Connect one VPC with another via a direct network route using a private IP address.
+
+Instances behave as if they're on the same private network.
+
+You can peer VPCs with other AWS accounts as well as with other VPCs in the same account.
+
+Peering is a star config, 1 VPC that peers with 4 others. The outer four can only contact with the middle. No such thing as transitive peering.
+
+#### ---- AWSCSA-25.1: Build your own custom VPC
+
+No matter which exam you sit, you need to do this as well.
+
+From the dashboard, head to the VPC section and create a VPC.
+
+Under _Route Tables_, the route has been created automatically.
+
+Under _Subnet_, we want to create some subnets. Select the Test-VPC and the availability zone. __REALLY IMPORTANT__ - the subnet is always mapped to one availability zone.
+
+Give a subnet like 10.0.1.0/24 etc. (more would be 10.0.2.0/24 etc)
+
+Once it is created, we can choose from the available IPs.
+
+Feel free to create more. The example gives up to 3.
+
+Under Subnet > Route Table, we can see the target. Now if we deploy those 3 subnets, they could all communicate to each other through the Route Table.
+
+Now we need to create an Internet Gateway. It allows you Internet Access to your EC2 Instances.
+
+Create this. There is only one Internet Gateway per VPC. Then attach that to the desired VPC.
+
+Now we need to create another Route Table. Now under Route Tables > Routes, edit this. Set the Destination to 0.0.0.0/0 and set the target to our VPC.
+
+Now in Route Table > Subnet Associations, we need to decide which subnet we want to be internet accessible. Select one through edit and save. Now in the Route Table > Routes section for other table we created, it no longer has that Internet Route associated.
+
+So now we effectively have a subnet 10.0.1.0 with internet access, but not for the other 2.
+
+If we deploy instances into one with internet access and one without, we select the network as the new VPC and then select the correct subnet. We can auto assign the public IP.
+
+For the security group, we can set HTTP to be accessed for everywhere.
+
+Ensure that you create a new key pair. With that key value, copy that to the clip board and launch another "database" server. This will sit inside a subnet that is not internet accessible. Select the correct VPC and put it into 10.0.2.0 (other the other) and name is "MyDBServer". Stick it inside the same security group.
+
+Hit review and launch, then use the existing key pair (the new one that was created).
+
+The IP for the web server will now be added.
+
+Once you have SSH'd in, you can use the update to install and prove you have Internet access.
+
+If you head back to the instance with the DBServer, you can see there is no IP address. SSH in from the first WebServer (ssh to that, then ssh to the DBServer). Once in, the private subnet (not internet accessible) will fail and then we can create a NAT instance so we can actually download things like updates etc.
+
+#### ---- AWSCSA-25.2: Network Address Translation (NAT)
+
+Move into the security groups and create a new one for the NAT instance.
+
+Call it (MyNATSG) and the assign the correct VPC.
+
+We want http and https to flow from public subnets to private subnets.
+
+For Inbound, let's create HTTP and set our DBServer IP. Do the same for HTTPS.
+
+For the Outbound, we could configure it to only allow the HTTP and HTTPS traffic out for anywhere.
+
+__Creating the NAT Instance__
+
+Head back to EC2, and launch an instance and use a community AMI. Search for nat and find the top result.
+
+Deploy to our VPC, disable to IP and select the web accessible VPC.
+
+For the disabled IP, even if you have instances inside a public subnet, it doesn't mean they're internet accessible. You need to give it either a public IP or an ELB.
+
+We can call it "MyNATVM" and add it to the NAT security group and then review and launch. We don't need to connect into this instance which is cool. It's a gateway. Use an existing key pair and launch.
+
+Head to Elastic IPs and allocate a new address. This does incur a charge if it isn't associated with a EC2 instance. Associate the address with the NATVM.
+
+Now, go back to the Instance, select Actions, choose Networking and select Change Source Dest. Check. Each EC2 instance performs checks by default, however NAT needs to be able to send source info - we need to disable this! Otherwise, they will not communicate with each other.
+
+Jump into VPC and look at the default Route Tables. The main Route Table without the Internet Route, go to Routes, Edit and add another route. Select MyNATVM and set the destination as 0.0.0.0/0.
+
+Now we can start running updates etc into the instance with a private IP.
+
+You use the NAT to translate into the computer that communicates to each other and enable that private IP to run internet commands.
+
+#### ---- AWSCSA-25.3: Access Control Lists (ACLs)
+
+ACLs act like a firewall that allow you set up network rules between subnets. When you set an ACL, it overrides security groups.
+
+Amazon suggest setting rules in % 100s. By default, each custom ACL starts out as closed.
+
+The key thing to remember is that each subnet must be associated with a network ACL - otherwise it is associated with the default ACL.
+
+__How to do it__
+
+Under VPC > Network ACL, you check the Test-VPC and see the Inbound and Outbound rules set to 0.0.0.0/0.
+
+For rules, the lowest is evaluated first. This means 100 is evaluated before 200.
+
+We can create a new one. "My Test Network Control list."
+
+Everything by default is denied for Inbound and Outbound. When you associate subnets with the ACL, it will only be associated with that ACL.
+
+When you disassociate the subnets, it will default back to the "default" ACL.
+
+#### ---- AWSCSA-25.4: VPC Summary
+
+- Created a VPC
+	- Defined the IP Address Range using CIDR
+	- Default this created a Network ACL & Route table
+- Created a custom Route Table
+- Created 3 subnets
+- Created a internet gateway
+- Attached to our custom route
+- Adjusted our public subnet to use the newly defined route
+- Provisioned an EC2 instance with an Elastic IP address
+
+__NAT Lecture__
+
+- Created a security group
+- Allowed inbound connects for certain IPs on HTTP and HTTPS
+- Allowed outbound connections on HTTP and HTTPS for all traffic
+- Provisioned our NAT instance inside our public subnet
+- Disabled Source/Destination Checks -> SUPER IMPORTANT
+- Set up a route on our private subnet to route through the private NAT instance
+
+__ACL__
+
+- ACLs over multiple subnets
+- ACLs encompass all security groups under the subnets associated with them
+- Numbers, Lowest is incremented first
+
+***
+
+## AWSCSA-26: Application Services
+
+#### ---- AWSCSA-26.1: SQS
+
+This was the very first AWS service.
+
+Gives you access to a message queue that can be used to store messages while waiting for a computer to process them.
+
+Eg. uploading an image file and that a job needs to be done on it. That message is on SQS. It will queue that system job and those app services will then access that image from eg s3 and will do something like adding a watermark and then when it's done, it will remove that message from the queue.
+
+Therefore, if you've lost a web server that message will still stay in that queue and other app services can go ahead and do that task.
+
+A queue is a temporary repository for messages that are awaiting processing.
+
+You can decouple components. A message can contain 256KB of text in any format. Any component can then access that message later using the SQS API.
+
+The queue acts as a buffer between the component producing and saving data, and the component receiving the data for processing. This resolves issues that arise if the producer is producing work faster than the consumer can process it, or if the producer or consumer are only intermittently connected to the network. - referencing autoscaling or fail over.
+
+Ensures delivery of each message at least once.  A queue can be used simultaneously. Great for scaling outwards.
+
+SQS does not guarantee first in, first out. As long as all messages are delivered, sequencing isn't important. You can enable sequencing.
+
+***
+
+Eg. a image encode queue. A pool of EC2 instances running the needed image processing software does the following:
+
+1. Async pull task messages from the queue. ALWAYS PULLS. (Polling)
+2. Retrieves the named file.
+3. Processes the conversion.
+4. Writes the image back to Amazon S3.
+5. Writes a "task complete" to another queue.
+6. Deletes the original task.
+7. Looks for new tasks.
+
+Example
+
+- Component 1 -> Message queue.
+- Message queue pulled from Component 2 (visibility clock time out starts).
+- Component 2 processes and deletes it from the queue during the visibility timeout period.
+
+***
+
+You can configure auto scaling. It will see the group growing fast and start autoscaling in response to what you have set. Some of the back bones of the biggest websites out there. SQS works in conjunction with autoscaling.
+
+__Summary__
+
+- Does not offer FIFO
+- 12 hours of visibility
+- SQS is engineered to provide "at least once" delivery of all messages in its queues - you should design your system so that processing a message more than once does not create any errors or inconsistencies
+- For billing, a 64KB chunk is billed as 1 request.
+
+#### ---- AWSCSA-26.2: SWF (Simple Workflow Service)
+
+It's a web service that makes it easy to coordinate work across distributed application components. SWF enables applications for a range of use cases, including media processing, web application back-ends, business process workflows, and analytics pipelines, to be designed as a coordination of tasks.
+
+Tasks represent invocations of various processing steps in an application which can be performed by executable code, web service calls, human actions and scripts.
+
+Amazon use this for things like processing orders online. They use it to organise how to get things to you. If you place an order online, that transaction then kicks off a new job to the warehouse where the member of staff can get the order and then you need to get that posted to them.
+
+That person will then have the task of finding the hammer and then package the hammer etc.
+
+SQS has a retention period of 14 days. SWF has up to a year for workflow executions.
+
+Amazon SWF presents a task-oriented API, whereas Amazon SQS offers a message-orientated API.
+
+SWF ensures that a task is assigned only once and is never duplicated. With Amazon SQS, you need to handle duplicated messages and may also need to ensure that a message is processed only once.
+
+SWF keeps track of all tasks in an application. With SQS, you need to implement your own application level tracking.
+
+__SWF Actors__
+
+1. Workflow starters - an app that can initiate a workflow. Eg. e-commerce website when placing an order.
+2. Deciders - Control the flow of activity tasks in a workflow execution. If something has finished in a workflow (or fails) a Decider decides what to do next.
+3. Activity workers - carry out the activity tasks.
+
+#### ---- AWSCSA-26.3: SNS (Simple Notification Service)
+
+This is a mobile service. It's a service that make it easy to send and operate notifications from the cloud. It's a scalable, flexible and cost-effective way to publish message from an application and immediately deliver them to subscribers or other applications.
+
+Useful for things like SNS. That can email you or send you a text letting you know that your instance is growing.
+
+You can use it push notifications to Apple, Google etc.
+
+SNS can also deliver notifications by text, email or SQS queues or any HTTP endpoint. It can also launch Lambda functions that will be invoked. The message input is a payload that is reacts to.
+
+It can connect up a whole myriad of things.
+
+It can group multiple recipients using a topic.
+
+One topic can have multiple end point types.
+
+It delivers appropriately formatted notifications and it Multi-AZ.
+
+You can use it for CloudWatch and autoscaling.
+
+__Benefits__
+
+- Instantaneous, push-based delivery (no polling)
+- Simple APIs and easy integration with applications
+- Flexible message delivery over multiple transport protocols
+- Inexpensive, pay as you go model.
+- Simple point-and-click GUI
+
+__SNS vs SQS__
+
+Both messaging services, but SNS is push while SQS is pulls (polls).
+
+#### ---- AWSCSA-26.4: Elastic Transcoder
+
+Relatively new service. It converts media files form their original source format in to different formats.
+
+It provides presets for popular output formats.
+
+Example uploading media to an S3 bucket will trigger a Lambda function that then uses the Elastic Transcoder to put it into a bunch of different formats. The transcoded files could then be put back into the S3 Bucket.
+
+Check https://read.acloud.guru to read some more about that.
+
+#### ---- AWSCSA-26.5: Application Services Summary
