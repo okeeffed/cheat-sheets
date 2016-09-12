@@ -1893,3 +1893,115 @@ Once the Load Balancer is up, head to Route 53 and set up the correct info for t
 Head to EC2 and provision an instance. The example uses the Amazon Linux of course.
 
 Ensure you assign the S3 role to this. Add the bootstrap script from the course if you want.
+
+Ensure that you have given the correct user rights to wp-content.
+
+```
+chmod -R 755 wp-content
+chown -R apache.apache wp-content
+cd wp-content
+ls
+```
+
+#### ---- AWSCSA-27.3: Automation and Setting up the AMI
+
+In the uploads directory for wp-content, you'll notice that it hasn't nothing. If you do upload the image through wp-admin, it'll be available (as you could imagine).
+
+Back in the console in uploads, you can then `ls` and see the file there. We want it so that all of our images head to S3 and they will be served out of CloudFront.
+
+`cd /var/www/html`
+
+List out the s3 bucket to start synchronising the content.
+
+`aws s3 ls` to figure out the bucket.
+
+```
+# ensure the s3 bucket is your media bucket
+
+aws s3 cp --recursive /var/www/html/wp-content/uploads s3://wordpressmedia16acloudguru
+```
+
+Now we can sync up after adding another photo.
+
+```
+# ensure the s3 bucket is your media bucket
+
+aws s3 sync /var/www/html/wp-content/uploads s3://wordpressmedia16acloudguru --delete --dryrun // the delete marker makes it a perfect sync //dry run won't do anything but show you what it wil do
+```
+
+We need to create a .htaccess file and create some changes.
+
+In the .htaccess file, we have the following.
+
+```
+Options +FollowSymlinks
+RewriteEngine on
+rewriterule ^wp-content/uploads/(.*)$ [cloudfront-link] [r=301,nc]
+
+# BEGIN Wordpress
+
+# END Wordpress
+```
+
+Now, we actually want to edit all this.
+
+`cd etc && nano crontab`
+
+We want to now schedule some tasks.
+
+```
+*/2 * * * * root aws s3 sync --delete /var/www/html/ s3://wordpresscodebucket/ (the s3 bucket)
+
+*/2 * * * * root aws s3 sync --delete /var/ww/html/wp-content/uploads/ s3://mediabucket/
+```
+
+Normally you would just have one EC2 instance that is a write and then the rest are read only.
+
+For the other EC2 instances that aren't dedicated.
+```
+*/3 * * * * root aws s3 sync --delete s3://wordpress /var/www/html/
+```
+
+If you try to upload, it is still waiting to replicate to the CDN.
+
+__Creating an Image__
+
+Select the EC2 instance and then select that EC2 and create an image. After it is finished in the AMIs, you can launch it on another computer.
+
+When you move that file across, you can launch the instance and have a bash script to run the updates and then do a AWS sync.
+
+When the instance is live, we should be able to just go straight to the IP address.
+
+#### ---- AWSCSA-27.4: Configuring Autoscaling and Load Testing
+
+Create an autoscaling group from the menu. Initial create a launch config.
+
+There is a TemplateWPWebServer AMI from A Cloud Guru that they use here.
+
+For the Auto-Scaling Group.
+
+Create it and select your subnets.
+
+In Advanced, run off the ELB we created.
+
+In the scaling policies, we want 2 to 4. Sort out the rest of the stuff for the ASG, review and launch.
+
+Once the instances are provisioned, you'll also note that the ELB will have no instances until everything has set up.
+
+If you reboot the RDS, you test the failover.
+
+Now we can run a stress test call `stress` that was installed in the A Guru Bootstrap.
+
+#### ---- AWSCSA-27.5: CloudFormation
+
+A lot of what you will be doing for services. CF is like Bootstrapping for AWS.
+
+In the EC2 instance, ensure that you've done a tear down and then remove the RDS instance as well.
+
+Select into "CloudFormation"
+
+Create a new stack. Here, we can design a template ourselves or we can hit a template designer.
+
+From here, you will specify details. You can set the parameters from here!
+
+Running this we can actually have the CF Stack provision everything for us.
