@@ -73,8 +73,6 @@ We can use `knife` on the workstation to configure these things.
 knife bootstrap ADDRESS --ssh-port  PORT --ssh-user USERNAME --ssh-password 'PASSWORD' --sudo --use-sudo-password --node-name NODENAME
 ```
 
-x
-
 In a Production environment, we are also going to require -N to specify a Node name.
 
 A Node can be anything that can run the Chef client. This can be linux systems like Ubuntu, Android etc.
