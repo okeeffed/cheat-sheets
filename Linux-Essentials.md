@@ -29,6 +29,8 @@ Processes can leave behind children process that will be adopted. It's a tree li
 
 There could be dozens to hundreds of processes. The kernel is at the top. We can then use commands like `ps` and `top` to directly see and manipulate these processes.
 
+***
+
 #### ++++ ---- LINUX-5.3.2: Processes
 
 All processes have a PID.
@@ -56,6 +58,8 @@ The kernel also grants program access to sets of memory address. Once the progra
 There is also a `free` command in some linux systems where you can see how much memory is used.
 
 Swap space is used for when the system runs out of RAM. It is generally low. If it rises too much, you'll suffer from performance loss.
+
+***
 
 #### ++++ ---- LINUX-5.3.3: syslog, klog, dmesg
 
@@ -85,4 +89,31 @@ If there issues that you don't understand, you can still check this out and find
 
 If we jump to `/etc/rc.d/rc.local` file, we can set up dmesg > /var/log/dmesg, we can start logging the dmesg file to this file on reboot.
 
+***
+
 #### ++++ ---- LINUX-5.3.4: /lib, /usr/lib, /etc, /var/log
+
+__Data Locations__
+
+- `/lib` : Linked library files used by binaries in /bin and /usr/bin
+	- Dynamic libraries and files used for the boot process.
+	- Kernel modules also live here.
+- `/usr/lib` : Linked library files used by binaries in /bin and /usr/bin
+	- Dynamic libraries and support static files for executables.
+	- You can create your own helper files by creating more subdirectories here for things such as plugins and extensions.
+
+These two folders are similar to Windows .dll - the binaries or executables on the Mac are store in the above folders.
+
+- `/etc` : Configuration files for our Linux OS
+
+This stores things for our Configuration. Things like mySql, Apache etc are stored here. For different daemons on the program, they will have a subdirectory in the etc folder directory.
+
+- `/var/log` : Log files for our Linux OS
+
+This is used for the log files from the different daemons which we can use for trouble shooting down the track.
+
+***
+
+#### ---- LINUX-5.4: Your Computer on the Network
+
+#### ++++ ---- LINUX-5.3.1: Internet, Network, Routers

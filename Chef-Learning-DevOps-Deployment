@@ -1,0 +1,94 @@
+# Learning Chef DevOps Deployment
+
+## CHEFOPS-1: Introduction to Chef
+
+__After this, you should know__
+
+1. Understand DevOps and Chef
+2. Know the role of workstations, nodes, and Chef server
+3. Deploy and automate configurations of nodes
+4. Understanding of writing Recipes and Cookbooks
+5. Understand the Chef work flow
+6. Use Chef to automate the deployment of your infrastructure
+
+Starting with single nodes.
+
+Learn the concepts and then cook Cookbooks and then start bootstrapping nodes. You will also learn about the LAMP stack.
+
+Have at least one "node" to touch base with.
+
+You will know how to deploy out other applications and be able to use it in your own deployment environments.
+
+#### ---- CHEFOPS-1.1: Chef Head first! Build and Deploy a MOTD Recipe.
+
+Have a lab server set up that will be a workstation. The workstation will be where the DevOp uses this to write the scripts and send this up to Chef.
+
+Each DevOps engineer has a Workstation that they work on (generally your computer).
+
+In the Node
+
+```
+sudo su
+cd /etc/ssh
+nano sshd_config
+```
+
+Here, you can change `PermitRootLogin` to allow. To apply, you need to use `service ssh restart` (for Ubuntu -> check online for others)
+
+We'll use the free tier with Chef to be able to learn and test.
+
+__Chef__
+
+In the management console, we need to create an Organisation. This will keep our policies seperate to other applications and environments.
+
+Download the StarterKit, then you can move the files across to the workstation using a client like FileZilla.
+
+__In FileZilla__
+
+Connect using SFTP with the correct port if you are using NAT.
+
+Once this is done, you can upload the ChefStarterKit to that workstation.
+
+Move it to root and `unzip`.
+
+Whenever you're working on policies, cookbooks etc. we will be inside of this repo in order to do work.
+
+We want to be installing the software the workstation as well.
+
+```
+curl -L https://www.opscode.com/chef/install.sh | bash
+```
+
+This will run the bash command and install everything.
+
+Now, let's go ahead and Bootstrap a node.
+
+Currently for our organisation, we're going to bootstrap our first node!
+
+We can use `knife` on the workstation to configure these things.
+
+`knife bootstrap 127.0.0.1 -p 3302 -x username -P password -N testnode`
+
+```
+knife bootstrap ADDRESS --ssh-port  PORT --ssh-user USERNAME --ssh-password 'PASSWORD' --sudo --use-sudo-password --node-name NODENAME
+```
+
+In a Production environment, we are also going to require -N to specify a Node name.
+
+A Node can be anything that can run the Chef client. This can be linux systems like Ubuntu, Android etc.
+
+## CHEFOPS-2: Building the Webserver Cookbook
+
+## CHEFOPS-3: Node Object and Search
+
+## CHEFOPS-4: Data-Bags
+
+## CHEFOPS-5: Chef Environments
+
+## CHEFOPS-6: Roles
+
+## CHEFOPS-7: Extending Chef
+
+## CHEFOPS-8: Deploying Nodes in Production
+
+## CHEFOPS-9: Using OpenSource Chef Server
