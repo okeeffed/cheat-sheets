@@ -358,6 +358,8 @@ __Chef Enterprise__
 - Starter kit provides security credentials (validation.pem keys) to authenticate each node to the chef server.
 - Chef enterprise scales by design to handle thousands of nodes and different organisations.
 
+
+
 ## CHEFOPS-2: Building the Webserver Cookbook
 
 ## CHEFOPS-3: Node Object and Search
