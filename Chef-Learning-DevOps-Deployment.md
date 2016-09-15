@@ -358,7 +358,19 @@ __Chef Enterprise__
 - Starter kit provides security credentials (validation.pem keys) to authenticate each node to the chef server.
 - Chef enterprise scales by design to handle thousands of nodes and different organisations.
 
+__Role of the server__
 
+- Stores system config information (policies for nodes)
+- Authenticates workstations and nodes
+- Delivers configurations to nodes
+- Chef server holds the config and the node check-ins to receive instructions on its desired state
+- The node downloads config instructions from the server and does all of the work
+
+In the Chef Server website, we can see the policies of what's required and see things like content to see what files are there and what it requires.
+
+Again, the node communicates back with the chef server to figure out how it should become configured.
+
+Ohai will populate attributes about information for the node.
 
 ## CHEFOPS-2: Building the Webserver Cookbook
 
