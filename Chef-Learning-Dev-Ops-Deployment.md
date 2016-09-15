@@ -372,6 +372,16 @@ Again, the node communicates back with the chef server to figure out how it shou
 
 Ohai will populate attributes about information for the node.
 
+__Summary__
+
+Everything we stored on our Chef Workstation is backed up on the Chef Server, and the Node will converge with the Chef server. When the info on the server is different to the Node, that is a convergence drift resolved by the convergence.
+
+On the Chef Server GUI, we can actually configure things like the Run List etc without having to use the `knife` commands, even though we can.
+
+Everytime you download a Starter Kit, it overrides the keys etc. Always download it everytime you create a new organisation.
+
+For AWS, Chef Solo is used. Check the web or upcoming docs for how to use and its relation.
+
 ## CHEFOPS-2: Building the Webserver Cookbook
 
 ## CHEFOPS-3: Node Object and Search
