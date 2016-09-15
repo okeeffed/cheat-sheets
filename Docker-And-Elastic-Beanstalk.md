@@ -99,10 +99,156 @@ __Summary__
 
 The architecture of Docker and the containers that it relies on are not new concepts, having been around since the early part of this century. However, hardware virtualization performance has now become almost indistinguishable from bare metal so that further virtualization on the technology stack can be realized.
 
+### ---- DOCKED-1.4: Introduction to Docker
+
+Now that we know what containers are, let's focus more on Docker.
+
+It's a tool that packages up an application and its dependencies in a "virtual container" so that it can be run on any Linux system or distribution.
+
+To run it on Windows/OSX, you need a lightweight VM like Vagrant.
+
+For Docker, you will build an instance of an OS container. You can then distribute that system on anything that runs on a Linux kernel.
+
+__Why Docker?__
+
+- Configuration Simplification
+- Enhance Developer Productivity
+- Server Consolidation and management
+- Application isolation
+- Rapid Deployment
+- Build Management
+
+You no longer have to worry about translating or re-compiling. You just have it run on that container on top of the OS.
+
+If you deploy this as just one image, and if there are any issues, you just take it off and deploy another.
+
+Build management therefore becomes easy.
+
+__Summary__
+
+Isolate applications, standardize the build and deployment process.
+
+### ---- DOCKED-1.5: Introduction to Elastic Beanstalk
+
+What is it? It's a service that allows the quick deployment and easy deployment of applications without getting bogged down with the infrastructure details.
+
+What is EBs workflow.
+
+Create Application
+|
+|
+Upload Version <-----
+|					|
+|					|
+Launch Environment	|
+|					|
+|					|
+Manage Environment <-
+
+It helps us automatically look after all of our AWS resources.
+
+Once an app is deployed, you get info about it. The app can be configured to use persistent storage etc or databases services or as part of another container.
+
+One of the best parts of it is, there are no additional charges for EB services. It simply uses other parts of the AWS resources and it is that which you pay for.
+
+Amazon has put a lot of emphasis on containers - especially with the wide adoption of Docker.
+
 ***
 
 ## DOCKED-2: Setup and Config
 
+### ---- DOCKED-2.1: Install and Configure
+
+Installing onto Ubuntu
+
+```shell
+# to search for results
+sudo apt-cache search dock
+
+# to download
+sudo apt-get install docker.io
+
+# to check status
+sudo service docker status
+
+# to find the docker.sock
+ls -al var run
+
+# to add test user to the /etc group
+sudo usermod -a -G docker test
+
+#logout and log back in
+su - test
+
+# hopefully this should work now - on Ubuntu, it creates the c group and docker groups and then ensure the file is owned by the docker group
+# we just have to run the usermod to add the users to the group
+docker images
+```
+
+This will be all we need on the Ubuntu system installation for this course's purposes. Alternatively, check the `Docker Deep Dive` for more info.
+
+### ---- DOCKED-2.2: Docker Command Line Basics
+
+Docker is getting ready for Docker 2.0, however we are running 1.12.0 at the time of writing.
+
+`docker images` shows us the base images in our local repository that we can instantiate containers from. The image is a fully inclusive list of what is in the container.
+
+Everything is contained in the snapshots that can be committed to other images. Easier to see in action.
+
+To pull down latest copy of CentOS from  as an example from with Ubuntu.
+
+```
+docker pull centos:latest
+```
+
+We can also search through the Docker hub to check out what we can pull in.
+
+The image from a container stand point is what we need for the container to run. That will be why things like centos will be so small size compared to expectation.
+
+How do I create an instance from it?
+
+This below will open up centos in the terminal running running a bash script
+
+```
+# -i interactive, -t terminal
+docker run -it centos:latest /bin/bash
+```
+
+__hint:__ `docker ps` will show you docker processes.
+
+When you actually within the container, you can start installing things and it runs it separately to your computer... It's running within the container!
+
+`exit` will stop the container if we run it from the process.
+
+To see previous run containers, we can use `docker ps -a`
+
+Another way to stop it from outside the container
+
+```
+docker stop [name]
+```
+
+You can also start, but it will start the process and not auto log you in. If you know the name you can log in using `docker attach high_brattain`
+
+If you run the centos version again, it will start the image WITHOUT the installs, but we can create a new image from this!
+
+`docker commit high_brattain mylynx:centos`
+
+It will now take the container ID it gives back, and it will create a new image from this!
+
+Now we can `docker run -it mylynx:centos /bin/bash`
+
+To remove images:
+
+```
+docker rmi mylynx:centos
+```
+
+If this image is required by others, it won't allow you to delete.
+
+`rmi` - remove image, `rm` - remove container.
+
+Once the dependent containers are gone, you can remove the images.
 
 ***
 
