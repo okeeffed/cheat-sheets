@@ -250,6 +250,8 @@ __Provider__
 
 Defines the steps that are needed to bring the piece of the system from its current state to the desired state.
 
+This works with resources and brings the piece of the system from the current state to the desired state.
+
 __Attributes__
 
 Specific details about the node, used by chef-client to understand current state of the node, the state of the node on the previous chef-client run, and the state of the node at the end of the client run.
@@ -258,25 +260,103 @@ __Data-bags__
 
 A global variables stored as JSON data and is accessible from the Chef server.
 
+We can use these when defining local users on our system.
+
 __Workstation__
 
 A computer configured with Knife and used to sync with chef-repo and interact with chef server.
+
+The workstation is what we are going to work on our recipes on. We can configure out Chef server for our node state and server state from the workstation.
 
 __Chef Server__
 
 Chef server is the hub for all configuration data, stores cookbooks, and the policies applied to the node.
 
+The node communicates with the Chef Server and our work to build out policies is done on the workstation and sent to the server and the Node converges with the Chef Client.
+
 __Knife__
 
-Command line tool which provides an interface between the local chef-repo and chef-server
+Command line tool which provides an interface between the local chef-repo and chef-server.
 
 __client.rb__
 
-Config file for chef_client located at /etc/chef/client.rb on each node
+Config file for chef_client located at /etc/chef/client.rb on each node.
 
 __Ohai__
 
 Tool used to detect attributes on a node and then provide attributes to chef-client at the start of every chef-client run.
+
+_We will use all the above tools to automate our infrastructure._
+
+__Node Object__
+
+Consists of run-list and node attributes that describe states of the node.
+
+__Chef-Repo__
+
+Located on the workstation and installed with the starter kit, should be synchronised with a version control system and stores Cookbooks, roles, data bags, environments, and config files.
+
+__Organisation__
+
+Used in chef enterprise server to restrict access to objects, nodes environments, roles, data-bags etc.
+
+An organisation is used to make sure that your Chef infrastructure or organisation is separate from others.
+
+__Environments__
+
+Used to organise environments (Prod/Staging/Dev/QA) generally used with cookbook _versions_
+
+You can name things like which versions to use etc.
+
+__Idempotence__
+
+Means a recipe can run multiple times on the same system and the results will always be identical.
+
+If we continue to run a recipe over and over again, it will give the same results based on our policy.
+
+#### ---- CHEFOPS-1.5: Chef Server
+
+__Two Types of Chef Server__
+
+1. OpenSource Chef-server
+
+- Free version of Chef
+- Each instance of the server must be configured and managed locally (includes all aspects of managing the server, updates, migrations, scalability etc.)
+
+The limitations with this is that it is not inherently scalable by default. Organisations also cannot communicate with each other.
+
+Enterprise, however, is scalable by design.
+
+2. Chef-server Enterprise (hosted)
+
+- Scalable by design
+- Available organisations
+- Always available
+- Resource-based access control
+
+This is always available. It is inherently another back up of our set up.
+
+3. Chef-server enterprise (on-premise)
+
+- Scalable by design
+- Available organisations
+- Hosted on-premise behind your firewall
+- Managed yourself
+
+Onus is on the user to deal with organisations and policies.
+
+__Chef Enterprise__
+
+- Allows the creation of organisations
+	- Organisations separate the infrastructure, policies and cookbooks
+	- Nodes are registered in organisations
+	- Nothing shared between organisations
+	- Enterprise chef server can contain many different organisations
+	- OpenSource chef the local individual server acts as an organisation and does not allow creation of organisations.
+	- Organisations can represent different companies, department, infrastructures, applications and so forth.
+- For each organisation in order to start bootstrapping nodes you need to download the starter kit.
+- Starter kit provides security credentials (validation.pem keys) to authenticate each node to the chef server.
+- Chef enterprise scales by design to handle thousands of nodes and different organisations.
 
 ## CHEFOPS-2: Building the Webserver Cookbook
 
