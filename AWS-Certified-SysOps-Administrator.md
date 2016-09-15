@@ -2,7 +2,7 @@
 
 ## AWSSYS-1: Monitoring, Metrics and Analysis
 
-#### ---- AWSSYS-1.1: CloudWatch Intro
+### ---- AWSSYS-1.1: CloudWatch Intro
 
 It's a monitoring service to monitor the resources and what you run on AWS.
 
@@ -38,7 +38,27 @@ You can use this to monitor any metric. You can even use it for something like b
 
 You can also set the appropriate action and thresholds.
 
-#### ---- AWSSYS-1.2: EC2 Status Troubleshooting 
+### ---- AWSSYS-1.2: EC2 Status Troubleshooting
 
+On the console, you can see the status check from the EC2 panel.
+
+There is a `System Status Check` or `Instance Status Check`.
+
+__What is the difference?__
+
+- System = physical host (the actual physical machine)
+- Instance = VM itself
+
+Difference troubleshooting for the different status checks.
+
+__System status checks__
+
+It will come up as an error if you have:
+
+1. Loss of network connectivity
+2. Loss of system power
+3. Software issues on the physical host
+4. Hardware issues on the physical host
+5. Best way to resolve issues is to stop and then start the VM again
 
 ***
