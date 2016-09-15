@@ -1,0 +1,25 @@
+# Swift DOK Example Code
+
+## SWIFTDOK-1: AppDelegate
+
+#### ---- SWIFTDOK-1.1: Set up the initial NIB file
+
+```
+class AppDelegate: UIResponder, UIApplicationDelegate {
+
+  var window: UIWindow?
+
+
+  func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    // Override point for customization after application launch.
+
+    window = UIWindow(frame: UIScreen.main.bounds)
+    if let window = window {
+      window.backgroundColor = UIColor.white
+      window.rootViewController = ExampleViewController()
+      window.makeKeyAndVisible()
+    }
+    return true
+  }
+}
+```

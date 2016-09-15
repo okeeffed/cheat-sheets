@@ -1,0 +1,18 @@
+# Git Remote Help
+
+## GITREM-1: Setting up the remote
+
+__On Github__
+
+Create a new, empty repo.
+
+__On the command line__
+
+```
+git init
+git commit -m "First Commit"
+git remote -v
+git remote remove origin
+git remote add origin git@github.com:user/repo.git
+git push -u origin master
+```
