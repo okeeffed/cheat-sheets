@@ -250,6 +250,26 @@ If this image is required by others, it won't allow you to delete.
 
 Once the dependent containers are gone, you can remove the images.
 
+### ---- DOCKED-2.3: Installing AWS CLI and EB CLI Tools
+
+Before we can start deploying, we need to set up the command line interfaces for AWS and EB.
+
+You need pip (Python package service) in order to have AWS CLI run.
+
+`which pip` to ensure things are installed.
+
+`sudo pip install awscli` to install AWS.
+
+`sudo pip install awsebcli` to install EB.
+
+For Mac, `brew install`.
+
+### ---- DOCKED-2.4: Elastic Beanstalk Accounts and Groups
+
+We need to now create a security group associated with beanstalk. We can do this from the AWS console using IAM.
+
+From an enterprise perspective, ensure that you aren't installing using root. Ensure you set the alias and create a user. In this case, it's probably more important to create a role. Give `administrator access` for this role.
+
 ***
 
 ## DOCKED-3: Components and Usage
