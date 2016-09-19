@@ -789,4 +789,99 @@ export default combineReducers({
 });
 ```
 
-### ---- RNREDUX-8.2: Reducer and State Design 
+### ---- RNREDUX-8.2: Reducer and State Design
+
+How can we tap on something and move to show more detail?
+
+Let's create a file to specifically show library details. Making a data model. You need to be thinking about Reducers here. Reducers contains the App Data.
+
+This builds on the `combineReducers` function we have above.
+
+Let's have two separate pieces of state.
+
+a) a list of libraries
+b) currently selected library
+
+```javascript
+// Examples of what our reducers
+// could look like
+
+// Library Reducer
+
+[
+	{ id: 1, name: 'React' },
+	{ id: 2, name: 'Redux' }
+]
+
+// Selection Reducer
+
+1
+```
+
+***
+
+__Library list of data__
+
+`Connect` function: Used to connect up the reducers and state.
+
+_LibraryReducer.js_
+
+```
+import data from './LibraryList.json';
+
+export default () => data;
+```
+
+_LibraryReducer.json_
+
+This provides the data for above.
+
+```
+[
+	{
+		'id': 0,
+		'title': 'ahid',
+		'description': 'iOhoieshoit'
+	},
+	...
+]
+```
+
+_reducers.js_
+
+```
+import { CombineReducers } from 'redux';
+import LibraryReducer from './LibraryReducer';
+
+export default combineReducers({
+	libraries: LibraryReducer
+});
+```
+
+_LibraryList.js_
+
+Rendering the list to the user. mapStateToProps will grab the state from the connect function that is exported in `combineReducers` and any object returned from this `mapStateToProps` function will become available to our props.
+
+```
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+
+class LibraryList extends Component {
+	render() {
+		// this will show what is available from
+		// the mapStateToProps func
+		// console.log(this.props)
+		return;
+	}
+}
+
+const mapStateToProps = state => {
+	// console.log(state); // use to see current state
+	return {
+		// this will give a prop to our LibraryList
+		libraries: state.libraries;
+	}
+};
+
+export default connect(mapStateToProps)(LibraryList);
+```
