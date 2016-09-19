@@ -556,3 +556,237 @@ const styles = {
 	},
 };
 ```
+
+### ---- RNREDUX-5.2: Making Content Scrollable and Handling Input
+
+__ScrollView__
+
+Scrolling is definitely one of the differenes between React and React Native. To make them scrollable, we just import `ScrollView` and use that on the outside.
+
+For this case, it is the renderAlbums.
+
+We can just replace View with ScrollView.
+
+You also MUST find the root view and set it to flex: 1.
+
+__Handling Input__
+
+Time to make a button.
+
+__Button.js__
+
+```
+import React from 'react';
+import { Text } from 'react-native';
+
+const Button = () = => {
+	return (
+		<Text>Click me!</Text>
+	);
+}
+
+export default Button;
+```
+
+Now when we use this, we can have a section to house a button.
+
+We need to wrap the button but using `TouchableHighlight` or `TouchableOpacity`
+
+```
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
+
+const Button = ({ onPress }) = => {
+
+	const { buttonStyle, textStyle } = styles;
+
+	return (
+		// from the parent, have the prop of onPress{() => function}
+		<TouchableOpacity style={buttonStyle} onPress={onPress}>
+			<Text style={textStyle}>
+				Click me!
+			</Text>
+		</TouchableOpacity>
+	);
+}
+
+const styles = {
+	textStyle: {
+		alignSelf: 'center',
+		color: '#007aff',
+		fontSize: 16,
+		fontWeight: '600',
+		paddingTop: 10,
+		paddingBottom: 10
+	},
+	buttonStyle: {
+		flex: 1,
+		alignSelf: 'stretch',
+		backgroundColor: '#fff',
+		borderRadius: 5,
+		borderColor: '#007aff',
+	}
+}
+
+export default Button;
+```
+
+### ---- RNREDUX-5.3: Responding to User Input
+
+__Card.js__
+
+```javascript
+// have your imports
+// the album and const is for destructuring
+
+const Card = ({ album }) => {
+	const { title, artist, thumbnail_image, url } = album;
+
+	return (
+		<Card>
+			<CardSection>
+				<View style={styles.thumbnailContainerStyle}>
+					// <Image source={{ uri: props.album.thumbnail_image }}/>
+					//destructured
+					<Image
+						style={styles.thumbnailStyle}
+						source={{ uri: thumbnail_image }}/>
+				</View>
+				<View style={styles.headerContentStyle}>
+					//<Text>{props.album.title}</Text>
+					//<Text>{props.album.artist}</Text>
+					// Destructured
+					<Text style={styles.headerTextStyle}>{title}</Text>
+					<Text>{artist}</Text>
+				</View>
+			</CardSection>
+			<CardSection>
+				<Image
+					style={style.imageStyle}
+					source={{ uri: image }} />
+			</CardSection>
+			<CardSection>
+				<Button
+					onPress={() => openURL(album.url)}>
+					Buy now
+				</Button>
+			</CardSection>
+		</Card>
+	);
+}
+
+const styles = {
+	headerContentStyle: {
+		flexDirection: 'column',
+		justifyContent: 'space-around'
+	},
+	headerTextStyle: {
+		fontSize: 18
+	},
+	thumbnailStyle: {
+		height: 50,
+		width: 50
+	},
+	thumbnailContainerStyle: {
+		justifyContent: 'center',
+		alignItems: 'center',
+		marginLeft: 10,
+		marginRight: 10
+	},
+	imageStyle: {
+		height: 300,
+		flex: 1,
+		width: null
+	},
+};
+```
+
+__Button.js__
+
+```
+import React from 'react';
+import { Text, TouchableOpacity } from 'react-native';
+
+const Button = ({ onPress, children }) = => {
+
+	const { buttonStyle, textStyle } = styles;
+
+	return (
+		// from the parent, have the prop of onPress{() => function}
+		<TouchableOpacity style={buttonStyle} onPress={onPress}>
+			<Text style={textStyle}>
+				{ children }
+			</Text>
+		</TouchableOpacity>
+	);
+}
+
+const styles = {
+	textStyle: {
+		alignSelf: 'center',
+		color: '#007aff',
+		fontSize: 16,
+		fontWeight: '600',
+		paddingTop: 10,
+		paddingBottom: 10
+	},
+	buttonStyle: {
+		flex: 1,
+		alignSelf: 'stretch',
+		backgroundColor: '#fff',
+		borderRadius: 5,
+		borderColor: '#007aff',
+	}
+}
+
+export default Button;
+```
+
+## RNREDUX-8: Redux inside of React Native
+
+### ---- RNREDUX-8.1: Redux Boilerplate
+
+The <Provider> tag works together with the Store. The Store is what holds the Application State.
+
+The Provider is the communication with React. `react-redux` is the glue for React and Redux.
+
+__Steps__
+
+1. import { Provider } from 'react-redux' and import { createStore } from 'redux'.
+2. Wrap app view in <Provider store={createStore(reducers)}
+3. Create reducers/index.js
+4. Import {combineReducers } from 'redux' in this new file and export default combineReducers with the reducers inside.
+
+__app.js for React-Native Redux__
+
+```javascript
+import React from 'react';
+import { View } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
+import reducers from './reducers';
+
+const App = () => {
+	return (
+		<Provider store={createStore(reducers)}>
+			<View />
+		</Provider>
+	);
+};
+
+export default App;
+```
+
+__reducers/index.js__
+
+Create `libraries` as basis to always return an array.
+
+```
+import {combineReducers } from 'redux';
+
+export default combineReducers({
+	libraries: () => []
+});
+```
+
+### ---- RNREDUX-8.2: Reducer and State Design 

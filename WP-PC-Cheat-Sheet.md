@@ -6,7 +6,7 @@
 
 A: Double check the wp_options in the siteurl and home settings and that they correctly match MAMP. If you are on the default MAMP ports, you may need localhost:8888 in both addresses. Also check the wp_config.php file in your text editor to ensure the content URL is also correct.
 
-Also be sure to check your /etc/hosts file to see what address and terms are set up and that you restart the mySQL daemon, MAMP and Sequel Pro. 
+Also be sure to check your /etc/hosts file to see what address and terms are set up and that you restart the mySQL daemon, MAMP and Sequel Pro.
 
 **Q: Adjust get_posts posts_per_page for a data["term"] request**
 
@@ -177,4 +177,122 @@ if (!is_admin()) {
 }
 
 ?>
+```
+
+## WPPRES-5: Creating AJAX (Loading example)
+
+Using twig, variables were passed down to be used for things such as `loadmore.twig`, while a PHP class, routes and functions were set up to interact with the JS file.
+
+__function.php__
+
+```php
+<?php
+...
+require_once('functions/load_more.php');
+...
+?>
+```
+
+__loadmore.php__
+
+```php
+<?php
+
+class LoadMore {
+	public function loadNextSet($params) {
+		$perPage = 6;
+	    $page = $params['page'];
+	    $category = $params['cat'];
+	    $data = Context::getDefaultContext();
+	    $data['category'] = new TimberTerm($category);
+	    $data['tag'] = 'tag';
+
+	    $posts = $data['category']->get_posts([
+	      'posts_per_page' => $perPage,
+	      'orderby' => 'date',
+	      'order' => 'DESC',
+	      'offset' => ($perPage*$page) + 3,
+	    ]);
+
+	    $data['posts'] = $posts;
+
+	    Timber::render('partials/post/grid.twig', $data);
+	    exit();
+	}
+}
+
+?>
+```
+
+__routes.php__
+
+```php
+...
+// $params are the :section, :cat and :page args
+Routes::map(':section/:cat/:page', function($params){
+    $articles = new LoadMore();
+    echo $articles->loadNextSet($params);
+});
+...
+```
+
+```
+
+__loadmore.twig__
+
+```html
+<div class="loadmore-container" data-page='1' data-section='{{ section }}' data-category='{{ category }}'>
+	<a>Load More</a>
+</div>
+```
+
+__load-more.js__
+
+```javascript
+var loadMore = {
+	$loadMoreContainer: $('.loadmore-container'),
+	category: $('.loadmore-container').data('category'),
+	section: $('.loadmore-container').data('section'),
+	page: $('.loadmore-container').data('page'),
+	base_url: $('meta[name=base_url]').attr('content'),
+	perPage: 6,
+
+	init: function () {
+
+		// Show mega-menu when mega-menu link is focused
+		loadMore.$loadMoreContainer.on('click', function (e) {
+			e.preventDefault();
+			loadMore.loadNext();
+		});
+	},
+
+	loadNext: function () {
+
+		return $.ajax({
+			url: loadMore.base_url + '/' + loadMore.section + '/' + loadMore.category + '/' + loadMore.page,
+			type: 'GET',
+			success: loadMore.results,
+			error: loadMore.outputError,
+		});
+	},
+
+	results: function (data) {
+		var numPosts = $(data).find('li.-post').length;
+		loadMore.page = parseInt(loadMore.page) + 1;
+		var render = $(data).find('li.-post').unwrap();
+		$('ul.grid').last().append(render);
+
+		if (numPosts < loadMore.perPage) {
+			loadMore.hideViewAll();
+		}
+	},
+
+	hideViewAll: function () {
+		loadMore.$loadMoreContainer.css('display', 'none');
+	},
+};
+
+module.exports = {
+	init: loadMore.init,
+};
 ```
