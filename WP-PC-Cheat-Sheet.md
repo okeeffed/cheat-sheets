@@ -249,10 +249,13 @@ __loadmore.twig__
 __load-more.js__
 
 ```javascript
+var titleTagline = require('./title-tagline.js');
+
 var loadMore = {
 	$loadMoreContainer: $('.loadmore-container'),
 	category: $('.loadmore-container').data('category'),
 	section: $('.loadmore-container').data('section'),
+	search: $('.loadmore-container').data('search'),
 	page: $('.loadmore-container').data('page'),
 	base_url: $('meta[name=base_url]').attr('content'),
 	perPage: 6,
@@ -262,25 +265,59 @@ var loadMore = {
 		// Show mega-menu when mega-menu link is focused
 		loadMore.$loadMoreContainer.on('click', function (e) {
 			e.preventDefault();
-			loadMore.loadNext();
+			if ($('ul.grid').length > 0) {
+				loadMore.loadNextSection();
+			} else {
+				loadMore.loadNextSearch();
+			}
 		});
 	},
 
-	loadNext: function () {
+	loadNextSection: function () {
 
 		return $.ajax({
-			url: loadMore.base_url + '/' + loadMore.section + '/' + loadMore.category + '/' + loadMore.page,
+			url: loadMore.base_url + '/section/' + loadMore.section + '/' + loadMore.category + '/' + loadMore.page,
 			type: 'GET',
-			success: loadMore.results,
+			success: loadMore.resultsSection,
 			error: loadMore.outputError,
 		});
 	},
 
-	results: function (data) {
+	loadNextSearch: function () {
+		var urlString = loadMore.search;
+		urlString = urlString.replace(' ', '+');
+		console.log(urlString);
+		return $.ajax({
+			url: loadMore.base_url + '/search/' + urlString + '/' + loadMore.page,
+			type: 'GET',
+			success: loadMore.resultsSearch,
+			error: loadMore.outputError,
+		});
+	},
+
+	resultsSection: function (data) {
 		var numPosts = $(data).find('li.-post').length;
 		loadMore.page = parseInt(loadMore.page) + 1;
 		var render = $(data).find('li.-post').unwrap();
 		$('ul.grid').last().append(render);
+
+		if (numPosts < loadMore.perPage) {
+			loadMore.hideViewAll();
+		}
+
+		titleTagline.init();
+		titleTagline.doneResizing();
+	},
+
+	resultsSearch: function (data) {
+
+		console.log(data);
+
+		var numPosts = $(data).find('li.list-item').length;
+		loadMore.page = parseInt(loadMore.page) + 1;
+
+		var render = $(data).find('li.list-item').unwrap();
+		$('ul.list').last().append(render);
 
 		if (numPosts < loadMore.perPage) {
 			loadMore.hideViewAll();
@@ -295,4 +332,165 @@ var loadMore = {
 module.exports = {
 	init: loadMore.init,
 };
+```
+
+__loadmore.php__
+
+```php
+<?php
+
+class LoadMore {
+	public function loadNextLocationsSet($params) {
+		$perPage = 6;
+	    $page = $params['page'];
+	    $category = $params['cat'];
+	    $data = Context::getDefaultContext();
+	    $data['category'] = new TimberTerm($category);
+	    $data['tag'] = 'tag';
+
+	    $posts = $data['category']->get_posts([
+	      'posts_per_page' => $perPage,
+	      'orderby' => 'date',
+	      'order' => 'DESC',
+	      'offset' => ($perPage*$page) + 3,
+	    ]);
+
+	    $data['posts'] = $posts;
+
+	    Timber::render('partials/post/grid.twig', $data);
+	    exit();
+	}
+
+	public function loadNextSearchSet($params) {
+		$perPage = 6;
+	    $page = (int)$params['page'];
+	    $field = $params['search'];
+	    $offset = ($perPage*$page) + 4;
+	    $data = Context::getDefaultContext();
+	    $search = get_query_var('s');
+		$searchTerm = htmlspecialchars($field);
+
+	    $data['posts'] = SearchTerms::getSearchArticles($field, $offset, $perPage);
+
+	    Timber::render('partials/post/list.twig', $data);
+	    exit();
+	}
+
+	public function loadNextInspirationsSet($params) {
+
+		$exclusion = [];
+
+		$perPage = 6;
+		$page = $params['page'];
+		$category = $params['cat'];
+		$data = Context::getDefaultContext();
+		$data['category'] = new TimberTerm($category);
+		$data['tag'] = 'tag';
+
+		if($featuredIds = $data['category']->featured) {
+			$data['categoryFeatured'] = Timber::get_posts($featuredIds);
+			$exclusion = self::updateExclusionList($data['categoryFeatured'], $exclusion);
+		}
+
+		$posts = $data['category']->get_posts([
+			'posts_per_page' => $perPage,
+			'orderby' => 'date',
+			'order' => 'DESC',
+			'offset' => ($perPage*$page) + 4,
+			'post__not_in' => $exclusion,
+		]);
+
+		$data['posts'] = $posts;
+
+	    Timber::render('partials/post/grid.twig', $data);
+	    exit();
+	}
+
+	static function updateExclusionList($original, $exclusion) {
+		foreach($original as $post) {
+			if($post) {
+				array_push($exclusion, $post->id);
+			}
+		}
+		return $exclusion;
+	}
+}
+
+?>
+```
+## WPPRES-6: Custom Search Terms
+
+This example was taken from YAC when it was required to search for a CPT ID and then use it to get some post ids returned with the latest meta data values.
+
+```php
+// from functions > search_term.php
+
+global $wpdb;
+
+$park_ids = [];
+$meta_arrays = [];
+$posts_park = [];
+
+if (strlen($search_term) > 3) {
+
+	$park_post_type='parks';
+	$park_post_status='publish';
+
+	// get the park ids that relate to the search
+	$park_args = $wpdb->get_col( $wpdb->prepare(
+			"
+			SELECT ID
+			FROM $wpdb->posts WP
+			WHERE WP.post_title LIKE '%%%s%%'
+			AND post_type='%s'
+			AND post_status='%s'
+			",
+			esc_sql($search_term),
+			esc_sql($park_post_type),
+			esc_sql($park_post_status)
+		)
+	);
+
+	$park_ids = $park_args;
+
+	if ($park_ids != null ) {
+
+		$park_ids = esc_sql( $park_ids );
+		$park_ids_str = "'[^0-9]*" . implode( "[^0-9]*'|'[^0-9]*", $park_ids ) . "[^0-9]*'";
+		$park = 'park';
+
+		//find the parks
+		$init_park = $wpdb->get_col( $wpdb->prepare(
+				"
+				SELECT WP.ID
+				FROM $wpdb->posts WP
+				INNER JOIN $wpdb->postmeta PM
+				ON ( WP.ID = PM.post_id )
+				WHERE 1=1
+				AND ( ( PM.meta_key = %s
+				AND PM.meta_value REGEXP {$park_ids_str} ) )
+				AND WP.post_type = 'post'
+				AND (WP.post_status = 'publish')
+				GROUP BY WP.ID
+				ORDER BY WP.post_title DESC, WP.post_date DESC
+				",
+				esc_sql($park)
+			)
+		);
+
+		// grab post results to allow metadata
+		// comparison for park
+		$results = Timber::get_posts($init_park);
+
+		// filter the results to ensure posts are associated with
+		// the latest and correct `park` value
+		if ($results) {
+			foreach ($results as $result) {
+				if (array_intersect($result->custom['park'], $park_ids)) {
+					$posts_park[] = $result->id;
+				}
+			}
+		}
+	}
+}
 ```
