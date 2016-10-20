@@ -273,3 +273,11 @@ From an enterprise perspective, ensure that you aren't installing using root. En
 ***
 
 ## DOCKED-3: Components and Usage
+
+### ---- DOCKED-3.1: The First App Using the EB Wizard
+
+It will launch EC2, ELBs etc and can take up to 5-10 minutes to launch a full environment.
+
+In the console under Elastic Beanstalk, you will select Docker.
+
+This will deploy a sample application.

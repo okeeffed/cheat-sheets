@@ -60,7 +60,7 @@ Inline Style
 outline: outline-color outline-style outline-width|initial|inherit;
 ```
 
-### CSS find active element 
+### CSS find active element
 
 ```javascript
 document.activeElement
@@ -151,3 +151,16 @@ border-color	Color of the border
 ### Setting a default browser outline
 
 outline
+
+### CSS Hiding an element
+
+```css
+.hidden {
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+```
