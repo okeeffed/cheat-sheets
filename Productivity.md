@@ -18,6 +18,8 @@ A set of the apps available through the Chrome Store
 
 2. [Alchemize](https://chrome.google.com/webstore/detail/alchemize/ehjicobhjldomnjicohkkejcgljecncf) - Minify & pretty-print source code with ease.
 
+***
+
 ## CE: Chrome Extensions
 
 Tips: Go into your Chrome Settings > Extensions and set up short cut keys for better productivity
@@ -35,6 +37,8 @@ Tips: Go into your Chrome Settings > Extensions and set up short cut keys for be
 5. [SimpleExtManager](https://chrome.google.com/webstore/detail/simpleextmanager/kniehgiejgnnpgojkdhhjbgbllnfkfdk) - A simple menu to enable, disable and access options of extensions. __Great for reducing Chrome memory__
 
 6. [Video Speed Controller](https://chrome.google.com/webstore/detail/video-speed-controller/nffaoalbilbmmfgbnbgppjihopabppdk) - Speed up, slow down, advance and rewind any HTML5 video with quick shortcuts.
+
+7. [Spreed](https://chrome.google.com/webstore/detail/spreed-speed-read-the-web/ipikiaejjblmdopojhpejjmbedhlibno)
 
 ### ---- CE-Developer
 
@@ -67,4 +71,60 @@ Evaluate web accessibility within the Chrome browser.
 
 14. [Window Resizer](https://chrome.google.com/webstore/detail/window-resizer/kkelicaakdanhinjdeammmilcgefonfh) - Resize browser window to emulate various screen resolutions
 
+15. [Palette Creator](https://chrome.google.com/webstore/detail/palette-creator/oolpphfmdmjbojolagcbgdemojhcnlod/related(https://chrome.google.com/webstore/detail/palette-creator/oolpphfmdmjbojolagcbgdemojhcnlod) - Creates a color palette from any image. Just right-click on the image and select the “Palette Creator” option.
+
+16. [PHP Console](https://chrome.google.com/webstore/detail/php-console/nfhmhhlpfleoednkpnnnkolmclajemef?hl=en) - Display PHP errors & vars dumps in Google Chrome console and notification popups, execute PHP code remotely.
+
+17. [AJAX Debugger](https://chrome.google.com/webstore/detail/ajax-debugger/lgfefckpdealogpcfjdhinecfbcgedam?hl=en) - Logs all AJAX activity to the Dev Tools Console, allowing inspection of AJAX calls, and open calls in new tab with all the inputs.
+
+***
+
 ## AW: Alfred Workflows
+
+[Dev Alfred Workflows](https://github.com/willfarrell/alfred-workflows) - List of some amazing dev workflows
+
+## PB: Podcasts and Blogs
+
+### ---- PB: Web Dev and Design
+
+- [HackerNews](https://news.ycombinator.com/)
+- [Smashing Magazine](https://www.smashingmagazine.com/)
+- [EnvatoTuts+](https://tutsplus.com/tutorials)
+- [Hongkiat](http://www.hongkiat.com/blog/)
+- [Codrops](http://tympanus.net/codrops/)
+- [CSS Tricks](https://css-tricks.com/)
+- [DailyJS](http://www.dailyjs.com/)
+- [Federico Cargnelutti](https://blog.fedecarg.com/page/2/)
+- [David Walsh](https://davidwalsh.name/)
+- [JavaScript Jabber](https://devchat.tv/js-jabber)
+- [NodeUp](http://nodeup.com/)
+
+### ---- PB: iOS
+
+- [Swift Blog](https://developer.apple.com/swift/blog/)
+- [Ray Wenderlich](http://www.raywenderlich.com/)
+- [Cult of Mac](http://www.cultofmac.com/)
+- [iOS Developer Tips](http://iosdevelopertips.com/)
+- [NSHipster](http://nshipster.com/)
+- [Erica Sadun iOS](http://ericasadun.com/)
+- [iOSDevWeekly](http://iosdevweekly.com/)
+- [AppCoda](http://www.appcoda.com/)
+- [More Than Just Code](http://mtjc.fm/)
+- [iOhYes](http://5by5.tv/iohyes)
+
+### ---- PB: DevOps, SysOps
+
+- [DevOps.com](https://devops.com/)
+- [Docker Blog](https://blog.docker.com/)
+- [DZone](https://dzone.com/)
+- [AWS Blog](https://aws.amazon.com/blogs/aws/)
+- [Google Cloud Platform Blog](https://cloudplatform.googleblog.com/)
+- [4SysOps](https://4sysops.com/)
+
+
+### ---- PB: Software Engineering
+
+- [Code Simplicity](http://www.codesimplicity.com/)
+- [Scott Berkin](http://scottberkun.com/blog/)
+- [Software Engineering Daily](http://softwareengineeringdaily.com/)
+- [Toptal Blog](https://www.toptal.com/blog)
