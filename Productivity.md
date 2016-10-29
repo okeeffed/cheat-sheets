@@ -40,6 +40,8 @@ Tips: Go into your Chrome Settings > Extensions and set up short cut keys for be
 
 7. [Spreed](https://chrome.google.com/webstore/detail/spreed-speed-read-the-web/ipikiaejjblmdopojhpejjmbedhlibno)
 
+8. [Evernote](https://chrome.google.com/webstore/detail/evernote-web-clipper/pioclpoplcdbaefihamjohnefbikjilc)
+
 ### ---- CE-Developer
 
 1. [Chrome Sniffer Plus](https://chrome.google.com/webstore/detail/chrome-sniffer-plus/fhhdlnnepfjhlhilgmeepgkhjmhhhjkh) - Sniff web framework and javascript libraries run on browsing website.
@@ -82,6 +84,10 @@ Evaluate web accessibility within the Chrome browser.
 ## AW: Alfred Workflows
 
 [Dev Alfred Workflows](https://github.com/willfarrell/alfred-workflows) - List of some amazing dev workflows
+
+__Others__
+
+- [Evernote](http://www.packal.org/workflow/evernote)
 
 ## PB: Podcasts and Blogs
 
@@ -128,3 +134,27 @@ Evaluate web accessibility within the Chrome browser.
 - [Scott Berkin](http://scottberkun.com/blog/)
 - [Software Engineering Daily](http://softwareengineeringdaily.com/)
 - [Toptal Blog](https://www.toptal.com/blog)
+
+***
+
+## BO: Books
+
+- Computer Organisation and Design
+- Introduction to Algorithms
+- Pattern Recognition and Machine Learning
+- Artificial Intelligence: A Modern Approach
+- Mining of Massive Datasets
+- Machine Learning: A Probabilistic Perspective
+- Programming Language Paradigms
+- Data Mining: Practical Machine Learning Tools and Techniques
+- Computer Systems - A Programmer's Perspective
+- Essential Software Architecture
+- Programming Pearls
+- Clean Code - A Handbook of Agile Software Craftsmanship
+- Linear Algebra Done Right
+- Graph Theory
+- Concrete Mathematics
+- Algorithm Design
+- Security in Computing
+- Data Structures and Algorithms
+- Calculus 7e
