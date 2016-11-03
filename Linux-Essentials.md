@@ -71,6 +71,16 @@ Every file is also user specific. If you can change `/etc/profile` you can chang
 
 #### ++++ ---- Variables: Env/Sys Variables
 
+There are user defined and system defined variables. It is stored in the systems RAM that is reserved for this sort of operation.
+
+__Environment Variables__
+
+These are named and defined by the OS. This is generally run from our shell prompt. Eg. the tilda key will always move us to our Home directory.
+
+__User Variables__
+
+
+
 ## LINUX-5: The Linux Operating System
 
 ### ---- LINUX-5.3: Where Data is Stored
