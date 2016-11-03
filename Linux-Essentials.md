@@ -1,8 +1,79 @@
 # Linux Essentials
 
+<div id="2"></div>
+
+***
+
+## LINUX-2: Finding Your Way on a Linux Systems
+
+<div id="newSection"></div>
+
+### ---- LINUX-2.1: Command Line Basics 
+
+#### ++++ ---- uname 
+
+```
+okeeffe_d@dok ~$ uname
+Darwin
+
+okeeffe_d@dok ~$ uname -n  
+dok.gateway
+
+okeeffe_d@dok ~$ uname -r
+15.6.0
+
+okeeffe_d@dok ~$ uname -m
+x86_64
+
+okeeffe_d@dok ~$ uname -p
+i386
+
+okeeffe_d@dok ~$ uname -a                                    1 ↵
+Darwin dok.gateway 15.6.0 Darwin Kernel Version 15.6.0: Thu Jun 23 18:25:34 PDT 2016; root:xnu-3248.60.10~1/RELEASE_X86_64 x86_64
+```
+
+#### ++++ ---- History and completion 
+
+All commands are kept in the history file eg. `.bash_history`
+
+You can cycle through with the arrows.
+
+ENV variables can allow us to control history. We can also change the history file length (default 500) by we could go `export HISTFILESIZE=99999` to make our History file far longer.
+
+We can also `tab` to autocomplete things.
+
+#### ++++ ---- cd and pwd
+
+cd - change directory
+pwd - print working directory 
+
+#### ++++ ---- Shell config files
+
+This will vary depending on what kind of shell we are using eg. login or not login.
+
+We can configure it to boot automatically (run level 5).
+
+`/etc/.bash_rc` is set up to run different commands and ENV vars for our enviornment.
+
+`/etc/.bash_profile` and other hidden `.bash_name` run at certain times etc. which can be used for login shells etc.
+
+If you run a login shell, `.bash_profile` will be the first to run. No distribution will use all of these files.
+
+There is also a certain order to how these files are called upon. Call order is also dependent on the OS.
+
+```
+// dependent on non login shells or login shells - eg booting into a machine
+.bash_profile
+.bash_login || .bash_rc // it will use the first that it finds and use that
+```
+
+Every file is also user specific. If you can change `/etc/profile` you can change the settings for every single user.
+
+#### ++++ ---- Variables: Env/Sys Variables
+
 ## LINUX-5: The Linux Operating System
 
-#### ---- LINUX-5.3: Where Data is Stored
+### ---- LINUX-5.3: Where Data is Stored
 
 #### ++++ ---- LINUX-5.3.1: Kernel
 
