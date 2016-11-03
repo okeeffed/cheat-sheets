@@ -461,3 +461,577 @@ big_matrix <- cbind(matrix1, matrix2, vector1 ...)
 # Bind the new variable worldwide_vector as a column to star_wars_matrix
 > all_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)
 ```
+
+<div id="addrow"></div>
+
+### ---- Adding a Row
+
+Just like every action has a reaction, every cbind() has an rbind(). (We admit, we are pretty bad with metaphors.)
+
+```
+# star_wars_matrix and star_wars_matrix2 are available in your workspace
+> star_wars_matrix  
+                           US non-US
+A New Hope              461.0  314.4
+The Empire Strikes Back 290.5  247.9
+Return of the Jedi      309.3  165.8
+> star_wars_matrix2 
+                        US non-US
+The Phantom Menace   474.5  552.5
+Attack of the Clones 310.7  338.7
+Revenge of the Sith  380.3  468.5
+> 
+# Combine both Star Wars trilogies in one matrix
+> all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
+> all_wars_matrix
+                           US non-US
+A New Hope              461.0  314.4
+The Empire Strikes Back 290.5  247.9
+Return of the Jedi      309.3  165.8
+The Phantom Menace      474.5  552.5
+Attack of the Clones    310.7  338.7
+Revenge of the Sith     380.3  468.5
+```
+
+<div id="newSection"></div>
+
+### ---- All functions for combining
+
+```
+cbind()
+rbind()
+colSums()
+rowSums()
+```
+
+```
+> all_wars_matrix
+                           US non-US
+A New Hope              461.0  314.4
+The Empire Strikes Back 290.5  247.9
+Return of the Jedi      309.3  165.8
+The Phantom Menace      474.5  552.5
+Attack of the Clones    310.7  338.7
+Revenge of the Sith     380.3  468.5
+> 
+# Total revenue for US and non-US
+> total_revenue_vector <- colSums(all_wars_matrix)
+>   
+# Print out total_revenue_vector
+> total_revenue_vector
+    US non-US 
+2226.3 2087.8 
+```
+
+<div id="matrixElements"></div>
+
+### ---- Selection of Matrix Elements
+
+Similar to vectors, you can use the square brackets [ ] to select one or multiple elements from a matrix. Whereas vectors have one dimension, matrices have two dimensions. You should therefore use a comma to separate that what to select from the rows from that what you want to select from the columns. For example:
+
+my_matrix[1,2] selects the element at the first row and second column.
+my_matrix[1:3,2:4] results in a matrix with the data on the rows 1, 2, 3 and columns 2, 3, 4.
+If you want to select all elements of a row or a column, no number is needed before or after the comma, respectively:
+
+my_matrix[,1] selects all elements of the first column.
+my_matrix[1,] selects all elements of the first row.
+
+```
+> all_wars_matrix
+                           US non-US
+A New Hope              461.0  314.4
+The Empire Strikes Back 290.5  247.9
+Return of the Jedi      309.3  165.8
+The Phantom Menace      474.5  552.5
+Attack of the Clones    310.7  338.7
+Revenge of the Sith     380.3  468.5
+> 
+# Select the non-US revenue for all movies
+> non_us_all <- all_wars_matrix[,2]
+>   
+# Average non-US revenue
+> mean(non_us_all)
+[1] 347.9667
+>   
+# Select the non-US revenue for first two movies
+> non_us_some <- all_wars_matrix[1:2,2]
+>   
+# Average non-US revenue for first two movies
+> mean(non_us_some)
+[1] 281.15
+```
+
+<div id="matrixArithmetic"></div>
+
+### ---- Matrix Arithmetic
+
+Basic arithmetic also works
+
+```
+> all_wars_matrix
+                           US non-US
+A New Hope              461.0  314.4
+The Empire Strikes Back 290.5  247.9
+Return of the Jedi      309.3  165.8
+The Phantom Menace      474.5  552.5
+Attack of the Clones    310.7  338.7
+Revenge of the Sith     380.3  468.5
+> 
+# Estimate the visitors
+> visitors <- all_wars_matrix / 5
+>   
+# Print the estimate to the console
+> visitors
+                           US non-US
+A New Hope              92.20  62.88
+The Empire Strikes Back 58.10  49.58
+Return of the Jedi      61.86  33.16
+The Phantom Menace      94.90 110.50
+Attack of the Clones    62.14  67.74
+Revenge of the Sith     76.06  93.70
+```
+
+```
+> all_wars_matrix
+                           US non-US
+A New Hope              461.0  314.4
+The Empire Strikes Back 290.5  247.9
+Return of the Jedi      309.3  165.8
+The Phantom Menace      474.5  552.5
+Attack of the Clones    310.7  338.7
+Revenge of the Sith     380.3  468.5
+> ticket_prices_matrix
+                         US non-US
+A New Hope              5.0    5.0
+The Empire Strikes Back 6.0    6.0
+Return of the Jedi      7.0    7.0
+The Phantom Menace      4.0    4.0
+Attack of the Clones    4.5    4.5
+Revenge of the Sith     4.9    4.9
+> 
+# Estimated number of visitors
+> visitors <- all_wars_matrix / ticket_prices_matrix
+> 
+# US visitors
+> us_visitors <- visitors[,1]
+> 
+# Average number of US visitors
+> mean(us_visitors)
+[1] 75.01401
+```
+
+Those who are familiar with matrices should note that this is not the standard matrix multiplication for which you should use `%*%` in R.
+
+```
+> all_wars_matrix[,1] %*% ticket_prices_matrix[,1]
+         [,1]
+[1,] 11372.72
+```
+
+<div id="factors"></div>
+
+***
+
+## Factors in R
+
+The term factor refers to a statistical data type used to store categorical variables. The difference between a categorical variable and a continuous variable is that a categorical variable can belong to a limited number of categories. A continuous variable, on the other hand, can correspond to an infinite number of values.
+
+It is important that R knows whether it is dealing with a continuous or a categorical variable, as the statistical models you will develop in the future treat both types differently. (You will see later why this is the case.)
+
+A good example of a categorical variable is the variable 'Gender'. A human individual can either be "Male" or "Female", making abstraction of inter-sexes. So here "Male" and "Female" are, in a simplified sense, the two values of the categorical variable "Gender", and every observation can be assigned to either the value "Male" of "Female".
+
+To create factors in R, you make use of the function factor(). First thing that you have to do is create a vector that contains all the observations that belong to a limited number of categories. For example, gender_vector contains the sex of 5 different individuals:
+
+```
+gender_vector <- c("Male","Female","Female","Male","Male")
+```
+
+It is clear that there are two categories, or in R-terms 'factor levels', at work here: "Male" and "Female".
+
+The function factor() will encode the vector as a factor:
+
+```
+factor_gender_vector <- factor(gender_vector)
+```
+
+```
+# Gender vector
+> gender_vector <- c("Male", "Female", "Female", "Male", "Male")
+> 
+# Convert gender_vector to a factor
+> factor_gender_vector <- factor(gender_vector)
+> 
+# Print out factor_gender_vector
+> factor_gender_vector
+[1] Male   Female Female Male   Male  
+Levels: Female Male
+> gender_vector
+[1] "Male"   "Female" "Female" "Male"   "Male" 
+```
+
+There are two types of categorical variables: a nominal categorical variable and an ordinal categorical variable.
+
+A nominal variable is a categorical variable without an implied order. This means that it is impossible to say that 'one is worth more than the other'. For example, think of the categorical variable animals_vector with the categories "Elephant", "Giraffe", "Donkey" and "Horse". Here, it is impossible to say that one stands above or below the other. (Note that some of you might disagree ;-) ).
+
+In contrast, ordinal variables do have a natural ordering. Consider for example the categorical variable temperature_vector with the categories: "Low", "Medium" and "High". Here it is obvious that "Medium" stands above "Low", and "High" stands above "Medium".
+
+```
+# Animals
+> animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
+> factor_animals_vector <- factor(animals_vector)
+> factor_animals_vector
+[1] Elephant Giraffe  Donkey   Horse   
+Levels: Donkey Elephant Giraffe Horse
+> 
+# Temperature
+> temperature_vector <- c("High", "Low", "High","Low", "Medium")
+> factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
+> factor_temperature_vector
+[1] High   Low    High   Low    Medium
+Levels: Low < Medium < High
+```
+
+The `levels()` function allows you to change the levels later.
+
+Watch out: the order with which you assign the levels is important. R would assign them alphabetically by default.
+
+```
+# Code to build factor_survey_vector
+> survey_vector <- c("M", "F", "F", "M", "M")
+> factor_survey_vector <- factor(survey_vector)
+> 
+# Specify the levels of factor_survey_vector
+> levels(factor_survey_vector) <- c("Female", "Male")
+> 
+> factor_survey_vector
+[1] Male   Female Female Male   Male  
+Levels: Female Male
+```
+
+<div id="factorSummary"></div>
+
+### ---- Summarizing a factor
+
+`summary(my_var)`
+
+```
+> survey_vector <- c("M", "F", "F", "M", "M")
+> factor_survey_vector <- factor(survey_vector)
+> levels(factor_survey_vector) <- c("Female", "Male")
+> factor_survey_vector
+[1] Male   Female Female Male   Male  
+Levels: Female Male
+> 
+# Generate summary for survey_vector
+> summary(survey_vector)
+   Length     Class      Mode 
+        5 character character 
+> 
+# Generate summary for factor_survey_vector
+> summary(factor_survey_vector)
+Female   Male 
+     2      3 
+```
+
+Gender Neutral
+
+```
+# Build factor_survey_vector with clean levels
+> survey_vector <- c("M", "F", "F", "M", "M")
+> factor_survey_vector <- factor(survey_vector)
+> levels(factor_survey_vector) <- c("Female", "Male")
+> 
+# Male
+> male <- factor_survey_vector[1]
+> 
+# Female
+> female <- factor_survey_vector[2]
+> 
+# Battle of the sexes: Male 'larger' than female?
+> male > female
+Warning message: '>' not meaningful for factors
+[1] NA
+```
+
+<div id="orderedFactors"></div>
+
+### ---- Ordered Factors
+
+Since "Male" and "Female" are unordered (or nominal) factor levels, R returns a warning message, telling you that the greater than operator is not meaningful. As seen before, R attaches an equal value to the levels for such factors.
+
+But this is not always the case! Sometimes you will also deal with factors that do have a natural ordering between its categories. If this is the case, we have to make sure that we pass this information to R...
+
+Let us say that you are leading a research team of five data analysts and that you want to evaluate their performance. To do this, you track their speed, evaluate each analyst as "slow", "fast" or "insane", and save the results in speed_vector.
+
+```
+# Create speed_vector
+> speed_vector <- c("fast", "slow", "slow", "fast", "insane")
+> 
+# Convert speed_vector to ordered factor vector
+> factor_speed_vector <- factor(speed_vector, ordered=TRUE, levels = c("slow", "fast", "insane"))
+> 
+# Print factor_speed_vector
+> factor_speed_vector
+[1] fast   slow   slow   fast   insane
+Levels: slow < fast < insane
+> summary(factor_speed_vector)
+  slow   fast insane 
+     2      2      1 
+```
+
+Then as an example of comparing Ordered Factors
+
+```
+# Create factor_speed_vector
+> speed_vector <- c("fast", "slow", "slow", "fast", "insane")
+> factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("slow", "fast", "insane"))
+> 
+# Factor value for second data analyst
+> da2 <- factor_speed_vector[2]
+> 
+# Factor value for fifth data analyst
+> da5 <- factor_speed_vector[5]
+> 
+# Is data analyst 2 faster than data analyst 5?
+> da2 > da5
+[1] FALSE
+```
+
+<div id="dataFrames"></div>
+
+***
+
+## Data Frames
+
+When doing a market research survey, you often have questions such as:
+
+'Are your married?' or 'yes/no' questions (logical)
+'How old are you?' (numeric)
+'What is your opinion on this product?' or other 'open-ended' questions (character)
+...
+The output, namely the respondents' answers to the questions formulated above, is a data set of different data types. You will often find yourself working with data sets that contain different data types instead of only one.
+
+A data frame has the variables of a data set as columns and the observations as rows. This will be a familiar concept for those coming from different statistical software packages such as SAS or SPSS.
+
+Working with large data sets is not uncommon in data analysis. When you work with (extremely) large data sets and data frames, your first task as a data analyst is to develop a clear understanding of its structure and main elements. Therefore, it is often useful to show only a small part of the entire data set.
+
+So how to do this in R? Well, the function head() enables you to show the first observations of a data frame. Similarly, the function tail() prints out the last observations in your data set.
+
+Both head() and tail() print a top line called the 'header', which contains the names of the different variables in your data set. This is similar to the unix command.
+
+```
+> head(mtcars)
+                   mpg cyl disp  hp drat    wt  qsec vs am gear carb
+Mazda RX4         21.0   6  160 110 3.90 2.620 16.46  0  1    4    4
+Mazda RX4 Wag     21.0   6  160 110 3.90 2.875 17.02  0  1    4    4
+Datsun 710        22.8   4  108  93 3.85 2.320 18.61  1  1    4    1
+Hornet 4 Drive    21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
+Hornet Sportabout 18.7   8  360 175 3.15 3.440 17.02  0  0    3    2
+Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
+```
+
+Another method that is often used to get a rapid overview of your data is the function str(). The function str() shows you the structure of your data set. For a data frame it tells you:
+
+- The total number of observations (e.g. 32 car types)
+- The total number of variables (e.g. 11 car features)
+- A full list of the variables names (e.g. mpg, cyl ... )
+- The data type of each variable (e.g. num)
+- The first observations
+
+Applying the str() function will often be the first thing that you do when receiving a new data set or data frame. It is a great way to get more insight in your data set before diving into the real analysis.
+
+```
+# Investigate the structure of mtcars
+> str(mtcars)
+'data.frame':	32 obs. of  11 variables:
+ $ mpg : num  21 21 22.8 21.4 18.7 18.1 14.3 24.4 22.8 19.2 ...
+ $ cyl : num  6 6 4 6 8 6 8 4 4 6 ...
+ $ disp: num  160 160 108 258 360 ...
+ $ hp  : num  110 110 93 110 175 105 245 62 95 123 ...
+ $ drat: num  3.9 3.9 3.85 3.08 3.15 2.76 3.21 3.69 3.92 3.92 ...
+ $ wt  : num  2.62 2.88 2.32 3.21 3.44 ...
+ $ qsec: num  16.5 17 18.6 19.4 17 ...
+ $ vs  : num  0 0 1 1 0 1 0 1 1 1 ...
+ $ am  : num  1 1 1 0 0 0 0 0 0 0 ...
+ $ gear: num  4 4 4 3 3 3 3 4 4 4 ...
+ $ carb: num  4 4 1 1 2 1 4 2 2 4 ...
+
+# Check the structure of planets_df
+> str(planets_df)
+'data.frame':	8 obs. of  5 variables:
+ $ name    : Factor w/ 8 levels "Earth","Jupiter",..: 4 8 1 3 2 6 7 5
+ $ type    : Factor w/ 2 levels "Gas giant","Terrestrial planet": 2 2 2 2 1 1 1 1
+ $ diameter: num  0.382 0.949 1 0.532 11.209 ...
+ $ rotation: num  58.64 -243.02 1 1.03 0.41 ...
+ $ rings   : logi  FALSE FALSE FALSE FALSE TRUE TRUE ...
+```
+
+<div id="selectionFrameElements"></div>
+
+### ---- Selection of data frame elements
+
+Similar to vectors and matrices, you select elements from a data frame with the help of square brackets [ ]. By using a comma, you can indicate what to select from the rows and the columns respectively. For example:
+
+my_df[1,2] selects the value at the first row and select element in my_df.
+my_df[1:3,2:4] selects rows 1, 2, 3 and columns 2, 3, 4 in my_df.
+Sometimes you want to select all elements of a row or column. For example, my_df[1, ] selects all elements of the first row. Let us now apply this technique on planets_df!
+
+```
+> planets_df
+     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+3   Earth Terrestrial planet    1.000     1.00 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+5 Jupiter          Gas giant   11.209     0.41  TRUE
+6  Saturn          Gas giant    9.449     0.43  TRUE
+7  Uranus          Gas giant    4.007    -0.72  TRUE
+8 Neptune          Gas giant    3.883     0.67  TRUE
+
+# Print out diameter of Mercury (row 1, column 3)
+> planets_df[1,3]
+[1] 0.382
+> 
+# Print out data for Mars (entire fourth row)
+> planets_df[4, ]
+  name               type diameter rotation rings
+4 Mars Terrestrial planet    0.532     1.03 FALSE
+
+# Select first 5 values of diameter column
+> planets_df[1:5, "diameter"]
+[1]  0.382  0.949  1.000  0.532 11.209
+
+# Select the rings variable from planets_df
+> rings_vector <- planets_df[,"rings"]
+>   
+# Print out rings_vector
+> rings_vector
+[1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
+
+# Adapt the code to select all columns for planets with rings
+> planets_df[rings_vector, ]
+     name      type diameter rotation rings
+5 Jupiter Gas giant   11.209     0.41  TRUE
+6  Saturn Gas giant    9.449     0.43  TRUE
+7  Uranus Gas giant    4.007    -0.72  TRUE
+8 Neptune Gas giant    3.883     0.67  TRUE
+```
+
+<div id="subsets"></div>
+
+### ---- Subsets
+
+You should see the subset() function as a short-cut to do exactly the same as what you did in the previous exercises.
+
+subset(my_df, subset = some_condition)
+The first argument of subset() specifies the data set for which you want a subset. By adding the second argument, you give R the necessary information and conditions to select the correct subset.
+
+The code below will give the exact same result as you got in the previous exercise, but this time, you didn't need the rings_vector!
+
+subset(planets_df, subset = rings)
+
+```
+# Select planets with diameter < 1
+> subset(planets_df, subset = diameter < 1)
+     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+
+> subset(planets_df, subset = diameter > 1)
+     name      type diameter rotation rings
+5 Jupiter Gas giant   11.209     0.41  TRUE
+6  Saturn Gas giant    9.449     0.43  TRUE
+7  Uranus Gas giant    4.007    -0.72  TRUE
+8 Neptune Gas giant    3.883     0.67  TRUE
+```
+
+<div id="sorting"></div>
+
+### ---- Sorting
+
+In data analysis you can sort your data according to a certain variable in the data set. In R, this is done with the help of the function order().
+
+order() is a function that gives you the ranked position of each element when it is applied on a variable, such as a vector for example:
+
+```
+> a <- c(100, 10, 1000)
+> order(a)
+[1] 2 1 3
+```
+
+10, which is the second element in a, is the smallest element, so 2 comes first in the output of order(a). 100, which is the first element in a is the second smallest element, so 1 comes second in the output of order(a).
+
+This means we can use the output of order(a) to reshuffle a:
+
+```
+> a <- c(10, 30, 100)
+> order(a)
+[1] 1 2 3
+> b <- c(100, 300, 20)
+> order(b)
+[1] 3 1 2
+> c <- a + b
+> order(c)
+[1] 1 3 2
+> c[order(c)]
+[1] 110 120 330
+```
+
+```
+# planets_df is pre-loaded in your workspace
+> planets_df$diameter
+[1]  0.382  0.949  1.000  0.532 11.209  9.449  4.007  3.883
+
+# Use order() to create positions
+> positions <- order(planets_df$diameter)
+> planets_df
+     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+3   Earth Terrestrial planet    1.000     1.00 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+5 Jupiter          Gas giant   11.209     0.41  TRUE
+6  Saturn          Gas giant    9.449     0.43  TRUE
+7  Uranus          Gas giant    4.007    -0.72  TRUE
+8 Neptune          Gas giant    3.883     0.67  TRUE
+
+# Use positions to sort planets_df
+> planets_df[positions, ]
+     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+3   Earth Terrestrial planet    1.000     1.00 FALSE
+8 Neptune          Gas giant    3.883     0.67  TRUE
+7  Uranus          Gas giant    4.007    -0.72  TRUE
+6  Saturn          Gas giant    9.449     0.43  TRUE
+5 Jupiter          Gas giant   11.209     0.41  TRUE
+
+> planets_df
+     name               type diameter rotation rings
+1 Mercury Terrestrial planet    0.382    58.64 FALSE
+2   Venus Terrestrial planet    0.949  -243.02 FALSE
+3   Earth Terrestrial planet    1.000     1.00 FALSE
+4    Mars Terrestrial planet    0.532     1.03 FALSE
+5 Jupiter          Gas giant   11.209     0.41  TRUE
+6  Saturn          Gas giant    9.449     0.43  TRUE
+7  Uranus          Gas giant    4.007    -0.72  TRUE
+8 Neptune          Gas giant    3.883     0.67  TRUE
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
