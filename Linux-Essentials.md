@@ -150,6 +150,27 @@ We can use the backslash so that we can continue writing the command on the new 
 The commands parameters can be roughly divided in parameters starting with a dash (_options_) and no dashes (_arguments_)
 
 
+### ---- LINUX-2.2: Using the Command Line to Get Help
+
+#### ++++ ---- Man
+
+### ---- LINUX-2.3: Using Directories and Listing Files
+
+#### ++++ ---- The Linux File System
+
+### ---- LINUX-2.4: Creating, Moving and Deleting Files
+
+#### ++++ ---- Files and Directories
+
+***
+
+## LINUX-3: The Power of the Command Line
+
+<div id="3"></div>
+
+### ---- LINUX-3.1: Archiving Files on the Command Line
+
+***
 
 ## LINUX-5: The Linux Operating System
 
