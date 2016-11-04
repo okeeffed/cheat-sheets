@@ -108,6 +108,48 @@ Variable names can container letters and numbers but cannot start with numbers.
 
 #### ++++ ---- Globbing
 
+Globbing is the process of expanding a non-specific file name using a wildcard variable.
+
+Globbing - Global Command. Historically, it came from the /etc/glob program.
+
+
+__Commands__
+
+```
+// find all .txt files 
+ls *.txt
+
+// list files that start with test
+ls test*
+
+// replace the ? with an char
+ls ????.txt
+
+// find file based on something you know with the ? wildcard
+ls Monday-file?.txt
+
+// find files that begin with F
+ls [F]*.txt
+
+// specify letter you think might come one way or another
+ls f[igh][lfz]*
+```
+
+#### ++++ ---- Quoting
+
+- Double quotes allow us to still use the value of variables and commands
+- Single quotes preserve the literaly meaning of each character of a given string
+- Backslash is an escape character
+
+#### ++++ ---- Formatting Commands
+
+We can use the backslash so that we can continue writing the command on the new line.
+
+#### ++++ ---- Working with Options
+
+The commands parameters can be roughly divided in parameters starting with a dash (_options_) and no dashes (_arguments_)
+
+
 
 ## LINUX-5: The Linux Operating System
 
