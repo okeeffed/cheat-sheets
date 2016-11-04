@@ -79,6 +79,34 @@ These are named and defined by the OS. This is generally run from our shell prom
 
 __User Variables__
 
+These can be defined by the user themselves.
+
+Adding a PATH for a new application.
+
+`PATH=$PATH:/var/opt/` - this will append the folder to a new env variable. Now we can add new scripts that we want to run here!
+
+To make it apply to all of our login shells, we then go `export PATH`. 
+
+To keep it automatically when we start our system, we will need to edit our `.bash_profile` and adjust the path var.
+
+Note: Interactive shells are ones that you can interact with.
+
+#### ++++ ---- Variables: User Defined vars
+
+`var=value`
+
+So how do we create this?
+
+```
+awesome="dennis"
+echo $awesome
+```
+
+To use this in other shells, again, we need to export the variable.
+
+Variable names can container letters and numbers but cannot start with numbers.
+
+#### ++++ ---- Globbing
 
 
 ## LINUX-5: The Linux Operating System
