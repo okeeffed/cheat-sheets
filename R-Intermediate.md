@@ -48,6 +48,21 @@ Alphabetical order with relate to alphabet and T/F will go 1/0
 [1] TRUE
 ```
 
-<div id="subsection"></div>
+<div id="gtlt"></div>
 
-### ---- newSubSection
+### ---- Greater than or less than
+
+```
+# Comparison of numerics
+> -6 * 5 + 2 >= -10 + 1
+[1] FALSE
+> 
+# Comparison of character strings
+> "raining" <= "raining dogs"
+[1] TRUE
+> 
+# Comparison of logicals
+> TRUE > FALSE
+[1] TRUE
+```
+
