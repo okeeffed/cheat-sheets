@@ -186,28 +186,199 @@ my_new_list.sort()
 my_new_list
 ```
 
-<div id="newSection"></div>
+<div id="6"></div>
 
 ### ---- Slicing with a Step
 
+How can we slice that move backward or that skip items?
 
+```
+my_list=list(range(20))
 
+# let's get the even numbers
+my_list[::2]
+"Testing"[::2]
 
+# reversing
+"Slap"[::-1]
 
+# getting the middle slice - must swap positions!
+my_list[8:2:-1]
 
+# negative indexes will also give you the positions from the end
+my_list[-1]
 
+# example of grabbing the first four iterables through a Python function
+def first_4(iter):
+    return iter[:4]
+```
 
+<div id="7"></div>
 
+### ---- Deleting or Replacing Slices
 
+We can delete and replace with lists.
 
+```
+my_list = [1,2, 'a', 'b', 5,6,'f','g']
 
+# what if I just want letters?
+my_list[4:7] = ['e','f']
+```
 
+__Code Challenge__
 
+```
+def sillycase(c):
+    return c[:round(len(c) / 2)].lower() + c[round(len(c) / 2):].upper()
+```
 
+<div id="dict1"></div>
 
+***
 
+## Dictionaries
 
+Key-Value organisation. They themselves do not have an order.
 
+```
+my_dict = {'name': 'Dennis', 'job': 'Software Engineer'}
 
+# to access it, you need to use the key name
+my_dict['name']
+```
 
+Dictionaries can contain anything - even your own custom classes.
 
+```
+named_dict = { 'name' : { 'first' : 'Dennis', 'last': 'OKeeffe'} }
+named_dict['name']['first']
+
+# tuple game dict
+game_dict = {(1,2) : True}
+game_dict[(1,2)]
+```
+
+Challenge: Check if a dict key is in the list 
+
+```
+def members(dict, keys):
+    counter = 0
+    for key in dict:
+        if key in keys:
+            counter = counter + 1
+    return counter
+```
+
+<div id="dict2"></div>
+
+### ---- Managing Keys
+
+We can `del` keys etc similar to the way we do it for keys.
+
+```
+>>> my_dict['test'] = 'value'
+>>> my_dict
+{'test': 'value', 'job': 'Software Engineer', 'name': 'Dennis'}
+>>> del my_dict['test']
+>>> my_dict
+{'job': 'Software Engineer', 'name': 'Dennis'}
+
+# we can use update for multiple keys etc
+>>> my_dict.update({'job': 'Developer', 'age': 24, 'state': 'New South Wales'})
+>>> my_dict
+{'job': 'Developer', 'name': 'Dennis', 'age': 24, 'state': 'New South Wales'}
+```
+
+Challenge: Create a function named word_count() that takes a string. Return a dictionary with each word in the string as the key and the number of times it appears as the value.
+
+```
+def word_count(sentence):
+    new_dict = {}
+    word_list = sentence.split()
+    count = 0
+
+    for original_word in word_list:
+        if original_word not in new_dict:
+            count = 0
+            for comparison_word in word_list:
+                if original_word == comparison_word:
+                    count += 1
+                    new_dict.update({original_word: count})
+    return new_dict
+```
+
+<div id="dict3"></div>
+
+### ---- Unpacking Dictionaries
+
+You can give placeholders a name and use dictionaries to make it a little easier.
+
+```
+>>> my_string = "Hi my name is {name} and I live in {state}"
+>>> my_string
+'Hi my name is {name} and I live in {state}'
+>>> my_string.format('Dennis', 'Sydney')
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+KeyError: 'name'
+>>> my_string.format('name'='Dennis', state='Sydney')
+  File "<stdin>", line 1
+SyntaxError: keyword can't be an expression
+>>> my_string.format(name='Dennis', state='Sydney')
+'Hi my name is Dennis and I live in Sydney'
+
+# how do we make this programmatic?
+>>> test_dict = {'name':'Dennis', 'state':'Sydney'}
+>>> my_string.format(**test_dict)
+'Hi my name is Dennis and I live in Sydney'
+```
+
+Code Challenge: Create a function named string_factory that accepts a list of dictionaries and a string. Return a new list built by using .format() on the string, filled in by each of the dictionaries in the list.
+
+```
+dicts = [
+    {'name': 'Michelangelo',
+     'food': 'PIZZA'},
+    {'name': 'Garfield',
+     'food': 'lasanga'},
+    {'name': 'Walter',
+     'food': 'pancakes'},
+    {'name': 'Galactus',
+     'food': 'worlds'}
+]
+
+string = "Hi, I'm {name} and I love to eat {food}!"
+
+def string_factory(list_of_dict, str):
+    new_list = []
+    for ind_list in list_of_dict:
+        new_list.append(str.format(**ind_list))
+    return new_list
+```
+
+<div id="dict4"></div>
+
+### ---- Dictionary Iteration
+
+Again, Dictionaries in Python do not have a set order, but we can still iterate over them.
+
+```
+>>> my_dict
+{'job': 'Developer', 'name': 'Dennis', 'age': 24, 'state': 'New South Wales'}
+>>> for thing in my_dict:
+...     print(thing)
+...
+job
+name
+age
+state
+
+>>> for key in my_dict:
+...     print(my_dict[key])
+...
+Developer
+Dennis
+24
+New South Wales
+```
