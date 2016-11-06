@@ -381,4 +381,48 @@ Developer
 Dennis
 24
 New South Wales
+
+>>> for value in my_dict.values():
+...     print(value)
+...
+Developer
+Dennis
+24
+New South Wales
+```
+
+Create a function named most-classes that takes a dictionary of teachers. Each key is a teacher's name and their value is a list of classes they've taught. most-classes should return the teacher with the most classes.
+
+Next, create a function named num_teachers that takes the same dictionary of teachers and classes. Return the total number of teachers.
+
+Now, create a function named stats that takes the teacher dictionary. Return a list of lists in the format [<teacher name>, <number of classes>]. For example, one item in the list would be ['Dave McFarland', 1].
+
+Great work! Finally, write a function named courses that takes the teachers dictionary. It should return a single list of all of the courses offered by all of the teachers.
+
+```
+def most_classes(teachers):
+    highest_value = 0
+    teacher_name = ""
+    for teacher in teachers:
+        if len(teachers[teacher]) > highest_value:
+            highest_value = len(teachers[teacher])
+            teacher_name = teacher
+    return teacher_name
+
+def num_teachers(teachers):
+    return len(teachers)
+
+def stats(teachers):
+    return_list = []
+    for teacher in teachers:
+        return_list.append([teacher, len(teachers[teacher])])
+    return return_list
+
+def courses(teachers):
+    single_courses = []
+    for courses in teachers.values():
+        for course in courses:
+            if course not in single_courses:
+                single_courses.append(course)
+    return single_courses
 ```
