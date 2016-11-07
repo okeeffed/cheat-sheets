@@ -260,8 +260,16 @@ class Character(Combat):
 
 Code Challenge
 
-```
+Animal.noise() returns self.sound.lower(). Make Sheep.noise() return the uppercased version of the instance's sound.
 
+```
+from animal import Animal
+
+class Sheep(Animal):
+    sound = "Bless"
+    
+    def noise(self):
+        return self.sound.upper()
 ```
 
 
