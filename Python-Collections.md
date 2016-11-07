@@ -426,3 +426,234 @@ def courses(teachers):
                 single_courses.append(course)
     return single_courses
 ```
+
+<div id="tuples"></div>
+
+***
+
+## Tuples
+
+Lists themselves can be mutated, but sometimes we want the collections to stay the same. That's where tuples come in. They themselves are immutable.
+
+Tuples do not support item assignment.
+
+```
+>>> tupleTest = (1,2,3)
+>>> tupleTest
+(1, 2, 3)
+>>> my_second_tuple = 1,2,3
+>>> my_second_tuple
+(1, 2, 3)
+>>> my_third_tuple = tuple([1,2,3])
+>>> my_third_tuple
+(1, 2, 3)
+>>> dir(tuple)
+['__add__', '__class__', '__contains__', '__delattr__', '__doc__', '__eq__', '__format__', '__ge__', '__getattribute__', '__getitem__', '__getnewargs__', '__getslice__', '__gt__', '__hash__', '__init__', '__iter__', '__le__', '__len__', '__lt__', '__mul__', '__ne__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__rmul__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'count', 'index']
+```
+
+<div id="tuples2"></div>
+
+### ---- Tuple Packing and Unpacking
+
+Here we create a tuple that has valued assigned by another tuple. It's referred to as `simulatneous assignment`.
+
+```
+>>> a,b = 1,2
+>>> a
+1
+>>> b
+2
+
+# unpacking
+>>> c = (3,4)
+>>> (d,e) = c
+>>> d
+3
+>>> e
+4
+
+# packing
+>>> f = d,e
+>>> f
+(3, 4)
+>>> f == c
+True
+
+# swapping the value
+>>> del a
+>>> del b
+>>> a = 1
+>>> b = 2
+>>> a,b = b,a
+>>> a
+2
+>>> b
+1
+
+# function example
+>>> def my_func():
+...     return 1,2,3
+...
+>>> my_func()
+(1, 2, 3)
+>>> a,b,c = my_func()
+>>> a
+1
+>>> b
+2
+>>> c
+3
+```
+
+Challenge: Create a function named stringcases that takes a string and returns a tuple of four versions of the string: uppercased, lowercased, titlecased (where every word's first letter is capitalized), and a reversed version of the string.
+
+```
+def stringcases(str):
+    uppercased = str.upper()
+    lowercased = str.lower()
+    titlecased = str.title()
+    reverse = str[::-1]
+    return uppercased, lowercased, titlecased, reverse
+```
+
+<div id="tuples3"></div>
+
+### ---- Tuples with functions
+
+We can use enumerate for some packing etc.
+
+```
+>>> alpha = list('abcdefghijklmnopqrstuvwxyz')
+>>> alpha
+['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+>>> dir(enumerate)
+['__class__', '__delattr__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__iter__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'next']
+# prints the help 
+>>> help(enumerate)
+>>> for (index, letter) in enumerate(alpha):
+...     print('{}: {}').format(index,letter)
+...
+0: a
+1: b
+2: c
+3: d
+4: e
+5: f
+6: g
+7: h
+8: i
+9: j
+10: k
+11: l
+12: m
+13: n
+14: o
+15: p
+16: q
+17: r
+18: s
+19: t
+20: u
+21: v
+22: w
+23: x
+24: y
+25: z
+
+>>> for step in enumerate(alpha):
+...     print('{}: {}'.format(*step))
+...
+0: a
+1: b
+2: c
+3: d
+4: e
+5: f
+6: g
+7: h
+8: i
+9: j
+10: k
+11: l
+12: m
+13: n
+14: o
+15: p
+16: q
+17: r
+18: s
+19: t
+20: u
+21: v
+22: w
+23: x
+24: y
+25: z
+```
+
+We can also unpack dictionaries in a similar matter:
+
+```
+>>> my_dict
+{'job': 'Developer', 'name': 'Dennis', 'age': 24, 'state': 'New South Wales'}
+>>> for key, value in my_dict.items():
+...     print('{}: {}'.format(key.title(), value))
+...
+Job: Developer
+Name: Dennis
+Age: 24
+State: New South Wales
+```
+
+Create a function named combo() that takes two iterables and returns a list of tuples. Each tuple should hold the first item in each list, then the second set, then the third, and so on. Assume the iterables will be the same length.
+
+```
+def combo(iter1, iter2):
+    ret = []
+    length = len(iter1)
+    counter = 0
+    while counter < length:
+        ret.append((iter1[counter],iter2[counter]))
+        counter += 1
+    return ret
+
+# better alternatives
+
+def combo(iterable_1, iterable_2):
+  list_of_tuples = []
+  for index in range(len(iterable_1)):
+    list_of_tuples.append((iterable_1[index], iterable_2[index]))
+
+  return list_of_tuples
+
+def combo(iterable_1, iterable_2):
+  list_of_tuples = []
+  for index, item2 in enumerate(iterable_2):
+    list_of_tuples.append( (iterable_1[index], item2) )
+
+  return list_of_tuples
+
+def combo(iterable_1, iterable_2):
+  return list(zip(iterable_1, iterable_2))
+
+def combo(iter1, iter2):
+  combo_list = []
+  for index, value in enumerate(iter1):
+    tuple = value, iter2[index]
+    combo_list.append(tuple)
+  return combo_list
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
