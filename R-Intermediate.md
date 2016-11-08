@@ -511,11 +511,82 @@ Next does what continue does in a number of other languages
 [1] "This is ridiculous, I'm outta here!"
 ```
 
+The `strsplit()` function splits the chars into a vector with individual letters.
 
+```
+# Pre-defined variables
+> rquote <- "r's internals are irrefutably intriguing"
+> chars <- strsplit(rquote, split = "")[[1]]
+> 
+# Initialize rcount
+> rcount <- 0
+> 
+# Finish the for loop
+> for (char in chars) {
+    if (char == 'r') {
+      rcount = rcount + 1
+    }
+    
+    if (char == 'u') {
+      break
+    }
+  }
+> 
+# Print out rcount
+> rcount
+[1] 5
+```
 
+<div id="functions"></div>
 
+***
 
+## Functions
 
+```
+help()
+args()
+```
+
+__Using functions__
+
+```
+# The linkedin and facebook vectors have already been created for you
+> linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+> facebook <- c(17, 7, 5, 16, 8, 13, 14)
+> 
+# Calculate average number of views
+> avg_li <- mean(linkedin)
+> avg_fb <- mean(facebook)
+> 
+# Inspect avg_li and avg_fb
+> avg_li
+[1] 10.85714
+> avg_fb
+[1] 11.42857
+```
+
+<div id="mean"></div>
+
+### ++++ ---- mean()
+
+```
+# The linkedin and facebook vectors have already been created for you
+> linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+> facebook <- c(17, 7, 5, 16, 8, 13, 14)
+> 
+# Calculate the mean of the sum
+> avg_sum <- mean(linkedin + facebook)
+> 
+# Calculate the trimmed mean of the sum
+> avg_sum_trimmed <- mean(linkedin + facebook, 0.2)
+> 
+# Inspect both new variables
+> avg_sum
+[1] 22.28571
+> avg_sum_trimmed
+[1] 22.6
+```
 
 
 
