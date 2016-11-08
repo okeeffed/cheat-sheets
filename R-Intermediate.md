@@ -672,7 +672,7 @@ Note that you can use function calls within functions calls.
 ```
 
 ```
-> # Define the interpret function
+# Define the interpret function
 > interpret <- function(num_views) {
     if (num_views > 15) {
       print("You're popular!")
@@ -683,7 +683,7 @@ Note that you can use function calls within functions calls.
     }
   }
 > 
-> # Call the interpret function twice
+# Call the interpret function twice
 > interpret(linkedin[1])
 [1] "You're popular!"
 [1] 16
@@ -693,11 +693,11 @@ Note that you can use function calls within functions calls.
 ```
 
 ```
-> # The linkedin and facebook vectors have already been created for you
+# The linkedin and facebook vectors have already been created for you
 > linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 > facebook <- c(17, 7, 5, 16, 8, 13, 14)
 > 
-> # The interpret() can be used inside interpret_all()
+# The interpret() can be used inside interpret_all()
 > interpret <- function(num_views) {
     if (num_views > 15) {
       print("You're popular!")
@@ -708,9 +708,9 @@ Note that you can use function calls within functions calls.
     }
   }
 > 
-> # Define the interpret_all() function
-> # views: vector with data to interpret
-> # return_sum: return total number of views on popular days?
+# Define the interpret_all() function
+# views: vector with data to interpret
+# return_sum: return total number of views on popular days?
 > interpret_all <- function(views, return_sum = TRUE) {
     count <- 0
   
@@ -725,7 +725,7 @@ Note that you can use function calls within functions calls.
     }
   }
 > 
-> # Call the interpret_all() function on both linkedin and facebook
+# Call the interpret_all() function on both linkedin and facebook
 > interpret_all(linkedin)
 [1] "You're popular!"
 [1] "Try to be more visible!"
@@ -746,7 +746,38 @@ Note that you can use function calls within functions calls.
 [1] 33
 ```
 
+<div id="packages"></div>
 
+### ---- Packages
+
+To install... `install.packages(<install package>)`
+
+`library()` loads packages, attaches them to the search list on your R workspace.
+
+Example - loading the ggplot2
+
+```
+> search()
+ [1] ".GlobalEnv"          "package:RBackend"    "package:datacampSCT"
+ [4] "package:stats"       "package:graphics"    "package:grDevices"  
+ [7] "package:utils"       "package:datasets"    "package:methods"    
+[10] "Autoloads"           "package:base"       
+> qplot(mtcars$wt, mtcars$hp)
+Error: could not find function "qplot"
+
+# Load the ggplot2 package
+> library(ggplot2)
+> 
+# Retry the qplot() function
+> qplot(mtcars$wt, mtcars$hp)
+> 
+# Check out the currently attached packages again
+> search()
+ [1] ".GlobalEnv"          "package:ggplot2"     "package:RBackend"   
+ [4] "package:datacampSCT" "package:stats"       "package:graphics"   
+ [7] "package:grDevices"   "package:utils"       "package:datasets"   
+[10] "package:methods"     "Autoloads"           "package:base" 
+```
 
 
 
