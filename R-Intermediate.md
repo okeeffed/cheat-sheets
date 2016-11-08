@@ -588,21 +588,163 @@ __Using functions__
 [1] 22.6
 ```
 
+<div id="sd"></div>
 
+### ++++ ---- mean() continued, sd() and rm.na
 
+```
+# The linkedin and facebook vectors have already been created for you
+> linkedin <- c(16, 9, 13, 5, NA, 17, 14)
+> facebook <- c(17, NA, 5, 16, 8, 13, 14)
+> 
+# Basic average of linkedin
+> mean(linkedin)
+[1] NA
+> 
+# Advanced average of linkedin
+> mean(linkedin, na.rm = TRUE)
+[1] 12.33333
+```
 
+Note that you can use function calls within functions calls.
 
+```
+# The linkedin and facebook vectors have already been created for you
+> linkedin <- c(16, 9, 13, 5, NA, 17, 14)
+> facebook <- c(17, NA, 5, 16, 8, 13, 14)
+> 
+# Calculate the mean absolute deviation
+> mean(abs(linkedin - facebook), na.rm = TRUE)
+[1] 4.8
+```
 
+<div id="writingfunctions"></div>
 
+### ---- Writing Functions
 
+```
+# Create a function pow_two()
+> pow_two <- function(x) {
+    return (x^2)
+  }
+> 
+> 
+# Use the function
+> pow_two(12)
+[1] 144
+> 
+# Create a function sum_abs()
+> sum_abs <- function(x, y) {
+    return (abs(x) + abs(y))
+  }
+> 
+# Use the function
+> sum_abs(-2, 3)
+[1] 5
+```
 
+```
+# Define the function hello()
+> hello <- function() {
+    print("Hi there!")
+    return (TRUE)
+  }
+> 
+# Call the function hello()
+> hello()
+[1] "Hi there!"
+[1] TRUE
+```
 
+```
+# Finish the pow_two() function
+> pow_two <- function(x, print_info = TRUE) {
+    y <- x ^ 2
+    if (print_info) {
+      print(paste(x, "to the power two equals", y))    
+    }
+    return(y)
+  }
+> 
+> pow_two(2)
+[1] "2 to the power two equals 4"
+[1] 4
+```
 
+```
+> # Define the interpret function
+> interpret <- function(num_views) {
+    if (num_views > 15) {
+      print("You're popular!")
+      return (num_views)
+    } else {
+      print("Try to be more visible!")
+      return (0)
+    }
+  }
+> 
+> # Call the interpret function twice
+> interpret(linkedin[1])
+[1] "You're popular!"
+[1] 16
+> interpret(facebook[2])
+[1] "Try to be more visible!"
+[1] 0
+```
 
-
-
-
-
+```
+> # The linkedin and facebook vectors have already been created for you
+> linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+> facebook <- c(17, 7, 5, 16, 8, 13, 14)
+> 
+> # The interpret() can be used inside interpret_all()
+> interpret <- function(num_views) {
+    if (num_views > 15) {
+      print("You're popular!")
+      return(num_views)
+    } else {
+      print("Try to be more visible!")
+      return(0)
+    }
+  }
+> 
+> # Define the interpret_all() function
+> # views: vector with data to interpret
+> # return_sum: return total number of views on popular days?
+> interpret_all <- function(views, return_sum = TRUE) {
+    count <- 0
+  
+    for (v in views) {
+      count <- count + interpret(v)
+    }
+  
+    if (return_sum) {
+      return (count)
+    } else {
+      return (NULL)
+    }
+  }
+> 
+> # Call the interpret_all() function on both linkedin and facebook
+> interpret_all(linkedin)
+[1] "You're popular!"
+[1] "Try to be more visible!"
+[1] "Try to be more visible!"
+[1] "Try to be more visible!"
+[1] "Try to be more visible!"
+[1] "You're popular!"
+[1] "Try to be more visible!"
+[1] 33
+> interpret_all(facebook)
+[1] "You're popular!"
+[1] "Try to be more visible!"
+[1] "Try to be more visible!"
+[1] "You're popular!"
+[1] "Try to be more visible!"
+[1] "Try to be more visible!"
+[1] "Try to be more visible!"
+[1] 33
+```
 
 
 
