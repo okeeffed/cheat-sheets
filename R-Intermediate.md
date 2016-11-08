@@ -390,12 +390,12 @@ for (i in 1:length(primes_list)) {
 ```
 
 ```
-> # The nyc list is already specified
+# The nyc list is already specified
 > nyc <- list(pop = 8405837, 
               boroughs = c("Manhattan", "Bronx", "Brooklyn", "Queens", "Staten Island"), 
               capital = FALSE)
 > 
-> # Loop version 1
+# Loop version 1
 > for (n in nyc) {
     print(n)
   }
@@ -404,7 +404,7 @@ for (i in 1:length(primes_list)) {
 [5] "Staten Island"
 [1] FALSE
 > 
-> # Loop version 2
+# Loop version 2
 > for (i in 1:length(nyc)) {
     print(nyc[[i]])
   }
@@ -417,9 +417,9 @@ for (i in 1:length(primes_list)) {
 __How about printing over a matrix?__
 
 ```
-> # The tic-tac-toe matrix ttt has already been defined for you
+# The tic-tac-toe matrix ttt has already been defined for you
 > 
-> # define the double for loop
+# define the double for loop
 > for (i in 1:nrow(ttt)) {
     for (j in 1:ncol(ttt)) {
       print(paste("On row", i, "and column", j, "the board contains", ttt[i,j]))
@@ -439,10 +439,10 @@ __How about printing over a matrix?__
 __Mixing together Control Flow and Loops__
 
 ```
-> # The linkedin vector has already been defined for you
+# The linkedin vector has already been defined for you
 > linkedin <- c(16, 9, 13, 5, 2, 17, 14)
 > 
-> # Code the for loop with conditionals
+# Code the for loop with conditionals
 > for (li in linkedin) {
     if (li > 10) {
       print("You're popular!")
@@ -466,6 +466,80 @@ __Mixing together Control Flow and Loops__
 [1] "You're popular!"
 [1] 14
 ```
+
+__Next in Loops__
+
+Next does what continue does in a number of other languages
+
+```
+# The linkedin vector has already been defined for you
+> linkedin <- c(16, 9, 13, 5, 2, 17, 14)
+> 
+# Extend the for loop
+> for (li in linkedin) {
+    if (li > 10) {
+      print("You're popular!")
+    } else {
+      print("Be more visible!")
+    }
+    
+    # Add if statement with break
+    if (li > 16) {
+      print("This is ridiculous, I'm outta here!")
+      break
+    }
+    
+    # Add if statement with next
+    if (li < 5) {
+      print("This is too embarrassing!")
+      next
+    }
+    
+    print(li)
+  }
+[1] "You're popular!"
+[1] 16
+[1] "Be more visible!"
+[1] 9
+[1] "You're popular!"
+[1] 13
+[1] "Be more visible!"
+[1] 5
+[1] "Be more visible!"
+[1] "This is too embarrassing!"
+[1] "You're popular!"
+[1] "This is ridiculous, I'm outta here!"
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
