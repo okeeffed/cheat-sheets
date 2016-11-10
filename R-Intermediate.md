@@ -779,6 +779,11 @@ Error: could not find function "qplot"
 [10] "package:methods"     "Autoloads"           "package:base" 
 ```
 
+<div id="apply"></div>
+
+***
+
+## The Apply Family
 
 
 
