@@ -878,7 +878,7 @@ List of 4
 
 ***
 
-## sapply 
+### ---- sapply 
 
 Whereas lapply() returns a list, sapply() - instead of unlist() function on that returned list, we can used sapply() for "simplified apply" and it will result in a named vector. We can also have matrices retured too!
 
@@ -965,19 +965,183 @@ Whereas lapply() returns a list, sapply() - instead of unlist() function on that
 [1]  9 13  8  7  9  9  9
 ```
 
+```
+# Finish function definition of extremes_avg
+> extremes_avg <- function(x) {
+    ( min(x) + max(x) ) / 2
+  }
+> 
+# Apply extremes_avg() over temp using sapply()
+> sapply(temp, extremes_avg)
+[1] 4.0 9.0 2.5 2.5 5.5 3.0 5.0
+> 
+# Apply extremes_avg() over temp using lapply()
+> lapply(temp, extremes_avg)
+[[1]]
+[1] 4
+
+[[2]]
+[1] 9
+
+[[3]]
+[1] 2.5
+
+[[4]]
+[1] 2.5
+
+[[5]]
+[1] 5.5
+
+[[6]]
+[1] 3
+
+[[7]]
+[1] 5
+```
+
+```
+# temp is already available in the workspace
+> 
+# Create a function that returns min and max of a vector: extremes
+> extremes <- function(x) {
+    c(min = min(x), max = max(x))
+  }
+> 
+# Apply extremes() over temp with sapply()
+> sapply(temp, extremes)
+    [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+min   -1    5   -3   -2    2   -3    1
+max    9   13    8    7    9    9    9
+> 
+# Apply extremes() over temp with lapply()
+> lapply(temp, extremes)
+[[1]]
+min max 
+ -1   9 
+
+[[2]]
+min max 
+  5  13 
+
+[[3]]
+min max 
+ -3   8 
+
+[[4]]
+min max 
+ -2   7 
+
+[[5]]
+min max 
+  2   9 
+
+[[6]]
+min max 
+ -3   9 
+
+[[7]]
+min max 
+  1   9 
+```
+
+```
+# temp is already prepared for you in the workspace
+> 
+# Definition of below_zero()
+> below_zero <- function(x) {
+    return(x[x < 0])
+  }
+> 
+# Apply below_zero over temp using sapply(): freezing_s
+> freezing_s <- sapply(temp, below_zero)
+> 
+# Apply below_zero over temp using lapply(): freezing_l
+> freezing_l <- lapply(temp, below_zero)
+> 
+# Are freezing_s and freezing_l identical?
+> identical(freezing_l, freezing_s)
+[1] TRUE
+```
+
+__sapply with Null values__
 
 
+```
+# Definition of print_info()
+> print_info <- function(x) {
+    cat("The average temperature is", mean(x), "\n")
+  }
+> 
+# Apply print_info() over temp using sapply()
+> null_s <- sapply(temp, print_info)
+The average temperature is 4.8 
+The average temperature is 9 
+The average temperature is 2.2 
+The average temperature is 2.4 
+The average temperature is 5.4 
+The average temperature is 4.6 
+The average temperature is 4.6 
+> 
+# Apply print_info() over temp using lapply()
+> null_l <- lapply(temp, print_info)
+The average temperature is 4.8 
+The average temperature is 9 
+The average temperature is 2.2 
+The average temperature is 2.4 
+The average temperature is 5.4 
+The average temperature is 4.6 
+The average temperature is 4.6 
+> 
+> identical(null_l, null_s)
+[1] TRUE
+```
 
+<div id="vapply"></div>
 
+***
 
+### ---- vapply()
 
+```
+lapply() : apply function over list or vector
+output = list
 
+sapply() : apply function over list or vector
+try to simplify list to array
 
+vapply() : apply function over list or vector
+explicitly specify output format 
+```
 
+```
+# Definition of basics()
+> basics <- function(x) {
+    c(min = min(x), mean = mean(x), max = max(x))
+  }
+> 
+# Apply basics() over temp using vapply()
+> vapply(temp, basics, numeric(3))
+     [,1] [,2] [,3] [,4] [,5] [,6] [,7]
+min  -1.0    5 -3.0 -2.0  2.0 -3.0  1.0
+mean  4.8    9  2.2  2.4  5.4  4.6  4.6
+max   9.0   13  8.0  7.0  9.0  9.0  9.0
+```
 
+```
+# Convert to vapply() expression
+> vapply(temp, max, numeric(1))
+[1]  9 13  8  7  9  9  9
+> 
+# Convert to vapply() expression
+> vapply(temp, function(x, y) { mean(x) > y }, y = 5, logical(1))
+[1] FALSE  TRUE FALSE FALSE  TRUE FALSE FALSE
+```
 
+<div id="usefulfunc"></div>
 
+***
 
+## Useful Functions
 
 
 
