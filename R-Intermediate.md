@@ -1143,10 +1143,44 @@ max   9.0   13  8.0  7.0  9.0  9.0  9.0
 
 ## Useful Functions
 
+```
+sapply(), lapply(), vapply()
+sort()
+print()
+identical()
+mean()
+round()
+abs()
 
+// funcs for data structures
+seq()
+rep() // replicate
+is.*()
+as.*()
+unlist()
+append()
+rev()
+```
 
+__Math Utils__
 
+```
+> errors <- c(1.9, -2.6, 4.0, -9.5, -3.4, 7.3)
+> 
+# Sum of absolute rounded values of errors
+> sum(round(abs(errors)))
+[1] 29
+```
 
+```
+# Don't edit these two lines
+> vec1 <- c(1.5, 2.5, 8.4, 3.7, 6.3)
+> vec2 <- rev(vec1)
+> 
+# Fix the error
+> mean(c(abs(vec1), abs(vec2)))
+[1] 4.48
+```
 
 
 
