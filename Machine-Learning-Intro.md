@@ -88,4 +88,199 @@ Input -> _Estimated Function_ -> Output
 
 <div id="subsection"></div>
 
-### ---- newSubSection
+### ---- Basic Model Prediction
+
+You'll be working with the Wage dataset. It contains the wage and some general information for workers in the mid-Atlantic region of the US.
+
+As we briefly discussed in the video, there could be a relationship between a worker's age and his wage. Older workers tend to have more experience on average than their younger counterparts, hence you could expect an increasing trend in wage as workers age. So we built a linear regression model for you, using lm(): lm_wage. This model predicts the wage of a worker based only on the worker's age.
+
+With this linear model lm_wage, which is built with data that contain information on workers' age and their corresponding wage, you can predict the wage of a worker given the age of that worker. For example, suppose you want to predict the wage of a 60 year old worker. You can use the predict() function for this. This generic function takes a model as the first argument. The second argument should be some unseen observations as a data frame. predict() is then able to predict outcomes for these observations.
+
+```
+> str(Wage)
+'data.frame':	3000 obs. of  12 variables:
+ $ year      : int  2006 2004 2003 2003 2005 2008 2009 2008 2006 2004 ...
+ $ age       : int  18 24 45 43 50 54 44 30 41 52 ...
+ $ sex       : Factor w/ 2 levels "1. Male","2. Female": 1 1 1 1 1 1 1 1 1 1 ...
+ $ maritl    : Factor w/ 5 levels "1. Never Married",..: 1 1 2 2 4 2 2 1 1 2 ...
+ $ race      : Factor w/ 4 levels "1. White","2. Black",..: 1 1 1 3 1 1 4 3 2 1 ...
+ $ education : Factor w/ 5 levels "1. < HS Grad",..: 1 4 3 4 2 4 3 3 3 2 ...
+ $ region    : Factor w/ 9 levels "1. New England",..: 2 2 2 2 2 2 2 2 2 2 ...
+ $ jobclass  : Factor w/ 2 levels "1. Industrial",..: 1 2 1 2 2 2 1 2 2 2 ...
+ $ health    : Factor w/ 2 levels "1. <=Good","2. >=Very Good": 1 2 1 2 1 2 2 1 2 2 ...
+ $ health_ins: Factor w/ 2 levels "1. Yes","2. No": 2 2 1 1 1 1 1 1 1 1 ...
+ $ logwage   : num  4.32 4.26 4.88 5.04 4.32 ...
+ $ wage      : num  75 70.5 131 154.7 75 ...
+> 
+# Build Linear Model: lm_wage (coded already)
+> lm_wage <- lm(wage ~ age, data = Wage)
+> 
+# Define data.frame: unseen (coded already)
+> unseen <- data.frame(age = 60)
+> 
+# Predict the wage for a 60-year old worker
+> predict(lm_wage, unseen)
+       1 
+124.1413 
+```
+
+<div id="newSection"></div>
+
+***
+
+## Classification, Regression, Clustering
+
+These are the three common types of ML Problems.
+
+__Classification__
+
+Predicting category through historical classifying.
+
+`Earlier Observations` -> _estimate_ -> `CLASSIFIER`
+
+`Unseen Data` -> _CLASSIFIER_ -> `Class`
+
+Application: Medical Diagnosis, Animal Recognition
+
+Important: Qualitative Output, Predefined Classes
+
+__Regression__
+
+We are trying to estimate a function that will render the correct response.
+
+Eg. knowing height and weight, is there a relationship? Is it linear? Can we predict a height given a weight?
+
+`PREDICTORS` -> _Regression Function_ -> `RESPONSE`
+
+Application: Modelling Payments for Credit Scores, YouTube Subscriptions over time, Job dependent on Grades.
+
+Important: Quantitative Output, previous input-output observations
+
+__Clustering__
+
+Grouping objects that are `similar` in clusters and `dissimilar` between clusters. It's like classification without saying which class an object need to relate to.
+
+Eg. Grouping similar animal photos
+
+There `no labels, no right or wrong, and plenty of possible clusterings`
+
+Another example is k-Means can do things like cluster in similar groups.
+
+<div id="spam"></div>
+
+### ---- Classification Example: Filtering Spam
+
+In the following exercise you'll work with the dataset emails, which is loaded in your workspace (Source: UCI Machine Learning Repository). Here, several emails have been labeled by humans as spam (1) or not spam (0) and the results are found in the column spam. The considered feature in emails to predict whether it was spam or not is avgCapitalSeq. It is the average amount of sequential capital letters found in each email.
+
+In the code, you'll find a crude spam filter we built for you, spamClassifier() that uses avgCapitalSeq to predict whether an email is spam or not. In the function definition, it's important to realize that x refers to avgCapitalSeq. So where the avgCapitalSeq is greater than 4, spamClassifier() predicts the email is spam (1), if avgCapitalSeq is inclusively between 3 and 4, it predicts not spam (0), and so on. This classifier's methodology of predicting whether an email is spam or not seems pretty random, but let's see how it does anyways!
+
+Your job is to inspect the emails dataset, apply spamClassifier to it, and compare the predicted labels with the true labels. 
+
+```
+# Show the dimensions of emails
+> dim(emails)
+[1] 13  2
+> 
+# Inspect definition of spam_classifier()
+> spam_classifier <- function(x){
+    prediction <- rep(NA, length(x)) # initialize prediction vector
+    prediction[x > 4] <- 1
+    prediction[x >= 3 & x <= 4] <- 0
+    prediction[x >= 2.2 & x < 3] <- 1
+    prediction[x >= 1.4 & x < 2.2] <- 0
+    prediction[x > 1.25 & x < 1.4] <- 1
+    prediction[x <= 1.25] <- 0
+    return(prediction) # prediction is either 0 or 1
+  }
+> 
+# Apply the classifier to the avgCapitalSeq column: spam_pred
+> spamPred <- sapply(emails$avgCapitalSeq, spamClassifier)
+> 
+# Compare spam_pred to emails$spam. Use ==
+> spam_pred == emails$spam
+ [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
+```
+
+<div id="linkedinviews"></div>
+
+### ---- Regression Example: LinkedIn Views
+
+It's time for you to make another prediction with regression! More precisely, you'll analyze the number of views of your LinkedIn profile. With your growing network and your data science skills improving daily, you wonder if you can predict how often your profile will be visited in the future based on the number of days it's been since you created your LinkedIn account.
+
+The instructions will help you predict the number of profile views for the next 3 days, based on the views for the past 3 weeks. The linkedin vector, which contains this information, is already available in your workspace.
+
+```
+# linkedin is already available in your workspace
+> 
+# Create the days vector
+> days <- c(seq(1:21))
+> 
+# Fit a linear model called on the linkedin views per day: linkedin_lm
+> linkedin_lm <- lm(linkedin ~ days)
+> 
+# Predict the number of views for the next three days: linkedin_pred
+> future_days <- data.frame(days = 22:24)
+> linkedin_pred <- predict(linkedin_lm, future_days)
+> 
+# Plot historical data and predictions
+> plot(linkedin ~ days, xlim = c(1, 24))
+> points(22:24, linkedin_pred, col = "green")
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
