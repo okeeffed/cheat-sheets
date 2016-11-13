@@ -701,6 +701,139 @@ The within sum of squares is far lower than the between sum of squares. Indicati
 
 ### ---- Training Set and Test Set
 
+Looking at the different between supervised learning, Machine learning and other data models.
+
+Supervised learning will have a strong predictive power.
+	- unseen observations
+
+Classical statistics: model must fit data
+	- explain or describe data
+
+Predictive Model
+	- Training 
+		- `not` on complete dataset
+		- training set
+	- `Test set` to evaluate performance of model
+	- Sets are `disjoint` - NO OVERLAP
+	- Model testing on `unseen` observations - Generalization!
+
+__Split the dataset__
+
+Assume you have a dataset with N observations: x, K features: F and Class labels: y.
+
+We can break this down into a training set and a test set.
+
+The test set are used for the observations from x(r+1).
+
+__When do we use this?__
+
+Only important for supervised learning set. It would not be relevant to things like clustering where the data itself isn't labelled.
+
+__How to split the sets?__
+
+The `training set` should be larger than the `test set`. Typically a ratio of 3:1 - although this is arbitrary. The more data you use to train, the better the model. Although, we still don't want the `test set` to be too small!
+
+Wisely choose which elements you put into these sets. They should have similar distributions. Avoid a class not being in a set.
+
+_Regression and Classification_ - it is always a smart idea to shuffle the data set before splitting it.
+
+_Effect of smapling_ - sampling can affect performance measures. Add `robustness` to these measures with `cross-validation`.
+
+_Cross-validation_ - Eg. 4-folds validation. This means the splitting the data set and doing this for 4-folds. - n-fold validation means doing this n times with each test set being 1/n large.
+
+<div id="split"></div>
+
+### ---- Split the Sets
+
+In exercises 2 and 3 you calculated a confusion matrix to assess the tree's performance. However, the tree was built using the entire set of observations. Therefore, the confusion matrix doesn't assess the predictive power of the tree. The training set and the test set were one and the same thing: this can be improved!
+
+First, you'll want to split the dataset into train and test sets. You'll notice that the titanic dataset is sorted on titanic$Survived , so you'll need to first shuffle the dataset in order to have a fair distribution of the output variable in each set.
+
+For example, you could use the following commands to shuffle a data frame df and divide it into training and test sets with a 60/40 split between the two.
+
+```
+n <- nrow(df)
+shuffled_df <- df[sample(n), ]
+train_indices <- 1:round(0.6 * n)
+train <- shuffled_df[train_indices, ]
+test_indices <- (round(0.6 * n) + 1):n
+test <- shuffled_df[test_indices, ]
+```
+
+```
+# The titanic dataset is already loaded into your workspace
+> 
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Shuffle the dataset, call the result shuffled
+> n <- nrow(titanic)
+> shuffled <- titanic[sample(n),]
+> 
+# Split the data in train and test
+> train_indices <- 1:round(0.7 * n)
+> train <- shuffled[train_indices, ]
+> test_indices <- (round(0.7 * n) + 1):n
+> test <- shuffled[test_indices, ]
+> 
+# Print the structure of train and test
+> str(train)
+'data.frame':	500 obs. of  4 variables:
+ $ Survived: Factor w/ 2 levels "1","0": 2 2 2 1 2 1 1 1 1 2 ...
+ $ Pclass  : int  3 3 2 1 3 1 2 3 2 3 ...
+ $ Sex     : Factor w/ 2 levels "female","male": 2 2 1 2 2 2 1 2 1 2 ...
+ $ Age     : num  32 19 44 27 7 56 48 9 29 26 ...
+> str(test)
+'data.frame':	214 obs. of  4 variables:
+ $ Survived: Factor w/ 2 levels "1","0": 1 2 2 1 2 2 2 2 2 2 ...
+ $ Pclass  : int  2 3 2 2 1 1 3 3 2 3 ...
+ $ Sex     : Factor w/ 2 levels "female","male": 1 2 2 1 2 2 2 2 2 1 ...
+ $ Age     : num  18 16 36 45 61 31 40.5 28 30 2 ...
+ ```
+ 
+Time to redo the model training from before. The titanic data frame is again available in your workspace. This time, however, you'll want to build a decision tree on the training set, and next assess its predictive power on a set that has not been used for training: the test set.
+
+On the right, the code that splits titanic up in train and test has already been included. Also, the old code that builds a decision tree on the entire set is included. Up to you to correct it and connect the dots to get a good estimate of the model's predictive ability.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
