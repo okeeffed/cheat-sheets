@@ -1005,14 +1005,123 @@ The model no longer fits the small dataset perfectly but it fits the big dataset
 
 ## Classification
 
+The task of automatically classifying fields given features.
+
+`Observation`: vector of features, with a class.
+
+The classification model will automatically assign a class based on previous observations.
+
+`Binary classification`: Two classes.
+
+`Multiclass classification`: More than two classes.
+
+__Example__
+
+- a dataset consisting of persons
+- features: age, weight and income
+- class:
+	- binary: happy or not happy
+	- multiclass: happy, satisfied, not happy
+- features can be numerical
+	- height
+	- age
+- features can be categorical
+	- travel class
+
+__Decision Trees__
+
+Suppose you want a patient as sick or not sick (1 or 0).
+
+Best task would be to start asking some questions.
+
+Eg. are they young or old?
+If old, have you smoked more than 10 years?
+If young, is the patient vaccinated against measles? 
+
+These questions will begin to form a tree.
+
+The tree consists of nodes and edges.
+
+The start of the tree is the roots and the ends are the leafs.
+
+There is also a parent-child relation.
+
+The questions on the tree are simply queries about the features.
+
+__Categorical feature__
+
+- Can be a feature test on itself
+- travelClass: coach, business or first
+
+__Learn a tree__
+
+- use a training set
+- come up with queries (feature tests) at each node
+- at each node
+	- iterate over different feature tests
+	- choose the best one
+- comes down to two parts
+	- make a list 
+	- choose the best one
+
+__Construct list of tests__
+
+- categorical
+	- people/categories who haven't used the test yet
+- numerical
+	- choose feature
+	- choose threshold for split
+- choose best feature test
+	- more complex
+	- use splitting criteria to decide which is the best to use
+	- `information gain` - entropy
+
+__Information Gain__
+
+Defines how much info you gain about your training instances when you perform the split based on the feature test.
+
+If tests lead to nicely divided classees -> high information gain.
+If tests lead to scrambled classes -> low information gain.
+
+Choose the test with the best information gain.
+
+__Pruning__
+
+- number of nodes influences the chance of overfit.
+- restrict size - higher bias
+	- decreases the chance of an overfit
+
+<div id="classification1"></div>
+
+### ---- Learn a Decision Tree
+
+To test your classification skills, you can build a decision tree that uses a person's age, gender, and travel class to predict whether or not they survived the Titanic. The titanic data frame has already been divided into training and test sets (named train and test).
+
+In this exercise, you'll need train to build a decision tree. You can use the rpart() function of the rpart package for this. Behind the scenes, it performs the steps that Vincent explained in the video: coming up with possible feature tests and building a tree with the best of these tests.
+
+Finally, a fancy plot can help you interpret the tree. You will need the rattle, rpart.plot, and RColorBrewer packages to display this.
 
 
+```
+# The train and test set are loaded into your workspace.
+> 
+# Set random seed. Don't remove this line
+> set.seed(1)
+> 
+# Load the rpart, rattle, rpart.plot and RColorBrewer package
+> library(rpart)
+> library(rattle)
+> library(rpart.plot) 
+> library(RColorBrewer)
+> 
+# Fill in the ___, build a tree model: tree
+> tree <- rpart(Survived ~ ., train, method="class")
+> 
+# Draw the decision tree - this in the console generates the decision tree
+> fancyRpartPlot(tree)
+```
 
-
-
-
-
-
+Remember how Vincent told you that a tree is learned by separating the training set step-by-step? In an ideal world, the separations lead to subsets that all have the same class. In reality, however, each division will contain both positive and negative training observations. In this node, 76% of the training instances are positive and 24% are negative. The majority class thus is positive, or 1, which is signaled by the number 1 on top. The 36% bit tells you which percentage of the entire training set passes through this particular node. On each tree level, these percentages thus sum up to 100%. Finally, the Pclass = 1,2 bit specifies the feature test on which this node will be separated next. If the test comes out positive, the left branch is taken; if it's negative, the right branch is taken.
 
 
 
