@@ -897,6 +897,78 @@ _Variance Error_
 Error due to variance: error due to the sampling of the `training set`
 Model with high variance fits training set closely!
 
+Example: quadratic data.
+
+It may fit the model well - there will be few restrictions but high variance. If you change the training set, the model will change completely.
+
+_Bias/Variance Tradeoff_
+
+```
+Low bias = high variance
+Low variance = high bias
+```
+
+__Overfitting and Underfitting__
+
+`Accuracy` will depend on dataset split (train/test)
+High variance will heavily depend on split.
+
+Overfitting = model fits training set a lot better than test set
+
+`The model is too specific`
+
+Underfitting = restricting the model too much
+
+Eg. if you need to decide if email is spam.
+
+Email Training set - exception with 50 capital letters and 30 exclamation marks.
+	-> capital letters
+	-> exclamation marks
+
+Our trust set has yes to both of the above data sets are spam and not if no. 
+
+An `underfit` model may mark spam if more than 10 capital letters. This is `too general`.
+
+<div id="overfit"></div>
+
+### ---- Overfitting the Spam
+
+```
+# The spam filter that has been 'learned' for you
+> spam_classifier <- function(x){
+    prediction <- rep(NA, length(x)) # initialize prediction vector
+    prediction[x > 4] <- 1 
+    prediction[x >= 3 & x <= 4] <- 0
+    prediction[x >= 2.2 & x < 3] <- 1
+    prediction[x >= 1.4 & x < 2.2] <- 0
+    prediction[x > 1.25 & x < 1.4] <- 1
+    prediction[x <= 1.25] <- 0
+    return(factor(prediction, levels = c("1", "0"))) # prediction is either 0 or 1
+  }
+> 
+# Apply spam_classifier to emails_full: pred_full
+> pred_full <- spam_classifier(emails_full$avg_capital_seq)
+> 
+# Build confusion matrix for emails_full: conf_full
+> conf_full <- table(emails_full$spam, pred_full)
+> 
+# Calculate the accuracy with conf_full: acc_full
+> acc_full <- sum(diag(conf_full))/sum(conf_full)
+> 
+# Print acc_full
+> acc_full
+[1] 0.6561617
+```
+
+This hard-coded classifier gave you an accuracy of around 65% on the full dataset, which is way worse than the 100% you had on the small dataset back in chapter 1. Hence, the classifier does not generalize well at all!
+
+It's official now, the spamClassifier() from chapter 1 is bogus. It simply overfits on the emailsSmall set and, as a result, doesn't generalize to larger datasets such as emailsFull.
+
+So let's try something else. On average, emails with a high frequency of sequential capital letters are spam. What if you simply filtered spam based on one threshold for avgCapitalSeq?
+
+For example, you could filter all emails with avgCapitalSeq > 4 as spam. By doing this, you increase the interpretability of the classifier and restrict its complexity. However, this increases the bias, i.e. the error due to restricting your model.
+
+Your job is to simplify the rules of spamClassifier and calculate the accuracy for the full set emailsFull. Next, compare it to that of the small set emailsSmall, which is coded for you. Does the model generalize now?
 
 
 
