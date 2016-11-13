@@ -289,10 +289,175 @@ __Performance of the model__
 
 ### ---- Getting practical with supervised learning
 
+In this exercise, you will use the same dataset. But instead of dropping the Species labels, you will use them do some supervised learning using recursive partitioning! Don't worry if you don't know what that is yet. Recursive partitioning (a.k.a. decision trees) will be explained in Chapter 3.
 
+Take a look at the iris dataset, using str() and summary().
 
+The code that builds a supervised learning model with the rpart() function from the rpart package is already provided for you. This model trains a decision tree on the iris dataset.
 
+Use the predict() function with the tree model as the first argument. The second argument should be a data frame containing observations of which you want to predict the label. In this case, you can use the predefined unseen data frame. The third argument should be type = "class". 
 
+Simply print out the result of this prediction step.
+
+```
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Take a look at the iris dataset
+> str(iris)
+'data.frame':	150 obs. of  5 variables:
+ $ Sepal.Length: num  5.1 4.9 4.7 4.6 5 5.4 4.6 5 4.4 4.9 ...
+ $ Sepal.Width : num  3.5 3 3.2 3.1 3.6 3.9 3.4 3.4 2.9 3.1 ...
+ $ Petal.Length: num  1.4 1.4 1.3 1.5 1.4 1.7 1.4 1.5 1.4 1.5 ...
+ $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
+ $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
+> summary(iris)
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+ Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
+ 1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
+ Median :5.800   Median :3.000   Median :4.350   Median :1.300  
+ Mean   :5.843   Mean   :3.057   Mean   :3.758   Mean   :1.199  
+ 3rd Qu.:6.400   3rd Qu.:3.300   3rd Qu.:5.100   3rd Qu.:1.800  
+ Max.   :7.900   Max.   :4.400   Max.   :6.900   Max.   :2.500  
+       Species  
+ setosa    :50  
+ versicolor:50  
+ virginica :50          
+> 
+# A decision tree model has been built for you
+> tree <- rpart(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width,
+                data = iris, method = "class")
+> 
+# A dataframe containing unseen observations
+> unseen <- data.frame(Sepal.Length = c(5.3, 7.2),
+                       Sepal.Width = c(2.9, 3.9),
+                       Petal.Length = c(1.7, 5.4),
+                       Petal.Width = c(0.8, 2.3))
+> 
+# Predict the label of the unseen observations. Print out the result.
+> predict(tree, unseen, type="class")
+        1         2 
+   setosa virginica 
+Levels: setosa versicolor virginica
+```
+
+<div id="unsuperPrac"></div>
+
+### ---- Getting practical with unsupervised learning
+
+```
+> head(cars)
+                     wt  hp
+Mazda RX4         2.620 110
+Mazda RX4 Wag     2.875 110
+Datsun 710        2.320  93
+Hornet 4 Drive    3.215 110
+Hornet Sportabout 3.440 175
+Valiant           3.460 105
+> # The cars data frame is pre-loaded
+> 
+> # Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+> # Explore the cars dataset
+> 
+> str(cars)
+'data.frame':	32 obs. of  2 variables:
+ $ wt: num  2.62 2.88 2.32 3.21 3.44 ...
+ $ hp: num  110 110 93 110 175 105 245 62 95 123 ...
+> summary(cars)
+       wt              hp       
+ Min.   :1.513   Min.   : 52.0  
+ 1st Qu.:2.581   1st Qu.: 96.5  
+ Median :3.325   Median :123.0  
+ Mean   :3.217   Mean   :146.7  
+ 3rd Qu.:3.610   3rd Qu.:180.0  
+ Max.   :5.424   Max.   :335.0  
+> 
+> # Group the dataset into two clusters: km_cars
+> km_cars <- kmeans(cars, 2)
+> 
+> # Print out the contents of each cluster
+> km_cars$cluster
+          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
+                  1                   1                   1                   1 
+  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
+                  2                   1                   2                   1 
+           Merc 230            Merc 280           Merc 280C          Merc 450SE 
+                  1                   1                   1                   2 
+         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
+                  2                   2                   2                   2 
+  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+                  2                   1                   1                   1 
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
+                  1                   1                   1                   2 
+   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
+                  2                   1                   1                   1 
+     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
+                  2                   2                   2                   1 
+
+# see km_cars in general
+> km_cars
+K-means clustering with 2 clusters of sizes 19, 13
+
+Cluster means:
+        wt        hp
+1 2.692000  99.47368
+2 3.984923 215.69231
+
+Clustering vector:
+          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
+                  1                   1                   1                   1 
+  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
+                  2                   1                   2                   1 
+           Merc 230            Merc 280           Merc 280C          Merc 450SE 
+                  1                   1                   1                   2 
+         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
+                  2                   2                   2                   2 
+  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
+                  2                   1                   1                   1 
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
+                  1                   1                   1                   2 
+   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
+                  2                   1                   1                   1 
+     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
+                  2                   2                   2                   1 
+
+Within cluster sum of squares by cluster:
+[1] 14085.06 27403.23
+ (between_SS / total_SS =  71.5 %)
+
+Available components:
+
+[1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
+[6] "betweenss"    "size"         "iter"         "ifault"    
+```
+
+An important part in machine learning is understanding your results. In the case of clustering, visualization is key to interpretation! One way to achieve this is by plotting the features of the cars and coloring the points based on their corresponding cluster.
+
+In this exercise you'll summarize your results in a comprehensive figure. The dataset cars is already available in your workspace; the code to perform the clustering is already available.
+
+```
+# The cars data frame is pre-loaded
+> 
+# Set random seed. Don't remove this line
+> set.seed(1)
+> 
+# Group the dataset into two clusters: km_cars
+> km_cars <- kmeans(cars, 2)
+> 
+# Add code: color the points in the plot based on the clusters
+> plot(cars, col=km_cars$cluster)
+> 
+# Print out the cluster centroids
+> km_cars$centers
+        wt        hp
+1 2.692000  99.47368
+2 3.984923 215.69231
+> 
+# Replace the ___ part: add the centroids to the plot
+> points(km_cars$centers, pch = 22, bg = c(1, 2), cex = 2)
+```
 
 
 
