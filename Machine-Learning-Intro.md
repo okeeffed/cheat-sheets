@@ -790,12 +790,39 @@ test <- shuffled_df[test_indices, ]
  $ Sex     : Factor w/ 2 levels "female","male": 1 2 2 1 2 2 2 2 2 1 ...
  $ Age     : num  18 16 36 45 61 31 40.5 28 30 2 ...
  ```
- 
+
 Time to redo the model training from before. The titanic data frame is again available in your workspace. This time, however, you'll want to build a decision tree on the training set, and next assess its predictive power on a set that has not been used for training: the test set.
 
 On the right, the code that splits titanic up in train and test has already been included. Also, the old code that builds a decision tree on the entire set is included. Up to you to correct it and connect the dots to get a good estimate of the model's predictive ability.
 
-
+```
+# The titanic dataset is already loaded into your workspace
+> 
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Shuffle the dataset; build train and test
+> n <- nrow(titanic)
+> shuffled <- titanic[sample(n),]
+> train <- shuffled[1:round(0.7 * n),]
+> test <- shuffled[(round(0.7 * n) + 1):n,]
+> 
+# Fill in the model that has been learned.
+> tree <- rpart(Survived ~ ., train, method = "class")
+> 
+# Predict the outcome on the test set with tree: pred
+> pred <- predict(tree, test, type="class")
+> 
+# Calculate the confusion matrix: conf
+> conf <- table(test$Survived, pred)
+> 
+# Print this confusion matrix
+> conf
+   pred
+      1   0
+  1  58  31
+  0  23 102
+```
 
 
 
