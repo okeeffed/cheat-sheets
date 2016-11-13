@@ -1123,12 +1123,57 @@ Finally, a fancy plot can help you interpret the tree. You will need the rattle,
 
 Remember how Vincent told you that a tree is learned by separating the training set step-by-step? In an ideal world, the separations lead to subsets that all have the same class. In reality, however, each division will contain both positive and negative training observations. In this node, 76% of the training instances are positive and 24% are negative. The majority class thus is positive, or 1, which is signaled by the number 1 on top. The 36% bit tells you which percentage of the entire training set passes through this particular node. On each tree level, these percentages thus sum up to 100%. Finally, the Pclass = 1,2 bit specifies the feature test on which this node will be separated next. If the test comes out positive, the left branch is taken; if it's negative, the right branch is taken.
 
+<div id="classification2"></div>
 
+### ---- Classify with the Decision Tree
 
+The previous learning step involved proposing different tests on which to split nodes and then to select the best tests using an appropriate splitting criterion. You were spared from all the implementation hassles that come with that: the rpart() function did all of that for you.
 
+Now you are going to classify the instances that are in the test set. As before, the data frames titanic, train and test are available in your workspace. You'll only want to work with the test set, though.
 
+```
+# The train and test set are loaded into your workspace.
+> 
+# Code from previous exercise
+> set.seed(1)
+> library(rpart)
+> tree <- rpart(Survived ~ ., train, method = "class")
+> 
+# Predict the values of the test set: pred
+> pred <- predict(tree, test, type="class")
+> 
+# Construct the confusion matrix: conf
+> conf <- table(test$Survived, pred)
+> 
+# Print out the accuracy
+> sum(diag(conf)) / sum(conf)
+[1] 0.7990654
+```
 
+Looking good! What does the accuracy tell you? Around 80 percent of all test instances have been classified correctly. That's not bad!
 
+<div id="classification3"></div>
+
+### ---- Pruning the Tree
+
+```
+# Calculation of a complex tree
+> set.seed(1)
+> tree <- rpart(Survived ~ ., train, method = "class", control = rpart.control(cp=0.00001))
+> 
+# Draw the complex tree
+> fancyRpartPlot(tree)
+> 
+# Prune the tree: pruned
+> pruned <- prune(tree, cp=0.01)
+> 
+# Draw pruned
+> fancyRpartPlot(pruned)
+```
+
+Another way to check if you overfit your model is by comparing the accuracy on the training set with the accuracy on the test set. You'd see that the difference between those two is smaller for the simpler tree. You can also set the `cp` argument while learning the tree with `rpart()` using `rpart.control`.
+
+ Next Exercise
 
 
 
