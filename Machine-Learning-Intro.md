@@ -459,20 +459,72 @@ In this exercise you'll summarize your results in a comprehensive figure. The da
 > points(km_cars$centers, pch = 22, bg = c(1, 2), cex = 2)
 ```
 
+<div id="performance"></div>
 
+***
 
+## Performance Measures
 
+How is our model any good? It depends on how you define performance. This could be...
 
+- Accuracy
+- Computation Time
+- Interpretability 
 
+__Classification Testing__
 
+Accuray and Error are how we can help define classification performance.
 
+`Accuray = corrct / total`
 
+Eg. Square with 2 features. If each square can be coloured/not coloured (binary classification problem)
 
+If the model only classifies 3/5 correct, then that is our accuracy (60%).
 
+_Limits of accuracy_
 
+Confusion matrix: rows and columns with each available labels.
 
+Each cell contains frequency of instances that are classified in a certain way.
 
+For a binary classifier, we have positive or negative in this case (1 or 0). Our matrix then becomes a square table of Truth vs. Prediction. TP, FN, FP, TN.
 
+From this we can calculation `Precision as TP/(TP+FP)` and `Recall is TP/(TP+FN)`. Back on the square example, we can talk about which were correctly classified.
+
+Accuracy calculation then becomes `(TP+TN)/sum(all squares)`.
+
+This means for the `rare heart disease` example, we could be looking at a recall of 0% and other results that are `undefined`.
+
+__Regression Testing__
+
+RMSE: Root Mean Squared Error.
+
+__Clustering Testing__
+
+Here, we have no label info, so we need to go with distance metrics between points.
+
+Performance measure consists of 2 elements.
+
+1. Similarity within each cluster - we want this to be high
+2. Similarity between clusters - we want this to be low
+
+There are a number techniques.
+
+Within clusters:
+- Within sum of squares(WSS)
+- Diameter
+- Minimize 
+
+Between clusters:
+- Between cluster sum of squares (BSS)
+- Intercluster distance
+- Maximise
+
+A popular index for comparing is the Dunn's index: `minimal intercluster distance/maximal diameter`
+
+<div id="perf2"></div>
+
+### ---- Confusion Matrix
 
 
 
