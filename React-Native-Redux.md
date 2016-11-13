@@ -971,21 +971,130 @@ We essentially define a `Scene` for each distinct screens. For example.
 <Scene 
 	key="login" 				// call Actions.login() to show this screen
 	component={LoginForm} 		// component to show
-	title="Login"				// make nav bar and give it a title
+	title="Login"				// make nav bar and give it a title - this is built in
 	initial 					// define the first screen to show
 />
 ```
 
+<div id="nav2"></div>
 
+### ---- Navigation in the Router
 
+```
+// Create a router.js 
 
+import React from 'react';
+import { Scene, Router } from 'react-native-router-flux';
 
+// scene-target
+import ExampleComponent from './components/examplecomponent/ExampleComponent';
+import Table from './components/table/Table';
 
+const RouterComponent = () => {
+	return (
+		<Router>
+			<Scene key="example" component={ExampleComponent} title="App" />
+			<Scene key="table" component={Table} title="Table" initial />
+		</Router>
+	);
+};
 
+export default RouterComponent;
 
+// in app.js 
 
+...
+import Router from './router';
 
+const App = () => {
 
+	const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
+	return (
+		<Provider store={store}>
+			<Router />
+		</Provider>
+	);
+}
+
+export default App;
+```
+
+So how do we move between these scenes?
+
+<div id="nav3"></div>
+
+### ---- Navigating between routes
+
+Navigation will happen from an action.
+
+```
+// import actions
+import { Actions } from 'react-native-router-flux';
+
+// Action Creators 
+export const loginUserSuccess = (dispatch, user) => {
+	dispatch({
+		type: LOGIN_USER_SUCCESS,
+		payload: user
+	});
+
+	Actions.employeeList(); // this method comes from the key property
+};
+```
+
+<div id="nav4"></div>
+
+### ---- Grouping Scenes with 'Buckets'
+
+Making decisions on how the header should render.
+
+We can do `scene nesting` to group these screens. There is one 'gotcha' though. Now for the actions, we need to actually use Actions.main().
+
+```
+// router.js 
+
+const RouterComponent = () => {
+	return (
+		<Router>
+			<Scene key="auth">
+				<Scene key="login" component={Login} title="Login" />
+			</Scene>
+			<Scene key="flow">
+				<Scene key="example" component={ExampleComponent} title="App" />
+				<Scene 
+					// for action, you normally call Actions.key()
+					onRight={() => console.log('right!!!')}
+					rightTitle="Add"
+					key="table" 
+					component={Table} 
+					title="Table" 
+					initial 
+				/>
+			</Scene>
+		</Router>
+	);
+};
+```
+
+We can use the `initial` prop within these `buckets` to let which component within a bucket to have an initial prop
+
+<div id="nav5"></div>
+
+### ---- Form updates at a reducer level / Dynamic Property updates
+
+Example reducer function with ES6 dynamic change.
+
+```
+export default (state = INITIAL_STATE, action) => {
+	switch (action.type) {
+		case EMPLOYEE_UPDATE:
+			return {...state, [action.payload.prop]: action.payload.value};
+		default:
+			return state;
+	}
+}
+```
 
 
 

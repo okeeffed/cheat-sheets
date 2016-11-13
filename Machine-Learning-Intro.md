@@ -697,7 +697,9 @@ There are two initial steps you could take:
 
 The within sum of squares is far lower than the between sum of squares. Indicating the clusters are well seperated and overall compact. This is further strengthened by the plot you made, where the clusters you made were visually distinct for these two variables. It's likely that these three clusters represent the three seed types well, even if there's no way to truly verify this.
 
+<div id="sets"></div>
 
+### ---- Training Set and Test Set
 
 
 
