@@ -970,7 +970,40 @@ For example, you could filter all emails with avgCapitalSeq > 4 as spam. By doin
 
 Your job is to simplify the rules of spamClassifier and calculate the accuracy for the full set emailsFull. Next, compare it to that of the small set emailsSmall, which is coded for you. Does the model generalize now?
 
+```
+# The all-knowing classifier that has been learned for you
+# You should change the code of the classifier, simplifying it
+> spam_classifier <- function(x){
+    prediction <- rep(NA, length(x))
+    prediction[x > 4] <- 1
+    prediction[x <= 4] <- 0
+    return(factor(prediction, levels = c("1", "0")))
+  }
+> 
+# conf_small and acc_small have been calculated for you
+> conf_small <- table(emails_small$spam, spam_classifier(emails_small$avg_capital_seq))
+> acc_small <- sum(diag(conf_small)) / sum(conf_small)
+> acc_small
+[1] 0.7692308
+> 
+# Apply spam_classifier to emails_full and calculate the confusion matrix: conf_full
+> conf_full <- table(emails_full$spam, spam_classifier(emails_full$avg_capital_seq))
+> 
+# Calculate acc_full
+> acc_full <- sum(diag(conf_full)) / sum(conf_full)
+> 
+# Print acc_full
+> acc_full
+[1] 0.7259291
+```
 
+The model no longer fits the small dataset perfectly but it fits the big dataset better. You increased the bias on the model and caused it to generalize better over the complete dataset. While the first classifier overfits the data, an accuracy of 73% is far from satisfying for a spam filter. 
+
+<div id="classification"></div>
+
+***
+
+## Classification
 
 
 
