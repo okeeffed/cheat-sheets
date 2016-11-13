@@ -526,19 +526,176 @@ A popular index for comparing is the Dunn's index: `minimal intercluster distanc
 
 ### ---- Confusion Matrix
 
+In this exercise, a decision tree is learned on this dataset. The tree aims to predict whether a person would have survived the accident based on the variables Age, Sex and Pclass (travel class). The decision the tree makes can be deemed correct or incorrect if we know what the person's true outcome was. That is, if it's a supervised learning problem.
+
+Since the true fate of the passengers, Survived, is also provided in titanic, you can compare it to the prediction made by the tree. As you've seen in the video, the results can be summarized in a confusion matrix. In R, you can use the table() function for this.
+
+In this exercise, you will only focus on assessing the performance of the decision tree. In chapter 3, you will learn how to actually build a decision tree yourself.
+
+Note: As in the previous chapter, there are functions that have a random aspect. The set.seed() function is used to enforce reproducibility. Don't worry about it, just don't remove it!
+
+```
+# The titanic dataset is already loaded into your workspace
+> 
+# Set random seed. Don't remove this line
+> set.seed(1)
+> 
+# Have a look at the structure of titanic
+> str(titanic)
+'data.frame':	714 obs. of  4 variables:
+ $ Survived: Factor w/ 2 levels "1","0": 2 1 1 1 2 2 2 1 1 1 ...
+ $ Pclass  : int  3 1 3 1 3 1 3 3 2 3 ...
+ $ Sex     : Factor w/ 2 levels "female","male": 2 1 1 1 2 2 2 1 1 1 ...
+ $ Age     : num  22 38 26 35 35 54 2 27 14 4 ...
+> 
+# A decision tree classification model is built on the data
+> tree <- rpart(Survived ~ ., data = titanic, method = "class")
+> 
+# Use the predict() method to make predictions, assign to pred
+> pred <- predict(tree, titanic, type="class")
+> 
+# Use the table() method to make the confusion matrix
+> table(titanic$Survived, pred)
+   pred
+      1   0
+  1 212  78
+  0  53 371
+  ```
+
+The confusion matrix from the last exercise provides you with the raw performance of the decision tree:
+
+The survivors correctly predicted to have survived: true positives (TP)
+The deceased who were wrongly predicted to have survived: false positives (FP)
+The survivors who were wrongly predicted to have perished: false negatives (FN)
+The deceased who were correctly predicted to have perished: true negatives (TN)
+
+```
+> conf
+   
+      1   0
+  1 212  78
+  0  53 371
+# The confusion matrix is available in your workspace as conf
+> 
+# Assign TP, FN, FP and TN using conf
+> TP <- conf[1, 1] # this will be 212
+> FN <- conf[1, 2] # this will be 78
+> FP <- conf[2, 1] # fill in
+> TN <- conf[2, 2] # fill in
+> 
+# Calculate and print the accuracy: acc
+> acc <- (TP + TN) / (TP + FN + FP + TN)
+> acc
+[1] 0.8165266
+> 
+# Calculate and print out the precision: prec
+> prec <- TP/(TP+FP)
+> prec
+[1] 0.8
+> 
+# Calculate and print out the recall: rec
+> rec <- TP/(TP+FN)
+> rec
+[1] 0.7310345
+```
+
+### ---- Calculating the RMSE of air data
+
+```
+# The air dataset is already loaded into your workspace
+> 
+# Take a look at the structure of air
+> str(air)
+'data.frame':	1503 obs. of  6 variables:
+ $ freq     : int  800 1000 1250 1600 2000 2500 3150 4000 5000 6300 ...
+ $ angle    : num  0 0 0 0 0 0 0 0 0 0 ...
+ $ ch_length: num  0.305 0.305 0.305 0.305 0.305 ...
+ $ velocity : num  71.3 71.3 71.3 71.3 71.3 71.3 71.3 71.3 71.3 71.3 ...
+ $ thickness: num  0.00266 0.00266 0.00266 0.00266 0.00266 ...
+ $ dec      : num  126 125 126 128 127 ...
+> 
+# Inspect your colleague's code to build the model
+> fit <- lm(dec ~ freq + angle + ch_length, data = air)
+> 
+# Use the model to predict for all values: pred
+> pred <- predict(fit)
+> 
+# Use air$dec and pred to calculate the RMSE 
+> rmse <- sqrt((1/nrow(air)) * sum( (air$dec - pred) ^ 2))
+> 
+# Print out rmse
+> rmse
+[1] 5.215778
+```
+
+Using the `rmse` result for comparison with another result
+
+```
+# Previous model
+> fit <- lm(dec ~ freq + angle + ch_length, data = air)
+> pred <- predict(fit)
+> rmse <- sqrt(sum( (air$dec - pred) ^ 2) / nrow(air))
+> rmse
+[1] 5.215778
+> 
+# Your colleague's more complex model
+> fit2 <- lm(dec ~ freq + angle + ch_length + velocity + thickness, data = air)
+> 
+# Use the model to predict for all values: pred2
+> pred2 <- predict(fit2)
+> 
+# Calculate rmse2
+> rmse2 <- sqrt(sum( (air$dec - pred2) ^ 2) / nrow(air))
+> 
+# Print out rmse2
+> rmse2
+[1] 4.799244
+```
+
+Adding complexity seems to have caused the RMSE to decrease, from 5.216 to 4.799. But there's more going on here; perhaps adding more variables to a regression always leads to a decrease of your RMSE? There will be more on this later.
 
 
+### ---- Clustering dataset example
 
+In the dataset seeds you can find various metrics such as area, perimeter and compactness for 210 seeds. (Source: UCIMLR). However, the seeds' labels were lost. Hence, we don't know which metrics belong to which type of seed. What we do know, is that there were three types of seeds.
 
+The code on the right groups the seeds into three clusters (km_seeds), but is it likely that these three clusters represent our seed types? Let's find out.
 
+There are two initial steps you could take:
 
+1. Visualize the distribution of cluster assignments among two variables, for example length and compactness.
 
+2. Verify if the clusters are well separated and compact. To do this, you can calculate the between and within cluster sum of squares respectively.
 
+```
+# The seeds dataset is already loaded into your workspace
+> 
+# Set random seed. Don't remove this line
+> set.seed(1)
+> 
+# Explore the structure of the dataset
+> str(seeds)
+'data.frame':	210 obs. of  7 variables:
+ $ area         : num  15.3 14.9 14.3 13.8 16.1 ...
+ $ perimeter    : num  14.8 14.6 14.1 13.9 15 ...
+ $ compactness  : num  0.871 0.881 0.905 0.895 0.903 ...
+ $ length       : num  5.76 5.55 5.29 5.32 5.66 ...
+ $ width        : num  3.31 3.33 3.34 3.38 3.56 ...
+ $ asymmetry    : num  2.22 1.02 2.7 2.26 1.35 ...
+ $ groove_length: num  5.22 4.96 4.83 4.8 5.17 ...
+> 
+# Group the seeds in three clusters
+> km_seeds <- kmeans(seeds, 3)
+> 
+# Color the points in the plot based on the clusters
+> plot(length ~ compactness, data = seeds, col = km_seeds$cluster)
+> 
+# Print out the ratio of the WSS to the BSS
+> km_seeds$tot.withinss / km_seeds$betweenss
+[1] 0.2762846
+```
 
-
-
-
-
+The within sum of squares is far lower than the between sum of squares. Indicating the clusters are well seperated and overall compact. This is further strengthened by the plot you made, where the clusters you made were visually distinct for these two variables. It's likely that these three clusters represent the three seed types well, even if there's no way to truly verify this.
 
 
 

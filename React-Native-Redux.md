@@ -886,6 +886,119 @@ const mapStateToProps = state => {
 export default connect(mapStateToProps)(LibraryList);
 ```
 
+<div id="thunk"></div>
+
+***
+
+## Redux Thunk
+
+```
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+
+...
+```
+
+Now, inside fo the createStore, we adjust it to be like so...
+
+```
+// the second arg is for initial states
+const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
+
+<Provider store={store}>
+	<View style={{ flex: 1 }}>
+		<Header headerText={'Example'} />
+		<Table />
+	</View>
+</Provider>
+```
+
+Now that ReduxThunk is set up, we can use it inside an action creator.
+
+```
+// Action Creators 
+export const selectAction = ({ email, password }) => {
+	return (dispatch) -> {
+		firebase.auth().signInWithEmailAndPassword(email, password)
+			.then(user => console.log(user))
+	};
+};
+```
+
+So, what is ReduxThunk doing for us?
+
+Now that we have ReduxThunk, it will change how we call the action creator.
+
+The Action Creator `WILL NOW RETURN A FUNCTION`. If ReduxThunk sees a function returned, it will send off an action with a dispatcher and immediately call that function.
+
+This will then start our login request. The app will wait and the .then will automatically run and we will then dispatch our action.
+
+```
+// Action Creators 
+export const selectAction = ({ email, password }) => {
+	return (dispatch) -> {
+		firebase.auth().signInWithEmailAndPassword(email, password)
+			.then(user => {
+				dispatch({ type: 'LOGIN_USER_SUCCESS', payload: user });
+			});
+	};
+};
+```
+
+<div id="nav"></div>
+
+***
+
+## Dealing with Navigation
+
+As opposed to React with `React-Router`, React Native doesn't necessarily have one.
+
+In this case, we'll be using the solution called `React-Native-Router-Flux` to help with navigation.
+
+How does it work?
+
+Imagine an app that requires authentication. We could then have another scene where the is a Master-Detail relationship.
+
+We essentially define a `Scene` for each distinct screens. For example.
+
+```
+<Scene key="login" component={LoginForm} />
+<Scene key="employeeList" component={EmployeeList} />
+<Scene key="employeeDetail" component={EmployeeDetail} />
+
+// All the props you can pass to the scene
+
+<Scene 
+	key="login" 				// call Actions.login() to show this screen
+	component={LoginForm} 		// component to show
+	title="Login"				// make nav bar and give it a title
+	initial 					// define the first screen to show
+/>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
