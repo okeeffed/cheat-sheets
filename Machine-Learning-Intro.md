@@ -824,14 +824,78 @@ On the right, the code that splits titanic up in train and test has already been
   0  23 102
 ```
 
+<div id="xvalid"></div>
 
+### ---- Using Cross Validation
 
+In this exercise, you will fold the dataset 6 times and calculate the accuracy for each fold. The mean of these accuracies forms a more robust estimation of the model's true accuracy of predicting unseen data, because it is less dependent on the choice of training and test sets.
 
+Note: Other performance measures, such as recall or precision, could also be used here.
 
+```
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Initialize the accs vector
+> accs <- rep(0,6)
+> 
+> for (i in 1:6) {
+    # These indices indicate the interval of the test set
+    indices <- (((i-1) * round((1/6)*nrow(shuffled))) + 1):((i*round((1/6) * nrow(shuffled))))
+    
+    # Exclude them from the train set
+    train <- shuffled[-indices,]
+    
+    # Include them in the test set
+    test <- shuffled[indices,]
+    
+    # A model is learned using each training set
+    tree <- rpart(Survived ~ ., train, method = "class")
+    
+    # Make a prediction on the test set using tree
+    pred <- predict(tree, test, type="class")
+    
+    # Assign the confusion matrix to conf
+    conf <- table(test$Survived, pred)
+    
+    # Assign the accuracy of this model to the ith index in accs
+    accs[i] <- sum(diag(conf))/sum(conf)
+  }
+> 
+> accs
+[1] 0.7983193 0.7983193 0.7899160 0.8067227 0.8235294 0.7899160
+# Print out the mean of accs
+> mean(accs)
+[1] 0.8011204
+```
 
+This estimate will be a more robust measure of your accuracy. It will be less susceptible to the randomness of splitting the dataset.
 
+<div id="bias"></div>
 
+### ---- Bias and Variance
 
+How does splitting affect the accuracy?
+
+We use `Bias` and `Variance` as our keys.
+
+The main goal of course is `prediction`. The `prediction error` can be split into the `reducible error` and the `irreducible error`.
+
+Irreducible: noise - don't minimize!
+Reducible: error due to unfit model - this we want to minimize!
+
+_Bias Error_
+
+Error due to bias: wrong assumptions.
+Difference in predictions and truth.
+	- using models trained by specific `learning algorithm`
+
+Eg. suppose you have points on a x/y map that can be fit by quadratic data. If you decide to use linear regression here, you will have a high error since you are restricting your model.
+
+_Variance Error_
+
+Error due to variance: error due to the sampling of the `training set`
+Model with high variance fits training set closely!
 
 
 
