@@ -227,16 +227,67 @@ The instructions will help you predict the number of profile views for the next 
 > points(22:24, linkedin_pred, col = "green")
 ```
 
+<div id="clusteriris"></div>
 
+### ---- Clustering Example: Separating the Iris Species
 
+Last but not least, there's clustering. This technique tries to group your objects. It does this without any prior knowledge of what these groups could or should look like. For clustering, the concepts of prior knowledge and unseen observations are less meaningful than for classification and regression.
 
+In this exercise, you'll group irises in 3 distinct clusters, based on several flower characteristics in the iris dataset. It has already been chopped up in a data frame my_iris and a vector species, as shown in the sample code on the right.
 
+The clustering itself will be done with the kmeans() function. How the algorithm actually works, will be explained in the last chapter. For now, just try it out to gain some intuition!
 
+Note: In problems that have a random aspect (like this problem with kmeans()), the set.seed() function will be used to enforce reproducibility. If you fix the seed, the random numbers that are generated (e.g. in kmeans()) are always the same.
 
+```
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Chop up iris in my_iris and species
+> my_iris <- iris[-5]
+> species <- iris$Species
+> 
+# Perform k-means clustering on my_iris: kmeans_iris
+> kmeans_iris <- kmeans(my_iris, 3)
+> 
+# Compare the actual Species to the clustering using table()
+> table(species, kmeans_iris$cluster)
+            
+species       1  2  3
+  setosa     50  0  0
+  versicolor  0  2 48
+  virginica   0 36 14
+> 
+# Plot Petal.Width against Petal.Length, coloring by cluster
+> plot(Petal.Length ~ Petal.Width, data = my_iris, col = kmeans_iris$cluster)
+```
 
+<div id="super"></div>
 
+### ---- Supervised vs. Unsupervised
 
+Classification and Regression have similar traits.
 
+If we can `find` function f which can be used to assign a class or value to unseen observations `given` a set of labeled observations, we call this `Supervised Learning`.
+
+`Labelling` can be tedious and are normally done by humans. Those that don't require labels is known as `Unsupervised Learning` - example being the clustering that we did before. Clustering will find group observations that are similar.
+
+__Performance of the model__
+
+- Supervised learning
+	- `Compare` real labels with `predicted` labels
+- Unsupervised Learning
+	- No real labels to compare
+	- Techniques will be explained later down the track
+	- Things aren't always black and white
+- Semi-Supervised Learning
+	- Mixed of unlabeled and labeled observationed
+	- Eg clustering information and classes of labeled observations to assign a class to unlabeled observations
+	- More labeled observations for `supervised learning`
+
+<div id="superPrac"></div>
+
+### ---- Getting practical with supervised learning
 
 
 
