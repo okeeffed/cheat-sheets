@@ -154,9 +154,13 @@ The commands parameters can be roughly divided in parameters starting with a das
 
 #### ++++ ---- Man
 
+
+
 ### ---- LINUX-2.3: Using Directories and Listing Files
 
 #### ++++ ---- The Linux File System
+
+
 
 ### ---- LINUX-2.4: Creating, Moving and Deleting Files
 
@@ -169,6 +173,41 @@ The commands parameters can be roughly divided in parameters starting with a das
 <div id="3"></div>
 
 ### ---- LINUX-3.1: Archiving Files on the Command Line
+
+### ++++ ---- Files, Directories
+
+We can archive multiple files into a single file and then compress them.
+
+We can use `Tar` to compress and `zip` which is generally for windows. `tar` is a Linux utility that archives things. It does not compress or compact files. It just sticks them together.
+
+It was originally used to create tape backups. Tar stands for `Tape Archive`.
+
+```
+# inside of a folder that contains a folder with three files
+# if we want to archive this folder
+# tar -cf creates the file name.tar
+# tar -xf extracts the file name.tar
+
+tar -cf folder1tar.tar folder1
+
+# this would archive folder1
+
+tar -xf folder1tar.tar
+
+# extracting this, we will have folder1 back
+
+# tar multiple archive files at once
+# ls 
+# file1.txt file2.txt file3.txt
+
+tar -cf files.tar file1.txt file3.txt
+
+# now we will have files.tar with those two files
+
+tar -xf files.tar
+
+# extracts those two files
+```
 
 ***
 
