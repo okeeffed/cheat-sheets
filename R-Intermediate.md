@@ -1182,11 +1182,40 @@ __Math Utils__
 [1] 4.48
 ```
 
+### ---- Data Utilities
 
+R features a bunch of functions to juggle around with data structures::
 
+```
+seq(): Generate sequences, by specifying the from, to and by arguments.
+rep(): Replicate elements of vectors and lists.
+sort(): Sort a vector in ascending order. Works on numerics, but also on character strings and logicals.
+rev(): Reverse the elements in a data structures for which reversal is defined.
+str(): Display the structure of any R object.
+append(): Merge vectors or lists.
+is.*(): Check for the class of an R object.
+as.*(): Convert an R object from one class to another.
+unlist(): Flatten (possibly embedded) lists to produce a vector.
+```
 
+Remember the social media profile view data? Your LinkedIn and Facebook view counts for the last seven days are already defined as lists on the right.
 
-
+```
+# The linkedin and facebook lists have already been created for you
+> linkedin <- list(16, 9, 13, 5, 2, 17, 14)
+> facebook <- list(17, 7, 5, 16, 8, 13, 14)
+> 
+# Convert linkedin and facebook to a vector: li_vec and fb_vec
+> li_vec <- unlist(linkedin)
+> fb_vec <- unlist(facebook)
+> 
+# Append fb_vec to li_vec: social_vec
+> social_vec <- append(li_vec, fb_vec)
+> 
+# Sort social_vec
+> sort(social_vec, decreasing = TRUE)
+ [1] 17 17 16 16 14 14 13 13  9  8  7  5  5  2
+```
 
 
 
