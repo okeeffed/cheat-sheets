@@ -1240,8 +1240,70 @@ There is a popular story about young Gauss. As a pupil, he had a lazy teacher wh
 [1] 87029
 ```
 
+<div id="regex"></div>
 
+### ---- Regex
 
+```
+grepl(patter = <regex>, x = <string>)
+
+animals <- c("cat", "moose")
+grepl("a", animals)
+TRUE FALSE
+
+sub(pattern = <regex>, replacement = <str>, x = <str>)
+```
+
+```
+# The emails vector has already been defined for you
+> emails <- c("john.doe@ivyleague.edu", "education@world.gov", "dalai.lama@peace.org", 
+              "invalid.edu", "quant@bigdatacollege.edu", "cookie.monster@sesame.tv")
+> 
+# Use grepl() to match for "edu"
+> grepl("edu", emails)
+[1]  TRUE  TRUE FALSE  TRUE  TRUE FALSE
+> 
+# Use grep() to match for "edu", save result to hits
+> hits <- grep("edu", emails)
+> 
+# Subset emails using hits
+> emails[hits]
+[1] "john.doe@ivyleague.edu"   "education@world.gov"     
+[3] "invalid.edu"              "quant@bigdatacollege.edu"
+```
+
+- @, because a valid email must contain an at-sign.
+- .*, which matches any character (.) zero or more times (*). Both the dot and the asterisk are metacharacters. You can use them to match any character between the at-sign and the ".edu" portion of an email address.
+- \\.edu$, to match the ".edu" part of the email at the end of the string. The \\ part escapes the dot: it tells R that you want to use the . as an actual character.
+
+```
+# The emails vector has already been defined for you
+> emails <- c("john.doe@ivyleague.edu", "education@world.gov", "dalai.lama@peace.org", 
+              "invalid.edu", "quant@bigdatacollege.edu", "cookie.monster@sesame.tv")
+> 
+# Use grepl() to match for .edu addresses more robustly
+> grepl("@.*\\.edu$", emails)
+[1]  TRUE FALSE FALSE FALSE  TRUE FALSE
+> 
+```
+
+<div id="sub"></div>
+
+### ---- sub & gsub
+
+While grep() and grepl() were used to simply check whether a regular expression could be matched with a character vector, sub() and gsub() take it one step further: you can specify a replacement argument. If inside the character vector x, the regular expression pattern is found, the matching element(s) will be replaced with replacement.sub() only replaces the first match, whereas gsub() replaces all matches.
+
+```
+# The emails vector has already been defined for you
+> emails <- c("john.doe@ivyleague.edu", "education@world.gov", "dalai.lama@peace.org", 
+              "invalid.edu", "quant@bigdatacollege.edu", "cookie.monster@sesame.tv")
+> 
+# Use sub() to convert the email domains to datacamp.edu
+> sub("@.*\\.edu$", "@datacamp.edu", emails)
+[1] "john.doe@datacamp.edu"    "education@world.gov"     
+[3] "dalai.lama@peace.org"     "invalid.edu"             
+[5] "quant@datacamp.edu"       "cookie.monster@sesame.tv"
+```
 
 
 
