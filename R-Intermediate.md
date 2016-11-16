@@ -1217,7 +1217,28 @@ Remember the social media profile view data? Your LinkedIn and Facebook view cou
  [1] 17 17 16 16 14 14 13 13  9  8  7  5  5  2
 ```
 
+```
+> rep(seq(1, 7, by = 2), times = 7)
+ [1] 1 3 5 7 1 3 5 7 1 3 5 7 1 3 5 7 1 3 5 7 1 3 5 7 1 3 5 7
+```
 
+<div id="gauss"></div>
+
+### ---- Beat Gauss using R
+
+There is a popular story about young Gauss. As a pupil, he had a lazy teacher who wanted to keep the classroom busy by having them add up the numbers 1 to 100. Gauss came up with an answer almost instantaneously, 5050. On the spot, he had developed a formula for calculating the sum of an arithmetic series. There are more general formulas for calculating the sum of an arithmetic series with different starting values and increments. Instead of deriving such a formula, why not use R to calculate the sum of a sequence?
+
+```
+# Create first sequence: seq1
+> seq1 <- seq(1, 500, 3)
+> 
+# Create second sequence: seq2
+> seq2 <- seq(1200, 900, -7)
+> 
+# Calculate total sum of the sequences
+> sum(seq1, seq2)
+[1] 87029
+```
 
 
 
