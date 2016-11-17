@@ -1305,8 +1305,24 @@ While grep() and grepl() were used to simply check whether a regular expression 
 [5] "quant@datacamp.edu"       "cookie.monster@sesame.tv"
 ```
 
+<div id="timesanddates"></div>
+
+***
+
+## Times & Dates
+
+```
+today <- Sys.Date()
+today
+# prints date
+
+# for a timestamp
+now <- Sys.time()
+
+my_date <- as.Date("1975-14-05", format = "%Y-%d-%m")
 
 
+```
 
 
 
