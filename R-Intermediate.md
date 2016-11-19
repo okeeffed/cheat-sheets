@@ -1339,13 +1339,81 @@ my_date <- as.Date("1975-14-05", format = "%Y-%d-%m")
 > mydate2 <- mydate + 40
 > mydate2 - mydate
 Time difference of 40 days
+
+# posix - days since Jan 1, 1970
+# unclass time will do this calculation in seconds
+
+> unclass(mydate)
+[1] 17125
 ```
 
+In terms of packages that are good for dealing with dates and times:
 
+- lubridate
+- zoo
+- xts
 
+```
+# Get the current date: today
+> today <- Sys.Date()
+> 
+# See what today looks like under the hood
+> unclass(today)
+[1] 17124
+> 
+# Get the current time: now
+> now <- Sys.time()
+> 
+# See what now looks like under the hood
+> unclass(now)
+[1] 1479595508
+```
 
+To create a Date object from a simple character string in R, you can use the as.Date() function. The character string has to obey a format that can be defined using a set of symbols (the examples correspond to 13 January, 1982):
 
+%Y: 4-digit year (1982)
+%y: 2-digit year (82)
+%m: 2-digit month (01)
+%d: 2-digit day of the month (13)
+%A: weekday (Wednesday)
+%a: abbreviated weekday (Wed)
+%B: month (January)
+%b: abbreviated month (Jan)
 
+The following R commands will all create the same Date object for 13 January, 1982:
+
+as.Date("1982-01-13")
+as.Date("Jan-13-82", format = "%b-%d-%y")
+as.Date("13 January, 1982", format = "%d %B, %Y")
+
+Notice that the first line here did not need a format argument, because by default R matches your character string to the formats "%Y-%m-%d" or "%Y/%m/%d".
+
+In addition to creating dates, you can also convert dates to character strings that use a different date notation. For this, you use the format() function. Try the following lines of code:
+
+today <- Sys.Date()
+format(Sys.Date(), format = "%d %B, %Y")
+format(Sys.Date(), format = "Today is a %A!")
+
+```
+# Definition of character strings representing dates
+> str1 <- "May 23, '96"
+> str2 <- "2012-03-15"
+> str3 <- "30/January/2006"
+> 
+# Convert the strings to dates: date1, date2, date3
+> date1 <- as.Date(str1, format = "%b %d, '%y")
+> date2 <- as.Date(str2, format = "%Y-%m-%d")
+> date3 <- as.Date(str3, format = "%d/%B/%Y")
+> 
+> 
+# Convert dates to formatted strings
+> format(date1, "%A")
+[1] "Thursday"
+> format(date2, "%d")
+[1] "15"
+> format(date3, "%b %Y")
+[1] "Jan 2006"
+```
 
 
 
