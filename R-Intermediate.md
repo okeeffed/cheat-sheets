@@ -1415,13 +1415,60 @@ format(Sys.Date(), format = "Today is a %A!")
 [1] "Jan 2006"
 ```
 
+Similar to working with dates, you can use as.POSIXct() to convert from a character string to a POSIXct object, and format() to convert from a POSIXct object to a character string. Again, you have a wide variety of symbols:
 
+%H: hours as a decimal number (00-23)
+%M: minutes as a decimal number
+%S: seconds as a decimal number
+%T: shorthand notation for the typical format %H:%M:%S
 
+For a full list of conversion symbols, consult the strptime documentation in the console:
 
+?strptime
 
+Again, as.POSIXct() uses a default format to match character strings. In this case, it's %Y-%m-%d %H:%M:%S. In this exercise, abstraction is made of different time zones.
 
+```
+# Definition of character strings representing times
+> str1 <- "May 23, '96 hours:23 minutes:01 seconds:45"
+> str2 <- "2012-3-12 14:23:08"
+> 
+# Convert the strings to POSIXct objects: time1, time2
+> time1 <- as.POSIXct(str1, format = "%B %d, '%y hours:%H minutes:%M seconds:%S")
+> time2 <- as.POSIXct(str2, format = "%Y-%m-%d %H:%M:%S")
+> 
+# Convert times to formatted strings
+> format(time1, "%M")
+[1] "01"
+> format(time2, "%I:%M %p")
+[1] "02:23 PM"
+```
 
+Both Date and POSIXct R objects are represented by simple numerical values under the hood. This makes calculation with time and date objects very straightforward: R performs the calculations using the underlying numerical values, and then converts the result back to human-readable time information again.
 
+You can increment and decrement Date objects, or do actual calculations with them (try it out in the console!):
+
+today <- Sys.Date()
+today + 1
+today - 1
+
+as.Date("2015-03-12") - as.Date("2015-02-27")
+
+```
+# Difference between last and first pizza day
+> day5 - day1
+Time difference of 11 days
+> 
+# Create vector pizza
+> pizza <- c(day1, day2, day3, day4, day5)
+> 
+# Create differences between consecutive pizza days: day_diff
+> day_diff <- diff(pizza)
+> 
+# Average period between two consecutive pizza days
+> mean(day_diff)
+Time difference of 2.75 days
+```
 
 
 
