@@ -1470,7 +1470,36 @@ Time difference of 11 days
 Time difference of 2.75 days
 ```
 
+Calculations using POSIXct objects are completely analogous to those using Date objects. Try to experiment with this code to increase or decrease POSIXct objects:
 
+now <- Sys.time()
+now + 3600        # add an hour
+now - 3600*24     # subtract a day
+Adding or substracting time objects is also straightforward:
+
+birth <- as.POSIXct("1879-03-14 14:37:23")
+death <- as.POSIXct("1955-04-18 03:47:12")
+einstein <- death - birth
+einstein
+
+```
+# login and logout are already defined in the workspace
+# Calculate the difference between login and logout: time_online
+> time_online <- logout - login
+> 
+# Inspect the variable time_online
+> time_online
+Time differences in secs
+[1] 2305.11818   34.18472  837.18182 2397.90153 1851.30411
+> 
+# Calculate the total time online
+> sum(time_online)
+Time difference of 7425.69 secs
+> 
+# Calculate the average time online
+> mean(time_online)
+Time difference of 1485.138 secs
+```
 
 
 
