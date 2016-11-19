@@ -1321,7 +1321,24 @@ now <- Sys.time()
 
 my_date <- as.Date("1975-14-05", format = "%Y-%d-%m")
 
+# format must be specified if you change from Y-m-d
 
+> now <- Sys.time()
+> now
+[1] "2016-11-20 09:36:43 AEDT"
+
+# adding days
+
+> mydate
+[1] "2016-11-20"
+> mydate + 1
+[1] "2016-11-21"
+
+# difference in dates
+
+> mydate2 <- mydate + 40
+> mydate2 - mydate
+Time difference of 40 days
 ```
 
 
