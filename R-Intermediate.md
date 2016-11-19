@@ -1501,6 +1501,29 @@ Time difference of 7425.69 secs
 Time difference of 1485.138 secs
 ```
 
+```
+> astro
+       spring        summer          fall        winter 
+"20-Mar-2015" "25-Jun-2015" "23-Sep-2015" "22-Dec-2015"
+
+> meteo
+           spring            summer              fall            winter 
+    "March 1, 15"      "June 1, 15" "September 1, 15"  "December 1, 15" 
+
+# Convert astro to vector of Date objects: astro_dates
+> astro_dates <- as.Date(astro, format="%d-%B-%Y")
+> 
+> astro_dates
+[1] "2015-03-20" "2015-06-25" "2015-09-23" "2015-12-22"
+# Convert meteo to vector of Date objects: meteo_dates
+> meteo_dates <- as.Date(meteo, format="%B %d, %y")
+> 
+> meteo_dates
+[1] "2015-03-01" "2015-06-01" "2015-09-01" "2015-12-01"
+# Calculate the maximum absolute difference between astro_dates and meteo_dates
+> max(abs(astro_dates - meteo_dates))
+Time difference of 24 days
+```
 
 
 
