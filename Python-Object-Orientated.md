@@ -271,5 +271,3 @@ class Sheep(Animal):
     def noise(self):
         return self.sound.upper()
 ```
-
-
