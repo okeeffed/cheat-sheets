@@ -1250,11 +1250,90 @@ Manhattan Distance: `sum(abs(a[i] - b[i]))`
   - eg mother tongue: Spanish, Italian or French.
     - create new features with possible 1 or 0
 
+```
+> train_labels <- train$Survived
+> test_labels <- test$Survived
+> 
+# Copy train and test to knn_train and knn_test
+> knn_train <- train
+> knn_test <- test
+> 
+# Drop Survived column for knn_train and knn_test
+> knn_train$Survived <- NULL
+> knn_test$Survived <- NULL
+> 
+# Normalize Pclass
+> min_class <- min(knn_train$Pclass)
+> max_class <- max(knn_train$Pclass)
+> knn_train$Pclass <- (knn_train$Pclass - min_class) / (max_class - min_class)
+> knn_test$Pclass <- (knn_test$Pclass - min_class) / (max_class - min_class)
+> 
+# Normalize Age
+> min_age <- min(knn_train$Age)
+> max_age <- max(knn_train$Age)
+> knn_train$Age <- (knn_train$Age - min_age) / (max_age - min_age)
+> knn_test$Age <- (knn_test$Age - min_age) / (max_age - min_age)
+```
 
+```
+# knn_train, knn_test, train_labels and test_labels are pre-loaded
+> 
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Load the class package
+> library(class)
+> 
+# Fill in the ___, make predictions using knn: pred
+> pred <- knn(train = knn_train, test = knn_test, cl = train_labels, k = 5)
+> 
+# Construct the confusion matrix: conf
+> conf <- table(test_labels, pred)
+> 
+# Print out the confusion matrix
+> conf
+           pred
+test_labels   1   0
+          1  61  24
+          0  17 112
+```
 
+```
+# knn_train, knn_test, train_labels and test_labels are pre-loaded
+> 
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Load the class package, define range and accs
+> library(class)
+> range <- 1:round(0.2 * nrow(knn_train))
+> accs <- rep(0, length(range))
+> 
+> for (k in range) {
+  
+    # Fill in the ___, make predictions using knn: pred
+    pred <- knn(train = knn_train, test = knn_test, cl = train_labels, k = k)
+  
+    # Fill in the ___, construct the confusion matrix: conf
+    conf <- table(test_labels, pred)
+  
+    # Fill in the ___, calculate the accuracy and store it in accs[k]
+    accs[k] <- sum(diag(conf)/sum(conf))
+  }
+> 
+# Plot the accuracies. Title of x-axis is "k".
+> plot(range, accs, xlab = "k")
+> 
+# Calculate the best k
+> which.max(accs)
+[1] 73
+```
 
+### ---- Interpreting a Voronoi Diagram
 
+A cool way to visualize how 1-Nearest Neighbor works with two-dimensional features is the Voronoi Diagram. It's basically a plot of all the training instances, together with a set of tiles around the points. This tile represents the region of influence of each point. When you want to classify a new observation, it will receive the class of the tile in which the coordinates fall. Pretty cool, right?
 
+In the plot on the right you can see training instances that belong to either the blue or the red class. Each instance has two features: xx and yy. The top left instance, for example, has an xx value of around 0.05 and a yy value of 0.9.
 
 
 
