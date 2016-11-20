@@ -268,6 +268,10 @@ print(np_baseball*conversion)
      [  1.8542   88.45044  27.92   ]]
 ```
 
+***
+
+## Basic Statistics
+
 
 
 
