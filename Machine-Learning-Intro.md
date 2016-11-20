@@ -1173,16 +1173,82 @@ Looking good! What does the accuracy tell you? Around 80 percent of all test ins
 
 Another way to check if you overfit your model is by comparing the accuracy on the training set with the accuracy on the test set. You'd see that the difference between those two is smaller for the simpler tree. You can also set the `cp` argument while learning the tree with `rpart()` using `rpart.control`.
 
- Next Exercise
+### ---- Gini Criterion
 
+`rpart` by default uses the `Gini Criterion` for making decision trees.
 
+```
+# Set random seed. Don't remove this line.
+> set.seed(1)
+> 
+# Train and test tree with gini criterion
+> tree_g <- rpart(spam ~ ., train, method = "class")
+> pred_g <- predict(tree_g, test, type = "class")
+> conf_g <- table(test$spam, pred_g)
+> acc_g <- sum(diag(conf_g)) / sum(conf_g)
+> 
+# Change the first line of code to use information gain as splitting criterion
+> tree_i <- rpart(spam ~ ., train, method = "class", parms = list(split = "information"))
+> pred_i <- predict(tree_i, test, type = "class")
+> conf_i <- table(test$spam, pred_i)
+> acc_i <- sum(diag(conf_i)) / sum(conf_i)
+> 
+# Draw a fancy plot of both tree_g and tree_i
+> fancyRpartPlot(tree_g)
+> fancyRpartPlot(tree_i)
+> 
+> 
+# Print out acc_g and acc_i
+> acc_i
+[1] 0.8963768
+> acc_g
+[1] 0.8905797
+```
 
+### ---- k-Nearest Neighbors
 
+Getting acquinted with instance based learning.
 
+- Save training set in memory
+- No real model like `decision tree`
+- `Compare` unseen instances to training set
+- `Predict` using the `comparison` of `unseen data` and the `training set`
 
+k-Nearest Neighbour example
 
+2 features: x1, x2
+- all have red or blue class - binary classification problem
 
+This will save the complete training set
 
+Given unseen observation with features, it will compare the new features with the old training set. It will find the closest observation and assign the same class.
+
+This is essentially a Euclidian distance measurement.
+
+That is for k = 1.
+
+If k = 5, it will use the 5 most similar observations (neighbours).
+
+Distance metric is important. We can use the standard Euclidian Distance. We can also use the Manhattan distance:
+
+Euclidian Distance: `sqr(sum((a[i]-b[i])**2))`
+Manhattan Distance: `sum(abs(a[i] - b[i]))`
+
+### ---- Scaling Example
+
+- Dataset with
+  - 2 features: weight and height
+  - 3 observations
+
+1. Normalize all features - eg rescale values between 0 and 1
+  - this gives a better measurement between the distances
+  - don't forget to scale the new observations accordingly
+
+2. Categorical features
+  - How to use in distance metric?
+  - Use `dummy` variables
+  - eg mother tongue: Spanish, Italian or French.
+    - create new features with possible 1 or 0
 
 
 
