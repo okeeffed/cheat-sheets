@@ -118,3 +118,158 @@ print(bmi[light])
       20.34343189  20.69282047  20.15883472  19.4984471   20.69282047
       20.9205219 ]
 ```
+
+Printing out Array Values
+
+```
+# height and weight are available as a regular lists
+
+# Import numpy
+import numpy as np
+
+# Store weight and height lists as numpy arrays
+np_weight = np.array(weight)
+np_height = np.array(height)
+
+# Print out the weight at index 50
+print(weight[50])
+
+# Print out sub-array of np_height: index 100 up to and including index 110
+print(np_height[100:111])
+
+<script.py> output:
+    200
+    [73 74 72 73 69 72 73 75 75 73 72]
+```
+
+### ---- 2D Numpy Arrays
+
+```
+>>> array_2d = np.array([[1,2,3,4,5],[6,7,8,9,10]])
+>>> array_2d
+array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10]])
+>>> array_2d[1][3]
+9
+>>> array_2d[1][:]
+array([ 6,  7,  8,  9, 10])
+>>> array_2d[1]
+array([ 6,  7,  8,  9, 10])
+>>> array_2d[1:]
+array([[ 6,  7,  8,  9, 10]])
+>>> array_2d[1:2]
+array([[ 6,  7,  8,  9, 10]])
+>>> array_2d[0:1]
+array([[1, 2, 3, 4, 5]])
+>>> array_2d[0:]
+array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10]])
+>>> array_2d[0:2]
+array([[ 1,  2,  3,  4,  5],
+       [ 6,  7,  8,  9, 10]])
+```
+
+```
+# Create baseball, a list of lists
+baseball = [[180, 78.4],
+            [215, 102.7],
+            [210, 98.5],
+            [188, 75.2]]
+
+# Import numpy
+import numpy as np
+
+# Create a 2D Numpy array from baseball: np_baseball
+np_baseball = np.array(baseball)
+
+# Print out the type of np_baseball
+print(type(np_baseball))
+
+# Print out the shape of np_baseball
+print(np_baseball.shape)
+
+<script.py> output:
+    <class 'numpy.ndarray'>
+    (4, 2)
+
+# baseball is available as a regular list of lists
+
+# Import numpy package
+import numpy as np
+
+# Create a 2D Numpy array from baseball: np_baseball
+np_baseball = np.array(baseball)
+
+# Print out the shape of np_baseball
+print(np_baseball.shape)
+
+<script.py> output:
+    (1015, 2)
+```
+
+```
+# Import numpy package
+import numpy as np
+
+# Create np_baseball (2 cols)
+np_baseball = np.array(baseball)
+
+# Print out the 50th row of np_baseball
+print(np_baseball[49,:])
+
+# Select the entire second column of np_baseball: np_weight
+np_weight = np_baseball[:,1]
+
+# Print out height of 124th player
+print(np_baseball[123,0])
+
+<script.py> output:
+    [ 70 195]
+    [ 73 194]
+
+<script.py> output:
+    [ 70 195]
+    75
+```
+
+```
+# baseball is available as a regular list of lists
+# update is available as 2D Numpy array
+
+# Import numpy package
+import numpy as np
+
+# Create np_baseball (3 cols)
+np_baseball = np.array(baseball)
+
+# Print out addition of np_baseball and update
+print(np_baseball + update)
+
+# Create Numpy array: conversion
+conversion = [0.0254, 0.453592, 1]
+
+# Print out product of np_baseball and conversion
+print(np_baseball*conversion)
+
+<script.py> output:
+    [[  75.2303559   168.83775102   23.99      ]
+     [  75.02614252  231.09732309   35.69      ]
+     [  73.1544228   215.08167641   31.78      ]
+     ..., 
+     [  76.09349925  209.23890778   26.19      ]
+     [  75.82285669  172.21799965   32.01      ]
+     [  73.99484223  203.14402711   28.92      ]]
+    [[  1.8796   81.64656  22.99   ]
+     [  1.8796   97.52228  34.69   ]
+     [  1.8288   95.25432  30.78   ]
+     ..., 
+     [  1.905    92.98636  25.19   ]
+     [  1.905    86.18248  31.01   ]
+     [  1.8542   88.45044  27.92   ]]
+```
+
+
+
+
+
+
