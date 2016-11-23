@@ -1,4 +1,4 @@
-# Swift 3 OOP
+alias# Swift 3 OOP
 
 ***
 
@@ -139,4 +139,169 @@ let test = RGBColor(red: 16.0, green: 5.0, blue: 4.3, alpha: 3.0)
 test.description
 ```
 
+<div id="classes"></div>
 
+***
+
+## Class
+
+```swift
+class Enemy {
+  var life: Int = 2
+  let position: Point
+
+  init(x: Int, y: Int) {
+    self.position = Point(x: x, y: y)
+  }
+
+  func decreaseLife(by factor: Int) {
+    life -= factor
+  }
+
+}
+
+struct Location {
+  let latitude: Double
+  let longitude: Double
+}
+
+class Business {
+  var name: String
+  var location: Location
+  
+  init(name: String, location: Location) {
+    self.name = name
+    self.location = location
+  }
+}
+
+let someBusiness = Business(name: "Quiry", location: Location(latitude: 341, longitude: 82))
+
+```
+
+<div id="inheritance"></div>
+
+***
+
+## Inheritance
+
+```
+class SuperEnemy: Enemy {
+  let isSuper: Bool = true
+
+  override init(x: Int, y: Int) {
+    super.init(x: x, y: y)
+    self.life = 50
+  }
+}
+```
+
+```
+class Vehicle {
+  var numberOfDoors: Int
+  var numberOfWheels: Int
+    
+  init(withDoors doors: Int, andWheels wheels: Int) {
+      self.numberOfDoors = doors
+      self.numberOfWheels = wheels
+  }
+}
+
+class Car: Vehicle {
+  var numberOfSeats: Int = 4
+
+  override init(withDoors doors: Int, andWheels wheels: Int) {
+    super.init(withDoors: doors, andWheels: wheels)
+  }
+  
+}
+
+let someCar = Car(withDoors: 4, andWheels: 4)
+```
+
+```
+class Person {
+  let firstName: String
+  let lastName: String 
+
+  init(firstName: String, lastName: String) {
+    self.firstName = firstName
+    self.lastName = lastName
+  }
+
+  func fullName() -> String {
+    return "\(firstName) \(lastName)"
+  }
+}
+
+// Enter your code below
+class Doctor: Person {
+
+  override init(firstName: String, lastName: String) {
+    super.init(firstName: firstName, lastName: lastName)
+  }
+
+  override func fullName() -> String {
+    return "Dr. \(lastName)"
+  }
+}
+
+let someDoctor = Doctor(firstName: "Sam", lastName: "Smith")
+```
+
+<div id="final"></div>
+
+***
+
+## Structs vs Classes
+
+Distinct line in the sand.
+
+```swift
+import UIKit
+
+var str = "Hello, playground"
+
+
+struct User {
+  var fullName: String
+  var email: String
+  var age: Int
+}
+
+var someUser = User(fullName: "Denis O'Keeffe", email: "test@test", age: 24)
+
+var anotherUser = someUser
+
+someUser.email = "newemail@email"
+
+// remains as test@test
+anotherUser.email
+
+class Person {
+  var fullName: String
+  var email: String
+  var age: Int
+  
+  init(name: String, email: String, age: Int) {
+    self.fullName = name
+    self.email = email
+    self.age = age
+  }
+}
+
+var somePerson = Person(name: "Tim Cook", email: "tc@apple.com", age: 54)
+
+var anotherPerson = somePerson
+
+somePerson.email = "newemail@email"
+
+// newemail@email -> points to the same reference
+anotherPerson.email
+```
+
+<div id="newSection"></div>
+
+### ---- Value type vs Reference type
+
+Values are copied across, references are not. All `structs` are value types.
