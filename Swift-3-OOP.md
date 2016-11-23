@@ -300,7 +300,7 @@ somePerson.email = "newemail@email"
 anotherPerson.email
 ```
 
-<div id="newSection"></div>
+<div id="valuevsref"></div>
 
 ### ---- Value type vs Reference type
 
