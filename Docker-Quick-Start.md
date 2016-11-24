@@ -205,4 +205,13 @@ There is a lifecycle associated with starting, stopping, restarting etc.
 ```
 docker run -d --name LifeCycle1 nginx:latest
 docker attach LifeCycle1
+
+// exec if the container started indirectly
+docker exec -it LifeCycle1 /bin/bash
 ```
+
+We don't have to attach to the container with the `exec` command. We can just connect to is just to execute a command - like a `ssh` prompt!
+
+## Image and Container Management
+
+
