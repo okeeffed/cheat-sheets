@@ -214,4 +214,12 @@ We don't have to attach to the container with the `exec` command. We can just co
 
 ## Image and Container Management
 
+```
+# remove the image
+docker rmi image-name
 
+# remove all containers
+docker rm `docker ps -a -q`
+```
+
+## Redirection - Ports and Volumes
