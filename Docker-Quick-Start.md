@@ -223,3 +223,45 @@ docker rm `docker ps -a -q`
 ```
 
 ## Redirection - Ports and Volumes
+
+__Ports__
+
+Ports are exposed in a container so that you can connect via the container IP but must be exposed via the `dockerfile`.
+
+We can direct the port for a http container to a port on the underlying host.
+
+`docker run -d -P --name:webserver nginx:latest`
+
+To find all the address redirection, we can write `docker port WebServer1 $CONTAINERPORT`
+
+```
+okeeffe_d@dok ~$ docker port WebServer1 $CONTAINERPORT                                   
+
+443/tcp -> 0.0.0.0:32768
+80/tcp -> 0.0.0.0:32769
+```
+
+`docker run -d -p 8080:80 --name=webserver nginx:latest` is also useful for a variety of reasons.
+
+We no longer have to worry about routing - we can do dev/set up the correct ports. We no longer have to do any static routing.
+
+No we can pass stuff to the host without having to copy it.
+
+This means we can mount underlying directories.
+
+```
+docker run -d -p 8080:80 --name=webserver -v /mnt/data nginx:latest // mount data
+```
+
+Good practise is to keep the container as emphemeral as possible. It should not contain things that won't stick around. We want to run a command and start a container without a complex configuration.
+
+// 15 min mark
+
+If we create a basic file and create a HTML page, we could then run 
+
+```
+docker run -d -p 8080:80 --name=webserver -v /home/user/www:/usr/share/nginx/html nginx:latest
+
+// this will mount the file and mount it to that directory. We can push multiple mounts!
+```
+
