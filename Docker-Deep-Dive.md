@@ -224,9 +224,88 @@ We can't do this from the Dockerfile, because the base image is designed to be p
 
 Thanks to Docker Swarm and Kubernetes, it has become easier to manage the Docker Network.
 
-```
+When you run a docker instance, it will auto pull the next available address.
 
 ```
+# this will list all of the associated networks with the current host
+docker network ls
+
+docker network ls --no-trunc # to see the full address
+
+docker network inspect bridge
+```
+
+__Creating Docker network configs__
+
+To see things like a `man` page for docker, you essential just put dashes between multi-word commands.
+
+`man docker-network-create` will bring up the network create manual.
+
+```
+docker network create --subnet 10.1.0.0/24 --gateway 10.1.0.1 mybridge01 # /24 is everything in that network
+
+docker network ls
+# the new bridge adapter is now there
+
+# to remove the bridge
+docker network rm mybridge01
+```
+
+### ---- Docker Network: Assign to Containers
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

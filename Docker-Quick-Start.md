@@ -256,7 +256,7 @@ No we can pass stuff to the host without having to copy it.
 This means we can mount underlying directories.
 
 ```
-docker run -d -p 8080:80 --name=webserver -v /mnt/data nginx:latest // mount data
+docker run -d -p 8080:80 --name=webserver -v /mnt/data nginx:latest # mount data
 ```
 
 Good practise is to keep the container as emphemeral as possible. It should not contain things that won't stick around. We want to run a command and start a container without a complex configuration.
