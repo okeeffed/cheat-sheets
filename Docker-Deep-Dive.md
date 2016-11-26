@@ -269,20 +269,64 @@ docker run -it --name nettest1 --net bridge04 --ip 10.1.4.100 centos:latest /bin
 # if we docker inspect nettest1 | grep IP we can see the address set at 10.1.4.100
 ```
 
+***
+
+## Docker commands and structures
+
+### ---- Inspect Container Processes
+
+From the outside, we can run `docker exec` to get some more details about the container itself.
+
+`docker exec container_name /bin/ps aux | grep bash`
+
+We can use `docker top` to see the top command run on a container.
+
+`docker top container_name`
+
+Let's execute a command to install `sshd`. We could attach to container and do so, but we have a few options. Instead of attaching, we could do the following:
+
+`docker exec -i -t container_name /bin/bash`
+
+This will ensure that the container doesn't stop, but will actually run two instances of `bash`. We can verify this by looking at the container processes.
+
+So far, this can give us a momentary snap shot.
+
+__See the history of previous processes and performances__
+
+We can use `docker stats` to see a live set of information for that container.
+
+`dock stats container_name`
+
+This will keep a view that is constantly updated to see what is going on.
+
+### ---- Previous Container Management
+
+Just to see the previous containers not running with just their ids, we can run `docker ps -a -q`
+
+Of course, for removing older containers, we can `docker rm` previous containers.
 
 
+We can also remove containers from the `/var/lib/docker` folder as the super user. If you do it this way, you want to ensure that you have `systemctl stop/restart docker` to ensure that there aren't any issues with Docker.
 
+### ---- Controlling Port Exposure on Containers
 
+In this example, start up a nginx container in daemon mode without remapping the ports.
 
+Again, we can inspect this container to find the IP etc. We know that we can get anything remapped to the localhost currently because there is no remapping.
 
+In contrast, we can use `-P` to expose the ports and it will auto remap to high port value.
 
+`-p 8080:80` will be use defining the port that we want to expose it to.
 
+If we want to define a certain interface eg. localhost...
 
+`docker run -itd -p 127.0.01:8081:80 nginx:latest` would ONLY allow localhost to access this site.
 
+### ---- Naming Containers
 
+To rename containers, we can run `docker rename currentname newname` - you can even rename container IDs, although there is likely no point.
 
-
-
+You can also rename running containers!
 
 
 
