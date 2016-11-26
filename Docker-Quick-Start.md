@@ -198,6 +198,8 @@ docker inspect whalesay
 ]
 ```
 
+***
+
 ## Container Lifecycle
 
 There is a lifecycle associated with starting, stopping, restarting etc.
@@ -212,6 +214,8 @@ docker exec -it LifeCycle1 /bin/bash
 
 We don't have to attach to the container with the `exec` command. We can just connect to is just to execute a command - like a `ssh` prompt!
 
+***
+
 ## Image and Container Management
 
 ```
@@ -221,6 +225,8 @@ docker rmi image-name
 # remove all containers
 docker rm `docker ps -a -q`
 ```
+
+***
 
 ## Redirection - Ports and Volumes
 
@@ -265,3 +271,56 @@ docker run -d -p 8080:80 --name=webserver -v /home/user/www:/usr/share/nginx/htm
 // this will mount the file and mount it to that directory. We can push multiple mounts!
 ```
 
+***
+
+## The Dockerfile
+
+Very few times will you start with a generic list of packages for a base image and creating it from nothing.
+
+You'll base on it on things like `debian, ubuntu` etc.
+
+The Dockerfile is an easy to read, easy to write script to build an image following instructions.
+
+You can name it whatever, but will probably just be stored in `Dockerfile` anyway.
+
+Note, things will cache if they've already been done!
+
+Example Dockerfile:
+
+```
+# most have FROM which image
+FROM debian:stable
+MAINTAINER dockerhubid <email>
+
+# best practise is to combined commands
+RUN apt-get update && age-get upgrade - y && apt-get install -y apache2 telnet elinks ssh openssh-server
+ENV MYVALUE my-value
+```
+
+Then docker run!
+
+```
+docker run -it dockerhubid/myapache:latest /bin/bash
+
+> echo MYVALUE
+my-value
+```
+
+__Exposing or preventing exposing ports__
+
+```
+# most have FROM which image
+FROM debian:stable
+MAINTAINER dockerhubid <email>
+
+# best practise is to combined commands
+RUN apt-get update && age-get upgrade - y && apt-get install -y apache2 telnet elinks ssh openssh-server
+ENV MYVALUE my-value
+
+EXPOSE 80
+EXPOSE 22
+
+CMD ["/usr/sbin/apache2tl","-D","FOREGROUND"]
+```
+
+Now if we Docker inspect on the file and find the IPAddr, we can see that the Apache website is now running!
