@@ -253,9 +253,21 @@ docker network rm mybridge01
 
 ### ---- Docker Network: Assign to Containers
 
+```
+# subnet itself can be 10.1.[1-254].[1-254] while ip-range is 10.1.4.[1-254]
+# that is class b and class c respectively
+docker network create --subnet 10.1.0.0/16 --gateway 10.1.0.1 --ip-range=10.1.4.0/24 --driver=bridge --label=host4network bridge04
+```
 
+If you then inspect the new above network config, it will have those settings within that inspect config.
 
+So how do we now use this new network?
 
+```
+docker run -it --name nettest1 --net bridge04 --ip 10.1.4.100 centos:latest /bin/bash
+
+# if we docker inspect nettest1 | grep IP we can see the address set at 10.1.4.100
+```
 
 
 
