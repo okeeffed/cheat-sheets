@@ -328,7 +328,88 @@ To rename containers, we can run `docker rename currentname newname` - you can e
 
 You can also rename running containers!
 
+### ---- Docker Events
 
+How can we monitor certain events?
+
+Startup a few containers.
+
+When we interact with them, certain events are generated.
+
+If we run `docker events`, it will begin a program to wait and register certain events.
+
+If we run `docker events --since '1h'`, we can then see all the events that have happened in the last hour.
+
+If we run just `docker events` and run a `dok exec -it mycontainerid /bin/bash` command, we will then see those events registered. This is useful for debugging and monitoring the entire host. 
+
+We may not care about every event though. What happens if we just care about an attachment?
+
+`docker events --filter <keyword>` can then be used to filter for events we care about.
+
+`docker events --filter event=attach`
+
+We can also filter for multiple events with multiple `--filter event=<event>`
+
+### ---- Managing and Removing Base Images
+
+If you remove an image by name, then if there is a double up of the same ID, it will just remove the named image - however an ID removal will warn you if they share the ID. They only way to remove all of them is to use the force `-f` flag.
+
+### ---- Saving and Loading Docker Images
+
+__Saving__
+
+When we pull images, we can pull from local or from Docker Hub. You will use base of an official release usually etc.
+
+How can we manage our custom images? We can `tar` any file and migrate it to another compute etc.
+
+`docker commit containername centos:mine`
+
+This will allow us to save the image but remove the containers!
+
+We can use 
+
+```
+docker save --output centos.latest.tar centos:latest
+```
+
+If you `ls` the tar file, it will give you details about the image/container.
+
+__Restoring__
+
+`docker load --input centos.latest.tar`
+
+If we have `gzip` a tar file, we can also load it directly from the `.tar.gz` file.
+
+
+### ---- Image History
+
+How can we get the history of the base image?
+
+`docker history imagename`
+
+This will give us a list of commands etc.
+
+### ---- Take Control of Our Tags
+
+Changes in the container is what is kept in storage layering.
+
+`docker tag imageid mine/centos:v1.0` - this will create a new image with the repo tag.
+
+`docker tag mine/centos:v1.0 dok.example.com/centos:v1.0b` will do the same.
+
+### ---- Pushing to Docker Hub
+
+`docker login --username=name` throw in the password and you'll be authenticated.
+
+One authenticated, `docker push image`
+
+Of course, to bring it back down, you will hit `docker pull name`
+
+***
+
+## Integration and Use Cases
+
+### ---- Naming Containers
 
 
 
