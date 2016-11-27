@@ -234,21 +234,142 @@ For configuration, you can use both `json` or `yaml` file format. From a definit
 
 On the master node, `cd Builds` and inside that directory `vim nginx.yaml`
 
-# 5:47 mark
+
 ```
 apiVersion: v1
 kind: Pod
+metadata:
+	name: nginx
+spec: 
+	containers:
+	- name: nginx
+	image: nginx:1.7.9 # this is not the latest - used for a reason
+	ports:
+	- containerPort: 80
 ```
 
+If we now use `kubectl get pods`, we should get no pods that are running.
 
+That will be because there are no containers running on any minions.
 
+Run `kubectl create -f ./nginx.yaml` and we'll get a notification.
 
+`kubectl get pods` should now return results and the minion should now have a container running!
 
+__Describing a pod__
 
+`kubectl describe pod nginx`
 
+This will tell us a number of things including IDs assigned to the minion, labels if they are assigned, IP etc and info on the containers.
 
+The events will also describe how the container has gone.
 
+__Accessing the pod from master___
 
+Can we ping that address? No. The reason is that we have no extenal route to that pod. What we can do is run a busy-box image. This will allow us to connect to or test our container.
+
+```
+# -t is not --tty for kubectl
+kubectl run busybox --image=busybox --restart=Never --tty -i --generator=run-pod/v1
+
+# this will spin up the pod called busybox
+# we will then be in the command line for that pod
+# If we have this pod running within the minion
+# we will then have access to other pods on the
+# same environment
+wget -q0- http://172.1.0.2
+```
+
+To clean up the system, we can use `kubectl delete pod podName`
+
+From the master, we can then see that the pod is no longer running.
+
+We can also forward temporarily our ports to a remote copy. We can do this with port forward.
+
+```
+kubectl get pods
+kubectl create -f nginx.yaml
+kubectl get pods # will show the pods
+
+# to forward ports
+# & means to run in the background
+# this will return a port above 34000 - otherwise we can specify
+kubectl port-forward nginx :80 &
+# from still in the master
+wget -q0- http://localhost:34853
+```
+
+### ---- Tags, Labels and Selectors
+
+Create `nginx-pod-label.yaml`
+
+```
+apiVersion: v1
+kind: Pod
+metadata:
+	name: nginx
+	labels:
+		app: nginx
+spec: 
+	containers:
+	- name: nginx
+		image: nginx:1.7.9 # this is not the latest - used for a reason
+		ports:
+		- containerPort: 80
+```
+
+```
+kubectl create -f nginx-pod-label.yaml
+kubectl get pods # will be running
+kubectl get -l app=nginx
+```
+
+If we copy that .yaml file and rename `nginx` to `nginx2`, we can get info just by searching for that name.
+
+If we also do `kubectl decribe pod -l app=nginx2`, we'd just get the info for that name.
+
+### ---- Deployment State
+
+Create `nginx-deployment-prod.yaml`
+
+This will make a number of changes. This will go from a simple pod definition to a deployment production set.
+
+```
+apiVersion: extensions/v1beta1 # this should now be in v1.3
+kind: Deployment
+metadata:
+	name: nginx-deployment-prod
+spec:
+	replicas: 1
+	template:
+		# this will be for the pod replicas 
+		metadata:
+			labels:
+				app: nginx-deployment-prod
+		spec: 
+			containers:
+			- name: nginx
+				image: nginx:1.7.9 # this is not the latest - used for a reason
+				ports:
+				- containerPort: 80
+```
+
+```
+kubectl create -f -nginx-deployent-prod.yaml
+kubectl get pods
+# this will now return the name + the id concatentated to the end!
+kubectl get deployments
+# this will now give us the nginx-deployment-prod with details
+
+This seems like we're making it more complex than we need to be... but...
+
+Create `nginx-deployment-dev.yaml` and just change everything to dev.
+
+Again, create the .yaml kubectl. It will now show two deployments.
+
+If we create `nginx-deployment-dev-update.yaml` and just change a few things. If we run `kubectl apply -f nginx-deployment-dev-update.yaml` and it will update by apply the contents of that to the name deployment cluster.
+
+# 12:55 mark
 
 
 
