@@ -201,3 +201,92 @@ systemctl status kube-proxy kubelet docker | grep "(running)" | wc-l
 ```
 
 ### ---- Exploring the Environment
+
+We will use `kubectl` from the command line to control the cluster manager.
+
+Main functions:
+
+```
+# list of registered nodes for the cluster
+kubectl get nodes
+
+# to get help on it
+man kubectl-get
+
+# how to get the ip addresses/info
+kubetrl describe nodes
+
+# getting the json info
+kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
+```
+
+***
+
+## Pods, Tags and Services
+
+### ---- Create and Deploy Pod Definitions
+
+Let's start running containers in pods in our cluster.
+
+For configuration, you can use both `json` or `yaml` file format. From a definitions standpoint, it may be better for the current input configuration.
+
+`Desired State` for our system is a key concept. It's the only responsibility of Kubernetes to match the defined `desired state`.
+
+On the master node, `cd Builds` and inside that directory `vim nginx.yaml`
+
+# 5:47 mark
+```
+apiVersion: v1
+kind: Pod
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
