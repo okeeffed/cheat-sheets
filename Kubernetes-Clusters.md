@@ -430,13 +430,75 @@ If there is an app error etc. the service will ensure that it gets back to the e
 
 ### ---- Create and Deploy Service Definitions
 
+Starting to put things together.
 
+```
+kubectl get replicationcontrollers
+kubectl get pods
+kubectl get nodes
+```
 
+Time to use the multicontainer configuration.
 
+__nginx-multi-label.yaml__
 
+```
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+	name: nginx-www
+spec:
+	replicas: 3
+	select:
+		app: nginx
+	template:
+		metadata:
+			name: nginx
+			labels:
+				app: nginx
+			spec:
+				containers:
+					- name: nginx
+						image: nginx
+						ports:
+						- containerPort: 80
+```
 
+`kubectl create -f nginx-multi-label.yaml`
 
+__Defining an nginx service__
 
+```
+apiVersion: v1
+kind: Service
+metadata:
+	data: nginx-service
+spec:
+	ports:
+		port: 8080
+		targetPort: 80
+		protocol: TCP
+	selector:
+		app: nginx
+```
+
+`kubectl create -f nginx-service.yaml`
+
+Now, if we run `kubectl get services`, we will now have two services.
+
+If we run `kubectl describe service nginx-service`, we can see info about and that it is a ClusterIP and that the endpoints are assigned to the minions with Kubernetes managing this.
+
+So how do we connect?
+
+`kubectl run busybox --generator=run-pod/v1 --image=busybox --restart=Never --tty -i`
+
+Once it is running, we should be able to do `wget -q0- http://10.254.197.123:8080`
+
+Now this idea is referring to a cluster of this IP. So now we've tied everything together to have a clustered referred to with just one IP address. We no longer even have to know the other IPs.
+
+***
+
+## Logs, Scaling and Recovery
 
 
 
