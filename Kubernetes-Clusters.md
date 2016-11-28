@@ -172,7 +172,7 @@ __Minion Kube Config__
 ```
 KUBE_MASTER="--master=http://centos-master:8080"
 
-# add the following
+// add the following
 KUBE_ETCD_SERVERS="--etcd-server=http://centos-master:2379"
 ```
 
@@ -189,7 +189,7 @@ KUBELET_HOSTNAME="--hostname-override=centos-minion1"
 
 KUBELET_API_SERVER="--api-servers=http://centos-master:8080"
 
-# comment out pod_infra_container
+// comment out pod_infra_container
 ```
 
 Afterwards, ensure you run the following:
@@ -207,16 +207,16 @@ We will use `kubectl` from the command line to control the cluster manager.
 Main functions:
 
 ```
-# list of registered nodes for the cluster
+// list of registered nodes for the cluster
 kubectl get nodes
 
-# to get help on it
+// to get help on it
 man kubectl-get
 
-# how to get the ip addresses/info
+// how to get the ip addresses/info
 kubetrl describe nodes
 
-# getting the json info
+// getting the json info
 kubectl get nodes -o jsonpath='{.items[*].status.addresses[?(@.type=="ExternalIP")].address}'
 ```
 
@@ -269,14 +269,14 @@ __Accessing the pod from master___
 Can we ping that address? No. The reason is that we have no extenal route to that pod. What we can do is run a busy-box image. This will allow us to connect to or test our container.
 
 ```
-# -t is not --tty for kubectl
+// -t is not --tty for kubectl
 kubectl run busybox --image=busybox --restart=Never --tty -i --generator=run-pod/v1
 
-# this will spin up the pod called busybox
-# we will then be in the command line for that pod
-# If we have this pod running within the minion
-# we will then have access to other pods on the
-# same environment
+// this will spin up the pod called busybox
+// we will then be in the command line for that pod
+// If we have this pod running within the minion
+// we will then have access to other pods on the
+// same environment
 wget -q0- http://172.1.0.2
 ```
 
@@ -291,11 +291,11 @@ kubectl get pods
 kubectl create -f nginx.yaml
 kubectl get pods # will show the pods
 
-# to forward ports
-# & means to run in the background
-# this will return a port above 34000 - otherwise we can specify
+// to forward ports
+// & means to run in the background
+// this will return a port above 34000 - otherwise we can specify
 kubectl port-forward nginx :80 &
-# from still in the master
+// from still in the master
 wget -q0- http://localhost:34853
 ```
 
@@ -357,9 +357,9 @@ spec:
 ```
 kubectl create -f -nginx-deployent-prod.yaml
 kubectl get pods
-# this will now return the name + the id concatentated to the end!
+// this will now return the name + the id concatentated to the end!
 kubectl get deployments
-# this will now give us the nginx-deployment-prod with details
+// this will now give us the nginx-deployment-prod with details
 
 This seems like we're making it more complex than we need to be... but...
 
@@ -500,7 +500,7 @@ Now this idea is referring to a cluster of this IP. So now we've tied everything
 
 ## Logs, Scaling and Recovery
 
-
+### ---- Creating Temporary Pods at the Command Line
 
 
 
