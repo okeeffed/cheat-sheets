@@ -369,13 +369,66 @@ Again, create the .yaml kubectl. It will now show two deployments.
 
 If we create `nginx-deployment-dev-update.yaml` and just change a few things. If we run `kubectl apply -f nginx-deployment-dev-update.yaml` and it will update by apply the contents of that to the name deployment cluster.
 
-# 12:55 mark
+If we run `kubectl describe deployments ...`, we can get the details with things like the `StrategyType` etc.
 
+### ---- Multi-Pod (Container) Replication Controller
 
+Until now, we have been creating one or more pods either directly or using a file. However, there has only been one container in each of the pods that we've been working with.
 
+We can use the replication controller to do more than one container in a pod. It will allow us to deploy 1 to n pods of a particular container.
 
+```
+kubectl get pods # we will initially have nothing
 
+vim nginx-multi-label.yaml
+```
 
+__nginx-multi-label.yaml__
+
+```
+apiVersion: v1
+kind: ReplicationController
+metadata: 
+	name: nginx-www
+spec:
+	replicas: 3
+	select:
+		app: nginx
+	template:
+		metadata:
+			name: nginx
+			labels:
+				app: nginx
+			spec:
+				containers:
+					- name: nginx
+						image: nginx
+						ports:
+						- containerPort: 80
+```
+
+Ensure that if you're going to do this, start the `kubelet` and `kube-proxy` on the other nodes.
+
+```
+kubectl get nodes
+# if everything is on, all three minions should report that they are ready
+kubectl create -f nginx-multi-label.yaml
+# replicationcontroller "nginx-www" created
+kubectl get pods
+# will show the pods
+kubectrl describe replicationcontroller
+# tells us 3 running and 3 pods
+kubectl describe pods
+# it will show all of our pods being happy!
+kubectl get services
+# gives us just the one service
+```
+
+If we delete a pod, we will still end up having a service! When we create a definition, that defines the expected state of the entire environment!
+
+If there is an app error etc. the service will ensure that it gets back to the expected state.
+
+### ---- Create and Deploy Service Definitions
 
 
 
