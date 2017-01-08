@@ -1079,11 +1079,29 @@ const RouterComponent = () => {
 
 We can use the `initial` prop within these `buckets` to let which component within a bucket to have an initial prop
 
+### ---- Actions to navigate between buckets
+
+These actions can be added using 
+
+```
+import { Actions } from 'react-native-router-flux';
+
+// Action Creators - exammple thunk action creator
+const loginUserSuccess = (dispatch, user) => {
+	dispatch({ 
+		type: LOGIN_USER_SUCCESS,
+		payload: user
+	});
+
+	Actions.employeeList();
+}
+```
+
 <div id="nav5"></div>
 
 ### ---- Form updates at a reducer level / Dynamic Property updates
 
-Example reducer function with ES6 dynamic change.
+Example reducer function with ES6 dynamic change. 
 
 ```
 export default (state = INITIAL_STATE, action) => {
