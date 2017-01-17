@@ -28,12 +28,19 @@ If you need to test a component that gets rendered or returns just HTML, you can
 ```
 // package.json
 ...
+
+Note: the --debug flag allows us to use the debugger statements and interact with the debugger through the command line
+
+Note: There is also a `node-intercept` that allows you to tap into Chrome Dev tools
+
 "scripts": {
 	...
-	"test": "mocha --require scripts/mocha_runner.js ./test/**/*.spec.js",
+	"test": "mocha --debug --require scripts/mocha_runner.js ./test/**/*.spec.js",
 	...
 }
 ...
+
+```
 
 ```
 // reposity_test.js
