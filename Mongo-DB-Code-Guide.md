@@ -59,3 +59,44 @@ module.exports = User;
 
 var User = require('../models/user');
 ```
+
+## MONGO-4: Building an Example Schema in the `mock` folder
+
+```
+// mock/example.js
+
+import mongoose from 'mongoose';
+
+const schema = new mongoose.Schema({
+  question: String,
+  answer: String,
+  completed: Boolean
+});
+
+export const model = mongoose.model('Layout', schema);
+```
+
+## MONGO-5: Accessing the Schema results
+
+```
+// in a route file
+var express = require('express');
+var router = express.Router();
+
+import {ExampleModel} from '../models/example';
+
+/* GET users listing. */
+router.get('/', (req, res) => {
+  console.log(ExampleModel);
+  ExampleModel.find({}, "test string", (err, results) => {
+    if (err) {
+      return res.status(500).json({message: err.message});  
+    }
+    res.json({ results: results });
+  });
+  // res.json({ todos: "todos" });
+    // res.send('respond with a resource');
+});
+
+module.exports = router;
+```
