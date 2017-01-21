@@ -44,9 +44,48 @@ There are a couple of other noteworthy properties:
 	transitionName="slide"
 	transitionEnterTimeout={500} // this is for the duration of the transition in ms
 	transitionLeaveTimeout={500} // transition for leaving the DOM
+	transitionAppear={true} // transition for the ReactCSSTransitionGroup component
+	transitionAppearTimeout={500} // time for is
 	>
 	{ list }
 </ReactCSSTransitionGroup>
 ```
 
 # REACTAN-2: Using CSS to now run the Transitions and Transforms
+
+```
+// in the css file
+
+/* start enter state */
+.slide-enter {
+	transform: translateX(-100%);
+}
+
+/* end enter state */
+.slide-enter.slide-enter-active {
+	transform: translateX(0);
+	transition: transform 0.5s ease-out;
+}
+
+/* start leave state */ 
+.slide-leave {
+	transform: translateX(0);
+}
+
+/* end leave state */
+.slide-leave.slide-leave-active {
+	transform: translateX(-100%);
+	opacity: 0;
+	transition: 0.5s ease-in;
+}
+
+/* initial mounting */
+.slide-appear {
+	opacity: 0;
+}
+
+.slide-appear.slide-appear-active {
+	opacity: 1;
+	transition: opacity 0.5s ease-in;
+}
+```
