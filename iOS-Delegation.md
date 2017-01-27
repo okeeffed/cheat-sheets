@@ -245,4 +245,66 @@ Rather than worry about the events itself, the class can delegate can pass out t
 
 ## IOSD-3: Acting as a Delegate
 
+So why do we need to decouple in the first place?
+
+It will become far more manageable once you start creating Objects that focus on just one job.
+
+Analogy:
+
+You are the CEO of an important company and have many tasks to do, but many of them involve other side tasks that are important. 
+
+Instead of doing it all yourself, you delegate it out to an assistant.
+
+Beforehand, you need to define what they do. Think of the requirements as the protocol.
+
+If they have all these abilities, they conform to the protocol.
+
+Now you hire and give the tasks to the employee - they are now your delegate.
+
+However, if they quit - that's cool. You can look for another delegate that conforms.
+
+Typically, you need the delegates to be weak. The reason is that it's total valid to have a circular relationship.
+
+Example, if you have a class `RaceManager` that conforms, they can also have race of type Race as a property, we've created a strong relationship by default.
+
+Since the Manager also conforms to the HorseRaceDelegate, you can have one that references the other. If they had a strong cycle, we couldn't get rid of the objects and it would cause a memory leak.
+
+```swift
+class RaceManager: HorseRaceDelegate {
+    
+    let race: Race
+    
+    init(race: Race) {
+        self.race = race
+        race.delegate = self
+        race.start()
+    }
+    
+    func race(_ race: Race, didStartAt time: Date) {
+        // some implementation
+    }
+    
+    func addLapLeader(_ horse: Horse, forLap lap: Int, atTime time: Date) {
+        // some implementation
+    }
+    
+    func race(_ race: Race, didEndAt time: Date, withWinner winner: Horse) {
+        // some implementation
+    }
+}
+```
+
+## IOSD-4: Examples - CLLocation Manager
+
+Using the CoreLocation Framework, we can create a LocationManager class.
+
+Once we create the class, we can request for authorization.
+
+Since we need to wait for a response, we actually use the delegate pattern to help assigned a delegate that will recieve info.
+
+In this case here, as long as we conform the the correct protocols, the delegate has already been created for us. For this one, we need the CLLocationManagerDelegate.
+
+
+
+
 
