@@ -74,3 +74,73 @@ Here, Any and String both have weak type information.
 - Omit needless information
 - Include all words need to avoid ambiguity
 - Compensate for weak type information
+
+## SWD-4: Fluent Usage
+
+The high level guidelines don't give too many details. 
+
+*Fluent Usage*
+
+Methods and functions should be read as grammatical English phrases at the use site.
+
+Example: `func find(character: String, range: Range<String.Index>) -> Int`
+
+This function takes as an argument a character which we'll define as a string defined. We also need the range, so we'll give it range.
+
+We could use...
+
+`func find(character: String, in range: Range<String.Index>) -> Int`
+
+But since it is ambiguous for weak type information, would be to omit the external label and the first argument of the name describing it's role:
+
+`func find(character: Character, in range: Range<String.Index>) -> Int`
+
+## SWD-5: Prepositional vs Grammatical Phrases
+
+This is an exception for the grammatical phrases.
+
+Eg. "The laptop on the desk" - `on` is the preposition.
+
+How does this relate?
+
+Eg.
+
+`func move(position: Int)`
+
+Normally we would say "move to position", however if we need to use that preposition `to` then we give it an argument label that begins at the preposition.
+
+`func move(toPosition position: Int)`
+
+Another example would be `x.removeBoxes(havingLength: 12)`.
+
+The exception to this would be that only one argument governed the function. 
+
+Example, `func move(toX: Int, y: Int)`
+
+We begin with the prepositional phrase, however both args are part of the abstraction. In that case, we move the preposition out of the arguments in to the base name.
+
+`func moveTo(x: Int, y: Int)`
+
+Another example for context:
+
+`func dismiss(animated: Bool)`
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
