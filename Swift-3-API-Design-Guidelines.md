@@ -38,3 +38,39 @@ The exceptions to this rule is for `Boolean` values - they should read as assert
 The second excepetion is the -able, -ible or -ing suffixes - used for protocols that model capabilities. Examples of this are `Equatable` to distinguish between the same type, with other examples such as `Comparable` and `ExpressibleByStringLiteral`.
 
 ## SWD-3: Guidelines for Naming Methods
+
+We consider function names to be the base name plus the function list. Therefore, reading it will mean that it requires the base name and the arguments in order to understand it.
+
+For the function parameters themselves, they have both a external name and a local name.
+
+`func index(_ i: Self.Index, offsetBy n: Self.IndexDistance) -> Self.Index`
+
+In the second parametere, `offsetBy` is the external name.
+
+If there is just one parameter, then that will be both the external and local name. You can use `_` to offset the parameter external name.
+
+*Rule 1*
+We should always check how functions read and use sites when we write them.
+
+Example: `func insert(_ e: Element, atPosition: Int)` is better than `insert(element: "a", position: 1)`.
+
+*Rule 2*
+Avoid Ambiguity
+
+`func remove(atIndex: Int).` over `func remove(_ index: Int)`
+
+However, in the case of ambiguous type information, we preceed each weakly typed parameter with a noun describing it's role.
+
+`func addObserver(_ observer: AnyObject)` over `func add(observer: AnyObject)`
+
+`func update(value: Any, key: String)`
+
+Here, Any and String both have weak type information.
+
+`func updateValue(_ value: Any, forKey key: String)`
+
+*Summary*
+
+- Omit needless information
+- Include all words need to avoid ambiguity
+- Compensate for weak type information
