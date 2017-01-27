@@ -191,11 +191,34 @@ This is simpler. We use noun for non-mutating and form prefix for mutating count
 Mutating example: `anArray.formUnion(with: anotherArray)`
 Non-mutating: `let union = anArray.union(with: anotherArray)`
 
+The exception arises for pairs of mutating and non-mutating counterparts.
+
+If it best described using a verb, you use that for the mutating method.
+
+For non-mutating, use `-ed` or `-ing` suffix.
+
+Then noun form for non-mutating version of nouns and form prefix for mutating method.
+
 ## SWD-8: Conventions
 
+*Boolean Methods*
+
+`func isInRange(of point: Point)`
 
 
+*Parameters*
 
+- Choose parameter names that serve documentation.
+- Use default values where possible to simplify function signatures.
+- In Swift, default args are preferred to method families.
+
+```
+let order = lastName.compare(royalFamilyName, options: [], range: nil, local: nil)
+```
+
+Keep parameters with default parameters to sit at the end of the function.
+
+Same basenames are also fine if they operate within different domains.
 
 
 
