@@ -171,7 +171,25 @@ Nouns are used for when the state is not effected.
 
 `func distance(to point: Point)`
 
+What if the operation is naturally described as a verb?
 
+Then we use the imperitive form for the verb.
+
+`anArray.filter(isEven)` - filter being the verb mutating the array state.
+
+*Mutating verse non-mutation of the state*
+
+Mutating example: `anArray.sort()`
+Non-mutating example: `let sortedArray = anArray.sorted()`
+
+Suffixes that can be used include `-ed` and when it doesn't sound right `-ing`.
+
+*Mutation for nouns*
+
+This is simpler. We use noun for non-mutating and form prefix for mutating counterpart.
+
+Mutating example: `anArray.formUnion(with: anotherArray)`
+Non-mutating: `let union = anArray.union(with: anotherArray)`
 
 ## SWD-8: Conventions
 
