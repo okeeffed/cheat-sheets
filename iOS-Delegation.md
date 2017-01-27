@@ -304,6 +304,49 @@ Since we need to wait for a response, we actually use the delegate pattern to he
 
 In this case here, as long as we conform the the correct protocols, the delegate has already been created for us. For this one, we need the CLLocationManagerDelegate.
 
+To use it, we can conform to the `NSObject` class and override the init() method since there already is one for `NSObject`. This will allow us to give conformance for the `CLLocationManagerDelegate`. Swift does not have the option of optional protocols.
+
+Then we can set the `manager.delegate = self`
+
+This is an example of a circular dependence.
+
+```swift
+import Foundation
+import CoreLocation
+
+class LocationManager: NSObject, CLLocationManagerDelegate {
+	let manager = CLLocationManager()
+
+	override init() {
+		super.init()
+
+		manager.delegate = self
+		manager.requestWhenInUseAuthorization
+	}
+
+	// this is an example of a protocol method!
+	func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+		if status == .authorizedWhenInUse {
+			manager.requestLocation()
+		}
+	}
+
+	func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+		print(Error)
+	}
+
+	func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+		print(locations.first!)
+	}
+}
+```
+
+## IOSD-5: Examples - UITextFieldDelegate
+
+In case of the UITextField, we can assign the ViewController that is "listening" as the delegate to recieve the broadcasts.
+
+Then we can implement the methods from the protocol to the class to give us the results.
+
 
 
 
