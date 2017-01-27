@@ -125,7 +125,55 @@ Another example for context:
 
 `func dismiss(animated: Bool)`
 
+## SWD-6: Recap on Naming
 
+*Prepositional Phrase: Exception*
+
+`view.fadeTo(red: a, green: b, blue: c)`
+
+*Grammatical Phrase*
+
+`view.addSubview(y)`
+
+*Neither Gammatical Nor Prepositional*
+
+`func dismiss(animated: Bool)`
+
+- Omit needless words
+- Avoid ambiguity
+- Avoid needless words
+
+*More Examples of Methods from the Swift SDK*
+
+```
+func activate(_ constraints: [NSLayoutConstraint])
+// activate constraints - grammatical
+// omit needless words - so no need for activateConstraints
+```
+
+```
+func max(_ x: Int, _ y: Int) -> Int
+// no meaningful to write more beyond the base
+// no need for naming arguments
+```
+
+## SWD-7: Side-Effects and Mutation
+
+We want to name methods in accordance with their side effect.
+
+This is one that mutates the current state. If it effects the current state, it should be named using verb phrases.
+
+An example would adding an element to the array. This effects the state of the array as it mutates it.
+
+`func append(_ newElement: Element)` 
+
+Nouns are used for when the state is not effected.
+
+`func distance(to point: Point)`
+
+
+
+## SWD-8: Conventions
 
 
 
