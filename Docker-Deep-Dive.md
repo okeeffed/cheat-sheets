@@ -409,7 +409,9 @@ Of course, to bring it back down, you will hit `docker pull name`
 
 ## Integration and Use Cases
 
-### ---- Naming Containers
+### ---- Building a Web Farm for Development and Testing
+
+So far, we have not had a specific purpose for Docker containers. These following examples are for real world use cases.
 
 
 
