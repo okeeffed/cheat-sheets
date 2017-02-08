@@ -19,7 +19,7 @@ Artisan is the command-line interface included with Laravel. It provides a numbe
 | `email:send {user : The ID of the user}` | Input descriptions |
 
 
-*Laravel REPL*
+**Laravel REPL**
 
 All Laravel applications include Tinker, a REPL powered by the PsySH package. Tinker allows you to interact with your entire Laravel application on the command line, including the Eloquent ORM, jobs, events, and more. To enter the Tinker environment, run the tinker Artisan command `php artisan tinker`.
 
@@ -31,7 +31,7 @@ Feel free to change storage as long as it can be accessed by `Composer`.
 
 Once you have created a command for the CLI, you will need to register it before you can use it on the CLI.
 
-*Command Structure*
+**Command Structure**
 
 Example commands `SendEmails`. Note that we are able to inject any dependencies we need into the command's constructor. The Laravel service container will automatically inject all dependencies type-hinted in the constructor.
 
@@ -92,7 +92,7 @@ class SendEmails extends Command
 }
 ```
 
-*Closure Commands*
+**Closure Commands**
 
 This is an alternative to declaring a class for a console command. This is similar to the same way that route Closures are an alternative to controllers.
 
