@@ -1,5 +1,7 @@
 # Laravel and Artisan
 
+Artisan is the command-line interface included with Laravel. It provides a number of helpful commands that can assist you while you build your application. 
+
 ## Basics
 
 | Commands | Description |
