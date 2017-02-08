@@ -8,6 +8,14 @@
 | `php aristan help migrate` | Example that every command has it's own help command |
 | `php artisan tinker` | All Laravel applications include Tinker, a REPL powered by the PsySH package. |
 | `php artisan make:command SendEmails` | Create custom command SendEmails |
+| `email:send {user}` | Adding custom args |
+| `email:send {user?}` | Optional custom args |
+| `email:send {user=foo}` | Default custom args |
+| `email:send {user} {--queue=}` | Adding custom options |
+| `email:send {user} {--Q|queue}` | option shortcuts |
+| `email:send {user*}` | Input arrays |
+| `email:send {user : The ID of the user}` | Input descriptions |
+
 
 *Laravel REPL*
 
@@ -88,7 +96,7 @@ This is an alternative to declaring a class for a console command. This is simil
 
 Within the commands method of your app/Console/Kernel.php file, Laravel loads the routes/console.php file.
 
-```
+```php
 /**
  * Register the Closure based commands for the application.
  *
@@ -98,6 +106,14 @@ protected function commands()
 {
     require base_path('routes/console.php');
 }
+```
+
+Even though this file does not define HTTP routes, it defines console based entry points (routes) into your application. Within this file, you may define all of your Closure based routes using the  Artisan::command method. The command method accepts two arguments: the command signature and a Closure which receives the commands arguments and options.
+
+```php
+Artisan::command('build {project}', function ($project) {
+    $this->info("Building {$project}!");
+});
 ```
 
 
