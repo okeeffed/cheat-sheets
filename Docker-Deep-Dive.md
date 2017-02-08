@@ -411,7 +411,13 @@ Of course, to bring it back down, you will hit `docker pull name`
 
 ### ---- Building a Web Farm for Development and Testing
 
+*Prerequisites*
+
 So far, we have not had a specific purpose for Docker containers. These following examples are for real world use cases.
+
+Set up a web farm with two Apache web nodes on port 80 - both sharing one or more file systems.
+
+*Part One*
 
 
 
