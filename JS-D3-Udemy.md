@@ -33,3 +33,30 @@ var dictMinValue = d3.min(dounts, (d, i) {
 	return d.value;
 });
 ```
+
+***
+
+## Programmatic SVGs
+
+```javascript
+let svg = d3.select('body').append('svg')
+				.attr('id', 'chart')
+				.attr('height', 450)
+				.attr('width', 800);
+
+// creating the bars
+// vertical bar graph
+svg.selectAll('.bar')
+	.data(data)
+	.enter() 				// enter phase
+	.append('rect')
+	.attr('class', 'bar') 	// for future selections
+	.attr('x', 0)
+	.attr('y', (d i) => {
+		return i * 20;
+	})
+	.attr('width', (d, i) => {
+    	return d;
+    })
+    .attr('height', 19);
+```
