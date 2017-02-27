@@ -177,3 +177,87 @@ plot.call(svg, {
 	data: data
 });
 ```
+
+## Using SVG groups
+
+- SVG groups are like a div that are a convenience element to allow children to be moved and affected together.
+
+```javascript
+var data = [132,71,337,93,78,43,20,16,30,8,17,21];
+let w = 800;
+let h = 450;
+let margin = {
+	top: 20,
+	bottom: 20,
+	left: 20,
+	right: 20
+};
+
+var width = w - margin.left - margin.right;
+var height = h - margin.top - margin.bottom;
+
+let x = d3.scale.linear()
+		.domain([0, d3.max(data)])
+		.range([0, width]);
+let y = d3.scale.linear()
+		.domain([0, data.length])
+		.range([0, height]);
+
+let svg = d3.select('body').append('svg')
+				.attr('id', 'chart')
+				.attr('height', h)
+				.attr('width', w);
+
+let chart = svg.append('g')
+				.classed('display', true)
+        .attr('transform', 'translate(20, 20)');
+
+function plot(params) {
+	// creating the bars
+	// vertical bar graph
+	this.selectAll('.bar')
+		.data(params.data)
+		.enter() 				// enter phase
+		.append('rect')
+		.attr('class', 'bar') 	// for future selections
+		.attr('x', 0)
+		.attr('y', (d, i) => {
+			return y(i);
+		})
+		.attr('width', (d, i) => {
+			return x(d);		// x() does the scaling
+		})
+		.attr('height', (d, i) => {
+			return y(1) - 1;
+		});
+
+	this.selectAll('.bar-label')
+		.data(params.data)
+		.enter()
+		.append('text')
+		.classed('bar-label', true)
+		.attr('x', (d, i) => {
+			return x(d);			// use css to change the anchor
+		})
+		.attr('dx', -4)
+		.attr('y', (d, i) => {
+			return y(i);
+		})
+		.attr('dy', (d, i) => {
+			return y(1)/1.5+2;
+		})
+		.text((d, i) => {
+			return d;
+		});
+}
+
+// first arg will be what is referenced by "this"
+plot.call(chart, {
+	data: data
+});
+```
+
+***
+
+# Section 4: Making a Complex Chart
+
