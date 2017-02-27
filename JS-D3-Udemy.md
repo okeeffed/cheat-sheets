@@ -824,3 +824,18 @@ plot.call(chart, {
 ***
 
 # Secontion 5: Making the Chart Interactive
+
+- Sorting data using things like buttons.
+- Similary to jquery, with have d3 methods like "on"
+- Using the '+' prefix will convert the string to a number
+- To show updated `data` changes, we need to know about the phases // enter(), update(), exit()
+- we ensure this can happen by splitting the selectAll function where the updated phase is in the latter part - then in the exit phase we get rid of any elements that are no longer bound!
+- you must update the domains when you update data!
+
+```
+// do for all elements we wish to remove
+this.selectAll('.bar')
+	.data(params.data)
+	.exit()
+	.remove();
+```
