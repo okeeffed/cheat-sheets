@@ -296,3 +296,6 @@ c.prevNode = b
 - Great tool for building out particular DS
 
 ## PYDS-15.1: Memoization
+- Remembers results of method calls based on the method inputs and then remembering them again.
+
+## PYDS-16.0: Trees
