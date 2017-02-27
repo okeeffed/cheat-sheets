@@ -299,3 +299,52 @@ c.prevNode = b
 - Remembers results of method calls based on the method inputs and then remembering them again.
 
 ## PYDS-16.0: Trees
+
+**Tree Section**
+
+1. Tree Data Structures 
+2. Implementing with Lists 
+3. Implement with OOP 
+4. Implemenet with priority queue
+5. Only covers ADT (Abstract Data Types)
+
+**What are trees?**
+
+- Has a root, branches and leaves 
+- Root at the top, leaves at the bottom
+- Children of one node are independent of children of another
+- Each leaf node is unique
+- File systems are structured as a tree
+- Consists of a set of nodes and edges that connect pairs of nodes
+- Trees that have a max of two children are referred to as a *binary tree*
+
+**Nodes in the tree**
+
+- Can have a name "key"
+- May also have additional "payload" info
+- One incoming edge, 0-to-many outgoing
+- Path: Order list of nodes connected by edges
+- Level "n" refers to number of edges from the root node
+- Height of the tree is maxHeight(Tree)
+
+**Recursive Definition of a tree**
+
+- either empty or consists of a root and zero or more subtrees which are also a tree 
+- the root of each subtree is connected to the root of the parent by an edge
+
+## PYDS-16.1: Implementing a Tree as a List of Lists
+
+- Store value of root node as first element 
+- Second element will be a list that represents the left subtree 
+- Third element will be a list of another list representing the right subtree 
+
+```python
+# what we are aiming for 
+myTree = ['a', 		# root 
+		['b',		# left subtree 
+			['d', [], []],
+			['e', [], []],
+		], 
+		['c', [], []] 	# right subtree
+]
+```
