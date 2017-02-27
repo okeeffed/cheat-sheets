@@ -784,3 +784,43 @@ this.append('g')
 ```
 
 ## Adding axis labels
+
+```
+// within the plot function at the bottom
+
+this.select('.y.axis')
+	.append('text')
+	.attr('x', 0)
+	.attr('y', 0)
+	.style('text-anchor', 'middle')
+	.attr('transform', 'translate(-50, ' + height / 2 + ') rotate(-90)')
+	.text('Units sold');
+
+this.select('.x.axis')
+	.append('text')
+	.attr('x', 0)
+	.attr('y', 0)
+	.style('text-anchor', 'middle')
+	.attr('transform', 'translate(' + width / 2 + ', 80) rotate(-90)')
+	.text('Donut Type');
+```
+
+## Updating the plot function with best practises
+
+- Add new parameter entries.
+
+```
+plot.call(chart, {
+	data: data,
+	axis: {
+		x: xAxis,
+		y: yAxis
+	},
+	gridlines: yGridlines
+}
+})
+```
+
+***
+
+# Secontion 5: Making the Chart Interactive
