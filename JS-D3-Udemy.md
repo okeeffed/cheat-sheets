@@ -354,3 +354,404 @@ plot.call(chart, {
 	data: data
 });
 ```
+
+## Creating an Ordinal Scale
+
+```
+var data = [
+	{key: "Glazed",		value: 132},
+	{key: "Jelly",		value: 71},
+	{key: "Holes",		value: 337},
+	{key: "Sprinkles",	value: 93},
+	{key: "Crumb",		value: 78},
+	{key: "Chocolate",	value: 43},
+	{key: "Coconut", 	value: 20},
+	{key: "Cream",		value: 16},
+	{key: "Cruller", 	value: 30},
+	{key: "Éclair", 	value: 8},
+	{key: "Fritter", 	value: 17},
+	{key: "Bearclaw", 	value: 21}
+];
+
+let w = 800;
+let h = 450;
+let margin = {
+	top: 20,
+	bottom: 20,
+	left: 20,
+	right: 20
+};
+
+var width = w - margin.left - margin.right;
+var height = h - margin.top - margin.bottom;
+
+let x = d3.scale.linear()
+		.domain([0, d3.max(data, (d) => {
+    		return d.value;
+    })])
+		.range([0, width]);
+var y = d3.scale.ordinal() 			// need distinct values eg keys
+		.domain(data.map((entry) => {
+			return entry.key;
+		}))
+		.rangeBands([0, height]); 	// used for distinct values
+
+let svg = d3.select('body').append('svg')
+						.attr('width', 800)
+            .attr('height', 420)
+            .attr('id', 'chart');
+let chart = svg.append('g')
+				.classed('display', true)
+        .attr('transform', 'translate(20, 20)');
+        
+function plot(params) {
+	// creating the bars
+	// vertical bar graph
+	this.selectAll('.bar')
+		.data(params.data)
+		.enter() 				// enter phase
+		.append('rect')
+		.attr('class', 'bar') 	// for future selections
+		.attr('x', 0)
+		.attr('y', (d, i) => {
+			return y(d.key);
+		})
+		.attr('width', (d, i) => {
+			return x(d.value);		// x() does the scaling
+		})
+		.attr('height', (d, i) => {
+			return y.rangeBand() - 1;
+		});
+
+	this.selectAll('.bar-label')
+		.data(params.data)
+		.enter()
+		.append('text')
+		.classed('bar-label', true)
+		.attr('x', (d, i) => {
+			return x(d.value);			// use css to change the anchor
+		})
+		.attr('dx', -4)
+		.attr('y', (d, i) => {
+			return y(d.key);
+		})
+		.attr('dy', (d, i) => {
+			return y.rangeBand()/1.5+2;
+		})
+		.text((d, i) => {
+			return d.value;
+		});
+}
+
+plot.call(chart, {
+	data: data
+});
+```
+
+## Setting colour with colour scales
+
+```
+var data = [
+	{key: "Glazed",		value: 132},
+	{key: "Jelly",		value: 71},
+	{key: "Holes",		value: 337},
+	{key: "Sprinkles",	value: 93},
+	{key: "Crumb",		value: 78},
+	{key: "Chocolate",	value: 43},
+	{key: "Coconut", 	value: 20},
+	{key: "Cream",		value: 16},
+	{key: "Cruller", 	value: 30},
+	{key: "Éclair", 	value: 8},
+	{key: "Fritter", 	value: 17},
+	{key: "Bearclaw", 	value: 21}
+];
+
+let w = 800;
+let h = 450;
+let margin = {
+	top: 20,
+	bottom: 20,
+	left: 20,
+	right: 20
+};
+
+var width = w - margin.left - margin.right;
+var height = h - margin.top - margin.bottom;
+
+let x = d3.scale.linear()
+		.domain([0, d3.max(data, (d) => {
+    		return d.value;
+    })])
+		.range([0, width]);
+var y = d3.scale.ordinal() 			// need distinct values eg keys
+		.domain(data.map((entry) => {
+			return entry.key;
+		}))
+		.rangeBands([0, height]); 	// used for distinct values
+
+// alter colours using linear scale
+let linearColorScale = d3.scale.linear()
+						.domain([0, data.length])
+						.range(['#572500', '#F68026']);
+
+// ordinal for distinct colours
+let ordinalColorScale = d3.scale.category20();
+
+let svg = d3.select('body').append('svg')
+						.attr('width', 800)
+            .attr('height', 420)
+            .attr('id', 'chart');
+let chart = svg.append('g')
+				.classed('display', true)
+        .attr('transform', 'translate(20, 20)');
+        
+function plot(params) {
+	// creating the bars
+	// vertical bar graph
+	this.selectAll('.bar')
+		.data(params.data)
+		.enter() 				// enter phase
+		.append('rect')
+		.attr('class', 'bar') 	// for future selections
+		.attr('x', 0)
+		.attr('y', (d, i) => {
+			return y(d.key);
+		})
+		.attr('width', (d, i) => {
+			return x(d.value);		// x() does the scaling
+		})
+		.attr('height', (d, i) => {
+			return y.rangeBand() - 1;
+		})
+		.style('fill', (d, i) => {
+			return linearColorScale(i);
+		});
+
+	this.selectAll('.bar-label')
+		.data(params.data)
+		.enter()
+		.append('text')
+		.classed('bar-label', true)
+		.attr('x', (d, i) => {
+			return x(d.value);			// use css to change the anchor
+		})
+		.attr('dx', -4)
+		.attr('y', (d, i) => {
+			return y(d.key);
+		})
+		.attr('dy', (d, i) => {
+			return y.rangeBand()/1.5+2;
+		})
+		.text((d, i) => {
+			return d.value;
+		});
+}
+
+plot.call(chart, {
+	data: data
+});
+```
+
+## Adding X and Y axis
+
+```
+// after the colour scales
+
+let xAxis = d3.svg.axis() 			// svg portion of the d3 library
+				.scale(x)
+				.orient('bottom');
+
+let yAxis = d3.svg.axis()
+				.scale(y)
+				.orient('left');
+
+...
+
+function plot(params) {
+	// creating the bars
+	// vertical bar graph
+	this.selectAll('.bar')
+		.data(params.data)
+		.enter() 				// enter phase
+		.append('rect')
+		.attr('class', 'bar') 	// for future selections
+		.attr('x', 0)
+		.attr('y', (d, i) => {
+			return y(d.key);
+		})
+		.attr('width', (d, i) => {
+			return x(d.value);		// x() does the scaling
+		})
+		.attr('height', (d, i) => {
+			return y.rangeBand() - 1;
+		})
+		.style('fill', (d, i) => {
+			return linearColorScale(i);
+		});
+
+	this.selectAll('.bar-label')
+		.data(params.data)
+		.enter()
+		.append('text')
+		.classed('bar-label', true)
+		.attr('x', (d, i) => {
+			return x(d.value);			// use css to change the anchor
+		})
+		.attr('dx', -4)
+		.attr('y', (d, i) => {
+			return y(d.key);
+		})
+		.attr('dy', (d, i) => {
+			return y.rangeBand()/1.5+2;
+		})
+		.text((d, i) => {
+			return d.value;
+		});
+	this.append('g')
+			.classed('x axis', true)
+			.attr('transform', 'translate(' + 0  + ', ' + height  + ')')
+			.call(xAxis);
+	this.append('g')
+			.classed('y axis', true)
+			.attr('transform', 'translate(0, 0)')
+			.call(yAxis);
+}
+```
+
+## Flipping the axes
+
+How to create a column chart?
+
+- height needs to take an offset
+- other values essentially invert
+- text anchor will be `middle` in css 
+
+```
+var data = [
+	{key: "Glazed",		value: 132},
+	{key: "Jelly",		value: 71},
+	{key: "Holes",		value: 337},
+	{key: "Sprinkles",	value: 93},
+	{key: "Crumb",		value: 78},
+	{key: "Chocolate",	value: 43},
+	{key: "Coconut", 	value: 20},
+	{key: "Cream",		value: 16},
+	{key: "Cruller", 	value: 30},
+	{key: "Éclair", 	value: 8},
+	{key: "Fritter", 	value: 17},
+	{key: "Bearclaw", 	value: 21}
+];
+
+let w = 800;
+let h = 450;
+let margin = {
+	top: 20,
+	bottom: 20,
+	left: 20,
+	right: 20
+};
+
+var width = w - margin.left - margin.right;
+var height = h - margin.top - margin.bottom;
+
+let x = d3.scale.ordinal() 			// need distinct values eg keys
+		.domain(data.map((entry) => {
+			return entry.key;
+		}))
+		.rangeBands([0, height]); 	// used for distinct values
+
+let y = d3.scale.linear()
+		.domain([0, d3.max(data, (d) => {
+    		return d.value;
+    	})])
+    	.range([height, 0]);	// IMPORTANT CHANGE FROM [0, width]
+
+// alter colours using linear scale
+let linearColorScale = d3.scale.linear()
+						.domain([0, data.length])
+						.range(['#572500', '#F68026']);
+
+// ordinal for distinct colours
+let ordinalColorScale = d3.scale.category20();
+
+let svg = d3.select('body').append('svg')
+						.attr('width', 800)
+            .attr('height', 420)
+            .attr('id', 'chart');
+let chart = svg.append('g')
+				.classed('display', true)
+        .attr('transform', 'translate(20, 20)');
+        
+function plot(params) {
+	// creating the bars
+	// vertical bar graph
+	this.selectAll('.bar')
+		.data(params.data)
+		.enter() 				// enter phase
+		.append('rect')
+		.attr('class', 'bar') 	// for future selections
+		.attr('x', (d, i) => {
+			return x(d.key);
+		})
+		.attr('y', (d, i) => {
+			return y(d.value);
+		})
+		.attr('width', (d, i) => {
+			return x(d.value);		// x() does the scaling
+		})
+		.attr('height', (d, i) => {
+			return x.rangeBand();
+		})
+		.style('fill', (d, i) => {
+			return linearColorScale(i);
+		});
+
+	this.selectAll('.bar-label')
+		.data(params.data)
+		.enter()
+		.append('text')
+		.classed('bar-label', true)
+		.attr('x', (d, i) => {
+			return x(d.value);			// use css to change the anchor
+		})
+		.attr('dx', -4)
+		.attr('y', (d, i) => {
+			return y(d.key);
+		})
+		.attr('dy', (d, i) => {
+			return y.rangeBand()/1.5+2;
+		})
+		.text((d, i) => {
+			return d.value;
+		});
+}
+
+plot.call(chart, {
+	data: data
+});
+```
+
+## Adding Gridlines
+
+```
+var yGridlines = d3.svg.axis() 				// create another "axis"
+					.scale(y)
+					.tickSize(-width, 0, 0) 			// used to adjust the axis
+					.tickFormat('')
+					.orient('left');
+
+// add these grid lines with the call function at the start of the plot function
+```
+
+The grid lines also need to be styled! Hit up the CSS file to do this.
+
+```
+.gridline path,
+.gridline line {
+	fill: none;
+	color: blue;
+	shape-rendering: crispEdges;
+}
+```
+
+## Rotating the X axis titles
