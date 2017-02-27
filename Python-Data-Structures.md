@@ -75,8 +75,54 @@ Amortized Cost = ( 1 + 2 + 3 + 5 + 1 + 1 + 9 + 1 ... ) / n
 
 ## PYDS-13.0: Stacks, Queues and Deques
 
-What is a stack?
+**What is a stack?**
 
 - Ordered collection of items where additional and removal occur at the same end
 - End is referred to as the "top"
 - Opposite is the "base"
+- Items near the base have been in the stack the longest
+- Recently added are in position to be removed first - LIFO
+- Fundamentally important as it can reverse the stack easily
+- Similar to a list
+
+**Stack implementation**
+
+```python
+# Stack() creates a new empty stack
+# push(item) add to stack
+# pop() removes item from the top
+# peek() shows you the top but does not remove
+# isEmpty() bool
+# size() return item size
+
+class Stack(object):
+	def __init__(self):
+		self.items = []
+
+	def isEmpty(self):
+		return self.items == []
+
+	def push(self, item):
+		self.items.append(item)
+
+	def pop(self):
+		self.items.pop()
+
+	def peek(self):
+		return self.items[len(self.items)-1]
+
+	def size(self):
+		return len(self.items)
+
+s = Stack()
+print s.isEmpty() 	# true
+s.push('two')
+s.peek()
+s.push(True)
+s.size() 			# 1 
+s.isEmpty() 		# false
+s.pop() 			# 'two'
+```
+
+## PYDS-13.1: Queues Overview
+
