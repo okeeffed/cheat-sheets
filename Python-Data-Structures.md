@@ -50,3 +50,33 @@ All of which support indexing.
 - Basic computer architecture
 - Low-level array representation
 - Referential arrays
+
+## PYDS 12.2: Amotization
+
+Using amortization, we can show that performing a sequence of such append operations on a dynamic array is actually quite efficient!
+
+**Amotized Anaylsis**
+
+1. Allocate memory for a larger array of size, typically twice the old array
+2. Copy the contents of old array to new array 
+3. Free the old array 
+
+Once we hit a full array in items being asserted, we conclude an overflow and we implement the doubling.
+
+With amortization, after we have continually doubled the size at an overflow, cost when we are not in overflow is a cost of 1 whereas the cost with inserting for overflow is the `n`.
+
+```
+Amortized Cost = ( 1 + 2 + 3 + 5 + 1 + 1 + 9 + 1 ... ) / n
+				= [(1 + 1 + 1 + ... ) + ( 1 + 2 + 4 + ...)]
+				= [n + 2n] / n
+				= 3
+				= O(1)
+```
+
+## PYDS-13.0: Stacks, Queues and Deques
+
+What is a stack?
+
+- Ordered collection of items where additional and removal occur at the same end
+- End is referred to as the "top"
+- Opposite is the "base"
