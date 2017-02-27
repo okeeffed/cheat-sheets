@@ -531,3 +531,19 @@ def inorder(tree):
 		print(tree.getRootVal()) 				# print root for Proof of Concept
 		inroder(tree.getRightChild())
 ```
+
+## PYDS-16.3: Priority Queues with Binary Heaps
+
+**What are Binary Queues?**
+
+- One important variation of a queue is called a *Priority Queue*
+- A priority queue acts like a queue in that you dequeue an item by removing it from the front
+- However, the logical order of items inside a queue is determined by their priority 
+- The classic way to implement this is using a *Binary Heap* 
+- Binary heap allows us both enqueue and dequeue items in O(log n) time!
+
+**What are Binary Heaps**
+
+- Two common variations 
+	- "min heap": the smallest key is always at the front 
+	- "max heap": in which the largest key value is always at the front 
