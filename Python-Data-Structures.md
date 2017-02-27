@@ -285,3 +285,14 @@ b.prevNode = a
 b.nextNode = c 
 c.prevNode = b 
 ```
+
+## PYDS-15.0: Recursion
+
+**What is recursion?**
+- Two instances 
+	- First when recursion is used a technique in which a func makes one or more calls to itself 
+	- Second is when data structures use smaller instances of the exact type of DS when it represents itself
+- Powerful alternative to repetitive tasks in which a loop is not ideal
+- Great tool for building out particular DS
+
+## PYDS-15.1: Memoization
