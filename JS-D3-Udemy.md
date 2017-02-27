@@ -261,3 +261,96 @@ plot.call(chart, {
 
 # Section 4: Making a Complex Chart
 
+## Working with Arrays of Objects 
+
+If working with a dict, we need an accessor function!
+
+```javascript
+var data = [
+	{key: "Glazed",		value: 132},
+	{key: "Jelly",		value: 71},
+	{key: "Holes",		value: 337},
+	{key: "Sprinkles",	value: 93},
+	{key: "Crumb",		value: 78},
+	{key: "Chocolate",	value: 43},
+	{key: "Coconut", 	value: 20},
+	{key: "Cream",		value: 16},
+	{key: "Cruller", 	value: 30},
+	{key: "Éclair", 	value: 8},
+	{key: "Fritter", 	value: 17},
+	{key: "Bearclaw", 	value: 21}
+];
+
+let w = 800;
+let h = 450;
+let margin = {
+	top: 20,
+	bottom: 20,
+	left: 20,
+	right: 20
+};
+
+var width = w - margin.left - margin.right;
+var height = h - margin.top - margin.bottom;
+
+let x = d3.scale.linear()
+		.domain([0, d3.max(data, (d) => {
+    		return d.value;
+    })])
+		.range([0, width]);
+ 
+let y = d3.scale.linear()
+		.domain([0, data.length])
+		.range([0, height]);
+
+let svg = d3.select('body').append('svg')
+						.attr('width', 800)
+            .attr('height', 420)
+            .attr('id', 'chart');
+let chart = svg.append('g')
+				.classed('display', true)
+        .attr('transform', 'translate(20, 20)');
+        
+function plot(params) {
+	// creating the bars
+	// vertical bar graph
+	this.selectAll('.bar')
+		.data(params.data)
+		.enter() 				// enter phase
+		.append('rect')
+		.attr('class', 'bar') 	// for future selections
+		.attr('x', 0)
+		.attr('y', (d, i) => {
+			return y(i);
+		})
+		.attr('width', (d, i) => {
+			return x(d.value);		// x() does the scaling
+		})
+		.attr('height', (d, i) => {
+			return y(1) - 1;
+		});
+
+	this.selectAll('.bar-label')
+		.data(params.data)
+		.enter()
+		.append('text')
+		.classed('bar-label', true)
+		.attr('x', (d, i) => {
+			return x(d.value);			// use css to change the anchor
+		})
+		.attr('dx', -4)
+		.attr('y', (d, i) => {
+			return y(i);
+		})
+		.attr('dy', (d, i) => {
+			return y(1)/1.5+2;
+		})
+		.text((d, i) => {
+			return d.value;
+		});
+}
+
+plot.call(chart, {
+	data: data
+});
+```
