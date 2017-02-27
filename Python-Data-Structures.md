@@ -405,3 +405,106 @@ setRootVal(1, 9)
 
 ## PYDS-16.1: Node and Node References Implementation
 
+- In this case, define a class that has attributes for the root value as well as left and right subtrees 
+- Since rep more closely follows OOP, we will continue with this representation
+
+```python 
+class BinaryTree(object):
+	def __init__(self, rootObj):
+		self.key = rootObj 
+		self.leftChild = None
+		self.rightChild = None 
+
+	def insertLeft(self, newNode):
+		if self.leftChild == None: 
+			self.leftChild = BinaryTree(newNode)
+		else:
+			t = BinaryTree(newNode)
+			t.leftChild = self.leftChild
+			self.leftChild = t
+
+	def insertRight(self, newNode):
+		if self.rightChild == None:
+			self.rightChild = BinaryTree(newNode)
+		else:
+			t = BinaryTree(newNode)
+			t.rightChild(self.rightChild)
+			self.rightChild=(t)
+	
+	# bring back Object Address values
+	def getRightChild(self):
+		return self.rightChild 
+
+	def getLeftChild(self):
+		return self.leftChild
+
+	def setRootVal(self, obj):
+		self.key = obj 
+
+	def getRootVal(self):
+		return self.key
+
+r = BinaryTree('a')
+r.getRootVal()
+# 'a'
+print r.getLeftChild() 
+# None 
+r.insertLeft('b')
+r.getLeftChild()
+# get address of another binary tree 
+r.getLeftChild().getRootVal()
+# 'b'
+```
+
+## PYDS-16.2: Tree Traversals 
+
+**3 Main Methods**
+
+1. Preorder
+2. Inorder 
+3. Postorder 
+
+- Commonly used patterns 
+- Difference is the order in which nodes are visited
+- Preorder
+	- We visit the root node first, before a recursive preorder traversal of the left subtree followed by the same for the right subtree
+- Inorder 
+	- We recursively do an inorder traversal of left subtree, then visit the root node, then a recusive inorder traversal of the right subtree 
+- Postorder 
+	- Recursively postorder traversal of the left subtree and the right subtree followed by a visit to the root node
+
+**How to use "Preorder"**
+
+- Think of a tree with a Book as the root, Chapters 1 and 2 as the children and sections as the children of the chapters
+- Preorder can "read it" from front to book
+- Read the "Book" node, then recusively go down the left child eg. Chapter One and each recursive left subtree from there
+
+**Preorder implementation**
+
+- Base case to check if tree exists 
+- If parameter is None, then the function returns without taking any action
+- This can be implemented as a method of the `BinaryTree` class
+	- Must check for the existence of the left and the right children before making the recursive call to preorder
+	- In this case, probably better implementing it as an external function
+	- The reason is that you rarely just want to traverse the tree 
+	- Most cases you want to accomplish something else during traversal
+
+
+```python
+def preorder(tree):
+	if tree:
+		print(tree.getRootVal())
+		preorder(tree.getLeftChild())
+		preorder(tree.getRightChild())
+
+# implementation as a BinaryTree method 
+# generally not what you will want to do
+def preorder(self):
+	print(self.key)
+	if self.leftChild:
+		self.leftChild.preorder()
+	if self.rightChild:
+		self.rightChild.preorder()
+```
+
+**Inorder Implementation**
