@@ -348,3 +348,60 @@ myTree = ['a', 		# root
 		['c', [], []] 	# right subtree
 ]
 ```
+
+**Implementing a Tree using a List of Lists**
+
+```
+# define the style of tree with a root and left/right empty child lists
+def BinaryTree(r):
+	return [r, [], []]
+
+def insertLeft(root, newBranch):
+	t = root.pop(1)
+
+	if len(t) > 1:
+		root.insert(1, [newBranch, t, []])
+	else:
+		root.insert(1, [newBranch], [], [])
+	return root
+
+def insertRight(root, newBranch):
+	t = root.pop(1)
+
+	if len(t) > 1:
+		# reordered compared to above
+		root.insert(2, [newBranch, [], t)
+	else:
+		root.insert(2, [newBranch], [], [])
+	return root
+
+def getRootVal(root):
+	return root[0]
+
+def setRootVal(root, newVal):
+	root[0] = newVal
+
+def getLeftChild(root):
+	return root[1]
+
+def getRightChild(root):
+	return root[2]
+
+r = BinaryTree(3)
+insertLeft(r, 4)
+# [3, [4, [], []], []]
+insertLeft(r, 5)
+# [3, [5 [4, [], []], []], []]
+insertRight(r, 6)
+# [3, [5 [4, [], []], []], [6, [], []]]
+insertRight(r, 7)
+# [3, [5 [4, [], []], []], [7, [], [6, [], []]]]
+l = getLeftChild(r)
+print l 
+# [5 [4, [], []], []]
+setRootVal(1, 9)
+# [3, [9 [4, [], []], []], [7, [], [6, [], []]]]
+```
+
+## PYDS-16.1: Node and Node References Implementation
+
