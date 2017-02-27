@@ -507,6 +507,18 @@ def preorder(self):
 		self.rightChild.preorder()
 ```
 
+**Postorder Implementation**
+
+- Nearly identical to preorder except that we move the call to print to the end 
+
+```python
+def preorder(tree):
+	if tree != None:
+		preorder(tree.getLeftChild())
+		preorder(tree.getRightChild())
+		print(tree.getRootVal())
+```
+
 **Inorder Implementation**
 
 - In inorder traversal we visit the left subtree, followed by the root and finally the right subtree 
