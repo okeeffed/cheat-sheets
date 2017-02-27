@@ -724,6 +724,15 @@ function plot(params) {
 		.text((d, i) => {
 			return d.value;
 		});
+
+		this.append('g')
+			.classed('x axis', true)
+			.attr('transform', 'translate(' + 0  + ', ' + height  + ')')
+			.call(xAxis);
+		this.append('g')
+			.classed('y axis', true)
+			.attr('transform', 'translate(0, 0)')
+			.call(yAxis);
 }
 
 plot.call(chart, {
@@ -755,3 +764,23 @@ The grid lines also need to be styled! Hit up the CSS file to do this.
 ```
 
 ## Rotating the X axis titles
+
+```
+...
+this.append('g')
+			.classed('x axis', true)
+			.attr('transform', 'translate(' + 0  + ', ' + height  + ')')
+			.call(xAxis)
+				.selectAll('text')
+					.style('text-anchor', 'end')
+					.attr('dx', -8)
+					.attr('dy', 8)
+					.attr('transform', 'translate(0,0), rotate(-45)');
+this.append('g')
+			.classed('y axis', true)
+			.attr('transform', 'translate(0, 0)')
+			.call(yAxis);
+...
+```
+
+## Adding axis labels
