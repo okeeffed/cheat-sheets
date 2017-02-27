@@ -166,3 +166,56 @@ q.enqueue(1)
 q.enqueue(2)
 q.dequeue() 	# 1
 ```
+
+## PYDS-13.2: Deques Overview
+
+**What is a deque?**
+
+- A deque is a double-ended queue
+- Also has a front and an end and the items are position within the collection
+- Unrestrictive nature for adding items - add to front OR rear!
+- Same for removal
+- Does not require LIFO/FIFO enforced data structure design
+
+**Implement a deque**
+
+```python
+# Deque() create a deque 
+# addFront(item)
+# addRear(item)
+# removeFront()
+# removeRear()
+# isEmpty()
+# size()
+
+class Deque(object):
+	def __init__:
+		self.items = []
+
+	def isEmpty(self):
+		return self.items == []
+
+	# rear is the first index
+	def addRear(self, item):
+		self.items.insert(0, item)
+
+	# front is the len(self.items) index
+	def addFront(self, item):
+		self.items.append(item)
+
+	def removeFront(self):
+		return self.items.pop()
+
+	def removeRear(self):
+		return self.items.pop(0)
+
+	def size(self):
+		return len(self.items)
+
+d = Deque()
+d.addFront('hello')
+d.addRear('world')
+d.size() 										# 2
+print d.removeFront() + ' ' + d.removeRear() 	# 'hello world'
+d.size() 										# 0
+```
