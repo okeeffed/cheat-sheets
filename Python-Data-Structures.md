@@ -237,6 +237,9 @@ d.size() 										# 0
 	- Set the list's head to point to the new node
 - Removing an element from the Head is essentially the reverse operation to adding the item
 - We cannot easily remove the last node - to do so efficiently requires a `doubly linked list`
+- O(k) time to access elements
+- Constant time insertions and deletions in any position, arrays require O(n) time
+- Linked Lists can expand without having to specify their size ahead of time!
 
 **Implementation of a singly linked list**
 
