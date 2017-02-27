@@ -508,3 +508,14 @@ def preorder(self):
 ```
 
 **Inorder Implementation**
+
+- In inorder traversal we visit the left subtree, followed by the root and finally the right subtree 
+- Notice that in all three of the traversal functions we are simply changing the position of the print statement with respect to the two recursive function calls
+
+```
+def inorder(tree):
+	if tree != None:
+		inorder(tree.getLeftChild())
+		print(tree.getRootVal()) 				# print root for Proof of Concept
+		inroder(tree.getRightChild())
+```
