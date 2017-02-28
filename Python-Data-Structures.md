@@ -644,6 +644,17 @@ class BinaryHeap(object):
 
 ```python
 # order of insert data = [70,31,93,94,14,23,73]
+# put moethod - check if tree already has a root 
+	# if not, create a new TreeNode and install it as the root of the tree
+	# if root node in place, call private, helper function put
+		# start at root of tree, search tree comparing new key to key in current node 
+		# if less, search left, if more, search right
+
+# get method is easier since it searches tree recursively until it gets to a non-matching leaf node of finds a matching key 
+	# when matching key found, the value stored in the payload of the node is returned
+
+# delete is more difficult
+	# if tree has more than one node, we search using the _get method to find the TreeNode that needs to be removed
 
 class BinarySearchTree:
 	def __init__(self):
@@ -674,6 +685,26 @@ class BinarySearchTree:
 
 	def __setitem__(self, k, v):
 		self.put(k,v)
+
+	def put(self, key, val):
+		if self.root:
+			self._put(key, val, self.root)
+		else:
+			self.root = TreeNode(key, val)
+		self.size = self.size + 1 
+
+	# _ for code refactoring reasons as help
+	def _put(self, key, val, currentNode):
+		if key < currentNode.key:
+			if currentNode.hasLeftChild():
+				self._put(ley, val, currentNode.leftChild)
+			else:
+				currentNode.leftChild = TreeNode(key, val, parent = currentNode)
+		else:
+			if currentNode.hasRightChild():
+				self._put(key, val, currentNode.rightChild)
+			else:
+				currentNode.rightChild = TreeNode(key, val, parent = currentNode)
 
 	def get(self, key):
 		if self.root:
