@@ -655,6 +655,12 @@ class BinaryHeap(object):
 
 # delete is more difficult
 	# if tree has more than one node, we search using the _get method to find the TreeNode that needs to be removed
+	# if single node, remove root but must check if root key == param key
+	# if we find node, 3 options to consider 
+		# does node to delete have children?
+			# remove reference to parent -> set [left|right] child to None
+		#  does node to delete have single child?
+			# slightly more complex -> promote child to take parent
 
 class BinarySearchTree:
 	def __init__(self):
