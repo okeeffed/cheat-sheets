@@ -251,5 +251,56 @@ After the build, it will now be another image we can run against.
 
 We can run `docker ps` to ensure it is running and then we should be able to check localhost and see it all running.
 
+`docker login` will sign us into our Docker account and the credentials will be saved.
 
+Now if we `docker push`, we can push that image.
+
+We can now see that our repo has been pushed up to the account.
+
+## 3.7: Creating a Custom Task Definition for our Containers in ECS
+
+With the repo available for a docker pull, what we can now do is create a new task definition that will apply to a running task definition.
+
+**Creating the task definition**
+
+- Can be done by either console or CLI 
+
+Select `ECS > Task Definitions > Create a new definition`.
+
+Example `console-task-def-latest-sampleweb`.
+
+What we can do is now add a container! We can also do a configure via JSON.
+
+How do we do that? We can add a `config.json` file that has all of the details.
+
+In the example config that we paste in here from the AWSLabs example, we just need to change the Image that we wish to change.
+
+Once we have created that task definition, we can head back to Clusters and see the task there.
+
+## 3.8: Running Multiple Container Types in the Cluster
+
+Now that the task definition is done, how can we use that in our cluster? As we've seen before, we can scale the cluster with the additional instances.
+
+Before we can apply a task to, we need to scale the instances.
+
+Once the new EC2 instance is up, we can again check that it isn't running if we check the Public IP.
+
+Back in `ECS > Clusters > ECS Instances`, we have two tasks running and we can now run a new task. 
+
+One thing to notice is that the task definition list cannot be removed.
+
+Once the task has run, get the IP that is provisioned and see if you can head to it - which you can!
+
+***
+
+## 4.0: Troubleshooting
+
+- Service Health is important to decide if it's with the cluster and not AWS.
+- Another option is to check events.
+- Check the instances, which also has deeper information
+- Check the Load Balancer have the in service status.
+	- Health checks here can be configured.
+- We can check the cluster itself 
+	- Check primary service is `ACTIVE`
+	- Check the instances and the tasks
 
