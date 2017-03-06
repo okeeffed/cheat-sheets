@@ -1232,6 +1232,10 @@ The idea of a dictionary used as a hash table to get and retrieve items using `k
 # len() - Return the number of key-value pairs stored
 # in the map Return True for a statement of the form `key in map`, if the given key is in the map, False otherwise
 
+#
+# Note - you can take this and play around with other hash functions
+#
+
 class HashTable(object):
 	def __init__(self, size):
 		self.size = size
@@ -1264,12 +1268,66 @@ class HashTable(object):
 
 	def rehash(self, oldhash, size):
 		return (oldhash+1)%size
+
+	def get(self,key):
+		startslot = self.hashfunction(key, len(self.slots))
+		data = None 
+		stop = False 
+		found = False 
+		position = startslot
+
+		while self.slots[position] != None and not found and not stop:
+			if self.slots[position] == key:
+				found = True 
+				data = self.slots[position]
+			else:
+				position = self.rehash(position, len(self.slots))
+				if position == startslot:
+					stop = True
+		return data
+
+	def __getitem__(self, key):
+		return self.get(key)
+
+	def __setitem__(self, key, data):
+		self.put(key, data)
+
+h = HashTable(5)
+h[1] = 'one'
+h[2] = 'two'
+h[3] = 'three'
+h[1] # 'one'
+h[2] # 'two'
 ```
 
+***
 
+## 17.7: Sorting Overview
 
+We've discussed how to search for items, but now we will look at how to sort!
 
+Explanations and Implementations:
 
+1. Bubble Sort 
+2. Selection Sort 
+3. Insertion Sort 
+4. Shell Sort 
+5. Merge Sort 
+6. Quick Sort
+
+Common interview questions consist of being asked to implement a sorting algorithm.
+
+The best way to understand algorithms is to understand two things:
+
+1. The underlying principle behind the algorithm 
+2. What a simple visualization of what the algorithm looks like
+
+## 17.8: Visualizing Sorting Algorithms
+
+Examples for seeing them:
+
+[Sorting Algorithms website](www.sorting-algorithms.com)
+[Visualgo](www.visualgo.net/sorting.html)
 
 
 
