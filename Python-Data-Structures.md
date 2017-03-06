@@ -626,6 +626,30 @@ class BinaryHeap(object):
 			i = i - 1
 ```
 
+***
+
+### More on Heap Operations
+
+Generally implemented as an array due t the nature of accessing children.
+
+## ---- Inserting an element (up-heap, percolate-up)
+
+1. Add element to the bottom level of the heap
+2. Compare the added element with its parent; if they are correct, stop 
+3. If not, swap the element with its parent and return to the previous step 
+
+We do not need to check the other child in the end, as the `transistive relation` will ensure that it holds.
+
+## ---- Extract (down-heap, percolate-down)
+
+The procedure for deleting the root form the heap.
+
+1. Replace the root of the heap with the last element on the last level 
+2. Compare the new root with its children; if the order is correct, stop
+3. If not, swap the element with one of its children and return to the previous step (swap with smaller child in min-heap and larger child in max-heap) - always swap the child that has the larger and correct difference
+
+***
+
 ## PYDS-16.4: Binary Search Trees
 
 - We've seen two different ways to get key-value pairs in a collection 
