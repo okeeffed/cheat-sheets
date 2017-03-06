@@ -948,8 +948,74 @@ sortCheck(treeVals)
 		- else return False
 ```
 
+***
 
+# 17.0: Searching and Sorting 
 
+- First half is search 
+- Second half is sorting
+
+Note: In python, we can use `in` to check if an element is in a list.
+
+```python 
+15 in [5, 4, 15] # true 
+```
+
+How does this work? What is the best way to search?
+
+## 17.1: Sequential Search
+
+Basic searching technique. Sequentially go through a data subject and compare as you go along.
+
+Eg. traversing an unordered list for 50 and comparing as you go.
+
+If 50 was not present, we still had to check every element in the array.
+
+But what if it was ordered?
+
+If the array was sorted, then we only have to search until we get a match or find something greater than our search target.
+
+**Ordered vs Unordered sequential search**
+
+Average time for unordered will be `n`, whereas for ordered it will be `n/2`
+
+## 17.2: Implementation of a Sequential Search
+
+**Unordered List**
+
+```python
+def seqSearch(arr, el):
+	pos = 0 
+	found = False
+
+	while pos < len(arr) and not found:
+		if arr[pos] == el:
+			found = True 
+		else:
+			pos += 1
+
+	return found
+```
+
+**Ordered List**
+
+```python
+def orderedSeqSearch(arr, el):
+	pos = 0 
+	found = False
+	stopped = False
+
+	while pos < len(arr) and not found and not stopped:
+		if arr[pos] == el:
+			found = True 
+		else:
+			if arr[pos] > el:
+				stopped = True
+			else:
+				pos += 1
+
+	return found
+```
 
 
 
