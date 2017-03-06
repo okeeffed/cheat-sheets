@@ -1017,8 +1017,124 @@ def orderedSeqSearch(arr, el):
 	return found
 ```
 
+## 17.3: Binary Search 
 
+If the list is ordered, we can do a binary search!
 
+This item starts from the middle.
+
+If the item is greater, we know the entire lower half of the list can be ignore.
+
+Then, we can repeat the process with the upper half.
+
+So it uses `Divide and Conquer` - divide to smaller pieces, solve the smaller pieces and then repeat.
+
+- Each comparison eliminates about half of the remaining items from consideration
+- What is the maximum number of comparisons this algorithm will require to check the entire list?
+
+```
+// Comparisons
+
+1: n/2 comparisons left 
+2: n/4 comparisons left 
+3: n/8 comparisons left 
+...
+i: n/2^i comparisons left
+```
+
+## 17.4: Implementation of a Binary Search
+
+2 Versions - iterative and recusive 
+
+**Iterative**
+
+```python
+def binarySearch(arr, el):
+	first = 0 
+	last = len(arr)-1 
+
+	found = False 
+
+	while first <= last and not found:
+		mid = (first+last)/2 
+		if arr[mid] == el:
+			found = True
+		else:
+			if el < arr[mid]:
+				last = mid-1
+			else:
+				first = mid+1 
+	return found 
+
+arr = [1,2,3,4...] # must be sorted 
+
+binarySearch(arr, 4) # True 
+binarySeach(arr, 13) # False
+```
+
+**Recursive**
+
+Remember: Must always have a base case!
+
+```python
+def recBinSearch(arr, el):
+	if len(arr) == 0:
+		return False
+	else: 
+		mid = len(arr)/2 
+		if arr[mid] == el:
+			return True 
+		else: 
+			if el < arr[mid]:
+				return recBinSearch(arr[:mid], el)
+			else:
+				return recBinSearch(arr[mid+1:], el])
+```
+
+## 17.5: Hashing 
+
+- Hashing 
+- Hash Tables 
+- Hash Functions 
+- Collision Resolution 
+- Implementing a Hash Table
+
+**Hashing**
+
+We've seen how we can improve search by knowing about structures beforehand.
+
+We can build a data structure that can be accessed in O(1) time - this is hashing!
+
+A `hash table` is a collection of items that are stored in such a way that it becomes easy to find them later.
+- Each position of the hash table, `slots`, can hold an item and is named by an integer value starting at 0.
+- For example, we will have a slot named 0, a slot named 1, a slot named 2 and so on.
+- Initially, the hash table contains no items so every slot is empty 
+
+**Hash Tables**
+
+The mapping between an item and the slot were that item belongs in the hash table is called the `hash function`
+- The hash function will take any item in the collection and return an integer in the range of slot names, between 0 and m-1.
+- So how should we use hash functions to map items to slots?
+
+One `hash function` we can use is the remainder method. When preseted with an item, the hash function is the item divided by the table size, this is then its slot number.
+
+Example:
+- Assume we have 54, 26, 93, 17, 77 and 31 
+- We've preassigned an empty hash table of m=11 
+- Our remainder hash function then is `h(item)=item%11`
+
+Let's see the results!
+
+```
+Item 	| Hash Value
+---------------------
+54		| 10
+26		| 4
+93		| 5
+17 		| 6
+77		| 0
+31 		| 9
+```
 
 
 
