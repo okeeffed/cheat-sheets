@@ -893,7 +893,36 @@ Notes:
 
 ## PYDS-16.5: Common Tree Questions
 
+Given a binary tree, check whether it's a binary search tree or not.
 
+- Tree traversal should lead to sorted order
+- Another solution is to keep track of the min and max values a node can take
+
+```
+# Solution 1 
+tree_vals = []
+# traversal should lead to sorted order
+def inorder(tree):
+	if tree != None:
+		inorder(tree.getLeftChild())
+		treeVals.append(tree.getRootVal())
+		inorder(tree.getRightChild())
+
+def sortCheck(treeVals):
+	return treeVals == sorted(treeVals)
+
+inorder(tree)
+sortCheck(treeVals)
+
+# Solution 2
+# class Node
+	# def treeMax - if not node, return -inf 
+	# def tree Min - not node, return inf 
+	# def verify
+		- if not node, return True 
+		- if tree.max and tree.min and verify(node.right) return True 
+		- else return False
+```
 
 
 
