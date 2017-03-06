@@ -922,7 +922,7 @@ Given a binary tree, check whether it's a binary search tree or not.
 - Tree traversal should lead to sorted order
 - Another solution is to keep track of the min and max values a node can take
 
-```
+```python
 # Solution 1 
 tree_vals = []
 # traversal should lead to sorted order
