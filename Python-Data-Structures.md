@@ -492,7 +492,7 @@ r.getLeftChild().getRootVal()
 
 ```python
 def preorder(tree):
-	if tree:
+	if tree != None:
 		print(tree.getRootVal())
 		preorder(tree.getLeftChild())
 		preorder(tree.getRightChild())
@@ -512,7 +512,7 @@ def preorder(self):
 - Nearly identical to preorder except that we move the call to print to the end 
 
 ```python
-def preorder(tree):
+def postorder(tree):
 	if tree != None:
 		preorder(tree.getLeftChild())
 		preorder(tree.getRightChild())
@@ -524,7 +524,7 @@ def preorder(tree):
 - In inorder traversal we visit the left subtree, followed by the root and finally the right subtree 
 - Notice that in all three of the traversal functions we are simply changing the position of the print statement with respect to the two recursive function calls
 
-```
+```python
 def inorder(tree):
 	if tree != None:
 		inorder(tree.getLeftChild())
