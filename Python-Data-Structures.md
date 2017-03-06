@@ -1218,6 +1218,87 @@ When collisions happen, the item is still placed in the proper slot of the hash 
 
 As more items hash to the same location, the difficulty for finding the item also increases.
 
+## 17.6: Implementation of a Hash Table
+
+**Map**
+
+The idea of a dictionary used as a hash table to get and retrieve items using `keys` is often referred to as a mapping. 
+
+```python 
+# HashTable() - Create a new, empty map. It returns an empty map colleciton.
+# put(key, val) - Add a new key-value pair to the map. If the key is already in the map then replace the old value with the new value 
+# get(key) - Give a key, return the value stored in the map or None 
+# del - Delete the key-value pair from the map using a statement of the form del map[key]
+# len() - Return the number of key-value pairs stored
+# in the map Return True for a statement of the form `key in map`, if the given key is in the map, False otherwise
+
+class HashTable(object):
+	def __init__(self, size):
+		self.size = size
+		self.slots = [None] * self.size 	# list with an empty item
+		self.data = [None] * self.size 
+
+	def put(self, key, data):
+		hashvalue = self.hashfunction(key, len(self.slots))
+		if self.slots[hashvalue] == None:
+			self.slots[hashvalue] = key 
+			self.data[hashvalue] = data
+		else:
+			if self.slots[hashvalue] == key:
+				self.data[hashvalue] = data
+			else:
+				nextslot = self.rehash(hashvalue, len(self.slots))
+
+				while self.slots[nextslot] != None and self.slots[nextslot] != key:
+					nextslot = self.rehash(nextslot, len(self.slots))
+
+				if self.slots[nextslot] == None:
+					self.slots[nextslot] = key 
+					self.data[nextslot] = data 
+
+				else:
+					self.data[nextslot] = data
+
+	def hashfunction(self, key, size):
+		return key%size
+
+	def rehash(self, oldhash, size):
+		return (oldhash+1)%size
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
