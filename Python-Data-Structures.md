@@ -1136,9 +1136,87 @@ Item 	| Hash Value
 31 		| 9
 ```
 
+We are now ready to occupy 6 out of the 11 slots
+- This is referred to as the `load factor` and is commonly denoted by `lambda = number of items / table size`
+- Here we have `lambda = 6/11`
 
+Our Hash Table has now been loaded.
 
+When we want to search, we just need to use the hash function to compute the slot name for the item and then chack the hash table to see if it is present.
 
+Therefore the operation is O(1), since a constant amount o time is required to compute the hash value and then index the hash table at that location.
+
+What if we have two items that have the same location? This is known as a `collision` (sometimes a `clash`).
+
+We can talk about this resolution soon.
+
+**Hash Function**
+
+A hash func that maps each item into a unique slot is referred to as a `perfect hash function`.
+
+Our goal is to create a hash func that minimizes collisions, so it is easy to compute and evenly distributes the items in the hash table.
+
+**Folding Method**
+
+This method for constructing hash functions begins by dividing the item into equal-size pieces (last piece may not be of equal size).
+
+These pieces are then added together to give the resulting hash value.
+
+Example:
+
+Give the number `436-555-4601` - we can divide these numbers into groups of two. 
+
+After add the numbers now, we get 210.
+
+If we assume our hash table has 11 slots, we need to perform the extra step of dividing by 11 and keeping its remainder.
+
+210 % 11 is 1, so the phone number 436-555-4601 hashes to slot 1.
+
+**Mid-square method**
+
+We first square the item, and then extract some portion of the resulting digits.
+
+Example, if it were 44, we computer 44^2 = 1936.
+
+By extracting the middle two digits, 93, and performing the remainder step, we get 93%11 = 5
+
+**Non-Integer elements**
+We can also create hash funcs for character-based items.
+
+The word `cat` can be thought of as a sequence of ordinal values.
+
+If you use Python, you can just use the function `ord('a')` and then get the values.
+
+So `ord('a')` = 97 % 11 = 11
+
+For cat, you can sum up all the ordinal values, get 312 % 11 = 4.
+
+**Collision Resolution**
+
+One method for resolving it to look into the hash table and find another open slot to hold the item that caused the collision. This is known as `Open Addressing`.
+
+By systematically visiting every spot, we are doing something known as `linear probing`.
+
+Example if we had 77, 44, and 55, we then move 44 and 55 up until it finds something that fits. 
+
+One way to deal with clustering is to skip slots, thereby more evenly distributing the items that have caused collisions.
+
+`rehashing` is the general process of looking for another slot.
+
+`quadratic probing` is a variation of the linear probing idea.
+
+Instead of using a constant "skip" value, we use a rehash function that increments the hash value by 1, 3, 5, 7, 9 and so on.
+- If the first have value is `h`, successive values are `h+1`, `h+4`, `h+9`, `h+16`
+
+**Alternative Option**
+
+We can also allow each slot to hold a reference to a collection (or chain) or items.
+
+`Chaining` allows many items to exist at the same location in the hash table.
+
+When collisions happen, the item is still placed in the proper slot of the hash table.
+
+As more items hash to the same location, the difficulty for finding the item also increases.
 
 
 
