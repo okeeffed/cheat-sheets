@@ -529,7 +529,7 @@ def inorder(tree):
 	if tree != None:
 		inorder(tree.getLeftChild())
 		print(tree.getRootVal()) 				# print root for Proof of Concept
-		inroder(tree.getRightChild())
+		inorder(tree.getRightChild())
 ```
 
 ## PYDS-16.3: Priority Queues with Binary Heaps
@@ -878,6 +878,20 @@ class TreeNode:
 			self.rightChild.parent = self 
 ```
 
+Notes:
+- Deletion is one of the more difficult things we can do for a binary search tree 
+- If both children are present, then we need to decide on a successor
+- The successor is guaranteed to have no more than one child, so we know how to remove it using the two cases for deletion that we have already implemented 
+- Once the successor has been removed, we simply put it in the tree in place of the node to be deleted
+- This is an inorder traversal from largest to smallest
+	- If right child, the successor is the findMin() of that right subtree 
+	- If no right child, then successor is the parent
+- Remember, left most child will be the smallest of a BST
+- The iterator method itself takes a bit more work
+	- yield keyword freezes the state of the function
+	- iterators vs generators in Python
+
+## PYDS-16.5: Common Tree Questions
 
 
 

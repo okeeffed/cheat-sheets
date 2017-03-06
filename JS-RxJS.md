@@ -167,3 +167,30 @@ Rx.Observable.fromEvent($title, "keyup")
 
 - All the Rx has no external state, whereas the other code does.
 - Rx doesn't have to wait for us to tell it when to do it.
+
+***
+
+## 3: The Core of Reactive Extensions
+
+## 3.1: Obervables, Operators and Subscriptions 
+
+- Observable: Something that can be observed which produces values 
+- Operator: It's an operation that modifies the data being pushed in from the observable
+	- They don't produce values in and of themselves, but move them through the pipeline.
+- Subscriptions: Piece of code that will do something with the values returned by the operators
+
+Note, you can model anything in a reactive context by thinking a little bit differently.
+
+**Web API Request Example**
+
+- Reactive can still complete, or it can error out and retry.
+
+
+
+
+
+
+
+
+
+
