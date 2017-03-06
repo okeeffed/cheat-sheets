@@ -1329,9 +1329,34 @@ Examples for seeing them:
 [Sorting Algorithms website](www.sorting-algorithms.com)
 [Visualgo](www.visualgo.net/sorting.html)
 
+## 17.9: Implementing the Bubblesort Sort Method
 
+The `bubble sort` makes multiple passes through a list
+- It compares adjacent items and exchanges those that are out of order
+- Each pass through the list places the next largest value in its proper place 
+- Each item "bubbles" up to the location where it belongs
 
+In the visualization of the sort, imagine the comparision beside each other to see if they are out of order.
 
+If so, you swap and repeat (exchange), if not (no exchange), set the element to compare to the next number.
+
+There can be multiple passes.
+
+```python
+def bubbleSort(arr):
+	for n in range(len(arr)-1, 0, -1):
+		# print n
+		for k in range(n):
+			# print k
+			if arr[k] > arr[k+1]:
+				temp = arr[k]
+				arr[k] = arr[k+1]
+				arr[k+1] = temp
+
+arr = [5, 3, 7, 2] 
+bubbleSort(arr)
+arr 			# [2 3, 5, 7]
+```
 
 
 
