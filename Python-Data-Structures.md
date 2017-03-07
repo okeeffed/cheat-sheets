@@ -1376,7 +1376,7 @@ Resources:
 
 [cs.armstrong](http://www.cs.armstrong.edu/liang/animation/web/SelectionSort.html)
 
-**Implementation**
+**Implementation of the Selection Sort**
 
 ``python
 def selectionSort(arr):
@@ -1396,11 +1396,41 @@ selectionSort(arr)
 # [2, 3, 4, 10]
 ```
 
+## 17.11: Insertion Sort 
 
+Always maintains a sorted sublist in the lower positions of the list.
 
+Each new item is inserted back into the previous sublist such that the sorted sublist is one item larger.
 
+- Begin by assuming list with one item (position 0) is already sorted.
+- On each pass pass, one for each item 1 through n-1, the current item is checked against those in the already sorted sublist.
+- As we look back into the already sorted sublist, we shift those items that are greater to the right.
+- When we reach a smaller item or the end of the sublist, the current item can be inserted.
 
+Insertion sort builds the final sorted array one item at a time. It is much less effecient on large lists than more advanced algorithms such as quicksort, heapsort or merge sort.
 
+This runs in O(n^2) but a best case costs 1 on each pass. This requires a third of the processing power though!
+
+**Implementation of the Insertion Sort**
+
+```python
+def insertionSort(arr):
+	for i in range(1, len(arr)):
+		currentValue = arr[i]
+		position = i
+		
+		while position > 0 and arr[position-1] > currentValue:
+			arr[position] = arr[position-1]
+			position = position-1
+
+		arr[position] = currentValue
+
+arr = [10, 4, 3, 2]
+insertionSort(arr)
+# [2, 3, 4, 10]
+```
+
+## 17.12: Shell Sort
 
 
 
