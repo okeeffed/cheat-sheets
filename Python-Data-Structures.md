@@ -1432,9 +1432,51 @@ insertionSort(arr)
 
 ## 17.12: Shell Sort
 
+Shell sort improves on the insertion sort by breaking the original list into a number of smaller sublists.
 
+The unique way that these sublists are chosen is the key to the shell sort.
 
+Instead of breaking lists into contiguous sublists, shell sort uses an increment `i` to create a sublist by choose all items that are `i` items apart.
 
+If we have 9 items and we have an increment of 3, each n+3 form the sublist.
+
+After completing these sublists, we've moved these closer to where they belong. 
+
+Then if we do the final sort with an increment of one (so in this case, just a standard insertion sort).
+
+**Implementation of Shell Sort**
+
+```python 
+def shellSort(arr):
+	sublistCount = len(arr)/2 
+
+	# While we still have sub lists 
+	while sublistCount > 0:
+		for start in range(sublistCount):
+			# Use a gap insertion 
+			gapInsertionSort(arr, start, sublistCount)
+
+		print 'After increments of size: ', sublistCount
+		print 'Current array: ', arr
+		sublistCount = sublistCount / 2
+
+def gapInsertionSort(arr, start, gap):
+	for i in range(start+gap, len(arr), gap):
+		currentValue = arr[i]
+		position = i 
+
+		# Using the gap
+		while position >= gap and arr[position - gap] > currentValue: 
+			arr[position] = arr[position - gap]
+			position = position - gap 
+		
+		# Set current value 
+		arr[position] = currentValue
+
+arr = [10, 4, 3, 2, 12, 35]
+shellSort(arr)
+# [2, 3, 4, 10, 12, 35]
+```
 
 
 
