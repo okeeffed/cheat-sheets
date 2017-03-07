@@ -1358,7 +1358,43 @@ bubbleSort(arr)
 arr 			# [2 3, 5, 7]
 ```
 
+## 17.10: Implementing the Selection Sort 
 
+Selection sort improves on the bubble sort by making only one exchange for every pass through the list.
+
+It looks for the largest value as it makes a pass and, after completing the pass, places it in the proper location.
+
+The process continues and requires `n-1` passes to sort `n` items since the final item is placed on the nth pass.
+
+Example: [10, 4, 3, 2]
+
+We notice 10 is the largest, so we swap last place with it.
+Then 4, so second last place.
+Repeat.
+
+Resources:
+
+[cs.armstrong](http://www.cs.armstrong.edu/liang/animation/web/SelectionSort.html)
+
+**Implementation**
+
+``python
+def selectionSort(arr):
+	for fillslot in range(len(arr)-1, 0, -1):
+		positionOfMax = 0 
+
+		for location in range(1, fillslot+1):
+			if arr[location] > arr[positionOfMax]:
+				positionOfMax = location
+
+		temp = arr[fillslot]
+		arr[fillslot] = arr[positionOfMax]
+		arr[positionOfMax] = temp
+
+arr = [10, 4, 3, 2]
+selectionSort(arr)
+# [2, 3, 4, 10]
+```
 
 
 
