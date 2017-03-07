@@ -1478,13 +1478,124 @@ shellSort(arr)
 # [2, 3, 4, 10, 12, 35]
 ```
 
+## 17.12: Merge Sort
 
+Merge sort is a recursive algorithm that continual splits a list a half. Going with a `divide and conquer` strategy.
 
+If the list is empty or has one item, it is sorted by definition (the base case).
 
+If the list has more than one item, we split the list and recursively invoke a merge sort on both halves.
 
+- Once the two halves are sorted, the fundamental operation, called a `merge` is performed. 
+- Merging is the process of taking two smaller sorted lists and combining them together into a single, sorted, new list.
+- Continually `split` and at the end, recusively merge!
 
+**Implementation of a Merge Sort**
 
+```python 
+def mergesort(arr):
+	if len(arr) > 1:
+		mid = len(arr) / 2 
+		lefthalf = arr[:mid]
+		righthalf = arr[mid:]
 
+		mergesort(lefthalf)
+		mergesort(righthalf)
+	
+		i = 0 
+		j = 0 
+		k = 0 
+
+		while i < len(lefthalf) and j < len(righthalf):
+			if lefthalf[i] < righthalf[i]:
+				arr[k] = lefthalf[i]
+
+				i += 1
+
+			else:
+				arr[k] = righthalf[j]
+				j += 1
+
+			k += 1
+
+		while i < len(lefthalf):
+			arr[k] = lefthalf[i]
+			i += 1 
+			k += 1 
+
+		while j < len(righthalf):
+			arr[k] = righthalf[j]
+			j += 1 
+			k += 1 
+	print 'Merging', arr
+
+arr = [11,2,5,4,7,56,2,12,23]
+mergesort(arr)
+# output [2,2,4,5,7,11,12,23,56]		
+```
+
+## 17.13: Quick Sort
+
+- First selects a value, called the `pivot value` and there will be a `left mark` and `right mark`
+- The role of the pivot value is to assist with splitting the list
+- After selecting the `pivot value`, the `partition` process happens next
+	- It will find the split point and at the same time move other items to the appropriate side of the list, either less than or greater than the pivot value
+- The actual position where the pivot value belongs in the final sorted list, commonly called the `split point`, will be used to divide the list for subsequent calls to the quick sort
+- `left mark` will check if greater than `pivot value` and `right mark` will check if less than
+- Once decided, switch the marks
+- When the `right mark` is < than the `left mark` on the array, we call this the `split point`
+	- Once crossed, we swap right mark with the `pivot value`
+
+**Implementation of the Quick Sort**
+
+You can choose different pivot values, but this implementation will choose the first item in the list.
+
+```python
+def quickSort(arr):
+	quickSortHelper(arr, 0, len(arr-1))
+
+# quickSort recursively calls 	
+def quickSortHelper(arr, first, last):
+	if first < last:
+		splitPoint = partition(arr, first, last)
+
+		quickSortHelper(arr, first, splitPoint-1)
+		quickSortHelper(arr, splitPoint+1, last)
+
+def partition(arr, first, last):
+	pivotValue = arr[first]
+	leftmark = first+1 
+	rightmark = last 
+
+	done = False 
+
+	while not done:
+		while leftmark <= rightmark and arr[leftmark] <= pivotValue:
+			leftmark += 1 
+		while arr[rightmark] >= pivotValue and rightmark >= leftmark:
+			rightmark -= 1
+		if rightmark < leftmark:
+			done = True 
+		else:
+			temp = arr[leftmark]
+			arr[leftmark] = arr[rightmark]
+			arr[rightmark] = temp 
+
+	temp = arr[first]
+	arr[first] = arr[rightmark]
+	arr[rightmark] = temp
+
+	return rightmark
+```
+
+***
+
+## 18.0: Graphs
+
+- Learn about graphs
+- Implement the graph abstract data type using multiple internal representations 
+- See how graphs solve a wide variety of problems
+- With a good graph implementation, we can then use these to solve problems which at first see difficult
 
 
 
