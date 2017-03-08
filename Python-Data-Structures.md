@@ -1711,5 +1711,78 @@ for vertex in g:
 - One of the easiest algorithms for searching a graph
 - Given graph `G` and starting node `s` is that explores all vertices that are distance `k` from `s` before finding any that are `k+1` from `s`
 
+Algorithm for exploration if vertex is unexplored:
+1. The new, unexplored vertex `nbr` is coloured gray 
+2. The predecessor of `nbr` is set to the current node `currentVert` 
+3. Distance to `nbr` is set to the distance to `currentVert + 1` 
+4. `nbr` is added to the end of a queue - adding `nbr` to the end of  the queue effectively schedules this node for further exploration - but not until all the other vertices on the adjacency list of `currentVert` have been explored
+
+- Ultimately, the implementation will construct a tree!
+	- This will help solve issues about finding the path!
+	- Now we can also find any short word later back to the root from any vertex!
+
+```python
+def bfs(g, start):
+	# would need to implement setDistance and setPred
+	start.setDistance(0)
+	start.setPred(None)
+	vertQueue = Queue()
+	vertQueue.enqueue(start)
+	while (vertQueue.size() > 0)
+		currentVert = vertQueue.dequeue()
+		for nbr in currentVert.getConnections():
+			if (ngr.getColor() == 'white'):
+				nbr.setColor('gray')
+				nbr.setDistance(currentVert.getDistance() + 1)
+				nbr.setPred(currentVert)
+				vertQueue.enqueue(nbr)
+		currentVert.setColor('black')
+```
+
+## 18.2: DFS - Depth First Search
+
+**Knight's Tour Problem**
+
+On a chess board, how can the knight move? And from there, making more moves, how can we move?
+
+Again, ajacency matrix would be sparse - so we certainly want an adjaency list.
+
+DFS will explore each node as deeply as possible. That being said, the nodes can be visited more than once.
+
+It will then return as far back as it can to find the next legal move.
+
+The `knightTour` function takes four parameters:
+1. `n` - the current depth of the search tree 
+2. `path` - a list of vertices visited up to this point 
+3. `u` - the vertex in the graph we wish to explore 
+4. `limit` - the number of nodes in the path 
+
+The function itself is also recursive.
+
+We use a queue to keep a list of what vertice to visit next.
+
+```
+def knightTour(n, path, u, limit):
+	u.setColor('gray')
+	path.append(u)
+	if n < limit:
+		nbrList = list(u.getConnections())
+		i = 0 
+		done = False 
+		while i < len(nbrList) and not done: 
+			if nbrList[i].getColor() == 'white':
+				done = knightTour(n+1, path, nbrList[i], limit)
+			i = i + 1
+		if not done: # prepare to backtrack - haven't reach limit
+			path.pop()
+			u.setColor('white')
+	else:
+		done = True 
+	return done 
+```
+
+**DFS Overview**
+
+
 
 
