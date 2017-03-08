@@ -1708,6 +1708,8 @@ for vertex in g:
 
 ## 18.1: BFS - Breadth First Search
 
+- One of the easiest algorithms for searching a graph
+- Given graph `G` and starting node `s` is that explores all vertices that are distance `k` from `s` before finding any that are `k+1` from `s`
 
 
 
