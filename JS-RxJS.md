@@ -436,6 +436,111 @@ simple.subscribe(createSubscriber("simple"));
 simple.next("Hello");
 simple.next("World");
 simple.complete();
+
+const interval = Rx.Observable.interval(1000).take(5);
+const intervalSubject = new Rx.Subject();
+intervalSubject.subscribe(interval);
+
+intervalSubject.subscribe(createSubscriber("sub1"));
+intervalSubject.subscribe(createSubscriber("sub2"));
+intervalSubject.subscribe(createSubscriber("sub3"));
+
+// subscribes after three seconds
+setTimeout(() => {
+	intervalSubject.subscribe(createSubscriber("LOOK AT ME"));
+}, 3000);
 ```
 
 Before, we had to invoke a function that call `next` and `complete`.
+
+In the above example, intervalSubject is acting as a proxy to another observable.
+
+```javascript
+// needs init state parameter
+const currentUser = new Rx.BehaviorSubject({ isLoggedIn: false });
+const isLoggedIn = currentUser.map(u => u.isLoggedIn);
+
+currentUser.next({ isLoggedIn: false });
+isLoggedIn.subscribe(createSubscriber("isLoggedIn"));
+
+setTimeout(() => {
+	currentUser.next({isLoggedIn: true, name: "nelson"})
+}, 3000);
+
+setTimeout(() => {
+	isLogged.subscribe(createSubscription("delayed"))
+}, 1500);
+```
+
+How do you remember multiple states?
+
+```javascript 
+const replay = new Rx.ReplaySubject(3);
+replay.next(1);
+replay.next(2);
+
+replay.subscribe(createSubscriber("one"));
+
+replay.next(3);
+replay.next(4);
+replay.next(5);
+
+// this subscription only gets the previous three items
+replay.subscribe(createSubscriber("two"));
+
+replay.next(6);
+
+// what you see 
+one.next 1
+one.next 2 
+one.next 3  
+one.next 4  
+one.next 5  
+two.next 3
+two.next 4
+two.next 5
+one.next 6 
+two.next 6
+```
+
+**Async Subjects**
+
+```
+const apiCall = new Rx.AsyncSubject();
+apiCall.next(1);
+
+apiCall.subscribe(createSubscriber("one"));
+apiCall.next(2);
+
+// only will emit the final item before it is complete 
+apiCall.complete();
+
+// if you subscribe to it again, that final value will be emitted
+setTimeout(() => {
+	apiCall.subscribe(createSubscriber("two"));
+}, 2000);
+
+// output 
+one.next 2 
+one.complete 
+two.next 2 
+two.complete 
+```
+
+**Subject Summary**
+
+- if you can get around it, don't use subjects unless you have to 
+- you should use an observable workflow where possible
+
+
+## 3.6: Subjects
+
+
+
+
+
+
+
+
+
+
