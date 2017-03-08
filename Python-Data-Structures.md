@@ -1596,10 +1596,117 @@ def partition(arr, first, last):
 - Implement the graph abstract data type using multiple internal representations 
 - See how graphs solve a wide variety of problems
 - With a good graph implementation, we can then use these to solve problems which at first see difficult
+- Vertices and Edges
+	- Edges can be directed (one-way/digraph) or two-way
+	- Edges can be weighted
+- Cycle in a directed graph is a path that starts and ends at the same vertex
+	- No cycles is called `acyclic`
+	- we will see that we can solve several important problems if the problem can be represented as a `directed acyclic graph`
 
+## 18.1: Adjacency Matrices and Lists 
 
+**Adjacency Matrix**
 
+- One of the easiest ways to implement a graph is to use a two-dimensional matrix 
+- In this matrix implementation, each of the rows and columns represent a vertex in the graph
+- If two vertices are connected by an edge, we say they are `adjacent`
+- A matrix is not a very efficient way to store sparse data 
+- It's good to use when the number of edges is large
 
+**Adjacency List**
+
+- A more space-efficient way to implement a sparsely connected graph
+- This is a list with an object that gives the adjacent vertices and their values
+
+**Implementation of a Graph as an Adjacency List**
+
+```python 
+# Vertex() - create a new vertice with an id and what it is connected to 
+# addNeighbour() - create a neighbour that it is connected to 
+# getWeight() returns the weight of the edge from this vertex 
+
+class Vertix:
+	def __init__(self, key):
+		self.key = key 
+		self.connectedTo = {}
+
+	def addNeighbour(self, nbr, weight=0):
+		self.connectedTo[nbr] = weight
+
+	def getConnections(self):
+		return self.connectedTo.keys()
+
+	def getId(self):
+		return self.id 
+
+	def getWeight(self, nbr):
+		return self.connectedTo[nbr]
+
+	def __str__(self):
+		return str(self.id) + ' connected to: ' + str([x.id for x in self.connctedTo])
+
+# Graph() - create new, empty graph 
+# addVertex(vert) - create new instance of a vertex 
+# addEdge(fromVert, toVert, weight) 
+# addEdge (fromtVert, toVert) - without weight 
+# getVertex(vertKey) - return vertex 
+# getVertices() - return list of all vertices 
+# in - returns True for a statement of the form vertex in graph, if the given vertex is in the graph, False otherwise 
+
+class Graph:
+	def __init__(self):
+		# dict, but modelled after adjacency list
+		self.vertList = {}
+		self.numVert = 0 
+
+	def addVertex(self, key):
+		self.numVertices = self.numVertices + 1 
+		newVertex = Vertix(key)
+		self.vertList[key] = newVertex
+		return newVertex
+
+	def getVertex(self, n):
+		if n in self.vertList:
+			return self.vertList[n]
+		else:
+			return None
+
+	# f: from, t: to, cost: weight
+	def addEdge(self, f, t, cost=0):
+		if f not in self.vertList:
+			nv = self.addVertex(f)
+		if t not in self.vertList: 
+			nv = self.addVertex(t)
+
+		self.vertList[f].addNeighbour(self.vertList[t], cost)
+
+	def getVertices(self):
+		return self.vertList.keys()
+
+	def __iter__(self):
+		return iter(self.vertList.values())
+
+	def __contains__(self, n):
+		return n in self.vertList
+
+g = Graph()
+
+for i in range(6):
+	g.addVertex(i)
+
+g.vertList 
+# gives back dict of vertices
+# [ 0: <memory pos>, 1: ...]
+g.addEdge(0,1,2)
+for vertex in g:
+	print vertex 
+	print vertex.getConnections()
+	print '\n'
+
+# prints list with edge connected from 0 to 1
+```
+
+## 18.1: BFS - Breadth First Search
 
 
 
