@@ -419,3 +419,23 @@ function getItem() {
 Rx.Observable.fromPromise(getItem())
 	.subscribe(createSubscriber("promise"));
 ```
+
+## 3.5: Subjects
+
+Subjects are another Rx primitive. They are both an observable and a observer! Used to bridge non-reactive code with reactive code.
+
+Behaviour, replay subjects etc.
+
+*Warning*: you should only really consider them as a last resort when bridging non-reactive and reactive code.
+
+```javascript
+const simple = new Rx.Subject();
+
+simple.subscribe(createSubscriber("simple"));
+
+simple.next("Hello");
+simple.next("World");
+simple.complete();
+```
+
+Before, we had to invoke a function that call `next` and `complete`.
