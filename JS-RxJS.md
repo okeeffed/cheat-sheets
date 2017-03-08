@@ -185,11 +185,82 @@ Note, you can model anything in a reactive context by thinking a little bit diff
 
 - Reactive can still complete, or it can error out and retry.
 
+## 3.2 Creating Observables 
 
+```javascript
+import Rx from 'rxjs/Rx';
 
+# promise will always execute - not lazy
+const promise = new Promise((resolve, reject) => {
+	console.log("In promise");
+	resolve("hey");
+});
 
+promise.then(item => console.log(item));
 
+# this doesn't give any output!
+# observables are lazy!
+# won't run without a subscription
+const simple$ = new Rx.Observable(observer => {
+	console.log("Generating observable");
+	setTimeout(() => {
+		observer.next("An items!");
+		setTimeout(() => {
+			observer.next("Another item!");
+			observer.complete();
+		}, 1000);
+	}, 1000);
+});
 
+# creating a subscription
+# first arg is the next function
+# second arg is error 
+# third arg is complete
+simple$.subscribe(
+	item => console.log(`one.next ${item}`),
+	error => console.log(`one.error ${item}`),
+	() => console.log("one.complete")
+);
+
+# Generating observable 
+# one.next An item!
+# one.next Another item! 
+# one.complete
+
+setTimeout(() => {
+	simple$.subscribe({
+		next: item => console.log(`two.next ${item}`),
+		error: error => console.log(`two.error ${item}`),
+		complete: () => console.log("two.complete")
+	});
+}, 3000)
+```
+
+- Re-subscribing to an observable allows you to run that generator again
+
+```
+function createInterval(time) {
+	return new Rx.Observable(observer => {
+		let index = 0;
+		setInterval(() => {
+			observer.next(index++);
+		}, time);
+	});
+}
+
+function createSubscriber(tag) {
+	return {
+		next(item) { console.log(`${tag}.next ${item}`); },
+		error(error) { console.log(`${tag}.error ${error.stack || error }`); },
+		complete() { console.log(`${tag}.complete`); }
+	};
+}
+
+const everySecond_ = createInterval(1000);
+everySecond_.subscribe(createSubscriber("one"));
+```
+
+- this subscription will console.log out forever and ever and ever...
 
 
 
