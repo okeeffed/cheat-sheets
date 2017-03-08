@@ -242,9 +242,14 @@ setTimeout(() => {
 function createInterval(time) {
 	return new Rx.Observable(observer => {
 		let index = 0;
-		setInterval(() => {
+		let interval = setInterval(() => {
 			observer.next(index++);
 		}, time);
+
+		return () => {
+			// will run when we unsubscribe
+			clearnInterval(interval);
+		};
 	});
 }
 
@@ -256,12 +261,45 @@ function createSubscriber(tag) {
 	};
 }
 
+function take(observable, amount) {
+	return new Rx.Observable(observer => {
+
+	});
+}
+
+// this is the core of subscriptions
+function take(sourceObservable, amount) {
+	return new Rx.Observable(observer => {
+		let count = 0;
+		const subscription = sourceObservable.subscribe({
+			next(item) { 
+				observer.next(item);
+				if (++count >= amount) {
+					observer.complete();
+				}
+			},
+			error(error) { observer.error(error); },
+			complete() { observer.complete(); }
+		});
+
+		return () => subscription.unsubscribe();
+	});
+}
+
 const everySecond_ = createInterval(1000);
-everySecond_.subscribe(createSubscriber("one"));
+const firstFiveSeconds = take(everySecond_, 5);
+const subscription = everySecond_.subscribe(createSubscriber("one"));
+setTimeout(() => {
+	subscription.unsubscribe();
+}, 3500);
 ```
 
-- this subscription will console.log out forever and ever and ever...
+This subscription will console.log out forever and ever and ever...
+	- unless, we dispose of a description
 
+How do operators come into play?
 
+We could run something like `const subscription = everySecond_.take(3)subscribe(createSubscriber("one"));`
 
+The steps for it are that it listens for a source and emits a transformation!
 
