@@ -303,3 +303,119 @@ We could run something like `const subscription = everySecond_.take(3)subscribe(
 
 The steps for it are that it listens for a source and emits a transformation!
 
+## 3.3: Built in Observables
+
+```javascript
+import Rx from 'rxjs/Rx';
+
+
+Rx.Observable.interval(500)
+	.take(5)
+	.subscribe(createSubscriber("interval"));
+
+Rx.Observable.timer(1000, 500)
+	.take(3)
+	.subscribe(createSubscriber("timer");
+
+// note, array doesn't work - use from 
+Rx.Observable.of("Hello world!", 42, "whoa")
+	.subscribe(createSubscriber("of"));
+
+Rx.Observable.from(["Hello world!", 42, "whoa"])
+	.subscribe(createSubscriber("of"));
+
+Rx.Observable.from(generate())
+	.subscribe(createSubscriber("of"));
+
+
+Rx.Observable.from("hello world!")
+	.subscribe(createSubscriber("of"));
+
+// it can also take in a generator function!
+
+function* generate() {
+	yield 1;
+	yield 5;
+	yield "HEY";
+}
+
+Rx.Observable.throw(new Error("Hey"))
+	.subscribe(createSubscriber("error"));
+
+// empty
+Rx.Observable.empty()
+	.subscribe(createSubscriber("empty"));
+
+// defer
+let sideEffect = 0;
+const defer = Rx.Observable.defer(() => {
+	sideEffect++;
+	return Rx.Obserable.of(sideEffect);
+});
+
+defer.subscribe(createSubscriber("defer.one"));
+defer.subscribe(createSubscriber("defer.two"));
+defer.subscribe(createSubscriber("defer.three"));
+
+Rx.Observable.never()
+	.subscribe(createSubscriber("never"));
+
+Rx.Observable.range(10, 30)
+	.subscribe(createSubscriber("range"));
+```
+
+Benefits of the iterable `from`?
+- For every iterable, we could map every element.
+
+## 3.4: Using RxJS with Node, jQuery and Promises
+
+```javascript 
+Rx.Observable.fromEvent($title, "keyup")
+	.map(e => e.target.value)
+	.distinctUntilChanged()
+	.debounceTime(500)
+	.switchMap(getItems)
+	.subscribe(items => {
+		$results.empty();
+		$results.append(items.map(i => $('<li />').text(i)));
+	});
+```
+
+NOTE: Without the subscribe, it will never be subscribed to the dom!
+
+If we have the `.take(10)` - it would complete after taking 10 and then furthermore unsubscribe and be great for performance!
+
+`fromEvent` calls from `addEventListener`, so it can do powerful things like `keyup` for those that don't initially support it.
+
+```javascript
+import fs from 'fs';
+
+fs.readdir("./src/server", (err, items) => {
+	if (err) console.log(err);
+	else {
+		console.log(items);
+	}
+});
+
+// alternative
+const readdir = Rx.Observable.bindNodeCallBack(fs.readdir);
+
+readdir("./src/server")
+	// mergeMap creates iterable converted from array
+	.mergeMap(files => Rx.Observable.from(files))
+	.map(file => `MANIPULATED ${file}`)
+	.subscribe(createSubscriber("readdir"));
+
+// promises 
+
+function getItem() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve("Hello");
+		}, 1000);
+	});
+}
+
+Rx.Observable.fromPromise(getItem())
+	.subscribe(createSubscriber("promise"));
+```
