@@ -533,7 +533,13 @@ two.complete
 - you should use an observable workflow where possible
 
 
-## 3.6: Subjects
+## 3.6: RxJS Resources and Documentation 
+
+Sources:
+
+- [RxJS Github](https://github.com/ReactiveX/rxjs)
+- [RxMarbles](http://rxmarbles.com/)
+- [RxVision Playground](http://jaredforsyth.com/rxvision/examples/playground/)
 
 
 
