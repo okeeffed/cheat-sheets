@@ -1783,6 +1783,59 @@ def knightTour(n, path, u, limit):
 
 **DFS Overview**
 
+- Knight's tour is a special case where the goal is to create the deepest depth first tree without any branches
+- Really the general DFS is more about searching as deep as possible and then branching where needed
+
+**DFS**
+
+- As with the BFS, our DFS makes use of predecessor links to construct the tree 
+- In addition, DFS will make use of tw additional instance variables in the Vertex class 
+- New instance variables are the discovery and finish times 
+- Discovery time tracks the number of steps in the algorithm before a vertex is first encountered 
+- Finish time is the number of steps in the algorithm before a vertex is coloured black 
+
+```python 
+class DFSGraph(Graph):
+	def __init__(self):
+		super().__init__()
+		self.time = 0 
+
+	def dfs(self):
+		for aVertex in self: 
+			aVertex.setColor('white')
+			aVertex.setPred(-1)
+		for aVertex in self:
+			if aVertex.getColor() == 'white':
+				self.dfsvisit(aVertex)
+	
+	# dfsvisit uses a stack
+	def dfsvisit(self, startVertex):
+		startVertex.setColor('gray')
+		self.time += 1 
+		startVertex.setDiscovery(self.time)
+		for nextVertex in startVertex.getConnections():
+			if nextVertex.getColor() == 'white':
+				nextVertex.setPred(startVertex)
+				self.dfsvisit(nextVertex)
+		startVertex.setColor('black')
+		self.time += 1 
+		startVertex.setFinish(self.time)
+```
+
+- Start and Finish times display a property called the `parenthesis property`
+- This means that all children of a particular node in DFS have a later discovery time and an earlier finish time than their parent
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
