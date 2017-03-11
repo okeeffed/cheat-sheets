@@ -742,7 +742,7 @@ Rx.Observable.range(1, 5)
 	.subscribe(createSubscriber("concat1"));
 ```
 
-## 4.2: Map / MergeMap / SwitchMap
+## 4.3: Map / MergeMap / SwitchMap
 
 ```javascript 
 // map - a projection on every item that comes in 
@@ -781,7 +781,7 @@ const tracks = arrayMergeMap(albums, album => album.tracks)
 
 Rx.Observable.range(1, 3)
 	.mergeMap(i => Rx.Observable.timer(i * 1000).map(() => `After ${i} seconds`))
-	.subscribe(creaSubscriber("mergeMap"));
+	.subscribe(createSubscriber("mergeMap"));
 
 Rx.Observable.fromPromise(getTracks())
 	.mergeMap(tracks => Rx.Observable.from(tracks))
@@ -815,13 +815,151 @@ function query(value) {
 
 ## 4.4: Reduce / Scan
 
+```javascript 
+// reducer (acc, value) and works on value - doesn't emit until the completion 
+// scan - processes and emits as it comes in
+Rx.Observable.range(1, 10)
+	.reduce((acc, value) => acc + value)
+	.subscribe(createSubscriber("reduce"));
+
+Rx.Observable.range(1, 10)
+	.scan((acc, value) => acc + value)
+	.subscribe(createSubscriber("scan"));
+```
+
+## 4.5: Buffer / ToArray
+
+There have been some big changes to how `buffer` has been used.
+
+Buffer takes in an observable.
+
+toArray will convert results into an array.
+	- still has a clean exit if the never() is implemented!
+
+```javascript 
+Rx.Observable.range(1, 100)
+	.bufferCount(25)
+	.subscribe(createSubscriber("items");
+
+// will take 25 items and pushing them into an array 
 
 
+Rx.Observable.interval(500)
+	.bufferTime(2000)
+	.subscribe(createSubscriber("bufferTime");
+
+// same behaviour!
+// emitting event causes buffer to flush
+Rx.Observable.interval(500)
+	.buffer(Rx.Observable.interval(2000))
+	.subscribe(createSubscriber("buffer");
+
+//
+// toArray 
+//
+
+Rx.Observable.range(1, 10)
+	.toArray()
+	.subscribe(createSubscriber("range"));
+```
+
+## 4.6: First / Last / Single / Skip / Take
+
+```javascript
+const simple = new Rx.Observable(observer => {
+	console.log('Generating sequence');
+	observer.next(1);
+	observer.next(2);
+	observer.next(3);
+	observer.next(4);
+	observer.complete();
+});
+
+simple.first()
+	.subscribe(createSubscriber("first"));
+
+simple.last()
+	.subscribe(createSubscriber("last"));
+
+// displays 1 & 4
+// if nothing is in there, there are EmptyError(s) thrown
+
+// single.error thrown is more than one error thrown
+simple.single()
+	.subscribe(createSubscriber("single"));
+
+// take and skip won't throw errors
+// take does the first however emissions 
+// skip will take the emissions after a number
+simple.take(2)
+	.subscribe(createSubscriber("take"));
+
+simple.skip(2)
+	.subscribe(createSubscriber("skip"));
+
+// 3, 4
+simple.skip(2).take(2)
+	.subscribe(createSubscriber("skip"));
+
+// skipWhile / takeWhile
+Rx.Observable.interval(500)
+	.skipWhile(i => i < 4)
+	.takeWhile(i => i < 10)
+	.subscribe(createSubscriber("skipWhile/takeWhile"));
+
+// what's until and take emissions until
+Rx.Observable.interval(500)
+	.skipUntil(Rx.Observable.timer(1000))
+	.takeUntil(Rx.Observable.timer(4000))
+	.subscribe(createSubscriber("skipUntil"));
+```
+
+## 4.7: Zip / WithLatestFrom / CombineLatest
+
+How can we combine observables in different ways?
 
 
+```javascript 
+function arrayZip(arr1, arr2, selectorFunc) {
+	const count = Math.min(arr1.length, arr2.length);
+	const results = [];
 
+	for (let i = 0; i < count; i++) {
+		const combined = selector(arr1[i], arr2[i]);
+		results.push(combined);
+	}
 
+	return results;
+}
 
+const arr1 = [32, 2, 52, 43, 54];
+const arr2 = [1, 0, 10, 4, 1, 4, 6, 2];
+const results = arrayZip(arr1, arr2, (left, right) => left * right);
 
+console.log(results);
 
+// in RxJS
+Rx.Observable.range(1.10)
+	.zip(Rx.Observable.interval(500), (left, right) => `item: ${left}, at ${right * 500}`)
+	.subscribe(createSubscriber("zip"));
+
+// emits value when source emits
+// can also pass (left, right) function like zip as second parameter
+Rx.Observable.interval(1000)
+	.withLatestFrom(Rx.Observable.interval(500))
+	.subscribe(createSubscriber("withLatestFrom"));
+
+// emit value if either do
+Rx.Observable.interval(1000)
+	.combineLatest(Rx.Observable.interval(500))
+	.subscribe(createSubscriber("withLatestFrom"));
+```
+
+## 4.8: Error Handling Catch and Retry
+
+If an error happens, an observer stops emitting and can prevent values from emitting at all. Error handling is very important! 
+
+`.catch(error => Rx.Observable.of(error))` can pass this down as an Observable.
+
+`.retry()` we can pass in with a numeral to ensure that we either keep retrying or retry a certain number of times.
 
