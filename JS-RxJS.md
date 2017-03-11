@@ -745,31 +745,75 @@ Rx.Observable.range(1, 5)
 ## 4.2: Map / MergeMap / SwitchMap
 
 ```javascript 
-// merge - merge many observables togethers
-// concat - this concatenates observables to the end of another, can also take a list of Observables
+// map - a projection on every item that comes in 
+// mergeMap - select many, does projection and then has another thing that we will work on
+// switchMap - similar to mergeMap but replaces with the latest value if another emission comes in
 
-Rx.Observable.interval(1000)
-	.merge(Rx.Observable.interval(500))
-	.take(5)
-	.subscribe(createSubscriber("merge1"));
+function arrayMap(arr, proj) {
+	let returnArray = [];
+	for (let i of arr) {
+		returnArray.push(proj(item));
+	}
 
-Rx.Observable.merge(
-	Rx.Observable.interval(1000).map(i => `${i} seconds),
-	Rx.Observable.interval(500).map(i => `${i} half seconds))
-	.take(5)
-	.subscribe(createSubscriber('merge2'));
+	return returnArray;
+}
 
-// different events for merged observables 
-Rx.Observable.merge(
-	socket.on$("login").map(user => processUser(user),
-	socket.on$("logout").map(() => null));
+arrayMap([1, 2, 3], a => a * a);
 
-Rx.Observable.range(1, 5)
-	.concat(Rx.Observable.range(10,3))
-	.subscribe(createSubscriber("concat1"));
+// imagine array of dicts
+const albums = [
+	{}, {}
+];
+
+function arrayMergeMap(arr, proj) {
+	let returnArray = [];
+	for (let i of arr) {
+		let projArray = proj(item);
+		for (let j of projArray) {
+			returnArray.push(proj(item));
+		}
+	}
+
+	return returnArray;
+}
+
+const tracks = arrayMergeMap(albums, album => album.tracks)
+
+Rx.Observable.range(1, 3)
+	.mergeMap(i => Rx.Observable.timer(i * 1000).map(() => `After ${i} seconds`))
+	.subscribe(creaSubscriber("mergeMap"));
+
+Rx.Observable.fromPromise(getTracks())
+	.mergeMap(tracks => Rx.Observable.from(tracks))
+	.subscribe(createSubscriber("tracks"));
+
+function getTracks() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve(["track 1", "track 2", "track 3"]);
+		}, 1000);
+	});
+}
+
+// synchronous example 
+Rx.Observable.of("my query")
+	.do(() => console.log("Querying"))
+	.mergeMap(a => query(a))
+	.do(() => console.log("After querying"))
+	.subscribe(createSubscriber("query"));
+
+function query(value) {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			resolve("This is the resolved value");
+		}, 1000);
+	});
+}
+
+// switch map 
 ```
 
-
+## 4.4: Reduce / Scan
 
 
 
