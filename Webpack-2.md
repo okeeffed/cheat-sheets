@@ -9,9 +9,9 @@ The concept is to have many js files that are small and specific.
 
 Module Systems and their Common Syntax:
 
-| Module System 		| Common Syntax 			|
-------------
-| CommonJS				| require, module.exports 	|
-| AMD 					| require, define 			|
-| ES2015				| import, export			|
+Module System 		| Common Syntax 			
+---					| ---
+CommonJS			| require, module.exports 	
+AMD 				| require, define 			
+ES2015				| import, export			
 
