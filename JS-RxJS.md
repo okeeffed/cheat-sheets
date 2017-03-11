@@ -541,12 +541,149 @@ Sources:
 - [RxMarbles](http://rxmarbles.com/)
 - [RxVision Playground](http://jaredforsyth.com/rxvision/examples/playground/)
 
+## 3.7: Sharing Observable Sequences
+
+- Hot Observable: It will produce events regardless of if you're listening - eg.`fromEvent($title, 'keyup')` 
+- Cold Obserable: Starts once you subscribe
+	- Interval Observables are actually cold observables
+
+```javascript
+// this example shows when both start from the beginning eg cold
+import Rx from 'rxjs/Rx';
+
+const interval = Rx.Observable.interval(1000)
+	.take(10);
+
+setTimeout(() => {
+	interval.subscribe(createSubscriber("one"));
+}, 1200);
+
+setTimeout(() => {
+	interval.subscribe(createSubscriber("two"));
+}, 3200);
+
+// HOT 
+// connectable observable
+import Rx from 'rxjs/Rx';
+
+const interval = Rx.Observable.interval(1000)
+	.take(10)
+	.publish();
+
+interval.connect();
+
+setTimeout(() => {
+	interval.subscribe(createSubscriber("one"));
+}, 1200);
+
+setTimeout(() => {
+	interval.subscribe(createSubscriber("two"));
+}, 3200);
+
+// if you connect after a set interval, then it begins executing and sharing the underlying observable
+```
+
+**Why would you want a hot variable?**
+
+```javascript 
+// here subscribe console.log runs twice 
+const socket = { on: () => {} };
+const chatMessage = new Rx.Observable(observable => {
+	console.log('subscribed')
+	socket.on("chat:message", message => observer.next(message));
+});
+
+chatMessage.subscribe(createSubscriber("one"));
+chatMessage.subscribe(createSubscriber("two"));
+
+// without it 
+
+const socket = { on: () => {} };
+const chatMessage = new Rx.Observable(observable => {
+	console.log('subscribed')
+	socket.on("chat:message", message => observer.next(message));
+}).publish();
+
+chatMessage.connect();
+
+chatMessage.subscribe(createSubscriber("one"));
+chatMessage.subscribe(createSubscriber("two"));
+
+// using publishLast()
+const simple = new Rx.Observable(observer => {
+	observer.next("one");
+	observer.next("two");
+	observer.complete();
+});
+
+// always returns the last value
+const published = simple.publishLast();
+
+// even if we subscribe before connect, both will get the last value
+published.subscribe(createSubscriber("one"));
+published.connect();
+published.subscribe(creaSubscriber("two"));
+
+// using publishReplay()
+const simple = new Rx.Observable(observer => {
+	observer.next("one");
+	observer.next("two");
+	observer.next("three");
+	
+	return () => console.log("Disposed");
+});
+
+// always returns the last value
+const published = simple.publishReplay(2);
+
+// even if we subscribe before connect, both will get the last value
+// to dispose without running complete, we need to disconnect by unsubscribing 
+const sub1 = published.subscribe(createSubscriber("one"));
+const connection = published.connect();
+const sub2 = published.subscribe(creaSubscriber("two"));
+
+sub1.unsubscribe();
+sub2.unsubscribe();
+
+connection.unsubscribe();
+```
+
+Refcount is a way to automatically handle the connection and the unsubscription of a connection observable.
+
+It will connect to the first subscription and then disconnected on the last unsubscribe.
+
+```
+// using refCount()
+const simple = new Rx.Observable(observer => {
+	observer.next("one");
+	observer.next("two");
+	observer.next("three");
+	
+	return () => console.log("Disposed");
+});
+
+// always returns the last value
+const published = simple.publishReplay(2).refCount();
+
+// even if we subscribe before connect, both will get the last value
+// to dispose without running complete, we need to disconnect by unsubscribing 
+const sub1 = published.subscribe(createSubscriber("one"));
+const sub2 = published.subscribe(creaSubscriber("two"));
+
+sub1.unsubscribe();
+sub2.unsubscribe();
+```
+
+The `publish().refCount()` is done so often, that is has been turned in `share()`.
 
 
+Taxing processes that you don't want to repeat but you want multiple things to hook into the result, then turn it into a hot subscription.
 
+***
 
+## 4.0: Operators that everyone should know 
 
+Now we will just talk about the different primary operators that you will work with.
 
-
-
+## 4.1: Do / Finally / StartWith / Filter
 
