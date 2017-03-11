@@ -687,3 +687,97 @@ Now we will just talk about the different primary operators that you will work w
 
 ## 4.1: Do / Finally / StartWith / Filter
 
+```javascript 
+// do => get the next value and pass it back unchanged
+// finally => only completes after the range has completed, runs right at the end of the final value
+// filter => filters out given statement
+// interval => call timeout
+// startWith => set initial value
+
+Rx.Observable.range(1, 10)
+	.do(a => console.log(`From do ${a}`))
+	.map(a => a * a)
+	.subscribe(createSubscriber("simple"));
+
+
+Rx.Observable.range(1, 10)
+	.finally(() => console.log(`From finally`))
+	.map(a => a * 2)
+	.subscribe(createSubscriber("finally"));
+
+Rx.Observable.range(1, 10)
+	.filter(a => a < 5)
+	.map(a => a * 2)
+	.subscribe(createSubscriber("filter"));
+
+Rx.Observable.interval(1000)
+	.startWith(-1)
+	.subscribe(createSubscriber("interval"));
+```
+
+## 4.2: Merge / Concat
+
+```javascript 
+// merge - merge many observables togethers
+// concat - this concatenates observables to the end of another, can also take a list of Observables
+
+Rx.Observable.interval(1000)
+	.merge(Rx.Observable.interval(500))
+	.take(5)
+	.subscribe(createSubscriber("merge1"));
+
+Rx.Observable.merge(
+	Rx.Observable.interval(1000).map(i => `${i} seconds),
+	Rx.Observable.interval(500).map(i => `${i} half seconds))
+	.take(5)
+	.subscribe(createSubscriber('merge2'));
+
+// different events for merged observables 
+Rx.Observable.merge(
+	socket.on$("login").map(user => processUser(user),
+	socket.on$("logout").map(() => null));
+
+Rx.Observable.range(1, 5)
+	.concat(Rx.Observable.range(10,3))
+	.subscribe(createSubscriber("concat1"));
+```
+
+## 4.2: Map / MergeMap / SwitchMap
+
+```javascript 
+// merge - merge many observables togethers
+// concat - this concatenates observables to the end of another, can also take a list of Observables
+
+Rx.Observable.interval(1000)
+	.merge(Rx.Observable.interval(500))
+	.take(5)
+	.subscribe(createSubscriber("merge1"));
+
+Rx.Observable.merge(
+	Rx.Observable.interval(1000).map(i => `${i} seconds),
+	Rx.Observable.interval(500).map(i => `${i} half seconds))
+	.take(5)
+	.subscribe(createSubscriber('merge2'));
+
+// different events for merged observables 
+Rx.Observable.merge(
+	socket.on$("login").map(user => processUser(user),
+	socket.on$("logout").map(() => null));
+
+Rx.Observable.range(1, 5)
+	.concat(Rx.Observable.range(10,3))
+	.subscribe(createSubscriber("concat1"));
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
