@@ -22,14 +22,9 @@ gulp.task( "watch", function() {
 		gutil.log(gitChange + " changed");
 		// task = 'git commit -m "' + gitChange + '"';
 
-		var gitAdd = spawn('git', ['add', '*']);
+		var gitAdd = spawn('./gitcommit.sh', [fileName]);
 		gitAdd.stdout.on('data', function (data) {
-			gutil.log('git add *: ', data.toString().slice(0, -1)); // Remove \n
-		});
-
-		var gitCommit = spawn('git', ['commit', '-m', gitChange]);
-		gitCommit.stdout.on('data', function (data) {
-			gutil.log('git commit: ', data.toString().slice(0, -1)); // Remove \n
+			gutil.log('gitcommit: ', data.toString().slice(0, -1)); // Remove \n
 		});
 	});
 });
