@@ -183,7 +183,7 @@ int main(int argc, char *argv[]) {
 
 ## Syncronisation Issues 
 
-
+When multiple threads attempt to manipulate the same data item, the results can often be incoherent if proper care is not take ie. race conditions.
 
 
 
