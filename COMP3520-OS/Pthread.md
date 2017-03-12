@@ -160,7 +160,14 @@ void *BusyWork(void *null) {
 	pthread_exit((void *) 0);
 }
 
-
+int main(int argc, char *argv[]) {
+	pthread_attr_t attr;
+	int rc, t;
+	void *status;
+	/* init and set thread detached attribute */
+	pthread_attr_init(&attr);
+	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+}
 
 
 
