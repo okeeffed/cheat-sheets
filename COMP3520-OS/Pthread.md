@@ -8,7 +8,7 @@
 2. Mutexes 
 3. Condition variables
 
-**Thread Management**
+# 1: Thread Management
 
 - first class of functions work directly on threads - creating, detatching, joining etc 
 - also include funcs to set/query thread attributes (joinable, scheduling etc)
@@ -184,6 +184,10 @@ int main(int argc, char *argv[]) {
 ## Syncronisation Issues 
 
 When multiple threads attempt to manipulate the same data item, the results can often be incoherent if proper care is not take ie. race conditions.
+
+# 2: Mutexes
+
+The second class of functions deal with synchronization - called a "mutex", which is an abbreviation for mutual exclusion.
 
 
 
