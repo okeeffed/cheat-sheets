@@ -153,7 +153,12 @@ To explicitly create a thread as joinable or detached, the attr argument in the 
 3. Set the attribute detached status with `pthread_attr_setdetachedstate()`
 4. When done, ree library resources used by the attribute with `pthread_attr_destroy()`
 
+**Example**
 
+void *BusyWork(void *null) {
+	// do stuff 
+	pthread_exit((void *) 0);
+}
 
 
 
