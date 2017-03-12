@@ -206,7 +206,13 @@ There are two ways to init a mutex variable:
 
 The mutex is initially unlocked.
 
+## Locking & Unlocking Mutexes
 
+Routines 
+---
+`pthread_mutex_lock(mutex)`
+`pthread_mutex_unlock(mutex)`
+`pthread_mutex_trylock(mutex)`
 
 
 
