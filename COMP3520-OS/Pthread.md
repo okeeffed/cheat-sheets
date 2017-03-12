@@ -155,6 +155,7 @@ To explicitly create a thread as joinable or detached, the attr argument in the 
 
 **Example**
 
+```c
 void *BusyWork(void *null) {
 	// do stuff 
 	pthread_exit((void *) 0);
@@ -178,7 +179,7 @@ int main(int argc, char *argv[]) {
 	}
 	pthread_exit(NULL);
 }
-
+```
 
 
 
