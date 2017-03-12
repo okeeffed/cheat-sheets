@@ -164,9 +164,18 @@ int main(int argc, char *argv[]) {
 	pthread_attr_t attr;
 	int rc, t;
 	void *status;
+
 	/* init and set thread detached attribute */
 	pthread_attr_init(&attr);
 	pthread_attr_setdetachstate(&attr, PTHREAD_CREATE_JOINABLE);
+
+	/* free attribute and wait for the other threads */
+	pthread_attr_destory(&attr);
+	for (t=0; t< NUM_THREADS; t++) {
+		rc = pthread_join(thread[t], &status);
+		// do stuff 
+		printf("Completed join with thred %d status = %ld\n", t, (long)status);
+	}
 }
 
 
