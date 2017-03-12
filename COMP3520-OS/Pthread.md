@@ -191,6 +191,13 @@ The second class of functions deal with synchronization - called a "mutex", whic
 
 ## Creating and Destroying Mutexes
 
+Routines
+---
+`pthread_mutex_init(mutex, attr)`
+`pthread_mutex_destroy(mutex)`
+`pthread_mutexattr_init(attr)`
+`pthread_mutexattr_destroy(attr)`
+
 
 
 
