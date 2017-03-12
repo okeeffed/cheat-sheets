@@ -131,9 +131,14 @@ int main(int argc, char *argv[]) {
 }
 ```
 
-Testing
+## Joining and Detatching Threads
 
-Test?
+**Routines**
+
+1. pthread_join(threadid, status)
+2. pthread_detach(threadit, status)
+3. pthread_attr_setdatachstate(attr, detachstate)
+4. pthread_attr_getdetachstate(attr, detachstate)
 
 
 
