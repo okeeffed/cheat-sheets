@@ -176,6 +176,7 @@ int main(int argc, char *argv[]) {
 		// do stuff 
 		printf("Completed join with thred %d status = %ld\n", t, (long)status);
 	}
+	pthread_exit(NULL);
 }
 
 
