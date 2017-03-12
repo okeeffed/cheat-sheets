@@ -198,8 +198,13 @@ Routines
 `pthread_mutexattr_init(attr)`
 `pthread_mutexattr_destroy(attr)`
 
+A mutex must be declared with type `pthread_mutex_t`, and must be initialized before they can be used.
 
+There are two ways to init a mutex variable:
+1. Statically, when declared eg `pthread_mutex_t mymutex = PTHREAD_MUTEX_INITIALIZER`
+2. Dynamically, with the `pthread_mutex_init()` routine. This method permits setting mutex object attributes, `attr` (which my be specified as NULL to accept defaults).
 
+The mutex is initially unlocked.
 
 
 
