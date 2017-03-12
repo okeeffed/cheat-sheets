@@ -33,19 +33,19 @@ The _level of abstraction_ must be appropriate.
 1. Incremental - stat with empty space, add 1 queen at a time 
 2. Complete-state - start with all 8 queens and move them around 
 
-For 1:
+**For 1:**
 - States? Any arrangement of 0 to 8 queens 
 - Initial state? No queens on the board 
 - Operators? Add any queen to any square 
 - State space? 1.8 * 10^14 states (= 64 * 63 * ... * 57)
 
-For 2:
+**For 2:**
 - States? Any arrangement of 0 to 8 queens, 1 in each column with no queen attacking each other
 - Initial state? No queens on the board
 - Operators? Place a queen in the left-most-empty column such that it is not attacked by any other queen 
 - State space? 2057 states 
 
-For 100-queens:
+**For 100-queens:**
 - 1: 10^400 states 
 - 2: 10^52 states (hugh improvement but problem still not tractable)
 
@@ -59,9 +59,9 @@ For 100-queens:
 
 Basic idea: offline exploration of the state space by generating successors of the explored states (i.e. exapnding states)
 
-We keep two lists:
-Expanded - for nodes that have been expanded 
-Fringe - for nodes that bae been generated but not expanded yet
+**We keep two lists:**
+- Expanded - for nodes that have been expanded 
+- Fringe - for nodes that bae been generated but not expanded yet
 
 ## Nodes vs States 
 
@@ -78,31 +78,36 @@ A node:
 - We always keep the nodes in the fringe orded based on the search strategy and always expand the first one 
 
 **Evaluation Critera**
+
 Term				| Definition
 ---					| ---
 Completeness 		| is it guaranteed to find a solution if one exists?
 Optimality			| is it guaranteed to find an `optimal (least cost path)` solution?
-Time complexity		| Homw long does it take to find the solution? (measured as no. of generated nodes)
+Time complexity		| How long does it take to find the solution? (measured as no. of generated nodes)
 Space complexity	| what is the max number of nodes in memory?
 
 **Time and space complexity**
+
 Measured in terms of:
 - b: max branching factor of the search tree (we can assume that it is finite)
 - d: depth of the optimal (least cost) solution 
 - m: maximum depth of the state space (can be finite or not finite)
 
-There are two types of search methods:
+**There are two types of search methods:**
+
 1. Uninformed (blind)
 2. Informed (heuristic)
 
 ## Uninformed (Blind) Search Strategies 
 
-Uninformed strategies:
+**Uninformed strategies:**
+
 - Generate children in a systematic way eg level by level, from left to right 
 - Know if a child node is a goal or non-goal node 
 - Do not know if one non-goal child is better (more promising) than another one. By contrast, informed (heuristic) search strategies know this
 
-5 uninformed search strategies:
+**5 uninformed search strategies:**
+
 - Breadth first 
 - Uniform-cost 
 - Depth-first 
