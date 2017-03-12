@@ -189,6 +189,8 @@ When multiple threads attempt to manipulate the same data item, the results can 
 
 The second class of functions deal with synchronization - called a "mutex", which is an abbreviation for mutual exclusion.
 
+## Creating and Destroying Mutexes
+
 
 
 
