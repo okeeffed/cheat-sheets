@@ -82,8 +82,58 @@ int main(int argc, char *argv[]) {
 }
 ```
 
+## Passing Arguments to Threads
 
+`pthread_create()` routine permits the programmer to pass one argument to the thread start routine.
 
+For cases where multiple args must be passed, we can create a struct and use the reference pointer as an arg.
+
+All args passed by reference must be cast to (void *)
+
+```c 
+struct two_args {
+	int arg1;
+	int arg2;	
+};
+
+void *needs_2_args(void *ap) {
+	struct two_args *argp;
+	int a1, a2;
+
+	argp = (struct two_args *) ap;
+
+	// do stuff here
+	
+	a1 = argp->arg1;
+	a2 = argp->arg2;
+	
+	// do stuff here 
+
+	free(argp);
+	pthread_exit(NULL);
+}
+
+int main(int argc, char *argv[]) {
+	pthread_t t;
+	struct two_args *ap;
+	int rc;
+
+	// do stuff here 
+
+	ap = (struct two_args *)malloc(sizeof(struct two_args));
+	ap->arg1 = 1;
+	ap->arg2 = 2;
+	rc = pthread_create(&t, NULL, needs_2_args, (void *) ap);
+
+	// do stuff here 
+
+	pthread_exit(NULL);
+}
+```
+
+Testing
+
+Test?
 
 
 
