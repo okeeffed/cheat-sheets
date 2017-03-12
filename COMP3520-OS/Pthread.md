@@ -151,6 +151,9 @@ To explicitly create a thread as joinable or detached, the attr argument in the 
 1. Declare a pthread attribute ariable of the `pthread_attr_t data` type 
 2. Initialize the attribute ariable with `pthread_attr_init()`
 3. Set the attribute detached status with `pthread_attr_setdetachedstate()`
+4. When done, ree library resources used by the attribute with `pthread_attr_destroy()`
+
+
 
 
 
