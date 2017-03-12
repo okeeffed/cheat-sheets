@@ -67,7 +67,7 @@ Basic idea: offline exploration of the state space by generating successors of t
 
 A `node` is different than a `state`.
 
-A node:
+**A node:**
 - represents a state 
 - is a data structure used in the search tree 
 - includes `parent`, `children`, and other relevant information e.g. `depth` and `path cost g`
