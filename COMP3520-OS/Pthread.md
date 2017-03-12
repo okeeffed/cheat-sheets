@@ -144,6 +144,8 @@ int main(int argc, char *argv[]) {
 - the `pthread_join()` subroutine blocks the calling thread until the specified threadid thread terminates
 - The programmer is able to obtain the target thread's termination return status if it was specified in the target thread's call to pthread_exit()
 
+When a thread if created, one of its attributes defines whether it is joinable or detached.
+
 
 
 
