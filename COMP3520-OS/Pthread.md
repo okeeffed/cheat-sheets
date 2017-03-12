@@ -27,6 +27,7 @@ pthread_create(thread, attr, startRoutine, arg)
 /*
 	If successful, the pthread_create() function shall return zero; otherwise, an error number shall be returned to indicate the error
  */
+```
 
 **Thread Attributes**
 
