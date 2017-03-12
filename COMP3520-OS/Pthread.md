@@ -142,13 +142,15 @@ int main(int argc, char *argv[]) {
 
 - "joining" is one way to accomplish synchronization between threads
 - the `pthread_join()` subroutine blocks the calling thread until the specified threadid thread terminates
-- The programmer is able to obtain the target thread's termination return status if it was specified in the target thread's call to pthread_exit()
+- The programmer is able to obtain the target thread's termination return status if it was specified in the target thread's call to `pthread_exit()`
 - When a thread if created, one of its attributes defines whether it is joinable or detached.
 - Only threads that are create as joinable can be joined.
 
-To explicitly create a thread as joinable or detached, the attr argument in the pthread_create() routine is used:
+To explicitly create a thread as joinable or detached, the attr argument in the `pthread_create()` routine is used:
 
-
+1. Declare a pthread attribute ariable of the `pthread_attr_t data` type 
+2. Initialize the attribute ariable with `pthread_attr_init()`
+3. Set the attribute detached status with `pthread_attr_setdetachedstate()`
 
 
 
