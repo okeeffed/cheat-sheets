@@ -195,3 +195,21 @@ The above example was to see what happens, but really we can just use the `impor
 You can see this on the `network` tab on Google Dev Tools to see this all in action.
 
 Anything that uses `System.import()` it will split up our call for different modules to import. 
+
+***
+
+## 4.4: Code Splitting in the real world 
+
+The CommonChunksPlugin will look for common code in the bundles and split them into seperate files depending on the value you pass in for `name`.
+
+```javascript
+...
+
+plugins: [
+	new webpack.optimize.CommonsChunkPlugin({
+		name: 'vendor'
+	});
+];
+
+...
+```
