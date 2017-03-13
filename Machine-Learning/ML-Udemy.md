@@ -57,6 +57,8 @@ y = dataset.iloc[:, 3].values
 
 **In R**
 
+REMEMBER - R Arrays begin from 1
+
 ```r 
 #importing the dataset
 dataset = read.csv('Data.csv');
