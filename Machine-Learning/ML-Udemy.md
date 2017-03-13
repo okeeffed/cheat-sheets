@@ -93,7 +93,9 @@ X[:, 1:3] = imputer.tranform(X[:, 1:3])
 **In R**
 
 ```r 
-dataset$Age
+# ifelse is like a ternary
+# is.na is to check if value is missing or not
+dataset$Age = ifelse(is.na(dataset$Age), )
 ```
 
 
