@@ -59,4 +59,5 @@ y = dataset.iloc[:, 3].values
 
 ```r 
 #importing the dataset
+dataset = read.csv('data')
 ```
