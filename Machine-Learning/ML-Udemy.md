@@ -87,7 +87,7 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 # lowerbound included, upperbound is excluded
 imputer = imputer.fit(X[:, 1:3])
 # tranform method replaces the missing data
-X[:, 1:3] = imputer.tranform()
+X[:, 1:3] = imputer.tranform(X[:, 1:3])
 ```
 
 
