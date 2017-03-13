@@ -39,6 +39,8 @@ Here, we don't need to import any libraries since R Studio comes with a bunch of
 
 ### Importing the Dataset
 
+Here, we will import the variables and create a matrix of observations.
+
 **In Python**
 
 Set the working directory to where we need to be.
