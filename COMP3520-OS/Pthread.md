@@ -220,7 +220,13 @@ Routines
 - `pthread_mutex_trylock(mutex)` will attempt to lock a mutex, however if the mutex is already locked it will return a "EBUSY" error code. 
 	- May be useful to prevent deadlocks!
 
+**Example**
 
+We can now write our previously incorrect code segment as...
+
+```c 
+pthread_mutex_t min_value_lock;
+```
 
 
 
