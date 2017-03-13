@@ -372,6 +372,10 @@ It must unlock `mutex` in order for `pthread_cond_wait()` routine to complete.
 
 `pthread_cond_broadcast()` routine unlocks all of the threads blocked on the condition variable.
 
+- Proper locking and unlocked of mutex is essential for these routines
+	- Failing to lock may cause it NOT to block 
+	- Failing to unlock the mutex may not allow a matching `pthread_cond_wait()` routine to complete (it will remain blocked)
+
 
 
 
