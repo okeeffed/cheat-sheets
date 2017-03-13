@@ -54,3 +54,9 @@ X = dataset.iloc[:, :-1].values
 y = dataset.iloc[:, 3].values
 # printing y will give the last column values
 ```
+
+**In R**
+
+```r 
+#importing the dataset
+```
