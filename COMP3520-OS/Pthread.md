@@ -260,5 +260,16 @@ main() {
 	pthread_mutex_init(&task_queue_lock, NULL);
 }
 
+void *producer(void *producer_thread_data) {
+	...
+	while (!done()) {
+		inserted = 0;
+		create_task(&my_task);
+		while (inserted == 0) {
+			pthread_mutex_lock(&task_queue_lock);
+		}
+	}
+}
+
 
 
