@@ -88,3 +88,8 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 imputer = imputer.fit(X[:, 1:3])
 
 ```
+
+
+
+
+
