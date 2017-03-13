@@ -51,4 +51,5 @@ dataset = pd.read_csv('Data.csv')
 # iloc[lines, columns] -> :-1 all columns except last
 X = dataset.iloc[:, :-1].values
 # if we print X, it will create a matrix of the data and give a datatype
+y = dataset.iloc[:, 4].values
 ```
