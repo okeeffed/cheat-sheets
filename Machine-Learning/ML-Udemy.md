@@ -52,4 +52,5 @@ dataset = pd.read_csv('Data.csv')
 X = dataset.iloc[:, :-1].values
 # if we print X, it will create a matrix of the data and give a datatype
 y = dataset.iloc[:, 3].values
+# printing y will give the last column values
 ```
