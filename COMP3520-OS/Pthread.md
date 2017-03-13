@@ -368,6 +368,8 @@ Condition variables must be declared with type `pthread_cont_t`, and must be ini
 
 `pthread_cond_signal()` is used to signal (or wake up) another thread which is waiting on the condition variable and should be called after the `mutex` is locked.
 
+It must unlock `mutex` in order for `pthread_cond_wait()` routine to complete.
+
 
 
 
