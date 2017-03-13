@@ -92,6 +92,9 @@ X[:, 1:3] = imputer.tranform(X[:, 1:3])
 
 **In R**
 
+```r 
+
+```
 
 
 
