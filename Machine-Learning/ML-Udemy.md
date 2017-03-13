@@ -73,3 +73,9 @@ One way to get around this is to take the mean of the columns.
 For these dataset in `Age`, we will replace that data with the mean.
 
 **In Python**
+
+The library will will use is `sklearn`.
+
+```python 
+from sklean.preprocessing import Imputer
+```
