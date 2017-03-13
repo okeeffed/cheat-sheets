@@ -249,7 +249,7 @@ The `producer-consumer` scenario imposes the following constraints:
 
 1. The producer thread must not overwrite the shared buffer when the previous task has no been picked up by a consumer thread.
 2. The consumer threads must not pick up tasks until there is something present in the shared data structure.
-3. Individua consumer threads should pick up tasks one at a time.
+3. Individual consumer threads should pick up tasks one at a time.
 
 
 
