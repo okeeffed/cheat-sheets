@@ -16,3 +16,5 @@ Purchased 	| Boolean
 This dataset also has `independent vs dependent` variables, with the `dependent` variable being the Purchased data.
 
 So using the first three variables, we will predict the fourth column.
+
+## Importing the Libraries
