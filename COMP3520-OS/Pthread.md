@@ -334,6 +334,7 @@ A `monitor` is a high-level abstraction that may provide a convenient and effect
 
 - Monitor does not need to code certain sync constraints explicitly.
 - However, it is not sufficiently powerful for modeling some other synchronization schemes.
+- An additional sync mechanism ie `condition variable` is required.
 
 
 
