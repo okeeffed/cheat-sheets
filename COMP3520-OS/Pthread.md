@@ -246,7 +246,9 @@ void *find_min(void *list_ptr) {
 **Example 2**
 
 The `producer-consumer` scenario imposes the following constraints:
+
 1. The producer thread must not overwrite the shared buffer when the previous task has no been picked up by a consumer thread.
+
 
 
 
