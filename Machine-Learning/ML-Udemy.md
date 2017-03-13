@@ -68,4 +68,6 @@ dataset = read.csv('Data.csv');
 
 How can handle the problem when there is null data for where the is missing data?
 
-One way to get around this is to take the mean of the columns
+One way to get around this is to take the mean of the columns.
+
+For these dataset in `Age`, we will replace that data with the mean.
