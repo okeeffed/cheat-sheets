@@ -220,7 +220,7 @@ Routines
 - `pthread_mutex_trylock(mutex)` will attempt to lock a mutex, however if the mutex is already locked it will return a "EBUSY" error code. 
 	- May be useful to prevent deadlocks!
 
-**Example**
+**Example 1**
 
 We can now write our previously incorrect code segment as...
 
@@ -243,6 +243,10 @@ void *find_min(void *list_ptr) {
 }
 ```
 
+**Example 2**
+
+The `producer-consumer` scenario imposes the following constraints:
+1. The producer thread must not overwrite the shared buffer when the previous task has no been picked up by a consumer thread.
 
 
 
