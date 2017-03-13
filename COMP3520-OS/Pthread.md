@@ -217,7 +217,7 @@ Routines
 - `pthread_mutex_lock(mutex)` will lock the specified mutex
 - `pthread_mutex_unlock(mutex)` will unlock a mutex if called by the owning thread
 	- throws an error if already unlocked or owned by another thread
-`pthread_mutex_trylock(mutex)`
+- `pthread_mutex_trylock(mutex)` will attempt to lock a mutex, however if the mutex is already locked it will return a "EBUSY" error code.
 
 
 
