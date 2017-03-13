@@ -346,6 +346,8 @@ A `monitor` is a high-level abstraction that may provide a convenient and effect
 	- A condition variable has a queue for those threads that are waiting the corresponding event to occur to wait on.
 	- If another thread causes the event to occur, that thread simply signal the corresponding condition variable.
 - This class includes funcs to `create`, `destroy`, `wait` and `signal` based on specified variable values.
+- Funcs to set/quey cond variable attrs are also included.
+- Cond variable is always used in conjunction with a `mutex lock`
 
 
 
