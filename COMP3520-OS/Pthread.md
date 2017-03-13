@@ -295,4 +295,9 @@ void *consumer(void *consumer_thread_data) {
 }
 ```
 
+## Overheads of Locking 
+
+- Locks represent serialization points since critical sections must be executed by threads one after another.
+- Encapsulating large segments of the program within locks can lead to significant performance degradation.
+
 
