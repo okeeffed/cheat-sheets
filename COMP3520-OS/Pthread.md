@@ -208,13 +208,16 @@ The mutex is initially unlocked.
 
 ## Locking & Unlocking Mutexes
 
-Routines 
+Routines
 ---
 `pthread_mutex_lock(mutex)`
 `pthread_mutex_unlock(mutex)`
 `pthread_mutex_trylock(mutex)`
 
-
+- `pthread_mutex_lock(mutex)` will lock the specified mutex
+- `pthread_mutex_unlock(mutex)` will unlock a mutex if called by the owning thread
+	- throws an error if already unlocked or owned by another thread
+`pthread_mutex_trylock(mutex)`
 
 
 
