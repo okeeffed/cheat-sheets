@@ -358,7 +358,7 @@ pthread_cond_destroy(condition)
 pthread_condattr_init(attr)
 pthread_condattr_destroy(attr)
 
-
+Condition variables must be declared with type `pthread_cont_t`, and must be initialized before they can be used.
 
 
 
