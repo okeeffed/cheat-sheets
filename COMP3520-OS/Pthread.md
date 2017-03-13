@@ -303,6 +303,18 @@ void *consumer(void *consumer_thread_data) {
 
 **Alleviating Locking Overhead**
 
+```c 
+pthread_mutex_t tryLock_lock = PTHREAD_MUTEX_INITIALIZER;
 
+lock_status = pthread_mutex_trylock(&tryLock_lock)
+if (lock_status == EBUSY) {
+	/* do something else */
+	...
+} else {
+	/* do one thing */
+	...
+	pthread_mutex_unlock(&tryLock_lock);
+}
+```
 
 
