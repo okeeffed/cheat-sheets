@@ -277,5 +277,22 @@ void *producer(void *producer_thread_data) {
 	}
 }
 
+void *consumer(void *consumer_thread_data) {
+	...
+	while (!done()) {
+		extracted = 0;
+		while (extracted == 0) {
+			pthread_mutex_lock(&task_queue_lock);
+			if (task_available == 1) {
+				extract_from_queue(&my_task);
+				task_available = 0;
+				extracted = 1;
+			}
+			pthread_mutex_unlock(&task_queue_lock);
+		}
+		process_task(my_task);
+	}
+}
+```
 
 
