@@ -19,3 +19,7 @@ So using the first three variables, we will predict the fourth column.
 
 ### Importing the Libraries
 
+In Python:
+
+```
+import numpy as np
