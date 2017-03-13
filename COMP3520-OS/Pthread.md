@@ -272,6 +272,7 @@ void *producer(void *producer_thread_data) {
 				task_available = 1;
 				inserted = 1;
 			}
+			pthread_mutex_unlock(&task_queue_lock);
 		}
 	}
 }
