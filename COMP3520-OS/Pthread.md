@@ -319,3 +319,6 @@ if (lock_status == EBUSY) {
 
 ## Monitors
 
+Mutexes provide powerful sync tools, but...
+- lock() and unlock() are scatteed among several threads, therefore it is difficult to understand their effects
+
