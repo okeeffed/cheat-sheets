@@ -12,3 +12,5 @@ Country		| String
 Age			| Int
 Salary		| Int
 Purchased 	| Boolean
+
+This dataset also has `independent vs dependent` variables, with the `dependent` variable being the Purchased data.
