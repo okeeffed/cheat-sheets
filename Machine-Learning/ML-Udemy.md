@@ -44,6 +44,6 @@ Here, we don't need to import any libraries since R Studio comes with a bunch of
 Set the working directory to where we need to be.
 
 ```python
-# given the above imports
+# given the pandas import
 dataset = pd.read_csv('Data.csv')
 ```
