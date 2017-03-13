@@ -364,6 +364,8 @@ Condition variables must be declared with type `pthread_cont_t`, and must be ini
 1. Statically
 2. Dynamically 
 
+## Waiting and Signaling on Condition Variable
+
 
 
 
