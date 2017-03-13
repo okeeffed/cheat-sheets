@@ -349,6 +349,8 @@ A `monitor` is a high-level abstraction that may provide a convenient and effect
 - Funcs to set/quey cond variable attrs are also included.
 - Cond variable is always used in conjunction with a `mutex lock`
 
+## Create & Destroying Cond Variables
+
 
 
 
