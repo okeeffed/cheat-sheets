@@ -81,5 +81,6 @@ The library will will use is `sklearn`.
 ```python 
 from sklean.preprocessing import Imputer
 # set NaN and we will see that the missing values are NaN
+# strategy default is mean anyway but we'll be verbose
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean')
 ```
