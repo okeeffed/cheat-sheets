@@ -251,7 +251,14 @@ The `producer-consumer` scenario imposes the following constraints:
 2. The consumer threads must not pick up tasks until there is something present in the shared data structure.
 3. Individual consumer threads should pick up tasks one at a time.
 
+```c 
+pthread_mutex_t task_queue_lock;
+int task_available;
 
+main() {
+	task_available = 0;
+	pthread_mutex_init(&task_queue_lock, NULL);
+}
 
 
 
