@@ -376,7 +376,22 @@ It must unlock `mutex` in order for `pthread_cond_wait()` routine to complete.
 	- Failing to lock may cause it NOT to block 
 	- Failing to unlock the mutex may not allow a matching `pthread_cond_wait()` routine to complete (it will remain blocked)
 
-// p 37
+## Producer-Consumer Using Condition Variables 
+
+```c 
+pthread_cond_t cond_queue_empty, cond_queue_full;
+pthread_mutex_t task_queue_cond_lock;
+int task_available;
+// other data structures here 
+
+main() {
+	// declarations and initializations 
+	task_available = 0;
+	pthread_cond_init(&cond_queue_empty, NULL);
+	pthread_cond_init(&cond_queue_full, NULL);
+	pthread_mutex_init(&task_queue_cond_lock, NULL);
+	// create and join producer and consumer threads
+}
 
 
 
