@@ -330,5 +330,20 @@ A `monitor` is a high-level abstraction that may provide a convenient and effect
 - thread enters monitor by invoking one of its procedures 
 - only one thread may be executing in a the monitor at a time
 
+## Monitor and Condition Variables 
+
+- Monitor does not need to code certain sync constraints explicitly.
+- However, it is not sufficiently powerful for modeling some other synchronization schemes.
+
+
+
+
+
+
+
+
+
+
+
 
 
