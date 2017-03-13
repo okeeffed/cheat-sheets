@@ -33,3 +33,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 ```
+
+**In R**
+
+Here, we don't need to import any libraries since R Studio comes with a bunch of them!
