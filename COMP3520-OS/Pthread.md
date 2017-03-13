@@ -370,6 +370,8 @@ Condition variables must be declared with type `pthread_cont_t`, and must be ini
 
 It must unlock `mutex` in order for `pthread_cond_wait()` routine to complete.
 
+`pthread_cond_broadcast()` routine unlocks all of the threads blocked on the condition variable.
+
 
 
 
