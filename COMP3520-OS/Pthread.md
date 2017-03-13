@@ -366,6 +366,8 @@ Condition variables must be declared with type `pthread_cont_t`, and must be ini
 
 ## Waiting and Signaling on Condition Variable
 
+`pthread_cond_signal()` is used to signal (or wake up) another thread which is waiting on the condition variable.
+
 
 
 
