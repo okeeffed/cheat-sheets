@@ -360,6 +360,10 @@ pthread_condattr_destroy(attr)
 
 Condition variables must be declared with type `pthread_cont_t`, and must be initialized before they can be used.
 
+2 Ways to declare:
+1. Statically
+2. Dynamically 
+
 
 
 
