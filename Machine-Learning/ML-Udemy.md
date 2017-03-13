@@ -85,5 +85,5 @@ from sklean.preprocessing import Imputer
 # axis = 0
 imputer = Imputer(missing_values = 'NaN', strategy = 'mean', axis = 0)
 # lowerbound included, upperbound is excluded
-imputer.fit(X[:, 1:3])
+imputer = imputer.fit(X[:, 1:3])
 ```
