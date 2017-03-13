@@ -14,10 +14,17 @@ gulp.task( "watch", function() {
 		fileName = list[list.length-1];
 
 		var prefix = "";
+		var suffix = "";
+
 		if (process.env.TASK) {
 			prefix = process.env.TASK + " - ";
 		}
-		var gitChange = prefix + fileName;
+
+		if (process.env.DESCRIPTION) {
+			suffix = ": " + process.env.DESCRIPTION;
+		}
+
+		var gitChange = prefix + fileName + suffix;
 
 		gutil.log(gitChange + " changed");
 
