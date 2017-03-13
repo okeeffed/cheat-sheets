@@ -341,6 +341,10 @@ A `monitor` is a high-level abstraction that may provide a convenient and effect
 - The third class of functions address communications between threads that share a mutex
 - A condition variable allows a thread to block itself until specified data reaches a predefined state.
 - A condition variable indicates an event and has no value
+	- One cannot store a value into nor retrieve a value from a condition variable.
+	- If a thread must wait for an event to occur, that tread waits on the corresponding condition variable.
+	- A condition variable has a queue for those threads that are waiting the corresponding event to occur to wait on.
+	- If another thread causes the event to occur, that thread simply signal the corresponding condition variable.
 
 
 
