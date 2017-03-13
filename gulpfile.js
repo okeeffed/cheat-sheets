@@ -21,7 +21,7 @@ gulp.task( "watch", function() {
 
 		gutil.log(gitChange + " changed");
 
-		var gitAdd = spawn('./gitcommit.sh', [fileName]);
+		var gitAdd = spawn('./gitcommit.sh', [gitChange]);
 		gitAdd.stdout.on('data', function (data) {
 			gutil.log('gitcommit: ', data.toString().slice(0, -1)); // Remove \n
 		});

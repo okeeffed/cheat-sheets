@@ -226,6 +226,16 @@ We can now write our previously incorrect code segment as...
 
 ```c 
 pthread_mutex_t min_value_lock;
+
+main() {
+	...
+	pthread_mutex_init(&min_value_lock, NULL);
+	...
+}
+
+void *find_min(void *list_ptr) {
+	
+}
 ```
 
 
