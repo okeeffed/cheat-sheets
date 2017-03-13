@@ -321,4 +321,6 @@ if (lock_status == EBUSY) {
 
 Mutexes provide powerful sync tools, but...
 - lock() and unlock() are scatteed among several threads, therefore it is difficult to understand their effects
+- usage must be correct in all the threads 
+- one bad thread (or one programming error) can kill the whole system
 
