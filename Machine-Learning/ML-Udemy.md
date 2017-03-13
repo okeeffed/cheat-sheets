@@ -76,7 +76,7 @@ For these dataset in `Age`, we will replace that data with the mean.
 
 The library will will use is `sklearn`.
 
-`sklearn` is SideKick learn and is an amazing library.
+`sklearn` is SideKick learn and is an amazing library. We import Imputer to help with the preprocessing.
 
 ```python 
 from sklean.preprocessing import Imputer
