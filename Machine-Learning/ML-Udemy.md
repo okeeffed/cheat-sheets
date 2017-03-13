@@ -19,10 +19,17 @@ So using the first three variables, we will predict the fourth column.
 
 ### Importing the Libraries
 
+Libraries		| What for?
+---				| ---
+matplotlib 		| Has a bunch of very useful and intuitive tools
+numpy			| Help with math 
+pandas			| Imports and manages data sets 
+
 In Python:
 
 ```
 import numpy as np
 import matplotlib.pyplot as plt
+import pandas as pd
 
 ```
