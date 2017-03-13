@@ -95,7 +95,8 @@ X[:, 1:3] = imputer.tranform(X[:, 1:3])
 ```r 
 # ifelse is like a ternary
 # is.na is to check if value is missing or not
-dataset$Age = ifelse(is.na(dataset$Age), )
+dataset$Age = ifelse(is.na(dataset$Age), 
+						ave(dataset$Age, FUN = function(x) mean(x, na.rm = TRUE)))
 ```
 
 
