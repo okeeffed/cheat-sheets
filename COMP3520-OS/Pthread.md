@@ -324,3 +324,5 @@ Mutexes provide powerful sync tools, but...
 - usage must be correct in all the threads 
 - one bad thread (or one programming error) can kill the whole system
 
+A monitor is a high-level abstraction that may provide a convenient and effective mechanism for thread synchronization.
+
