@@ -27,11 +27,10 @@ matplotlib 		| Has a bunch of very useful and intuitive tools
 numpy			| Help with math 
 pandas			| Imports and manages data sets 
 
-```
+```python
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-
 ```
 
 **In R**
