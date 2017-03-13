@@ -351,6 +351,13 @@ A `monitor` is a high-level abstraction that may provide a convenient and effect
 
 ## Create & Destroying Cond Variables
 
+Routines
+---
+pthread_cond_init(condition, attr)
+pthread_cond_destroy(condition)
+pthread_condattr_init(attr)
+pthread_condattr_destroy(attr)
+
 
 
 
