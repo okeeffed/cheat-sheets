@@ -301,4 +301,8 @@ void *consumer(void *consumer_thread_data) {
 - Encapsulating large segments of the program within locks can lead to significant performance degradation.
 - It is often possible to reduce the idling overhead associated with locks using `pthread_mutex_trylock`.
 
+**Alleviating Locking Overhead**
+
+
+
 
