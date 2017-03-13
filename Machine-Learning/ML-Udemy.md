@@ -8,7 +8,7 @@
 
 Dataset		| Example set 
 ---			| ---
-Country		| France 
-Age			| 44
-Salary		| 28000
+Country		| String 
+Age			| Int
+Salary		| Int
 Purchased 	| Boolean
