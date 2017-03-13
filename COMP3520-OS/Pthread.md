@@ -267,6 +267,11 @@ void *producer(void *producer_thread_data) {
 		create_task(&my_task);
 		while (inserted == 0) {
 			pthread_mutex_lock(&task_queue_lock);
+			if (task_available == 0) {
+				insert_into_queue(my_task);
+				task_available = 1;
+				inserted = 1;
+			}
 		}
 	}
 }
