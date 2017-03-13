@@ -338,7 +338,7 @@ A `monitor` is a high-level abstraction that may provide a convenient and effect
 
 **Condition Variables**
 
-
+- The third class of functions address communications between threads that share a mutex
 
 
 
