@@ -234,7 +234,12 @@ main() {
 }
 
 void *find_min(void *list_ptr) {
-	
+	...
+	pthread_mutex_lock(&min_value_lock);
+	if (my_cost < best_cost) {
+		best_cost = my_cost;
+	}	
+	pthread_mutex_unlock(&min_value_lock);
 }
 ```
 
