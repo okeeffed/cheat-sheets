@@ -151,6 +151,13 @@ Supervisor call | Explicit request								| Call to an operating system function
 
 ## System Interrupts 
 
+**Interrupt**
+
+- Due to some sort of event external and independent of current running process 
+	- clock interrupt 
+	- I/O interrupt 
+- Time slice 
+
 
 
 
