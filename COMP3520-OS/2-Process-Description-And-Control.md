@@ -157,7 +157,12 @@ Supervisor call | Explicit request								| Call to an operating system function
 	- clock interrupt 
 	- I/O interrupt 
 - Time slice 
-	- the max amount of time that a proces can execute before being interrupted 
+	- the max amount of time that a process can execute before being interrupted 
+
+**Trap**
+
+- An error or exception condition generated within the currently running process 
+- OS determines if the condition is fatal
 
 
 
