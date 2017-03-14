@@ -105,3 +105,10 @@ OS tables must be linked or cross-referenced.
 - `Dispatcher` is a small program which switches the processor from one process to another
 
 **Modes of Execution**
+
+1. User mode 
+	- Less priviledge 
+	- User programs typically execute in this mode 
+2. System (or kernel mode)
+	- More priviledges 
+	- Kernel of the OS
