@@ -29,3 +29,4 @@ Program that controls the execution of application programs.
 - Service call Handler (<- service call to process)
 - Interrupt Handler (<- interrupt from Process/IO)
 - Short-Term Scheduler (-> Pass Control to Process)
+- Long-Term, Short-Term and I/O Queues
