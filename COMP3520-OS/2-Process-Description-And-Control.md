@@ -149,6 +149,8 @@ Interrupt 		| External to exec of current instruction		| Reaction to an asynchro
 Trap 			| Associated with exec of current instruction	| Handling of an error or an exception condition
 Supervisor call | Explicit request								| Call to an operating system function
 
+## System Interrupts 
+
 
 
 
