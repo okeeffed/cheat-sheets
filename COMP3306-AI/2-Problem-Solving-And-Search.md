@@ -189,7 +189,7 @@ m - max depth
 - Uninformed search strategies do not use problem specific knowledge beyond the definition of the problem, i.e. they do not use heuristic knowledge.
 	- expand nodes systematically 
 	- know if node is goal or non-goal
-	- cannot compare two non-goal nodes
+	- cannot compare two non-goal nodes (do not know if one goal node is better than another)
 
 
 
