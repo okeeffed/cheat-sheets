@@ -228,3 +228,6 @@ value)
 - Complete? As DFS 
 	- Yes in finite spaces (if `m` is finite)
 	- No - fails in infinite spaces (can get stuck in a loop)
+- Optimal? No 
+- Time? O(b^m) but good heauristic can give dramatic improvement
+- Space? O(b^m), keeps every node in memory
