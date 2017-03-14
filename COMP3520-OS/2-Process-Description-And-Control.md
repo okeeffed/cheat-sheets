@@ -241,3 +241,5 @@ int main() {
 	}
 }
 ```
+
+**Process Termination**
