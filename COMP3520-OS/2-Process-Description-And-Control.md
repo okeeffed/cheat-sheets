@@ -97,3 +97,5 @@ Process can be uniquely charactized by a number of attributes:
 - Most important Data Structure in the OS
 
 ## Process Tables 
+
+OS tables must be linked or cross-referenced
