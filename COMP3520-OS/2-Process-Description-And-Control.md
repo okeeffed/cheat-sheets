@@ -166,6 +166,6 @@ Supervisor call | Explicit request								| Call to an operating system function
 	- moved to the Exit state and a process switch occurs 
 	- action will depend on the nature of the error
 
-
+## Change of process state 
 
 
