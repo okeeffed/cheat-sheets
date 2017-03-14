@@ -52,3 +52,6 @@ A process can be defined as:
 2. An instance of a running program 
 3. The entity that can be assigned to, and executed on, a processor 
 4. Unit of activity characterized by a single sequential thread of execution, a current state and an associated set of system resources
+
+**Uniprogramming**
+Processor must wait for I/O instruction to complete before proceeding.
