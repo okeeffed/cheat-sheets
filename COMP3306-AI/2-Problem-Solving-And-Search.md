@@ -186,12 +186,19 @@ m - max depth
 ## Informed vs Uninformed Search
 
 - A search strategy defines the order of node expansion
+
+**Uniformed**
 - Uninformed search strategies do not use problem specific knowledge beyond the definition of the problem, i.e. they do not use heuristic knowledge.
 	- expand nodes systematically 
 	- know if node is goal or non-goal
 	- cannot compare two non-goal nodes (do not know if one goal node is better than another)
 	- typically inefficient
 
+**Informed**
+- Informed search strategies use problem-specific heuristic knowledge
+to select the order of node expansion. They:
+	- can compare non-goal nodes – they know if one non-goal node is better than another one
+	- are typically more efficient
 
 
 
