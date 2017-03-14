@@ -187,7 +187,8 @@ m - max depth
 
 - A search strategy defines the order of node expansion
 - Uninformed search strategies do not use problem specific knowledge beyond the definition of the problem, i.e. they do not use heuristic knowledge.
-	- expand nodes systematically
+	- expand nodes systematically 
+	- know if node is goal or non-goal
 
 
 
