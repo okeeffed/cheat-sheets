@@ -192,5 +192,13 @@ Traditionally, OS created all processes - but it can be useful to let a running 
 	- `parent process` is the original, creating process 
 	- `child process` is the new process 
 - Parent process create children processes, which, in turn create other processes, forming a tree of processes
+- Generally process identified and managed via a process identifier `pid` 
+- Resource sharing 
+	- Parent and child share resources 
+	- Child shares subset of parent's resource 
+	- Parent and child share no resources 
+- Execution 
+	- Parent and children execute concurrently 
+	- Parent waits until children terminate 
 
 
