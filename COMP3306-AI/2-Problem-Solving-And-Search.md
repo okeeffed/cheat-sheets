@@ -134,7 +134,18 @@ Is the first node in the fringe a goal node?
 
 ## UCS - Uniform Cost Search
 
+- Complete? Yes ( if step cost>0 )
+- Optimal? Yes
+- Time? # nodes with g  cost of optimal solution O(bd)
+- Space? # nodes with g  cost of optimal solution O(bd)
 
+UCS is equivalent to BFS if the step cost is 1 or the same
+
+## DFS - Depth-Firth Search 
+
+- Expands deepest unexpanded node
+- Implementation: insert children at the front of the fringe Fringe: A
+Expanded: none
 
 
 
