@@ -174,9 +174,9 @@ m - max depth
 
 - Combines the benefits of DFS and BFS
 - Complete? As BFS:
-	-Yes [DFS: yes, if m is finite; no otherwise]* 
+	- Yes [DFS: yes, if m is finite; no otherwise]* 
 - Optimal? As BFS:
-	-No in general; Yes if step cost=1 [DFS: not optimal, even if step cost=1] *
+	- No in general; Yes if step cost=1 [DFS: not optimal, even if step cost=1] *
 - Time? As BFS:
 (d+1)b0+db1+(d-1)b2+ ... +bd = O(bd) [DFS: O(bm)] *
 - Space? As DFS: O(bd), linear
