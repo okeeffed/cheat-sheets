@@ -209,7 +209,8 @@ How can informed strategies compare non-goal nodes?
 value)
 - This is called best-first search
 	- Note that we don’t really know which is the best node as we use an estimate based on the evaluation function. So best-first search expands the node that appears to be the best.
-
+- Fringe: insert children in decreasing order of desirability
+- We will study 2 best-first search algorithms: greedy and A*
 
 
 
