@@ -15,3 +15,5 @@ Program that controls the execution of application programs.
 
 ## System Calls
 - Typically high-level language (C or C++)
+- Access of programs through API rather than direct system call use 
+- 3 common APIs are Win32, POSIX and Java API for JVM
