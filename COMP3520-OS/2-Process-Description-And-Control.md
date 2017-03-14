@@ -251,3 +251,5 @@ This indication may be:
 - A user action (e.g. log off, quitting an application)
 - A fault or error 
 - Parent process terminating 
+
+**Security Issues**
