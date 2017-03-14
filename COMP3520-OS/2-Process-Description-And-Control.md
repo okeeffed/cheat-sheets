@@ -170,5 +170,10 @@ Supervisor call | Explicit request								| Call to an operating system function
 
 1. Save context of processor 
 2. Update process control block (PCB) of the process currently in `running` state
+3. Move PCB of process to appropraite queue 
+4. Select another process to exec 
+5. Update PCB of process selected 
+6. Update mem management data structures 
+7. Restore context of processor to that which existed at the time the selected process was last switched out 
 
 
