@@ -147,9 +147,7 @@ UCS is equivalent to BFS if the step cost is 1 or the same
 - Implementation: insert children at the front of the fringe Fringe: A
 Expanded: none
 
-
-
-
+## IDS - Iterative Deepening Searh (IDS)
 
 
 
