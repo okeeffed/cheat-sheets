@@ -199,7 +199,9 @@ m - max depth
 	- can compare non-goal nodes – they know if one non-goal node is better than another one
 	- are typically more efficient
 
-## Best First Search 
+***
+
+# Best First Search 
 
 How can informed strategies compare non-goal nodes?
 
@@ -212,6 +214,8 @@ value)
 - Fringe: insert children in decreasing order of desirability
 - We will study 2 best-first search algorithms: greedy and A*
 
+***
 
+## Greedy Search (GS)
 
 
