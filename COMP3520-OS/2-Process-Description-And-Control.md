@@ -214,4 +214,8 @@ This causes the OS in Kernel Mode to do the following:
 5. Assign the child process to the `Ready` state.
 6. Returns the ID number of the child to the parent process, and a 0 value to the child process.
 
+Post creation, the Kernel can do one of the following as part of the dispatcher routine:
 
+- Stay in the parent process 
+- Transfer control to child 
+- Transfer control to another process 
