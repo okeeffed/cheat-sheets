@@ -70,3 +70,11 @@ When one job needs to wait for I/O, the processor can switch to the other job
 	- To ensure orderly execution -> `Synchronization` and `Communication`
 	- `Virtual memory` allows execution of processes not completely in memory 
 	- Also need mechanisms for `Security and Protection`
+
+**Process Management**
+- `The fundamental task`
+- OS must... 
+	- Allocate resources to processes and protect the resources of each process from others 
+	- Interleave the execution of multiple processes 
+	- Enable proc. to share and exchange info 
+	- Enable sync. among processes
