@@ -36,3 +36,11 @@ Program that controls the execution of application programs.
 	- sys-call interface maintains table indexed accordingly
 - Call invoked by interface in OS kernel and returns status of the system call and any return values
 - Caller need no nothing about implementation of call
+
+**Shell Strategy**
+
+1. Read keyboard 
+2. Shell Process 
+3. Fork a process 
+4. Process to execute command 
+5. f3 read file
