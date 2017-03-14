@@ -17,3 +17,10 @@ Program that controls the execution of application programs.
 - Typically high-level language (C or C++)
 - Access of programs through API rather than direct system call use 
 - 3 common APIs are Win32, POSIX and Java API for JVM
+
+**Types of system calls**
+1. Process control 
+2. File management 
+3. Device management 
+4. Information maintenance 
+5. Communications
