@@ -147,7 +147,7 @@ Mechanism 		| Cause 										| Use
 ---				| ---											| ---
 Interrupt 		| External to exec of current instruction		| Reaction to an asynchronous external event 
 Trap 			| Associated with exec of current instruction	| Handling of an error or an exception condition
-Supervisor call | Explicit request								|
+Supervisor call | Explicit request								| Call to an operating system function
 
 
 
