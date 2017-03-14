@@ -152,11 +152,12 @@ Expanded: none
 - Sidesteps issue o choosing the best depth limit by trying all possible depth limits in turn (0, 1, 2, etc.) and applying DFS.
 
 - Depth-limited search = DFS with depth limit l
-- i.e. it imposes a cutoff on the maximum depth
-- Complete? Yes (as the search depth is always finite)
-- Optimal? No
-- Time? 1+b2+b3+b4 + ... +bl = O(bl)
-- Space? O(bl)
+	- i.e. it imposes a cutoff on the maximum depth
+- Properties - similar to DFS
+	- Complete? Yes (as the search depth is always finite)
+	- Optimal? No
+	- Time? 1+b2+b3+b4 + ... +bl = O(bl)
+	- Space? O(bl)
 
 
 
