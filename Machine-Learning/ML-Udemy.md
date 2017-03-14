@@ -128,6 +128,6 @@ from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_X = LabelEncoder()
 # put in index for country column
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
-onehotencoder = OneHotEncoder()
+onehotencoder = OneHotEncoder(catergorical_features = [0])
 
 ```
