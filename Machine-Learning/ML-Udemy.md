@@ -113,6 +113,6 @@ What happens when we have strings instead of numbers for defining data? We must 
 from sklearn.preprocessing import LabelEncoder
 labelencoder_X = LabelEncoder()
 # put in index for country column
-labelencoder_X.fit_transform(X[0])
+labelencoder_X.fit_transform(X[:, 0])
 ```
 
