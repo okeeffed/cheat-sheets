@@ -180,4 +180,16 @@ Supervisor call | Explicit request								| Call to an operating system function
 
 Once the OS decides to create a new process:
 
+1. Assigned a unique process identifier to the new process 
+2. Allocates space for the process 
+3. Initializes the process control block 
+4. Sets the appropriate linkages 
+5. Creates or expands other data structures 
+
+Traditionally, OS created all processes - but it can be useful to let a running process create another 
+
+- Known as `process spawning`
+	- `parent process` is the original, creating process 
+	- `child process` is the new process 
+
 
