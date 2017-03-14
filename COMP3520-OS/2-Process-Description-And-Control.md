@@ -115,7 +115,7 @@ OS tables must be linked or cross-referenced.
 
 **Two-State Process Model**
 
-
+- State of a process may be defined by the current activity of that process
 
 
 
