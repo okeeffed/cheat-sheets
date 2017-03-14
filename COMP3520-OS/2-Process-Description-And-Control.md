@@ -163,6 +163,8 @@ Supervisor call | Explicit request								| Call to an operating system function
 
 - An error or exception condition generated within the currently running process 
 - OS determines if the condition is fatal
+	- moved to the Exit state and a process switch occurs 
+	- action will depend on the nature of the error
 
 
 
