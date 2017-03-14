@@ -113,6 +113,7 @@ What happens when we have strings instead of numbers for defining data? We must 
 from sklearn.preprocessing import LabelEncoder
 labelencoder_X = LabelEncoder()
 # put in index for country column
-labelencoder_X.fit_transform(X[:, 0])
+X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
 ```
 
+However, the problem is that since the encodings are of int values, we could actually have the computer consider that the higher integer is of greater importance where it is not.
