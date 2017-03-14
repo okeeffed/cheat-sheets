@@ -176,4 +176,8 @@ Supervisor call | Explicit request								| Call to an operating system function
 6. Update mem management data structures 
 7. Restore context of processor to that which existed at the time the selected process was last switched out 
 
+## Process Creation 
+
+Once the OS decides to create a new process:
+
 
