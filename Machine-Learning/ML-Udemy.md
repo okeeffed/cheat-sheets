@@ -110,5 +110,6 @@ What happens when we have strings instead of numbers for defining data? We must 
 
 ```python 
 # encoding catagorical data
+from sklearn.preprocessing import LabelEncoder
 ```
 
