@@ -191,5 +191,6 @@ Traditionally, OS created all processes - but it can be useful to let a running 
 - Known as `process spawning`
 	- `parent process` is the original, creating process 
 	- `child process` is the new process 
+- Parent process create children processes, which, in turn create other processes, forming a tree of processes
 
 
