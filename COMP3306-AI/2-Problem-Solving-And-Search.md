@@ -195,8 +195,7 @@ m - max depth
 	- typically inefficient
 
 **Informed**
-- Informed search strategies use problem-specific heuristic knowledge
-to select the order of node expansion. They:
+- Informed search strategies use problem-specific heuristic knowledge to select the order of node expansion. They:
 	- can compare non-goal nodes – they know if one non-goal node is better than another one
 	- are typically more efficient
 
