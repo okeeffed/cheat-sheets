@@ -149,7 +149,7 @@ Expanded: none
 
 ## IDS - Iterative Deepening Searh (IDS)
 
-- Sidesteps issue o choosing the best depth limit by trying all possible depth limits in turn (0, 1, 2, etc.) and applying DFS
+- Sidesteps issue o choosing the best depth limit by trying all possible depth limits in turn (0, 1, 2, etc.) and applying DFS.
 
 
 
