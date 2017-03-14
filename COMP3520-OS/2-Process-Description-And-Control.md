@@ -122,7 +122,11 @@ OS tables must be linked or cross-referenced.
 
 **Five-State Process Model**
 
-
+- Uses two queues 
+	1. Admit
+	2. Ready Queue -> Dispatch 
+	3. Process [-> release, -> timeout, -> event wait]
+	4. (if event wait ->) Blocked queue -> Event Occurs
 
 
 
