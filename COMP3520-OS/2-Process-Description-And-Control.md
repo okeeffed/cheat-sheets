@@ -157,6 +157,7 @@ Supervisor call | Explicit request								| Call to an operating system function
 	- clock interrupt 
 	- I/O interrupt 
 - Time slice 
+	- the max amount of time that a proces can execute before being interrupted 
 
 
 
