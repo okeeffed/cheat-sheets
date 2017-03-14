@@ -106,10 +106,11 @@ dataset$Salary = ifelse(is.na(dataset$Salary),
 
 ### Catagorical Variables 
 
-What happens when we have strings instead of numbers for defining data? We must convert them to numbers.
+What happens when we have strings instead of numbers for defining data? We must convert them to numbers. Example, we have country strings and a bool column in the data given.
 
 ```python 
 # encoding catagorical data
 from sklearn.preprocessing import LabelEncoder
+labelencoder = 
 ```
 
