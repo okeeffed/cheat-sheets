@@ -156,7 +156,7 @@ Expanded: none
 - Properties - similar to DFS
 	- Complete? Yes (as the search depth is always finite)
 	- Optimal? No
-	- Time? 1+b2+b3+b4 + ... +bl = O(bl)
+	- Time? 1+b^2+b^3+b^4 + ... +b^l = O(b^l)
 	- Space? O(bl)
 
 **Overhead of multiple expansion**
@@ -178,7 +178,7 @@ m - max depth
 - Optimal? As BFS:
 	- No in general; Yes if step cost=1 [DFS: not optimal, even if step cost=1] *
 - Time? As BFS:
-	- (d+1)b0+db1+(d-1)b2+ ... +bd = O(bd) [DFS: O(bm)] *
+	- `(d+1)b^0+db^1+(d-1)b^2+ ... +bd = O(b^d) [DFS: O(bm)] *`
 - Space? As DFS: O(bd), linear
 - Where are the improvements of IDS in comparison to DFS? - in completeness, optimality and time (shown with *)
 - Can be modified to explore uniform-cost tree
