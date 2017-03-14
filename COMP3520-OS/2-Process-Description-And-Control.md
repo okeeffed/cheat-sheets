@@ -38,9 +38,17 @@ Program that controls the execution of application programs.
 - Caller need no nothing about implementation of call
 
 **Shell Strategy**
-
 1. Read keyboard 
 2. Shell Process 
 3. Fork a process 
 4. Process to execute command 
 5. f3 read file
+
+**Process**
+Fundamental to the structure of operating systems
+
+A process can be defined as:
+1. A program in execution 
+2. An instance of a running program 
+3. The entity that can be assigned to, and executed on, a processor 
+4. Unit of activity characterized by a single sequential thread of execution, a current state and an associated set of system resources
