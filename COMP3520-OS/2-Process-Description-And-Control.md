@@ -127,6 +127,7 @@ OS tables must be linked or cross-referenced.
 	2. Ready Queue -> Dispatch 
 	3. Process [-> release, -> timeout, -> event wait]
 	4. (if event wait ->) Blocked queue -> Event Occurs
+	5. (if release ->) exit
 
 
 
