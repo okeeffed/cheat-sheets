@@ -203,6 +203,12 @@ m - max depth
 
 How can informed strategies compare non-goal nodes?
 
+- By using domain specific knowledge to devise an evaluation function which estimates how good each node is
+- The evaluation function assigns a value to each node
+- At each step, the best node is expanded (the one with the best
+value)
+- This is called best-first search
+
 
 
 
