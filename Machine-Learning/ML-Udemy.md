@@ -132,3 +132,5 @@ onehotencoder = OneHotEncoder(catergorical_features = [0])
 # ensure that X is transformed
 X = onehotencoder.fit_transform(X).toarray()
 ```
+
+However, we will need to understand which variable we know are which.
