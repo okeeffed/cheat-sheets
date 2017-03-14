@@ -113,3 +113,4 @@ OS tables must be linked or cross-referenced.
 	- More priviledges 
 	- Kernel of the OS
 
+**Two-State Process Model**
