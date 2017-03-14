@@ -203,4 +203,15 @@ Traditionally, OS created all processes - but it can be useful to let a running 
 
 **UNIX Process Creation**
 
+Process creation is by means of the kernel system call `fork()`
+
+This causes the OS in Kernel Mode to do the following:
+
+1. Allocate a slot in the process table for the new process.
+2. Assign a unique process ID to the child process.
+3. Copy of process image of the parent, with the exception of any shared memory.
+4. Increment the counters for any files owned by the parent, to reflect that an additional process now also owns those files.
+5. Assign the child process to the `Ready` state.
+6. Returns the ID number of the child to the parent process, and a 0 value to the child process.
+
 
