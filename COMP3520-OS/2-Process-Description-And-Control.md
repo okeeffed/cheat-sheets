@@ -131,5 +131,7 @@ OS tables must be linked or cross-referenced.
 
 **Multiple Blocked Queues**
 
+- Multiple events queues
+
 
 
