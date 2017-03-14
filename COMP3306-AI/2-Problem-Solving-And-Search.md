@@ -178,7 +178,7 @@ m - max depth
 - Optimal? As BFS:
 	- No in general; Yes if step cost=1 [DFS: not optimal, even if step cost=1] *
 - Time? As BFS:
-(d+1)b0+db1+(d-1)b2+ ... +bd = O(bd) [DFS: O(bm)] *
+	- (d+1)b0+db1+(d-1)b2+ ... +bd = O(bd) [DFS: O(bm)] *
 - Space? As DFS: O(bd), linear
 - Where are the improvements of IDS in comparison to DFS? - in completeness, optimality and time (shown with *)
 - Can be modified to explore uniform-cost tree
