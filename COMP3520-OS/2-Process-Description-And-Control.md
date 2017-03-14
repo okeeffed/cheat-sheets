@@ -168,4 +168,7 @@ Supervisor call | Explicit request								| Call to an operating system function
 
 ## Change of process state 
 
+1. Save context of processor 
+2. Update process control block (PCB) of the process currently in `running` state
+
 
