@@ -10,3 +10,4 @@
 ## Operating System 
 
 Program that controls the execution of application programs.
+- Interface between applications and hardware.
