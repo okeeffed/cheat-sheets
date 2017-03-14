@@ -208,7 +208,7 @@ How can informed strategies compare non-goal nodes?
 - At each step, the best node is expanded (the one with the best
 value)
 - This is called best-first search
-
+	- Note that we don’t really know which is the best node as we use an estimate based on the evaluation function. So best-first search expands the node that appears to be the best.
 
 
 
