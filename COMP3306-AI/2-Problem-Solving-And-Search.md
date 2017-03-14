@@ -190,6 +190,7 @@ m - max depth
 	- expand nodes systematically 
 	- know if node is goal or non-goal
 	- cannot compare two non-goal nodes (do not know if one goal node is better than another)
+	- typically inefficient
 
 
 
