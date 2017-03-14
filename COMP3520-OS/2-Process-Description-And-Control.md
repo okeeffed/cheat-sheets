@@ -129,9 +129,7 @@ OS tables must be linked or cross-referenced.
 	4. (if event wait ->) Blocked queue -> Event Occurs
 	5. (if release ->) exit
 
-
-
-
+**Multiple Blocked Queues**
 
 
 
