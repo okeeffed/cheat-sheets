@@ -78,3 +78,16 @@ When one job needs to wait for I/O, the processor can switch to the other job
 	- Interleave the execution of multiple processes 
 	- Enable proc. to share and exchange info 
 	- Enable sync. among processes
+
+**Process elements**
+
+Process can be uniquely charactized by a number of attributes:
+
+1. Identifier 
+2. State
+3. Priority 
+4. Program counter 
+5. Memory pointers 
+6. Context data 
+7. I/O status info 
+8. Accounting info 
