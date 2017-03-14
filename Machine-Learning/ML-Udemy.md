@@ -142,3 +142,5 @@ Let's look at the encoding for the `dependent` variable, where we only need the 
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
 ```
+
+In the case of the boolean, we basically want to numbers to be encoded to 0 and 1.
