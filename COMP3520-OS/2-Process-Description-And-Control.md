@@ -118,6 +118,7 @@ OS tables must be linked or cross-referenced.
 - State of a process may be defined by the current activity of that process
 	- Used to describe the behaviour that we would like each process to exhibit
 - Process may be `running` or `not-running`
+- Think of the `queuing diagram`
 
 
 
