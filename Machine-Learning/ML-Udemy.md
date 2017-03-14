@@ -149,6 +149,8 @@ In the case of the boolean, we basically want to numbers to be encoded to 0 and 
 
 For R, we just need to factor the way we want to.
 
+Since we have the factor function, the number encoding themselves don't need to be setup in the same way that it was for Python.
+
 ```r 
 # Encoding catergorical data
 # remember c() is a Vector!
