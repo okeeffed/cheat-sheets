@@ -138,6 +138,7 @@ However, we will need to understand which variable we know are which.
 Let's look at the encoding for the `dependent` variable, where we only need the LabelEncoder.
 
 ```python
+# ...
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
 ```
