@@ -140,7 +140,15 @@ OS tables must be linked or cross-referenced.
 - What must the OS do to the various data structures under its control to achieve a process switch?
 
 **When to switch**
+
 A process switch may occur any time that the OS has gained control from the currently running process. Possible events giving OS control are:
+
+Mechanism 		| Cause | Use 
+---				| ---	| ---
+Interrupt 		| External to exec of current instruction
+Trap 			| Associated with exec of current instruction
+Supervisor call | Explicit request
+
 
 
 
