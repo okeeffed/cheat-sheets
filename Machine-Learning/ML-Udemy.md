@@ -163,3 +163,4 @@ dataset$Purchased = factor(dataset$Purchased,
 							labels = c(0, 1))
 ```
 
+### Splitting the data into a Training Set and Test Set
