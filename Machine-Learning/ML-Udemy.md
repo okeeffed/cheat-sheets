@@ -157,4 +157,8 @@ Since we have the factor function, the number encoding themselves don't need to 
 dataset$Country = factor(dataset$Country,
 							levels = c('France', 'Spain', 'Germany'),
 							labels = c(1,2,3))
+
+dataset$Purchase = factor(dataset$Purchase,
+							levels = c('No', 'Yes')
+							labels = c(0, 1))
 ```
