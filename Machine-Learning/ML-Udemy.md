@@ -121,3 +121,13 @@ However, the problem is that since the encodings are of int values, we could act
 Instead, what we will do is essentially set up three columns that work like an `adjacency list`.
 
 `1` where the country is correlated to the row, `0` otherwise.
+
+```python 
+# encoding catagorical data
+from sklearn.preprocessing import LabelEncoder, OneHotEncoder
+labelencoder_X = LabelEncoder()
+# put in index for country column
+X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
+onehotencoder = OneHotEncoder()
+
+```
