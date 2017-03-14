@@ -102,4 +102,4 @@ OS tables must be linked or cross-referenced.
 
 **Process Execution**
 
-- `Dispatcher` is a small program which switches the processor from one process to another.
+- `Dispatcher` is a small program which switches the processor from one process to another
