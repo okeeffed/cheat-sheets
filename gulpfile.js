@@ -8,7 +8,8 @@ require('dotenv').load();
 gulp.task( "watch", function() {
 	gulp.watch([
 		"*.md",
-		"**/*.md"
+		"**/*.md",
+		".env"
 	]).on( "change", function( file ) {
 		var list = file.path.split('/');
 		fileName = list[list.length-1];
