@@ -91,3 +91,7 @@ Process can be uniquely charactized by a number of attributes:
 6. Context data 
 7. I/O status info 
 8. Accounting info 
+
+**Process control block**
+
+- Most important Data Structure in the OS
