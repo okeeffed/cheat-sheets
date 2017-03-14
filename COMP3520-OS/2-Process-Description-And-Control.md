@@ -146,7 +146,7 @@ A process switch may occur any time that the OS has gained control from the curr
 Mechanism 		| Cause 										| Use 
 ---				| ---											| ---
 Interrupt 		| External to exec of current instruction		| Reaction to an asynchronous external event 
-Trap 			| Associated with exec of current instruction	|
+Trap 			| Associated with exec of current instruction	| Handling of an error or an exception condition
 Supervisor call | Explicit request								|
 
 
