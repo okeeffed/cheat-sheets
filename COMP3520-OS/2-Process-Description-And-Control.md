@@ -120,7 +120,7 @@ OS tables must be linked or cross-referenced.
 - Process may be `running` or `not-running`
 - Think of the `queuing diagram`
 
-
+**Five-State Process Model**
 
 
 
