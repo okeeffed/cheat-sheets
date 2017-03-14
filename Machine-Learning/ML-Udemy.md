@@ -134,3 +134,5 @@ X = onehotencoder.fit_transform(X).toarray()
 ```
 
 However, we will need to understand which variable we know are which.
+
+Let's look at the encoding for the `dependent` variable, where we only need the LabelEncoder.
