@@ -199,6 +199,8 @@ m - max depth
 	- can compare non-goal nodes – they know if one non-goal node is better than another one
 	- are typically more efficient
 
+## Best First Search 
+
 
 
 
