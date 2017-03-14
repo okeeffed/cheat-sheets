@@ -35,3 +35,4 @@ Program that controls the execution of application programs.
 - Typically a number associated with each sys call
 	- sys-call interface maintains table indexed accordingly
 - Call invoked by interface in OS kernel and returns status of the system call and any return values
+- Caller need no nothing about implementation of call
