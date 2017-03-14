@@ -95,3 +95,5 @@ Process can be uniquely charactized by a number of attributes:
 **Process control block**
 
 - Most important Data Structure in the OS
+
+## Process Tables 
