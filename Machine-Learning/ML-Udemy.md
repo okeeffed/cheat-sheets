@@ -145,6 +145,10 @@ y = labelencoder_y.fit_transform(y)
 
 In the case of the boolean, we basically want to numbers to be encoded to 0 and 1.
 
+**In R**
+
+For R, we just need to factor the way we want to.
+
 ```r 
 # Encoding catergorical data
 ```
