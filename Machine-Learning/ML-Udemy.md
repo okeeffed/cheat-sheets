@@ -104,8 +104,11 @@ dataset$Salary = ifelse(is.na(dataset$Salary),
 						dataset$Salary)
 ```
 
-## Catagorical Variables 
+### Catagorical Variables 
 
 What happens when we have strings instead of numbers for defining data? We must convert them to numbers.
 
+```python 
+# encoding catagorical data
+```
 
