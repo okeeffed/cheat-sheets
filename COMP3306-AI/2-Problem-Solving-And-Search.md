@@ -222,3 +222,9 @@ value)
 - The `h(n)` for node `n` is the estimated cost from `n` to a `goal` node
 - Eg for the Romania example we can use `h(n)=SLD(n, Bucharest)` = straight-line distance from `n` to Bucharest
 - The `h` value of a goal node is 0, i.e. `h(goal)=0`
+
+**Properties**
+
+- Complete? As DFS 
+	- Yes in finite spaces (if `m` is finite)
+	- No - fails in infinite spaces (can get stuck in a loop)
