@@ -134,5 +134,10 @@ OS tables must be linked or cross-referenced.
 - Multiple events queues
 	- Event # wait -> Event # queue -> event # occurs
 
+## Switching Processes 
+
+- What events trigger a process switch? 
+- What must the OS do to the various data structures under its control to achieve a process switch?
+
 
 
