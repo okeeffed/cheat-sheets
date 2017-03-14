@@ -253,3 +253,7 @@ This indication may be:
 - Parent process terminating 
 
 **Security Issues**
+
+An OS associates a set of priviledges with each process.
+
+A key security issue in the design of any OS is to prevent anything (user or process) from gaining unauthorized priviledges on the system.
