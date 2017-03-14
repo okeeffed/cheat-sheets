@@ -201,6 +201,8 @@ m - max depth
 
 ## Best First Search 
 
+How can informed strategies compare non-goal nodes?
+
 
 
 
