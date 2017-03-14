@@ -144,3 +144,7 @@ y = labelencoder_y.fit_transform(y)
 ```
 
 In the case of the boolean, we basically want to numbers to be encoded to 0 and 1.
+
+```r 
+
+```
