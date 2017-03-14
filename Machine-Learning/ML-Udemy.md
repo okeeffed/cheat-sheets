@@ -120,4 +120,4 @@ However, the problem is that since the encodings are of int values, we could act
 
 Instead, what we will do is essentially set up three columns that work like an `adjacency list`.
 
-
+`1` where the country is correlated to the row, `0` otherwise.
