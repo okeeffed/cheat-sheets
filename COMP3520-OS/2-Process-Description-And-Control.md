@@ -6,3 +6,7 @@
 - `Process states` which characterize the behaviour of processes 
 - `Data structures` used to manage processes
 - Ways in which the OS uses these data structures to control process execution
+
+## Operating System 
+
+Program that controls the execution of application programs.
