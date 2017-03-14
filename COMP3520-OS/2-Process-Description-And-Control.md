@@ -98,4 +98,4 @@ Process can be uniquely charactized by a number of attributes:
 
 ## Process Tables 
 
-OS tables must be linked or cross-referenced
+OS tables must be linked or cross-referenced.
