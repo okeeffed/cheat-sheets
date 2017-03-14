@@ -220,3 +220,5 @@ value)
 
 - Uses `h` value as an evaluation function (h - heuristic)
 - The `h(n)` for node `n` is the estimated cost from `n` to a `goal` node
+- Eg for the Romania example we can use `h(n)=SLD(n, Bucharest)` = straight-line distance from `n` to Bucharest
+- The `h` value of a goal node is 0, i.e. `h(goal)=0`
