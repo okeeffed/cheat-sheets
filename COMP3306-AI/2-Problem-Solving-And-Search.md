@@ -218,4 +218,5 @@ value)
 
 ## Greedy Search (GS)
 
-
+- Uses `h` value as an evaluation function (h - heuristic)
+- The `h(n)` for node `n` is the estimated cost from `n` to a `goal` node
