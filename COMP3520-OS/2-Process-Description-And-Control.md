@@ -55,3 +55,6 @@ A process can be defined as:
 
 **Uniprogramming**
 Processor must wait for I/O instruction to complete before proceeding.
+
+**Multiprogramming**
+When one job needs to wait for I/O, the processor can switch to the other job
