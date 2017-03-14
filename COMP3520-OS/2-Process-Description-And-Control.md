@@ -112,3 +112,4 @@ OS tables must be linked or cross-referenced.
 2. System (or kernel mode)
 	- More priviledges 
 	- Kernel of the OS
+
