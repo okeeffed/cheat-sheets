@@ -257,3 +257,13 @@ This indication may be:
 An OS associates a set of priviledges with each process.
 
 A key security issue in the design of any OS is to prevent anything (user or process) from gaining unauthorized priviledges on the system.
+
+## Summary 
+
+-The principal function of the OS is to create, manage, and terminate processes
+- The most fundamental concept in a modern OS is the process
+- Process control block contains all of the information that is required for the OS to manage the process, including its current state, resources allocated to it, priority, and other relevant data
+- The most important states are Ready, Running and Blocked
+	– The running process is the one that is currently being executed by the processor
+	– A blocked process is waiting for the completion of some event
+	– A running process is interrupted either by an interrupt or by executing a supervisor call to the OS
