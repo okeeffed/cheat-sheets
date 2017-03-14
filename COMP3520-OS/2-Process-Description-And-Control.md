@@ -114,3 +114,12 @@ OS tables must be linked or cross-referenced.
 	- Kernel of the OS
 
 **Two-State Process Model**
+
+
+
+
+
+
+
+
+
