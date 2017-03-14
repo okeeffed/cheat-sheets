@@ -118,4 +118,4 @@ X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
 
 However, the problem is that since the encodings are of int values, we could actually have the computer consider that the higher integer is of greater importance where it is not.
 
-Instead, what we will do is essentially set up three columns that work like an adjacency list.
+Instead, what we will do is essentially set up three columns that work like an `adjacency list`.
