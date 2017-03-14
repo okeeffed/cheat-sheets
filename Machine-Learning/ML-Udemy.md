@@ -151,4 +151,6 @@ For R, we just need to factor the way we want to.
 
 ```r 
 # Encoding catergorical data
+dataset$Country = factor(dataset$Country,
+							levels = c('France', 'Spain', 'Germany'))
 ```
