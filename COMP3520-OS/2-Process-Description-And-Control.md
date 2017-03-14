@@ -24,3 +24,8 @@ Program that controls the execution of application programs.
 3. Device management 
 4. Information maintenance 
 5. Communications
+
+**Key elements of an OS**
+- Service call Handler (<- service call to process)
+- Interrupt Handler (<- interrupt from Process/IO)
+- Short-Term Scheduler (-> Pass Control to Process)
