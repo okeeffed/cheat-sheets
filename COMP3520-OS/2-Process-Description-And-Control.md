@@ -30,3 +30,7 @@ Program that controls the execution of application programs.
 - Interrupt Handler (<- interrupt from Process/IO)
 - Short-Term Scheduler (-> Pass Control to Process)
 - Long-Term, Short-Term and I/O Queues
+
+**System Call Implementation**
+- Typically a number associated with each sys call
+	- sys-call interface maintains table indexed accordingly
