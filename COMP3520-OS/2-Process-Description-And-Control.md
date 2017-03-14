@@ -59,3 +59,7 @@ Processor must wait for I/O instruction to complete before proceeding.
 **Multiprogramming**
 When one job needs to wait for I/O, the processor can switch to the other job
 
+**Time Sharing Systems**
+- Using multiprogramming to handle multiple interactive jobs 
+- Multiple users simultaneously access system through terminal 
+- Processor's time shared among multiple users 
