@@ -64,7 +64,7 @@ When one job needs to wait for I/O, the processor can switch to the other job.
 - Multiple users simultaneously access system through terminal 
 - Processor's time shared among multiple users 
 - Timesharing (multitasking): CPU switches jobs so frequently that users can interact with each job while it is running, creating interactive computing
-	- Resp time < 1s
+	- Response time < 1s
 	- Each user has at least one program executing in memory -> `process` 
 	- If several jobs ready to run at the same time -> `CPU Scheduling`
 	- To ensure orderly execution -> `Synchronization` and `Communication`
