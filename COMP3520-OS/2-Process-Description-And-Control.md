@@ -247,10 +247,10 @@ int main() {
 There must be some way that a process can indicate completion.
 
 This indication may be:
-- A HALT instruction generating an interrupt alert to the OS.
-- A user action (e.g. log off, quitting an application)
-- A fault or error 
-- Parent process terminating 
+1. A HALT instruction generating an interrupt alert to the OS.
+2. A user action (e.g. log off, quitting an application)
+3. A fault or error 
+4. Parent process terminating 
 
 **Security Issues**
 
