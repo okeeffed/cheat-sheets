@@ -43,3 +43,4 @@ class Greeter{
 const greeter = new Greeter();
 
 greeter.greet();
+```
