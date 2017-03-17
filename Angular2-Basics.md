@@ -33,6 +33,8 @@ Angular is the first large framework to adopt `Typescript`. The idea is to keep 
 
 We can use Typescript to help enforce static typing.
 
+`Intellisense` is also used as helping autocompletion intelligence when coding and certain styles of coding allow for this.
+
 Eg. code:
 
 ```javascript 
