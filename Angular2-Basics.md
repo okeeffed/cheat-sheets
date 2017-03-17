@@ -57,6 +57,7 @@ function rollCall(students: any[], max?: number) {
 	const attendance = students.slice(undefined, max);
 	console.log(attendence);
 }
+```
 
-
+## The First Angular Application
 ```
