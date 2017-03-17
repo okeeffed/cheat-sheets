@@ -61,5 +61,8 @@ function rollCall(students: any[], max?: number) {
 
 ## The First Angular Application
 
+As you build out your `index.html` file you set a `<app-root>` component as the target for Angular2 entry point.
+```
 
+```
 ```
