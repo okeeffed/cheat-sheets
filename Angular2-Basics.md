@@ -54,6 +54,7 @@ greeter.greet('Jim');
 
 function rollCall(students: any[], max) {
 	max = max || students.length;
+	const attendance = students.slice;
 }
 
 
