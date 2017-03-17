@@ -11,3 +11,5 @@ You can not just use Angular for web apps, but also iOS and Java using Native ki
 - large community of developers 
 
 Angular JS refers to version 1, whereas Angular refers to version 2.
+
+## The Parts and Pieces of an Angular Application
