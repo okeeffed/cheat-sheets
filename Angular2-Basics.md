@@ -39,3 +39,7 @@ class Greeter{
 		console.log(name);
 	}
 }
+
+const greeter = new Greeter();
+
+greeter.greet();
