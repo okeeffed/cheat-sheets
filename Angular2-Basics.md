@@ -31,6 +31,8 @@ You can use `Typescript`, `Javascript` or `Dart` with Angular2.
 
 Angular is the first large framework to adopt `Typescript`. The idea is to keep you in the editor.
 
+We can use Typescript to help enforce static typing.
+
 Eg. code:
 
 ```javascript 
