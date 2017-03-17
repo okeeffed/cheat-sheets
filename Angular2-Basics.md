@@ -30,3 +30,12 @@ You can use `Typescript`, `Javascript` or `Dart` with Angular2.
 ## Typescript 
 
 Angular is the first large framework to adopt `Typescript`. The idea is to keep you in the editor.
+
+Eg. code:
+
+```javascript 
+class Greeter{
+	greet(name) {
+		console.log(name);
+	}
+}
