@@ -50,7 +50,7 @@ greeter.greet('Jim');
 
 // example 2
 
-function rollCall(students, max) {
+function rollCall(students: any[], max) {
 	max = max || students.length;
 }
 ```
