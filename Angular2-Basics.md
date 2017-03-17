@@ -26,3 +26,7 @@ Angular JS refers to version 1, whereas Angular refers to version 2.
 	- `Ng` is the namespace Angular adopted
 
 You can use `Typescript`, `Javascript` or `Dart` with Angular2.
+
+## Typescript 
+
+Angular is the first large framework to adopt `Typescript`.
