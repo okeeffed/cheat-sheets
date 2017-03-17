@@ -38,6 +38,7 @@ We can use Typescript to help enforce static typing.
 Eg. code:
 
 ```javascript 
+// example 1 
 class Greeter{
 	greet(name: string) {
 		console.log(name);
