@@ -52,9 +52,10 @@ greeter.greet('Jim');
 
 // example 2
 
-function rollCall(students: any[], max) {
+function rollCall(students: any[], max: number) {
 	max = max || students.length;
-	const attendance = students.slice;
+	const attendance = students.slice(undefined, max);
+	console.log(attendence);
 }
 
 
