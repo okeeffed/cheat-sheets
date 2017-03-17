@@ -45,4 +45,10 @@ class Greeter{
 const greeter = new Greeter();
 
 greeter.greet('Jim');
+
+// example 2
+
+function rollCall(students, max) {
+	max = max || students.length;
+}
 ```
