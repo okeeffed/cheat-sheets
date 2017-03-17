@@ -23,3 +23,4 @@ Angular JS refers to version 1, whereas Angular refers to version 2.
 - `Services`: used to perform things like long running calcs or running web requests.
 - `Components`: Broken down components/elements 
 - `NgModule`: This is like a container for the application
+	- `Ng` is the namespace Angular adopted
