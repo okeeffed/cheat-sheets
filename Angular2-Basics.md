@@ -15,3 +15,6 @@ Angular JS refers to version 1, whereas Angular refers to version 2.
 ## The Parts and Pieces of an Angular Application
 
 **How does it work?**
+
+- App requires one `root` component
+- The app requires services, components and 3rd party modules
