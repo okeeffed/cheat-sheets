@@ -37,7 +37,7 @@ Eg. code:
 
 ```javascript 
 class Greeter{
-	greet(name: String) {
+	greet(name: string) {
 		console.log(name);
 	}
 }
