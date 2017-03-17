@@ -24,3 +24,5 @@ Angular JS refers to version 1, whereas Angular refers to version 2.
 - `Components`: Broken down components/elements 
 - `NgModule`: This is like a container for the application
 	- `Ng` is the namespace Angular adopted
+
+You can use `Typescript`, `Javascript` or `Dart` with Angular2.
