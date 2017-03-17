@@ -29,4 +29,4 @@ You can use `Typescript`, `Javascript` or `Dart` with Angular2.
 
 ## Typescript 
 
-Angular is the first large framework to adopt `Typescript`.
+Angular is the first large framework to adopt `Typescript`. The idea is to keep you in the element.
