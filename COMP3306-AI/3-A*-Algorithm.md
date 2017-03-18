@@ -34,3 +34,7 @@ The idea is that we take into account both the cost and estimated cost and combi
 **Theorem**
 
 If `h` is an `admissible heuristic` than A* is complete and optimal.
+
+How to check?
+
+See if the estimated cost for a node is <= the actual cost from that node to the goal node.
