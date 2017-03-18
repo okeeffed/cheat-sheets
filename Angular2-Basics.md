@@ -104,6 +104,7 @@ import { Component } from '@angular/core';
 
 @Component({
 	// we should target app-root in the component 
+	// best practise to prefix components with something related to app eg app or another namespace convention
 	selector: 'app-root'
 })
 export class AppComponent {
