@@ -9,3 +9,4 @@
 
 - UCS minimizes the cost so far `g(n)`
 - GS minimizes the estimated cost to the goal `h(n)`
+- A* combing UCS and GS
