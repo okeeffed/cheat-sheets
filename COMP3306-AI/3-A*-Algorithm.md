@@ -25,3 +25,6 @@ The idea is that we take into account both the cost and estimated cost and combi
 
 ## Admissible Heauristic 
 
+- Heuristic `h(n)` is admissible if for every node n:
+	- `h(n) <= h*(n)` where `h*(n)` is the true cost to reach a goal from `n`
+	
