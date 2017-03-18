@@ -88,6 +88,8 @@ export class AppModule {
 }
 
 /* in main.ts */
+import './styles/main.css';
+import { platformBrowser } from '@angular/platform-browser-dynamic';
 ```
 
 
