@@ -11,3 +11,6 @@
 - GS minimizes the estimated cost to the goal `h(n)`
 - A* combing UCS and GS
 - Evaluation function: `f(n)=g(n)+h(n)`
+	- `g(n) = cost so far to reach n`
+	- `h(n) = est. cost from n to goal`
+	- `f(n) = est. total cost of path through n to the goal`
