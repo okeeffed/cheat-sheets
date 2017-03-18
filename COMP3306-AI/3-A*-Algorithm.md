@@ -6,3 +6,6 @@
 - How to invent admissible heuristics
 
 ## A* Search
+
+- UCS minimizes the cost so far `g(n)`
+- GS minimizes the estimated cost to the goal `h(n)`
