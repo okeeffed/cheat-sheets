@@ -82,7 +82,10 @@ import { AppComponent } from './app.component';
 @NgModule({
 	// using BrowserModule lets Angular know this is 
 	// for web use
-	imports: [BrowserModule]
+	imports: [BrowserModule],
+	// for the target component 
+	declarations: [AppComponent],
+	bootstrap: [AppModule]
 })
 export class AppModule {
 	
