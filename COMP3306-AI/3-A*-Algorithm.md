@@ -38,3 +38,5 @@ If `h` is an `admissible heuristic` than A* is complete and optimal.
 How to check?
 
 See if the estimated cost for a node is <= the actual cost from that node to the goal node.
+
+Test
