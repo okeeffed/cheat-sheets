@@ -22,3 +22,6 @@ The idea is that we take into account both the cost and estimated cost and combi
 - BFS is a special case of A* when f(n)=depth(n)
 - BFS is also a special case of UCS when g(n)=depth(n)
 - UCS is a special case of A* when h(n)=0
+
+## Admissible Heauristic 
+
