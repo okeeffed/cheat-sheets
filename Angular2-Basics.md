@@ -85,7 +85,7 @@ import { AppComponent } from './app.component';
 	imports: [BrowserModule],
 	// for the target component 
 	declarations: [AppComponent],
-	bootstrap: [AppModule]
+	bootstrap: [AppComponent]
 })
 export class AppModule {
 	
