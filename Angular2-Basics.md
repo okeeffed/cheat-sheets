@@ -100,7 +100,15 @@ platformBrowserDynamic().bootstrapModule(AppModule);
 ```javascript 
 /* in app.component.ts */
 
+import { Component } from '@angular/core';
 
+@Component({
+	// we should target app-root in the component 
+	selector: 'app-root'
+})
+export class AppComponent {
+	
+}
 ```
 
 
