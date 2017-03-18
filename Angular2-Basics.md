@@ -76,7 +76,11 @@ import { BrowserModule } from '@angular/platform-browser';
 // add the decorator to post-process it
 // the decorator is used by angular to compose the app 
 // in the most efficient way possible
-@NgModule()
+@NgModule({
+	// using BrowserModule lets Angular know this is 
+	// for web use
+	imports: [BrowserModule]
+})
 export class AppModule {
 	
 }
