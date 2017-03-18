@@ -14,3 +14,4 @@
 	- `g(n) = cost so far to reach n`
 	- `h(n) = est. cost from n to goal`
 	- `f(n) = est. total cost of path through n to the goal`
+
