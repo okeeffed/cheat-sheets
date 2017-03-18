@@ -72,7 +72,7 @@ Within `src/app` create `app.module.ts` as the root module.
 // this allows code to be shared between packages 
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component.ts';
+import { AppComponent } from './app.component';
 
 // create the AppModule 
 // export for use in main.ts 
