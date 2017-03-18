@@ -74,6 +74,8 @@ import { BrowserModule } from '@angular/platform-browser';
 // create the AppModule 
 // export for use in main.ts 
 // add the decorator to post-process it
+// the decorator is used by angular to compose the app 
+// in the most efficient way possible
 @NgModule()
 export class AppModule {
 	
