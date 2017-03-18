@@ -43,7 +43,7 @@ See if the estimated cost for a node is <= the actual cost from that node to the
 
 Compare f(G2) and f(G)
 
-1) f(G2)=g(G2)+h(G2) (by definition) = g(G2) as h(G2)=0, G2 is a goal
-2) f(G)=g(G)+h(G) (by definition) = g(G) as h(G)=0, G is a goal
-3) g(G2)>g(G) as G2 is suboptimal
-4) => f(G2)>f(G) by substituting 1) and 2) into 3)
+1. f(G2)=g(G2)+h(G2) (by definition) = g(G2) as h(G2)=0, G2 is a goal
+2. f(G)=g(G)+h(G) (by definition) = g(G) as h(G)=0, G is a goal
+3. g(G2)>g(G) as G2 is suboptimal
+4. => f(G2)>f(G) by substituting 1) and 2) into 3)
