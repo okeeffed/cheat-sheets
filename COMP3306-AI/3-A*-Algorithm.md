@@ -15,4 +15,4 @@
 	- `h(n) = est. cost from n to goal`
 	- `f(n) = est. total cost of path through n to the goal`
 
-The idea is that t
+The idea is that we take into account both the cost and value and combine them to decide which nodes to add to the fringe queue!
