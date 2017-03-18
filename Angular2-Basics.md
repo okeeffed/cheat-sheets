@@ -63,7 +63,7 @@ function rollCall(students: any[], max?: number) {
 
 As you build out your `index.html` file you set a `<app-root>` component as the target for Angular2 entry point.
 
-Within `src/app` create `app.module.ts`.
+Within `src/app` create `app.module.ts` as the root module.
 
 ```javascript
 
