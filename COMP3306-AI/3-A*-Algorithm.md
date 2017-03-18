@@ -28,3 +28,4 @@ The idea is that we take into account both the cost and estimated cost and combi
 - Heuristic `h(n)` is admissible if for every node n:
 	- `h(n) <= h*(n)` where `h*(n)` is the true cost to reach a goal from `n`
 	- The estimate to reach the goal is smaller or equal to the true cost to reach the goal
+- Admissible heuristics are `optimistic` - they think that the cost of solving the problem is less than it actually is.
