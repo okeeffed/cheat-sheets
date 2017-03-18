@@ -71,7 +71,11 @@ Within `src/app` create `app.module.ts` as the root module.
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-
+// create the AppModule 
+// export for use in main.ts 
+export class AppModule {
+	
+}
 ```
 
 
