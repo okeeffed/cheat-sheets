@@ -33,5 +33,12 @@ gulp.task( "watch", function() {
 		gitAdd.stdout.on('data', function (data) {
 			gutil.log('gitcommit: ', data.toString().slice(0, -1)); // Remove \n
 		});
+
+		setTimeout(function() {
+			var gitPush = spawn('git', ['push']);
+			gitPush.stdout.on('data', function (data) {
+				gutil.log('git push: ', data.toString().slice(0, -1)); // Remove \n
+			});
+		}, 1000);
 	});
 });
