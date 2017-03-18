@@ -47,12 +47,12 @@ Compare f(G2) and f(G)
 2. f(G)=g(G)+h(G) (by definition) = g(G) as h(G)=0, G is a goal
 3. g(G2)>g(G) as G2 is suboptimal
 4. => f(G2)>f(G) by substituting 1) and 2) into 3)
-5) f(n)=g(n)+h(n) (by definition)
-6) h(n) <= h*(n) where h*(n) is the true cost from n to G (as h is admissible)
-7) => f(n)<=g(n) + h*(n) (5 & 6)
-8) = g(G) path cost from S to G via n
-9) g(G) = f(G) as f(G)=g(G)+h(G)=g(G)+0 as h(G)=0, G is a goal 
-10) => f(n)<=f(G) (7,8,9)
+5. f(n)=g(n)+h(n) (by definition)
+6. h(n) <= h*(n) where h*(n) is the true cost from n to G (as h is admissible)
+7. => f(n)<=g(n) + h*(n) (5 & 6)
+8. = g(G) path cost from S to G via n
+9. g(G) = f(G) as f(G)=g(G)+h(G)=g(G)+0 as h(G)=0, G is a goal 
+10. => f(n)<=f(G) (7,8,9)
 	- Thus f(G)<f(G2) (4) & f(n)<=f(G) (10)
-11) f(n)<=f(G)<f(G2) (10, 4)
-12) f(n)<f(G2) => n will be expanded not G2; A* will not select G2 for expansion
+11. f(n)<=f(G)<f(G2) (10, 4)
+12. f(n)<f(G2) => n will be expanded not G2; A* will not select G2 for expansion
