@@ -85,6 +85,7 @@ import { AppComponent } from './app.component';
 	imports: [BrowserModule],
 	// for the target component 
 	// before using it the first time - declare we are using it
+	// if not there will be a definition error
 	declarations: [AppComponent],
 	bootstrap: [AppComponent]
 })
