@@ -27,4 +27,4 @@ The idea is that we take into account both the cost and estimated cost and combi
 
 - Heuristic `h(n)` is admissible if for every node n:
 	- `h(n) <= h*(n)` where `h*(n)` is the true cost to reach a goal from `n`
-	- The estimate to reach the goal is smaller or equal to the true cost to reach the ogal
+	- The estimate to reach the goal is smaller or equal to the true cost to reach the goal
