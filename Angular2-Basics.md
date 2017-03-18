@@ -67,5 +67,7 @@ Within `src/app` create `app.module.ts` as the root module.
 
 ```javascript
 import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+
 ```
 
