@@ -17,6 +17,8 @@
 
 The idea is that we take into account both the cost and estimated cost and combine them to decide which nodes to add to the fringe queue!
 
-**BFS Special Case**
+**BFS and UCS Special Case**
 
-Result when each node at level n has the same f(n) total.
+- BFS is a special case of A* when f(n)=depth(n)
+- BFS is also a special case of UCS when g(n)=depth(n)
+- UCS is a special case of A* when h(n)=0
