@@ -211,6 +211,8 @@ Because there will probably be many components, we will create a barrel to work 
 export * from './entry-list/entry-list.component'
 ```
 
+Now this entire folder can just be imported to the app.module.ts file.
+
 ```javascript  
 // entry-list ts 
 import { Components } from '@angular/core';
