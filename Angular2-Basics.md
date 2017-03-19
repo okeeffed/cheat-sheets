@@ -197,6 +197,8 @@ export class AppComponent {
 
 ## Nesting Components
 
+Two new components: A list and a component with that list.
+
 
 
 
