@@ -164,6 +164,7 @@ export class AppComponent {
 
 ## Data Binding
 
-
+1. Class to Template 
+2. Template to Class
 
 
