@@ -203,6 +203,8 @@ Two new components: A list and a component with that list. `Entry` and `Entry-li
 
 After creation of this component, it should be imported to `app.module.ts` and added to the declarations property.
 
+Because there will probably be many components, we will create a barrel to work as the middle man.
+
 ```javascript  
 // entry-list ts 
 import { Components } from '@angular/core';
