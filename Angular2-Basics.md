@@ -177,7 +177,7 @@ export class AppComponent {
 `<button (event)="expression"></button>` for event listening
 
 **3**
-`<input [(target)]="expression" />`
+`<input [(target)]="expression" />` - takes input and sends output
 
 
 
