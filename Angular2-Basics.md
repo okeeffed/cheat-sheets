@@ -214,7 +214,6 @@ import { Components } from '@angular/core';
 export class EntryListComponent {
 	
 }
-
 ```
 
 
