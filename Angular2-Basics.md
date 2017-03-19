@@ -179,6 +179,17 @@ export class AppComponent {
 **3**
 `<input [(target)]="expression" />` - takes input and sends output
 
+Given the example of 2 above...
+
+```javascript
+// for the event handler 
+
+...
+export class AppComponent {
+	emojis = ['', '', '']	// array of emojis
+}	
+```
+
 
 
 
