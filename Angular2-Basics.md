@@ -234,6 +234,7 @@ export class EntryListComponent {
 **entry**
 
 - create the usual files
+- add in the import from the barrel
 
 ```javascript
 // entry-list ts 
