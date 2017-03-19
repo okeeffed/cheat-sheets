@@ -136,7 +136,8 @@ In Angular, a Component = Template + Class + Decorator.
 
 This will cover each section.
 
-
+## The @Component decorator 
+- `selector`: name for the component HTML tag
 
 
 
