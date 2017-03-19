@@ -205,6 +205,10 @@ After creation of this component, it should be imported to `app.module.ts` and a
 
 Because there will probably be many components, we will create a barrel to work as the middle man.
 
+```javascript
+// index.ts
+```
+
 ```javascript  
 // entry-list ts 
 import { Components } from '@angular/core';
