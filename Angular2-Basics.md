@@ -235,6 +235,20 @@ export class EntryListComponent {
 
 - create the usual files
 
+```javascript
+// entry-list ts 
+import { Components } from '@angular/core';
+
+@Component({
+	selector: 'app-entry',
+	templateUrl: 'entry.component.html',
+	styleUrls: ['entry.component.css']	
+})
+
+export class EntryComponent {
+	
+}
+```
 
 
 
