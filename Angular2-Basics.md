@@ -160,7 +160,9 @@ export class AppComponent {
 		this.example = ["Hi", "ho"];
 	}
 }
+```
 
+## Data Binding
 
 
 
