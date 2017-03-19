@@ -166,5 +166,13 @@ export class AppComponent {
 
 1. Class to Template 
 2. Template to Class
+3. (Two-way) Between Class and Template
+
+
+
+
+
+
+
 
 
