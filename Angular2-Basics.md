@@ -169,6 +169,7 @@ export class AppComponent {
 3. (Two-way) Between Class and Template
 
 `<h1>{{ exp }}</h1>` view will update to changes to the expression.
+`<input [target]="expression" />` is another form of binding
 
 
 
