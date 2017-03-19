@@ -154,7 +154,7 @@ import { Component } from '@angular/core';
 	styleUrls: ['app.component.css']
 })
 export class AppComponent {
-	example: stringp[];
+	example: string[];
 
 	constructor() {
 		this.example = [];
