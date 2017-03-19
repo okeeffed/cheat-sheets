@@ -231,7 +231,9 @@ export class EntryListComponent {
 <app-entry-list></app-entry-list>
 ```
 
+**entry**
 
+- create the usual files
 
 
 
