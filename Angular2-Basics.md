@@ -226,6 +226,9 @@ import { Components } from '@angular/core';
 export class EntryListComponent {
 	
 }
+
+// in app.component.html 
+<app-entry-list>
 ```
 
 
