@@ -126,7 +126,9 @@ export class AppComponent {
 }
 ```
 
+## The Anatomy of the Component 
 
+In Angular, a Component = Template + Class + Decorator.
 
 
 
