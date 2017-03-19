@@ -157,7 +157,7 @@ export class AppComponent {
 	example: string[];
 
 	constructor() {
-		this.example = [];
+		this.example = ["Hi", "ho"];
 	}
 }
 
