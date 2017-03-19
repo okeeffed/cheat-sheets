@@ -141,7 +141,18 @@ This will cover each section.
 - `template`: Base html 
 - `styles`: you can also do this with a file
 
-General all files (including the styling) will be placed in the same place as the component
+General all files (including the styling) will be placed in the same place as the component.
+
+```javascript 
+// example component file 
+
+import { Component } from '@angular/core';
+
+@Component({
+	selector: 'app-root',
+	templateUrl: 'app.component.html',
+	styleUrls: ['app.component.css']
+});
 
 
 
