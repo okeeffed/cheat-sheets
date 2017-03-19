@@ -207,6 +207,8 @@ Because there will probably be many components, we will create a barrel to work 
 
 ```javascript
 // index.ts
+
+export * from './entry-list/entry-list.component'
 ```
 
 ```javascript  
