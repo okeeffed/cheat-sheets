@@ -228,7 +228,7 @@ export class EntryListComponent {
 }
 
 // in app.component.html 
-<app-entry-list>
+<app-entry-list></app-entry-list>
 ```
 
 
