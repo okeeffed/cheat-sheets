@@ -199,7 +199,21 @@ export class AppComponent {
 
 Two new components: A list and a component with that list. `Entry` and `Entry-list`.
 
-```javascript 
+**entry-list**
+
+```javascript  
+// entry-list ts 
+import { Components } from '@angular/core';
+
+@Component({
+	selector: 'app-entry-list',
+	templateUrl: 'entry-list.component.html',
+	styleUrls: ['entry-list.component.css']	
+})
+
+export class EntryListComponent {
+	
+}
 
 ```
 
