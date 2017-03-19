@@ -188,6 +188,10 @@ Given the example of 2 above...
 export class AppComponent {
 	emojis = ['', '', ''];	// array of emojis
 	activeEmoji: string;
+
+	changeEmoji() {
+		this.activeEmoji = this.emoji[Math.floor(Math.random() * this.emoji.length)]
+	}
 }	
 ```
 
