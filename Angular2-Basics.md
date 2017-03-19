@@ -130,6 +130,11 @@ export class AppComponent {
 
 In Angular, a Component = Template + Class + Decorator.
 
+- Template: View or user interface for a component
+- Class: Code that brings template to life 
+- Decorator: Metadata that wires up the class to the template, completing the component 
+
+This will cover each section.
 
 
 
