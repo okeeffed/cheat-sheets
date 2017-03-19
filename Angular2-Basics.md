@@ -252,5 +252,6 @@ export class EntryComponent {
 }
 ```
 
+What we can now do in the `entry-list.component.html`, we can now add in the children.
 
 
