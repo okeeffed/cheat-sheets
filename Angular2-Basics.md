@@ -168,6 +168,8 @@ export class AppComponent {
 2. Template to Class
 3. (Two-way) Between Class and Template
 
+`<h1>{{ exp }}</h1>` view will update to changes to the expression.
+
 
 
 
