@@ -201,7 +201,7 @@ Two new components: A list and a component with that list. `Entry` and `Entry-li
 
 **entry-list**
 
-After creation of this component, it should be imported to `app.module.ts`.
+After creation of this component, it should be imported to `app.module.ts` and added to the declarations property.
 
 ```javascript  
 // entry-list ts 
