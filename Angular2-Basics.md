@@ -138,8 +138,10 @@ This will cover each section.
 
 ## The @Component decorator 
 - `selector`: name for the component HTML tag
+- `template`: Base html 
+- `styles`: you can also do this with a file
 
-
+General all files (including the styling) will be placed in the same place as the component
 
 
 
