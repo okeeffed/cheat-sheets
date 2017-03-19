@@ -186,7 +186,8 @@ Given the example of 2 above...
 
 ...
 export class AppComponent {
-	emojis = ['', '', '']	// array of emojis
+	emojis = ['', '', ''];	// array of emojis
+	activeEmoji: string;
 }	
 ```
 
