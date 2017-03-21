@@ -7,7 +7,7 @@
 
 main()
 {
-	cout << 4;
+	cout << 4 << endl; // endl for endline
 	int A = 4;
 }
 ```
