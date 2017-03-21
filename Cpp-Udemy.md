@@ -12,7 +12,7 @@
 - also can add `unsigned`
 
 ```cpp
-#include <iosstream>
+#include <iostream>
 
 main()
 {
@@ -22,3 +22,16 @@ main()
 ```
 
 ## Getting input 
+
+```cpp
+#include <iostream>
+
+using namespace std
+
+main() {
+	char *example;
+	cin >> example;
+
+	cout << "test";
+}
+```
