@@ -35,3 +35,5 @@ main() {
 	cout << "test";
 }
 ```
+
+## 5: Arrays
