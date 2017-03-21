@@ -7,6 +7,8 @@
 - short 
 - float 
 - double 
+- char 
+- bool
 
 ```cpp
 #include <iosstream>
