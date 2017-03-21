@@ -9,6 +9,7 @@
 - double 
 - char 
 - bool
+- also can add `unsigned`
 
 ```cpp
 #include <iosstream>
