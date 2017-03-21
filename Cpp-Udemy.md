@@ -2,6 +2,12 @@
 
 ## Variables
 
+**Datatypes**
+- int  
+- short 
+- float 
+- double 
+
 ```cpp
 #include <iosstream>
 
