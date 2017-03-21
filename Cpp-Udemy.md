@@ -20,3 +20,5 @@ main()
 	int A = 4;
 }
 ```
+
+## Getting input 
