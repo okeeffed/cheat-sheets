@@ -254,4 +254,44 @@ export class EntryComponent {
 
 What we can now do in the `entry-list.component.html`, we can now add in the children.
 
+## Structural Directives
+
+Directives let you...
+
+- Control Visibility 
+- Apply Styling
+- Loop over items
+- Extend app with custom scripts
+
+There are things such as `structural directives`, `attribute directives`.
+
+```
+// example for a click action
+// here we can add styles for liked give toggled class (attribute)
+<div class="actions">
+	<button type="button" (event)="isLiked = !isLiked" [ngClass]="{liked: isLiked}">Show if true</button>
+	<button type="button" (event)="showComments = !showComments">Comments ({{comments.length}})</button>
+</div>
+
+// *ngFor to iterate (structural)
+// using Angulars template engine
+<div class="comments">
+	<div class="comment" *ngFor="let comment of comments">
+		<p>{{comment.comment}}<strong>{{comment.name}}</strong></p>
+	</div>
+</div>
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
 
