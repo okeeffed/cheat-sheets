@@ -37,3 +37,10 @@ main() {
 ```
 
 ## 5: Arrays
+
+```cpp
+main() 
+{
+int arr[3,4,5];
+}
+```
