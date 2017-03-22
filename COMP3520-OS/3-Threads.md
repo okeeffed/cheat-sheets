@@ -85,3 +85,13 @@ Necessity to sync activities of all threads and prevent interference between eac
 - any alteration of a resource by one thread affects the other threads in the same process 
 
 In general, the techniques used for thread sync are the same as those for process sync.
+
+## Types of Threads 
+
+1. User Level Thread (ULT)
+2. Kernel Level Thread (KLT) 
+	- also called kernel-supported threads or lightweight threads
+
+
+
+
