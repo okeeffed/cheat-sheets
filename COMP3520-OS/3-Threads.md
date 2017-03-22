@@ -76,3 +76,5 @@ Operations associated with a change in thread state
 	- moved the the `Ready` queue for execution
 - Finish (thread)
 	- de-allocate register context and stacks 
+
+## Thread Synchronization 
