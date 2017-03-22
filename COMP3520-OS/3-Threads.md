@@ -39,3 +39,10 @@ Each thread has:
 - Saved thread context when not running 
 - An execution stack 
 - Some per-thread static storage for local variables
+
+## Single-Threaded vs multi threaded 
+
+- Both have `Process Control Block`
+- Both have `User Address Space`
+- Single thread has a `User Stack` and `Kernel Stack`
+- Multithread process has a `User Stack`, `Kernel Stack`, `Thread Control Block` within each thread.
