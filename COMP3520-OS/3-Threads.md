@@ -165,3 +165,8 @@ flag	| meaning
 ## Windows Threads 
 
 Processes and servies provided by the Windows Kernel are relatively simple and general purpose.
+
+- implemented as objects 
+- created as new process or a copy of an existing process 
+- exec proc may contain one or more threads 
+- both procs and thread objects have built-in sync capabilities
