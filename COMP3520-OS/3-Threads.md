@@ -18,3 +18,24 @@ These two characteristics are treated independently by modern operating systems:
 ## Multithreading 
 
 The ability of an OS to support multiple, concurrect paths of execution within a single process
+
+## Process 
+
+The unit of resource allocation and a unit of protection.
+
+A process is associated with: 
+- A virtual address space which holds the process image 
+- Protected access to 
+	- Processors
+	- Other processes 
+	- Files 
+	- I/O resources 
+
+## Multiple threads in Process 
+
+Each thread has:
+- Access to the memory and resources of its process (all threads of a process share this)
+- An execution state (running, ready, etc.)
+- Saved thread context when not running 
+- An execution stack 
+- Some per-thread static storage for local variables
