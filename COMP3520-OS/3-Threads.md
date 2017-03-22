@@ -129,3 +129,10 @@ Kernel routines themselves can be multithreaded.
 Achieves concurrency without the overhead of using multiple processes.
 
 Threads within the same process can exchange information through their common address space and have access to the shared resources of the process.
+
+- Threads of any process can run on any processor
+- Soft affinity:
+	- dispatcher tries to assign a ready thread to the same processor it last ran on 
+	- helps reuse data still in that processor's memory caches from the previous execution of the thread 
+- Hard affinity:
+	- an application restricts thread execution to certain processors
