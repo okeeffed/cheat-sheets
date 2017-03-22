@@ -46,3 +46,5 @@ Each thread has:
 - Both have `User Address Space`
 - Single thread has a `User Stack` and `Kernel Stack`
 - Multithread process has a `User Stack`, `Kernel Stack`, `Thread Control Block` within each thread
+
+#### up to 10!
