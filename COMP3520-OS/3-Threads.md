@@ -152,3 +152,5 @@ Linux uses the same internal representation for processes and threads; a thread 
 A distinction is only made when a new thread is created by the `clone` system call
 	- `fork` creates a new process with its own entirely new process context 
 	- `clone` creates a new process with its own identity, but that is allowed to share the data structures of its parent
+
+Using `clone` gives the application fine-grained control over exactly what is shared between two threads.
