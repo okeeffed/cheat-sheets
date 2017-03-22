@@ -14,3 +14,7 @@ Processes have two characteristics:
 These two characteristics are treated independently by modern operating systems:
 	- the unit of dispatching is referred to as a `thread` or lightweight process 
 	- the unit of resource ownership is referred to as a `process` or `task`
+
+## Multithreading 
+
+The ability of an OS to support multiple, concurrect paths of execution within a single process
