@@ -161,3 +161,7 @@ flag	| meaning
 `CLONE_VM` | The same mem space is shared 
 `CLONE_SIGHAND` | Signal handlers are shared 
 `CLONE_FILES` | The set of open files are shared
+
+## Windows Threads 
+
+Processes and servies provided by the Windows Kernel are relatively simple and general purpose.
