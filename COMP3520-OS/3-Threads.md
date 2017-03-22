@@ -9,3 +9,4 @@ Processes have two characteristics:
 	- the OS performs a protection function to prevent unwanted interference between processes with respect to resources
 2. Scheduling/Execution
 	- follows an execution path that may be interleaved with other processes 
+	- a process has an execution state (Running, Ready, etc.) and a dispatching priority and is scheduled and dispatched by the OS
