@@ -10,3 +10,8 @@ Processes have two characteristics:
 2. Scheduling/Execution
 	- follows an execution path that may be interleaved with other processes 
 	- a process has an execution state (Running, Ready, etc.) and a dispatching priority and is scheduled and dispatched by the OS
+
+These two characteristics are treated independently by modern operating systems:
+	- these two characteristics are treated independently by modern operating systems:
+		- the unit of dispatching is referred to as a `thread` or lightweight process 
+		- the unit of resource ownership is referred to as a `process` or `task`
