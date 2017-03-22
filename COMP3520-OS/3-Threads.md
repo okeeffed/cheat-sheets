@@ -170,3 +170,11 @@ Processes and servies provided by the Windows Kernel are relatively simple and g
 - created as new process or a copy of an existing process 
 - exec proc may contain one or more threads 
 - both procs and thread objects have built-in sync capabilities
+
+Windows makes use of two types of process-related objects:
+
+**Processes**
+– an entity corresponding to a user job or application that owns resources
+
+**Threads**
+– a dispatchable unit of work that executes sequentially and is interruptible
