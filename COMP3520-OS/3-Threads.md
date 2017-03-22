@@ -114,6 +114,6 @@ Kernel maintains context information for the process and the threads.
 
 Scheduling is done on a thread basis.
 
-Window is an example of this approach.
+Windows is an example of this approach.
 
 
