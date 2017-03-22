@@ -144,3 +144,5 @@ Threads within the same process can exchange information through their common ad
 - Data splitting 
 - Data dependency 
 - Testing and debugging 
+
+## Linux Threads 
