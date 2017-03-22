@@ -53,3 +53,6 @@ In OS that supports threads: scheduling and dispatching done on thread basis
 
 - Most of the state info dealing with execution is maintained in thread-level data structures 
 - Several actions that affect all of the threads in a process and that the OS must manage at the process level
+	- Suspending process means all threads of a process 
+	- Terminates a process terminates all threads within the process 
+- Similar to processes, threads have execution states and may synchronize with one another.
