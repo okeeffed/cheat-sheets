@@ -74,3 +74,5 @@ Operations associated with a change in thread state
 	- issue: will blocking a thread block other, or all, threads within the same process?
 - Unblock 
 	- moved the the `Ready` queue for execution
+- Finish (thread)
+	- de-allocate register context and stacks 
