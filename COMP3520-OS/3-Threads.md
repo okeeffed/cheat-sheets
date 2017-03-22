@@ -116,4 +116,10 @@ Scheduling is done on a thread basis.
 
 Windows is an example of this approach.
 
+## Advantages of KLT 
 
+The kernel can simultaneously schedule multiple threads from the same process on multiple processors.
+
+If one thread is blocked, the kernel schedules another thread of the same process.
+
+Kernel routines themselves can be multithreaded.
