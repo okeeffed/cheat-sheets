@@ -47,4 +47,9 @@ Each thread has:
 - Single thread has a `User Stack` and `Kernel Stack`
 - Multithread process has a `User Stack`, `Kernel Stack`, `Thread Control Block` within each thread
 
-#### up to 10!
+## Threads 
+
+In OS that supports threads: scheduling and dispatching done on thread basis 
+
+- Most of the state info dealing with execution is maintained in thread-level data structures 
+- Several actions that affect all of the threads in a process and that the OS must manage at the process level
