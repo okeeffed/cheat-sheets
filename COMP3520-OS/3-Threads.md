@@ -123,3 +123,9 @@ The kernel can simultaneously schedule multiple threads from the same process on
 If one thread is blocked, the kernel schedules another thread of the same process.
 
 Kernel routines themselves can be multithreaded.
+
+## Multicore & Multithreading 
+
+Achieves concurrency without the overhead of using multiple processes.
+
+Threads within the same process can exchange information through their common address space and have access to the shared resources of the process.
