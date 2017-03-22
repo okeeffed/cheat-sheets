@@ -100,4 +100,11 @@ Thread management all done by application.
 The kernel is not aware of the existence of threads 
 - Only schedule the process as a unit and assigns a single execution state to that process 
 
+## Disadvantages of ULT 
+
+In a typical OS many system calls are blocking 
+- as a result, when a ULT executes a system call, not only is the thread blocked, but all within the process are blocked 
+
+In a pure ULT strategy, multithreaded applications cannot take advantage of multiprocessing.
+
 
