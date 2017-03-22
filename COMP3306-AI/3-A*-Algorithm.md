@@ -60,4 +60,4 @@ Compare f(G2) and f(G)
 ## Dominance 
 
 Two admissibleheuristics h(1) and h(2)
-- h[2] dominates h[1] if for all nodes `n` we have `h[2](n) >= h[1](n)`
+- `h[2]` dominates `h[1]` if for all nodes `n` we have `h[2](n) >= h[1](n)`
