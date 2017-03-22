@@ -56,3 +56,7 @@ Compare f(G2) and f(G)
 	- Thus f(G)<f(G2) (4) & f(n)<=f(G) (10)
 11. f(n)<=f(G)<f(G2) (10, 4)
 12. f(n)<f(G2) => n will be expanded not G2; A* will not select G2 for expansion
+
+## Dominance 
+
+Two admissibleheuristics h(1) and h(2)
