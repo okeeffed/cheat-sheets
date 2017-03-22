@@ -154,3 +154,10 @@ A distinction is only made when a new thread is created by the `clone` system ca
 	- `clone` creates a new process with its own identity, but that is allowed to share the data structures of its parent
 
 Using `clone` gives the application fine-grained control over exactly what is shared between two threads.
+
+flag	| meaning
+---		| ---
+`CLONE_FS` | File-system info is shared 
+`CLONE_VM` | The same mem space is shared 
+`CLONE_SIGHAND` | Signal handlers are shared 
+`CLONE_FILES` | The set of open files are shared
