@@ -107,4 +107,13 @@ In a typical OS many system calls are blocking
 
 In a pure ULT strategy, multithreaded applications cannot take advantage of multiprocessing.
 
+## Kernel-Level Threads 
+
+Kernel maintains context information for the process and the threads. 
+- No thread management done by application 
+
+Scheduling is done on a thread basis.
+
+Window is an example of this approach.
+
 
