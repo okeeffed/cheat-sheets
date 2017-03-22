@@ -136,3 +136,11 @@ Threads within the same process can exchange information through their common ad
 	- helps reuse data still in that processor's memory caches from the previous execution of the thread 
 - Hard affinity:
 	- an application restricts thread execution to certain processors
+
+## Multicore Challenges 
+
+- Dividing activities 
+- Balance 
+- Data splitting 
+- Data dependency 
+- Testing and debugging 
