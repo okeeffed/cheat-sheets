@@ -59,3 +59,18 @@ In OS that supports threads: scheduling and dispatching done on thread basis
 
 
 ## Thread Execution States 
+
+Three basic states
+
+1. Running 
+2. Ready 
+3. Blocked 
+
+Operations associated with a change in thread state 
+- Spawn (another thread)
+	- allocate register context and stacks 
+- Block 
+	- move to an event queue waiting for the event 
+	- issue: will blocking a thread block other, or all, threads within the same process?
+- Unblock 
+	- moved the the `Ready` queue for execution
