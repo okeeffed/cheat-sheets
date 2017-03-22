@@ -56,3 +56,6 @@ In OS that supports threads: scheduling and dispatching done on thread basis
 	- Suspending process means all threads of a process 
 	- Terminates a process terminates all threads within the process 
 - Similar to processes, threads have execution states and may synchronize with one another.
+
+
+## Thread Execution States 
