@@ -146,3 +146,9 @@ Threads within the same process can exchange information through their common ad
 - Testing and debugging 
 
 ## Linux Threads 
+
+Linux uses the same internal representation for processes and threads; a thread is simply a new process (or task) that happens to share the same address space as its parent.
+
+A distinction is only made when a new thread is created by the `clone` system call
+	- `fork` creates a new process with its own entirely new process context 
+	- `clone` creates a new process with its own identity, but that is allowed to share the data structures of its parent
