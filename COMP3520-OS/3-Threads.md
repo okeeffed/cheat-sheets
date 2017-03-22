@@ -92,6 +92,12 @@ In general, the techniques used for thread sync are the same as those for proces
 2. Kernel Level Thread (KLT) 
 	- also called kernel-supported threads or lightweight threads
 
+## User-Level Threads 
 
+Thread management all done by application.
+- Multithreading is managed by a runtime threads lib 
+
+The kernel is not aware of the existence of threads 
+- Only schedule the process as a unit and assigns a single execution state to that process 
 
 
