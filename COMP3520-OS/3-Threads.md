@@ -78,3 +78,5 @@ Operations associated with a change in thread state
 	- de-allocate register context and stacks 
 
 ## Thread Synchronization 
+
+Necessity to sync activities of all threads and prevent interference between each other.
