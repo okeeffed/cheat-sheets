@@ -80,3 +80,8 @@ Operations associated with a change in thread state
 ## Thread Synchronization 
 
 Necessity to sync activities of all threads and prevent interference between each other.
+
+- all threads of a process share the same address space and other resources 
+- any alteration of a resource by one thread affects the other threads in the same process 
+
+In general, the techniques used for thread sync are the same as those for process sync.
