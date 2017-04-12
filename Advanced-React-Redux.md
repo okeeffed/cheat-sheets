@@ -18,3 +18,5 @@ Work on the relationship of have a `Username/Password` combination and being aut
 
 In conclusion, we just want `Here is my cookie OR token for a protected resource`.
 
+### Cookies vs Tokens
+
