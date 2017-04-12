@@ -29,6 +29,8 @@ In conclusion, we just want `Here is my cookie OR token for a protected resource
 Headers - `cookie: {}`
 Body - JSON 
 
+The point of cookies is to bring `state` to something `stateless`
+
 **Token**
 
 - Have to manually wire up
