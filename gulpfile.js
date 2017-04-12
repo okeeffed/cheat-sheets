@@ -10,7 +10,7 @@ gulp.task( "watch", function() {
 		"*.md",
 		"**/*.md",
 		".env"
-	]).on( "change", function( file ) {
+	]).on( "change", function(file) {
 		var list = file.path.split('/');
 		fileName = list[list.length-1];
 
