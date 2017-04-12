@@ -14,3 +14,5 @@ Not a lot of great end-to-end tutorials already. Most skip some important steps.
 
 Best React backend? There is no best backend. All they care about is being served JSON.
 
+Work on the relationship of have a `Username/Password` combination and being authenticated by the server. After being authenticated, we want them to be able to make post requests without reidentifying. The server must give the client back something for this part.
+
