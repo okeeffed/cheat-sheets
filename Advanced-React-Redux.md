@@ -50,4 +50,4 @@ If we served `index.html` and `bundle.js` from a Content Server, we can make tha
 
 If we had our API server on another server, we would use a token because cookies would not be able to access the domain with the cookie. It also means we could keep a single location for both mobile and web application.
 
-This set up also means that we can had different developers working on different projects.s
+This set up also means that we can had different developers working on different projects.
