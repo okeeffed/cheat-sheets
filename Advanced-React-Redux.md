@@ -12,3 +12,5 @@ In the `testing` folder you will see a whole bunch of configuration for `test_he
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
 
+Best React backend? There is no best backend.
+
