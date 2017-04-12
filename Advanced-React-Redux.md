@@ -40,3 +40,5 @@ Headers - `authorization: jioeajteioa`
 Body - JSON
 
 Being able to send this to any domain we wish is a benefit with a token.
+
+### Scalable Architecture 
