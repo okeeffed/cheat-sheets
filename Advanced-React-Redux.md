@@ -47,3 +47,5 @@ So we've decided to go with tokens, which is also aligned with how the industry 
 
 If we served `index.html` and `bundle.js` from a Content Server, we can make that server work with no auth req'd.
 - Very easy to redistribute 
+
+If we had our API server on another server, we would use a token because cookies would not be able to access the domain with the cookie.
