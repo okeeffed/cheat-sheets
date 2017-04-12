@@ -53,3 +53,5 @@ If we had our API server on another server, we would use a token because cookies
 This set up also means that we can had different developers working on different projects.
 
 That way, scaling also makes it easier! If we need to load balance the API servers because we are using more than just one device, then this allows us to also be more effective in scaling out an API.
+
+### Server Setup
