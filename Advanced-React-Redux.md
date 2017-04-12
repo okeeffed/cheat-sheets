@@ -20,5 +20,20 @@ In conclusion, we just want `Here is my cookie OR token for a protected resource
 
 ### Cookies vs Tokens
 
+**Cookies**
 
+- Automatically included on all requests 
+- Unique to each domain 
+- Cannot be sent to different domains 
+
+Headers - `cookie: {}`
+Body - JSON 
+
+**Token**
+
+- Have to manually wire up
+- Can be sent to any domain 
+
+Headers - `authorization: jioeajteioa`
+Body - JSON
 
