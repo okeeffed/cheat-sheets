@@ -42,3 +42,5 @@ Body - JSON
 Being able to send this to any domain we wish is a benefit with a token.
 
 ### Scalable Architecture 
+
+So we've decided to go with tokens, which is also aligned with how the industry is trending.
