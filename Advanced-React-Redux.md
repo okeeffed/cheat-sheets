@@ -8,3 +8,5 @@ In the `testing` folder you will see a whole bunch of configuration for `test_he
 
 ### Test Reporting
 
+## 4. Authentication
+
