@@ -91,3 +91,5 @@ An example `package.json` will look like so
 ```
 
 Refer to Github to see more info on each of these packages.
+
+Touch `index.js` and that will be the entry point for the server.
