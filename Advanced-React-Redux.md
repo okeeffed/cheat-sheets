@@ -151,3 +151,14 @@ In `router.js`, we can use the functions exported from the controller to create 
 
 ### JWT Overview
 
+There are two phases for the lifecycle.
+
+1. When signing in 
+
+`User ID` + `Secret String` = `JSON Web Token`
+
+In the future, the user can now use this token for future requests.
+
+2. Authenticated calls after signin 
+
+`JSON Web Token` + `Secret String` = `User ID`
