@@ -244,3 +244,5 @@ const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
 passport.use(jwtLogin);
 passport.use(localLogin);
 ```
+
+Passport is more of an ecosystem of strategies. A strategy is a method for authenticating a user.
