@@ -132,3 +132,6 @@ app.use(cors());
 app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 ```
+
+Morgan is a logging framework.
+Cors allows you the server to use Cross Origin.
