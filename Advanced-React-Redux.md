@@ -256,3 +256,5 @@ Reminder: Stategies are a plugin of sorts that works with Passport.
 For the `jwtOptions`, there is a little bit of action going. If we look at the `payload` parameter for jwtLogin, we know it somehow gets these options as an argument, but the token can be sitting anywhere, so how do we know? We pass `jwtFromRequest` to let them know where to look eg `jwtFromRequest: ExtractJwt.fromHeader('authorization')`.
 
 We then let them know that the we wish to use the option `secretOrKey` which will be `config.secret` in this case `secretOrKey: config.secret`.
+
+As a final step, we tell passport to use the straight with the `.use()` method.
