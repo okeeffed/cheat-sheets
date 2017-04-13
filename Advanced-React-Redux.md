@@ -250,3 +250,5 @@ Passport is more of an ecosystem of strategies. A strategy is a method for authe
 In the Jwt Strategy, the payload comes from the `sub` and `iat` we created.
 
 ### Using Strategies with Passport 
+
+Reminder: Stategies are a plugin of sorts that works with Passport.
