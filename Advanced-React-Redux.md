@@ -179,3 +179,5 @@ function tokenForUser(user) {
 	return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 ```
+
+### Passport 
