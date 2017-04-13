@@ -288,3 +288,4 @@ In contrast, if we want to run something like a signin, we would start by instal
 
 We then create a local strategy. We need to specifically tell the local strategy where to look. If we're using email then we would write something like `const localOptions = { usernameField: 'email' };`.
 
+**Local Strategy vs JWT Strategy**
