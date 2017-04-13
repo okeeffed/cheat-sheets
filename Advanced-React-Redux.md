@@ -184,4 +184,4 @@ function tokenForUser(user) {
 
 So once they've signed up, how do we exchange and give them a token? We need to handle the login case. We also need to make sure they're authenticated when they try accessing a protected resource.
 
-For example, if we have a `Posts` or `Comments` controller, we need to check if they've been loggin in.
+For example, if we have a `Posts` or `Comments` controller, we need to check if they've been loggin in and if they have a valid token.
