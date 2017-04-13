@@ -162,3 +162,5 @@ In the future, the user can now use this token for future requests.
 2. Authenticated calls after signin 
 
 `JSON Web Token` + `Secret String` = `User ID`
+
+If the "secret string" is incorrect, then this will not result in the User ID.
