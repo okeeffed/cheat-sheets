@@ -122,3 +122,13 @@ console.log('Server listening on:', port);
 ```
 
 ### Express Middleware
+
+The following lines are part of the middleware:
+
+```javascript
+// App Setup
+app.use(morgan('combined'));
+app.use(cors());
+app.use(bodyParser.json({ type: '*/*' }));
+router(app);
+```
