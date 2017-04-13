@@ -246,3 +246,5 @@ passport.use(localLogin);
 ```
 
 Passport is more of an ecosystem of strategies. A strategy is a method for authenticating a user.
+
+In the Jwt Strategy, the payload comes from the `sub` and `iat` we created.
