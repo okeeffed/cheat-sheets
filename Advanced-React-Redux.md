@@ -167,4 +167,4 @@ If the "secret string" is incorrect, then this will not result in the User ID. M
 
 **Building the JTW**
 
-We can use the library `jtw-simple`.
+We can use the library `jtw-simple`. In the `config.js` file at the root of the app, we can hold the application secrets and config.
