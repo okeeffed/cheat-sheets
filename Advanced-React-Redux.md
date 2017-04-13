@@ -150,3 +150,4 @@ Each controller will be responsible for handling a type of response.
 In `router.js`, we can use the functions exported from the controller to create routes that will deal with post routes.
 
 ### JWT Overview
+
