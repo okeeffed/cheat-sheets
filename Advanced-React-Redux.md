@@ -258,3 +258,5 @@ For the `jwtOptions`, there is a little bit of action going. If we look at the `
 We then let them know that the we wish to use the option `secretOrKey` which will be `config.secret` in this case `secretOrKey: config.secret`.
 
 As a final step, we tell passport to use the straight with the `.use()` method.
+
+We also need to build a very particular route to use passport. In the router file, first import the `passportService` from `services/passport` and require the passport lib into routes as well.
