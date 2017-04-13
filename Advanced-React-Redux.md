@@ -283,3 +283,4 @@ module.exports = function(app) {
 ```
 
 Using `Postman`, we can then make a `signup` attempt, grab the token and then try make a get request to `/`. If we add a header `authorization` and add in the token we get, we can see that we will get success. Changing this token slightly will give you an unauthorized response.
+
