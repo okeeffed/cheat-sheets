@@ -56,3 +56,4 @@ That way, scaling also makes it easier! If we need to load balance the API serve
 
 ### Server Setup
 
+Imagine a user visits `our-app.com`.
