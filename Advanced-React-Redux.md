@@ -175,6 +175,7 @@ const config = require('../config');
 
 function tokenForUser(user) {
 	const timestamp = new Date().getTime();
+	// convention will have sub for subject, iat for 
 	return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 ```
