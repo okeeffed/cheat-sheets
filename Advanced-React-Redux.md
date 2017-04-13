@@ -181,3 +181,5 @@ function tokenForUser(user) {
 ```
 
 ### Passport 
+
+So once they've signed up, how do we exchange and give them a token? We need to handle the login case.
