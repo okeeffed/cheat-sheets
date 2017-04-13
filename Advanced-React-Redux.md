@@ -260,3 +260,5 @@ We then let them know that the we wish to use the option `secretOrKey` which wil
 As a final step, we tell passport to use the straight with the `.use()` method.
 
 We also need to build a very particular route to use passport. In the router file, first import the `passportService` from `services/passport` and require the passport lib into routes as well.
+
+The, we can create an authentication `const requireAuth = passport.authenticate('jwt', { session: false });` - session false is because we do not want to use a cookie.
