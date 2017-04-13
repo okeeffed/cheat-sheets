@@ -285,3 +285,5 @@ module.exports = function(app) {
 Using `Postman`, we can then make a `signup` attempt, grab the token and then try make a get request to `/`. If we add a header `authorization` and add in the token we get, we can see that we will get success. Changing this token slightly will give you an unauthorized response.
 
 In contrast, if we want to run something like a signin, we would start by installing the `passport-local` "plugin" for passport.
+
+We then create a local strategy.
