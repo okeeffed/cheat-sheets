@@ -182,4 +182,4 @@ function tokenForUser(user) {
 
 ### Passport 
 
-So once they've signed up, how do we exchange and give them a token? We need to handle the login case.
+So once they've signed up, how do we exchange and give them a token? We need to handle the login case. We also need to make sure they're authenticated when they try accessing a protected resource.
