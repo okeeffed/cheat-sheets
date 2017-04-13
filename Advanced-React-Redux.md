@@ -57,3 +57,5 @@ That way, scaling also makes it easier! If we need to load balance the API serve
 ### Server Setup
 
 Time to start writing some code.
+
+`mkdir server && cd server`
