@@ -140,3 +140,5 @@ router(app);
 ### Seeing the MongoDB Database 
 
 Worthwhile downloading `Robomongo` if you are keen to visually see a GUI with MongoDB.
+
+### Authentication Controller
