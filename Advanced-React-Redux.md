@@ -143,4 +143,6 @@ Worthwhile downloading `Robomongo` if you are keen to visually see a GUI with Mo
 
 ### Authentication Controller
 
-In the server, we can create `controllers/authentication.js`.
+In the server, we can create some controllers eg. `controllers/authentication.js`.
+
+Each controller will be responsible for handling a type of response.
