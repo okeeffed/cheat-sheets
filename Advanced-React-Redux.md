@@ -174,6 +174,8 @@ const jwt = require('jwt-simple');
 const config = require('../config');
 
 function tokenForUser(user) {
-	return jwt.encode({}, config.secret);
+	return jwt.encode({ 
+		
+	}, config.secret);
 }
 ```
