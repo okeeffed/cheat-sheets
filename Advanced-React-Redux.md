@@ -168,3 +168,10 @@ If the "secret string" is incorrect, then this will not result in the User ID. M
 **Building the JTW**
 
 We can use the library `jtw-simple`. In the `config.js` file at the root of the app, we can hold the application secrets and config. Ensure these files are `.gitigore`'d.
+
+```
+const jwt = require('jwt-simple');
+function tokenForUser(user) {
+	return jwt.encode({});
+}
+```
