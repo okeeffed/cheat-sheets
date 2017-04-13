@@ -60,7 +60,9 @@ Time to start writing some code.
 
 `mkdir server && cd server`
 
-An example `package.json` will look like so ```
+An example `package.json` will look like so 
+
+```javascript
 {
   "name": "server",
   "version": "1.0.0",
