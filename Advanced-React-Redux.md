@@ -59,3 +59,32 @@ That way, scaling also makes it easier! If we need to load balance the API serve
 Time to start writing some code.
 
 `mkdir server && cd server`
+
+An example `package.json` will look like so ```
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.15.0",
+    "cors": "^2.7.1",
+    "express": "^4.13.4",
+    "jwt-simple": "^0.5.0",
+    "mongoose": "^4.4.7",
+    "morgan": "^1.7.0",
+    "nodemon": "^1.9.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.0.0",
+    "passport-local": "^1.0.0"
+  }
+}
+```
+
