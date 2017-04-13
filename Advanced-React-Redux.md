@@ -186,4 +186,4 @@ So once they've signed up, how do we exchange and give them a token? We need to 
 
 For example, if we have a `Posts` or `Comments` controller, we need to check if they've been loggin in and if they have a valid token.
 
-To do it, we can use `passport.js` - it's normally used for cookie based auth but we can use it with JWT tokens.
+To do it, we can use `passport.js` - it's normally used for cookie based auth but we can use it with JWT tokens. First, install `passport passport-jwt`.
