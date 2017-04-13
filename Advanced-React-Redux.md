@@ -293,3 +293,5 @@ We then create a local strategy. We need to specifically tell the local strategy
 Why there difference? Signing up requires signing in and returning a token.
 
 If they are signing in however, we verify that the username and password are correct and then we give them a token.
+
+Then, in the future, when they wish to make a request, we verify the token and give them access to whatever the resouce they want is.
