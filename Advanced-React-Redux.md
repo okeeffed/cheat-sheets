@@ -90,3 +90,4 @@ An example `package.json` will look like so
 }
 ```
 
+Refer to Github to see more info on each of these packages.
