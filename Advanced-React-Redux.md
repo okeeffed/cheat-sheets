@@ -262,3 +262,21 @@ As a final step, we tell passport to use the straight with the `.use()` method.
 We also need to build a very particular route to use passport. In the router file, first import the `passportService` from `services/passport` and require the passport lib into routes as well.
 
 The, we can create an authentication `const requireAuth = passport.authenticate('jwt', { session: false });` - session false is because we do not want to use a cookie.
+
+```javascript
+const Authentication = require('./controllers/authentication');
+const passportService = require('./services/passport');
+const passport = require('passport');
+
+const requireAuth = passport.authenticate('jwt', { session: false });
+const requireSignin = passport.authenticate('local', { session: false });
+
+module.exports = function(app) {
+	// here we wish to 
+	app.get('/', requireAuth, function(req, res) {
+		res.send({ message: 'Super secret code is ABC123' });
+	});
+	app.post('/signin', requireSignin, Authentication.signin);
+	app.post('/signup', Authentication.signup);
+}
+```
