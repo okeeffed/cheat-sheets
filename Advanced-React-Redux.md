@@ -142,3 +142,5 @@ router(app);
 Worthwhile downloading `Robomongo` if you are keen to visually see a GUI with MongoDB.
 
 ### Authentication Controller
+
+In the server, we can create `controllers/authentication.js`.
