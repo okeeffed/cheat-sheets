@@ -272,7 +272,8 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = function(app) {
-	// here we wish to 
+	// here we wish to actually use require auth as middleware
+	// before processing
 	app.get('/', requireAuth, function(req, res) {
 		res.send({ message: 'Super secret code is ABC123' });
 	});
