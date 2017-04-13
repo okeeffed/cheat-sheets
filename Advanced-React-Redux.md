@@ -146,3 +146,5 @@ Worthwhile downloading `Robomongo` if you are keen to visually see a GUI with Mo
 In the server, we can create some controllers eg. `controllers/authentication.js`.
 
 Each controller will be responsible for handling a type of response.
+
+In `router.js`, we can use the functions exported from the controller to create routes that will deal with post routes.
