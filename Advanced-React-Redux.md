@@ -281,3 +281,5 @@ module.exports = function(app) {
 	app.post('/signup', Authentication.signup);
 }
 ```
+
+Using `Postman`, we can then make a `signup` attempt, grab the token and then try make a get request to `/`.
