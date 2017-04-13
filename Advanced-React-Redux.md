@@ -171,7 +171,9 @@ We can use the library `jtw-simple`. In the `config.js` file at the root of the 
 
 ```
 const jwt = require('jwt-simple');
+const config = require('../config');
+
 function tokenForUser(user) {
-	return jwt.encode({});
+	return jwt.encode({}, config.secret);
 }
 ```
