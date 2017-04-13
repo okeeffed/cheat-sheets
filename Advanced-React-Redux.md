@@ -188,3 +188,4 @@ For example, if we have a `Posts` or `Comments` controller, we need to check if 
 
 To do it, we can use `passport.js` - it's normally used for cookie based auth but we can use it with JWT tokens. First, install `passport` and `passport-jwt`.
 
+Then, we can build `service/passport.js` file.
