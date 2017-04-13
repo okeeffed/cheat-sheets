@@ -252,3 +252,5 @@ In the Jwt Strategy, the payload comes from the `sub` and `iat` we created.
 ### Using Strategies with Passport 
 
 Reminder: Stategies are a plugin of sorts that works with Passport.
+
+For the `jwtOptions`, there is a little bit of action going. If we look at the `payload` parameter for jwtLogin, we know it somehow gets these options as an argument, but the token can be sitting anywhere, so how do we know? We pass `jwtFromRequest` to let them know where to look eg `jwtFromRequest: ExtractJwt.fromHeader('authorization')`.
