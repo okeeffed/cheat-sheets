@@ -136,3 +136,7 @@ router(app);
 - Morgan is a logging framework - quite good for giving the type of requests!
 - Cors allows you the server to use Cross Origin.
 - bodyParser will parse incoming requests. At the moment, it's just for JSON but you may need to change this if you are expecting a file etc.
+
+### Seeing the MongoDB Database 
+
+Worthwhile downloading `Robomongo` if you are keen to visually see a GUI with MongoDB.
