@@ -133,5 +133,6 @@ app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 ```
 
-Morgan is a logging framework - quite good for giving the type of requests!
-Cors allows you the server to use Cross Origin.
+- Morgan is a logging framework - quite good for giving the type of requests!
+- Cors allows you the server to use Cross Origin.
+- bodyParser will parse incoming requests. At the moment, it's just for JSON but you may need to change this if you are expecting a file etc.
