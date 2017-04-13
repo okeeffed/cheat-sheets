@@ -291,3 +291,5 @@ We then create a local strategy. We need to specifically tell the local strategy
 **Local Strategy vs JWT Strategy**
 
 Why there difference? Signing up requires signing in and returning a token.
+
+If they are signing in however, we verify that the username and password are correct and then we give them a token.
