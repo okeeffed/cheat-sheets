@@ -303,3 +303,5 @@ If we then need to use the schema defined `comparePassword` method.
 ### Using Postman 
 
 Whenever you are willing to test the server using postman, startup the `mongod` daemon (if using mongo) and `nodemon index.js` on the server file, and then you can make GET and POST requests to the localhost port.
+
+If signing up, add a body of JSON to the data.
