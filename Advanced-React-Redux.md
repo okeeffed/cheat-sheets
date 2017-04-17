@@ -337,3 +337,5 @@ The idea with the JWT token is to save that and be able to use it. Having the JW
 ### Form vaidation 
 
 `redux-validation` can really help us out here!
+
+With a form, create a function `validate()`
