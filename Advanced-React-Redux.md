@@ -344,7 +344,7 @@ With a form, create a function `validate()` that will take the `formProps` and r
 function validate(formProps) {
 	const errors = {};
 
-	console.log(formProps);
+	console.log(formProps); // this would be linked up to the email, password and passwordConfirm
 
 	return errors;
 }
