@@ -363,4 +363,4 @@ You can then set `{password.touched && password.error && <div className="error">
 
 ### Signup Action Creator 
 
-For the form component, create an action handler for `onSubmit` with `<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}`
+For the form component, create an action handler for `onSubmit` with `<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}`.
