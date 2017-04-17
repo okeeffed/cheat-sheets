@@ -316,4 +316,4 @@ If correct, return the JWT token, else show an error message.
 
 What we can do is use `Redux Thunk` to help achieve the behaviour of dealing with a good or bad request. Redux thunk allows us to return a function from an `Action` instead of just an object, and we can pass a `dispatch` parameter and what we can then do is any async function etc. and then allowing arbitrary access to the dispatch at anytime we want - that way we can pass a whole ton of logic of what we want to do.
 
-
+For the action creator itself, we then want to pass a constant of the server URL to make the post request - this can be done using `axios`!
