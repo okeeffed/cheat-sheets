@@ -327,3 +327,5 @@ In an example of how it works, a AJAX request from `google.com` to `google.com` 
 This wasn't an issue with `Postman` because enforcing CORS will need either the `Host` or `Origin` header which is trivially easy to fake.
 
 So, how do we deal with this? What we actually do is to change our server to handle all subdomains - this is a common approach for all API servers. The idea is that you want anyone from anywhere to be able to access your server.
+
+We can use `cors` on the server to help with this.
