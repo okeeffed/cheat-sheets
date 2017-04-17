@@ -313,3 +313,5 @@ In a form handler, we use an Action Creator.
 Usually, there has been a singular flow for an action, however we are now sitting in a situation where you may have to handle what happens when signing in has a rejection.
 
 If correct, return the JWT token, else show an error message.
+
+What we can do is use `Redux Thunk`
