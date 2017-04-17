@@ -354,4 +354,4 @@ function validate(formProps) {
 }
 ```
 
-You can then set `{errors.password}` for the error to show on the component.
+You can then set `{password.error}` for the error to show on the component.
