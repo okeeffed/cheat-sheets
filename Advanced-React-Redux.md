@@ -314,4 +314,4 @@ Usually, there has been a singular flow for an action, however we are now sittin
 
 If correct, return the JWT token, else show an error message.
 
-What we can do is use `Redux Thunk`
+What we can do is use `Redux Thunk` to help achieve the behaviour of dealing with a good or bad request.
