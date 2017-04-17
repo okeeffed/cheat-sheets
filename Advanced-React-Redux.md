@@ -321,3 +321,5 @@ For the action creator itself, we then want to pass a constant of the server URL
 ### Dealing with CORS errors with a request (CORS in a nutshell)
 
 How to deal with a CORS No Access-Control-Allow-Origin - it's essentially a security protocol.
+
+In an example of how it works,
