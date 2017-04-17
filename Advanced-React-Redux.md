@@ -322,4 +322,4 @@ For the action creator itself, we then want to pass a constant of the server URL
 
 How to deal with a CORS No Access-Control-Allow-Origin - it's essentially a security protocol.
 
-In an example of how it works,
+In an example of how it works, a AJAX request from `google.com` to `google.com` with the same domain, subdomain and port matching means that the request is okay, but trying to do it from `google.com` to `github.com` as an example won't match and the request is denied unless the server allows it to happen.
