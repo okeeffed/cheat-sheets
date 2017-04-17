@@ -331,3 +331,5 @@ So, how do we deal with this? What we actually do is to change our server to han
 We can use `cors` on the server to help with this. We will just use `app.use(cors());`.
 
 ### Local storage on the client and JWT
+
+The idea with the JWT token is to save that and be able to use it.
