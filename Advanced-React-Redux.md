@@ -346,6 +346,10 @@ function validate(formProps) {
 
 	console.log(formProps); // this would be linked up to the email, password and passwordConfirm
 
+	if (formProps.password !== formProps.passwordConfirm) {
+		errors.password = 'Passwords must match';
+	}
+
 	return errors;
 }
 ```
