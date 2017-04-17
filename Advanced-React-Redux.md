@@ -307,3 +307,5 @@ Whenever you are willing to test the server using postman, startup the `mongod` 
 If signing up, add a body of JSON to the data.
 
 ## Client Side (React App)
+
+In a form handler, we use an Action Creator.
