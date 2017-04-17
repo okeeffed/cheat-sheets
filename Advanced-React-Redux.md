@@ -330,4 +330,4 @@ So, how do we deal with this? What we actually do is to change our server to han
 
 We can use `cors` on the server to help with this. We will just use `app.use(cors());`.
 
-### Local storage on the client and JWTs
+### Local storage on the client and JWT
