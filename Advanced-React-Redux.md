@@ -332,4 +332,4 @@ We can use `cors` on the server to help with this. We will just use `app.use(cor
 
 ### Local storage on the client and JWT
 
-The idea with the JWT token is to save that and be able to use it.
+The idea with the JWT token is to save that and be able to use it. Having the JWT in local storage, it also means that it is persistent and available again for a user once they come back.
