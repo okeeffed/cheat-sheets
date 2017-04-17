@@ -318,6 +318,6 @@ What we can do is use `Redux Thunk` to help achieve the behaviour of dealing wit
 
 For the action creator itself, we then want to pass a constant of the server URL to make the post request - this can be done using `axios`!
 
-### Dealing with CORS errors with a request
+### Dealing with CORS errors with a request (CORS in a nutshell)
 
 
