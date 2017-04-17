@@ -360,3 +360,5 @@ function validate(formProps) {
 ```
 
 You can then set `{password.touched && password.error && <div className="error">{password.error}</div>}` for the error to show on the component.
+
+### Signup Action Creator 
