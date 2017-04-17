@@ -348,3 +348,4 @@ function validate(formProps) {
 
 	return errors;
 }
+```
