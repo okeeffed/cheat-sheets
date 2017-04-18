@@ -379,6 +379,9 @@ const token = localStorage.getItem('token');
 if (token) {
 	// we need to update application state - the dispatch method 
 	// any action can be sent off in the dispatch
-	store.dispatch()
+	store.dispatch({
+		// make sure you import AUTH_USER first
+		type: AUTH_USER
+	});
 }
 ```
