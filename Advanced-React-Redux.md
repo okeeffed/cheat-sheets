@@ -389,3 +389,20 @@ if (token) {
 ### Making Authenticated API Requests
 
 How do we make sure a User can make an authenticated request after signing in?
+
+With a `Redux Thunk` dispatch function, we can make a authenticated request.
+
+With Axios, we can make an auth request like so:
+
+```
+export function fetchMessage() {
+	return function(dispatch) {
+		axios.get(ROOT_URL, {
+			headers: { authorization: localStorage.getItem('token') }
+		})
+		.then(response => {
+			console.log(response);
+		});
+	}
+}
+```
