@@ -73,6 +73,7 @@ You need to create `actions` and `reducers` for the correct Auth action and redu
 
 ```javascript
 // src > actions > index.js 
+// doesn't include the reducer code
 import {
 	CHANGE_AUTH
 } from './types';
@@ -84,6 +85,8 @@ export function authenticate(isLoggedIn) {
 	};
 }
 ```
+
+
 
 ## 4. Authentication
 
