@@ -10,6 +10,8 @@ In the `testing` folder you will see a whole bunch of configuration for `test_he
 
 ## 3. Higher Order Components
 
+
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
