@@ -167,6 +167,16 @@ In the React-Redux cycle, the action is sent to the middleware before it forward
 
 Middleware has the opportunity to log, stop, modify or not touch an action.
 
+```javascript 
+export default function({dispatch}) {
+	return next => action => {
+		console.log(action);
+
+		next(action);
+	}
+}
+```
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
