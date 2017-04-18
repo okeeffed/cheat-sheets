@@ -159,6 +159,8 @@ export default function(ComposedComponent) {
 }
 ```
 
+`static` will create a "Class Level Property" and this gives other instances access to `Authentication.contextTypes`.
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
