@@ -366,3 +366,7 @@ You can then set `{password.touched && password.error && <div className="error">
 For the form component, create an action handler for `onSubmit` with `<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}`.
 
 In order to protect routes from being accessed without authentication, we use Higher Order Components in order to wrap other components.
+
+### Checking at the start of the application 
+
+With we use redux and `createStoreWithMiddleware(reducers)`, we can start applying some intricate details.
