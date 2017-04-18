@@ -104,6 +104,8 @@ export default function(ComposedComponent) {
 }
 ```
 
+What's going on here?
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
