@@ -12,6 +12,8 @@ In the `testing` folder you will see a whole bunch of configuration for `test_he
 
 What are they? Chances are you've already been using them.
 
+HOC + Component = Component + Additional functionality & Data
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
