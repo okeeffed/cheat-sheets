@@ -86,7 +86,7 @@ export function authenticate(isLoggedIn) {
 }
 ```
 
-
+**Building the Higher Order Component**
 
 ## 4. Authentication
 
