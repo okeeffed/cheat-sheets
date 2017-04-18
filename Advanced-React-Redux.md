@@ -33,6 +33,17 @@ function mapStateToProps(state) {
 export default connect(mapStateToProps)(App);
 ```
 
+How about the Provider?
+
+```javascript 
+// in index.js or whatever ReactDOM we're using 
+ReactDOM.render(
+	<Provider store={createStoreWithMiddleware(reducers)}>
+		<App />
+	</Provider>
+)
+```
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
