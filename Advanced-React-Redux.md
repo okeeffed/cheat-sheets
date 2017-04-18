@@ -31,6 +31,7 @@ function mapStateToProps(state) {
 
 // connect is the HOC that wraps mapStateToProps
 export default connect(mapStateToProps)(App);
+```
 
 ## 4. Authentication
 
