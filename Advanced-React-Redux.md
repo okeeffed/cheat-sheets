@@ -14,7 +14,7 @@ What are they? Chances are you've already been using them.
 
 `HOC + Component = Component + Additional functionality & Data`
 
-This gives us back an `enchanced/composed` componenet.
+This gives us back an `enchanced/composed` componenet. These are heavily used in library like `React-Redux`.
 
 ## 4. Authentication
 
