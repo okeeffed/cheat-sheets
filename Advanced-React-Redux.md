@@ -48,6 +48,8 @@ The `Provider` is a HOC to the `Redux Store`. Whenever the `Redux Store` changin
 
 ### Require Auth HOC
 
+How can we use a HOC to help with authentication?
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
