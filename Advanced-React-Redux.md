@@ -115,6 +115,9 @@ import Authentication
 import Resources // the component to wrap 
 
 const ComposedComponent = Authentication(Resources);
+
+...
+
 render() {
 	<ComposedComponent resources={resourceList} />
 }
