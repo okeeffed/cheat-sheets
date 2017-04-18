@@ -388,4 +388,4 @@ if (token) {
 
 ### Making Authenticated API Requests
 
-
+How do we make sure a User can make an authenticated request after signing in?
