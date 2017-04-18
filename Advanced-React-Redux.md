@@ -404,7 +404,7 @@ export function fetchMessage() {
 			console.log(response);
 			dispatch({
 				type: TYPE,
-				payload: action.payload.data.message
+				payload: response.data.message
 			});
 		});
 	}
