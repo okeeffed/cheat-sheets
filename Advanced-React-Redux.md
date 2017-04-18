@@ -10,7 +10,7 @@ In the `testing` folder you will see a whole bunch of configuration for `test_he
 
 ## 3. Higher Order Components
 
-
+What are they? Chances are you've already been using them.
 
 ## 4. Authentication
 
