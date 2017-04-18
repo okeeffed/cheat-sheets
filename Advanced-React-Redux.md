@@ -192,6 +192,20 @@ Now with this `async`, we can apply it to the main file where `createStoreWithMi
 
 It's important that we just target the actions that we want - send the others on using the `next()` function.
 
+```javascript 
+export default function({dispatch}) {
+	return next => action => {
+		if (!action.payload || !action.payload.then) {
+			return next(action);
+		}
+
+		// if there is a promise
+		action.payload
+			.then(response => );
+	}
+}
+```
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
