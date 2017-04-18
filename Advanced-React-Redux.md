@@ -402,6 +402,10 @@ export function fetchMessage() {
 		})
 		.then(response => {
 			console.log(response);
+			dispatcH({
+				type: TYPE,
+				payload: action.payload.data.message
+			})
 		});
 	}
 }
