@@ -377,7 +377,8 @@ const store = createStoreWithMiddleware(reducers);
 const token = localStorage.getItem('token');
 // if we have a token, consider the user to be signed in 
 if (token) {
-	// we need to update application state
-
+	// we need to update application state - the dispatch method 
+	// any action can be sent off in the dispatch
+	store.dispatch()
 }
 ```
