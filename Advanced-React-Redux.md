@@ -201,7 +201,10 @@ export default function({dispatch}) {
 
 		// if there is a promise
 		action.payload
-			.then(response => );
+			.then(response => {
+				// knock off and replace response
+				{...action, payload: response}
+			});
 	}
 }
 ```
