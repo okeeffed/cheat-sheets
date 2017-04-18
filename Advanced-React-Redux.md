@@ -12,7 +12,7 @@ In the `testing` folder you will see a whole bunch of configuration for `test_he
 
 What are they? Chances are you've already been using them.
 
-HOC + Component = Component + Additional functionality & Data
+`HOC + Component = Component + Additional functionality & Data`
 
 ## 4. Authentication
 
