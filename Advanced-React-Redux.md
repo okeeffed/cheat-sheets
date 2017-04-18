@@ -44,6 +44,8 @@ ReactDOM.render(
 , document.querySelector('.container'));
 ```
 
+The `Provider` is a HOC to the `Redux Store`.
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
