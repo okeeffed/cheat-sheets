@@ -140,6 +140,7 @@ import { connect } from 'react-redux';
 export default function(ComposedComponent) {
 	class Authentication extends Component {
 		// to get data ahead of time 
+		// this is part of "Class Level Properties"
 		static contextTypes = {
 			router: React.PropTypes.object
 		}
