@@ -90,6 +90,12 @@ export function authenticate(isLoggedIn) {
 
 ```javascript
 // src > components > requireAuth.js
+
+import React, { Component } from 'react';
+
+export default function(ComposedComponent) {
+	
+}
 ```
 
 ## 4. Authentication
