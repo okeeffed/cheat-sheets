@@ -18,6 +18,20 @@ This gives us back an `enchanced/composed` componenet. These are heavily used in
 
 **Connect and Provider**
 
+```javascript 
+import { connect } from 'react-redux';
+
+class App extends Component {
+	...
+}
+
+function mapStateToProps(state) {
+	return { posts: state.props };
+}
+
+// connect is the HOC that wraps mapStateToProps
+export default connect(mapStateToProps)(App);
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
