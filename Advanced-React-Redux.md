@@ -67,6 +67,8 @@ export default () => {
 }
 ```
 
+If we pass this basic component to the router, we can wrap the component using a HOC.
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
