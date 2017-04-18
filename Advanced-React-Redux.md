@@ -204,6 +204,7 @@ export default function({dispatch}) {
 			.then(response => {
 				// knock off and replace response
 				const newAction = {...action, payload: response}
+				dispatch(newAction);
 			});
 	}
 }
