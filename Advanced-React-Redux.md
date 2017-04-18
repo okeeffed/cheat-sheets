@@ -163,6 +163,10 @@ export default function(ComposedComponent) {
 
 ## 3. Middlewares
 
+In the React-Redux cycle, the action is sent to the middleware before it forwards that onto the reducers.
+
+Middleware has the opportunity to log, stop, modify or not touch an action.
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
