@@ -16,6 +16,8 @@ What are they? Chances are you've already been using them.
 
 This gives us back an `enchanced/composed` componenet. These are heavily used in library like `React-Redux`.
 
+**Connect and Provider**
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
