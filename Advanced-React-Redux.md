@@ -89,7 +89,7 @@ export function authenticate(isLoggedIn) {
 **Building the Higher Order Component**
 
 ```javascript
-
+// src > components > requireAuth.js
 ```
 
 ## 4. Authentication
