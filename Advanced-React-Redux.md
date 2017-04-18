@@ -111,6 +111,10 @@ In some other location, we want to use this HOC.
 eg. another render method 
 
 ```
+import Authentication 
+import Resources // the component to wrap 
+
+const ComposedComponent = Authentication(Resources);
 render() {
 	<ComposedComponent resources={resourceList} />
 }
