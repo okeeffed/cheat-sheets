@@ -69,6 +69,8 @@ export default () => {
 
 If we pass this basic component to the router, we can wrap the component using a HOC.
 
+You need to create `actions` and `reducers` for the correct Auth action and reducer.
+
 ```javascript
 // src > actions > index.js 
 import {
