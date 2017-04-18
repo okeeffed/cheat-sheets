@@ -370,3 +370,11 @@ In order to protect routes from being accessed without authentication, we use Hi
 ### Checking at the start of the application 
 
 With we use redux and `createStoreWithMiddleware(reducers)`, we can start applying some intricate details.
+
+```javascript
+const token = localStorage.getItem('token');
+// if we have a token, consider the user to be signed in 
+if (token) {
+	// we need to update application
+}
+```
