@@ -104,7 +104,9 @@ export default function(ComposedComponent) {
 }
 ```
 
-What's going on here?
+*What's going on here?*
+
+In some other location, we want to use this HOC.
 
 ## 4. Authentication
 
