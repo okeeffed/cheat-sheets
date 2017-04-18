@@ -386,4 +386,4 @@ if (token) {
 }
 ```
 
-
+### Making Authenticated API Requests
