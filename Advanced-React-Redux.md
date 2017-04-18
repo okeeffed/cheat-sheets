@@ -14,6 +14,8 @@ What are they? Chances are you've already been using them.
 
 `HOC + Component = Component + Additional functionality & Data`
 
+This gives us back an `enchanced/composed` componenet.
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
