@@ -94,7 +94,11 @@ export function authenticate(isLoggedIn) {
 import React, { Component } from 'react';
 
 export default function(ComposedComponent) {
-	
+	class Authentication extends Component {
+		render() {
+			return <ComposedComponent {...this.props} />
+		}
+	}
 }
 ```
 
