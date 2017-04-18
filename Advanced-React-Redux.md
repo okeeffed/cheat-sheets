@@ -175,6 +175,17 @@ export default function({dispatch}) {
 		next(action);
 	}
 }
+
+// vanilla es5 
+export default function({dispatch}) {
+	return function(next) { 
+		return function(action) {
+			console.log(action);
+
+			next(action);
+		}
+	}
+}
 ```
 
 Now with this `async`, we can apply it to the main file where `createStoreWithMiddleware` lives through `applyMiddleware(Example)(createStore)`.
