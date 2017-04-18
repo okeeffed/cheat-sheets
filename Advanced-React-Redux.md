@@ -50,6 +50,23 @@ The `Provider` is a HOC to the `Redux Store`. Whenever the `Redux Store` changin
 
 How can we use a HOC to help with authentication?
 
+```javascript
+import React from 'react';
+
+export default () => {
+	return (
+		<div>
+			Super Special Secret Recipe
+			<ul>
+				<li>1 Cup Sugar</li>
+				<li>1 Cup Salt</li>
+				<li>Another piece of stuff</li>
+			</ul>
+		</div>
+	)
+}
+```
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
