@@ -124,7 +124,7 @@ render() {
 
 // OR MORE USEFULLY IN THE REACT ROUTER 
 
-<Route path="/" component={Authentication(Resources)}
+<Route path="/" component={Authentication(Resources)} />
 ```
 
 ### Nesting Higher Order Components
