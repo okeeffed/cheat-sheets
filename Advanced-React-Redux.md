@@ -402,10 +402,10 @@ export function fetchMessage() {
 		})
 		.then(response => {
 			console.log(response);
-			dispatcH({
+			dispatch({
 				type: TYPE,
 				payload: action.payload.data.message
-			})
+			});
 		});
 	}
 }
