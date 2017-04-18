@@ -144,7 +144,11 @@ export default function(ComposedComponent) {
 		}
 	}
 
-	return Authentication;
+	function mapStateToProps(state) {
+		return { authenticated: state.authenticated }
+	}
+
+	return connect(mapStateToProps)(Authentication);
 }
 ```
 
