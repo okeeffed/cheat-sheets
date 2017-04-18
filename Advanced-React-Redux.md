@@ -121,6 +121,10 @@ const ComposedComponent = Authentication(Resources);
 render() {
 	<ComposedComponent resources={resourceList} />
 }
+
+// OR MORE USEFULLY IN THE REACT ROUTER 
+
+<Route path="/" component={Authentication(Resources)}
 ```
 
 ### Nesting Higher Order Components
