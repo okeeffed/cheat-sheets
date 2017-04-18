@@ -212,6 +212,8 @@ export default function({dispatch}) {
 
 So why do a new dispatch instead of using next? It's to do with the chain that we have. We want to ensure it goes back through the entire chain again. We want the middleware to be oblivious to what is happening.
 
+If we want to add more middleware into the mix, we just add them as further parameters into the `applyMiddleware` function.
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
