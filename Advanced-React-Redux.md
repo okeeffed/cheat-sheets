@@ -203,7 +203,7 @@ export default function({dispatch}) {
 		action.payload
 			.then(response => {
 				// knock off and replace response
-				{...action, payload: response}
+				const newAction = {...action, payload: response}
 			});
 	}
 }
