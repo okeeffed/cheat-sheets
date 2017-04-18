@@ -108,6 +108,14 @@ export default function(ComposedComponent) {
 
 In some other location, we want to use this HOC.
 
+eg. another render method 
+
+```
+render() {
+	<ComposedComponent resources={resourceList} />
+}
+```
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
