@@ -44,7 +44,7 @@ ReactDOM.render(
 , document.querySelector('.container'));
 ```
 
-The `Provider` is a HOC to the `Redux Store`.
+The `Provider` is a HOC to the `Redux Store`. Whenever the `Redux Store` changing, the `Provider` notices and Broadcasts down to any connected component (using the `connect` function).
 
 ## 4. Authentication
 
