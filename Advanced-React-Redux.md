@@ -394,7 +394,7 @@ With a `Redux Thunk` dispatch function, we can make a authenticated request.
 
 With Axios, we can make an auth request like so:
 
-```
+```javascript
 export function fetchMessage() {
 	return function(dispatch) {
 		axios.get(ROOT_URL, {
@@ -407,6 +407,21 @@ export function fetchMessage() {
 				payload: response.data.message
 			});
 		});
+	}
+}
+```
+
+This can also be done with `Redux Promise` in such a clean way:
+
+```javascript
+export function fetchMessage() {
+	const request = axios.get(ROOT_URL, {
+		headers: { authorization: localStorage.getItem('token') }
+	});
+
+	return {
+		type: TYPE,
+		payload: response.data.message
 	}
 }
 ```
