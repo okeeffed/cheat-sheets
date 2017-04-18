@@ -141,6 +141,7 @@ export default function(ComposedComponent) {
 	class Authentication extends Component {
 		// to get data ahead of time 
 		// this is part of "Class Level Properties"
+		// console.log(this.context) will show nav properties!
 		static contextTypes = {
 			router: React.PropTypes.object
 		}
