@@ -210,7 +210,7 @@ export default function({dispatch}) {
 }
 ```
 
-So why do a new dispatch instead of using next? It's to do with the chain that we have. We want to ensure it goes back through the entire chain again.
+So why do a new dispatch instead of using next? It's to do with the chain that we have. We want to ensure it goes back through the entire chain again. We want the middleware to be oblivious to what is happening.
 
 ## 4. Authentication
 
