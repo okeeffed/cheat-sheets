@@ -364,3 +364,5 @@ You can then set `{password.touched && password.error && <div className="error">
 ### Signup Action Creator 
 
 For the form component, create an action handler for `onSubmit` with `<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}`.
+
+In order to protect routes from being accessed without authentication, we use Higher Order Components in order to wrap other components.
