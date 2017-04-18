@@ -58,9 +58,9 @@ export default () => {
 		<div>
 			Super Special Secret Recipe
 			<ul>
-				<li>1 Cup Sugar</li>
-				<li>1 Cup Salt</li>
-				<li>Another piece of stuff</li>
+				<li class="example">1 Cup Sugar</li>
+				<li class="example">1 Cup Salt</li>
+				<li class="example">Another piece of stuff</li>
 			</ul>
 		</div>
 	)
