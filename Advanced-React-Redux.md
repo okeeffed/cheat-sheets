@@ -99,6 +99,8 @@ export default function(ComposedComponent) {
 			return <ComposedComponent {...this.props} />
 		}
 	}
+
+	return Authentication;
 }
 ```
 
