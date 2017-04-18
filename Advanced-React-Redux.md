@@ -46,6 +46,8 @@ ReactDOM.render(
 
 The `Provider` is a HOC to the `Redux Store`. Whenever the `Redux Store` changing, the `Provider` notices and broadcasts down to any connected component (using the `connect` function).
 
+
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
