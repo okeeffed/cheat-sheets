@@ -190,6 +190,8 @@ export default function({dispatch}) {
 
 Now with this `async`, we can apply it to the main file where `createStoreWithMiddleware` lives through `applyMiddleware(Example)(createStore)`.
 
+It's important that we just target the actions that we want - send the others on using the `next()` function.
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
