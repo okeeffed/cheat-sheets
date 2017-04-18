@@ -367,7 +367,7 @@ For the form component, create an action handler for `onSubmit` with `<form onSu
 
 In order to protect routes from being accessed without authentication, we use Higher Order Components in order to wrap other components.
 
-### Checking at the start of the application 
+### Checking auth at the start of the application 
 
 With we use redux and `createStoreWithMiddleware(reducers)`, we can start applying some intricate details.
 
@@ -385,3 +385,5 @@ if (token) {
 	});
 }
 ```
+
+
