@@ -69,6 +69,20 @@ export default () => {
 
 If we pass this basic component to the router, we can wrap the component using a HOC.
 
+```javascript
+// src > actions > index.js 
+import {
+	CHANGE_AUTH
+} from './types';
+
+export function authenticate(isLoggedIn) {
+	return {
+		type: CHANGE_AUTH,
+		payload: isLoggedIn
+	};
+}
+```
+
 ## 4. Authentication
 
 Not a lot of great end-to-end tutorials already. Most skip some important steps.
