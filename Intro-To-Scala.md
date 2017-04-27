@@ -34,7 +34,9 @@ We can always provide type information or the semi-colon if we wanted to, althou
 
 ## Function Declarations 
 
-Last evaluation implicitly returned;
+Last evaluation implicitly returned.
+
+You must declare return type for a recursive function though.
 
 ```scala
 def multipliedByTwo(x: Int) = (x == 0) x else x*2
