@@ -6,6 +6,8 @@ The adoption of Scala use it for a variety of projects.
 
 Apache Spark is also written in Scala.
 
+There are two ways to create variables: `val` (constant) and `var` (mutable).
+
 ```scala
 
 ```
