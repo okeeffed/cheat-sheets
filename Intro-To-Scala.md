@@ -30,3 +30,4 @@ scala> mes
 res1: String = Hello World!
 ```
 
+We can always provide type information or the semi-colon if we wanted to, although not recommended (interesting they would say this...).
