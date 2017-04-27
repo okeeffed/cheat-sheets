@@ -34,4 +34,8 @@ We can always provide type information or the semi-colon if we wanted to, althou
 
 ## Function Declarations 
 
+Last evaluation implicitly returned;
+
+```scala
 def multipliedByTwo(x: Int) = (x == 0) x else x*2
+```
