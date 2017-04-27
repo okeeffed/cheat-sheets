@@ -9,5 +9,24 @@ Apache Spark is also written in Scala.
 There are two ways to create variables: `val` (constant) and `var` (mutable).
 
 ```scala
+scala> val greeting = "Hello World!"
+greeting: String = Hello World!
 
+scala> greeting = "Allo"
+<console>:12: error: reassignment to val
+       greeting = "Allo"
+                ^
+
+scala> var mes = "Hello!"
+mes: String = Hello!
+
+scala> mes
+res0: String = Hello!
+
+scala> mes = "Hello World!"
+mes: String = Hello World!
+
+scala> mes
+res1: String = Hello World!
 ```
+
