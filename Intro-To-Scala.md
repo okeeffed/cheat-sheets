@@ -38,4 +38,8 @@ Last evaluation implicitly returned;
 
 ```scala
 def multipliedByTwo(x: Int) = (x == 0) x else x*2
+
+def multipliedByTen(x: Double = 10, y: Double): Double {
+	x * y
+}
 ```
