@@ -12,3 +12,4 @@
 ## Useful Commands 
 
 - `docker build . -t='dok/name:latest'`
+- `docker run -p 80:80 -d -t dok/name:latest`
