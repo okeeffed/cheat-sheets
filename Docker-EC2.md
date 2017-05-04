@@ -8,3 +8,7 @@
 6. Docker build
 
 [Installing Docker onto EC2](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html)
+
+## Useful Commands 
+
+- `docker build . -t='dok/name:latest'`
