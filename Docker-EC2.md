@@ -8,6 +8,7 @@
 6. Docker build
 
 [Installing Docker onto EC2](http://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html)
+[Github: Generating SSH Keys](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)
 
 ## Useful Commands 
 
