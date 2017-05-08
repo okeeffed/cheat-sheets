@@ -1,0 +1,2 @@
+# Yeoman Generator
+
