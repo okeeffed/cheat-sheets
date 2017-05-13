@@ -167,5 +167,5 @@ dataset$Purchased = factor(dataset$Purchased,
 
 With any model, we should split the data into the training set and the test set.
 
-
+We need to build our models on the set and then test it on a new set against which we used certain data for that model.
 
