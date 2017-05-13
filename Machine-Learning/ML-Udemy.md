@@ -186,7 +186,7 @@ res = X_test.tolist()
 send(res, 0)
 ```
 
-# Feature Scaling
+### Feature Scaling
 
 With two variables, we can find the Euclidean Distance between point one and point two as `sqroot((x[1] - x[0])^2 + (y[1] - y[0])^2)`
 
