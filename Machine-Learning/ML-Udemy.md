@@ -171,12 +171,12 @@ We need to build our models on the set and then test it on a new set against whi
 
 The performance should not differ too much.
 
-For this section, we use `from sklearn.cross_validation import train_test_split` to do the training, testing and splitting.
+For this section, we use `from sklearn.model_selection import train_test_split` to do the training, testing and splitting.
 
 `train_test_split(*arrays, test_size, train_size)`
 
 ```python
-from sklearn.cross_validation import train_test_split
-X_train, X_test, y_train, y_test = train_test_split()
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, train_size=0.8, random_state=0)
 ```
 
