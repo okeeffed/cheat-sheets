@@ -6,9 +6,9 @@
 
 ## 1.0: The initial data
 
-Dataset		| Example set 
+Dataset		| Example set
 ---			| ---
-Country		| String 
+Country		| String
 Age			| Int
 Salary		| Int
 Purchased 	| Boolean
@@ -24,8 +24,8 @@ So using the first three variables, we will predict the fourth column.
 Libraries		| What for?
 ---				| ---
 matplotlib 		| Has a bunch of very useful and intuitive tools
-numpy			| Help with math 
-pandas			| Imports and manages data sets 
+numpy			| Help with math
+pandas			| Imports and manages data sets
 
 ```python
 import numpy as np
@@ -59,12 +59,12 @@ y = dataset.iloc[:, 3].values
 
 REMEMBER - R Arrays begin from 1
 
-```r 
+```r
 #importing the dataset
 dataset = read.csv('Data.csv');
 ```
 
-### Missing Data 
+### Missing Data
 
 How can handle the problem when there is null data for where the is missing data?
 
@@ -78,7 +78,7 @@ The library will will use is `sklearn`.
 
 `sklearn` is SideKick learn and is an amazing library. We import Imputer to help with the preprocessing.
 
-```python 
+```python
 from sklean.preprocessing import Imputer
 # set NaN and we will see that the missing values are NaN
 # strategy default is mean anyway but we'll be verbose
@@ -92,23 +92,23 @@ X[:, 1:3] = imputer.tranform(X[:, 1:3])
 
 **In R**
 
-```r 
+```r
 # ifelse is like a ternary
 # is.na is to check if value is missing or not
-dataset$Age = ifelse(is.na(dataset$Age), 
+dataset$Age = ifelse(is.na(dataset$Age),
 						ave(dataset$Age, FUN = function(x) mean(x, na.rm = TRUE)),
 						dataset$Age)
 
-dataset$Salary = ifelse(is.na(dataset$Salary), 
+dataset$Salary = ifelse(is.na(dataset$Salary),
 						ave(dataset$Salary, FUN = function(x) mean(x, na.rm = TRUE)),
 						dataset$Salary)
 ```
 
-### Catagorical Variables 
+### Catagorical Variables
 
 What happens when we have strings instead of numbers for defining data? We must convert them to numbers. Example, we have country strings and a bool column in the data given.
 
-```python 
+```python
 # encoding catagorical data
 from sklearn.preprocessing import LabelEncoder
 labelencoder_X = LabelEncoder()
@@ -122,7 +122,7 @@ Instead, what we will do is essentially set up three columns that work like an `
 
 `1` where the country is correlated to the row, `0` otherwise.
 
-```python 
+```python
 # encoding catagorical data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 labelencoder_X = LabelEncoder()
@@ -151,7 +151,7 @@ For R, we just need to factor the way we want to.
 
 Since we have the factor function, the number encoding themselves don't need to be setup in the same way that it was for Python.
 
-```r 
+```r
 # Encoding catergorical data
 # remember c() is a Vector!
 dataset$Country = factor(dataset$Country,
@@ -164,3 +164,5 @@ dataset$Purchased = factor(dataset$Purchased,
 ```
 
 ### Splitting the data into a Training Set and Test Set
+
+With any model, we should split the data into the training set and the test set.
