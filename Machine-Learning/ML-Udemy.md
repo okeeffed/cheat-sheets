@@ -208,3 +208,18 @@ How about the Dummy Variables? It won't break the Model if you don't scale it, b
 
 Even when no Euclidean distance is required, Feature scaling allows the execution to be much faster.
 
+### Templating Data Preprocessing
+
+```python
+# Importing the libraries
+import numpy as mp
+import mapplotlib.pypot as plt
+import pandas as pd
+
+# Importing the dataset
+dataset = pd.read_csv('Data.csv')
+x = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, 3].values
+
+# Taking care of missing data
+```
