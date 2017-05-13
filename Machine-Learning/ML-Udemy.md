@@ -191,3 +191,5 @@ send(res, 0)
 With two variables, we can find the Euclidean Distance between point one and point two as `sqroot((x[1] - x[0])^2 + (y[1] - y[0])^2)`
 
 However, with two very contrasting sizes of variables, the difference may be so ridiculous due to the square difference. Basically, the smaller, less dominant one may not exist.
+
+
