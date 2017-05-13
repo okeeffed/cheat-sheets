@@ -171,5 +171,5 @@ We need to build our models on the set and then test it on a new set against whi
 
 The performance should not differ too much.
 
-
+For this section, we use `from sklearn.cross_validation import train_test_split` to do the training, testing and splitting.
 
