@@ -203,3 +203,5 @@ sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 ```
+
+How about the Dummy Variables? It won't break the Model if you don't scale it, but you might lose how we can intepret which country is which.
