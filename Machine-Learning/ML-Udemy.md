@@ -166,3 +166,5 @@ dataset$Purchased = factor(dataset$Purchased,
 ### Splitting the data into a Training Set and Test Set
 
 With any model, we should split the data into the training set and the test set.
+
+
