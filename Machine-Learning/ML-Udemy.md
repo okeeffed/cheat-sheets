@@ -229,9 +229,11 @@ imputer = Imputer.fit(X[: 1:3])
 X[: 1:3] = imputer.transform(X[:, 1:3])
 
 # Encoding categorical data
+# Not compulsary -
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 # Encode Strings
+# Encoding the Independent Variable
 labelencoder_X = LabelEncoder()
 # put in index for country column
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
@@ -239,7 +241,7 @@ onehotencoder = OneHotEncoder(categorical_features = [0])
 # ensure that X is transformed
 # details here http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html
 X = onehotencoder.fit_transform(X).toarray()
-
+# Encoding the Dependent Variable
 labelencoder_y = LabelEncoder()
 y = labelencoder_y.fit_transform(y)
 
