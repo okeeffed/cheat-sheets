@@ -173,7 +173,10 @@ The performance should not differ too much.
 
 For this section, we use `from sklearn.cross_validation import train_test_split` to do the training, testing and splitting.
 
-```python
+`train_test_split(*arrays, test_size, train_size)`
 
+```python
+from sklearn.cross_validation import train_test_split
+X_train, X_test, y_train, y_test = train_test_split()
 ```
 
