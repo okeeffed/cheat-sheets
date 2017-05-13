@@ -205,3 +205,6 @@ X_test = sc_X.transform(X_test)
 ```
 
 How about the Dummy Variables? It won't break the Model if you don't scale it, but you might lose how we can intepret which country is which.
+
+Even when no Euclidean distance is required, Feature scaling allows the execution to be much faster.
+
