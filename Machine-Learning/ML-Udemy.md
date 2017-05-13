@@ -186,3 +186,4 @@ res = X_test.tolist()
 send(res, 0)
 ```
 
+# Feature Scaling
