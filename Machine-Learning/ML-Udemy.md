@@ -178,5 +178,11 @@ For this section, we use `from sklearn.model_selection import train_test_split` 
 ```python
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, train_size=0.8, random_state=0)
+
+# use below if using python-shell in node
+res = X_train.tolist()
+send(res, 0)
+res = X_test.tolist()
+send(res, 0)
 ```
 
