@@ -236,6 +236,7 @@ labelencoder_X = LabelEncoder()
 X[:, 0] = labelencoder_X.fit_transform(X[:, 0])
 onehotencoder = OneHotEncoder(categorical_features = [0])
 # ensure that X is transformed
+# details here http://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html
 X = onehotencoder.fit_transform(X).toarray()
 
 labelencoder_y = LabelEncoder()
@@ -257,3 +258,4 @@ sc_X = StandardScaler()
 X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 ```
+
