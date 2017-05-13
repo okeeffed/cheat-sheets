@@ -192,4 +192,14 @@ With two variables, we can find the Euclidean Distance between point one and poi
 
 However, with two very contrasting sizes of variables, the difference may be so ridiculous due to the square difference. Basically, the smaller, less dominant one may not exist.
 
+```python
+#
+# FEATURE SCALING
+#
 
+from sklearn.preprocessing import StandardScaler
+
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+```
