@@ -600,4 +600,33 @@ regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
 send(str(regressorOLS.summary()), 0)
 ```
 
-In the case of the first run through, get rid of the variable with the highest `P` value.
+In the case of the first run through, get rid of the variable with the highest `P` value. We need to continue this until we are under the `0.05` SL value.
+
+```python
+# Because of how everything went, we iterate through the BE algorithm iteratively
+
+# Create a new regressor and run iteration
+X_opt = X[:, [0,1,2,3,4,5]]
+regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
+send(str(regressorOLS.summary()), 0)
+
+# Create a new regressor and run iteration
+X_opt = X[:, [0,1,3,4,5]]
+regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
+send(str(regressorOLS.summary()), 0)
+
+# Create a new regressor and run iteration
+X_opt = X[:, [0,3,4,5]]
+regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
+send(str(regressorOLS.summary()), 0)
+
+# Create a new regressor and run iteration
+X_opt = X[:, [0,3,5]]
+regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
+send(str(regressorOLS.summary()), 0)
+
+# Create a new regressor and run iteration
+X_opt = X[:, [0,3]]
+regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
+send(str(regressorOLS.summary()), 0)
+```
