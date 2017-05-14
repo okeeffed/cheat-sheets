@@ -399,3 +399,5 @@ plt.show()
 ```
 
 ## 2.2 Multiple Linear Regression
+
+The challenge: you have 50 companies that all have extracts from `Profit` and the the independent variables that it depends on.
