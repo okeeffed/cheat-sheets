@@ -569,7 +569,7 @@ y_pred = regressor.predict(X_test)
 
 To get it ready, you need to import the required library. Add the follwoing to the previous code.
 
-The library that we use doesn't take into account the `x[0]` constant = 1, so we will need to add this.
+The library that we use doesn't take into account the `x[0]` constant = 1, so we will need to add this. Most other libraries normally will include this.
 
 ```python
 
