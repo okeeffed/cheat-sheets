@@ -659,3 +659,5 @@ Use cases could be things such as understanding how epidemics have spread etc.
 The trick here is that we're not talking about the X variables. When talking about the class of the regression, we're talking about the coefficients.
 
 These models aren't necessarily more advanced than the other linear regression models that we have looked at so far.
+
+In this model, we will basically only require 1 independent variable `level` and the salaries will becoome the DV y.
