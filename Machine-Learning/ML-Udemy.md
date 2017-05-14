@@ -422,3 +422,4 @@ y = b[0] + b[1]*x[1] + b[2]*x[2] + ... + b[n]*x[n]
 4. Independence of errors
 5. Lack of mulicollinearity
 
+With the data that has categorical data, we actually use the `LabelEncoder` and `OneHotEncoder` to allow the expansion of the column into the total different values of of `state` and make a binary matrix for those columns and rows.
