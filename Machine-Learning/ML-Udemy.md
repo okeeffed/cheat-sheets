@@ -431,4 +431,4 @@ With the data that has categorical data, we actually use the `LabelEncoder` and 
 
 **Note:** There is a dummy variable trap we will talk about later.
 
-We can also consider this to be biased.
+We can also think this to be biased, however by default we will have the correct coefficient for the category that will help alter the state to be for the correct category.
