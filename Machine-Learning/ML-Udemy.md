@@ -473,3 +473,5 @@ FIN. When `P > SL`, you come here and the model is ready
 
 **Forward Elimination**
 
+1. Select a significance level to stay in the model (eg SL = 0.05)
+2. Fit all simple regression models `y ~ x[n]` - select the one with the lower P-value
