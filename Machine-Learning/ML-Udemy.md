@@ -307,3 +307,38 @@ On the `XY Graph` the datapoints will all end up being the independent variables
 To get the best fitting line, we just `sum(y - y[hat])^2` to get the `min`.
 
 ### IN PYTHON
+
+```python
+# Importing the libraries
+import sys, json
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+def send(arg, type):
+	if type == 1:
+		print json.dumps(json.loads(arg))
+	elif type == 2:
+		print arg
+	else:
+		print json.dumps(arg)
+
+# Importing the dataset
+dataset = pd.read_csv('data/Salary_Data.csv')
+X = dataset.iloc[:, :-1].values
+y = dataset.iloc[:, 1].values
+send(X.tolist(), 0);
+send(y.tolist(), 0);
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
+
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.transform(X_test)
+sc_y = StandardScaler()
+y_train = sc_y.fit_transform(y_train)
+```
