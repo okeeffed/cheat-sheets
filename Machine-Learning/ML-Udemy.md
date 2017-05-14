@@ -290,3 +290,4 @@ Simple linear regression is basically `y = b[0] + b[1]*x[1]` (even y = mx + c)
 
 ```
 y - dependent variable (DV) eg. how does salary change with years of experience? (y = salary change)
+x - independent variable
