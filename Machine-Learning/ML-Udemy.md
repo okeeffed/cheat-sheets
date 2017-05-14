@@ -278,4 +278,4 @@ Random Forest Classification
 
 ## 2.1: Simple Linear Regression
 
-Looking at years of experience vs. salary.
+Looking at years of experience vs salary.
