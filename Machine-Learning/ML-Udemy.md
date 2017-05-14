@@ -350,6 +350,6 @@ In simple linear regression, we also don't need to worry about `Feature Scaling`
 # Fitting simple ;inear Regression to the Training Set
 from sklearn.linear_model import LinearRegression
 regressor = LinearRegression()
-
-
+regressor.fit(X_train, y_train)
+send(str(regressor), 0);
 ```
