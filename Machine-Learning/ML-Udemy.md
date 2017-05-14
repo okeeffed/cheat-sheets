@@ -437,4 +437,4 @@ You cannot have the default b[0] + all dummy varibles. You should always omit on
 
 ### How to build MLR models (step-by-step)
 
-
+Back with one IV and one DV, life was great, but now that we have many columns we need to decide what we can use as useful predictors.
