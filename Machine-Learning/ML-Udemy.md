@@ -414,3 +414,11 @@ y = b[0] + b[1]*x[1]
 y = b[0] + b[1]*x[1] + b[2]*x[2] + ... + b[n]*x[n]
 ```
 
+**The Assumptions of Linear Regression**
+
+1. Linearity
+2. Homoscedasticity
+3. Multivariate normality
+4. Independence of errors
+5. Lack of mulicollinearity
+
