@@ -466,3 +466,5 @@ Throw in `everything`. When to do it?
 1. Select a significance level to stay in the model (eg SL = 0.05)
 2. Fit the full model with all possible predictors
 3. Consider the predictor with the `highest P-value` - if `P > SL`, go to step 4, else fin
+4. Remove the predictor
+5. Fit model without this variable*
