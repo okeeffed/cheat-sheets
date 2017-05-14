@@ -599,3 +599,5 @@ SL = 0.05
 regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
 send(str(regressorOLS.summary()), 0)
 ```
+
+In the case of the first run through, get rid of the variable with the highest `P` value.
