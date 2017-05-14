@@ -717,3 +717,86 @@ plt.ylabel('Salary')
 plt.savefig('SalaryLR.png')
 plt.close()
 ```
+
+In order to plot and predict polynomial regressions, we need to use the `fit_transform` method within the `LinearRegression.predict()` method.
+
+```python
+# Data Preprocessing Template
+
+# Importing the libraries
+import sys, json
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# send() for Node.js Python Shell lib
+def send(arg, type):
+	if type == 1:
+		print json.dumps(json.loads(arg))
+	elif type == 2:
+		print arg
+	else:
+		print json.dumps(arg)
+
+# Importing the dataset
+dataset = pd.read_csv('data/Position_Salaries.csv')
+X = dataset.iloc[:, 1:2].values
+y = dataset.iloc[:, 2].values
+send(X.tolist(), 0);
+send(y.tolist(), 0);
+
+# Fitting simple Linear Regression to the Training Set
+# Feature Scaling not required with the following library
+from sklearn.linear_model import LinearRegression
+lin_reg = LinearRegression()
+lin_reg.fit(X, y)
+
+# Fitting Polynomial Regression to the dataset
+# This is transform the original features to have
+# associated polynomial terms
+from sklearn.preprocessing import PolynomialFeatures
+poly_reg = PolynomialFeatures(degree=4)
+X_poly=poly_reg.fit_transform(X)
+poly_reg.fit(X_poly, y)
+
+# Fit the poly to another lin reg
+# to have eg. two independent vars
+# etc - using the Poly
+lin_reg2 = LinearRegression()
+lin_reg2.fit(X_poly, y)
+
+# Visualising the Linear Regression results
+plt.scatter(X, y, color = 'red')
+plt.plot(X, lin_reg.predict(X), color = 'blue')
+plt.title('Truth or Bluff for salary for job (LR)')
+plt.xlabel('Position Level')
+plt.ylabel('Salary')
+plt.savefig('SalaryLR.png')
+plt.close()
+
+# Visualising the Poly Regression results
+# For higher res
+X_grid = np.arange(min(X), max(X), 0.1)
+X_grid = X_grid.reshape(len(X_grid), 1)
+plt.scatter(X, y, color = 'red')
+plt.plot(X_grid, lin_reg2.predict(poly_reg.fit_transform(X_grid)), color = 'green')
+plt.title('Truth or Bluff for salary for job (PR)')
+plt.xlabel('Position Level')
+plt.ylabel('Salary')
+plt.savefig('SalaryPR-x.png')
+plt.close()
+
+prediction = lin_reg2.predict(X_poly)
+send(prediction.tolist(), 0)
+
+# Prediciting a new result with the Linear Regression model
+y_pred = lin_reg.predict(6.5)
+# This will be an awful result
+send(y_pred.tolist(), 0)
+
+# Prediciting a new result with the Polynomial Regression model
+y_pred_poly = lin_reg2.predict(poly_reg.fit_transform(6.5))
+# This will be a great result!
+send(y_pred_poly.tolist(), 0)
+
+```
