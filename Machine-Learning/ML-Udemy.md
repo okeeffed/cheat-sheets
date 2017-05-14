@@ -444,7 +444,7 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 1. Garbage in -> Garbage out. If you throw everything in, you may also add in garbage.
 2. Shows an understanding of variables
 
-**5 Methods of Build Models**
+**5 Methods of Building Models**
 
 1. All-in
 2. Backward Elimination
@@ -453,3 +453,5 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 5. Score Comparison
 
 `2, 3 and 4` are sometimes referred to as `Stepwise Regression` or sometimes just `4`.
+
+
