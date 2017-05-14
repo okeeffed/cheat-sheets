@@ -583,6 +583,8 @@ Now that we are ready to start Backward Elimination, we can go ahead and begin w
 
 The following table shows us some useful information about the multiple linear regression model - the `R-squared`, the `Adjusted R-squared`, `P` values and more.
 
+The lower the `P` value in this case, the more important.
+
 ```python
 # Backward Elimination Preparation
 import statsmodels.formula.api as sm
