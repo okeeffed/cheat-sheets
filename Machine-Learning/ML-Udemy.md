@@ -233,6 +233,7 @@ X[: 1:3] = imputer.transform(X[:, 1:3])
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 # Encode Strings
+# Think example of countries to [0|1] matrix
 # Encoding the Independent Variable
 labelencoder_X = LabelEncoder()
 # put in index for country column
