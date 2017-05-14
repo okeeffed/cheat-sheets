@@ -664,4 +664,4 @@ In this model, we will basically only require 1 independent variable `level` and
 
 **Note:** always ensure that X is a vector of matrices and that y is a vector.
 
-We also won't need to split the data into a training and test set simply because we don't have enough data to train one and test the performance of the other. We also want to make an accurate prediction.
+We also won't need to split the data into a training and test set simply because we don't have enough data to train one and test the performance of the other. We also want to make an accurate prediction, and not miss the target.
