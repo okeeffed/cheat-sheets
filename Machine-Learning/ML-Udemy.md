@@ -296,4 +296,4 @@ b[1] - coefficient of IV (unit changes in x[1] how it affects y)
 b[0] - constant
 ```
 
-
+Regression - look at the hard facts
