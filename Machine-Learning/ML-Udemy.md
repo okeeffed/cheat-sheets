@@ -361,7 +361,8 @@ Now that we have the `regressor`, we can start making basic predictions! With th
 
 # Prediciting the test set results
 y_pred = regressor.predict(X_test)
-send(X_test.tolist(), 0)
-send(y_pred.tolist(), 0)
+# send(X_test.tolist(), 0) # see test set years for IV
+# send(y_test.tolist(), 0) # check what the results were
+# send(y_pred.tolist(), 0) # check the predictions
 ```
 
