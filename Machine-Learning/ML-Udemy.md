@@ -354,5 +354,5 @@ regressor.fit(X_train, y_train)
 send(str(regressor), 0);
 ```
 
-Now that we have the `regressor`, we can start making basic predictions!
+Now that we have the `regressor`, we can start making basic predictions! With the Linear Regression object, we can now do this using the `predict` method.
 
