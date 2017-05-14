@@ -483,4 +483,4 @@ FIN. Keep the previous model
 
 1. Select a significance level to enter and one to stay in the model (eg SLENTER, SLSTAY = 0.05)
 2. Perform the next step of `Forward Selection` (new variables must have: `P < SLENTER` to enter)
-3. Perform ALL steps of Backward Elimination (old variables must have `P < SLSTAY` to stay)
+3. Perform ALL steps of Backward Elimination (old variables must have `P < SLSTAY` to stay) - very iterative process.
