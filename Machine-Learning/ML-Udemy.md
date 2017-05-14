@@ -567,3 +567,8 @@ y_pred = regressor.predict(X_test)
 
 ### Backward Elimination - Multiple Linear Regression
 
+To get it ready, you need to import the required library. Add the follwoing to the previous code.
+
+```python
+
+```
