@@ -665,3 +665,55 @@ In this model, we will basically only require 1 independent variable `level` and
 **Note:** always ensure that X is a vector of matrices and that y is a vector.
 
 We also won't need to split the data into a training and test set simply because we don't have enough data to train one and test the performance of the other. We also want to make an accurate prediction, and not miss the target.
+
+```python
+# Importing the libraries
+import sys, json
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# send() for Node.js Python Shell lib
+def send(arg, type):
+	if type == 1:
+		print json.dumps(json.loads(arg))
+	elif type == 2:
+		print arg
+	else:
+		print json.dumps(arg)
+
+# Importing the dataset
+dataset = pd.read_csv('data/Position_Salaries.csv')
+X = dataset.iloc[:, 1:2].values
+y = dataset.iloc[:, 2].values
+send(X.tolist(), 0);
+send(y.tolist(), 0);
+
+# Fitting simple Linear Regression to the Training Set
+# Feature Scaling not required with the following library
+from sklearn.linear_model import LinearRegression
+lin_reg = LinearRegression()
+lin_reg.fit(X, y)
+
+# Fitting Polynomial Regression to the dataset
+# This is transform the original features to have
+# associated polynomial terms
+from sklearn.preprocessing import PolynomialFeatures
+poly_reg = PolynomialFeatures(degree=2)
+X_poly=poly_reg.fit_transform(X)
+
+# Fit the poly to another lin reg
+# to have eg. two independent vars
+# etc - using the Poly
+lin_reg2 = LinearRegression()
+lin_reg2.fit(X_poly, y)
+
+# Visualising the Linear Regression results
+plt.scatter(X, y, color = 'red')
+plt.plot(X, lin_reg.predict(X), color = 'blue')
+plt.title('Truth or Bluff for salary for job (LR)')
+plt.xlabel('Position Level')
+plt.ylabel('Salary')
+plt.savefig('SalaryLR.png')
+plt.close()
+```
