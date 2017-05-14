@@ -800,4 +800,6 @@ y_pred_poly = lin_reg2.predict(poly_reg.fit_transform(6.5))
 send(y_pred_poly.tolist(), 0)
 ```
 
+## Support Vector Regression
+
 
