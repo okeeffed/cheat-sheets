@@ -229,7 +229,7 @@ imputer = Imputer.fit(X[: 1:3])
 X[: 1:3] = imputer.transform(X[:, 1:3])
 
 # Encoding categorical data
-# Not compulsary -
+# Not compulsary - only if we need to convert the data
 from sklearn.preprocessing import LabelEncoder, OneHotEncoder
 
 # Encode Strings
