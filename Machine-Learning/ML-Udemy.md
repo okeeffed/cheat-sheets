@@ -479,4 +479,6 @@ FIN. When `P > SL`, you come here and the model is ready
 4. Consider the predictor with the `lowest P-value`. `If P < SL`, go to Step 3, otherwise go to `FIN`
 FIN. Keep the previous model
 
+**Bidirectional Elimination**
 
+1. Select a significance level to enter and one to stay in the model (eg SLENTER, SLSTAY = 0.05)
