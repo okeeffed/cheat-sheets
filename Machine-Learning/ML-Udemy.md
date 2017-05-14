@@ -581,6 +581,19 @@ send(X.tolist(), 0)
 
 Now that we are ready to start Backward Elimination, we can go ahead and begin with this...
 
-```python
+The following table shows us some useful information about the multiple linear regression model - the `R-squared`, the `Adjusted R-squared`, `P` values and more.
 
+```python
+# Backward Elimination Preparation
+import statsmodels.formula.api as sm
+# Add in column for X[0]
+X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis=1)
+X_opt = X[:, [0,1,2,3,4,5]]
+
+# Stay if < SL
+SL = 0.05
+
+# Create a new regressor
+regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
+send(str(regressorOLS.summary()), 0)
 ```
