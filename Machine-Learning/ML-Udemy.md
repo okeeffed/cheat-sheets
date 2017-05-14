@@ -397,3 +397,5 @@ plt.ylabel('Salary')
 plt.show()
 # plt.savegit('plot.png')
 ```
+
+## 2.2 Multiple Linear Regression
