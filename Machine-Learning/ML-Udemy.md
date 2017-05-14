@@ -302,4 +302,4 @@ The simple linear regression will basically be a best fit for the data.
 
 In the case of `b[0]`, that will be the `y-intercept`. `b[1]` being the point at y.
 
-
+On the `XY Graph` the datapoints will all end up being the independent variables. If we draw lines from these points to the model linear regression line, we can see where that person should be sitting.
