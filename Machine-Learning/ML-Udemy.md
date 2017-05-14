@@ -459,5 +459,6 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 Throw in `everything`. When to do it?
 - You have prior knowledge that these are the true predictors
 - You have to: maybe a framework where you have to use them
+- Preparing for `Backward Elimination` type of regression
 
-
+**Backward Elimination**
