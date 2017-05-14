@@ -798,5 +798,4 @@ send(y_pred.tolist(), 0)
 y_pred_poly = lin_reg2.predict(poly_reg.fit_transform(6.5))
 # This will be a great result!
 send(y_pred_poly.tolist(), 0)
-
 ```
