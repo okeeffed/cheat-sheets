@@ -405,6 +405,7 @@ The challenge: you have 50 companies that all have extracts from `Profit` and th
 ### Intuition
 
 Multiple where there are multiple IVs of causation.
+
 ```
 # Simple Linear Regression
 y = b[0] + b[1]*x[1]
