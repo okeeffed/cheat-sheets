@@ -490,3 +490,8 @@ FIN. Model is ready
 **All Possible Models**
 
 Most thorough approach, but also the most consuming.
+
+1. Select a criterion of goodness of fit (eg. Akaike criterion)
+2. Construct All Possible Regression Models: `(2^N) - 1` total combinations
+3. Select the one with the best criterion
+FIN. Your model is ready
