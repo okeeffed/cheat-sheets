@@ -454,4 +454,7 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 
 `2, 3 and 4` are sometimes referred to as `Stepwise Regression` or sometimes just `4`.
 
+**All in**
 
+Throw in `everything`. When to do it?
+- You have prior knowledge that these are the true predictors
