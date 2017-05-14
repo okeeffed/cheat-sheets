@@ -275,3 +275,7 @@ Polynomial Regression
 Support Vector for Regression (SVR)
 Decision Tree Classification
 Random Forest Classification
+
+## 2.1: Simple Linear Regression
+
+Looking at years of experience vs. salary.
