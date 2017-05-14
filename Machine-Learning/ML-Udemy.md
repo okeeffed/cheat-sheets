@@ -289,6 +289,7 @@ Ask the questions, what are the values that we get from this model? We could hav
 Simple linear regression is basically `y = b[0] + b[1]*x[1]` (even y = mx + c)
 
 ```
-y - dependent variable (DV) eg. how does salary change with years of experience? (y = salary change)
+# Example - How does salary change with years of experience?
+y - dependent variable (DV) eg. (y = salary change)
 x - independent variable(IV) eg. years of experience
 b[1] - coefficient of IV (unit changes in x[1] how it affects y)
