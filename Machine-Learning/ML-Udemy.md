@@ -441,3 +441,4 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 
 Why throw out columns and use everything?
 1. Garbage in -> Garbage out. If you throw everything in, you may also add in garbage.
+2. Shows an understanding of variables
