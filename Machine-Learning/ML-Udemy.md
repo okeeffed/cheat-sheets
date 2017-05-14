@@ -304,4 +304,4 @@ In the case of `b[0]`, that will be the `y-intercept`. `b[1]` being the point at
 
 On the `XY Graph` the datapoints will all end up being the independent variables. If we draw lines from these points to the model linear regression line, we can see where that person should be sitting. If `y[i]` is the data point, `y[hat][i]` is the point is modelled that is should be.
 
-To get the best fitting line, we just `sum(y - y[hat])^2`
+To get the best fitting line, we just `sum(y - y[hat])^2` to get the `min`.
