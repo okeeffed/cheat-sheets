@@ -263,4 +263,4 @@ X_train = sc_X.fit_transform(X_train)
 X_test = sc_X.transform(X_test)
 ```
 
-
+## Part 2: Regression
