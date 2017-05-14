@@ -656,3 +656,4 @@ Use cases could be things such as understanding how epidemics have spread etc.
 
 **Why is it still called Linear?**
 
+The trick here is that we're not talking about the X variables. When talking about the class of the regression, we're talking about the coefficients.
