@@ -308,6 +308,8 @@ To get the best fitting line, we just `sum(y - y[hat])^2` to get the `min`.
 
 ### IN PYTHON
 
+In this example, `YourExperience` is the independent value and `Salary` is the dependent value.
+
 ```python
 # Importing the libraries
 import sys, json
