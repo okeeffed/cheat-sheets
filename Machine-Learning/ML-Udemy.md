@@ -633,3 +633,17 @@ send(str(regressorOLS.summary()), 0)
 ```
 
 ## 2.3 Polynomial Linear Regression
+
+```
+# Simple Linear Regression
+y = b[0] + b[1]*x[1]
+
+# Multiple Linear Regression
+y = b[0] + b[1]*x[1] + b[2]*x[2] + ... + b[n]*x[n]
+
+# Multiple Linear Regression after replacing categorical data
+y = b[0] + b[1]*x[1] + b[2]*x[2] + ... + b[n]*x[n] + b[n+1]*D[1] + ... + b[n+m]*D[m]
+
+# Polynomial Linear Regression
+y = b[0] + b[1]*x[1] + b[2]*x[1]^2 + ... + b[n]*x[1]^n
+```
