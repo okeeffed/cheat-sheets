@@ -443,3 +443,7 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 
 1. Garbage in -> Garbage out. If you throw everything in, you may also add in garbage.
 2. Shows an understanding of variables
+
+**5 Methods of Build Models**
+
+
