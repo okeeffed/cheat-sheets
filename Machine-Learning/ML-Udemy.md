@@ -476,3 +476,4 @@ FIN. When `P > SL`, you come here and the model is ready
 1. Select a significance level to stay in the model (eg SL = 0.05)
 2. Fit all simple regression models `y ~ x[n]` - select the one with the lower P-value
 3. Keep this variable and fit all possible models with one extra predictor added to the one(s) you already have
+4. Consider the predictor with the `lowest P-value`. `If P < SL`, go to Step 3, otherwise go to `FIN`
