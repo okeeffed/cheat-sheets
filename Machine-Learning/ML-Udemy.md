@@ -280,4 +280,6 @@ Random Forest Classification
 
 Looking at years of experience vs salary.
 
-The issue - what is the correlation between `Years of experience` and `Salary`
+The issue - what is the correlation between `Years of experience` and `Salary`.
+
+Ask the questions, what are the values that we get from this model? We could have a business go back to this model and apply it to help get an idea of salaries you are willing to give out.
