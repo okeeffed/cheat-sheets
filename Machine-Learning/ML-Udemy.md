@@ -344,3 +344,5 @@ X_test = sc_X.transform(X_test)
 sc_y = StandardScaler()
 y_train = sc_y.fit_transform(y_train)
 ```
+
+If we run the above, we may get an error from `sklearn.preprocessing` that is that 1d arrays need to be reshaped.
