@@ -604,6 +604,7 @@ In the case of the first run through, get rid of the variable with the highest `
 
 ```python
 # Because of how everything went, we iterate through the BE algorithm iteratively
+# For now, we are not focused on improving the model
 
 # Create a new regressor and run iteration
 X_opt = X[:, [0,1,2,3,4,5]]
