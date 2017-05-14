@@ -402,3 +402,12 @@ plt.show()
 
 The challenge: you have 50 companies that all have extracts from `Profit` and the independent variables that it depends on `R&D Spend`, `Administration`, `Markerting Spend`.
 
+### Intuition
+
+```
+# Simple Linear Regression
+y = b[0] + b[1]*x[1]
+
+# Multiple Linear Regression
+y = b[0] + b[1]*x[1] + b[2]*x[2] + ... + b[n]*x[n]
+```
