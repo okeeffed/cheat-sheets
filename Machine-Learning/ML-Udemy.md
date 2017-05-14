@@ -653,3 +653,6 @@ y = b[0] + b[1]*x[1] + b[2]*x[1]^2 + ... + b[n]*x[1]^n
 Depending on the power, we begin to have a parabolic shape - think of how it all graphs and the amount of min/max for each power.
 
 Use cases could be things such as understanding how epidemics have spread etc.
+
+**Why is it still called Linear?**
+
