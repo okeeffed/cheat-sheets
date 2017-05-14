@@ -777,7 +777,7 @@ plt.close()
 # Visualising the Poly Regression results
 # For higher res
 X_grid = np.arange(min(X), max(X), 0.1)
-X_grid = X_grid.reshape(len(X_grid), 1)
+
 plt.scatter(X, y, color = 'red')
 plt.plot(X_grid, lin_reg2.predict(poly_reg.fit_transform(X_grid)), color = 'green')
 plt.title('Truth or Bluff for salary for job (PR)')
@@ -802,4 +802,60 @@ send(y_pred_poly.tolist(), 0)
 
 ## Support Vector Regression
 
+Very similar to Polynomial Linear Regression in regards to code, but we use Feature Scaling and the SVR class for the regressor. The kernel refers to the type of fit eg poly, rbf etc.
+
+```
+# Data Preprocessing Template
+
+# Importing the libraries
+import sys, json
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# send() for Node.js Python Shell lib
+def send(arg, type = 0):
+	if type == 1:
+		print json.dumps(json.loads(arg))
+	elif type == 2:
+		print arg
+	else:
+		print json.dumps(arg)
+
+# Importing the dataset
+dataset = pd.read_csv('data/Position_Salaries.csv')
+X = dataset.iloc[:, 1:2].values
+y = dataset.iloc[:, 2].values
+
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+sc_y = StandardScaler()
+X = sc_X.fit_transform(X)
+y = sc_y.fit_transform(y)
+
+# Create the SVR regressor
+# SVR doesn't auto Feature Scale
+from sklearn.svm import SVR
+# kernel for linear, poly, rbf etc
+regressor = SVR(kernel='rbf')
+regressor.fit(X, y)
+
+# Prediciting the test set results
+y_pred = regressor.predict(6.5)
+# We have to do this because of feature scaling
+y_pred = sc_y.inverse_transform(y_pred)
+send(y_pred.tolist())
+
+# Visualising the SVR results
+plt.scatter(X, y, color = 'red')
+plt.plot(X, regressor.predict(X), color = 'blue')
+plt.title('Truth or Bluff (SVR)')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
+# plt.savefig('svr.png')
+# plt.show()
+# plt.close()
+```
 
