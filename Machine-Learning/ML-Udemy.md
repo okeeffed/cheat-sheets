@@ -368,6 +368,8 @@ y_pred = regressor.predict(X_test)
 
 **Visualizing the Model**
 
+Note the blue line being the prediction while the red dots are what give the actual plot points.
+
 ```python
 # Visualizing the Training Set results
 plt.scatter(X_train, y_train, color = 'red')
