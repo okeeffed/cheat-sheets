@@ -425,4 +425,9 @@ y = b[0] + b[1]*x[1] + b[2]*x[2] + ... + b[n]*x[n] + b[n+1]*D[1] + ... + b[n+m]*
 4. Independence of errors
 5. Lack of mulicollinearity
 
+**Dummy Variables**
+
 With the data that has categorical data, we actually use the `LabelEncoder` and `OneHotEncoder` to allow the expansion of the column into the total different values of of `state` and make a binary matrix for those columns and rows.
+
+**Note:** There is a dummy variable trap we will talk about later.
+
