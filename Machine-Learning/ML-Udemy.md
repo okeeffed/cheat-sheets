@@ -574,4 +574,6 @@ The library that we use doesn't take into account the `x[0]` constant = 1, so we
 ```python
 # Backward Elimination Preparation
 import statsmodels.formula.api as sm
+
+
 ```
