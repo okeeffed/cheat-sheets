@@ -436,3 +436,5 @@ We can also think this to be biased, however by default we will have the correct
 You cannot have the default b[0] + all dummy varibles. You should always omit one dummy varible.
 
 ### How to build MLR models (step-by-step)
+
+
