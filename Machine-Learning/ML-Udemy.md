@@ -295,3 +295,5 @@ x - independent variable(IV) eg. years of experience
 b[1] - coefficient of IV (unit changes in x[1] how it affects y)
 b[0] - constant
 ```
+
+
