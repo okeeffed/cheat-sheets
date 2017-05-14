@@ -550,11 +550,13 @@ send(X.tolist(), 0);
 from sklearn.model_selection import train_test_split
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
 
-send(y_train.tolist(), 0);
-# send(y_test.tolist(), 0);
-send(X_train.tolist(), 0);
-# send(X_test.tolist(), 0);
-send(len(y_train.tolist()), 0)
+# Fitting simple ;inear Regression to the Training Set
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+
+# Prediciting the test set results
+y_pred = regressor.predict(X_test)
 ```
 
 **Library for Multiple Linear Regression**
