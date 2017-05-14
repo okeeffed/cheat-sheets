@@ -440,5 +440,6 @@ You cannot have the default b[0] + all dummy varibles. You should always omit on
 Back with one IV and one DV, life was great, but now that we have many columns we need to decide what we can use as useful predictors.
 
 Why throw out columns and use everything?
+
 1. Garbage in -> Garbage out. If you throw everything in, you may also add in garbage.
 2. Shows an understanding of variables
