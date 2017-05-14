@@ -663,3 +663,5 @@ These models aren't necessarily more advanced than the other linear regression m
 In this model, we will basically only require 1 independent variable `level` and the `salaries` column will becoome the DV y.
 
 **Note:** always ensure that X is a vector of matrices and that y is a vector.
+
+We also won't need to split the data into a training and test set simply because we don't have enough data to train one and test the performance of the other. We also want to make an accurate prediction.
