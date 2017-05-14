@@ -366,3 +366,4 @@ y_pred = regressor.predict(X_test)
 # send(y_pred.tolist(), 0) # check the predictions
 ```
 
+**Visualizing the Model**
