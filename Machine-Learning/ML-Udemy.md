@@ -452,4 +452,4 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 4. Bidirectional Elimination
 5. Score Comparison
 
-
+`2, 3 and 4` are sometimes referred to as `Stepwise Regression` or sometimes just `4`.
