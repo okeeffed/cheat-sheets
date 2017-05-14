@@ -631,3 +631,5 @@ X_opt = X[:, [0,3]]
 regressorOLS = sm.OLS(endog=y, exog=X_opt).fit()
 send(str(regressorOLS.summary()), 0)
 ```
+
+## 2.3 Polynomial Linear Regression
