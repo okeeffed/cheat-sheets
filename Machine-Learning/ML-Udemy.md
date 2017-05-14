@@ -300,4 +300,4 @@ Regression - look at the hard facts.
 
 The simple linear regression will basically be a best fit for the data.
 
-In the case of `b[0]`, that will be the `y-intercept`.
+In the case of `b[0]`, that will be the `y-intercept`. `b[1]` being the point at y.
