@@ -368,6 +368,8 @@ y_pred = regressor.predict(X_test)
 
 **Visualizing the Model**
 
+This will be training set to train a line and now we can see how it goes against first - the training set, and then secondly, the test set!
+
 Note the blue line being the prediction while the red dots are what give the actual plot points.
 
 ```python
