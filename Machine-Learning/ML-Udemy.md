@@ -287,3 +287,5 @@ Ask the questions, what are the values that we get from this model? We could hav
 ### Intuition
 
 Simple linear regression is basically `y = b[0] + b[1]*x[1]` (even y = mx + c)
+
+
