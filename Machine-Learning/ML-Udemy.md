@@ -339,4 +339,4 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, rando
 
 If we run the above, we may get an error from `sklearn.preprocessing` that is that 1d arrays need to be reshaped.
 
-
+In simple linear regression, we also don't need to worry about `Feature Scaling`.
