@@ -574,6 +574,9 @@ The library that we use doesn't take into account the `x[0]` constant = 1, so we
 ```python
 # Backward Elimination Preparation
 import statsmodels.formula.api as sm
-
-
+# Add in column for X[0]
+X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis=1)
+send(X.tolist(), 0)
 ```
+
+
