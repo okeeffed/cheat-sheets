@@ -482,3 +482,4 @@ FIN. Keep the previous model
 **Bidirectional Elimination**
 
 1. Select a significance level to enter and one to stay in the model (eg SLENTER, SLSTAY = 0.05)
+2. Perform the next step of `Forward Selection` (new variables must have: `P < SLENTER` to enter)
