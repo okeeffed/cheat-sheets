@@ -380,8 +380,7 @@ plt.title('Salary vs Experience (Training Set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
-# fig = plt.figure()
-# fig.savefit('plot.png')
+# plt.savefig('plot.png')
 ```
 
 As for checking the test set:
@@ -396,6 +395,5 @@ plt.title('Salary vs Experience (Test Set)')
 plt.xlabel('Years of Experience')
 plt.ylabel('Salary')
 plt.show()
-# fig = plt.figure()
-# fig.savefit('plot.png')
+# plt.savegit('plot.png')
 ```
