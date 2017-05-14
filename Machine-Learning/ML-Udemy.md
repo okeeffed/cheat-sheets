@@ -661,3 +661,5 @@ The trick here is that we're not talking about the X variables. When talking abo
 These models aren't necessarily more advanced than the other linear regression models that we have looked at so far.
 
 In this model, we will basically only require 1 independent variable `level` and the `salaries` column will becoome the DV y.
+
+**Note:** always ensure that X is a vector of matrices and that y is a vector.
