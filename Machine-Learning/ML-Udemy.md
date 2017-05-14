@@ -344,3 +344,10 @@ In simple linear regression, we also don't need to worry about `Feature Scaling`
 **Fitting Simple Linear Regression to the Training Set**
 
 - `fit` the `regressor`
+
+```python
+# Add to the above code
+# Fitting simple ;inear Regression to the Training Set
+from sklearn.linear_model import LinearRegression
+
+```
