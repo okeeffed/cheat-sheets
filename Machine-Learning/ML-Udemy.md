@@ -384,3 +384,18 @@ plt.show()
 # fig.savefit('plot.png')
 ```
 
+As for checking the test set:
+
+```python
+# Visualizing the Test Set results
+plt.scatter(X_test, y_test, color = 'red')
+# We do not change this since the regressor is already trained
+# with the training set
+plt.plot(X_train, regressor.predict(X_train), color = 'blue')
+plt.title('Salary vs Experience (Test Set)')
+plt.xlabel('Years of Experience')
+plt.ylabel('Salary')
+plt.show()
+# fig = plt.figure()
+# fig.savefit('plot.png')
+```
