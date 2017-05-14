@@ -470,3 +470,6 @@ Throw in `everything`. When to do it?
 5. Fit model without this variable*, rebuild the entire model with the other vars
 6. Return to step 3 with the new model
 FIN. When `P > SL`, you come here and the model is ready
+
+**Forward Elimination**
+
