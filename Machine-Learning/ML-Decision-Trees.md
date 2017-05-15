@@ -40,6 +40,8 @@ Warning for the decision tree, because we need to consider the entropy and split
 
 Either the intervals are infinite (which they are not), or the model has an issue.
 
+The reason the issue came up, is because of what we have used to creat the plot.
+
 ```python
 # Prediciting the Decision Tree results
 # Create the Regressor
