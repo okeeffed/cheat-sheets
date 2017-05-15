@@ -20,3 +20,6 @@ Each split itself is known as a leaf.
 
 The algorithm can handle mathematical issues and we can focus on the practical element of the algorithm.
 
+**Splitting**
+
+If we split `x[1] < 20`, we have two options (y/N). If we then split `x[2] < 170`, we add a child node to `x[1] < 20` that checks y/N. If we then set ``x[2] < 200`
