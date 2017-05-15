@@ -34,4 +34,14 @@ What we do is that for each terminal leaf, we take the average and assign the va
 
 Now, if we have a new value, we check the decision tree where it falls and then assign the new element the value of where it falls as a prediction.
 
-## Decision Tree Regressio in Python
+## Decision Tree Regression in Python
+
+```python
+# Prediciting the Decision Tree results
+# Create the Regressor
+from sklearn.tree import DecisionTreeRegressor
+regressor = DecisionTreeRegressor(random_state=0)
+regressor.fit(X, y)
+
+y_pred = regressor.predict(6.5)
+```
