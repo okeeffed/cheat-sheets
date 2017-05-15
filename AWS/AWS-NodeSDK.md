@@ -8,7 +8,7 @@
 
 These can be set into your ENV variables.
 
-## Example use - get EC2 Details back
+## Example use in a task runner - get EC2 Details back
 
 ```javascript
 var fs = require('fs');
