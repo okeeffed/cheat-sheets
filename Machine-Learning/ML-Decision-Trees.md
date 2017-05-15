@@ -29,3 +29,4 @@ After having a two child tree, if we set `x[1] < 40` such that `x[1] < 20` is no
 Once we start this tree, what do we populate into those boxes? Well, we decide how we predict `y` with a new observation added to the plane x[1] and x[2].
 
 Key note: `Adding splits adds information`.
+
