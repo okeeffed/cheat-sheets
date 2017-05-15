@@ -18,3 +18,4 @@ https://github.com/MacKentoch/react-native-beacons-manager
 
 ### Are there alternatives?
 - Bluedot
+- Facebook Beacon
