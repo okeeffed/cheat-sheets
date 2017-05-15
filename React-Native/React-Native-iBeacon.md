@@ -12,6 +12,8 @@ https://github.com/MacKentoch/react-native-beacons-manager
 
 ### Why should we use this technology?
 - Based off the ports of the original beacon packages
+- Easy to test with what we have
+- Easier to setup push notification logic
 
 ### Why shouldn’t we use this technology?
 - Small, open-source project
