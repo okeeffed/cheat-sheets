@@ -13,3 +13,4 @@ It's when you take the same algorithm multiple times and create something more p
 3. Choose the number Ntree of trees you want to build and repeat steps 1 and 2.
 4. For a new data point, make each one of your Ntree trees predict the value of `Y` for the data point in question, and assign the new data point the average across all the predicted `Y` values.
 
+Doing this allows you to improve the accuracy of your prediction.
