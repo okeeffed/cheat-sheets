@@ -44,6 +44,8 @@ The reason the issue came up, is because of what we have used to create the plot
 
 This is now a non-linear, non-continuous regression model.
 
+What is the best way to view something non-continuous?
+
 ```python
 # Prediciting the Decision Tree results
 # Create the Regressor
