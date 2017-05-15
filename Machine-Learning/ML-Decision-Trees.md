@@ -36,6 +36,8 @@ Now, if we have a new value, we check the decision tree where it falls and then 
 
 ## Decision Tree Regression in Python
 
+Warning for the decision tree, because we need to consider the entropy and split the result into data points. If we stick to one dimension, how do we have a line that is not horizontal?
+
 ```python
 # Prediciting the Decision Tree results
 # Create the Regressor
