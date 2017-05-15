@@ -47,6 +47,21 @@ This is now a non-linear, non-continuous regression model.
 What is the best way to view something non-continuous?
 
 ```python
+# Visualising the Decision Tree results
+X_grid = np.arange(min(X), max(X), 0.01)
+X_grid = X_grid.reshape(len(X_grid), 1)
+plt.scatter(X, y, color = 'red')
+plt.plot(X_grid, regressor.predict(X_grid), color = 'blue')
+plt.title('Truth or Bluff (Decision Tree Regression)')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.savefig('decision-tree.png')
+plt.show()
+```
+
+As for getting the decision tree code to run:
+
+```python
 # Prediciting the Decision Tree results
 # Create the Regressor
 from sklearn.tree import DecisionTreeRegressor
