@@ -1,1 +1,4 @@
 # Random Forest Regression
+
+## Intuition
+
