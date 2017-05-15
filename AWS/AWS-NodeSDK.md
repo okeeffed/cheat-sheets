@@ -7,3 +7,5 @@
 - AWS_SESSION_TOKEN (optional)
 
 These can be set into your ENV variables.
+
+## Example use - get EC2 Details back
