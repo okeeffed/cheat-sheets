@@ -14,7 +14,7 @@ https://github.com/MacKentoch/react-native-beacons-manager
 - Based off the ports of the original beacon packages
 
 ### Why shouldn’t we use this technology?
-
+- Small, open-source project
 
 ### Are there alternatives?
 - Bluedot
