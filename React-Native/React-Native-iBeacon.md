@@ -34,9 +34,7 @@ react-native link
 ## Setup
 
 ```javascript
-import React, {
-  Component
-}                             from 'react';
+import React, { Component } from 'react';
 import {
   AppRegistry,
   StyleSheet,
@@ -44,9 +42,9 @@ import {
   Text,
   ListView,
   DeviceEventEmitter
-}                             from 'react-native';
-import Beacons                from 'react-native-beacons-manager';
-import BluetoothState         from 'react-native-bluetooth-state';
+} from 'react-native';
+import Beacons from 'react-native-beacons-manager';
+import BluetoothState from 'react-native-bluetooth-state';
 
 
 export default class ibeacon extends Component {
