@@ -72,3 +72,5 @@ y_pred = regressor.predict(6.5)
 ```
 
 Ensure you have a higher resolution in order to visualize the splits. Given that the example in the tutorial has just 1 DV and 1 IV, it will come out like steps as the only splits will occur on the x axis.
+
+The model itself is not necessarily that interesting in 1D, but over many dimensions it becomes far more interesting.
