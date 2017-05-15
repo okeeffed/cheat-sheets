@@ -2,4 +2,4 @@
 
 ## Intuition
 
-CART: Certification and Regression Trees
+CART: Classification and Regression Trees
