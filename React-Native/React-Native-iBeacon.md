@@ -19,5 +19,4 @@ https://github.com/MacKentoch/react-native-beacons-manager
 - Small, open-source project
 
 ### Are there alternatives?
-- Bluedot
-- Facebook Beacon
+- See above
