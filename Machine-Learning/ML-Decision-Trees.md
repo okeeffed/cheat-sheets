@@ -13,3 +13,5 @@ Imagine a scatter plot with two IV and we are predicting an DV y (which you woul
 Once you run the regression decision tree algorithm, the scatter plot will be split up into segments.
 
 For example, x1 might be split at 20. Another split may happen for x2 at 170, 200 etc.
+
+The question, are the splits adding value to way we want to group our points?
