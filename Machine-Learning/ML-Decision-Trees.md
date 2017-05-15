@@ -42,6 +42,8 @@ Either the intervals are infinite (which they are not), or the model has an issu
 
 The reason the issue came up, is because of what we have used to create the plot since this is no longer linear.
 
+This is now a non-linear, non-continuous regression model.
+
 ```python
 # Prediciting the Decision Tree results
 # Create the Regressor
