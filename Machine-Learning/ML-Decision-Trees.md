@@ -30,3 +30,4 @@ Once we start this tree, what do we populate into those boxes? Well, we decide h
 
 Key note: `Adding splits adds information`.
 
+What we do is that for each terminal leaf, we take the average and assign the value that we give to any new element that falls into that leaf.
