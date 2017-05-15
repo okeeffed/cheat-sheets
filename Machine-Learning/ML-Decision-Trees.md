@@ -38,6 +38,8 @@ Now, if we have a new value, we check the decision tree where it falls and then 
 
 Warning for the decision tree, because we need to consider the entropy and split the result into data points. If we stick to one dimension, how do we have a line that is not horizontal? If the splits are made, they should remain a constant.
 
+Either the intervals are infinite (which they are not), or the model has an issue.
+
 ```python
 # Prediciting the Decision Tree results
 # Create the Regressor
