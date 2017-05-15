@@ -28,7 +28,7 @@ var params = {
 	InstanceIds: [process.env.EC2_INSTANCE_ID]
 };
 
- /** Get EC2 Details */
+/* Get EC2 Details */
 gulp.task('info', function() {
 	AWS.config = {
 		accessKeyId: process.env.AWS_ACCESS_KEY,
