@@ -15,3 +15,5 @@ Once you run the regression decision tree algorithm, the scatter plot will be sp
 For example, x1 might be split at 20. Another split may happen for x2 at 170, 200 etc.
 
 The question, are the splits adding value to way we want to group our points?
+
+Each split itself is known as a leaf.
