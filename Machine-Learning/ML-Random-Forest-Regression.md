@@ -2,3 +2,4 @@
 
 ## Intuition
 
+Random forest is a version of ensemble learing.
