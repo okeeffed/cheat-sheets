@@ -18,4 +18,4 @@ The question, are the splits adding value to way we want to group our points?
 
 Each split itself is known as a leaf.
 
-The algorithm can handle mathematical issues and we can focus on the practical element of the algorithm
+The algorithm can handle mathematical issues and we can focus on the practical element of the algorithm.
