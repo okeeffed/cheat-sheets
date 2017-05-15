@@ -14,3 +14,7 @@ It's when you take the same algorithm multiple times and create something more p
 4. For a new data point, make each one of your Ntree trees predict the value of `Y` for the data point in question, and assign the new data point the average across all the predicted `Y` values.
 
 Doing this allows you to improve the accuracy of your prediction.
+
+**Example**
+
+How many lollies in a jar? Imagine taking notes of every guess - getting around 1000 and then beginning to average them out or take the median. Statistically speaking, you have a highly likelihood of being closer to the truth.
