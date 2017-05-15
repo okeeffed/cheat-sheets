@@ -8,5 +8,5 @@ It's when you take the same algorithm multiple times and create something more p
 
 **Steps**
 
-1. Pick at random K data points from the Training Set
+1. Pick at random K data points from the Training Set.
 2. Build the Decision Tree associated to these K data points.
