@@ -24,3 +24,5 @@ Once you hit the middle of the normal distribution, you are more likely to be on
 ## PYTHON
 
 This is the last regression model. If you understand decision tree regression, you'll understand random forest.
+
+From decision tree, we know that we will need the visualisation using the non-continuous result.
