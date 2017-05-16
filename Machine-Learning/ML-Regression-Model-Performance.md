@@ -44,4 +44,4 @@ If we observe this as we build our model in code, then we can use the report to 
 
 # Interpretting Linear Regressions Coefficients
 
-If we look at the third model and look at the IVs.
+If we look at the third model and look at the IVs. If we change the IV value, we should be able to tell that DV should correlate in a certain direction.
