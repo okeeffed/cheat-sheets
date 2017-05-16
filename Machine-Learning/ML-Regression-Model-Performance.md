@@ -16,4 +16,4 @@ This is the fun part!
 
 Here we have our `simple linear regression` regression from before. We, the same concepts apply for multiple linear regression.
 
-R^2 - goodness of fit. The closer the one, the better - BUT the problem is when we start adding more DVs into the model.
+R^2 - goodness of fit. The closer the one, the better - BUT the problem is when we start adding more DVs into the model. What we can look at is whether the R^2 getting better or worse, but because of SS[res] the minimum will never decrease. **THIS IS IMPORTANT**.
