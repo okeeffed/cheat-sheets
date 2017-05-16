@@ -4,20 +4,20 @@
 
 1. Create a User and Look at Security Settings
 2. Create a Role and Generate a Key Pair
-3. Create a VPC for our Cluster 
-4. Create a Security Group for our Cluster 
+3. Create a VPC for our Cluster
+4. Create a Security Group for our Cluster
 5. Install and Configure the AWS CLI
 
 **Components and Usage**
 
-- Clusters 
+- Clusters
 - Container instances (how to register too)
 - The Agent
 - Scheduling Tasks
-- Repositories 
+- Repositories
 - IAM Policies and Roles
 
-## 1.0: Container Architecture 
+## 1.0: Container Architecture
 
 ## 1.1: Amazon EC2 Introduction
 
@@ -29,8 +29,8 @@ Highly scalable and fast container management service. Easily can start, stop an
 2. Container instances - EC2 Instances running the ECS agent and registered in a cluster.
 3. Task Definitions - Description of an application with one or more container definitions.
 4. Scheduling - How we get our tasks on the container instances.
-5. Servies - An ECS service allows us to run or maintain a number o instances of a task definition.
-6. Tasks - an instance of a Task definition 
+5. Servies - An ECS service allows us to run or maintain a number of instances of a task definition.
+6. Tasks - an instance of a Task definition
 7. Containers - A Linux Container (Docker for example) created as part of a Task.
 
 ***
@@ -172,14 +172,14 @@ Let's take a look at how we can set up a cluster with a basic web app.
 If we head back to the EC2 container service, let's walk through how we can customize our cluster initially and can use it in a manner more enterprise ready.
 
 **Task Definition**
-- give a solid name about least definition to a task definition 
-- again, select the mappings etc that you want 
+- give a solid name about least definition to a task definition
+- again, select the mappings etc that you want
 
 Now, in the advaned options, we want to make some changes.
 
 Handy inclusions will be our environment variables.
 
-Now, when the host starts, the container will start this image. 
+Now, when the host starts, the container will start this image.
 
 In this case, we will also define a load balance on a particular port.
 
@@ -213,7 +213,7 @@ Once the EC2 is up, the container won't be showing up on the IP just yet. If we 
 
 Head back to `ECS` and we can see in the clusters that we only have one running task.
 
-Now, if we select `Clusters > Task`, we run a new task and choose our task definition. We still only need to run 1 task, since we just ran 1 additional instance. It's a 1-to-1 relationship. 
+Now, if we select `Clusters > Task`, we run a new task and choose our task definition. We still only need to run 1 task, since we just ran 1 additional instance. It's a 1-to-1 relationship.
 
 Something that is cool, is that just because we are running a new task, we don't have to choose the same definition eg. like how we are running a database to support the cluster.
 
@@ -239,7 +239,7 @@ What we can do for loading containers is run from Docker Hub.
 
 If you are going to use a propriatary system, use a private Docker Hub repo.
 
-This example is given from AWS Labs. 
+This example is given from AWS Labs.
 
 The Dockerfile will be used to get a base image we want it built on and then we can declare variables that we want associated with it.
 
@@ -263,7 +263,7 @@ With the repo available for a docker pull, what we can now do is create a new ta
 
 **Creating the task definition**
 
-- Can be done by either console or CLI 
+- Can be done by either console or CLI
 
 Select `ECS > Task Definitions > Create a new definition`.
 
@@ -285,7 +285,7 @@ Before we can apply a task to, we need to scale the instances.
 
 Once the new EC2 instance is up, we can again check that it isn't running if we check the Public IP.
 
-Back in `ECS > Clusters > ECS Instances`, we have two tasks running and we can now run a new task. 
+Back in `ECS > Clusters > ECS Instances`, we have two tasks running and we can now run a new task.
 
 One thing to notice is that the task definition list cannot be removed.
 
@@ -300,7 +300,7 @@ Once the task has run, get the IP that is provisioned and see if you can head to
 - Check the instances, which also has deeper information
 - Check the Load Balancer have the in service status.
 	- Health checks here can be configured.
-- We can check the cluster itself 
+- We can check the cluster itself
 	- Check primary service is `ACTIVE`
 	- Check the instances and the tasks
 

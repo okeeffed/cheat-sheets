@@ -20,3 +20,5 @@ Doing this allows you to improve the accuracy of your prediction.
 How many lollies in a jar? Imagine taking notes of every guess - getting around 1000 and then beginning to average them out or take the median. Statistically speaking, you have a highly likelihood of being closer to the truth.
 
 Once you hit the middle of the normal distribution, you are more likely to be on the money for the guess.
+
+## PYTHON
