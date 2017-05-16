@@ -20,4 +20,4 @@ R^2 - goodness of fit. The closer the one, the better - BUT the problem is when 
 
 Once you add a new variable, it will affect what the variable looks like. Either the new variable will help minimize the SS[res]. If you cannot decress SS[res], the new variable would be zero (unlikely).
 
-Therefore, `R^2` will never decrease when you add in more variables.
+Therefore, `R^2` will never decrease when you add in more variables. That being said, if the DV has zero correlation or causation with the IV, there randomly will be a slight correlation - therefore R^2 might slightly increase even though the variable is not helping the model.
