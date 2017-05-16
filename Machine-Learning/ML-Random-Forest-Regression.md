@@ -22,3 +22,5 @@ How many lollies in a jar? Imagine taking notes of every guess - getting around 
 Once you hit the middle of the normal distribution, you are more likely to be on the money for the guess.
 
 ## PYTHON
+
+This is the last regression model.
