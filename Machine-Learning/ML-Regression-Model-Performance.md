@@ -23,3 +23,7 @@ Once you add a new variable, it will affect what the variable looks like. Either
 Therefore, `R^2` will never decrease when you add in more variables. That being said, if the DV has zero correlation or causation with the IV, there randomly will be a slight correlation - therefore R^2 might slightly increase even though the variable is not helping the model.
 
 This is where `adjusted R^2` comes in.
+
+```
+Adj R^2 = 1 - (1-R^2)*((n - 1)/(n - p - 1))
+```
