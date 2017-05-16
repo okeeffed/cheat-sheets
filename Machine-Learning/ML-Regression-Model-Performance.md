@@ -42,7 +42,7 @@ What we can actually find at the bottom of those same reports that we used is th
 
 If we observe this as we build our model in code, then we can use the report to help check the goodness of fit.
 
-# Interpretting Linear Regressions Coefficients
+## Interpretting Linear Regressions Coefficients
 
 If we look at the third model and look at the IVs. If we change the IV value, we should be able to tell that DV should correlate in a certain direction.
 
@@ -53,3 +53,5 @@ We should be able to ue logistics just for this. Magnitude can also trip you up.
 What the estimate shows that for every unit you increase, the IV would increase by a certain amount.
 
 **THE IMPORTANT PART: THING IN TERMS OF PER UNIT**
+
+
