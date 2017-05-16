@@ -37,3 +37,5 @@ This formula will penalise you for adding in IVs that have no correlation.
 Reflecting back on the `Backward Elimination` process that we used, we actually came to a feeling that we shouldn't have excluded the last value of `Marketing Spend`.
 
 The problem with the algorithms that we chose and the p value threshhold we chose is that the threshhold is arbitrary.
+
+What we can actually find at the bottom of those same reports that we used is that it also gives us the values of `R-squared` and `Adjusted R-squared`.
