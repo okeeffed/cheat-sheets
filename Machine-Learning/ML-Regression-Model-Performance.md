@@ -14,4 +14,4 @@ As you minimize the SS[res], it becomes smaller, and as we get  `1 - (SS[res]/SS
 
 This is the fun part!
 
-Here we have a `simple linear regression`,
+Here we have our `simple linear regression` regression from before.
