@@ -51,3 +51,5 @@ The coefficients come under their own heading.
 We should be able to ue logistics just for this. Magnitude can also trip you up. The `Estimate` value doesn't really give you more indication. We could alter the value of input and it would change values for `Estimate` etc. Think of magnitude in term of units of the IV.
 
 What the estimate shows that for every unit you increase, the IV would increase by a certain amount.
+
+**THE IMPORTANT PART: THING IN TERMS OF PER UNIT**
