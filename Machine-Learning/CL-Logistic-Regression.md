@@ -22,3 +22,5 @@ ln(p/(1-p)) = b[0] + b[1]*x
 Based on the above formula and plugging in the example data, we will get the best fitting line.
 
 If we now take any particular ages along the x axis of `20, 30, 40, 50` etc, we can then find y[hat] to get the predicted value that it will be a `1` or `0` - the higher the probability, the higher the chance of a `1`. Any probability that is less than 0.5 is `projected down` whereas anything else is `projected up`.
+
+After applying to model, we can start drawing conclusions.
