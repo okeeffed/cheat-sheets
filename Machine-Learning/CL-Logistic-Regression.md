@@ -8,4 +8,4 @@ We know about `linear regression`, `multiple linear regression` etc. (DV on y, I
 
 What happens if we classify things along a graph? Eg. 0 and 1 on the y axis and age on the x axis. This one is very black and white, but at the same time we can intuitive see some correlation.
 
-In the example given above, we wouldn't use a linear model (as you could imagine). How about instead, you were able throw in probabilies between 0 and 1. The could be a probability between the x intercept and the y-intecept at x[hat]. You could interpret the above and below 100% and 0% respectively.
+In the example given above, we wouldn't use a linear model (as you could imagine). How about instead, you were able throw in probabilies between 0 and 1. The could be a probability between the x intercept and the y-intecept at x[hat]. You could interpret the above and below 100% and 0% respectively. This would be a VERY basic but sensicle attempt to describe the model.
