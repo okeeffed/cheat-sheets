@@ -54,4 +54,4 @@ What the estimate shows that for every unit you increase, the IV would increase 
 
 **THE IMPORTANT PART: THING IN TERMS OF PER UNIT**
 
-
+You'll also know that as you take out certain IVs, the actual effect that it brings into the model will also change.
