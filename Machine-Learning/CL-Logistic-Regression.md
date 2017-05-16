@@ -13,3 +13,5 @@ In the example given above, we wouldn't use a linear model (as you could imagine
 ### The scientific approach
 
 If we take the linear `y = b[0] + b[1]*x` and take that into the sigmoid function `p = 1 / (1 + pow(e, -y)` and then we through that into `ln(p/(1-p)) = b[0] + b[1]*x` then we can get the y. Therefore the last equation is the one for logistical regression.
+
+
