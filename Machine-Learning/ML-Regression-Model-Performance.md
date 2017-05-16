@@ -46,4 +46,4 @@ If we observe this as we build our model in code, then we can use the report to 
 
 If we look at the third model and look at the IVs. If we change the IV value, we should be able to tell that DV should correlate in a certain direction.
 
-We should be able to ue logistics just for this. Magnitude can also trip you up. The `Estimate` value doesn't really give you more indication.
+We should be able to ue logistics just for this. Magnitude can also trip you up. The `Estimate` value doesn't really give you more indication. We could alter the value of input and it would change values for `Estimate` etc.
