@@ -26,3 +26,14 @@ Once you hit the middle of the normal distribution, you are more likely to be on
 This is the last regression model. If you understand decision tree regression, you'll understand random forest.
 
 From decision tree, we know that we will need the visualisation using the non-continuous result.
+
+For the regressor, we use RandomForestRegressor library.
+
+```python
+# Prediciting the Random Forest results
+# Create the Regressor
+from sklearn.ensemble import RandomForestRegressor
+regressor = RandomForestRegressor(random_state=0)
+regressor.fit(X, y)
+
+```
