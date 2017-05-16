@@ -26,4 +26,8 @@ This is where `adjusted R^2` comes in.
 
 ```
 Adj R^2 = 1 - (1-R^2)*((n - 1)/(n - p - 1))
+p - number of regressors
+n - sample size
 ```
+
+This formula will penalise you for adding in IVs that have no correlation.
