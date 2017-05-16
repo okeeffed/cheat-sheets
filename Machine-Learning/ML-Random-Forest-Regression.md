@@ -36,3 +36,5 @@ from sklearn.ensemble import RandomForestRegressor
 regressor = RandomForestRegressor(random_state=0)
 regressor.fit(X, y)
 ```
+
+Simply, with these lines, we can already determine that the graph is no longer continuous.
