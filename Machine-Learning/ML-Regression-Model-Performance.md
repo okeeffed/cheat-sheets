@@ -13,3 +13,5 @@ As you minimize the SS[res], it becomes smaller, and as we get  `1 - (SS[res]/SS
 ## Adjusted R-Squared Intuition
 
 This is the fun part!
+
+Here we have a `simple linear regression`,
