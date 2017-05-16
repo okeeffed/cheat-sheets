@@ -41,3 +41,5 @@ The problem with the algorithms that we chose and the p value threshhold we chos
 What we can actually find at the bottom of those same reports that we used is that it also gives us the values of `R-squared` and `Adjusted R-squared`.
 
 If we observe this as we build our model in code, then we can use the report to help check the goodness of fit.
+
+# Interpretting Linear Regressions Coefficients
