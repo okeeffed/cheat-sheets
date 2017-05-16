@@ -31,3 +31,5 @@ n - sample size
 ```
 
 This formula will penalise you for adding in IVs that have no correlation.
+
+## Evaluating Regression Models Performance
