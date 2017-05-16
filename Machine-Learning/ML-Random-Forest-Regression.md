@@ -35,5 +35,4 @@ For the regressor, we use RandomForestRegressor library.
 from sklearn.ensemble import RandomForestRegressor
 regressor = RandomForestRegressor(random_state=0)
 regressor.fit(X, y)
-
 ```
