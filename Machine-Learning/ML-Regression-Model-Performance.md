@@ -43,3 +43,4 @@ What we can actually find at the bottom of those same reports that we used is th
 If we observe this as we build our model in code, then we can use the report to help check the goodness of fit.
 
 # Interpretting Linear Regressions Coefficients
+
