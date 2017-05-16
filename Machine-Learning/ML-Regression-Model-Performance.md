@@ -33,3 +33,5 @@ n - sample size
 This formula will penalise you for adding in IVs that have no correlation.
 
 ## Evaluating Regression Models Performance
+
+Reflecting back on the `Backward Elimination` process that we used, we actually came to a feeling that we shouldn't have excluded the last value of `Marketing Spend`.
