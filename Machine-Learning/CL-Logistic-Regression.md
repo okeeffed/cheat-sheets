@@ -20,3 +20,5 @@ ln(p/(1-p)) = b[0] + b[1]*x
 ```
 
 Based on the above formula and plugging in the example data, we will get the best fitting line.
+
+
