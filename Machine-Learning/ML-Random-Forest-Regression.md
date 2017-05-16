@@ -42,3 +42,5 @@ Simply, with these lines, we can already determine that the graph is no longer c
 By having several decision trees, we end up with a lot more "steps" than we had with just one decision tree.
 
 More tree !== more steps. The more trees you have, the more the average will converge towards the same average.
+
+Generally the steps will become better placed depending on the average.
