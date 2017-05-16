@@ -38,3 +38,5 @@ regressor.fit(X, y)
 ```
 
 Simply, with these lines, we can already determine that the graph is no longer continuous.
+
+By having several decision trees, we end up with a lot more "steps" than we had with just one decision tree.
