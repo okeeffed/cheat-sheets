@@ -127,5 +127,6 @@ plt.show()
 plt.close()
 ```
 
-How do we interpret the graph?
+**How do we interpret the graph?**
 
+The red points are the training set observations for when the IV purchased = 0, and 1 for green.
