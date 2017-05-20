@@ -52,7 +52,7 @@ def send(arg, type = 0):
 # Importing the dataset
 dataset = pd.read_csv('data/Social_Network_Ads.csv')
 # We jut want the estimate of purchase using the Age and Estimated Salary
-X = dataset.iloc[:, 2:3].values
+X = dataset.iloc[:, 2:4].values
 y = dataset.iloc[:, 4].values
 
 send(X.tolist());
@@ -103,3 +103,5 @@ send(cm.tolist())
 ```
 
 ### Visualising the predictive power using a graph
+
+
