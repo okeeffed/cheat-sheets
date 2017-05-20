@@ -72,7 +72,7 @@ X_test = sc_X.fit_transform(X_test)
 send(X_train.tolist());
 ```
 
-### Fitting in the Training Set
+### Fitting the logistic regression model to the Training Set
 
 ```python
 # Fitting Logistic Regression to the Training Set
