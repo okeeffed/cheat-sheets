@@ -32,5 +32,43 @@ Using our standard setup, we want to predict whether or not we can get a correla
 For accurate predictions, we do use feature scaling and we will also create a classification test and training set.
 
 ```python
+# Data Preprocessing Template
 
+# Importing the libraries
+import sys, json
+import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# send() for Node.js Python Shell lib
+def send(arg, type = 0):
+	if type == 1:
+		print json.dumps(json.loads(arg))
+	elif type == 2:
+		print arg
+	else:
+		print json.dumps(arg)
+
+# Importing the dataset
+dataset = pd.read_csv('data/Social_Network_Ads.csv')
+# We jut want the estimate of purchase using the Age and Estimated Salary
+X = dataset.iloc[:, 2:3].values
+y = dataset.iloc[:, 4].values
+
+send(X.tolist());
+send(y.tolist());
+
+# Splitting the dataset into the Training set and Test set
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.25, random_state = 0)
+
+# Feature Scaling
+from sklearn.preprocessing import StandardScaler
+# we use this here for accurate predicition
+sc_X = StandardScaler()
+X_train = sc_X.fit_transform(X_train)
+X_test = sc_X.fit_transform(X_test)
+
+send(X_train.tolist());
 ```
+
