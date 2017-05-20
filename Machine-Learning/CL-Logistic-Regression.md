@@ -93,3 +93,11 @@ send(y_pred.tolist())
 ### Checking the fit predicions
 
 We do this by making a `Confusion Matrix`.
+
+```python
+# Create the confusion matrix
+from sklearn.metrics import confusion_matrix
+cm = confusion_matrix(y_test, y_pred);
+send("\nConfusion Matrix")
+send(cm.tolist())
+```
