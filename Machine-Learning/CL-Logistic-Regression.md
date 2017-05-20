@@ -147,6 +147,8 @@ When we have a linear classifier, the boundary will always be a straight line.
 
 ### Checking the results when applied to the Test Set
 
+The results that we can see from this actually come from the same confusion matrix that we saw before.
+
 ```python
 # Visualising the Test Set results
 from matplotlib.colors import ListedColormap
