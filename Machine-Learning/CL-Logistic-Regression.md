@@ -130,3 +130,5 @@ plt.close()
 **How do we interpret the graph?**
 
 The red points are the training set observations for when the IV purchased = 0, and 1 for green.
+
+In our example, red did not buy the SUV, green are those who did.
