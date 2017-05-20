@@ -127,7 +127,7 @@ plt.show()
 plt.close()
 ```
 
-**How do we interpret the graph?**
+### How do we interpret the graph?
 
 The red points are the training set observations for when the IV purchased = 0, and 1 for green.
 
@@ -136,3 +136,7 @@ In our example, red did not buy the SUV, green are those who did.
 Given the x,y axis, those with the lower salary who also didn't have red are also those who didn't but the SUV. We can see those with the higher salaries are more likely to have bought the SUV.
 
 Another observation is that the older above the average even with the lower salary were more likely to buy the SUV.
+
+### What is the point of the classifiers?
+
+The goal is to classify the right users into the right categories.
