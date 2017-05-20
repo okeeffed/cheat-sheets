@@ -81,3 +81,11 @@ from sklearn.linear_model import LogisticRegression
 classifier = LogisticRegression(random_state=0)
 classifier.fit(X_train, y_train)
 ```
+
+In order to make a prediction on the X_test:
+
+```python
+# y_pred will be the vector of predictions
+y_pred = classifier.predict(X_test)
+send(y_pred.tolist())
+```
