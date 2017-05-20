@@ -89,3 +89,5 @@ In order to make a prediction on the X_test:
 y_pred = classifier.predict(X_test)
 send(y_pred.tolist())
 ```
+
+### Checking the fit
