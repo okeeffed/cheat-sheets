@@ -142,3 +142,5 @@ Another observation is that the older above the average even with the lower sala
 The goal is to classify the right users into the right categories. We do this by plotting the `prediction regions` - in the case of the graph, it's the red prediction and the green region is where the classifier does by the SUV.
 
 The data point is the result, the region is the estimate.
+
+When we have a linear classifier, the boundary will always be a straight line.
