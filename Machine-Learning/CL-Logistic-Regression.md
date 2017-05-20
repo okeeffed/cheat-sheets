@@ -26,3 +26,5 @@ If we now take any particular ages along the x axis of `20, 30, 40, 50` etc, we 
 After applying to model, we can start drawing conclusions.
 
 ## Implementation in Python
+
+Using our standard setup, we want to predict whether or not we can get a correlation between the `purchase` of something using their `age` and `salary`.
