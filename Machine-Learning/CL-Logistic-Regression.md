@@ -139,4 +139,4 @@ Another observation is that the older above the average even with the lower sala
 
 ### What is the point of the classifiers?
 
-The goal is to classify the right users into the right categories.
+The goal is to classify the right users into the right categories. We do this by plotting the `prediction regions` - in the case of the graph, it's the red prediction and the green region is where the classifier does by the SUV.
