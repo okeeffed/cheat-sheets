@@ -73,3 +73,11 @@ send(X_train.tolist());
 ```
 
 ### Fitting in the Training Set
+
+```python
+# Fitting Logistic Regression to the Training Set
+# Create the Regressor
+from sklearn.linear_model import LogisticRegression
+classifier = LogisticRegression(random_state=0)
+classifier.fit(X_train, y_train)
+```
