@@ -90,7 +90,7 @@ y_pred = classifier.predict(X_test)
 send(y_pred.tolist())
 ```
 
-### Checking the fit predicions
+### Checking the fit predictions using the Confusion Matrix
 
 We do this by making a `Confusion Matrix`.
 
@@ -101,3 +101,5 @@ cm = confusion_matrix(y_test, y_pred);
 send("\nConfusion Matrix")
 send(cm.tolist())
 ```
+
+
