@@ -90,4 +90,4 @@ y_pred = classifier.predict(X_test)
 send(y_pred.tolist())
 ```
 
-### Checking the fit
+### Checking the fit predicions
