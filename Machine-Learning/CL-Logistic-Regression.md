@@ -30,3 +30,7 @@ After applying to model, we can start drawing conclusions.
 Using our standard setup, we want to predict whether or not we can get a correlation between the `purchase` of something using their `age` and `salary`.
 
 For accurate predictions, we do use feature scaling and we will also create a classification test and training set.
+
+```python
+
+```
