@@ -92,3 +92,4 @@ send(y_pred.tolist())
 
 ### Checking the fit predicions
 
+We do this by making a `Confusion Matrix`.
