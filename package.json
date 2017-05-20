@@ -20,6 +20,8 @@
     "dot-env": "0.0.1",
     "dotenv": "^4.0.0",
     "gulp": "^3.9.1",
-    "gulp-shell": "^0.6.3"
+    "gulp-git": "^2.2.0",
+    "gulp-shell": "^0.6.3",
+    "run-sequence": "^1.2.2"
   }
 }

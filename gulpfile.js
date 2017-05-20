@@ -1,8 +1,9 @@
-var gutil 		= require('gulp-util');
-var fs 			= require('fs');
-var gulp 		= require('gulp');
-var spawn 		= require('child_process').spawn;
-
+var gutil 				= require('gulp-util');
+var fs 					= require('fs');
+var gulp 				= require('gulp');
+var spawn 				= require('child_process').spawn;
+var git 				= require('gulp-git');
+var runSequence 		= require('run-sequence');
 require('dotenv').load();
 
 gulp.task( "watch", function() {
@@ -33,5 +34,12 @@ gulp.task( "watch", function() {
 		gitAdd.stdout.on('data', function (data) {
 			gutil.log('gitcommit: ', data.toString().slice(0, -1)); // Remove \n
 		});
+		runSequence('push');
+	});
+});
+
+gulp.task('push', function () {
+	git.push('origin', 'master', function (err) {
+		if (err) throw err;
 	});
 });
