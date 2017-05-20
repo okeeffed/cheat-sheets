@@ -126,3 +126,6 @@ plt.ylabel('Estimated Salary')
 plt.show()
 plt.close()
 ```
+
+How do we interpret the graph?
+
