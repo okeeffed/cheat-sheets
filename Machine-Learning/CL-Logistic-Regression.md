@@ -102,4 +102,4 @@ send("\nConfusion Matrix")
 send(cm.tolist())
 ```
 
-
+### Visualising the predictive power using a graph
