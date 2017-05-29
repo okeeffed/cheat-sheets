@@ -48,4 +48,6 @@ Now, if we take this graph and assign an ID to each of our users and organised t
 ```
 // start with user 23 - find all their friends
 // and all the companies that those friends work at
+
+
 ```
