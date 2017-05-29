@@ -57,8 +57,10 @@ Now, if we take this graph and assign an ID to each of our users and organised t
 // crawl along the query
 query {
 	user(id: "23") {
-		friends() {
-
+		friends {
+			company {
+				name
+			}
 		}
 	}
 }
