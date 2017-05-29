@@ -36,3 +36,5 @@ Maybe we could do `users/1/companies` which could get back the ID for the compan
 How about if we broke all conventions and went with `/users/23/friends_with_companies_and_positions`? We are definitely breaking conventions here.
 
 Once we even do make the particular request, we might get a bunch of data from the tables that we don't even care about. This could be dramatically overserving or we may need to continually add or edit the RESTful end points.
+
+## Starting with GraphQL
