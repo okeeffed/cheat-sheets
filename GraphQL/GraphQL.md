@@ -26,3 +26,5 @@ Maybe create a User model? But also maybe no the ideal way to do it.
 It would not be obvious to get all the company names back.
 
 Maybe as an alternative schema, we would start build out a relational schema.
+
+Given that, how do we now build out a URL RESTful route in order to get all of this data.
