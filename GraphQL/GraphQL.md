@@ -41,4 +41,4 @@ Once we even do make the particular request, we might get a bunch of data from t
 
 Now that we've seen the shortfalls of RESTful routing, let's see how GraphQL can help us out.
 
-Let's now imagine we know all the data in this theoretical database.
+Let's now imagine we know all the data in this theoretical database. When we think about the `graph` that all the relations between all this data makes and the relations between them (nodes and edges), understanding how the data fits into the structure is key to understanding how GraphQL works.
