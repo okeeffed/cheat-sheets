@@ -40,3 +40,5 @@ Once we even do make the particular request, we might get a bunch of data from t
 ## Starting with GraphQL
 
 Now that we've seen the shortfalls of RESTful routing, let's see how GraphQL can help us out.
+
+Let's now imagine we know all the data in this theoretical database.
