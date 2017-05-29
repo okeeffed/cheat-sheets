@@ -24,3 +24,5 @@ Think of a Facebook grid where the users are lined up with things like a user im
 Maybe create a User model? But also maybe no the ideal way to do it.
 
 It would not be obvious to get all the company names back.
+
+Maybe as an alternative schema, we would start build out a relational schema.
