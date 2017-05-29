@@ -76,3 +76,4 @@ How can we get this to come together?
 For installation on the test `users` project, let's `yarn add express express-graphql graphql lodash`
 
 ## Registering GraphQL with Express
+
