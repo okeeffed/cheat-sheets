@@ -30,3 +30,5 @@ Maybe as an alternative schema, we would start build out a relational schema.
 Given that, how do we now build out a URL RESTful route in order to get all of this data.
 
 So far for `Current User > Friend > Company || Position`, we might be able to start with `/users/23/friends` - but then how do we get the company or the position for the deeper nested URL?
+
+Maybe we could do `users/1/companies` which could get back the ID for the company, a similiar thing for the position etc.
