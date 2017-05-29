@@ -34,7 +34,7 @@ gulp.task( "watch", function() {
 		gitAdd.stdout.on('data', function (data) {
 			gutil.log('gitcommit: ', data.toString().slice(0, -1)); // Remove \n
 		});
-		runSequence('push');
+		// runSequence('push');
 	});
 });
 
