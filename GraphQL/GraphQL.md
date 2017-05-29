@@ -33,4 +33,4 @@ So far for `Current User > Friend > Company || Position`, we might be able to st
 
 Maybe we could do `users/1/companies` which could get back the ID for the company, a similiar thing for the position etc. Alternatively, maybe `/users/23/friends/[companies|positions]`. The problem with these endpoints is that they are all very particular.
 
-How about if we broke all conventions and went with `/users/23/friends_with_companies_and_positions`?
+How about if we broke all conventions and went with `/users/23/friends_with_companies_and_positions`? We are definitely breaking conventions here.
