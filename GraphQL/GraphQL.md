@@ -12,3 +12,5 @@ There are more than just POST, GET, PUT and DELETE methods, but they are the mos
 So far, we have just looked at how to manipulate single records.
 
 Handling users may look like `/users`, handling posts from that user may be `/users/23/posts` - get may then start deepening even further.
+
+## The shortcomings of RESTful routing
