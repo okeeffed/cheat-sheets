@@ -65,3 +65,5 @@ query {
 	}
 }
 ```
+
+## Working with GraphQL
