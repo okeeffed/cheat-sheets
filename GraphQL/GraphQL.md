@@ -22,3 +22,5 @@ There are no hardcoded set of rules, just a set of conventions.
 Think of a Facebook grid where the users are lined up with things like a user image, name, company name and position name. How might we store this data in the table?
 
 Maybe create a User model? But also maybe no the ideal way to do it.
+
+It would not be obvious to get all the company names back.
