@@ -38,3 +38,5 @@ How about if we broke all conventions and went with `/users/23/friends_with_comp
 Once we even do make the particular request, we might get a bunch of data from the tables that we don't even care about. This could be dramatically overserving or we may need to continually add or edit the RESTful end points.
 
 ## Starting with GraphQL
+
+Now that we've seen the shortfalls of RESTful routing.
