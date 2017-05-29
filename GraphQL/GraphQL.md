@@ -67,3 +67,8 @@ query {
 ```
 
 ## Working with GraphQL
+
+How can we get this to come together?
+
+1. Make an Express server and hook it up to a datastore
+2. Hook it up to a prebuilt app called GraphiQL to make a couple of test queries
