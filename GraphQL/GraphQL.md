@@ -14,3 +14,5 @@ So far, we have just looked at how to manipulate single records.
 Handling users may look like `/users`, handling posts from that user may be `/users/23/posts` - get may then start deepening even further.
 
 ## The shortcomings of RESTful routing
+
+There are no hardcoded set of rules, just a set of conventions.
