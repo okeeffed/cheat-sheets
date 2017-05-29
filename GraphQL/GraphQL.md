@@ -52,4 +52,6 @@ Now, if we take this graph and assign an ID to each of our users and organised t
 1. Tell GraphQL find user 23
 2. Find all friends of user 23
 3. Tell GraphQL to find the company associated
+
+// the query that could do this
 ```
