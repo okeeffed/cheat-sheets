@@ -6,3 +6,5 @@
 
 
 Having the ability to use CRUD requests to interact with data on the server.
+
+There are more than just POST, GET, PUT and DELETE methods, but they are the most common.
