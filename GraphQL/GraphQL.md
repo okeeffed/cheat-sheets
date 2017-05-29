@@ -16,3 +16,5 @@ Handling users may look like `/users`, handling posts from that user may be `/us
 ## The shortcomings of RESTful routing
 
 There are no hardcoded set of rules, just a set of conventions.
+
+### Complex example
