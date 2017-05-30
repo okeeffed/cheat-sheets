@@ -89,4 +89,4 @@ Process of the app
 3. Respond
 ```
 
-GraphQL is just one little part of the Express app/
+GraphQL is just one little part of the Express app.
