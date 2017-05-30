@@ -146,4 +146,15 @@ We need to pass something into the root query eg. "Hey, give me the user with id
 
 We can tell the 'root query' what we can ask about.
 
-
+```
+// in GraphQL
+const RootQuery = new GraphQLObjectType({
+	name: 'RootQueryType',
+	fields: {
+		user: {
+			type: UserType,
+			args: { id: { type: GraphQLString } }
+		}
+	}
+});
+```
