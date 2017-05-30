@@ -143,3 +143,7 @@ const UserType = new GraphQLObjectType({
 **Root Query**
 
 We need to pass something into the root query eg. "Hey, give me the user with id 23". We can think of it like an "entry point" into our data.
+
+We can tell the 'root query' what we can ask about.
+
+
