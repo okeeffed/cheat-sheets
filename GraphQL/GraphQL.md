@@ -202,3 +202,4 @@ new GraphQLSchema({
 
 ## The Graphiql tool
 
+This tool has been given to us by the GraphQL team.
