@@ -209,7 +209,7 @@ The `docs` auto generates docs for us to see the type of queries we can make.
 
 ```
 // making the query
-
+// note: this is not JS
 {
   user(id: "23") {
     id,
@@ -219,7 +219,6 @@ The `docs` auto generates docs for us to see the type of queries we can make.
 }
 
 // what is returns
-
 {
   "data": {
     "user": {
