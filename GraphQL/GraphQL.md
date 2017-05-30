@@ -163,3 +163,31 @@ const RootQuery = new GraphQLObjectType({
 	}
 });
 ```
+
+**Querying for data**
+
+Instead of using a database, we're just going to hard code some users for now.
+
+```
+// top of the schema.js file
+
+const users = [
+	{ id: '23', firstName: 'Bill', age: 20 },
+	{ id: '47', firstName: 'Sam', age: 21 }
+];
+
+// in the query
+const RootQuery = new GraphQLObjectType({
+	name: 'RootQueryType',
+	fields: {
+		user: {
+			type: UserType,
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				// use lodash to find
+				return _.find(users, { id: args.id });
+			}
+		}
+	}
+});
+```
