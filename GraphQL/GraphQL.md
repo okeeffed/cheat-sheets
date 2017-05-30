@@ -206,3 +206,27 @@ This tool has been given to us by the GraphQL team. On the left hand side, we ca
 
 
 The `docs` auto generates docs for us to see the type of queries we can make.
+
+```
+// making the query
+
+{
+  user(id: "23") {
+    id,
+    firstName,
+    age
+  }
+}
+
+// what is returns
+
+{
+  "data": {
+    "user": {
+      "id": "23",
+      "firstName": "Bill",
+      "age": 20
+    }
+  }
+}
+```
