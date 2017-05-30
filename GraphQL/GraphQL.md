@@ -118,3 +118,28 @@ If we decide the `user` schema as such that is has an `id, firstName company_id,
 **Writing the schema**
 
 Not the easiest the write, but as we continual to work with GraphQL, it'll start to become more and more of the same.
+
+```
+// schema.js
+
+const graphql = require('graphql');
+
+const {
+	GraphQLObjectType,
+	GraphQLString,
+	GraphQLInt
+} = graphql;
+
+const UserType = new GraphQLObjectType({
+	name: 'User',
+	fields: {
+		id: { type: GraphQLString },
+		firstName: { type: GraphQLString },
+		age: { type: GraphQLInt }
+	}
+});
+```
+
+**Root Query**
+
+We need to pass something into the root query eg. "Hey, give me the user with id 23". We can think of it like an "entry point" into our data.
