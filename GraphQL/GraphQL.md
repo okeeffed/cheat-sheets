@@ -88,3 +88,5 @@ Process of the app
 	- if no, go to 3
 3. Respond
 ```
+
+GraphQL is just one little part of the Express app/
