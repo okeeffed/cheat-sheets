@@ -117,4 +117,4 @@ If we decide the `user` schema as such that is has an `id, firstName company_id,
 
 **Writing the schema**
 
-
+Not the easiest the write, but as we continual to work with GraphQL, it'll start to become more and more of the same.
