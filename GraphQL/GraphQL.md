@@ -203,3 +203,6 @@ new GraphQLSchema({
 ## The Graphiql tool
 
 This tool has been given to us by the GraphQL team. On the left hand side, we can write a query and run it to see what happens.
+
+
+The `docs` auto generates docs for us to see the type of queries we can make.
