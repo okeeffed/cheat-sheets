@@ -191,3 +191,11 @@ const RootQuery = new GraphQLObjectType({
 	}
 });
 ```
+
+To pass this schema back to express, we destructure import `GraphQLSchema` and at the bottom of the file we pass the root query.
+
+```
+new GraphQLSchema({
+	query: RootQuery
+});
+```
