@@ -111,4 +111,4 @@ app.listen(4000, () => {
 
 Using this middleware (using the "use" Express instance method), we passed in an options object. We need to also pass a schema along with these options.
 
-We can do all this inside of a schema file.
+We can do all this inside of a schema js file.
