@@ -94,7 +94,7 @@ GraphQL is just one little part of the Express app.
 ```
 // hooking up GraphQL
 const express = require('express');
-const expressGraphql = require('express-graphql');
+const expressGraphQL = require('express-graphql');
 
 const app = express();
 
