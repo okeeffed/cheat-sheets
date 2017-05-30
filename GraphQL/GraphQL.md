@@ -146,6 +146,8 @@ We need to pass something into the root query eg. "Hey, give me the user with id
 
 We can tell the 'root query' what we can ask about.
 
+Below with the `resolve()` function, the parentValue is not used often, and the args are the args that we provide.
+
 ```
 // in GraphQL
 const RootQuery = new GraphQLObjectType({
@@ -153,7 +155,10 @@ const RootQuery = new GraphQLObjectType({
 	fields: {
 		user: {
 			type: UserType,
-			args: { id: { type: GraphQLString } }
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+
+			}
 		}
 	}
 });
