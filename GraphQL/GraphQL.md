@@ -77,3 +77,4 @@ For installation on the test `users` project, let's `yarn add express express-gr
 
 ## Registering GraphQL with Express
 
+Once you have set up a basic Express server, we can look at how to make GraphQL work with Express.
