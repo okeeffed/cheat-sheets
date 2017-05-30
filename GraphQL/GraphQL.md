@@ -108,3 +108,5 @@ app.listen(4000, () => {
 ```
 
 ## GraphQL Schemas
+
+Using this middleware (using the "use" Express instance method), we passed in an options object. We need to also pass a scehma along with these options.
