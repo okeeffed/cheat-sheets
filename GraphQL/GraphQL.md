@@ -199,3 +199,5 @@ new GraphQLSchema({
 	query: RootQuery
 });
 ```
+
+## The Graphiql tool
