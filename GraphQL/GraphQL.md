@@ -114,3 +114,7 @@ Using this middleware (using the "use" Express instance method), we passed in an
 We can do all this inside of a schema js file.
 
 If we decide the `user` schema as such that is has an `id, firstName company_id, position_id and users [id]`, we can the picture our relational shema.
+
+**Writing the schema**
+
+
