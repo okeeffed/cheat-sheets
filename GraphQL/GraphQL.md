@@ -257,3 +257,7 @@ With the query, we can also now reduce and only call for the data that we want.
 If we do not find an valid `id`, we will get null back. If there is no arg to the query, we get an error where it expects the `name of an argument`.
 
 # A realistic data source
+
+So we don't really want to use a static list of users - because that's not realistic. So let's use some different architectures that we can use to use GraphQL with.
+
+We could the server which hosts GraphQL and then any database.
