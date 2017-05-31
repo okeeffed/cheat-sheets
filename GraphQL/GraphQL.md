@@ -372,3 +372,6 @@ const RootQuery = new GraphQLObjectType({
 
 ## Bidirectional Relations
 
+Given the one-to-many relationship we can find between companies and users, how can find the users that work for a company?
+
+
