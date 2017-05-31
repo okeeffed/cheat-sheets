@@ -402,3 +402,27 @@ const CompanyType = new GraphQLObjectType({
 ```
 
 Now that we have circular relations, we can build back nested circular relations as we go.
+
+## Query Fragments
+
+How does the syntax work and how can we expand upon it?
+
+You could also add the `query` to a query to acknowledge
+
+```
+query findCompany {
+	company(id: "2") {
+    name
+    users {
+      id,
+      firstName
+        company {
+          name
+        }
+
+    }
+  }
+}
+```
+
+With the Root Query, each field is like an optional query to make.
