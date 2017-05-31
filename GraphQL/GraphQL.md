@@ -230,7 +230,9 @@ The `docs` auto generates docs for us to see the type of queries we can make.
 }
 ```
 
-So with the query, it heads to the `RootQueryType` and enter into the graph of data.
+So with the query, it heads to the `RootQueryType` and enter into the graph of data. Since we declared `user` on the query, it checks the `user` field in the RootQuery below.
+
+With the args, we say that it expects an `id` of type string of what we did, so what it then does with the lodash find method we added is that it looks within users for the id that matches the argument ID.
 
 ```
 const RootQuery = new GraphQLObjectType({
