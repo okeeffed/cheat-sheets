@@ -337,3 +337,5 @@ const UserType = new GraphQLObjectType({
 	}
 });
 ```
+
+Why can we get away with saying a related `company` and not `companyId`.
