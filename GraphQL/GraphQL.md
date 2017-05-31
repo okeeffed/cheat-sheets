@@ -518,7 +518,7 @@ const mutation = new GraphQLObjectType({
 			type: UserType,
 			args: {
 				firstName: { type: new GraphQLNonNull(GraphQLString) },
-				age: { type: GraphQLInt },
+				age: { type: new GraphQLNonNull(GraphQLInt) },
 				companyId: { type: GraphQLString }
 			},
 			resolve(parentValue, args) {
