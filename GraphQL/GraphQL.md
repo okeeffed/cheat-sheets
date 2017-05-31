@@ -494,3 +494,12 @@ They're notorious for being a bit more challenging to work with.
 The `json-server` has support for updating records.
 
 In order for updating, we create completely separate objects that we can manipulate in `schema.js`.
+
+```
+const mutation = new GraphQLObjectType({
+	name: 'Mutation',
+	fields: {
+
+	}
+});
+```
