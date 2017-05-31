@@ -379,6 +379,8 @@ We can use a `GraphQLList` to return a list of different entities.
 
 The circular reference order of operations issue requires a little work around. We can use a lexical arrow function to give lexical scope. Using this, it will ensure the entire file is executed beforehand.
 
+The issue itself is more of closures and closure scopes.
+
 ```javascript
 const CompanyType = new GraphQLObjectType({
 	name: 'Company',
