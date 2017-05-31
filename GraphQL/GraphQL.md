@@ -506,3 +506,4 @@ const mutation = new GraphQLObjectType({
 
 ### Non-null fields and Mutations
 
+Given our application at the moment, it probably makes sense that all of these users we add with this mutation have a `firstName` and `age`.
