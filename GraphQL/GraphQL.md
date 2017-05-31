@@ -261,3 +261,5 @@ If we do not find an valid `id`, we will get null back. If there is no arg to th
 So we don't really want to use a static list of users - because that's not realistic. So let's use some different architectures that we can use to use GraphQL with.
 
 We could the server which hosts GraphQL and then any database.
+
+If it's any small sized project, we could use Express etc.
