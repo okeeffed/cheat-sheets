@@ -527,7 +527,7 @@ const mutation = new GraphQLObjectType({
 				return axios.post(`http://localhost:3000/users`, {
 					firstName,
 					age
-				});
+				}).then(res => res.data);
 			}
 		}
 	}
