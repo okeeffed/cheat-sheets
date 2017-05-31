@@ -291,3 +291,23 @@ const RootQuery = new GraphQLObjectType({
 # How do we hook up relating a company to a user?
 
 Given a schema of `id, name and description`, how can we relate a user and their company?
+
+First with db.json, update the file to have companies.
+
+Once we have...
+
+```json
+{
+	"users": [
+		{ "id": "23", "firstName": "Bill", "age": 20, "companyId": "1" },
+		{ "id": "47", "firstName": "Sam", "age": 21, "companyId": "2" },
+		{ "id": "41", "firstName": "Milly", "age": 41, "companyId": "2" }
+	],
+	"companies": [
+		{ "id": "1", "name": "Apple", "description": "iPhone"},
+		{ "id": "2", "name": "Google", "description": "Search"}
+	]
+}
+```
+
+We can now see the `/companies` url can give us a company.
