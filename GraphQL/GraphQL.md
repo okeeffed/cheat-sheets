@@ -459,3 +459,28 @@ We can also ask for as many companies as we like, however we need to name the re
 **Query Fragments**
 
 In the above, we list out the name, users etc twice.
+
+A query fragment is a list of different properties we want to get back.
+
+```
+{
+	google: company(id: "2") {
+    ...companyDetails
+  },
+  apple: company(id: "1") {
+    ...companyDetails
+  }
+}
+
+fragment companyDetails on Company {
+	name
+    users {
+      id,
+      firstName
+        company {
+          name
+        }
+
+    }
+}
+```
