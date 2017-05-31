@@ -342,4 +342,30 @@ Why can we get away with saying a related `company` and not `companyId`. Where t
 
 # Multiple Root Query Points
 
-Currently, we cannot just find a company by itself.
+Currently, we cannot just find a company by itself. Only the user using the id.
+
+We can adjust this with adding to the Root Query.
+
+```javascript
+const RootQuery = new GraphQLObjectType({
+	name: 'RootQueryType',
+	fields: {
+		user: {
+			type: UserType,
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios.get(`http://localhost:3000/users/${args.id}`)
+					.then(res => res.data);
+			}
+		},
+		company: {
+			type: CompanyType,
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios.get(`http://localhost:3000/companies/${args.id}`)
+					.then(res => res.data);
+			}
+		}
+	}
+});
+```
