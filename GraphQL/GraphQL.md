@@ -287,3 +287,5 @@ const RootQuery = new GraphQLObjectType({
 	}
 });
 ```
+
+# How do we hook up relating a company to a user?
