@@ -253,3 +253,5 @@ const RootQuery = new GraphQLObjectType({
 ```
 
 With the query, we can also now reduce and only call for the data that we want.
+
+If we do not find an valid `id`, we will get null back. If there is no arg to the query, we get an error where it expects the `name of an argument`.
