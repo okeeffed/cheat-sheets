@@ -252,3 +252,4 @@ const RootQuery = new GraphQLObjectType({
 });
 ```
 
+With the query, we can also now reduce and only call for the data that we want.
