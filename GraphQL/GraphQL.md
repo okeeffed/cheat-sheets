@@ -377,6 +377,8 @@ Given the one-to-many relationship we can find between companies and users, how 
 
 We can use a `GraphQLList` to return a list of different entities.
 
+The circular reference order of operations issue requires a little work around.
+
 ```javascript
 const CompanyType = new GraphQLObjectType({
 	name: 'Company',
