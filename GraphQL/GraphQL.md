@@ -495,7 +495,7 @@ The `json-server` has support for updating records.
 
 In order for updating, we create completely separate objects that we can manipulate in `schema.js`.
 
-```
+```javascript
 const mutation = new GraphQLObjectType({
 	name: 'Mutation',
 	fields: {
