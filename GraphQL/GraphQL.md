@@ -271,3 +271,18 @@ That way, we will need to spin up a second server. We can use JSON server to act
 For the outside API, we can use `json-server`. Spin up a server create a `db.json` file in order to do so.
 
 ## Async Resolve functions
+
+```
+const RootQuery = new GraphQLObjectType({
+	name: 'RootQueryType',
+	fields: {
+		user: {
+			type: UserType,
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios.get(`http://localhost:3000/users/${args.id}`);
+			}
+		}
+	}
+});
+```
