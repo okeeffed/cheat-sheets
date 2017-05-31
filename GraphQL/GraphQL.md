@@ -460,7 +460,7 @@ We can also ask for as many companies as we like, however we need to name the re
 
 In the above, we list out the name, users etc twice.
 
-A query fragment is a list of different properties we want to get back.
+A query fragment is a list of different properties we want to get back. These are seen a lot on the front end.
 
 ```
 {
