@@ -339,3 +339,5 @@ const UserType = new GraphQLObjectType({
 ```
 
 Why can we get away with saying a related `company` and not `companyId`. Where the difference is, the `resolve` function will help with the resolution.
+
+# Multiple Root Query Points
