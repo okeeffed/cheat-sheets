@@ -578,7 +578,7 @@ const mutation = new GraphQLObjectType({
 				id: { type: new GraphQLNonNull(GraphQLString) }
 			},
 			resolve(parentValue, { id }): {
-				return axios.delete(`http://localhost:3000/users`, { id })
+				return axios.delete(`http://localhost:3000/users/${id}`, { id })
 					.then(res => res.data);
 			}
 		}
