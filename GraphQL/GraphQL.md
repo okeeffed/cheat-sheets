@@ -234,6 +234,8 @@ So with the query, it heads to the `RootQueryType` and enter into the graph of d
 
 With the args, we say that it expects an `id` of type string of what we did, so what it then does with the lodash find method we added is that it looks within users for the id that matches the argument ID.
 
+Lodash returns a raw JSON object directly since the return handles objects for us.
+
 ```
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
