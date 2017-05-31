@@ -266,4 +266,4 @@ If it's any small sized project, we could use Express etc. With larger companies
 
 What we can do is have an outside server to give us some data in our current approach.
 
-That way, we will need to spin up a second server.
+That way, we will need to spin up a second server. We can use JSON server to act as another source of data.
