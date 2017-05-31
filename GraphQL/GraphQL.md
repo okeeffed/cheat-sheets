@@ -492,3 +492,5 @@ Now that we've set up the ability to read data, we haven't spent anything on mod
 They're notorious for being a bit more challenging to work with.
 
 The `json-server` has support for updating records.
+
+In order for updating, we create completely separate objects that we can manipulate in `schema.js`.
