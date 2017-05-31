@@ -263,3 +263,5 @@ So we don't really want to use a static list of users - because that's not reali
 We could the server which hosts GraphQL and then any database.
 
 If it's any small sized project, we could use Express etc. With larger companies, you won't use a single monolithic store, but the same Express/GraphQL Server will touch bases with a variety of databases and can act as a proxy of sorts to go and collect this data from those different datasources.
+
+
