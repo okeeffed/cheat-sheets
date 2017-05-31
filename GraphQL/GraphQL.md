@@ -265,3 +265,5 @@ We could the server which hosts GraphQL and then any database.
 If it's any small sized project, we could use Express etc. With larger companies, you won't use a single monolithic store, but the same Express/GraphQL Server will touch bases with a variety of databases and can act as a proxy of sorts to go and collect this data from those different datasources.
 
 What we can do is have an outside server to give us some data in our current approach.
+
+That way, we will need to spin up a second server.
