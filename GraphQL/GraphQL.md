@@ -486,3 +486,5 @@ fragment companyDetails on Company {
 ```
 
 ## Mutations
+
+Now that we've set up the ability to read data, we haven't spent anything on modifying the datastore.
