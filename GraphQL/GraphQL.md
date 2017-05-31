@@ -426,3 +426,32 @@ query findCompany {
 ```
 
 With the Root Query, each field is like an optional query to make.
+
+We can also ask for as many companies as we like, however we need to name the response:
+
+```
+{
+  apple: company(id: "2") {
+    name
+    users {
+      id,
+      firstName
+        company {
+          name
+        }
+
+    }
+  },
+  google: company(id: "2") {
+    name
+    users {
+      id,
+      firstName
+        company {
+          name
+        }
+
+    }
+  }
+}
+```
