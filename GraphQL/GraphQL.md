@@ -230,4 +230,21 @@ The `docs` auto generates docs for us to see the type of queries we can make.
 }
 ```
 
+So below
+
+```
+const RootQuery = new GraphQLObjectType({
+	name: 'RootQueryType',
+	fields: {
+		user: {
+			type: UserType,
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				// use lodash to find
+				return _.find(users, { id: args.id });
+			}
+		}
+	}
+});
+```
 
