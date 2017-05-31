@@ -503,3 +503,6 @@ const mutation = new GraphQLObjectType({
 	}
 });
 ```
+
+### Non-null fields and Mutations
+
