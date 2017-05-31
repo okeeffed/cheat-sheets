@@ -375,3 +375,23 @@ const RootQuery = new GraphQLObjectType({
 Given the one-to-many relationship we can find between companies and users, how can find the users that work for a company?
 
 
+We can use a `GraphQLList` to return a list of different entities.
+
+```javascript
+const CompanyType = new GraphQLObjectType({
+	name: 'Company',
+	fields: {
+		id: { type: GraphQLString },
+		name: { type: GraphQLString },
+		description: { type: GraphQLString },
+		users: {
+			// UserType may not yet be defined
+			type: new GraphQLList(UserType),
+			resolve(parentValue, args) {
+				return axios.get(`http://localhost:3000/companies/${parentValue.id}/users`)
+					.then(res => res.data);
+			}
+		}
+	}
+});
+```
