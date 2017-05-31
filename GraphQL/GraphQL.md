@@ -572,7 +572,7 @@ const mutation = new GraphQLObjectType({
 				}).then(res => res.data);
 			}
 		},
-		deleteUser {
+		deleteUser: {
 			type: UserType,
 			args: {
 				id: { type: new GraphQLNonNull(GraphQLString) }
