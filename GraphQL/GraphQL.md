@@ -310,4 +310,4 @@ Once we have...
 }
 ```
 
-We can now see the `/companies` url can give us a company.
+We can now see the `/companies` url can give us a company. To get JSON server to show us who works where, `json-server` works the relationship out at `companies/1/users`
