@@ -427,7 +427,7 @@ query findCompany {
 
 With the Root Query, each field is like an optional query to make.
 
-We can also ask for as many companies as we like, however we need to name the response:
+We can also ask for as many companies as we like, however we need to name the response so there are no JSON duplicate keys on the return:
 
 ```
 {
