@@ -310,4 +310,30 @@ Once we have...
 }
 ```
 
-We can now see the `/companies` url can give us a company. To get JSON server to show us who works where, `json-server` works the relationship out at `companies/1/users`
+We can now see the `/companies` url can give us a company. To get JSON server to show us who works where, `json-server` works the relationship out at `companies/1/users`.
+
+## Updating the Schema
+
+Now in the schema we can update to have the following.
+
+```javascript
+const CompanyType = new GraphQLObjectType({
+	name: 'Company',
+	fields: {
+		id: { type: GraphQLString },
+		name: { type: GraphQLString },
+		description: { type: GraphQLString },
+	}
+});
+
+const UserType = new GraphQLObjectType({
+	name: 'User',
+	fields: {
+		id: { type: GraphQLString },
+		firstName: { type: GraphQLString },
+		age: { type: GraphQLInt },
+		// note: this is from the previously declared type
+		company: { type: CompanyType }
+	}
+});
+```
