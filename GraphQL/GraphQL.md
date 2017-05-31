@@ -385,7 +385,8 @@ const CompanyType = new GraphQLObjectType({
 		name: { type: GraphQLString },
 		description: { type: GraphQLString },
 		users: {
-			// UserType may not yet be defined
+			// UserType may not yet be defined error may occur
+			// because of a circular reference
 			type: new GraphQLList(UserType),
 			resolve(parentValue, args) {
 				return axios.get(`http://localhost:3000/companies/${parentValue.id}/users`)
