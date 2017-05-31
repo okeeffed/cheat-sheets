@@ -484,3 +484,5 @@ fragment companyDetails on Company {
     }
 }
 ```
+
+## Mutations
