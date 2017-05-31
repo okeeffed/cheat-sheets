@@ -431,7 +431,7 @@ We can also ask for as many companies as we like, however we need to name the re
 
 ```
 {
-  apple: company(id: "2") {
+  apple: company(id: "1") {
     name
     users {
       id,
