@@ -455,3 +455,7 @@ We can also ask for as many companies as we like, however we need to name the re
   }
 }
 ```
+
+**Query Fragments**
+
+In the above, we list out the name, users etc twice.
