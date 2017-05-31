@@ -547,3 +547,5 @@ mutation {
 	}
 }
 ```
+
+### Deleting mutations
