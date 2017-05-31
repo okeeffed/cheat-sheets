@@ -508,6 +508,8 @@ const mutation = new GraphQLObjectType({
 
 Given our application at the moment, it probably makes sense that all of these users we add with this mutation have a `firstName` and `age`. We can use `GraphQLNonNull` as a wrapper object to ensure the value is non-null.
 
+Make sure you import it.
+
 ```
 const mutation = new GraphQLObjectType({
 	name: 'Mutation',
