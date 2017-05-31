@@ -230,7 +230,7 @@ The `docs` auto generates docs for us to see the type of queries we can make.
 }
 ```
 
-So below
+So with the query, it heads to the `RootQueryType` and enter into the graph of data.
 
 ```
 const RootQuery = new GraphQLObjectType({
