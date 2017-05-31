@@ -506,4 +506,25 @@ const mutation = new GraphQLObjectType({
 
 ### Non-null fields and Mutations
 
-Given our application at the moment, it probably makes sense that all of these users we add with this mutation have a `firstName` and `age`.
+Given our application at the moment, it probably makes sense that all of these users we add with this mutation have a `firstName` and `age`. We can use `GraphQLNonNull` as a wrapper object to ensure the value is non-null.
+
+```
+const mutation = new GraphQLObjectType({
+	name: 'Mutation',
+	fields: {
+		addUser: {
+			// not always returning the same type
+			// that we work on
+			type: UserType,
+			args: {
+				firstName: { type: new GraphQLNonNull(GraphQLString) },
+				age: { type: GraphQLInt },
+				companyId: { type: GraphQLString }
+			},
+			resolve(parentValue, args) {
+
+			}
+		}
+	}
+});
+```
