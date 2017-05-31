@@ -527,9 +527,23 @@ const mutation = new GraphQLObjectType({
 				return axios.post(`http://localhost:3000/users`, {
 					firstName,
 					age
-				}).then(res => res.data);
+				}).then(res => res.datam);
 			}
 		}
 	}
 });
+```
+
+As for using the mutation:
+
+```
+// in graphiql
+mutation {
+	addUser(firstName: "Stan", age: "26") {
+		// we must ask for some property coming back
+		id,
+		firstName,
+		age
+	}
+}
 ```
