@@ -400,3 +400,5 @@ const CompanyType = new GraphQLObjectType({
 	})
 });
 ```
+
+Now that we have circular relations, we can build back nested circular relations as we go.
