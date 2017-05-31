@@ -490,3 +490,5 @@ fragment companyDetails on Company {
 Now that we've set up the ability to read data, we haven't spent anything on modifying the datastore.
 
 They're notorious for being a bit more challenging to work with.
+
+The `json-server` has support for updating records.
