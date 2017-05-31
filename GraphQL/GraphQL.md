@@ -289,3 +289,5 @@ const RootQuery = new GraphQLObjectType({
 ```
 
 # How do we hook up relating a company to a user?
+
+Given a schema of `id, name and description`, how can we relate a user and their company?
