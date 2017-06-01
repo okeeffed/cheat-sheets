@@ -667,3 +667,5 @@ With clients, there are basically three main ones we will discuss. `Lokka` being
 
 As of the current writing, it is at version one - they are in progress with version two.
 
+In this course, the focus will be on `Apollo`.
+
