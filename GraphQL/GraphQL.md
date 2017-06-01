@@ -665,3 +665,5 @@ The idea of having a front end app with a client is to do basically the same exa
 
 With clients, there are basically three main ones we will discuss. `Lokka` being the simplest, `Apollo` built by the guys at Meteor JS - good balance between features and complexity. The downside of this is that they have huge experience with GraphQL clients. `Relay` is by far the most complex. `Relay` is officially used by the Facebook team. Things like mutations etc are 10x more difficult for mutations than what we've previously discussed. It makes sense for larger teams, although maybe not so much for smaller teams.
 
+As of the current writing, it is at version one - they are in progress with version two.
+
