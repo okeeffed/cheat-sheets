@@ -660,3 +660,5 @@ Let's take what we know and integrate it with a frontend framework.
 In Graphiql, we can actually watch the `xhr` requests in the `Network` tab and can see everything that we get back etc. That way the data we get back it just the plain, raw data.
 
 If we go down to request payload on the `Headers` tab, we can see the payload that we make. We can notice that even the query itself is the same as what we write in Graphiql.
+
+The idea of having a front end app with a client is to do basically the same exact thing as we are currently seeing in the Graphiql client.
