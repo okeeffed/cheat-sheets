@@ -653,4 +653,6 @@ mutation {
 
 ## GraphQL Clients - Apollo vs Relay
 
+So far we've limited everything to a client, but we haven't been able to put this data to the end user.
+
 
