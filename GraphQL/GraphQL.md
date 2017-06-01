@@ -658,3 +658,5 @@ So far we've limited everything to a client, but we haven't been able to put thi
 Let's take what we know and integrate it with a frontend framework.
 
 In Graphiql, we can actually watch the `xhr` requests in the `Network` tab and can see everything that we get back etc. That way the data we get back it just the plain, raw data.
+
+If we go down to request payload on the `Headers` tab, we can see the payload that we make.
