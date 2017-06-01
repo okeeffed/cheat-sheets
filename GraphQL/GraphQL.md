@@ -630,8 +630,8 @@ const mutation = new GraphQLObjectType({
 				age: { type: GraphQLInt },
 				companyId: { type: GraphQLString }
 			},
-			resolve(parentValue, { id }) {
-				return axios.patch(`http://localhost:3000/users/${id}`, { id })
+			resolve(parentValue, args) {
+				return axios.patch(`http://localhost:3000/users/${args.id}`, args)
 					.then(res => res.data);
 			}
 		}
