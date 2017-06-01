@@ -670,3 +670,5 @@ As of the current writing, it is at version one - they are in progress with vers
 In this course, the focus will be on `Apollo`.
 
 ### Apollo Server vs GraphQL Server
+
+We are using GraphQL tech on both the frontend and the backend.
