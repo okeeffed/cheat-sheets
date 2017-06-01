@@ -623,7 +623,11 @@ const mutation = new GraphQLObjectType({
 			}
 		},
 		editUser: {
-
+			type: UserType,
+			args: { id: { type: new GraphQLNonNull(GraphQLString) } },
+			resolve(parentValue, { id }) {
+				return axios.patch(`http://localhost:3000/users/${id}`, { id });
+			}
 		}
 	}
 });
