@@ -590,6 +590,8 @@ const mutation = new GraphQLObjectType({
 
 Reminder: difference between a `put` and `patch` request.
 
+A `put` request is used when we want to **completely** replace a record, whereas a `patch` request does not replace it completely, but forms the updates.
+
 ```
 const mutation = new GraphQLObjectType({
 	name: 'Mutation',
