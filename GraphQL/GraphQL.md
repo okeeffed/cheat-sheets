@@ -661,4 +661,4 @@ In Graphiql, we can actually watch the `xhr` requests in the `Network` tab and c
 
 If we go down to request payload on the `Headers` tab, we can see the payload that we make. We can notice that even the query itself is the same as what we write in Graphiql.
 
-The idea of having a front end app with a client is to do basically the same exact thing as we are currently seeing in the Graphiql client.
+The idea of having a front end app with a client is to do basically the same exact thing as we are currently seeing in the Graphiql client. The client itself should be that bonding layer.
