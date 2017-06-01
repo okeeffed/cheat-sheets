@@ -585,3 +585,5 @@ const mutation = new GraphQLObjectType({
 	}
 });
 ```
+
+### Editing mutations
