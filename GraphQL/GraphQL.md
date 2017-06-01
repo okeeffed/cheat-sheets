@@ -638,3 +638,15 @@ const mutation = new GraphQLObjectType({
 	}
 });
 ```
+
+As for the mutation itself for editing:
+
+```
+mutation {
+	editUser(id: "23", age: 10) {
+		id,
+		firstName,
+		age
+	}
+}
+```
