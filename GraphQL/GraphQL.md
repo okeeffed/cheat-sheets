@@ -810,4 +810,4 @@ The data return is then kept within the component `props` field.
 
 ### Handling Pending Queries
 
-
+The props handed in is `data` from `react-apollo` and `graphql` and we can access the return values from `this.props.data.[name]`.
