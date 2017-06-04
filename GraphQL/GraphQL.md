@@ -846,3 +846,5 @@ ReactDOM.render(
   document.querySelector('#root')
 );
 ```
+
+The only way we can modify is through mutations.
