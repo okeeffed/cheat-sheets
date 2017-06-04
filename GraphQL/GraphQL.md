@@ -888,6 +888,20 @@ const mutation = gql`
 `;
 ```
 
-Second, we can use a GraphQL helper like `export default graphql(mutation)(SongCreate);` - however, when we wrap a mutation, it forms a mutate function as part of this.props under `mutate`.
+Second, we can use a GraphQL helper like `export default graphql(mutation)(SongCreate);` - however, when we wrap a mutation, it forms a mutate function as part of this.props under `mutate`. Now, for the `onSubmit` function we have:
+
+```
+onSubmit(e) {
+	e.preventDefault();
+	console.log(this.props);
+	// point of time when we
+	// want to add a new song
+	this.props.mutate({
+		variables: {
+			title: this.state.title
+		}
+	});
+}
+```
 
 
