@@ -907,3 +907,5 @@ onSubmit(e) {
 ### Refetching Lists
 
 How do we get Apollo to refetch the query?
+
+We can actually do it after the mutation.
