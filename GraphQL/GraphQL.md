@@ -771,3 +771,5 @@ const query = gql`
 	}
 `;
 ```
+
+### Bonding queries with components
