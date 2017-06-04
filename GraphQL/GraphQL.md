@@ -706,4 +706,16 @@ mutation {
     }
   }
 }
+
+// now we can query something!
+query {
+	songs {
+    id,
+    title,
+    lyrics {
+      content
+    }
+  }
+}
 ```
+
