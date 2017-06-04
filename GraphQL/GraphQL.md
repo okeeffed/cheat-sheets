@@ -774,4 +774,4 @@ const query = gql`
 
 ### Bonding queries with components
 
-
+In the component, `import { graphql } from 'react-apollo'`.
