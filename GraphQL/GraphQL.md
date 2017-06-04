@@ -887,3 +887,5 @@ const mutation = gql`
 	}
 `;
 ```
+
+Second, we can use a GraphQL helper.
