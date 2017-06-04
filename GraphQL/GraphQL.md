@@ -888,4 +888,4 @@ const mutation = gql`
 `;
 ```
 
-Second, we can use a GraphQL helper.
+Second, we can use a GraphQL helper like `export default graphql(mutation)(SongCreate);` - however, when we wrap a mutation, it becomes part of props.
