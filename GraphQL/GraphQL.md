@@ -928,3 +928,5 @@ onSubmit(e) {
 		}).then(() => hashHistory.push('/'));
 	}
 ```
+
+GraphQL also knows not to rerun the same query twice too.
