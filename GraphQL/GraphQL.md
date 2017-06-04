@@ -672,3 +672,5 @@ In this course, the focus will be on `Apollo`.
 ### Apollo Server vs GraphQL Server
 
 We are using GraphQL tech on both the frontend and the backend. There is an Apollo server you can make use of, but instead we will used `express-graphql`.
+
+
