@@ -747,3 +747,4 @@ const Root = () => {
 ```
 
 In opposition, `Relay` requires a bunch of configuration to start up and have a working provider.
+
