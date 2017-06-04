@@ -910,6 +910,8 @@ How do we get Apollo to refetch the query?
 
 We can actually do it after the mutation. Using `this.props.mutate` takes variables but can also take `refetchQueries`.
 
+In practice, we do not refetch queries. What we will do is pull out queries from the component files and import it from another queries file.
+
 ```javascript
 onSubmit(e) {
 	e.preventDefault();
