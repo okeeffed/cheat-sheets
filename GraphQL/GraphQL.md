@@ -674,3 +674,5 @@ In this course, the focus will be on `Apollo`.
 We are using GraphQL tech on both the frontend and the backend. There is an Apollo server you can make use of, but instead we will used `express-graphql`.
 
 When is comes to the Apollo server "schema" set up, they split what we do in `GraphQL Express` into a `Types` and `Resolves` file (for the server side).
+
+The FOLLOWING section is about how to set up GraphQL on the client side before getting them to communicate.
