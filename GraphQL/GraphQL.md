@@ -914,16 +914,16 @@ In practice, we do not refetch queries. What we will do is pull out queries from
 
 ```javascript
 onSubmit(e) {
-	e.preventDefault();
-	console.log(this.props);
-	// point of time when we
-	// want to add a new song
-	this.props.mutate({
-		variables: {
-			title: this.state.title
-		},
-		// need to pass in the exact query
-		fetchQueries: [{  }]
-	});
-}
+		e.preventDefault();
+		console.log(this.props);
+		// point of time when we
+		// want to add a new song
+		this.props.mutate({
+			variables: {
+				title: this.state.title
+			},
+			// need to pass in the exact query
+			refetchQueries: [{ query: fetchSongsQuery }] // can also pass variables: {} if we need them
+		}).then(() => hashHistory.push('/'));
+	}
 ```
