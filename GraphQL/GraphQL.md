@@ -930,3 +930,11 @@ onSubmit(e) {
 ```
 
 The GraphQL helper also knows not to rerun the same query twice too.
+
+### Deletion mutations
+
+mutation DeleteSong($id: String) {
+	deleteSong(id: $id) {
+		id
+	}
+}
