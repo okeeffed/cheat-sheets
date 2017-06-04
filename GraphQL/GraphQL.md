@@ -755,3 +755,5 @@ We can create a basic `SongList` component.
 So the benefit of GraphQL again, you don't have to "overfetch".
 
 GraphQL + Apollo take care of everything for us - we just need to bond the query and the component!
+
+Once we have the query that we want, we can add the query into the component. That being said, queries are not valid JS. So what we will do is use `graphql-tag`
