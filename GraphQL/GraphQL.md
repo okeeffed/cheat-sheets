@@ -929,4 +929,4 @@ onSubmit(e) {
 	}
 ```
 
-GraphQL also knows not to rerun the same query twice too.
+The GraphQL helper also knows not to rerun the same query twice too.
