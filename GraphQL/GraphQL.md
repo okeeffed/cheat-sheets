@@ -816,6 +816,30 @@ We need to set some initial props value before we gets our GraphQL results back.
 
 ### Adding React Router
 
-```
+Note: ApolloProvider wraps the Router itself.
 
+```
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Router, Route, hashHistory, IndexRoute } from 'react-router';
+import ApolloClient from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
+import SongList from './components/SongList';
+
+const client = new ApolloClient({});
+
+const Root = () => {
+	return (
+		<ApolloProvider client={client}>
+			<Router history={hashHistory}>
+
+			</Router>
+		</ApolloProvider>
+	);
+};
+
+ReactDOM.render(
+  <Root />,
+  document.querySelector('#root')
+);
 ```
