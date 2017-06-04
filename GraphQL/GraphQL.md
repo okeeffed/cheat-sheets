@@ -803,3 +803,5 @@ const query = gql`
 // that is immediately invocated again
 export default graphql(query)(SongList);
 ```
+
+Now when the component is rendered, it will show up with no data until the query completes and then the data is resolved.
