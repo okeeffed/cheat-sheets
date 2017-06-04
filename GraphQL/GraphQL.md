@@ -825,6 +825,7 @@ import { Router, Route, hashHistory, IndexRoute } from 'react-router';
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import SongList from './components/SongList';
+import App from './components/App';
 
 const client = new ApolloClient({});
 
