@@ -676,3 +676,5 @@ We are using GraphQL tech on both the frontend and the backend. There is an Apol
 When is comes to the Apollo server "schema" set up, they split what we do in `GraphQL Express` into a `Types` and `Resolves` file (for the server side).
 
 The FOLLOWING section is about how to set up GraphQL on the client side before getting them to communicate.
+
+This app will use the Mongo Lab custom URL.
