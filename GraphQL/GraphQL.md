@@ -866,4 +866,9 @@ mutation AddSong($title: String) {
 		title
 	}
 }
+
+// in Graphql under query varibles, we can pass an object
+{
+	"title": "Desperado"
+}
 ```
