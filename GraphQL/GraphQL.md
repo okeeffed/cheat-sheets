@@ -875,3 +875,15 @@ mutation AddSong($title: String) {
 
 ### Passing variables in React
 
+First, set the mutation.
+
+```
+const mutation = gql`
+	mutation addSong($title: String) {
+		addSong(title: $title) {
+			id,
+			title
+		}
+	}
+`;
+```
