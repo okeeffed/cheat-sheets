@@ -813,3 +813,7 @@ The data return is then kept within the component `props` field.
 The props handed in is `data` from `react-apollo` and `graphql` and we can access the return values from `this.props.data.[name]`.
 
 We need to set some initial props value before we gets our GraphQL results back.
+
+### Adding React Router
+
+
