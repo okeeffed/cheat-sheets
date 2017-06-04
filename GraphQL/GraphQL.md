@@ -727,4 +727,9 @@ The React app will have an Apollo Provider that talks back and forth with the Ap
 
 The Apollo Store also doesn't care about the fact that we are using React. The Apollo Provider is what helps provide the data to the React application. Think of it as the `glue` layer.
 
-For future projects, you will need to install `apollo-client`, `react-apollo` and maybe `connect-mongo` if you are using a third party store.
+For future projects, you will need to install `apollo-client`, `react-apollo` and maybe `connect-mongo` if you are using a third party store. The following imports are required for the app.
+
+```
+import ApolloClient from 'apollo-client';
+import { ApolloProvider } from 'react-apollo';
+```
