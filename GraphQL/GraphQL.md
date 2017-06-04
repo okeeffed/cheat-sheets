@@ -808,4 +808,6 @@ Now when the component is rendered, it will show up with no data until the query
 
 The data return is then kept within the component `props` field.
 
+### Handling Pending Queries
+
 
