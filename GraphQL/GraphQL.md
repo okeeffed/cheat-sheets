@@ -873,3 +873,4 @@ mutation AddSong($title: String) {
 }
 ```
 
+### Passing variables in React a
