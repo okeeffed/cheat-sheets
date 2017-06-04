@@ -888,6 +888,6 @@ const mutation = gql`
 `;
 ```
 
-Second, we can use a GraphQL helper like `export default graphql(mutation)(SongCreate);` - however, when we wrap a mutation, it forms a mutate function as part of this.props.
+Second, we can use a GraphQL helper like `export default graphql(mutation)(SongCreate);` - however, when we wrap a mutation, it forms a mutate function as part of this.props under `mutate`.
 
 
