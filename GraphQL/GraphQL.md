@@ -732,4 +732,14 @@ For future projects, you will need to install `apollo-client`, `react-apollo` an
 ```
 import ApolloClient from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
+
+const client = new ApolloClient({});
+
+const Root = () => {
+	return (
+		<ApolloProvider>
+			<div>Lyrical</div>
+		</ApolloProvider>
+	);
+};
 ```
