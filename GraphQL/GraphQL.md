@@ -688,3 +688,22 @@ Ensure that you also add a `User` for the database.
 ### Running the project
 
 Start by adding a song using a `mutation`.
+
+```
+mutation {
+	addSong(title:"I want to know what love is") {
+    id
+  }
+}
+
+// once we have the id
+mutation {
+	addLyricToSong(content:"I want to know what loves is, I want you to show me!", songId:"5933a3ebcac9e6b57aad7f76") {
+    id
+    title
+    lyrics {
+      id
+    }
+  }
+}
+```
