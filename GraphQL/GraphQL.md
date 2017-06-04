@@ -923,7 +923,8 @@ onSubmit(e) {
 				title: this.state.title
 			},
 			// need to pass in the exact query
-			refetchQueries: [{ query: fetchSongsQuery }] // can also pass variables: {} if we need them
+			// can also pass variables: {} if we need them
+			refetchQueries: [{ query: fetchSongsQuery }]
 		}).then(() => hashHistory.push('/'));
 	}
 ```
