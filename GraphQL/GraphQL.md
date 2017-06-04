@@ -849,5 +849,5 @@ ReactDOM.render(
 
 ## Mutations in React
 
-
+When adding a track using a component, we want to use a form a submit action to post that data.
 
