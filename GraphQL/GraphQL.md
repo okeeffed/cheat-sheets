@@ -759,3 +759,15 @@ GraphQL + Apollo take care of everything for us - we just need to bond the query
 Once we have the query that we want, we can add the query into the component. That being said, queries are not valid JS. So what we will do is use `graphql-tag`.
 
 `gql` is a helper to help us write files.
+
+Making a query will look like so...
+
+```
+const query = gql`
+	{
+		songs {
+			title
+		}
+	}
+`;
+```
