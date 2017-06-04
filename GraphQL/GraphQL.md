@@ -686,3 +686,5 @@ Head onto MongoLab and then create a new free sandbox, then go find the address 
 Ensure that you also add a `User` for the database.
 
 ### Running the project
+
+Start by adding a song using a `mutation`.
