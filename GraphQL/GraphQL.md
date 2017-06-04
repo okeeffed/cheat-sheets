@@ -684,3 +684,5 @@ This app will use the Mongo Lab custom URL.
 Head onto MongoLab and then create a new free sandbox, then go find the address URI that we need from the info.
 
 Ensure that you also add a `User` for the database.
+
+### Running the project
