@@ -737,7 +737,7 @@ const client = new ApolloClient({});
 
 const Root = () => {
 	return (
-		<ApolloProvider>
+		<ApolloProvider client={client}>
 			<div>Lyrical</div>
 		</ApolloProvider>
 	);
