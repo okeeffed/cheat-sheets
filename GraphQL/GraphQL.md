@@ -799,5 +799,7 @@ const query = gql`
 	}
 `;
 
+// first parenthesis returns a function
+// that is immediately invocated again
 export default graphql(query)(SongList);
 ```
