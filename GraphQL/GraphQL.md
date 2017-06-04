@@ -855,4 +855,4 @@ That being said, how can we create the mutation on the `onSubmit` event?
 
 ### Query Params
 
-
+In order to complete our `gql` mutation constant, we can make use of query variables.
