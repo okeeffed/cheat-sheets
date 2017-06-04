@@ -724,3 +724,5 @@ query {
 In the front end, how do we wrap our `React` application with helpers from the Apollo library?
 
 The React app will have an Apollo Provider that talks back and forth with the Apollo Store. That in turn will talk to the GraphQL Server. The store will also `store` the data that comes back from the GraphQL Server.
+
+The Apollo Store also doesn't care about the fact that we are using React. The Apollo Provider is what helps provide the data to the React application. Think of it as the `glue` layer.
