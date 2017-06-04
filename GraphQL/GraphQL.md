@@ -720,3 +720,5 @@ query {
 ```
 
 ### Setting up Apollo Client
+
+In the front end, how do we wrap our `React` application with helpers from the Apollo library?
