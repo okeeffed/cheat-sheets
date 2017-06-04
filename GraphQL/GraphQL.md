@@ -719,3 +719,4 @@ query {
 }
 ```
 
+### Setting up Apollo Client
