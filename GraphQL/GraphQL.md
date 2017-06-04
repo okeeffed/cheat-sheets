@@ -727,7 +727,7 @@ The React app will have an Apollo Provider that talks back and forth with the Ap
 
 The Apollo Store also doesn't care about the fact that we are using React. The Apollo Provider is what helps provide the data to the React application. Think of it as the `glue` layer.
 
-For future projects, you will need to install `apollo-client`, `react-apollo` and maybe `connect-mongo` if you are using a third party store. The following imports are required for the app.
+For future projects, you will need to install `apollo-client`, `react-apollo`, `graphql-tag` and maybe `connect-mongo` if you are using a third party store. The following imports are required for the app.
 
 In the code below, we have even passed an empty object to the ApolloClient - it can make assumptions. The store assumes that you are using `/graphql` route if you are passing in the object. If you deviate, you will need to start updating the config of this object.
 
