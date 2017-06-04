@@ -678,3 +678,7 @@ When is comes to the Apollo server "schema" set up, they split what we do in `Gr
 The FOLLOWING section is about how to set up GraphQL on the client side before getting them to communicate.
 
 This app will use the Mongo Lab custom URL.
+
+### Setting up MongoLab
+
+
