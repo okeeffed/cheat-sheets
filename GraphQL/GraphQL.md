@@ -752,4 +752,4 @@ We can create a basic `SongList` component.
 
 ### GQL Queries in React
 
-
+So the benefit of GraphQL again, you don't have to "overfetch".
