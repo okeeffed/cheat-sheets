@@ -696,7 +696,7 @@ mutation {
   }
 }
 
-// once we have the id
+// once we have the songId, add a lyric in
 mutation {
 	addLyricToSong(content:"I want to know what loves is, I want you to show me!", songId:"5933a3ebcac9e6b57aad7f76") {
     id
