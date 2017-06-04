@@ -911,5 +911,17 @@ How do we get Apollo to refetch the query?
 We can actually do it after the mutation. Using `this.props.mutate` takes variables but can also take `refetchQueries`.
 
 ```javascript
-
+onSubmit(e) {
+	e.preventDefault();
+	console.log(this.props);
+	// point of time when we
+	// want to add a new song
+	this.props.mutate({
+		variables: {
+			title: this.state.title
+		},
+		// need to pass in the exact query
+		fetchQueries: [{  }]
+	});
+}
 ```
