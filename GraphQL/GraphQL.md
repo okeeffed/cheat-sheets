@@ -941,4 +941,4 @@ mutation DeleteSong($id: ID) {
 }
 ```
 
-
+The `export default grahpql` can only take query at a time. So we need to create multiple instances of the `graphql` helper.
