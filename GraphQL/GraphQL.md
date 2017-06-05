@@ -949,3 +949,42 @@ export default compose(
 	graphql(fetchSongsQuery)
 )(SongList);
 ```
+
+Setting this as our class allows for deletion:
+
+```javascript
+class SongList extends Component {
+	onSongDelete(id) {
+		this.props.mutate({
+			variables: { id }
+		});
+	}
+
+	renderSongs() {
+		return this.props.data.songs.map(({ title, id }) => {
+			return (
+				<li key={id} className="collection-item">
+					{ title }
+					<i className="material-icons"
+						onClick={() => this.onSongDelete(id) } >
+						delete
+					</i>
+				</li>
+			);
+		});
+	}
+
+	render() {
+		console.log(this.props);
+		if (this.props.data.loading) { return <div>Loading...</div> };
+		return (
+			<ul className="collection">
+				{ this.renderSongs() }
+			</ul>
+		);
+	}
+}
+```
+
+
+### Rerendering after a mutation
