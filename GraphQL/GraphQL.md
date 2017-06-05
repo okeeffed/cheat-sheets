@@ -944,7 +944,8 @@ mutation DeleteSong($id: ID) {
 The `export default grahpql` can only take query at a time. So we need to create multiple instances of the `graphql` helper.
 
 ```
-export default graphql(deleteSongQuery)(
-	export default graphql(fetchSongsQuery)(SongList)
-);
+export default compose(
+	graphql(deleteSongQuery),
+	graphql(fetchSongsQuery)
+)(SongList);
 ```
