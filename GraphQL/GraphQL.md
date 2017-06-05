@@ -991,6 +991,4 @@ class SongList extends Component {
 
 Depends on how you're trying to update your query. If you refetch something not associated with the component, you would use refecthQueries. The `refetch` function would not have been available.
 
-### Rerendering after a mutation
-
 
