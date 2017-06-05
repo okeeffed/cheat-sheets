@@ -933,8 +933,12 @@ The GraphQL helper also knows not to rerun the same query twice too.
 
 ### Deletion mutations
 
+```
 mutation DeleteSong($id: ID) {
 	deleteSong(id: $id) {
 		id
 	}
 }
+```
+
+
