@@ -955,9 +955,10 @@ Setting this as our class allows for deletion:
 ```javascript
 class SongList extends Component {
 	onSongDelete(id) {
-		this.props.mutate({
-			variables: { id }
-		});
+		// refetch will fetch any queries
+		// with this component
+		this.props.mutate({ variables: { id } })
+			.then(() => this.props.data.refetch());
 	}
 
 	renderSongs() {
@@ -988,3 +989,5 @@ class SongList extends Component {
 
 
 ### Rerendering after a mutation
+
+
