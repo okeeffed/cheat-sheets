@@ -1061,3 +1061,33 @@ export default graphql(FetchSong, {
 ```
 
 This will allow us to map `react-router` to `react-apollo`.
+
+### Watching for Data
+
+First, handle if no song yet exists.
+
+```javascript
+import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
+import { Link } from 'react-router';
+import FetchSong from '../queries/fetchSong';
+
+class SongDetail extends Component {
+	render() {
+		console.log(this.props);
+		const { song } = this.props.data;
+		if (!song) { return <div></div>; }
+
+		return (
+			<div>
+				<Link to="/">Back</Link>
+				<h3>{ song.title }</h3>
+			</div>
+		);
+	}
+}
+
+export default graphql(FetchSong, {
+	options: (props) => { return { variables: { id: props.params.id } } }
+})(SongDetail);
+```
