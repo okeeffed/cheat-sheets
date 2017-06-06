@@ -1002,7 +1002,8 @@ In a similar pattern:
 ```
 query SongQuery($id: ID!) {
 	song(id: $id) {
-    id
+    	id
+    	title
   }
 }
 
