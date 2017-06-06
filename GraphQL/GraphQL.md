@@ -1127,5 +1127,4 @@ class LyricCreate extends Component {
 }
 
 export default LyricCreate;
-
 ```
