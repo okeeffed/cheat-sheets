@@ -1104,10 +1104,6 @@ class LyricCreate extends Component {
 		this.state = { content: '' };
 	}
 
-	onChange() {
-
-	}
-
 	onSubmit() {
 
 	}
