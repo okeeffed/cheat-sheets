@@ -1091,3 +1091,41 @@ export default graphql(FetchSong, {
 	options: (props) => { return { variables: { id: props.params.id } } }
 })(SongDetail);
 ```
+
+### More action submitting
+
+```javascript
+import React, { Component } from 'react';
+
+class LyricCreate extends Component {
+	constructor(props) {
+		super(props);
+
+		this.state = { content: '' };
+	}
+
+	onChange() {
+
+	}
+
+	onSubmit() {
+
+	}
+
+	render() {
+		return (
+			<form action="">
+				<label>Add a lyric</label>
+				<input
+					value={this.state.content}
+					onChange={ (event) => this.setState({content: event.target.value}) }
+					// onSubmit={ (event) => this.onSubmit(event) }
+				/>
+			</form>
+		);
+	}
+}
+
+export default LyricCreate;
+
+```
