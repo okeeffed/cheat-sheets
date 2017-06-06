@@ -1029,8 +1029,35 @@ To get the access to React Router parameters, we can see how `React Router` wrap
 
 ### Adding fetchSong to the component
 
+```javascript
+import React, { Component } from 'react';
+import { graphql } from 'react-apollo';
+import FetchSong from '../queries/fetchSong';
+
+class SongDetail extends Component {
+	render() {
+		console.log(this.props);
+		return (
+			<div>
+				<h3>SongDetail!</h3>
+			</div>
+		);
+	}
+}
+
+export default graphql(FetchSong)(SongDetail);
+```
+
 So one gotcha we run into with the `graphql()()` wrapper is that we need an `id`.
 
 The problem is that GraphQL makes fetch queries automatically, as opposed to mutations.
 
 With GraphQL React-Apollo, we can do the following:
+
+```
+export default graphql(FetchSong, {
+	options: (props) => { return { variables: { id: props.params.id } } }
+})(SongDetail);
+```
+
+This will allow us to map `react-router` to `react-apollo`.
