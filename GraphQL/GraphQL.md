@@ -1166,7 +1166,7 @@ onSubmit(event) {
 	this.props.mutate({
 		variables: {
 			content: this.state.content,
-			songId: this.props.params.id
+			songId: this.props.songId
 		}
 	});
 }
