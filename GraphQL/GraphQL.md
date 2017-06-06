@@ -1005,4 +1005,9 @@ query SongQuery($id: ID!) {
     id
   }
 }
+
+// query var
+{
+  "id": "5933a3ebcac9e6b57aad7f76"
+}
 ```
