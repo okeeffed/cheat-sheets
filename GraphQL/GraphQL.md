@@ -995,3 +995,14 @@ Depends on how you're trying to update your query. If you refetch something not 
 
 After creating a new song component, just in React Router and throw in the new route `songs/:id` - id being the wildcard.
 
+Now in GraphiQL, just like mutations, we can make queries with query variables.
+
+In a similar pattern:
+
+```
+query SongQuery($id: ID!) {
+	song(id: $id) {
+    id
+  }
+}
+```
