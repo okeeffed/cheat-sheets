@@ -1024,3 +1024,5 @@ query FetchSong($id: ID!) {
 }
 `;
 ```
+
+To get the access to React Router parameters, we can see how `React Router` wraps the entire app. If we `console.log(this.props)` and check `params`, we will see that the params are in fact stored there.
