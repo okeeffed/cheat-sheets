@@ -993,5 +993,5 @@ Depends on how you're trying to update your query. If you refetch something not 
 
 ### Fetching a particular item
 
-After creating a new song component,
+After creating a new song component, just in React Router and throw in the new route `songs/:id` - id being the wildcard.
 
