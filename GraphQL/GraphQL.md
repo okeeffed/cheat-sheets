@@ -1030,3 +1030,5 @@ To get the access to React Router parameters, we can see how `React Router` wrap
 ### Adding fetchSong to the component
 
 So one gotcha we run into with the `graphql()()` wrapper is that we need an `id`.
+
+
