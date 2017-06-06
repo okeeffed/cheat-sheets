@@ -1157,3 +1157,17 @@ onSubmit(event) {
 	});
 }
 ```
+
+We in fact need to pass the ID down as a prop.
+
+```
+onSubmit(event) {
+	event.preventDefault();
+	this.props.mutate({
+		variables: {
+			content: this.state.content,
+			songId: this.props.params.id
+		}
+	});
+}
+```
