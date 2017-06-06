@@ -1026,3 +1026,7 @@ query FetchSong($id: ID!) {
 ```
 
 To get the access to React Router parameters, we can see how `React Router` wraps the entire app. If we `console.log(this.props)` and check `params`, we will see that the params are in fact stored there.
+
+### Adding fetchSong to the component
+
+So one gotcha we run into with the `graphql()()` wrapper is that we need an `id`.
