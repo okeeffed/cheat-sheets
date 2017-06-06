@@ -1032,3 +1032,5 @@ To get the access to React Router parameters, we can see how `React Router` wrap
 So one gotcha we run into with the `graphql()()` wrapper is that we need an `id`.
 
 The problem is that GraphQL makes fetch queries automatically, as opposed to mutations.
+
+With GraphQL React-Apollo, we can do the following:
