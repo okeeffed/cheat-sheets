@@ -1142,3 +1142,18 @@ export default gql`
 	}
 `;
 ```
+
+Using the mutations, we cannot just do this:
+
+```
+onSubmit(event) {
+	event.preventDefault();
+	this.props.mutate({
+		variables: {
+			content: this.state.content,
+			// contrary to what you may expect
+			songId: this.props.params.id
+		}
+	});
+}
+```
