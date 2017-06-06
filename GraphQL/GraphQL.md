@@ -1011,4 +1011,16 @@ query SongQuery($id: ID!) {
 {
   "id": "5933a3ebcac9e6b57aad7f76"
 }
+
+// query js file
+import gql from 'graphql-tag';
+
+export default gql`
+query FetchSong($id: ID!) {
+	song(id: $id) {
+    id
+    title
+  }
+}
+`;
 ```
