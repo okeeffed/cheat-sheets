@@ -1158,7 +1158,7 @@ onSubmit(event) {
 }
 ```
 
-We in fact need to pass the ID down as a prop.
+We in fact need to pass the ID down as a prop from the other component.
 
 ```
 onSubmit(event) {
