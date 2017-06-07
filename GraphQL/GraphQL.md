@@ -1171,3 +1171,5 @@ onSubmit(event) {
 	});
 }
 ```
+
+### Extending Components
