@@ -1172,4 +1172,6 @@ onSubmit(event) {
 }
 ```
 
-### Extending Components
+### Extending Queries
+
+How
