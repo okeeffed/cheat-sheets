@@ -1175,3 +1175,16 @@ onSubmit(event) {
 ### Extending Queries
 
 How do we extend queries for something like a Lyric List? What we can do is enhance the `SongDetail` query to grab all the lyrics associated with it.
+
+```
+query FetchSong($id: ID!) {
+	song(id: $id) {
+		id
+		title
+		lyrics {
+			id
+			content
+		}
+	}
+}
+```
