@@ -1174,4 +1174,4 @@ onSubmit(event) {
 
 ### Extending Queries
 
-How
+How do we extend queries for something like a Lyric List?
