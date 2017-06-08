@@ -1195,4 +1195,4 @@ Given that the refresh also again won't automatically happen, we can do somethin
 
 **How it all works**
 
-Each time you make a response, `apollo` returns a `typeName` in the response.
+Each time you make a response using the `apollo` client, `apollo` returns a `typeName` in the response.
