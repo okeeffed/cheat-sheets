@@ -1200,3 +1200,5 @@ Each time you make a response using the `apollo` client, `apollo` returns a `typ
 However, Apollo does not no what data is set within each of these data stores. It doesn't know the data and what attributes that it has. That's where the root of the current problem is.
 
 To fix this issue, we can use a piece of Apollo Client config. What we can do is "associate" an `id` with each data state. That way, it can `bond` with React just that little bit better.
+
+Now that `Apollo` can see that the song with an `id` has been updated, Apollo can then itself tell React to update its componentss.
