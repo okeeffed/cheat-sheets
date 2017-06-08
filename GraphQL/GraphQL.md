@@ -1191,3 +1191,6 @@ query FetchSong($id: ID!) {
 
 Now we can simply pass down the lyric value.
 
+Given that the refresh also again won't automatically happen, we can do something similar to what we did with `refetchQueries`, but this time let's try something different.
+
+Each time you make a response, `apollo` returns a `typeName` in the response.
