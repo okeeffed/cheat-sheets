@@ -1233,7 +1233,7 @@ ReactDOM.render(
 
 Liking a lyric
 
-```
+```javascript
 const mutation = gql`
 	mutation LikeLyric($id:ID) {
 		likeLyric(id: $id) {
