@@ -1228,3 +1228,5 @@ ReactDOM.render(
   document.querySelector('#root')
 );
 ```
+
+## More on Mutations
