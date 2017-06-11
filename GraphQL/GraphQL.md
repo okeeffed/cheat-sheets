@@ -1231,4 +1231,13 @@ ReactDOM.render(
 
 ## More on Mutations
 
+Liking a lyric
 
+```
+mutation LikeLyric($id:ID) {
+  likeLyric(id: $id) {
+    id
+    likes
+  }
+}
+```
