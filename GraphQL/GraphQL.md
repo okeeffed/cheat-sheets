@@ -1205,4 +1205,26 @@ Now that `Apollo` can see that the song with an `id` has been updated, Apollo ca
 
 ## Caching with dataIdFromObject
 
+```javascript
+const client = new ApolloClient({
+	dataIdFromObject: obj => obj.id
+});
 
+const Root = () => {
+	return (
+		<ApolloProvider client={client}>
+			<Router history={hashHistory}>
+				<Route path="/" component={App}>
+					<IndexRoute component={SongList} />
+					<Route path="songs/new" component={SongCreate} />
+					<Route path="songs/:id" component={SongDetail} />
+				</Route>
+			</Router>
+		</ApolloProvider>
+	);
+};
+ReactDOM.render(
+  <Root />,
+  document.querySelector('#root')
+);
+```
