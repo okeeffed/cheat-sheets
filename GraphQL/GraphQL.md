@@ -1244,3 +1244,20 @@ const mutation = gql`
 `;
 ```
 
+### Optimistic mutations
+
+```javascript
+onLike(id) {
+	this.props.mutate({
+		variables: { id },
+		optimisticResponse: {
+			_typename: 'Mutation',
+			likeLyric: {
+				id: id,
+				_typename: 'LyricType',
+				likes:
+			}
+		}
+	});
+}
+```
