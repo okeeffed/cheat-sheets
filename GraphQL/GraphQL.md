@@ -1234,10 +1234,12 @@ ReactDOM.render(
 Liking a lyric
 
 ```
-const mutation = gql`mutation LikeLyric($id:ID) {
-  likeLyric(id: $id) {
-    id
-    likes
-  }
-}`;
+const mutation = gql`
+	mutation LikeLyric($id:ID) {
+		likeLyric(id: $id) {
+			id
+			likes
+		}
+	}
+`;
 ```
