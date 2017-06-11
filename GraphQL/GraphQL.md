@@ -1247,7 +1247,7 @@ const mutation = gql`
 ### Optimistic mutations
 
 ```javascript
-onLike(id) {
+onLike(id, likes) {
 	this.props.mutate({
 		variables: { id },
 		optimisticResponse: {
@@ -1255,7 +1255,7 @@ onLike(id) {
 			likeLyric: {
 				id: id,
 				_typename: 'LyricType',
-				likes:
+				likes: likes + 1
 			}
 		}
 	});
