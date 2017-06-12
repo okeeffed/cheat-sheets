@@ -1262,6 +1262,5 @@ onLike(id, likes) {
 }
 ```
 
-# Clientside GraphQL
-
+# Authentication Applications
 
