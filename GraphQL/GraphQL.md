@@ -1262,4 +1262,4 @@ onLike(id, likes) {
 }
 ```
 
-## Clientside GraphQL
+# Clientside GraphQL
