@@ -1281,6 +1281,9 @@ There are two approaches that we can take to auth with GraphQL and Passport.
 1. Decoupled approach
 2. Coupled approach
 
+**Coupled vs Decoupled**
+
+If we do not use a changed `mutation`, we are using the `decoupled approach`.
 
 
 
