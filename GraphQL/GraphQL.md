@@ -1262,7 +1262,7 @@ onLike(id, likes) {
 }
 ```
 
-# Authentication Applications
+# Authentication Applications - concerned with both the front and back end
 
 
 
