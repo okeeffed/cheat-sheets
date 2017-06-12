@@ -1294,6 +1294,9 @@ Pros:
 
 **Decoupled**
 
+Pros:
+- Once authenticated, you do not need to continue the authentication process.
+
 Cons:
 - part of the React app would not use GraphQL at all
 
