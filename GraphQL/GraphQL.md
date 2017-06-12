@@ -1266,6 +1266,12 @@ onLike(id, likes) {
 
 **Challenges**
 
+Challenge 			| Solution
+---					| ---
+Multiple pages		| React Router
+Data store 			| MongoDB
+Authentication 		| PassportJS
+
 
 
 
