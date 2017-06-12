@@ -1285,6 +1285,8 @@ There are two approaches that we can take to auth with GraphQL and Passport.
 
 If we do not use a changed `mutation`, we are using the `decoupled approach`. In the `coupled` approach, we have GraphQL work as the `middleman` between the application and `passport`. It's about whether or not use GraphQL to process the request or not.
 
+So, which one? Why would we ever have `Passport` involved with `GraphQL`? You could make a strong case for either approach.
+
 
 
 
