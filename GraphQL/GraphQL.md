@@ -1290,7 +1290,6 @@ So, which one? Why would we ever have `Passport` involved with `GraphQL`? You co
 **Coupled**
 
 Pros:
-
 - using Graphql in the way it was intended
 
 **Decoupled**
