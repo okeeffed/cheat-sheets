@@ -1300,4 +1300,5 @@ Pros:
 Cons:
 - part of the React app would not use GraphQL at all
 
+In the example given, they are used together - however, usually the argument is that maybe they should remain decoupled.
 
