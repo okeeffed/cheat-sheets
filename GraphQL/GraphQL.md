@@ -1272,6 +1272,8 @@ Multiple pages		| React Router
 Data store 			| MongoDB
 Authentication 		| PassportJS
 
+But Passport isn't designed with GraphQL in mind.
+
 
 
 
