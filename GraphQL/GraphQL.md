@@ -1287,6 +1287,10 @@ If we do not use a changed `mutation`, we are using the `decoupled approach`. In
 
 So, which one? Why would we ever have `Passport` involved with `GraphQL`? You could make a strong case for either approach.
 
+**Coupled**
 
+Pros:
+
+- using Graphql in the way it was intended
 
 
