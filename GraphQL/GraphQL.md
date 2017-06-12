@@ -1293,4 +1293,9 @@ Pros:
 
 - using Graphql in the way it was intended
 
+**Decoupled**
+
+Cons:
+- part of the React app would not use GraphQL at all
+
 
