@@ -1274,6 +1274,10 @@ Authentication 		| PassportJS
 
 But Passport isn't designed with GraphQL in mind.
 
+**Auth with GraphQL**
+
+There are two approaches that we can take to auth with GraphQL and Passport.
+
 
 
 
