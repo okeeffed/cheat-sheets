@@ -1302,3 +1302,6 @@ Cons:
 
 In the example given, they are used together - however, usually the argument is that maybe they should remain decoupled.
 
+### Delegating to an Authentication Service
+
+
