@@ -1304,4 +1304,20 @@ In the example given, they are used together - however, usually the argument is 
 
 ### Delegating to an Authentication Service
 
+## Handling Errors Gracefully
+
+### Handling Errors Around Signup
+
+With the `apollo` client, you can also `catch` after a mutation.
+
+```javascript
+this.props.mutate({
+	variables: { email, password }
+}).catch(res => {
+	const errors = res.graphQLErrors.map(err => err.message);
+	this.setState({ errors });
+});
+
+### The Needs for a HOC
+
 
