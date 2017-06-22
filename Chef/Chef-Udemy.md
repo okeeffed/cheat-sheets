@@ -97,3 +97,4 @@ end
 
 Looking back at the definition of a recipe. `hello.rb` was an example of a recipe file.
 
+The "type" (eg file, service, package) and "name" (filename, filepath) should be action'd with "properties" (eg content 'Hello World!').
