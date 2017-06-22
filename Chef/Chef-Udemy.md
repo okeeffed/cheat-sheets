@@ -129,3 +129,4 @@ end
 ```
 
 You can also build an array and pass it into a package resource, but if we do that we won't have access to things like versions etc.
+
