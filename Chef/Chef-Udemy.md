@@ -138,4 +138,4 @@ If we re-run the script, no actions will be taken if nothing needs to be modifie
 
 You can also call recipes from other recipes.
 
-
+Chef also runs the Ruby files synchronously.
