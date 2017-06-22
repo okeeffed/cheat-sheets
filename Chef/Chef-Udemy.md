@@ -150,5 +150,5 @@ Instead of a single recipe being sent to a server, we send a `cookbook`.
 
 Cookbooks allow a way to package up the recipes and give it a version number and track changes.
 
-`A fundamental unit of configuration and policy distribution`.
+`A fundamental unit of configuration and policy distribution`
 
