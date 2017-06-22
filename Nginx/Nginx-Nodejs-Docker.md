@@ -20,3 +20,17 @@ Then we can build with `docker built -t foo/node .`
 After the build, run the container with port 3000 exposed using `docker run -d -p 3000:3000 --name node-app foo/node`.
 
 First, we can test the Nginx latest container container using `docker run --rm -p 8000:80 nginx` to test out nginx:latest. This just removes the container after running.
+
+In the `nginx` folder, we can create `default.conf` file to overwrite the initial one.
+
+```
+# config
+server {
+	location / {
+		proxy_set_header Host $host;
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+		proxy_set_header X-Forwarded-Proto $scheme;
+	}
+}
+```
