@@ -105,3 +105,4 @@ With the command `sudo chef-client --local-mode hello.rb`, when we run `--local-
 
 What happens if you modify the content of the file that we create directly, what happens when Chef runs again?
 
+Chef will then attempt to `repair` the file changes.
