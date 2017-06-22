@@ -14,3 +14,5 @@ EXPOSE 3000
 # Run node - chances are you want pm2 here
 CMD node index.js
 ```
+
+Then we can build with `docker built -t foo/node .`
