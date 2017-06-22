@@ -162,3 +162,5 @@ What to use cookbooks for:
 - Extensions to Chef (lib, definitions and custom resources)
 - Version Control
 
+
+
