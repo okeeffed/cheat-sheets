@@ -117,10 +117,7 @@ package 'tree' do
 	action :install
 end
 
-package 'ntp' do
-	action :install
-	service [ :enable, :start ]
-end
+package 'ntp'
 
 # /etc/motd - content ownership
 file '/etc/motd' do
