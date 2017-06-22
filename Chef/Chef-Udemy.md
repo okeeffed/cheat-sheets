@@ -123,6 +123,8 @@ package 'ntp'
 file '/etc/motd' do
 	content 'This is the property of me'
 	action :create
+	owner 'root'
+	group 'root'
 end
 ```
 
