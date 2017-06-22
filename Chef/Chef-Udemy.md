@@ -56,3 +56,5 @@ Chef Resources are the fundamental building blocks of working with Chef.
 The aim is to build the load balancer.
 
 Resources describe the smallest piece we can configure in the system.
+
+
