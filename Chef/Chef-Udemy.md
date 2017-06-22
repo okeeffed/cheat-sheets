@@ -14,4 +14,9 @@ Revision control systems can also be version controlled with `infrastructure as 
 
 ## Infrastructure as Code
 
+Examples:
 
+- version control
+- testing
+
+These all helps to validate infrastructure code.
