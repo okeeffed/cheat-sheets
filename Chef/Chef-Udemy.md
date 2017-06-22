@@ -110,3 +110,5 @@ Chef will then attempt to `repair` the file changes.
 If we change the ownership for a file, Chef will only take action when it needs to. It will only take action if something is "out of policy".
 
 ## Creating an "Exercise Work Station"
+
+
