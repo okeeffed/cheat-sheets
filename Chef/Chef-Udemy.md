@@ -170,5 +170,5 @@ Cookbook components:
 
 ### Cookbook Components
 
-
+We can create cookbooks by using `chef generate [cookbook|other]`.
 
