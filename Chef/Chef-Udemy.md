@@ -101,6 +101,6 @@ The "type" (eg file, service, package) and "name" (filename, filepath) should be
 
 ## Convergence and Desired State
 
-`sudo chef-client --local-mode hello.rb`
+With the command `sudo chef-client --local-mode hello.rb`, when we run `--local-mode` we did it because the default mode is to talk to a `chef server`.
 
 
