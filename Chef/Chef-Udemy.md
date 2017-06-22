@@ -42,5 +42,7 @@ First, give Chef a file.
 Inside of the file:
 
 ```ruby
-file '/hello.txt' d
+file '/hello.txt' do
+	content 'Hello world!'
+end
 ```
