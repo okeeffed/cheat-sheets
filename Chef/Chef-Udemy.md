@@ -174,3 +174,4 @@ We can create cookbooks by using `chef generate [cookbook|other]`.
 
 When we generate a cookbook, we should give the cookbook a relevant name. Example `chef generate cookbooks/workstation` to create a `workstation` book in the `cookbooks` folder.
 
+
