@@ -133,3 +133,4 @@ You can also build an array and pass it into a package resource, but if we do th
 Then we can just run `sudo chef-client -z setup.rb`.
 
 If we re-run the script, no actions will be taken if nothing needs to be modified.
+
