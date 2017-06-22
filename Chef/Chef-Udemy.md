@@ -85,3 +85,12 @@ file 'etc/motd' do
 	content 'This computer is the property ...'
 end
 ```
+
+**Example 4: File Resource**
+
+```
+## Remove a file
+file 'etc/php.ini.default' do
+	action :delete
+end
+```
