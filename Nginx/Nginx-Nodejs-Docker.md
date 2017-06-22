@@ -27,7 +27,9 @@ In the `nginx` folder, we can create `default.conf` file to overwrite the initia
 # config
 server {
 	location / {
+		# host name first
 		proxy_set_header Host $host;
+		# extra headers for host IP address
 		proxy_set_header X-Real-IP $remote_addr;
 		proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
 		proxy_set_header X-Forwarded-Proto $scheme;
