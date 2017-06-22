@@ -48,3 +48,5 @@ For the Docker file.
 FROM nginx
 COPY default.cong /etc/nginx/conf.d/
 ```
+
+Then build out this file using `docker built -t foo/nginx .`.
