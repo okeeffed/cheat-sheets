@@ -100,3 +100,5 @@ Looking back at the definition of a recipe. `hello.rb` was an example of a recip
 The "type" (eg file, service, package) and "name" (filename, filepath) should be action'd with "properties" (eg content 'Hello World!'). When we list a resource, we take `action` on that resource (eg `action :create`, `action :delete`, `action :enable`). The default action is taken if you do not list the action. The default is more of a `create` or `install` - it is important to know about what it is as you are writing out recipes.
 
 
+
+
