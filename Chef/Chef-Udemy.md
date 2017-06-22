@@ -50,3 +50,5 @@ end
 Running `sudo chef-client --client-mode hello.rb` will then build that file and update the content.
 
 ## Chef Resources
+
+Chef Resources are the fundamental building blocks of working with Chef.
