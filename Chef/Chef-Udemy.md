@@ -35,4 +35,4 @@ You will get the desired state from the `cookbooks` or `recipes`.
 
 ## Your First Chef Recipe
 
-
+Create a new file `hello.rb` and add `hello.txt` with Hello World.
