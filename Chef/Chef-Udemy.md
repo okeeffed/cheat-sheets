@@ -101,6 +101,6 @@ The "type" (eg file, service, package) and "name" (filename, filepath) should be
 
 ## Convergence and Desired State
 
-
+`sudo chef-client --local-mode hello.rb`
 
 
