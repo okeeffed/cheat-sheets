@@ -25,7 +25,8 @@ You can manage multiple cloud platforms etc.
 
 The three things covered:
 
-- chef development kid
+- chef development kit
 - chef client
 - chef server
 
+.
