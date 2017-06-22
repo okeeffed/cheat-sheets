@@ -152,3 +152,5 @@ Cookbooks allow a way to package up the recipes and give it a version number and
 
 `A fundamental unit of configuration and policy distribution`
 
+When creating the cookbook, is describes a config for a particular scenario.
+
