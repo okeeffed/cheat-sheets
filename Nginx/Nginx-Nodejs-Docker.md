@@ -51,6 +51,6 @@ COPY default.cong /etc/nginx/conf.d/
 
 Then build out this file using `docker built -t foo/nginx .`.
 
-Running it: `docker run -p 8000:80 --link node-app:app`
+Running it: `docker run -p 8000:80 --link node-app:app --name nginx-proxy foo/nginx`
 
 Since we expose 3000 for the node-app, we do not need to redo that.
