@@ -135,3 +135,4 @@ Then we can just run `sudo chef-client -z setup.rb`.
 If we re-run the script, no actions will be taken if nothing needs to be modified.
 
 ## Organising Resources with Ruby
+
