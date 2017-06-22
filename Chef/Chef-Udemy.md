@@ -107,4 +107,4 @@ What happens if you modify the content of the file that we create directly, what
 
 Chef will then attempt to `repair` the file changes.
 
-If we change the ownership for a file, Chef will only take action when it needs to.
+If we change the ownership for a file, Chef will only take action when it needs to. It will only take action if something is "out of policy".
