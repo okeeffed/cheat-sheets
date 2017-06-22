@@ -162,5 +162,9 @@ What to use cookbooks for:
 - Extensions to Chef (lib, definitions and custom resources)
 - Version Control
 
-
+Cookbook components:
+- README
+- metadata
+- recipes
+- testing directories (spec + test)
 
