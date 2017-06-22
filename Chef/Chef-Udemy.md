@@ -147,3 +147,5 @@ Ways to gorup recipes and put them into useful configurations.
 Instead of a single recipe being sent to a server, we send a `cookbook`.
 
 ### How do you keep track of changes to the recipes?
+
+Cookbooks allow a way to package up the recipes and give it a version number and track changes.
