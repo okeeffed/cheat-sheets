@@ -168,5 +168,5 @@ Cookbook components:
 - recipes
 - testing directories (spec + test)
 
-
+### Cookbook Components
 
