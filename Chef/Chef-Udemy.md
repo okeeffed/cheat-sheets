@@ -20,3 +20,5 @@ Examples:
 - testing
 
 These all helps to validate infrastructure code.
+
+You can manage multiple cloud platforms etc.
