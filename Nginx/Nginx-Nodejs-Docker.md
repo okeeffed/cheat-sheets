@@ -9,4 +9,8 @@ FROM mhart/alpine-node
 # Pretend to copy the node app entry
 # from current folder
 COPY index.js .
+# Expose the port that it is running on
+EXPOSE 3000
+# Run node - chances are you want pm2 here
+CMD node index.js
 ```
