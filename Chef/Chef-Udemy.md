@@ -8,4 +8,4 @@ The process of configuration can be automated by some extent. When you reach sca
 
 Imagine we are deploying a web server. If we have a config management solution, this could take minutes instead of hours.
 
-System auditing will also be a hassle
+System auditing will also be a hassle for disaster recovery too.
