@@ -29,4 +29,4 @@ The three things covered:
 - chef client
 - chef server
 
-.
+The Chef DK allows you to run local tools to write code and then upload it to a chef server. A node will be a server or machine managed by Chef.
