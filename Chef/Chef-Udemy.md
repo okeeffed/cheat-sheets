@@ -68,11 +68,20 @@ package 'httd' do
 end
 ```
 
-**Example 1: Service Resource**
+**Example 2: Service Resource**
 
 ```
-## Install the http package
+## Run the ntp service
 service 'ntp' do
 	action [ :enable, :start ]
+end
+```
+
+**Example 3: File Resource**
+
+```
+## Create the /etc/motd file
+file 'etc/motd' do
+	content 'This computer is the property ...'
 end
 ```
