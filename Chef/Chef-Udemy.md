@@ -141,3 +141,5 @@ You can also call recipes from other recipes.
 Chef also runs the Ruby files synchronously.
 
 ## Cookbooks
+
+Ways to gorup recipes and put them into useful configurations.
