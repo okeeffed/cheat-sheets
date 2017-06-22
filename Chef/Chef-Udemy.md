@@ -104,3 +104,5 @@ The "type" (eg file, service, package) and "name" (filename, filepath) should be
 With the command `sudo chef-client --local-mode hello.rb`, when we run `--local-mode` we did it because the default mode is to talk to a `chef server`. Once we have a Chef server to work with, we can not use this mode.
 
 
+
+
