@@ -111,4 +111,19 @@ If we change the ownership for a file, Chef will only take action when it needs 
 
 ## Creating an "Exercise Work Station"
 
+```ruby
+# creating tree and ntp
+package 'tree' do
+	action :install
+end
 
+package 'ntp' do
+	action :install
+end
+
+# /etc/motd - content ownership
+file '/etc/motd' do
+	content 'This is the property of me'
+	action :create
+end
+```
