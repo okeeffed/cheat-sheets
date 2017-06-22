@@ -154,3 +154,11 @@ Cookbooks allow a way to package up the recipes and give it a version number and
 
 When creating the cookbook, is describes a config for a particular scenario.
 
+What to use cookbooks for:
+- Specifiy resources to use and in which order they are applied
+- Attribute values
+- File distributions
+- Templates
+- Extensions to Chef (lib, definitions and custom resources)
+- Version Control
+
