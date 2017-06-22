@@ -49,4 +49,4 @@ end
 
 Running `sudo chef-client --client-mode hello.rb` will then build that file and update the content.
 
-
+## Chef Resources
