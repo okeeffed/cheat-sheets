@@ -38,3 +38,9 @@ You will get the desired state from the `cookbooks` or `recipes`.
 Create a new file `hello.rb` and add `hello.txt` with Hello World.
 
 First, give Chef a file.
+
+Inside of the file:
+
+```ruby
+file '/hello.txt' d
+```
