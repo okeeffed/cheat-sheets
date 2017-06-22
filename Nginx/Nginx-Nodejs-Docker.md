@@ -18,3 +18,5 @@ CMD node index.js
 Then we can build with `docker built -t foo/node .`
 
 After the build, run the container with port 3000 exposed using `docker run -d -p 3000:3000 --name node-app foo/node`.
+
+We can test this container using `docker run --rm -p 8000:80 nginx`
