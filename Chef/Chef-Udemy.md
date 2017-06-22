@@ -22,3 +22,10 @@ Examples:
 These all helps to validate infrastructure code.
 
 You can manage multiple cloud platforms etc.
+
+The three things covered:
+
+- chef development kid
+- chef client
+- chef server
+
