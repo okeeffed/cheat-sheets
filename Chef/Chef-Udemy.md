@@ -119,6 +119,7 @@ end
 
 package 'ntp' do
 	action :install
+	service [ :enable, :start ]
 end
 
 # /etc/motd - content ownership
