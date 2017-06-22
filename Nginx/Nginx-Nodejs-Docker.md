@@ -23,6 +23,8 @@ First, we can test the Nginx latest container container using `docker run --rm -
 
 In the `nginx` folder, we can create `default.conf` file to overwrite the initial one.
 
+If settings are not defined below, Nginx will use the default values.
+
 ```
 # config
 server {
@@ -38,4 +40,11 @@ server {
 		proxy_pass http://app:3000;
 	}
 }
+```
+
+For the Docker file.
+
+```
+FROM nginx
+COPY default.cong /etc/nginx/conf.d/
 ```
