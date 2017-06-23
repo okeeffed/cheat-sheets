@@ -259,3 +259,5 @@ We can now begin to start thinking of scale - how to deal with 100s or 1000s or 
 This webserver code that we have could be distributed to thousands of nodes, but the config might need to be different on each of these nodes.
 
 What happens if a host specific config needs to be different? Eg. hostname, memory available, IP address etc. These things may very from system to system.
+
+`Ohai` is a system discovery tool. It's a command line tool that is required by `chef-client`.
