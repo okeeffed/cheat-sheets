@@ -244,4 +244,4 @@ Including the server recipe from the apache cookbook.
 include_recipe 'apache::server'
 ```
 
-Now we can call sudo chef-client -z -r "recipe[apache]"`
+Now we can call sudo chef-client -z -r "recipe[apache]"`.
