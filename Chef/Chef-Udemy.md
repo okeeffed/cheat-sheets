@@ -210,3 +210,5 @@ end
 How do we apply the recipes from the cookbooks from the Chef client? How do we call multiple recipes at once?
 
 We can use a cook book to define the scenarios here.
+
+Say we want to call a cookbook from a particular recipe.
