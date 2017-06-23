@@ -218,3 +218,7 @@ We can also do `sudo chef-client -z --runlist "recipe[cookbook::recipe]"` to run
 For running multiple cookbook recipes, we could do `sudo chef-client -z --runlist "recipe[cookbook::recipe],recipe[another-cookbook::recipe]"`. This will do a `chef-client` run in order.
 
 The runlist DOES NOT HAVE A SPACE between recipe declarations.
+
+# include_recipe
+
+The `include_recipe` method allows you to include a recipe from either the online cookbook stores or from one of our own cookbooks.
