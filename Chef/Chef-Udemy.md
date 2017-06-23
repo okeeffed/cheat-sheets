@@ -174,4 +174,33 @@ We can create cookbooks by using `chef generate [cookbook|other]`.
 
 When we generate a cookbook, we should give the cookbook a relevant name. Example `chef generate cookbooks/workstation` to create a `workstation` book in the `cookbooks` folder.
 
+### Tracking changes to the Cookbooks
 
+Inside of a single repository, changes are generally tracked for a single cook book.
+
+### Setting up an Apache Cookbook
+
+First, create a new cookbook in the cookbooks foler using `chef generate cookbook cookbooks/apache`
+
+```ruby
+# Server
+
+# 1. http package install (redhat)
+package 'httpd' do
+	action :install
+end
+
+# 2. configure default apache server file /var/www/html
+file '/var/www/html/index.html' do
+	content '<h1>Hello from Apache</h1>'
+end
+
+# 3. download apache, enable and start the apache service
+package 'apache' do
+	action :install
+end
+
+service 'apache' do
+	action [ :enable, :start ]
+end
+```
