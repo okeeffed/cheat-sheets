@@ -248,4 +248,4 @@ Now we can call sudo chef-client -z -r "recipe[apache]"`.
 
 ## Ohai
 
-
+We need to think about distribution of the cookbooks to many different nodes.
