@@ -253,3 +253,5 @@ We need to think about distribution of the cookbooks to many different nodes.
 We may need to know a bit of information about that `node`. That's where `ohai` comes in.
 
 ### An object called 'node'
+
+
