@@ -234,3 +234,4 @@ Each of the cookbooks that we generate come with a `default.rb` recipe. This def
 include_recipe 'workstation::setup'
 ```
 
+If we now run `sudo chef-client -z -r "recipe[workstation"]` and omit the specific recipe, then the `default.rb` recipe will be used.
