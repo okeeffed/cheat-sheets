@@ -212,3 +212,5 @@ How do we apply the recipes from the cookbooks from the Chef client? How do we c
 We can use a cook book to define the scenarios here.
 
 Say we want to call a cookbook from a particular recipe.
+
+We can use `sudo chef-clief -z --runlist (or -r) "cookbook::recipe"` to run a particular recipe.
