@@ -206,3 +206,5 @@ end
 ```
 
 ## Chef Client
+
+How do we apply the recipes from the cookbooks from the Chef client? How do we call multiple recipes at once?
