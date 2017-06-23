@@ -262,4 +262,4 @@ What happens if a host specific config needs to be different? Eg. hostname, memo
 
 `Ohai` is a system discovery tool. It's a command line tool that is required by `chef-client`.
 
-`ohai` gives back all the node system data in JSON
+`ohai` gives back all the node system data in JSON.
