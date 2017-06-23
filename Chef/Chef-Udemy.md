@@ -222,3 +222,5 @@ The runlist DOES NOT HAVE A SPACE between recipe declarations.
 # include_recipe
 
 The `include_recipe` method allows you to include a recipe from either the online cookbook stores or from one of our own cookbooks.
+
+This is a great way to `wrap` cookbooks.
