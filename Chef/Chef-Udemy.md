@@ -200,7 +200,7 @@ package 'apache' do
 	action :install
 end
 
-service 'apache' do
+service 'httpd' do
 	action [ :enable, :start ]
 end
 ```
