@@ -232,6 +232,5 @@ Each of the cookbooks that we generate come with a `default.rb` recipe. This def
 
 # example 'cookbook::recipe'
 include_recipe 'workstation::setup'
-
 ```
 
