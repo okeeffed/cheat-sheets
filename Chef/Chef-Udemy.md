@@ -230,4 +230,4 @@ Each of the cookbooks that we generate come with a `default.rb` recipe. This def
 ```ruby
 # in the default.rb file for a recipe
 
-include_recipe 'cookbook::recipes'
+include_recipe 'cookbook::recipe'
