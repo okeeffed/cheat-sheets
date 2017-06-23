@@ -239,5 +239,5 @@ If we now run `sudo chef-client -z -r "recipe[workstation"]` and omit the specif
 ### default.rb example
 
 ```ruby
-include_recipe 'apache::setup'
+include_recipe 'apache::server'
 ```
