@@ -234,7 +234,7 @@ Each of the cookbooks that we generate come with a `default.rb` recipe. This def
 include_recipe 'workstation::setup'
 ```
 
-If we now run `sudo chef-client -z -r "recipe[workstation"]` and omit the specific recipe, then the `default.rb` recipe will be used.
+If we now run `sudo chef-client -z -r "recipe[workstation]"` and omit the specific recipe, then the `default.rb` recipe will be used.
 
 ### default.rb example
 
@@ -244,4 +244,4 @@ Including the server recipe from the apache cookbook.
 include_recipe 'apache::server'
 ```
 
-
+Now we can call sudo chef-client -z -r "recipe[apache]"`
