@@ -231,3 +231,4 @@ Each of the cookbooks that we generate come with a `default.rb` recipe. This def
 # in the default.rb file for a recipe
 
 include_recipe 'cookbook::recipe'
+
