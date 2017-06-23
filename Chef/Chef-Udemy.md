@@ -261,3 +261,5 @@ This webserver code that we have could be distributed to thousands of nodes, but
 What happens if a host specific config needs to be different? Eg. hostname, memory available, IP address etc. These things may very from system to system.
 
 `Ohai` is a system discovery tool. It's a command line tool that is required by `chef-client`.
+
+`ohai` gives back all the node system data in JSON
