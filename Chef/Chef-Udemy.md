@@ -254,4 +254,4 @@ We may need to know a bit of information about that `node`. That's where `ohai` 
 
 ### An object called 'node'
 
-
+We can now begin to start thinking of scale - how to deal with 100s or 1000s or similar servers.
