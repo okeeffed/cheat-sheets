@@ -225,4 +225,4 @@ The `include_recipe` method allows you to include a recipe from either the onlin
 
 This is a great way to `wrap` cookbooks.
 
-Each of the cookbooks that we generate come with a `default.rb` recipe.
+Each of the cookbooks that we generate come with a `default.rb` recipe. This default recipe can help us call other recipes.
