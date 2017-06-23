@@ -216,3 +216,5 @@ Say we want to call a cookbook from a particular recipe.
 We can also do `sudo chef-client -z --runlist "recipe[cookbook::recipe]"` to run a particular recipe.
 
 For running multiple cookbook recipes, we could do `sudo chef-client -z --runlist "recipe[cookbook::recipe],recipe[another-cookbook::recipe]"`. This will do a `chef-client` run in order.
+
+The runlist DOES NOT HAVE A SPACE between recipe declarations.
