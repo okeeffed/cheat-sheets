@@ -238,6 +238,8 @@ If we now run `sudo chef-client -z -r "recipe[workstation"]` and omit the specif
 
 ### default.rb example
 
+Including the server recipe from the apache cookbook.
+
 ```ruby
 include_recipe 'apache::server'
 ```
