@@ -77,4 +77,13 @@ You can enforce type safety for parameters by adding the type expected to the fu
 - No named values
 - No method overloading
 
-For returning a certain value, you can enfore this by the follow `func myFunc(test string, number int) int {}`
+For returning a certain value, you can enfore this by the following
+```
+func myFunc(test string, number int) int {}
+func myFuncTwo(numberOne int, number int) (sum int) {
+	return number + numberOne;
+}
+func myFuncThree(number int) (difference int) {
+	difference = number + 4;
+}
+```
