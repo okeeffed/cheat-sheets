@@ -49,3 +49,4 @@ func main() {
 - Uppercase variables and funcs can be used outside of the package
 - Lowercase cannot
 - Declaring type can come after the variable name eg `var floating float64 = 1.4`
+- Casting `float64(variable)`
