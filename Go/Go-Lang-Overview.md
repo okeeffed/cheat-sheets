@@ -76,3 +76,5 @@ You can enforce type safety for parameters by adding the type expected to the fu
 - Go doesn't allow default parameter values
 - No named values
 - No method overloading
+
+For returning a certain value, you can enfore this by the follow `func myFunc(test string, number int) int {}`
