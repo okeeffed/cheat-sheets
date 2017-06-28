@@ -14,3 +14,16 @@ When it comes to declaring variables, to have them available to other files when
 Lowercase variables are private.
 
 ## Variables
+
+```go
+// outside of func
+var greeting = "hello"
+
+func main() {
+	// inside of func
+	greeting := "Hello from Go"
+	fmt.Println(test)
+	fmt.Println(greeting)
+}
+
+```
