@@ -29,3 +29,13 @@ func main() {
 
 ### Variable declarations and assigning
 
+```go
+func main() {
+	var a int
+	a = 2
+	var b, c int
+	b = 2
+	c = 3
+	d := 5
+}
+```
