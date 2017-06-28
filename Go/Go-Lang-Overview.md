@@ -65,4 +65,10 @@ func main() {
 func myFunction() {
 	fmt.Println("Running myFunction")
 }
+
+func MyPublicFunction() {
+	fmt.Println("Running MyPublicFunction")
+}
 ```
+
+You can enforce type safety for parameters by adding the type expected to the function.
