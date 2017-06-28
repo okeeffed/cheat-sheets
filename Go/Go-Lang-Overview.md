@@ -38,5 +38,9 @@ func main() {
 	c = 3
 	d := 5	// same as var d = 5
 	var e = 10 // type is inferred
+
+	// you'll need to use all the above variables
+	// otherwise there will be a declaration err
+	// thrown
 }
 ```
