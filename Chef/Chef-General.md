@@ -13,6 +13,8 @@ kitchen destroy <id>	| Tear down instance
 
 ## Chef ops layout
 
+Without the hidden files.
+
 ```
 .
 ├── Berksfile
@@ -22,7 +24,7 @@ kitchen destroy <id>	| Tear down instance
 │   ├── example
 │   │   ├── files
 │   │   │   └── default
-│   │   │       ├── known_hosts
+│   │   │       ├── known_hosts		# accessible with cookbook_file
 │   │   │       └── ssh_config
 │   │   ├── metadata.rb
 │   │   ├── recipes
