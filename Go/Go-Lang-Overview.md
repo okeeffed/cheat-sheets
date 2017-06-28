@@ -12,3 +12,5 @@
 When it comes to declaring variables, to have them available to other files when the package is imported, declare the variable with a capital letter.
 
 Lowercase variables are private.
+
+## Variables
