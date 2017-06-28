@@ -52,3 +52,4 @@ func main() {
 - Casting `float64(variable)`
 - Errors are thrown for mismatched types
 - For scope, you are able to declare blocks by themselves
+	- Each package is a implicit block
