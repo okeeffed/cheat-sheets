@@ -48,3 +48,4 @@ func main() {
 - Variable names must start with a letter
 - Uppercase variables and funcs can be used outside of the package
 - Lowercase cannot
+- Declaring type can come after the variable name eg `var floating float64 = 1.4`
