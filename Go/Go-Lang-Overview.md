@@ -54,3 +54,4 @@ func main() {
 - For scope, you are able to declare blocks by themselves
 	- Each package is a implicit block
 
+## Functions
