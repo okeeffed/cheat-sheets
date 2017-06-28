@@ -71,4 +71,4 @@ func MyPublicFunction() {
 }
 ```
 
-You can enforce type safety for parameters by adding the type expected to the function.
+You can enforce type safety for parameters by adding the type expected to the function `func myFunc(test string, number int) {}`
