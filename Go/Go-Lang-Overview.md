@@ -58,6 +58,10 @@ func main() {
 
 ```go
 // not available outside the package
+func main() {
+	myFunction()
+}
+
 func myFunction() {
 	fmt.Println("Running myFunction")
 }
