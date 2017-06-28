@@ -11,3 +11,4 @@ kitchen verify <id>		| Verify kitchen tests
 kitchen login <id>		| Login to a local VM
 kitchen destroy <id>	| Tear down instance
 
+## Chef ops layout
