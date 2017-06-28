@@ -50,3 +50,4 @@ func main() {
 - Lowercase cannot
 - Declaring type can come after the variable name eg `var floating float64 = 1.4`
 - Casting `float64(variable)`
+- Errors are thrown for mismatched types
