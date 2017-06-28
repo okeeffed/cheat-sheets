@@ -55,3 +55,10 @@ func main() {
 	- Each package is a implicit block
 
 ## Functions
+
+```go
+// not available outside the package
+func myFunction() {
+
+}
+```
