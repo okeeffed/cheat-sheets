@@ -44,3 +44,7 @@ func main() {
 	// thrown
 }
 ```
+
+- Variable names must start with a letter
+- Lowercase variables and funcs can be used outside of the package
+- Lowercase cannot
