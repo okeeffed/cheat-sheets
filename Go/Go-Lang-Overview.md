@@ -26,3 +26,5 @@ func main() {
 	fmt.Println(greeting)
 }
 ```
+
+### Variable declarations and assigning
