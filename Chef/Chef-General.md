@@ -12,3 +12,5 @@ kitchen login <id>		| Login to a local VM
 kitchen destroy <id>	| Tear down instance
 
 ## Chef ops layout
+
+Cookbooks
