@@ -36,7 +36,7 @@ func main() {
 	var b, c int
 	b = 2
 	c = 3
-	d := 5
+	d := 5	// same as var d = 5
 	var e = 10 // type is inferred
 }
 ```
