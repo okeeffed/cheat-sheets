@@ -37,5 +37,6 @@ func main() {
 	b = 2
 	c = 3
 	d := 5
+	var e = 10 // type is inferred
 }
 ```
