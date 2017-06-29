@@ -87,3 +87,107 @@ func myFuncThree(number int) (difference int) {
 	difference = number + 4;
 }
 ```
+
+### Multiple return values
+
+```go
+package main
+
+import (
+	"fmt",
+	"math",
+	"log"
+)
+
+func main() {
+	squareRoot, err := squareRoot(-1)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(squareRoot)
+}
+
+func squareRoot(x float64) (float64, error) {
+	x < 0 {
+		return 0, fmt.Errorf("Can't take a negative number")
+	}
+	return math.Sqrt(x), nil
+}
+```
+
+As for errors
+
+```go
+package main
+
+import (
+	"fmt",
+	"os"
+)
+
+// panic errors - no good!
+func mainBad() {
+	fileInfo, _ := os.Stat("existent.txt")
+	fmt.Println(fileInfo.Size())
+	fileInfo, _ := os.Stat("nonexistent.txt")
+	fmt.Println(fileInfo.Size())
+}
+
+// instead, do this
+func main() {
+	fileInfo, error := os.Stat("existent.txt")
+	if error != nil {
+		fmt.Println(error)
+	} else {
+		fmt.Println(fileInfo.Size())
+	}
+	fileInfo, error := os.Stat("nonexistent.txt")
+	if error != nil {
+		fmt.Println(error)
+	} else {
+		fmt.Println(fileInfo.Size())
+	}
+}
+```
+
+### The Go Formatting Tool
+
+`go fmt <filename>` will update the file itself and it will nicely format it.
+
+## Control Structures
+
+### For loops
+
+```go
+for i := 1; i <= 3; i++ {
+	fmt.Println(i)
+}
+```
+
+### If statements
+
+
+```go
+if true {
+	fmt.Println("You'll come here")
+} else if false {
+	// ...
+} else {
+	// ...
+}
+```
+
+### Switch statement
+
+Switch statements look like they do not need a break.
+
+```go
+switch doorNumber {
+	case 1:
+		fmt.Println("new car ")
+	case 2:
+		// ...
+	default:
+		// ...
+}
+```
