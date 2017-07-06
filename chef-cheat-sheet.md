@@ -349,4 +349,4 @@ The next step is to create the ~/learn-chef/.chef directory and add your RSA pri
 
 ## (Future) Wrapper Cookbooks
 
-Wrapper Cookbooks are we manage what we maintain.
+That is essentially "forking" an upstream cookbook eg one from the supermarket.
