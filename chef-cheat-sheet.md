@@ -348,3 +348,5 @@ The next step is to create the ~/learn-chef/.chef directory and add your RSA pri
 3. From the menu on the left, select Generate Knife Config and save the file.
 
 ## (Future) Wrapper Cookbooks
+
+Wrapper Cookbooks are we manage what we maintain.
