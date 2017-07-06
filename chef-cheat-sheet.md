@@ -355,7 +355,7 @@ What we can now do is add an attribute to our cookbook.
 
 We can then override the recipe in `default.rb` using the following:
 
-```
+```ruby
 node.default['haproxy']['member'] = [{
 	"this_is_a_var_from_the_video"
 }]
