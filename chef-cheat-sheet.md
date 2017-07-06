@@ -346,3 +346,5 @@ The next step is to create the ~/learn-chef/.chef directory and add your RSA pri
 1. Sign in to https://manage.chef.io/.
 2. From the Administration tab, select your organization.
 3. From the menu on the left, select Generate Knife Config and save the file.
+
+## (Future)
