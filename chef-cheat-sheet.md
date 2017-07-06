@@ -350,3 +350,11 @@ The next step is to create the ~/learn-chef/.chef directory and add your RSA pri
 ## (Future) Wrapper Cookbooks
 
 That is essentially "forking" an upstream cookbook eg one from the supermarket. If we add the upstream recipe to the `metadata.rb` we can add `depends 'haproxy'` to install the latest version of that dependency eg the supermarket here. We can all define the versions.
+
+What we can now do is add an attribute to our cookbook.
+
+We can then override the recipe in `default.rb` using the following:
+
+```
+
+```
