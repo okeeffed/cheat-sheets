@@ -45,6 +45,10 @@ Each domain becomes registered in a central database known as the `WhoIS databas
 
 - `Name Server records` - used by `Top Level Domain` servers to direct traffic to the Content DNS server which contains the authoritative DNS records.
 
+#### A Records
+
+The "A" record is the fundamental type of DNS record. It stands for "Address". The A record is use by a computer to translate the name of the domain to the IP address.
+
 ## Definitions
 
 |			|									|
