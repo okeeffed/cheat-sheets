@@ -22,6 +22,8 @@ Amazon previously did not have IPv6 support for backend systems. This changed ar
 
 #### Top Level Domains
 
+The last word in the domain name is the top level eg. `.com`, `.edu`, `.gov` etc.
+
 ## Definitions
 
 |			|									|
