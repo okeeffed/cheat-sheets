@@ -49,6 +49,10 @@ Each domain becomes registered in a central database known as the `WhoIS databas
 
 The "A" record is the fundamental type of DNS record. It stands for "Address". The A record is use by a computer to translate the name of the domain to the IP address.
 
+#### TTL Record
+
+`Time to Live` - the length of time that the DNS server is cached either on the server or you PC.
+
 ## Definitions
 
 |			|									|
