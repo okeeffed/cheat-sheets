@@ -69,7 +69,7 @@ The difference, a CNAME can't be used for naked domain names (zone apex).
 
 - ELBs do not have a pre-defined IPv4 address - you need to resolve it using a DNS name.
 - Understand the difference between an Alias Record and a CNAME.
-- Given the choose, always choose an Alias Record over a CNAME.
+- Given the choose, always choose an Alias Record over a CNAME. (No charge with Alias Record either)
 
 ## Definitions
 
