@@ -34,8 +34,10 @@ Each domain becomes registered in a central database known as the `WhoIS databas
 
 #### SOA Records
 
-- name of the server that suppised the data for the zone.
+- Name of the server that suppised the data for the zone.
 - The administrator of the zone. (The owner)
+- Current version of the data file
+- Number of seconds a secondary name server should wait before checking for updates etc.
 
 ## Definitions
 
