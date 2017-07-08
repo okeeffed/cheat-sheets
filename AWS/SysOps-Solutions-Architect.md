@@ -32,6 +32,11 @@ As all of these need to be unique, the domain registrar is an authority that can
 
 Each domain becomes registered in a central database known as the `WhoIS database`.
 
+#### SOA Records
+
+- name of the server that suppised the data for the zone.
+- The administrator of the zone. (The owner)
+
 ## Definitions
 
 |			|									|
