@@ -67,7 +67,7 @@ The difference, a CNAME can't be used for naked domain names (zone apex).
 
 #### Summary
 
-
+- ELBs do not have a pre-defined IPv4 address - you need to resolve it using a DNS name.
 
 ## Definitions
 
