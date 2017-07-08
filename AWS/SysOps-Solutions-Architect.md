@@ -65,6 +65,10 @@ AWS specific. It is used to map resource record sets in your hosted zone to thin
 
 The difference, a CNAME can't be used for naked domain names (zone apex).
 
+#### Summary
+
+
+
 ## Definitions
 
 |			|									|
