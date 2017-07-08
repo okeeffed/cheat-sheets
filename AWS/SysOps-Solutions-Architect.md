@@ -57,7 +57,7 @@ DNS records take time to propagate throughout the internet. Companies before a m
 
 #### CNAMES
 
-A `Canonical Name (CNAME)` can be used to resolve one domain name to another.
+A `Canonical Name (CNAME)` can be used to resolve one domain name to another. For example, you may have a mobile website with the domain name `http://m.acloud.guru` that is used for when users browse to your domain name on their mobile devices.
 
 ## Definitions
 
