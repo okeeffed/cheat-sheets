@@ -24,6 +24,8 @@ Amazon previously did not have IPv6 support for backend systems. This changed ar
 
 The last word in the domain name is the top level eg. `.com`, `.edu`, `.gov` etc.
 
+These are controlled by the `Internet Assigne Numbers Authority (IANA)` in a root zone database which is essentially a database of all available top level domains.
+
 ## Definitions
 
 |			|									|
