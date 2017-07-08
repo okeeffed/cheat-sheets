@@ -63,6 +63,8 @@ A `Canonical Name (CNAME)` can be used to resolve one domain name to another. Fo
 
 AWS specific. It is used to map resource record sets in your hosted zone to things like ELBs, CF distributions or S3 buckets.
 
+The difference, a CNAME can't be used for naked domain names (zone apex).
+
 ## Definitions
 
 |			|									|
