@@ -26,6 +26,10 @@ The last word in the domain name is the top level eg. `.com`, `.edu`, `.gov` etc
 
 These are controlled by the `Internet Assigne Numbers Authority (IANA)` in a root zone database which is essentially a database of all available top level domains.
 
+#### Domain Registrars
+
+As all of these need to be unique, the domain registrar is an authority that can assign domain names directly under one or more top-level domains.
+
 ## Definitions
 
 |			|									|
