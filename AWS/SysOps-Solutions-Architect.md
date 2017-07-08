@@ -30,6 +30,8 @@ These are controlled by the `Internet Assigne Numbers Authority (IANA)` in a roo
 
 As all of these need to be unique, the domain registrar is an authority that can assign domain names directly under one or more top-level domains. These domains are registered with InterNIC, a service of ICANN, which enforces the uniqueness of domain names across the internet.
 
+Each domain becomes registered in a central database known as the `WhoIS database`.
+
 ## Definitions
 
 |			|									|
