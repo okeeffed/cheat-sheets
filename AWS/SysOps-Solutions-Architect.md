@@ -18,7 +18,7 @@ IPv6 has an address space of 128 bits. 340 undecillion addresses.
 
 The big issue at the moment is that everyone is still using IPv4 - this is driven by ISPs.
 
-Amazon at the time of this did not have IPv6 support for backend systems.
+Amazon previously did not have IPv6 support for backend systems. This changed around 2016.
 
 ## Definitions
 
