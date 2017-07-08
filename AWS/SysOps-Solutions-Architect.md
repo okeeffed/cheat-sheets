@@ -73,6 +73,8 @@ The difference, a CNAME can't be used for naked domain names (zone apex).
 
 ### Registering a Domain Name
 
+
+
 ## Definitions
 
 |			|									|
