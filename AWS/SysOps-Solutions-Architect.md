@@ -38,6 +38,7 @@ Each domain becomes registered in a central database known as the `WhoIS databas
 - The administrator of the zone. (The owner)
 - Current version of the data file
 - Number of seconds a secondary name server should wait before checking for updates etc.
+- Default TTL file on resource records
 
 ## Definitions
 
