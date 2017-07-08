@@ -14,3 +14,4 @@ EBS Throughput != network throughput. This is writing to disk as opposed to EC2 
 |		---	|								---	|
 | ENI		| Elastic Network Interface			|
 | EBS	 	| Elastic Block Store				|
+|
