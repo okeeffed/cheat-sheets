@@ -53,7 +53,11 @@ The "A" record is the fundamental type of DNS record. It stands for "Address". T
 
 `Time to Live` - the length of time that the DNS server is cached either on the server or you PC.
 
-DNS records take time to propagate throughout the internet. Companies before a migration, they will drop the TTL down low.
+DNS records take time to propagate throughout the internet. Companies before a migration, they will drop the TTL down low. You may find that even two days later, at the time of the migration the DNS resolutions can head to the old or new server.
+
+#### CNAMES
+
+A `Canonical Name (CNAME)` can be used to resolve one domain name to another.
 
 ## Definitions
 
