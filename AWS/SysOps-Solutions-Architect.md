@@ -71,6 +71,8 @@ The difference, a CNAME can't be used for naked domain names (zone apex).
 - Understand the difference between an Alias Record and a CNAME.
 - Given the choose, always choose an Alias Record over a CNAME. (No charge with Alias Record either)
 
+### Registering a Domain Name
+
 ## Definitions
 
 |			|									|
