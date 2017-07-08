@@ -73,7 +73,7 @@ The difference, a CNAME can't be used for naked domain names (zone apex).
 
 ### Registering a Domain Name
 
-
+Head to Route 53, select `Register a Domain` and go through the process of adding the domain to the cart and continue.
 
 ## Definitions
 
