@@ -14,7 +14,7 @@ DNS is used to convert human friendly domains to an `Internet Protocol (IP)`.
 
 IPv4 is a 32 bit field and has 42 billion addresses.
 
-IPv6 has an address space of 128 bits.
+IPv6 has an address space of 128 bits. 340 undecillion addresses.
 
 ## Definitions
 
