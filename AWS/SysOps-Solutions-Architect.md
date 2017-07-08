@@ -20,6 +20,8 @@ The big issue at the moment is that everyone is still using IPv4 - this is drive
 
 Amazon previously did not have IPv6 support for backend systems. This changed around 2016.
 
+#### Top Level Domains
+
 ## Definitions
 
 |			|									|
