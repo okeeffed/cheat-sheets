@@ -40,6 +40,10 @@ Each domain becomes registered in a central database known as the `WhoIS databas
 - Number of seconds a secondary name server should wait before checking for updates etc.
 - Default TTL file on resource records
 
+#### NS Records
+
+- `Name Server records` - used by `Top Level Domain` servers to direct traffic to the Content DNS server which contains the authoritative DNS records.
+
 ## Definitions
 
 |			|									|
