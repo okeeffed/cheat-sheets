@@ -34,6 +34,7 @@ Each domain becomes registered in a central database known as the `WhoIS databas
 
 #### SOA Records
 
+- `Start of Authority`
 - Name of the server that suppised the data for the zone.
 - The administrator of the zone. (The owner)
 - Current version of the data file
