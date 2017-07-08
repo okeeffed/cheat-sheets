@@ -10,7 +10,7 @@ EBS Throughput != network throughput. This is writing to disk as opposed to EC2 
 
 ### DNS 101
 
-DNS is used to convert human friendly domains to an `Internet Protocol (IP)`
+DNS is used to convert human friendly domains to an `Internet Protocol (IP)`.
 
 ## Definitions
 
