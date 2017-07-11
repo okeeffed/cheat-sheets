@@ -36,3 +36,5 @@ The design pattern applies to any application. It just refers to rapid deploymen
 ### The app on Google Cloud
 
 The app on the Gcloud console is a basic server which gives a JWT and allows you to use this to access a secure route.
+
+### 12 factor apps
