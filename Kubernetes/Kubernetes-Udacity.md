@@ -213,3 +213,7 @@ Something to note is that forwarding of `10080` and `10443` is not by accidenta 
 ### Create a service
 
 We create a Kubernetes service to expose things such as the logs. We can use `nodePort` to help forward on these new details. If we allow traffic to the expose tcp:31000 port, we should be able to hit it from outside the cluster.
+
+### Adding labels to pods
+
+Currently, the service does not have any in ports.
