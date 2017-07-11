@@ -118,3 +118,5 @@ If you look at the history of large systems in the data center, you'd buy, depre
 If we think of this as herds of machines, containers come in nicely. We could use VMs, but that take plenty of setup and config time.
 
 `serverless` also comes from this idea of running a container from start to finish and shutting down again.
+
+One of the problems that people come into is keeping older practises or organisations.
