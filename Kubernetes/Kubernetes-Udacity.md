@@ -207,3 +207,5 @@ Assuming the four `.pem` files (ca-key.pem, ca.pem, cert.pem, key.pem) are store
 We can also then create a `configmap` usin `kubectl create configmap nginx-proxy-conf --from-file nginx/proxy.conf`. Again, we can use `kubectl describe config map nginx-proxy-conf` to get more details about it after. At this point, we are ready to attach these things to the monolith pod.
 
 In creating a .yaml file for configuration, you can add these certs and conf files we added as a secret and configmap using `volumeMounts` when decribing a container.
+
+Something to note is that forwarding of `10080` and `10443` is not by accidenta and relates to http and https.
