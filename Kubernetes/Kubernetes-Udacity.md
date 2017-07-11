@@ -165,3 +165,7 @@ Pods are a logical application.
 - there is also one IP per pod
 
 **Creating Pods**
+
+You can use a .yaml pod configuration file.
+
+
