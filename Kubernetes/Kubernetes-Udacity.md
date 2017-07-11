@@ -150,6 +150,7 @@ The easiest way to start is to use `kubectl`.
 kubectl run nginx --image=nginx:1.10.0
 kubectl get pods
 kubectl export deployments nginx --port 80 --type LoadBalancer
+bukectl get services
 ```
 
 Kubernetes just creating a load balancer.
