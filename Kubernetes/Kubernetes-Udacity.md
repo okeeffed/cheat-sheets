@@ -95,4 +95,4 @@ JWTs (pronounced lie jot). Super useful and compact means to encode and decode. 
 
 Since they can be signed, you can ensure safety and that things are not being tampered with.
 
-They work through a client/server relationship. The server knows a client cannot be trusted - it only wants to give something to someone they trust. As the client sends data, the server replies with a token. The client then stores the data and sends it along with any JWT.
+They work through a client/server relationship. The server knows a client cannot be trusted - it only wants to give something to someone they trust. As the client sends data, the server replies with a token. The client then stores the data and sends it along with the JWT.
