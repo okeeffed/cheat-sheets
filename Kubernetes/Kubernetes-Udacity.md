@@ -82,3 +82,5 @@ Run admin/management tasks as one-off processes
 ```
 
 ### Refactor to MSA
+
+All the monolithic stuff we wish to break down into smaller systems.
