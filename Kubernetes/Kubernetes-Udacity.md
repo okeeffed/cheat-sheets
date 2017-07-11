@@ -198,4 +198,4 @@ The Kubernets Master will then know the secret. Now we a pod is created, the sec
 
 **Creating Secrets**
 
-Before we can serve HTTPS we need a self-signed TLS cert.
+Before we can serve HTTPS we need a self-signed TLS cert. So give the certs that we have (in the .pem files) can be used to secure traffic on the monolith server with other keys to secure traffic. Another can be used by HTTP clients as a CA to trust.
