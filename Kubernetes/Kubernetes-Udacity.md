@@ -32,3 +32,4 @@ What does it mean? It's just an architectual approach. It's goes for:
 - Ease of deployment
 
 The design pattern applies to any application. It just refers to rapid deployments and continuous delivery.
+
