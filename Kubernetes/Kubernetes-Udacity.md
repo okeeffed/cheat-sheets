@@ -122,3 +122,5 @@ If we think of this as herds of machines, containers come in nicely. We could us
 One of the problems that people come into is keeping older practises or organisations.
 
 Because you also know a bunch of automation is required, logging etc becomes super important.
+
+### How to learn k8s
