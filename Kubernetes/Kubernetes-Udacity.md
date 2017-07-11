@@ -20,4 +20,4 @@ Years ago, applications were huge and it would take hours just for a build. Typi
 
 Recently, the idea of microservices is to break down these large applications which allow for faster deployments.
 
-The main reason for microservices is to speed up development.
+The main reason for microservices is to speed up development. Breaking things down into microservices allow you have many releases or few releases.
