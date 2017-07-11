@@ -175,3 +175,5 @@ spec:
 	containers:
 		...
 ```
+
+`kubectl describe pods monolith` commands like this will give you information for troubleshooting.
