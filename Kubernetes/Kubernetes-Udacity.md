@@ -194,4 +194,4 @@ One problem is that people want to bake in their configs and put onto Docker. Do
 
 Creating Secrets is an easy problem. We can use `kubectl create secret` - such as `kubectl create secret generic tls-certs --from-file=tls/`.
 
-The Kubernets Master will then know the secret.
+The Kubernets Master will then know the secret. Now we a pod is created, the secret is then also mounted onto the pod.
