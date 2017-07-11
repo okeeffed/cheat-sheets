@@ -17,3 +17,5 @@ Order:
 Why was it designed this way?
 
 Years ago, applications were huge and it would take hours just for a build. Typically you would release software infrequently.
+
+Recently, the idea of microservices is to break down these large applications which allow for faster deployments.
