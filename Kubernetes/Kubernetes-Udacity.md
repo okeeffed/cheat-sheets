@@ -178,5 +178,4 @@ spec:
 
 `kubectl describe pods monolith` commands like this will give you information for troubleshooting.
 
-
 Pods by default are giving a private IP - use `kubectl port-forward <pod> 10080:80` to forward this on.
