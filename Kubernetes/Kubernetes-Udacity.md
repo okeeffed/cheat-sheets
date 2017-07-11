@@ -109,4 +109,6 @@ Things like Docker make container service APIs nice and easy to run on your own 
 
 ### What is Docker?
 
-Opensournce tool that builds container images with all the dependencies already installed on it.
+Opensournce tool that builds container images with all the dependencies already installed on it. They startup and shutdown quickly and benef
+
+## Lesson 3: Kubernetes
