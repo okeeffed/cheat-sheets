@@ -205,3 +205,5 @@ Assuming the four `.pem` files (ca-key.pem, ca.pem, cert.pem, key.pem) are store
 `kubectl` will create a key for each dile. We can use the `kubectl describe secrets tls-certs`.
 
 We can also then create a `configmap` usin `kubectl create configmap nginx-proxy-conf --from-file nginx/proxy.conf`. Again, we can use `kubectl describe config map nginx-proxy-conf` to get more details about it after. At this point, we are ready to attach these things to the monolith pod.
+
+In creating a .yaml file for configuration, you can add these certs and conf files we added as a secret and configmap using `volumeMounts` when decribing a container.
