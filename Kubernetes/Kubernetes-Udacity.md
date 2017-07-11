@@ -209,3 +209,5 @@ We can also then create a `configmap` usin `kubectl create configmap nginx-proxy
 In creating a .yaml file for configuration, you can add these certs and conf files we added as a secret and configmap using `volumeMounts` when decribing a container.
 
 Something to note is that forwarding of `10080` and `10443` is not by accidenta and relates to http and https.
+
+### Create a service
