@@ -163,3 +163,5 @@ Pods are a logical application.
 - volumes that are data divs, they can be used by any containers in the pod
 	- this allows the containers within the pod to communicate with each other.
 - there is also one IP per pod
+
+**Creating Pods**
