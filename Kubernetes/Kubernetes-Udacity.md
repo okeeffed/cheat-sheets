@@ -34,3 +34,4 @@ What does it mean? It's just an architectual approach. It's goes for:
 The design pattern applies to any application. It just refers to rapid deployments and continuous delivery. it pushes the automation tools to their limits.
 
 ### The app on Google Cloud
+
