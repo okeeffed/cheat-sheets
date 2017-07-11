@@ -40,3 +40,5 @@ The app on the Gcloud console is a basic server which gives a JWT and allows you
 ### 12 factor apps
 
 You can think of the 12 factors as quintessential to building an app that deals with `portability`, `deployability` and `scalability`.
+
+The 12 factor manifesto can be found (here)[https://12factor.net/].
