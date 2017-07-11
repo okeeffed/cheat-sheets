@@ -91,4 +91,4 @@ The idea is that the MSA will deal with `tightly coupled components` and `mainte
 
 ### JSON Web Tokens
 
-JWTs (pronounced lie jot). Super useful and compact means to encode and decode.
+JWTs (pronounced lie jot). Super useful and compact means to encode and decode. The fact that they can be signed is for things like auth.
