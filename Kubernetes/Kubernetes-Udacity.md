@@ -153,4 +153,4 @@ kubectl export deployments nginx --port 80 --type LoadBalancer
 kubectl get services
 ```
 
-Kubernetes just creating a load balancer.
+Kubernetes just creating a load balancer and exposed it to port 80.
