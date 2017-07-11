@@ -201,3 +201,5 @@ The Kubernets Master will then know the secret. Now we a pod is created, the sec
 Before we can serve HTTPS we need a self-signed TLS cert. So give the certs that we have (in the .pem files) can be used to secure traffic on the monolith server with other keys to secure traffic. Another can be used by HTTP clients as a CA to trust.
 
 Assuming the four `.pem` files (ca-key.pem, ca.pem, cert.pem, key.pem) are stored in a `./tls` folder we can run `kubectl create secret generic tls-certs --from-file=tls` to store the certs.
+
+`kubectl` will create a key for each dile. We can use the `kubectl describe secrets tls-certs`.
