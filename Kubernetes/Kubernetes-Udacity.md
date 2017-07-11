@@ -192,4 +192,6 @@ If in the example, the app is dead, the Kubelet will restart the container and c
 
 One problem is that people want to bake in their configs and put onto Docker. Don't do it. There are Configmaps and Secrets to deal with these problems.
 
-Creating Secrets is an easy problem. We can use `kubectl create secret` - such as `kubectl create secret generic tls-certs --from-file=tls/`
+Creating Secrets is an easy problem. We can use `kubectl create secret` - such as `kubectl create secret generic tls-certs --from-file=tls/`.
+
+
