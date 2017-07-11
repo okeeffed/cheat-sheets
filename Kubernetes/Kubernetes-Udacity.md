@@ -137,3 +137,5 @@ Packaging the containers is like 5% of the problem. We still need to deal with:
 4. Monitoring
 
 While we build all those things on Docker, we're better off leveraging a platform to manage all that complexity for us.
+
+Kubernetes provides a new set of abstractions and allow you to focus on the big picture.s
