@@ -168,4 +168,10 @@ Pods are a logical application.
 
 You can use a .yaml pod configuration file.
 
-
+```
+# files contain specs like containers, ports expose etc.
+...
+spec:
+	containers:
+		...
+```
