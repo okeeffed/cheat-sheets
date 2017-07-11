@@ -116,3 +116,5 @@ Opensournce tool that builds container images with all the dependencies already 
 If you look at the history of large systems in the data center, you'd buy, depreciate them etc etc. What we want to do is essentially the "cow paddock" where we want to know that if the cattle goes, we still have milk.
 
 If we think of this as herds of machines, containers come in nicely. We could use VMs, but that take plenty of setup and config time.
+
+`serverless` also comes from this idea of running a container from start to finish and shutting down again.
