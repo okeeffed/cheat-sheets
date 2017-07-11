@@ -129,4 +129,9 @@ Info overload, so many tools - what is the fastest way to become productive? The
 
 So what is Kubernetes?
 
+Packaging the containers is like 5% of the problem. We still need to deal with:
 
+1. App configuration
+2. Service discovery
+3. Managing updates
+4. Monitoring
