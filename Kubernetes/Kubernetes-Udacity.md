@@ -38,3 +38,5 @@ The design pattern applies to any application. It just refers to rapid deploymen
 The app on the Gcloud console is a basic server which gives a JWT and allows you to use this to access a secure route.
 
 ### 12 factor apps
+
+You can think of the 12 factors as quintessential to building an app that deals with `portability`, `deployability` and `scalability`.
