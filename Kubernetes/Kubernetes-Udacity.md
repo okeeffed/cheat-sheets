@@ -10,3 +10,4 @@ Order:
 
 1. Understanding the basics
 2. How to package and distribute apps
+3. Running applications using a distributed platform that can scale
