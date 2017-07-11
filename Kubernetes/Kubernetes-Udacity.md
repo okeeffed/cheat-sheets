@@ -104,3 +104,5 @@ So the server verifies the token and checks that it hasn't been tampered with.
 The packaging of things seems like a bunch of difficult work.
 
 We use container images, as it is a packaging format that knows and has all of your dependencies.
+
+Things like Docker make container service APIs nice and easy to run on your own servers.
