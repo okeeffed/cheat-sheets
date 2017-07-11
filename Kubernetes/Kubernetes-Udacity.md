@@ -211,3 +211,5 @@ In creating a .yaml file for configuration, you can add these certs and conf fil
 Something to note is that forwarding of `10080` and `10443` is not by accidenta and relates to http and https.
 
 ### Create a service
+
+We create a Kubernetes service to expose things such as the logs.
