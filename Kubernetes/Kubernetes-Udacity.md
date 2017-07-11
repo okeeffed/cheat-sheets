@@ -203,3 +203,5 @@ Before we can serve HTTPS we need a self-signed TLS cert. So give the certs that
 Assuming the four `.pem` files (ca-key.pem, ca.pem, cert.pem, key.pem) are stored in a `./tls` folder we can run `kubectl create secret generic tls-certs --from-file=tls` to store the certs.
 
 `kubectl` will create a key for each dile. We can use the `kubectl describe secrets tls-certs`.
+
+We can also then create a `configmap` usin `kubectl create configmap nginx-proxy-conf --from-file nginx/proxy.conf`.
