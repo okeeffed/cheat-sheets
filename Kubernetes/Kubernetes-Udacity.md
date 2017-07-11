@@ -100,3 +100,5 @@ They work through a client/server relationship. The server knows a client cannot
 So the server verifies the token and checks that it hasn't been tampered with.
 
 ## Lesson 2: Building the Containers with Docker
+
+
