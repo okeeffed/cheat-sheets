@@ -124,3 +124,5 @@ One of the problems that people come into is keeping older practises or organisa
 Because you also know a bunch of automation is required, logging etc becomes super important.
 
 ### How to learn k8s
+
+Info overload, so many tools - what is the fastest way to become productive? The reply was Kubernetes.
