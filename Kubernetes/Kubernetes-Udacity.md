@@ -43,6 +43,7 @@ You can think of the 12 factors as quintessential to building an app that deals 
 
 The 12 factor manifesto can be found (here)[https://12factor.net/].
 
+```
 I. Codebase
 One codebase tracked in revision control, many deploys
 II. Dependencies
@@ -67,3 +68,4 @@ XI. Logs
 Treat logs as event streams
 XII. Admin processes
 Run admin/management tasks as one-off processes
+```
