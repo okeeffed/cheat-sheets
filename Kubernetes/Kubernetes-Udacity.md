@@ -219,3 +219,5 @@ We create a Kubernetes service to expose things such as the logs. We can use `no
 Currently, the service does not have any in ports. `kubectl label pods secure-monolith "secure=enabled"` allows us to add labels and then we will be able to try hitting the exposed port.
 
 ## Lesson 4: Deploying Microservices
+
+
