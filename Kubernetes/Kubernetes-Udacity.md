@@ -113,4 +113,4 @@ Opensournce tool that builds container images with all the dependencies already 
 
 ## Lesson 3: Kubernetes
 
-
+If you look at the history of large systems in the data center, you'd buy, depreciate them etc etc.
