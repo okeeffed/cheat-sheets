@@ -135,3 +135,5 @@ Packaging the containers is like 5% of the problem. We still need to deal with:
 2. Service discovery
 3. Managing updates
 4. Monitoring
+
+
