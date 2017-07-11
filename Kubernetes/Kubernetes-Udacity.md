@@ -141,3 +141,5 @@ While we build all those things on Docker, we're better off leveraging a platfor
 Kubernetes provides a new set of abstractions and allow you to focus on the big picture. You can treat the cluster like a single, logical machine.
 
 We can describe a set of applications with Kubernetes and let it do the hardwork.
+
+### Kubernetes Intro
