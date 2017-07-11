@@ -120,3 +120,5 @@ If we think of this as herds of machines, containers come in nicely. We could us
 `serverless` also comes from this idea of running a container from start to finish and shutting down again.
 
 One of the problems that people come into is keeping older practises or organisations.
+
+Because you also know a bunch of automation is required, logging etc becomes super important.
