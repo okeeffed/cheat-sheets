@@ -146,4 +146,10 @@ We can describe a set of applications with Kubernetes and let it do the hardwork
 
 The easiest way to start is to use `kubectl`.
 
+```
+kubectl run nginx --image=nginx:1.10.0
+kubectl get pods
+kubectl export deployments nginx --port 80 --type LoadBalancer
+```
 
+Kubernetes just creating a load balancer.
