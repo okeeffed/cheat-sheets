@@ -189,3 +189,5 @@ On a node we have a Pod with an app and a Kubelet. Since the Kubelet is responsi
 If in the example, the app is dead, the Kubelet will restart the container and check again. If the response is then successful, then we are ready to roll.
 
 ### App Config and Security Overview
+
+One problem is that people want to bake in their configs and put onto Docker. Don't do it.
