@@ -184,4 +184,6 @@ Pods by default are giving a private IP - use `kubectl port-forward <pod> 10080:
 
 `Readiness` checks will check if something is ready to be added to the load balancer.
 
-Pod + app v1 = Kubelet
+On a node we have a Pod with an app and a Kubelet. Since the Kubelet is responsible for making sure that a pod is healthy, it will perform the live check.
+
+If in the example, the app is dead, the Kubelet will restart the container and check again.
