@@ -154,3 +154,5 @@ kubectl get services
 ```
 
 Kubernetes just creating a load balancer and exposed it to port 80.
+
+### Pods
