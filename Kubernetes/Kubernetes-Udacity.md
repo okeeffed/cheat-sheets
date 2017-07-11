@@ -25,3 +25,8 @@ The main reason for microservices is to speed up development. Breaking things do
 If we think of a simple setup being done through things like Chef. Co-ordination of many things will need to compose them all together like a Docker compose or a kubernetes setup.
 
 ### Microservices
+
+What does it mean? It's just an architectual approach. It's goes for:
+- Modularity
+- Scalability
+- Ease of deployment
