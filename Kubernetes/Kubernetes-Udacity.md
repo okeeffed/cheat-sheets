@@ -182,4 +182,4 @@ Pods by default are giving a private IP - use `kubectl port-forward <pod> 10080:
 
 ### Monitoring and Health Checks
 
-
+`Readiness` checks will check if something is ready to be added to the load balancer.
