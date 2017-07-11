@@ -128,3 +128,5 @@ Because you also know a bunch of automation is required, logging etc becomes sup
 Info overload, so many tools - what is the fastest way to become productive? The reply was Kubernetes. Kubernetes was an abstraction of containers that made sense.
 
 So what is Kubernetes?
+
+
