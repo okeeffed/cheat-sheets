@@ -197,3 +197,5 @@ Creating Secrets is an easy problem. We can use `kubectl create secret` - such a
 The Kubernets Master will then know the secret. Now we a pod is created, the secret is then also mounted onto the pod.
 
 **Creating Secrets**
+
+Before we can serve HTTPS we need a self-signed TLS cert.
