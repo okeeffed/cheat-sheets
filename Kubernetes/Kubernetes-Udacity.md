@@ -88,3 +88,7 @@ All the monolithic stuff we wish to break down into smaller systems.
 Splitting up the application doubles the complexity. This complexity is what drives the use of management systems like Kubernetes.
 
 The idea is that the MSA will deal with `tightly coupled components` and `maintenance`.
+
+### JSON Web Tokens
+
+JWTs (pronounced lie jot). Super useful and compact means to encode and decode.
