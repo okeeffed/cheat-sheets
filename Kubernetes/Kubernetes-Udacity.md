@@ -156,3 +156,7 @@ kubectl get services
 Kubernetes just creating a load balancer and exposed it to port 80.
 
 ### Pods
+
+Pods are a logical application.
+
+- one of more containers eg. having an nginx and monolith containers
