@@ -102,3 +102,5 @@ So the server verifies the token and checks that it hasn't been tampered with.
 ## Lesson 2: Building the Containers with Docker
 
 The packaging of things seems like a bunch of difficult work.
+
+We use container images, as it is a packaging format that knows and has all of your dependencies.
