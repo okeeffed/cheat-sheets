@@ -162,3 +162,4 @@ Pods are a logical application.
 - one of more containers eg. having an nginx and monolith containers
 - volumes that are data divs, they can be used by any containers in the pod
 	- this allows the containers within the pod to communicate with each other.
+- there is also one IP per pod
