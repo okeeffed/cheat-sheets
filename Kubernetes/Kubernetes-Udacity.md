@@ -85,4 +85,4 @@ Run admin/management tasks as one-off processes
 
 All the monolithic stuff we wish to break down into smaller systems.
 
-Splitting up the application doubles the complexity.
+Splitting up the application doubles the complexity. This complexity is what drives the use of management systems like Kubernetes.
