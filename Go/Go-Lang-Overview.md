@@ -385,3 +385,5 @@ func main() {
 ```
 
 We can also compare custom types to their underlying type. However two custom types with the same underlying type cannot be compared.
+
+The more commonly used aggregate type is a Struct which is how we can base custom types on them.
