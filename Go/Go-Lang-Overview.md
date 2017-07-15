@@ -304,5 +304,8 @@ func main() {
 	s2 := a[2:5]
 	fmt.Println(a, s1, s2)
 	// prints [0 1 2 3 4] [0 1 2] [2 3 4]
+	a[2] = 88
+	fmt.Println(a, s1, s2)
+	// prints [0 1 88 3 4] [0 1 88] [2 3 88]
 }
 ```
