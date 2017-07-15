@@ -323,5 +323,7 @@ func main() {
 	// Declaring an array on its own
 	s3 := []int{1, 2, 3}
 	fmt.Println(s3) // prints [1 2 3]
+	s3 = append(s3, 4, 5)
+	fmt.Println(s3) // [1 2 3 4 5]
 }
 ```
