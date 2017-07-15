@@ -319,5 +319,7 @@ func main() {
 	// prints [0 1 88 3 4] [0 1 88 3] [88 3 4 5]
 	s2[0] = 999
 	// prints [0 1 88 3 4] [0 1 88 3] [999 3 4 5]
+
+	// Declaring an array on its own
 }
 ```
