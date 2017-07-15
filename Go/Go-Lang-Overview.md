@@ -321,6 +321,7 @@ func main() {
 	// prints [0 1 88 3 4] [0 1 88 3] [999 3 4 5]
 
 	// Declaring an array on its own
-	s3 = [3]int{1, 2, 3}
+	s3 := []int{1, 2, 3}
+	fmt.Println(s3) // prints [1 2 3]
 }
 ```
