@@ -333,3 +333,8 @@ func main() {
 Slices are good for storing collections, but the only way to get elements back is by the index.
 
 While in most collections you have dictionaries, hashes, hash maps, Go refers to these data structures as `Maps`.
+
+```go
+func main() {
+
+}
