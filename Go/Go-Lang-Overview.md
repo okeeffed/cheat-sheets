@@ -287,3 +287,4 @@ func main() {
 }
 ```
  The main limitation arrays are used are because you cannot assign values to an array larger than it's initial allocated memory size.
+
