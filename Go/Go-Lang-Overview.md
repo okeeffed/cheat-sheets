@@ -384,4 +384,4 @@ func main() {
 }
 ```
 
-We can also compare custom types to their underlying type.
+We can also compare custom types to their underlying type. However two custom types with the same underlying type cannot be compared.
