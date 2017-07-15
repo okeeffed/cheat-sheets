@@ -195,3 +195,22 @@ switch doorNumber {
 ### Pointers
 
 You can create a pointer to a variable too.
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+	var aValue float64 = 1.23
+	var aPointer *float64 = &aValue
+	fmt.Println("aPointer", aPointer)
+	fmt.Println("*aPointer", *aPointer)
+}
+
+/*
+	Prints
+	aPointer 0xc42000a3b8
+	*aPointer 1.23
+ */
+```
