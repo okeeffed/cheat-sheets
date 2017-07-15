@@ -366,3 +366,22 @@ func main() {
 ## Custom Types
 
 We can use the `type` keyword to define a type and it's underlying type.
+
+
+```go
+package main
+
+import "fmt"
+
+type Minutes int
+type Hours int
+
+func main() {
+	minutes := Minutes(37)
+	hours := Hours(37)
+
+	fmt.Println(minutes, hours)
+}
+```
+
+We can also compare custom types to their underlying type.
