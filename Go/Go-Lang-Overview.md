@@ -192,6 +192,8 @@ switch doorNumber {
 }
 ```
 
+## Data Structures
+
 ### Pointers
 
 You can create a pointer to a variable too.
@@ -218,6 +220,7 @@ func main() {
 There are situations where the pointer is better to use than using a value directly.
 
 1. Functions that need to affect their argument. Args in funcs are always passed by value. The function recieves a copy of the value.
+2. Passing a complex value to a function - example a complex struct
 
 ```go
 // Example
@@ -254,3 +257,5 @@ func halve(number *float64) {
 	fmt.Println(*number)
 }
 ```
+
+### Arrays
