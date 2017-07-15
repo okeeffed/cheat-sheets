@@ -218,3 +218,24 @@ func main() {
 There are situations where the pointer is better to use than using a value directly.
 
 1. Functions that need to affect their argument. Args in funcs are always passed by value. The function recieves a copy of the value.
+
+```go
+// Example
+package main
+
+import "fmt"
+
+// Not using the pointer
+func main() {
+	num := 8.2
+	halve(num)
+	fmt.Println(num)
+}
+
+func halve(number float64) {
+	number = number / 2;
+	fmt.Println(number)
+}
+
+// Using the pointer
+```
