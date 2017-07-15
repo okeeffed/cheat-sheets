@@ -329,3 +329,5 @@ func main() {
 ```
 
 ### Maps
+
+Slices are good for storing collections, but the only way to get elements back is by the index.
