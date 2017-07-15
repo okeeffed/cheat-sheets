@@ -260,4 +260,6 @@ func halve(number *float64) {
 
 ### Arrays
 
+Slices are used more commonly used than arrays, but given they are built on arrays, we'll explore arrays first.
+
 
