@@ -277,7 +277,7 @@ func main() {
 
 	// another way to loop through the array
 	for i, month := range months {
-		fmt.Println(months[i])
+		fmt.Println(month)
 	}
 }
 ```
