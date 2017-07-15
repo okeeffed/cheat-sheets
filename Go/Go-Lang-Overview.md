@@ -238,4 +238,19 @@ func halve(number float64) {
 }
 
 // Using the pointer
+package main
+
+import "fmt"
+
+// Not using the pointer
+func main() {
+	num := 8.2
+	halve(&num)
+	fmt.Println(num)
+}
+
+func halve(number *float64) {
+	*number = *number / 2
+	fmt.Println(*number)
+}
 ```
