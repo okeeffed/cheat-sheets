@@ -389,3 +389,5 @@ We can also compare custom types to their underlying type. However two custom ty
 The more commonly used aggregate type is a Struct which is how we can base custom types on them.
 
 ### Methods
+
+Define new behaviours.
