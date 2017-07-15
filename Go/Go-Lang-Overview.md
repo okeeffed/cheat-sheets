@@ -342,3 +342,5 @@ func main() {
 	fmt.Println(ages) // prints map[Alice:12 Bob:9]
 }
 ```
+
+Similar to arrays or slices, we can use a literal to prefill the values.
