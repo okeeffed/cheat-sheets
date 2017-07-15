@@ -269,5 +269,6 @@ func main() {
 	months[1] = "Feb"
 	months[2] = "Mar"
 	fmt.Println(months[0])
+	// also could be months := [3]string{"Jan", "Feb", "Mar"}
 }
 ```
