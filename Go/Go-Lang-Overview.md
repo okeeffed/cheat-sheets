@@ -349,6 +349,9 @@ Similar to arrays or slices, we can use a literal to prefill the values.
 func main() {
 	ages := map[string]float64{"Alice":12, "Bob":9}
 	fmt.Println(ages) // prints map[Alice:12 Bob:9]
+	for age, name := range ages {
+		fmt.Println(age)
+	}
 }
 ```
 
