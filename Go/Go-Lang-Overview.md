@@ -294,6 +294,8 @@ Slices also represent an array. Slices are easier to work with.
 
 While `len` shows the length, `cap` shows the capacity of how it can grow.
 
+`append` can be used to append to a slice.
+
 ```go
 package main
 
