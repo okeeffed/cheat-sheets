@@ -339,4 +339,5 @@ func main() {
 	ages := map[string]float64{}
 	ages["Alice"] = 12
 	ages["Bob"] = 9
+	fmt.Println(ages)
 }
