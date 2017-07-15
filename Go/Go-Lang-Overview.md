@@ -310,5 +310,6 @@ func main() {
 	s1 = s1[0:4]
 	fmt.Println(a, s1, s2)
 	// prints [0 1 88 3 4] [0 1 88 3] [88 3 4]
+	s2 = s2[0:4] // throws an error
 }
 ```
