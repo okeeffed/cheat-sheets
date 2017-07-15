@@ -268,4 +268,5 @@ func main() {
 	months[0] = "Jan"
 	months[1] = "Feb"
 	months[2] = "Mar"
+	fmt.Println(months[0])
 }
