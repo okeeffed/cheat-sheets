@@ -327,3 +327,5 @@ func main() {
 	fmt.Println(s3) // [1 2 3 4 5]
 }
 ```
+
+### Maps
