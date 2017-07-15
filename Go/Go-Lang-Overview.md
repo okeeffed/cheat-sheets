@@ -265,4 +265,7 @@ Slices are used more commonly used than arrays, but given they are built on arra
 ```good
 func main() {
 	var months [3]string // array of three strings
+	months[0] = "Jan"
+	months[1] = "Feb"
+	months[2] = "Mar"
 }
