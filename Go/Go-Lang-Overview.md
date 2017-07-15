@@ -344,3 +344,11 @@ func main() {
 ```
 
 Similar to arrays or slices, we can use a literal to prefill the values.
+
+```go
+func main() {
+	ages := map[string]float64{"Alice":12, "Bob":9}
+	fmt.Println(ages) // prints map[Alice:12 Bob:9]
+}
+```
+
