@@ -274,5 +274,9 @@ func main() {
 	for i := 0; i < len(months); i++ {
 		fmt.Println(months[i])
 	}
+
+	for i, month := range months {
+		fmt.Println(months[i])
+	}
 }
 ```
