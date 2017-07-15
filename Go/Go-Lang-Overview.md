@@ -338,4 +338,5 @@ While in most collections you have dictionaries, hashes, hash maps, Go refers to
 func main() {
 	ages := map[string]float64{}
 	ages["Alice"] = 12
+	ages["Bob"] = 9
 }
