@@ -391,3 +391,25 @@ The more commonly used aggregate type is a Struct which is how we can base custo
 ### Methods
 
 Define new behaviours for types.
+
+```go
+package main
+
+import (
+	"fmt"
+	"strings"
+)
+
+type Title string
+
+// the following has an extra reciever arg t
+func (t Title) FixCase() string {
+	return strings.Title(string(t))
+}
+
+func main() {
+	name := Title("the matrix")
+	fixed := name.FixCase()
+	fmt.Println(fixed)
+}
+```
