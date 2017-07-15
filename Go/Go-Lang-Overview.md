@@ -390,4 +390,4 @@ The more commonly used aggregate type is a Struct which is how we can base custo
 
 ### Methods
 
-Define new behaviours.
+Define new behaviours for types.
