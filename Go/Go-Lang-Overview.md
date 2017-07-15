@@ -262,4 +262,7 @@ func halve(number *float64) {
 
 Slices are used more commonly used than arrays, but given they are built on arrays, we'll explore arrays first.
 
-
+```good
+func main() {
+	var months [3]string // array of three strings
+}
