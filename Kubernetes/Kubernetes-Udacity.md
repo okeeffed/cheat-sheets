@@ -220,4 +220,8 @@ Currently, the service does not have any in ports. `kubectl label pods secure-mo
 
 ## Lesson 4: Deploying Microservices
 
+### Deployment
 
+What we are interested in is production.
+
+Deployments drive current state towards desired state.

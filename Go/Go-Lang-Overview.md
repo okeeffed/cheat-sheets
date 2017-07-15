@@ -191,3 +191,7 @@ switch doorNumber {
 		// ...
 }
 ```
+
+### Pointers
+
+You can create a pointer to a variable too.
