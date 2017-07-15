@@ -303,5 +303,6 @@ func main() {
 	s1 := a[0:3]
 	s2 := a[2:5]
 	fmt.Println(a, s1, s2)
+	// prints [0 1 2 3 4] [0 1 2] [2 3 4]
 }
 ```
