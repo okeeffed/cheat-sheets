@@ -364,3 +364,5 @@ func main() {
 ```
 
 ## Custom Types
+
+We can use the `type` keyword to define a type and it's underlying type.
