@@ -336,5 +336,5 @@ While in most collections you have dictionaries, hashes, hash maps, Go refers to
 
 ```go
 func main() {
-	map[string]
+	map[string]float64{}
 }
