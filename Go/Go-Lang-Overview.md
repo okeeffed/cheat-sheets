@@ -215,4 +215,6 @@ func main() {
  */
 ```
 
+There are situations where the pointer is better to use than using a value directly.
 
+1. Functions that need to affect their argument. Args in funcs are always passed by value. The function recieves a copy of the value.
