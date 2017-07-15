@@ -279,5 +279,10 @@ func main() {
 	for i, month := range months {
 		fmt.Println(month)
 	}
+
+	// omit the index
+	for _, month := range months {
+		fmt.Println(month)
+	}
 }
 ```
