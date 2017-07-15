@@ -363,3 +363,4 @@ func main() {
 }
 ```
 
+## Custom Types
