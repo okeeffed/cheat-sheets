@@ -635,7 +635,7 @@ func longTask() int {
 func main() {
     rand.Seed(time.Now().Unix())
     channel := make(chan int)
-    time := longTask()
-    fmt.Println("Took", time, "seconds")
+   	go longTask(channel)
+    fmt.Println("Took", <-channel, "seconds")
 }
 ```
