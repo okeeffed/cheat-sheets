@@ -547,3 +547,15 @@ type Clock struct {
 func (c Clock) Display() {
   fmt.Printf("%02d:%02d", c.Hours, c.Minutes)
 }
+
+// schedule.go
+package schedule
+
+// DECLARE A Displayable INTERFACE HERE
+type Displayable interface {
+  Display()
+}
+// DECLARE A Print FUNCTION HERE
+func Print(display Displayable) {
+  display.Display()
+}
