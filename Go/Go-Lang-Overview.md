@@ -510,6 +510,6 @@ type Part interface {
 }
 
 func Summary(part Part) string {
-
+	return part.Specs() + "/n" + part.Price()
 }
 ```
