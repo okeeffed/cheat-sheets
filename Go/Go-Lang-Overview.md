@@ -505,6 +505,6 @@ Implementation in practise
 
 ```go
 type Part interface {
-
+	Specs()
 }
 ```
