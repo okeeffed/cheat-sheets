@@ -636,6 +636,7 @@ func main() {
     rand.Seed(time.Now().Unix())
     channel := make(chan int)
    	go longTask(channel)
+   	// uses the arrow prefix
     fmt.Println("Took", <-channel, "seconds")
 }
 ```
