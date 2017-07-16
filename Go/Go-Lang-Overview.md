@@ -437,3 +437,5 @@ func main() {
 	// could also go monitor := Monitor{"1080p", "HDMI", 249.99}
 }
 ```
+
+If you init and allocate a struct, it will initialise with some default values.
