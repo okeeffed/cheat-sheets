@@ -669,3 +669,5 @@ In the course, we've looked at:
 - Type
 - Functions
 - Go format tool
+- Arrays, Slices and Maps
+- Structs for field aggregation
