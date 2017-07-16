@@ -462,3 +462,32 @@ func main() {
 If you init and allocate a struct, it will initialise with some default values.
 
 You can also add a "exported" get and set method to help enforce the concept of private variables.
+
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type Clock struct {
+  Hours int
+  Minutes int
+}
+
+// DEFINE A "Noon" FUNCTION HERE
+func Noon(hours int, min int) Clock {
+  c := Clock{}
+  c.Hours = 12
+  c.Minutes = 0
+
+  return c
+}
+
+func main() {
+  c := Noon(12, 10)
+  fmt.Println(c)
+}
+```
+
+### Interfaces
