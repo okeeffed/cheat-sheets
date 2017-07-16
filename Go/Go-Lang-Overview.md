@@ -584,3 +584,10 @@ func main() {
 	time.Sleep(4 * time.Second) // just for show - we can use channels instead
 }
 ```
+
+### Channels
+
+
+```go
+
+```
