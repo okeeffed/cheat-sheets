@@ -421,11 +421,11 @@ package main
 
 import "fmt"
 
-type Monitor struct (
+type Monitor struct {
 	Resolution 	string
 	Connector 	string
 	Value 		float64 // fields with a name and a type
-)
+}
 
 func main() {
 	monitor := Monitor{}
