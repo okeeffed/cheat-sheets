@@ -440,3 +440,4 @@ func main() {
 
 If you init and allocate a struct, it will initialise with some default values.
 
+You can also add a "exported" get and set method to help enforce the concept of private variables.
