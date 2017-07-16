@@ -514,4 +514,4 @@ func Summary(part Part) string {
 }
 ```
 
-If we create slice with that type as well, then we can use that slice for anything that satisfies the interface.
+If we create slice with that type as well, then we can use that slice for anything that satisfies the interface. This could allow us to slice, append to the slice and use the range to iterate through.
