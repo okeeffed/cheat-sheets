@@ -492,4 +492,4 @@ func main() {
 
 ### Interfaces
 
-When you have a concrete type, you know what it is and what it can do.
+When you have a concrete type, you know what it is and what it can do. An interface is defining what something is but not what it can do.
