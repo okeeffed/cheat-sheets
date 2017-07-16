@@ -504,6 +504,7 @@ type FourLegged interface {
 Implementation in practise
 
 ```go
-type
+type Part interface {
 
+}
 ```
