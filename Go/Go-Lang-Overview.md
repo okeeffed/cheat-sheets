@@ -413,3 +413,5 @@ func main() {
 	fmt.Println(fixed)
 }
 ```
+
+### Structs
