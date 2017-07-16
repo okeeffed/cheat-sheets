@@ -581,6 +581,6 @@ func main() {
 	go longTask()
 	go longTask()
 	go longTask()
-	time.Sleep(4 * time.Second)
+	time.Sleep(4 * time.Second) // just for show - we can use channels instead
 }
 ```
