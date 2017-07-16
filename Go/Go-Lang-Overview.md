@@ -414,6 +414,27 @@ func main() {
 }
 ```
 
+```go
+package main
+
+import (
+	"fmt"
+)
+
+type Hours int
+
+func (h *Hours) Increment() Hours {
+  *h = (*h + 1) % 24
+  return *h
+}
+
+func main() {
+  hours := Hours(23)
+  hours.Increment()
+  fmt.Println(hours) // Prints "0"
+}
+```
+
 ### Structs
 
 ```go
