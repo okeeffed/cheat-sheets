@@ -587,6 +587,7 @@ func main() {
 
 ### Channels
 
+We can't simply try to use the time.Sleep with the keyword go given that the go routine doesn't give a value right away.
 
 ```go
 package main
