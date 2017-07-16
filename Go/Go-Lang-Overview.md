@@ -508,4 +508,8 @@ type Part interface {
 	Specs() string
 	Price() string
 }
+
+func Summary(part Part) string {
+
+}
 ```
