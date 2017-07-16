@@ -630,7 +630,7 @@ func longTask(channel chan int) {
     fmt.Println("Starting long task")
     time.Sleep(time.Duration(delay) * time.Second)
     fmt.Println("Long task finished")
-    return delay
+    channel <- delay
 }
 
 func main() {
