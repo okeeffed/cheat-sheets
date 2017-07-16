@@ -589,5 +589,25 @@ func main() {
 
 
 ```go
+package main
 
+import (
+    "fmt"
+    "math/rand"
+    "time"
+)
+
+func longTask() int {
+    delay := rand.Intn(5)
+    fmt.Println("Starting long task")
+    time.Sleep(time.Duration(delay) * time.Second)
+    fmt.Println("Long task finished")
+    return delay
+}
+
+func main() {
+    rand.Seed(time.Now().Unix())
+    time := longTask()
+    fmt.Println("Took", time, "seconds")
+}
 ```
