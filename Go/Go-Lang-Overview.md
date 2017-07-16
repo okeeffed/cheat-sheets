@@ -564,6 +564,8 @@ func Print(display Displayable) {
 ## Concurrency
 
 ```go
+package main
+
 import (
 	"fmt"
 	"time"
@@ -576,8 +578,9 @@ func longTask() {
 }
 
 func main() {
-	longTask()
-	longTask()
-	longTask()
+	go longTask()
+	go longTask()
+	go longTask()
+	time.Sleep(4 * time.Second)
 }
 ```
