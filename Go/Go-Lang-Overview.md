@@ -612,3 +612,5 @@ func main() {
     fmt.Println("Took", time, "seconds")
 }
 ```
+
+What we can do instead is use a channel to pass a message back to the main go routine.
