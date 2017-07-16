@@ -417,5 +417,7 @@ func main() {
 ### Structs
 
 ```go
+func main() {
 
+}
 ```
