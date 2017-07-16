@@ -636,11 +636,11 @@ func longTask(channel chan int) {
 func main() {
     rand.Seed(time.Now().Unix())
     channel := make(chan int)
-    for i := 1; i <= 3 i++ {
+    for i := 1; i <= 3; i++ {
    		go longTask(channel)
 	}
    	// uses the arrow prefix
-   	for i := 1; i <= 3 i++ {
+   	for i := 1; i <= 3; i++ {
     	fmt.Println("Took", <-channel, "seconds")
 	}
 }
