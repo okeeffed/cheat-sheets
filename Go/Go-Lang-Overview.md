@@ -660,3 +660,5 @@ func readFromChannel() string {
 	return <-channel
 }
 ```
+
+## Summary
