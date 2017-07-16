@@ -668,3 +668,4 @@ In the course, we've looked at:
 - Packages
 - Type
 - Functions
+- Go format tool
