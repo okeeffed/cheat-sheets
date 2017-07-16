@@ -666,4 +666,5 @@ func readFromChannel() string {
 In the course, we've looked at:
 
 - Packages
--
+- Type
+- Functions
