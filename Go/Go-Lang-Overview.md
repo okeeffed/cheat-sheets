@@ -500,3 +500,10 @@ type FourLegged interface {
 	Sit()
 }
 ```
+
+Implementation in practise
+
+```go
+type
+
+```
