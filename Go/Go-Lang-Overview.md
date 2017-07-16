@@ -624,7 +624,7 @@ import (
     "time"
 )
 
-func longTask() int {
+func longTask(channel chan int) int {
     delay := rand.Intn(5)
     fmt.Println("Starting long task")
     time.Sleep(time.Duration(delay) * time.Second)
