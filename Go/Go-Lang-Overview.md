@@ -515,3 +515,35 @@ func Summary(part Part) string {
 ```
 
 If we create slice with that type as well, then we can use that slice for anything that satisfies the interface. This could allow us to slice, append to the slice and use the range to iterate through.
+
+#### Challenge
+
+```go
+// calendar.go
+package calendar
+
+import "fmt"
+
+type Calendar struct {
+  Year int
+  Month int
+  Day int
+}
+
+func (c Calendar) Display() {
+  fmt.Printf("%04d-%02d-%02d", c.Year, c.Month, c.Day)
+}
+
+// clock.go
+package clock
+
+import "fmt"
+
+type Clock struct {
+  Hours int
+  Minutes int
+}
+
+func (c Clock) Display() {
+  fmt.Printf("%02d:%02d", c.Hours, c.Minutes)
+}
