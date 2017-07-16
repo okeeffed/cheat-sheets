@@ -433,5 +433,7 @@ func main() {
 	monitor.Connector = "HDMI"
 	monitor.Value = 249.99
 	fmt.Println(monitor.Resolution, monitor.Connector, monitor.Value)
+
+	// could also go monitor := Monitor{"1080p", "HDMI", 249.99}
 }
 ```
