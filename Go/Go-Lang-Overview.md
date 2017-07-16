@@ -540,12 +540,12 @@ package clock
 import "fmt"
 
 type Clock struct {
-  Hours int
-  Minutes int
+	Hours int
+	Minutes int
 }
 
 func (c Clock) Display() {
-  fmt.Printf("%02d:%02d", c.Hours, c.Minutes)
+	fmt.Printf("%02d:%02d", c.Hours, c.Minutes)
 }
 
 // schedule.go
@@ -553,11 +553,11 @@ package schedule
 
 // DECLARE A Displayable INTERFACE HERE
 type Displayable interface {
-  Display()
+	Display()
 }
 // DECLARE A Print FUNCTION HERE
 func Print(display Displayable) {
-  display.Display()
+	display.Display()
 }
 ```
 
