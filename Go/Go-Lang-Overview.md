@@ -662,3 +662,8 @@ func readFromChannel() string {
 ```
 
 ## Summary
+
+In the course, we've looked at:
+
+- Packages
+-
