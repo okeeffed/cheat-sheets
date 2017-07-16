@@ -671,3 +671,6 @@ In the course, we've looked at:
 - Go format tool
 - Arrays, Slices and Maps
 - Structs for field aggregation
+	- Adding methods
+	- Interfaces
+- Using Go routines and Channels
