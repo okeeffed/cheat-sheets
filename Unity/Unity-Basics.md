@@ -14,4 +14,4 @@ There are also a number of different preset values that you can use as well.
 
 You can also use the tab and drag to rearrange the view.
 
-### Scene View
+### Scene View - Navigation and Positioning
