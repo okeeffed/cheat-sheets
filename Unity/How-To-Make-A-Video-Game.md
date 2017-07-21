@@ -6,3 +6,4 @@ How are games made?
 - Game artists
 - Game developers
 
+These roles can be between one or thousands of people.
