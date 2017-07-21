@@ -21,3 +21,12 @@ A quick navigation is to right click and use the arrows to move around. You can 
 `F` key after selecting an object will focus in on the object.
 
 You can orbit by holding `alt` and dragging.
+
+| Position Tools 	|
+| ---				|
+| Q: Pan 			|
+| W: Move 			|
+| F: Rotate 		|
+| R: Scale 			|
+
+### Scene View Controls
