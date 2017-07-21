@@ -18,4 +18,6 @@ You can also use the tab and drag to rearrange the view.
 
 A quick navigation is to right click and use the arrows to move around. You can also use the mouse to change the direction of view.
 
-`F` key after selecting an object will navigate around an object.
+`F` key after selecting an object will focus in on the object.
+
+You can orbit by holding `alt` and dragging.
