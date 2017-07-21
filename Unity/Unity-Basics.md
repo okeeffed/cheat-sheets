@@ -15,3 +15,5 @@ There are also a number of different preset values that you can use as well.
 You can also use the tab and drag to rearrange the view.
 
 ### Scene View - Navigation and Positioning
+
+A quick navigation is to right click and use the arrows to move around.
