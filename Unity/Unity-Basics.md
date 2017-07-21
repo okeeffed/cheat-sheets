@@ -16,4 +16,4 @@ You can also use the tab and drag to rearrange the view.
 
 ### Scene View - Navigation and Positioning
 
-A quick navigation is to right click and use the arrows to move around.
+A quick navigation is to right click and use the arrows to move around. You can also use the mouse to change the direction of view.
