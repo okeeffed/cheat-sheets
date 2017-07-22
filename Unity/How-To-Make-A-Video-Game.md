@@ -334,3 +334,5 @@ public class PickupParticlesDestruction : MonoBehaviour {
 ```
 
 You can also create scripts that aren't attached to a 3d model in the scene view.
+
+
