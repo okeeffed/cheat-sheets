@@ -190,6 +190,8 @@ Behind the scenes, Unity stores the rotational values as `Quaternions`. Most gam
 
 #### Target rotation
 
+The rigid body and box collider is how the objects like `Player` can interact with the physics and turning.
+
 ```c#
 using System.Collections;
 using System.Collections.Generic;
