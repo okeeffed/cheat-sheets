@@ -33,3 +33,5 @@ Game assets are `a piece of media for the game`. This could be sounds, scripts o
 Stores several objects together. An example `prefab` is the frog which contains the 3d model, the texture and the animation together.
 
 ### Setup the project
+
+Games use `real time rendering` where it is drawn at the frame rate. Generally you want to aim for 60fps or higher. This will make is look as smooth as possible.
