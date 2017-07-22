@@ -103,3 +103,4 @@ public class PlayerMovement : MonoBehaviour {
 }
 ```
 
+Public and private are differing `accessibility levels`.
