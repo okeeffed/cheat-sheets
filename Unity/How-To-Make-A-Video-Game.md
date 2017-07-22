@@ -81,5 +81,21 @@ JavaScript is also able to be used, but far less adopted by the Unity commmunity
 After creating a file, you will run into the `Start` and `Update` methods that are able to run at each frame so that we can edit the code to do specific things.
 
 ```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour {
+
+	// Use this for initialization
+	void Start () {
+
+	}
+
+	// Update is called once per frame
+	void Update () {
+
+	}
+}
 
 ```
