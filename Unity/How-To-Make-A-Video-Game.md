@@ -157,6 +157,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		// special method to get the Animator
 		playerAnimator = GetComponent<Animator>();
 	}
 
