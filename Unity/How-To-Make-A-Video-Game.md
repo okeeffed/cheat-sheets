@@ -173,7 +173,9 @@ public class PlayerMovement : MonoBehaviour {
 	// this method doesn't run that often without
 	// significant gameplay slow down
 	void FixedUpdate() {
-
+		if (movement != Vector3.zero) {
+			playerAnimator.SetFloat("Speed", 3f);
+		}
 	}
 }
 ```
