@@ -388,3 +388,5 @@ public class FlyPickup : MonoBehaviour {
 ```
 
 ### Creating the enemy in the game
+
+The bird game object needs to know where the player is. It's known as path finding.
