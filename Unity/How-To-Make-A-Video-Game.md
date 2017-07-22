@@ -60,4 +60,4 @@ We can also switch between `global` and `local` space to help move things around
 
 ### Position the camera
 
-
+The scenes looks good so far, but it we need to update the camera.
