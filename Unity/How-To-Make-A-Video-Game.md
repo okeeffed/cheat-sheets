@@ -27,3 +27,7 @@ We are Unity as it is easier to learn when you are just getting started.
 Create a `_Scenes` folder.
 
 Game assets are `a piece of media for the game`. This could be sounds, scripts or models etc.
+
+#### Prefabs
+
+Stores several objects together. An example `prefab` is the frog which contains the 3d model, the texture and the animation together.
