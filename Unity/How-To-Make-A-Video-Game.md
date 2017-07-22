@@ -140,3 +140,5 @@ public class PlayerMovement : MonoBehaviour {
 After adding the script to update the script, we need to animate the frog.
 
 The animator components with now be on the inspector for the player.
+
+We will use the playerAnimator to access to Animator component.
