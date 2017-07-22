@@ -15,3 +15,5 @@ Game artists deal with what you see and hear in the game.
 Game engines help deal with things like the physics and rendering graphics.
 
 A game engine is a framework for building games that helps coordinate things like assets and gives you all the tools you need to start coding.
+
+A game engine is not a 3D art engine.
