@@ -297,4 +297,18 @@ public class FlyMovement : MonoBehaviour {
 
 ### Adding the Fly Pickup
 
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
+public class FlyPickup : MonoBehaviour {
+	// Trigger
+	void OnTriggerEnter(Collider other) {
+		// if collider is the player, execute...
+		if (other.CompareTag ("Player")) {
+			Destroy (gameObject);
+		}
+	}
+}
+```
