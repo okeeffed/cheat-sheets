@@ -63,3 +63,5 @@ We can also switch between `global` and `local` space to help move things around
 The scenes looks good so far, but it we need to update the camera.
 
 At the top of the scene window, we have `scene`, `game` tabs. If we select `game`, we get to see how the game will look when we play it. We can either write code to control to camera or change the transform.
+
+
