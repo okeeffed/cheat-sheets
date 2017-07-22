@@ -69,3 +69,5 @@ At the top of the scene window, we have `scene`, `game` tabs. If we select `game
 An image effect can change things like colours etc.
 
 Once we click on the asset store, we can build or share models to use.
+
+Unity is component based so we can add things that way. We can now create a post processing profile to use.
