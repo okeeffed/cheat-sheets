@@ -242,6 +242,8 @@ Unity also doesn't save any change settings when you are playing the game.
 
 This will have the camera to always follow the parent.
 
+We can use `[SerializeField]` to expose fields from the code into the inspector.
+
 ```c#
 using System.Collections;
 using System.Collections.Generic;
