@@ -53,3 +53,5 @@ Anything with a green square is outlining a game object.
 After selecting an object, you can use the 3d axis to change the transform of the axis.
 
 On the top left, we can change the tools from position to rotation etc and with similar methods to before, we can rotate the axis.
+
+We can also just use the `qwer` keys to change between tools.
