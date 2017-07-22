@@ -336,3 +336,54 @@ public class PickupParticlesDestruction : MonoBehaviour {
 You can also create scripts that aren't attached to a 3d model in the scene view.
 
 You can create an empty object from the left hand sidebar. Reset the transform and rename.
+
+```csharp
+// Fly Spawner
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FlyPickup : MonoBehaviour {
+	[SerializeField]
+	private GameObject pickupPrefab;
+
+	// Trigger
+	void OnTriggerEnter(Collider other) {
+		// if collider is the player, execute...
+		if (other.CompareTag ("Player")) {
+			// add pickup particles
+			// Quaternion.identity returns no rotation
+			Instantiate (pickupPrefab, transform.position, Quaternion.identity);
+			// Decrement total flies
+			FlySpawner.totalFlies--;
+			Destroy (gameObject);
+		}
+	}
+}
+```
+
+```csharp
+// Fly Pickup
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FlyPickup : MonoBehaviour {
+	[SerializeField]
+	private GameObject pickupPrefab;
+
+	// Trigger
+	void OnTriggerEnter(Collider other) {
+		// if collider is the player, execute...
+		if (other.CompareTag ("Player")) {
+			// add pickup particles
+			// Quaternion.identity returns no rotation
+			Instantiate (pickupPrefab, transform.position, Quaternion.identity);
+			// Decrement total flies
+			FlySpawner.totalFlies--;
+			Destroy (gameObject);
+		}
+	}
+}
+```
+
