@@ -184,4 +184,6 @@ public class PlayerMovement : MonoBehaviour {
 
 So far we haven't told the frog how to change direction or to have the camera follow the movement.
 
+### Quaternions
 
+Behind the scenes, Unity stores the rotational values as `Quaternions`.
