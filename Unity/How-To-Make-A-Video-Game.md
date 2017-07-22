@@ -68,4 +68,4 @@ At the top of the scene window, we have `scene`, `game` tabs. If we select `game
 
 An image effect can change things like colours etc.
 
-
+Once we click on the asset store, we can build or share models to use.
