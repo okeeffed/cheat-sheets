@@ -392,3 +392,13 @@ public class FlyPickup : MonoBehaviour {
 The bird game object needs to know where the player is. It's known as path finding.
 
 Unity makes path finding very easy.
+
+With the `Nav Mesh Agent`, you can set the following for the bird:
+
+```
+Speed: 5
+Angular Speed: 720
+Stopping Distance: 5
+Radius: 1
+Height: 4
+```
