@@ -136,3 +136,5 @@ public class PlayerMovement : MonoBehaviour {
 ```
 
 ### Moving a player with animation
+
+After adding the script to update the script, we need to animate the frog.
