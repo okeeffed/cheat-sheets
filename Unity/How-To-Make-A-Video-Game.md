@@ -188,4 +188,4 @@ So far we haven't told the frog how to change direction or to have the camera fo
 
 Behind the scenes, Unity stores the rotational values as `Quaternions`. Most games ending will use these to solve rotational issues.
 
-#### Target rotations
+#### Target rotation
