@@ -266,3 +266,7 @@ public class FollowCamera : MonoBehaviour {
 	}
 }
 ```
+
+## Section 3
+
+###
