@@ -271,4 +271,4 @@ public class FollowCamera : MonoBehaviour {
 
 ### Adding the flies to the swamp
 
-
+Let's add an objective to the game (pickup).
