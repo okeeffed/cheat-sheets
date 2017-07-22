@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour {
 		if (movement != Vector3.zero) {
 			playerAnimator.SetFloat("Speed", 3f);
 		} else {
-			playerAnimator.SetFloat("Speed", 3f);
+			playerAnimator.SetFloat("Speed", 0);
 		}
 	}
 }
