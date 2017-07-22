@@ -37,3 +37,5 @@ Stores several objects together. An example `prefab` is the frog which contains 
 Games use `real time rendering` where it is drawn at the frame rate. Generally you want to aim for 60fps or higher. This will make is look as smooth as possible.
 
 We can go to `Window > Lighting > Settings` to adjust things about how the scene is lit.
+
+To adjust the player settings go to `Edit > Project Settings > Player`.
