@@ -129,6 +129,8 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
 		moveHorizontal = Input.GetAxisRaw("Horizontal");
 		moveVertical = Input.GetAxisRaw("Vertical");
+
+		movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 	}
 }
 ```
