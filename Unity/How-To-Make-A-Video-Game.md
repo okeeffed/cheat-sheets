@@ -241,3 +241,26 @@ Unity also doesn't save any change settings when you are playing the game.
 ### Making a follow camera
 
 This will have the camera to always follow the parent.
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FollowCamera : MonoBehaviour {
+
+	[SerializeField]
+	private Transform player;
+	[SerializeField]
+	private Vector3 offset;
+	private float cameraFollowSpeed = 5f;
+
+	// Update is called once per frame
+	void Update () {
+		Vector3 newPosition = player.position + offset;
+
+		// Smooth transition
+		transform.position = Vector3.Lerp(transform.position, newPosition, cameraFollowSpeed + Time.deltaTime);
+	}
+}
+```
