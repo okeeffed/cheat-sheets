@@ -314,3 +314,5 @@ public class FlyPickup : MonoBehaviour {
 ```
 
 #### Pickup Particles
+
+Particle systems are a game object which generates multiple systems.
