@@ -233,3 +233,5 @@ public class PlayerMovement : MonoBehaviour {
 	}
 }
 ```
+
+We need to perform a `Lerp` to change the variable from one to another over time.
