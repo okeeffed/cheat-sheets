@@ -106,3 +106,5 @@ public class PlayerMovement : MonoBehaviour {
 Public and private are differing `accessibility levels`. The second keyword in a declaration is the `type`.
 
 ### Gather Player Input
+
+We need to record which button they are pressing in each frame.
