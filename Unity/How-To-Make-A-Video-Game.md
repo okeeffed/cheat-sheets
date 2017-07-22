@@ -203,18 +203,20 @@ public class PlayerMovement : MonoBehaviour {
 	private float moveVertical;
 	private Vector3 movement;
 	private float turningSpeed = 20f;
-	private RigidBody playerRigidBody;
+	private Rigidbody playerRigidBody;
 
 	// Use this for initialization
 	void Start () {
+		// Gather components from the player object
 		// special method to get the "Animator" component
-		playerAnimator = GetComponent<Animator>();
+		playerAnimator = GetComponent<Animator> ();
+		playerRigidBody = GetComponent<Rigidbody> ();
 	}
 
 	// Update is called once per frame
 	void Update () {
-		moveHorizontal = Input.GetAxisRaw("Horizontal");
-		moveVertical = Input.GetAxisRaw("Vertical");
+		moveHorizontal = Input.GetAxisRaw ("Horizontal");
+		moveVertical = Input.GetAxisRaw ("Vertical");
 
 		movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 	}
@@ -224,9 +226,9 @@ public class PlayerMovement : MonoBehaviour {
 	// significant gameplay slow down
 	void FixedUpdate() {
 		if (movement != Vector3.zero) {
-			playerAnimator.SetFloat("Speed", 3f);
+			playerAnimator.SetFloat ("Speed", 3f);
 		} else {
-			playerAnimator.SetFloat("Speed", 0);
+			playerAnimator.SetFloat ("Speed", 0);
 		}
 	}
 }
