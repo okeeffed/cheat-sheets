@@ -108,3 +108,27 @@ Public and private are differing `accessibility levels`. The second keyword in a
 ### Gather Player Input
 
 We need to record which button they are pressing in each frame.
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour {
+	private Animator playerAnimator;
+	private float moveHorizontal;
+	private float moveVertical;
+	private Vector3 movement;
+
+	// Use this for initialization
+	void Start () {
+
+	}
+
+	// Update is called once per frame
+	void Update () {
+		moveHorizontal = Input.GetAxisRaw("Horizontal");
+		moveVertical = Input.GetAxisRaw("Vertical");
+	}
+}
+```
