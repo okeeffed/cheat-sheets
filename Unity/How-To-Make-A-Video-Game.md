@@ -294,3 +294,7 @@ public class FlyMovement : MonoBehaviour {
 	}
 }
 ```
+
+### Adding the Fly Pickup
+
+
