@@ -67,3 +67,5 @@ At the top of the scene window, we have `scene`, `game` tabs. If we select `game
 ### Image effects and asset stores
 
 An image effect can change things like colours etc.
+
+
