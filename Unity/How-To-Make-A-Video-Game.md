@@ -31,3 +31,5 @@ Game assets are `a piece of media for the game`. This could be sounds, scripts o
 #### Prefabs
 
 Stores several objects together. An example `prefab` is the frog which contains the 3d model, the texture and the animation together.
+
+### Setup the project
