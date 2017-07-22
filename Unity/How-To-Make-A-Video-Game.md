@@ -39,3 +39,5 @@ Games use `real time rendering` where it is drawn at the frame rate. Generally y
 We can go to `Window > Lighting > Settings` to adjust things about how the scene is lit.
 
 To adjust the player settings go to `Edit > Project Settings > Player`.
+
+For quality, go to `Edit > Project Settings > Quality`.
