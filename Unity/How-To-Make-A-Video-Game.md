@@ -23,3 +23,7 @@ We are Unity as it is easier to learn when you are just getting started.
 ## Part 2
 
 ### Unity Interface
+
+Create a `_Scenes` folder.
+
+Game assets are `a piece of media for the game`. This could be sounds, scripts or models etc.
