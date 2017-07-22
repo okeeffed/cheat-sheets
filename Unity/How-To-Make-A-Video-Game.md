@@ -189,3 +189,41 @@ So far we haven't told the frog how to change direction or to have the camera fo
 Behind the scenes, Unity stores the rotational values as `Quaternions`. Most games ending will use these to solve rotational issues.
 
 #### Target rotation
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour {
+	private Animator playerAnimator;
+	private float moveHorizontal;
+	private float moveVertical;
+	private Vector3 movement;
+
+	// Use this for initialization
+	void Start () {
+		// special method to get the "Animator" component
+		playerAnimator = GetComponent<Animator>();
+	}
+
+	// Update is called once per frame
+	void Update () {
+		moveHorizontal = Input.GetAxisRaw("Horizontal");
+		moveVertical = Input.GetAxisRaw("Vertical");
+
+		movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+	}
+
+	// this is code that runs after the `update` method
+	// this method doesn't run that often without
+	// significant gameplay slow down
+	void FixedUpdate() {
+		if (movement != Vector3.zero) {
+			playerAnimator.SetFloat("Speed", 3f);
+		} else {
+			playerAnimator.SetFloat("Speed", 0);
+		}
+	}
+}
+```
