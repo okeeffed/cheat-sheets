@@ -76,4 +76,4 @@ Unity is component based so we can add things that way. We can now create a post
 
 ### Programming with C# with Unity
 
-
+JavaScript is also able to be used, but far less adopted by the Unity commmunity.
