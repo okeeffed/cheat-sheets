@@ -46,4 +46,4 @@ For quality, go to `Edit > Project Settings > Quality`.
 
 The `environment` prefab links a bunch of Maya elements and groups them as a prefab.
 
-Our environment prefab already has a light associated with it.
+Our environment prefab already has a light associated with it. Ensure after adding that you re-generate the light in the settings.
