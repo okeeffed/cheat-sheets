@@ -236,4 +236,4 @@ public class PlayerMovement : MonoBehaviour {
 
 We need to perform a `Lerp` to change the variable from one to another over time.
 
-
+Unity also doesn't save any change settings when you are playing the game.
