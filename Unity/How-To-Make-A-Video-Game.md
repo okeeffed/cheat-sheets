@@ -42,4 +42,4 @@ To adjust the player settings go to `Edit > Project Settings > Player`.
 
 For quality, go to `Edit > Project Settings > Quality`.
 
-### Navigating the screen view
+### Navigating the Scene View
