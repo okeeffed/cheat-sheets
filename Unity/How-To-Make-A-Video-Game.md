@@ -43,3 +43,5 @@ To adjust the player settings go to `Edit > Project Settings > Player`.
 For quality, go to `Edit > Project Settings > Quality`.
 
 ### Navigating the Scene View
+
+The `environment` prefab links a bunch of Maya elements and groups them as a prefab.
