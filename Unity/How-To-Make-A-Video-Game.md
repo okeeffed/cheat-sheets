@@ -45,3 +45,5 @@ For quality, go to `Edit > Project Settings > Quality`.
 ### Navigating the Scene View
 
 The `environment` prefab links a bunch of Maya elements and groups them as a prefab.
+
+Our environment prefab already has a light associated with it.
