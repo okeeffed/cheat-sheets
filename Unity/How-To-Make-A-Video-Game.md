@@ -134,3 +134,5 @@ public class PlayerMovement : MonoBehaviour {
 	}
 }
 ```
+
+### Moving a player with animation
