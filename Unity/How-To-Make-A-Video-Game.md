@@ -203,6 +203,7 @@ public class PlayerMovement : MonoBehaviour {
 	private float moveVertical;
 	private Vector3 movement;
 	private float turningSpeed = 20f;
+	private RigidBody playerRigidBody;
 
 	// Use this for initialization
 	void Start () {
