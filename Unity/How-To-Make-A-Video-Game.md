@@ -142,3 +142,30 @@ After adding the script to update the script, we need to animate the frog.
 The animator components with now be on the inspector for the player.
 
 We will use the playerAnimator to access to Animator component.
+
+
+```c#
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class PlayerMovement : MonoBehaviour {
+	private Animator playerAnimator;
+	private float moveHorizontal;
+	private float moveVertical;
+	private Vector3 movement;
+
+	// Use this for initialization
+	void Start () {
+		playerAnimator = GetComponent<Animator>()
+	}
+
+	// Update is called once per frame
+	void Update () {
+		moveHorizontal = Input.GetAxisRaw("Horizontal");
+		moveVertical = Input.GetAxisRaw("Vertical");
+
+		movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+	}
+}
+```
