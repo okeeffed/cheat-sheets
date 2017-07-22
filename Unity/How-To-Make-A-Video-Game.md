@@ -463,3 +463,7 @@ public class PlayerHealth : MonoBehaviour {
 	}
 }
 ```
+
+### Managing the game state
+
+How do we know when the game has started and when we need to restart?
