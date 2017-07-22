@@ -80,7 +80,7 @@ JavaScript is also able to be used, but far less adopted by the Unity commmunity
 
 After creating a file, you will run into the `Start` and `Update` methods that are able to run at each frame so that we can edit the code to do specific things.
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -109,7 +109,7 @@ Public and private are differing `accessibility levels`. The second keyword in a
 
 We need to record which button they are pressing in each frame.
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -144,7 +144,7 @@ The animator components with now be on the inspector for the player.
 We will use the playerAnimator to access to Animator component.
 
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -192,7 +192,7 @@ Behind the scenes, Unity stores the rotational values as `Quaternions`. Most gam
 
 The rigid body and box collider is how the objects like `Player` can interact with the physics and turning.
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -244,7 +244,7 @@ This will have the camera to always follow the parent.
 
 We can use `[SerializeField]` to expose fields from the code into the inspector.
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -273,7 +273,7 @@ public class FollowCamera : MonoBehaviour {
 
 Let's add an objective to the game (pickup).
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -297,7 +297,7 @@ public class FlyMovement : MonoBehaviour {
 
 ### Adding the Fly Pickup
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -319,7 +319,7 @@ Particle systems are a game object which generates multiple systems.
 
 As for their destruction:
 
-```c#
+```csharp
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
