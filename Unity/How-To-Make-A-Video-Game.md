@@ -387,3 +387,4 @@ public class FlyPickup : MonoBehaviour {
 }
 ```
 
+### Creating the enemy in the game
