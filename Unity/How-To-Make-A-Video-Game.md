@@ -49,3 +49,5 @@ The `environment` prefab links a bunch of Maya elements and groups them as a pre
 Our environment prefab already has a light associated with it. Ensure after adding that you re-generate the light in the settings.
 
 Anything with a green square is outlining a game object.
+
+After selecting an object, you can use the 3d axis to change the transform of the axis.
