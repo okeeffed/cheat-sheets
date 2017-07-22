@@ -170,6 +170,8 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	// this is code that runs after the `update` method
+	// this method doesn't run that often without
+	// significant gameplay slow down
 	void FixedUpdate() {
 
 	}
