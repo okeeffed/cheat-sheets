@@ -169,6 +169,7 @@ public class PlayerMovement : MonoBehaviour {
 		movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 	}
 
+	// this is code that runs after the `update` method
 	void FixedUpdate() {
 
 	}
