@@ -157,7 +157,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		playerAnimator = GetComponent<Animator>()
+		playerAnimator = GetComponent<Animator>();
 	}
 
 	// Update is called once per frame
