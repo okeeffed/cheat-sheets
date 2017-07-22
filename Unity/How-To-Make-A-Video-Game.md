@@ -86,6 +86,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
+	private Animator playerAnimator;
+	private float moveHorizontal;
+	private float moveVertical;
+	private Vector3 movement;
 
 	// Use this for initialization
 	void Start () {
