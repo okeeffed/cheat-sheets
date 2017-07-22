@@ -312,3 +312,5 @@ public class FlyPickup : MonoBehaviour {
 	}
 }
 ```
+
+#### Pickup Particles
