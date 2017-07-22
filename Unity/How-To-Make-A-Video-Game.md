@@ -41,3 +41,5 @@ We can go to `Window > Lighting > Settings` to adjust things about how the scene
 To adjust the player settings go to `Edit > Project Settings > Player`.
 
 For quality, go to `Edit > Project Settings > Quality`.
+
+### Navigating the screen view
