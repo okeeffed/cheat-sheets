@@ -78,6 +78,8 @@ Unity is component based so we can add things that way. We can now create a post
 
 JavaScript is also able to be used, but far less adopted by the Unity commmunity.
 
+After creating a file, you will run into the `Start` and `Update` methods that are able to run at each frame so that we can edit the code to do specific things.
+
 ```c#
 
 ```
