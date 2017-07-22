@@ -402,7 +402,7 @@ Stopping Distance: 5
 Radius: 1
 Height: 4
 ```
-We now need to create a `Nav Mesh`. The NavMeshAgent allows us to set a destination target that the "enemy" can follow.
+We now need to create a `Nav Mesh`. The NavMeshAgent allows us to set a destination target that the "enemy" can follow. It is a component that can be attached to a game object so that it can interact with the `NavMesh`.
 
 ```csharp
 // BirdMovement.cs
