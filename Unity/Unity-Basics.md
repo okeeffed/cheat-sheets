@@ -36,3 +36,7 @@ The `scene gizmo` is the viewing angle at the top right.
 The `shaded` dropdown is to switch between different dropdowns.
 
 The lighting is good for checking scenes that are or are not dark.
+
+You can use the gizmos dropdown to switch between gizmos.
+
+You can use the search box in order to find elements quickly.
