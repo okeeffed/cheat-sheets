@@ -558,4 +558,4 @@ public class GameState : MonoBehaviour {
 
 ### Game audio
 
-
+We can add the `Audio Source` component and select the sounds.
