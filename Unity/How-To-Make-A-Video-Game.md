@@ -599,3 +599,5 @@ public class RandomSoundPlayer : MonoBehaviour {
 ### Controlling sounds on game objects
 
 Add another empty game child and add the audio but select `play on awake` off.
+
+To make sounds 3d, we need to change the spatial blend.
