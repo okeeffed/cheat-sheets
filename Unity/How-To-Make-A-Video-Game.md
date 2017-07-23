@@ -600,4 +600,4 @@ public class RandomSoundPlayer : MonoBehaviour {
 
 Add another empty game child and add the audio but select `play on awake` off.
 
-To make sounds 3d, we need to change the spatial blend.
+To make sounds 3d, we need to change the spatial blend. We also need to make sure the game camera and distance are set correctly.
