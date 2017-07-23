@@ -42,3 +42,7 @@ You can use the gizmos dropdown to switch between gizmos.
 You can use the search box in order to find elements quickly.
 
 ### The Game View
+
+The game view will show what the game will look like at the end.
+
+You can select 2 by 3 to see a view of everything.
