@@ -34,3 +34,5 @@ You can orbit by holding `alt` and dragging.
 The `scene gizmo` is the viewing angle at the top right.
 
 The `shaded` dropdown is to switch between different dropdowns.
+
+The lighting is good for checking scenes that are or are not dark.
