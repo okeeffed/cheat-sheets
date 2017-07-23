@@ -606,4 +606,4 @@ We need to update the scripts to ensure that these clips play at the appropriate
 
 ### Audio mixing
 
-
+Use the audio mixer, create groups and assign these groups via the `AudioComponent` on the hierarchy or prefab.
