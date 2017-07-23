@@ -26,7 +26,7 @@ You can orbit by holding `alt` and dragging.
 | ---				|
 | Q: Pan 			|
 | W: Move 			|
-| F: Rotate 		|
+| E: Rotate 		|
 | R: Scale 			|
 
 ### Scene View Controls
