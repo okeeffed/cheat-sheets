@@ -561,3 +561,37 @@ public class GameState : MonoBehaviour {
 We can add the `Audio Source` component and select the sounds.
 
 We can also randomly generate a sound to help add something natural.
+
+```csharp
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RandomSoundPlayer : MonoBehaviour {
+	private AudioSource audioSource;
+	[SerializeField]
+	private List<AudioClip> soundClips = new List<AudioClip>();
+	[SerializeField]
+	private float soundTimerDelay = 3f;
+	private float soundTimer;
+
+	// Use this for initialization
+	void Start () {
+		audioSource = GetComponent<AudioSource>();
+	}
+
+	// Update is called once per frame
+	void Update () {
+		// incredment a timer to count up to restarting
+		soundTimer = soundTimer + Time.deltaTime;
+
+		// if the timer reaches the delay...
+		if (soundTimer >= soundTimerDelay) {
+			soundTimer = 0f;
+			// choose a random sound
+			AudioClip randomSound = soundClips[Random.Range(0, soundClips.Count)];
+			audioSource.PlayOneShot (randomSound);
+		}
+	}
+}
+```
