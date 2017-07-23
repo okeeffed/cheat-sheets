@@ -595,3 +595,7 @@ public class RandomSoundPlayer : MonoBehaviour {
 	}
 }
 ```
+
+### Controlling sounds on game objects
+
+Add another empty game child and add the audio but select `play on awake` off.
