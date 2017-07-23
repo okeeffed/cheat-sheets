@@ -30,3 +30,6 @@ You can orbit by holding `alt` and dragging.
 | R: Scale 			|
 
 ### Scene View Controls
+
+The `scene gizmo` is the viewing angle at the top right.
+
