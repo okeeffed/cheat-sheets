@@ -559,3 +559,5 @@ public class GameState : MonoBehaviour {
 ### Game audio
 
 We can add the `Audio Source` component and select the sounds.
+
+We can also randomly generate a sound to help add something natural.
