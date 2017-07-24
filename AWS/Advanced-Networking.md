@@ -18,4 +18,7 @@ A label applied to packets to allow routes to immediately know where to route th
 **BGP**
 AWS preferred Routing Protocol to route between multiple Autonomous Systems.
 
+**Encryption Keys that require both public and private**
+Public-Key encryption (or asymmetric key encryption).
+
 ## VPN Fundamentals
