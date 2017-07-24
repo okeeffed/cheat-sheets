@@ -12,4 +12,7 @@ Method by which a direct link between two or more sites is simulated by efficien
 **Addresses in 10.0.0.0/16 VPC reserved for AWS**
 10.0.0.0, 10.0.0.1, 10.0.0.2, 10.0.0.3 and 10.0.0.255.
 
+**FEC (Forward Equivalency Class)**
+A label applied to packets to allow routes to immediately know where to route them.
+
 ## VPN Fundamentals
