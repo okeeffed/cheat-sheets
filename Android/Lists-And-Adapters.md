@@ -26,6 +26,6 @@ static class DailyForecastActivity extends ListActivity {
 			"Monday",
 			...
 		}
-		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, );
+		ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.);
 	}
 }
