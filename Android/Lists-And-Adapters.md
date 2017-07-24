@@ -6,3 +6,4 @@ If we have our data and a list view, we can then use an adapter to adapt data fo
 
 Android provides a number of different adapters.
 
+Example with the `ArrayAdapter`, it is an extension of the `BaseAdapter`.
