@@ -15,4 +15,7 @@ Method by which a direct link between two or more sites is simulated by efficien
 **FEC (Forward Equivalency Class)**
 A label applied to packets to allow routes to immediately know where to route them.
 
+**BGP**
+AWS preferred Routing Protocol to route between multiple Autonomous Systems.
+
 ## VPN Fundamentals
