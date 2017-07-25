@@ -13,22 +13,22 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 1. Command/Normal mode
 2. Insert mode
 
-| Key 		| What it does 				|
-| ---		| ---						|
-| x			| Delete character 			|
-| :q! 		| Quit and omit changes 	|
-| :wq		| Write and quit	 		|
-| : 		| "File mode" 				|
-| h 		| Left						|
-| j 		| Down 						|
-| k 		| Up 						|
-| l			| Right 					|
-| w 		| Word forward 				|
-| e 		| Word forward last char 	|
-| b 		| Back word 				|
-| 0 		| Go to start 				|
-| $ 		| Go to end 				|
-| v			| Highlight words			|
-| % 		| Go to matching bracket/quotes etc |
-
+| Key 				| What it does 				|
+| ---				| ---						|
+| x					| Delete character 			|
+| :q! 				| Quit and omit changes 	|
+| :wq				| Write and quit	 		|
+| : 				| "File mode" 				|
+| h 				| Left						|
+| j 				| Down 						|
+| k 				| Up 						|
+| l					| Right 					|
+| w 				| Word forward 				|
+| e 				| Word forward last char 	|
+| b 				| Back word 				|
+| 0 				| Go to start 				|
+| $ 				| Go to end 				|
+| v					| Highlight words			|
+| % 				| Go to matching bracket/quotes etc |
+| Number + command 	| Move by certain amount 	|
 
