@@ -12,6 +12,7 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 
 1. Command/Normal mode
 2. Insert/Ex mode
+3. Mark mode
 
 | Key 				| What it does 						|
 | ---				| ---								|
@@ -40,3 +41,5 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | Number, r 		| Replace a number of chars 		|
 | Number, x 		| Delete certain number of keys 	|
 | y, move to new spot, p | Yank the link, then paste 	|
+| v, then y 		| Mark mode and yank 				|
+
