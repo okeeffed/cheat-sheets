@@ -16,39 +16,39 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 
 | Key 				| What it does 						|
 | ---				| ---								|
-| x				| Delete character 					|
+| x					| Delete character 					|
 | :q! 				| Quit and omit changes 			|
 | :wq				| Write and quit	 				|
 | : 				| "File mode" 						|
 | h 				| Left								|
 | j 				| Down 								|
 | k 				| Up 								|
-| l				| Right 							|
+| l					| Right 							|
 | w 				| Word forward 						|
 | e 				| Word forward last char 			|
 | b 				| Back word 						|
 | 0 				| Go to start 						|
 | $ 				| Go to end 						|
-| v				| Highlight words					|
+| v					| Highlight words					|
 | % 				| Go to matching bracket/quotes etc |
-| Number, command 		| Move by certain amount 			|
+| Number, command 	| Move by certain amount 			|
 | r 				| Replace 							|
 | u 				| Undo 								|
 | . 				| Redo 								|
-| d (twice) 			| Delete the line 					|
+| d (twice) 		| Delete the line 					|
 | d, w 				| Delete the word 					|
-| Number, i 			| Insert a number of times 			|
-| Number, r 			| Replace a number of chars 		|
-| Number, x 			| Delete certain number of keys 	|
-| y, move to new spot, p 	| Yank the link, then paste 	|
-| v, then y 			| Mark mode and yank 				|
+| Number, i 		| Insert a number of times 			|
+| Number, r 		| Replace a number of chars 		|
+| Number, x 		| Delete certain number of keys 	|
+| y, move to new spot, p | Yank the link, then paste 	|
+| v, then y 		| Mark mode and yank 				|
 | >>				| Indent forward 					|
 | << 				| Indent back 						|
 | /<word>			| Find a word 						|
 | n/N 				| Forward search, N upwards 		|
 | ?<word>			| Search bottom up (N/n swap)		|
-| %s/ex/EX/g 			| Global ex regex 					|
-| #s/ex/EX/gc 			| Confirm value swapping 			|
+| %s/ex/EX/g 		| Global ex regex 					|
+| #s/ex/EX/gc 		| Confirm value swapping 			|
 
 ## Executing external commands
 
