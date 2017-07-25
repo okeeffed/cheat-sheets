@@ -18,5 +18,6 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | x			| Delete character 			|
 | :q! 		| Quit and omit changes 	|
 | :wq		| Write and quit	 		|
-|
+| : 		| "File mode" 				|
+
 
