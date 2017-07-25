@@ -52,4 +52,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 
 ## Executing external commands
 
-These are a few of the more advanced things
+These are a few of the more advanced things.
