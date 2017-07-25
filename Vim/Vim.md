@@ -29,3 +29,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | 0 		| Go to start 				|
 | $ 		| Go to end 				|
 | v			| Highlight words			|
+| % 		| Go to matching bracket/quotes etc |
