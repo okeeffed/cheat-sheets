@@ -10,7 +10,7 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 
 ## Vim modes
 
-| Key 		| What it does 		|
-| ---		| ---				|
-| x			| Delete character 	|
-|
+| Key 		| What it does 			|
+| ---		| ---					|
+| x			| Delete character 		|
+| :q! 		| Quit and omit changes |
