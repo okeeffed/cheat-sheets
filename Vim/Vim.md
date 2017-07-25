@@ -37,3 +37,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | d (twice) 		| Delete the line 					|
 | d, w 				| Delete the word 					|
 | Number, i 		| Insert a number of times 			|
+| Number, r 		| Replace a number of chars 		|
