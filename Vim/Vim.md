@@ -36,3 +36,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | . 				| Redo 								|
 | d (twice) 		| Delete the line 					|
 | d, w 				| Delete the word 					|
+| Number, i 		| Insert a number of times 			|
