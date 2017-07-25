@@ -57,3 +57,5 @@ These are a few of the more advanced things.
 `: ! ls -al ~` - it will run the command, and then we get the option to run a command.
 
 `:r ! cat /root/.bash_profile` for example will read in the profile.
+
+## Files and buffers
