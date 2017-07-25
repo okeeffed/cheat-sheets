@@ -47,3 +47,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | /<word>			| Find a word 						|
 | n/N 				| Forward search, N upwards 		|
 | ?<word>			| Search bottom up (N/n swap)		|
+| %s/ex/EX/g 		| Global ex regex 					|
