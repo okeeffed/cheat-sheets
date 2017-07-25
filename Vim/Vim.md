@@ -31,4 +31,5 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | v					| Highlight words					|
 | % 				| Go to matching bracket/quotes etc |
 | Number + command 	| Move by certain amount 			|
-|
+| r 				| Replace 							|
+
