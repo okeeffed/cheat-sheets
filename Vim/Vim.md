@@ -8,7 +8,7 @@ Installing Vim `yum install vim` of `apt-get install vim`.
 
 So we have `vi`, `vim` - the improved vi and `gvim`.
 
-## Vim modes
+## Vim modes and navigation
 
 1. Command/Normal mode
 2. Insert mode
