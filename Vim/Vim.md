@@ -11,7 +11,7 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 ## Vim modes, navigation and commands
 
 1. Command/Normal mode
-2. Insert mode
+2. Insert/Ex mode
 
 | Key 				| What it does 						|
 | ---				| ---								|
@@ -31,4 +31,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | v					| Highlight words					|
 | % 				| Go to matching bracket/quotes etc |
 | Number + command 	| Move by certain amount 			|
-
+|
