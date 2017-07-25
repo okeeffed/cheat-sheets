@@ -60,4 +60,4 @@ These are a few of the more advanced things.
 
 ## Files and buffers
 
-
+`:saveas <name|path>`
