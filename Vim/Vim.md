@@ -42,4 +42,5 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | Number, x 		| Delete certain number of keys 	|
 | y, move to new spot, p | Yank the link, then paste 	|
 | v, then y 		| Mark mode and yank 				|
-
+| >>				| Indent forward 						|
+| << 				| Indent back 						|
