@@ -38,3 +38,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | d, w 				| Delete the word 					|
 | Number, i 		| Insert a number of times 			|
 | Number, r 		| Replace a number of chars 		|
+| Number, x 		| Delete certain number of keys 	|
