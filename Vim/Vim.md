@@ -54,4 +54,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 
 These are a few of the more advanced things.
 
-`: ! ls -al ~`
+`: ! ls -al ~` - it will run the command, and then we get the option to run a command.
