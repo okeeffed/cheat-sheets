@@ -44,3 +44,6 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | v, then y 		| Mark mode and yank 				|
 | >>				| Indent forward 					|
 | << 				| Indent back 						|
+| /<word>			| Find a word 						|
+| n/N 				| Forward search, N upwards 		|
+| ?<word>			| Search bottom up (N/n swap)		|
