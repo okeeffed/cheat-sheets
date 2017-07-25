@@ -30,7 +30,7 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | $ 				| Go to end 						|
 | v					| Highlight words					|
 | % 				| Go to matching bracket/quotes etc |
-| Number + command 	| Move by certain amount 			|
+| Number, command 	| Move by certain amount 			|
 | r 				| Replace 							|
 | u 				| Undo 								|
 | . 				| Redo 								|
@@ -39,3 +39,4 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | Number, i 		| Insert a number of times 			|
 | Number, r 		| Replace a number of chars 		|
 | Number, x 		| Delete certain number of keys 	|
+|
