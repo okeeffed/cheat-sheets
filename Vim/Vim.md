@@ -12,5 +12,5 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 
 | Key 		| What it does 		|
 | ---		| ---				|
-| X			| Delete character 	|
+| x			| Delete character 	|
 |
