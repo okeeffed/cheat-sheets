@@ -10,10 +10,13 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 
 ## Vim modes
 
+1. Command/Normal mode
+2. Insert mode
+
 | Key 		| What it does 				|
 | ---		| ---						|
 | x			| Delete character 			|
 | :q! 		| Quit and omit changes 	|
 | :wq		| Write and quit	 		|
-
+|
 
