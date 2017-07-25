@@ -50,4 +50,6 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | %s/ex/EX/g 		| Global ex regex 					|
 | #s/ex/EX/gc 		| Confirm value swapping 			|
 
+## Executing external commands
 
+These are a few of the more advanced things
