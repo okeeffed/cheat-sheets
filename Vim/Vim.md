@@ -19,5 +19,5 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | :q! 		| Quit and omit changes 	|
 | :wq		| Write and quit	 		|
 | : 		| "File mode" 				|
-|			| 							|
+| 			| 							|
 
