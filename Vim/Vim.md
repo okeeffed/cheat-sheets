@@ -23,3 +23,9 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | j 		| Down 						|
 | k 		| Up 						|
 | l			| Right 					|
+| w 		| Word forward 				|
+| e 		| Word forward last char 	|
+| b 		| Back word 				|
+| 0 		| Go to start 				|
+| $ 		| Go to end 				|
+| v			| Highlight words			|
