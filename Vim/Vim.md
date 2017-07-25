@@ -32,4 +32,5 @@ So we have `vi`, `vim` - the improved vi and `gvim`.
 | % 				| Go to matching bracket/quotes etc |
 | Number + command 	| Move by certain amount 			|
 | r 				| Replace 							|
+| u 				| Undo 								|
 
