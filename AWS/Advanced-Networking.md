@@ -112,4 +112,9 @@ To verify authenticity you have the following options:
 	- Transport Mode: Encapsultes the payload of a packet. Used for most client to server relationships.
 	- Tunnel Mode: Encapsulates the entire IP packet. Used for most VPNs.
 
+### IPsec Process
+
+1. IKE Phase 1
+	- Endpoints use ISAKMP (Internet Security Association and Key Management Protocol) to authenticate and negotiate the keys. This creates an encrypted tunnel used by Phase 2 for negotiating the ESP security associations.
+
 
