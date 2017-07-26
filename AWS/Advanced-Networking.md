@@ -179,6 +179,6 @@ BGP uses "Keep-Alive" signals and a configuratble timer to detect if a peer is d
 
 ### BGP - AS_Path Prepending
 
-
+- AS_Path Prepending: is how BGP routers can see full routes to other ASes. Each router prepends its ASN to the beginning of the list. This allows the router to see the most efficient route to its destination.
 
 
