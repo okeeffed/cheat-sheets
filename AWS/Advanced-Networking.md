@@ -96,6 +96,7 @@ To verify authenticity you have the following options:
 3. L2TP
 	- Layer 2 transfer protocol.
 	- Created by Microsoft and Cisco to combine LTP and PPTP to create a more secure protocol using IPSec.
-
-
+4. IKEv2
+	- Internet Key Exchange version 2
+	- Used with IPSec and was created by Microsoft and Cisco to be faster than L2TP.
 
