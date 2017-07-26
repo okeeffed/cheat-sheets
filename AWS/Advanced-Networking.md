@@ -23,3 +23,4 @@ Public-Key encryption (or asymmetric key encryption).
 
 ## VPN Fundamentals
 
+What is a VPN?
