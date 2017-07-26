@@ -135,5 +135,13 @@ The nodes must agree on the following:
 
 ## Intro the BGP
 
+### Terms
+
+- AS (Autonomous System): is a network or collection of network controlled by a single entity. Such as a corporation or university. An AS has its own routing table.
+- AS Number: Provided by IANA to identify individual ASes.
+- BGP (Border Gateway Protocol): A routing protocol used to route between multiple Autonomous Systems.
+- EGP (Exterior Gateway Protocol): BGP is an example of an EGP. EGPs are used to route between organization/networks or Autonomous Systems.
+- IGP (Interior Gateway Protocol): A routing protocol used within an Autonomous System. RIP, EIGRP, IS-IS and OSPF are examples.
+- Multihoming: Having two separate ISPs for a network. Typically used for failover, redundacy or bandwidth.
 
 
