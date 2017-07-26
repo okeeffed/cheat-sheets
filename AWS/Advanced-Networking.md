@@ -168,5 +168,5 @@ BGP uses "Keep-Alive" signals and a configuratble timer to detect if a peer is d
 
 - "Bidirectional Forwarding Detection". A UDP protocol used with BGP to assist in detecting link failures at a much faster rate than the native BGP failure detection.
 - BFD works with any routing protocol, not just BGP.
-- BFD must be explicitly enabled to work property.
+- BFD must be explicitly enabled to work properly.
 
