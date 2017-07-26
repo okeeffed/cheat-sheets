@@ -152,3 +152,5 @@ How the `entire` internet communicates. We'e all used it. BGP is the only protoc
 - eBGP is for external communication between ASes.
 - iBGP allows communication from within an AS.
 - Most internal routing is done via IGPs such as OSPF, but iBGP can be used if very large routing tables must be transferred between border routers.
+
+
