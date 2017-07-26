@@ -102,4 +102,6 @@ To verify authenticity you have the following options:
 5. SSL VPN
 	- Can be initiated through a web browser.
 	- An SSL VPN does not require VPN client software.
+6. OpenVPN
+	- Uses OpenSSL library. Open source and frequenctly updated.
 
