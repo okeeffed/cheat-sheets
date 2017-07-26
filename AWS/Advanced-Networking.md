@@ -93,4 +93,7 @@ To verify authenticity you have the following options:
 	- Point-to-point tunnel protocol.
 	- Establishes GRE tunnel. Then uses PPP to encrypt and authenticate the traffic.
 	- Uses simple password auth.
+3. L2TP
+	- Layer 2 transfer protocol
+	- Created by Microsoft and Cisco to combine LTP and PPTP to create a more secure protocol using IPSec.
 
