@@ -26,3 +26,8 @@ Public-Key encryption (or asymmetric key encryption).
 What is a VPN?
 
 Virtual Private Network that exists to allow traffic to move securely and confidentially.
+
+There are two primary types:
+
+1. Site-to-site: Two or more sites are connected without any software on the client machines
+2. Client-to-site
