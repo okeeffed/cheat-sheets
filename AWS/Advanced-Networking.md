@@ -101,5 +101,5 @@ To verify authenticity you have the following options:
 	- Used with IPSec and was created by Microsoft and Cisco to be faster than L2TP.
 5. SSL VPN
 	- Can be initiated through a web browser.
-
+	- An SSL VPN does not require VPN client software.
 
