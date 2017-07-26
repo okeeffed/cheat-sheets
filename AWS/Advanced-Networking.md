@@ -116,5 +116,6 @@ To verify authenticity you have the following options:
 
 1. IKE Phase 1
 	- Endpoints use ISAKMP (Internet Security Association and Key Management Protocol) to authenticate and negotiate the keys. This creates an encrypted tunnel used by Phase 2 for negotiating the ESP security associations.
+	- Uses an auth Diffie-Hellman exchange to match the PSKs.
 
 
