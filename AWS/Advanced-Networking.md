@@ -99,5 +99,6 @@ To verify authenticity you have the following options:
 4. IKEv2
 	- Internet Key Exchange version 2
 	- Used with IPSec and was created by Microsoft and Cisco to be faster than L2TP.
-
+5. SSL VPN
+	- Can be initiated through a web browser.
 
