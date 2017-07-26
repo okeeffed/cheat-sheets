@@ -24,3 +24,5 @@ Public-Key encryption (or asymmetric key encryption).
 ## VPN Fundamentals
 
 What is a VPN?
+
+Virtual Private Network that exists to allow traffic to move securely and confidentially.
