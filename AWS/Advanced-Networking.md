@@ -106,5 +106,5 @@ To verify authenticity you have the following options:
 	- Uses OpenSSL library. Open source and frequenctly updated.
 	- Commonly considered the most secure VPN protocol.
 7. IPsec
-	-
+	- SA: Security association that describes the security features of an IPsec connection.
 
