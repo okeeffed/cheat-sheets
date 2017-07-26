@@ -92,4 +92,5 @@ To verify authenticity you have the following options:
 2. PPTP
 	- Point-to-point tunnel protocol.
 	- Establishes GRE tunnel. Then uses PPP to encrypt and authenticate the traffic.
+	- Uses simple password auth.
 
