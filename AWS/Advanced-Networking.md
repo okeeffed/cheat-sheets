@@ -105,4 +105,6 @@ To verify authenticity you have the following options:
 6. OpenVPN
 	- Uses OpenSSL library. Open source and frequenctly updated.
 	- Commonly considered the most secure VPN protocol.
+7. IPsec
+	-
 
