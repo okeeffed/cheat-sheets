@@ -153,4 +153,6 @@ How the `entire` internet communicates. We'e all used it. BGP is the only protoc
 - iBGP allows communication from within an AS.
 - Most internal routing is done via IGPs such as OSPF, but iBGP can be used if very large routing tables must be transferred between border routers.
 
+### BGP Requirements
 
+- ASN: You will need an ASN. You can request an ASN fro ARIN or your country's regional provider.
