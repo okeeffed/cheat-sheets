@@ -173,4 +173,6 @@ BGP uses "Keep-Alive" signals and a configuratble timer to detect if a peer is d
 ### BGP - Multi-Exit Discriminator
 - Allows the border router of an AS to tell neight ASes on which link it prefers to receive traffic.
 - A low MED value is a higher preference and higher MED value is a lower preference.
+- If there is a certain route that it wants to take eg. optic fibre, it wil take the preferred route.
+
 
