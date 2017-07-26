@@ -162,4 +162,4 @@ How the `entire` internet communicates. We'e all used it. BGP is the only protoc
 
 ### BGP - Operation and Keep-Alive
 
-
+BGP uses "Keep-Alive" signals and a configuratble timer to detect if a peer is down. If a peer goes down, it will remove the dead peer's route from its advertisements.
