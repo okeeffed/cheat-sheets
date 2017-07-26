@@ -50,3 +50,4 @@ There are two primary types:
 
 3. PFS (Perfect Forward Secrecy)
 	- Means that the compromise of session does not endanger others. New keys are created for every session.
+
