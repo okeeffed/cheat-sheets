@@ -40,3 +40,4 @@ There are two primary types:
 ### Auth Key Exchange
 
 1. RSA: Asymmetric. Used primarily in key exchange in other protocols, such as SSL. RSA is used to encrypt an AES key exchange.
+2. 2048 bit encryption or higher is considered secure as 1024 has been theorized to be cracked by NSA.
