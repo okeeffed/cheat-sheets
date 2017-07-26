@@ -147,3 +147,4 @@ The nodes must agree on the following:
 
 ### About
 
+How the `entire` internet communicates.
