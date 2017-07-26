@@ -119,6 +119,9 @@ To verify authenticity you have the following options:
 	- Uses an auth Diffie-Hellman exchange to match the PSKs.
 	- Main Mode: Most secure. Provides complete security of the key exchange.
 	- Aggressive Mode: Uses half the exchanges in the key exchange process, but transmits some information in cleartext.
+2. IKE Phase 2
+	- The endpoints use the tunnel created in Phase 1 to negotiate ESP SAs. The ESP SAs encrypt the actual user data.
+	- After phase 2, the tunnel is created.
 
 ### IKE Key Exchange
 
