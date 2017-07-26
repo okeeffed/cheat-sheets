@@ -104,4 +104,5 @@ To verify authenticity you have the following options:
 	- An SSL VPN does not require VPN client software.
 6. OpenVPN
 	- Uses OpenSSL library. Open source and frequenctly updated.
+	- Commonly considered the most secure VPN protocol.
 
