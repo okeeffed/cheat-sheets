@@ -165,3 +165,5 @@ How the `entire` internet communicates. We'e all used it. BGP is the only protoc
 BGP uses "Keep-Alive" signals and a configuratble timer to detect if a peer is down. If a peer goes down, it will remove the dead peer's route from its advertisements. AS routers continually talk back to each other.
 
 ### BFD - Bidirectional Forwarding Detection
+
+A UDP protocol used with BGP to assist in detecting link failures at a much faster rate than the native BGP failure detection.
