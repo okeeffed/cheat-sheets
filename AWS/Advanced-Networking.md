@@ -148,3 +148,5 @@ The nodes must agree on the following:
 ### About
 
 How the `entire` internet communicates. We'e all used it. BGP is the only protocol that operates outside of an AS.
+
+- eBGP is for external communication between ASes.
