@@ -109,6 +109,6 @@ To verify authenticity you have the following options:
 	- SA: Security association that describes the security features of an IPsec connection.
 	- AH: Auth header. Guarantees connectionless integrity and data origin of IP packets Auths entire packet, with the exception of mutable fields such as DSCP/ToS. Does not encrypt the payload.
 	- ESP: The Encapsulating Security Payload provides encryption and authentication. But only authenticates contents of the packet.
-
+	- Transport Mode: Encapsultes the payload of a packet. Used for most client to server relationships.
 
 
