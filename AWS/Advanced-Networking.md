@@ -82,3 +82,4 @@ To verify authenticity you have the following options:
 	- Symmetric key algorithm.
 	- Uses 128, 192 or 256 bit encryption.
 	- Widely regarded as the de-facto standard for message encryption.
+	- Probably what is used in many instances.
