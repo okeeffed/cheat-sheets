@@ -120,4 +120,6 @@ To verify authenticity you have the following options:
 	- Main Mode: Most secure. Provides complete security of the key exchange.
 	- Aggressive Mode: Uses half the exchanges in the key exchange process, but transmits some information in cleartext.
 
+### IKE Key Exchange
+
 
