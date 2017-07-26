@@ -83,3 +83,9 @@ To verify authenticity you have the following options:
 	- Uses 128, 192 or 256 bit encryption.
 	- Widely regarded as the de-facto standard for message encryption.
 	- Probably what is used in many instances.
+
+### VPN Protocols
+
+1. PPP
+	- Point-to-point protocol used to encrypt traffic within a tunnel.
+	- PPP is Layer 2 protocol.
