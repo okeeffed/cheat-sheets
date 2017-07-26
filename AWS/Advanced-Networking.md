@@ -117,7 +117,7 @@ To verify authenticity you have the following options:
 1. IKE Phase 1
 	- Endpoints use ISAKMP (Internet Security Association and Key Management Protocol) to authenticate and negotiate the keys. This creates an encrypted tunnel used by Phase 2 for negotiating the ESP security associations.
 	- Uses an auth Diffie-Hellman exchange to match the PSKs.
-	- Main Mode: Most secure.
+	- Main Mode: Most secure. Provides complete security of the key exchange.
 	- Aggressive Mode: Uses half the exchanges in the key exchange process, but transmits some information in cleartext.
 
 
