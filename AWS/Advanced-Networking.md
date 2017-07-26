@@ -51,3 +51,11 @@ There are two primary types:
 3. PFS (Perfect Forward Secrecy)
 	- Means that the compromise of session does not endanger others. New keys are created for every session.
 
+### Message intergrity
+
+If intercepted, the message could be modified.
+
+To verify authenticity you have the following options:
+
+1. MD5 (Message Digest)
+	- MD5 is broken, don't use for production environments.
