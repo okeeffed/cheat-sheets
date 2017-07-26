@@ -147,4 +147,4 @@ The nodes must agree on the following:
 
 ### About
 
-How the `entire` internet communicates.
+How the `entire` internet communicates. We'e all used it.
