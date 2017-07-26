@@ -29,5 +29,5 @@ Virtual Private Network that exists to allow traffic to move securely and confid
 
 There are two primary types:
 
-1. Site-to-site: Two or more sites are connected without any software on the client machines
+1. Site-to-site: Two or more sites are connected without any software on the client machines. MPLS can be used to create this.
 2. Client-to-site
