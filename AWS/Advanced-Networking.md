@@ -31,3 +31,8 @@ There are two primary types:
 
 1. Site-to-site: Two or more sites are connected without any software on the client machines. MPLS can be used to create this.
 2. Client-to-site: Client has software installed that allows it to communicate with the site. Typically used for remote workers.
+
+### Keys
+
+1. Symmetric-key encryption: All parties share the same key to encrypt and decrypt a message.
+2. Public-key encrytion (asymmetric): Each party has a public-private key pair. One computer uses its private key to encrypt a message and the other uses its public key to decrypt.
