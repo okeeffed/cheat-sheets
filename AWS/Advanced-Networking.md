@@ -170,4 +170,6 @@ BGP uses "Keep-Alive" signals and a configuratble timer to detect if a peer is d
 - BFD works with any routing protocol, not just BGP.
 - BFD must be explicitly enabled to work properly.
 
+### BGP - Multi-Exit Discriminator
+
 
