@@ -63,3 +63,13 @@ To verify authenticity you have the following options:
 	- SHA-1: 160-bit hash similar to MD5. Also considered insecure.
 	- SHA-2: SHA-2 includes SHA-256 and SHA-512.
 	- SHA-3: SHA-3 is the only member of the SHA family not created by the NSA.
+
+### Confidentiality
+
+1. Triple DES (3DES)
+	- Three symmetric keys with 56 bits each.
+	- Slowly being phased out in favour of stronger encrytion keys.
+2. Blowfish
+	- Fast algorithm.
+	- Secure.
+	- Blocks of 64 bits encrypted individually.
