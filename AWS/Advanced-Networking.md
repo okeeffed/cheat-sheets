@@ -59,4 +59,7 @@ To verify authenticity you have the following options:
 
 1. MD5 (Message Digest)
 	- MD5 is broken, don't use for production environments.
-
+2. SHA (Secure Hash Algorithm)
+	- SHA-1: 160-bit hash similar to MD5. Also considered insecure.
+	- SHA-2: SHA-2 includes SHA-256 and SHA-512.
+	- SHA-3: SHA-3 is the only member of the SHA family not created by the NSA.
