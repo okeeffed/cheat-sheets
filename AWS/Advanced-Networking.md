@@ -73,3 +73,12 @@ To verify authenticity you have the following options:
 	- Fast algorithm.
 	- Secure.
 	- Blocks of 64 bits encrypted individually.
+3. Twofish
+	- Successor to Blowfish
+	- Up to 256 bit in length
+	- One of the faster algorithms
+4. AES
+	- Standard for US Gov and many other organizations.
+	- Symmetric key algorithm.
+	- Uses 128, 192 or 256 bit encryption.
+	- Widely regarded as the de-facto standard for message encryption.
