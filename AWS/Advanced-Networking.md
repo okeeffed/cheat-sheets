@@ -159,3 +159,7 @@ How the `entire` internet communicates. We'e all used it. BGP is the only protoc
 - You must have a multi-homed network or prove intention to obtain one.
 - BGP4 capable router with sufficient hardware specs.
 - Fully function IGP.
+
+### BGP - Operation and Keep-Alive
+
+
