@@ -107,4 +107,5 @@ To verify authenticity you have the following options:
 	- Commonly considered the most secure VPN protocol.
 7. IPsec
 	- SA: Security association that describes the security features of an IPsec connection.
+	- AH: Auth header. Guarantees connectionless integrity and data origin of IP packets Auths entire packet, with the exception of mutable fields such as DSCP/ToS. Does not encrypt the payload.
 
