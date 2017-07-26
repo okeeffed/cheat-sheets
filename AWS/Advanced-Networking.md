@@ -126,6 +126,5 @@ The nodes must agree on the following:
 
 1. The encryption algorithm. AES is an example.
 2. The bit-strength of the encryption key. This is commonly a Diffie-Hellman group.
-
-
+3. The authentication method. Typically an RSA digital signature.
 
