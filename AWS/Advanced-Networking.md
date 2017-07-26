@@ -156,4 +156,4 @@ How the `entire` internet communicates. We'e all used it. BGP is the only protoc
 ### BGP Requirements
 
 - ASN: You will need an ASN. You can request an ASN fro ARIN or your country's regional provider.
-
+- You must have a multi-homed network or prove intention to obtain one.
