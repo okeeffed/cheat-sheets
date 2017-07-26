@@ -59,3 +59,4 @@ To verify authenticity you have the following options:
 
 1. MD5 (Message Digest)
 	- MD5 is broken, don't use for production environments.
+
