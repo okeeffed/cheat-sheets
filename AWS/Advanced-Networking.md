@@ -37,3 +37,6 @@ There are two primary types:
 1. Symmetric-key encryption: All parties share the same key to encrypt and decrypt a message.
 2. Public-key encrytion (asymmetric): Each party has a public-private key pair. One computer uses its private key to encrypt a message and the other uses its public key to decrypt.
 
+### Auth Key Exchange
+
+1. RSA: Asymmetric. Used primarily in key exchange in other protocols, such as SSL. RSA is used to encrypt an AES key exchange.
