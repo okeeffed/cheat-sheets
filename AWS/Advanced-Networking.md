@@ -122,4 +122,8 @@ To verify authenticity you have the following options:
 
 ### IKE Key Exchange
 
+The nodes must agree on the following:
+
+1. The encryption algorithm. AES is an example.
+2. The bit-strength of the encryption key. This is commonly a Diffie-Hellman group.
 
