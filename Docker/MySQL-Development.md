@@ -2,7 +2,7 @@
 
 Firstly, pull `docker pull mysql/mysql-server`.
 
-Then `docker run --name sql-test -e MYSQL_ROOT_PASSWORD=password -p 6000:3306 -d mysql/mysql-server:latest`.
+Then `docker run --name sql-test -e MYSQL_ROOT_PASSWORD=password -p 6000:3306 -d mysql/mysql-server:latest`. If there a replacement or commited image, run that instead.
 
 ## Updating the local Docker MySQL instance
 
