@@ -10,4 +10,4 @@ If you are running it on a network, first create the network `docker network cre
 
 ## Updating the local Docker MySQL instance
 
-Log into the container and first log into `mysql` using `mysql -u root -p`. This will prompt you for that password we created, so now type that in and enter the command line terminal. First, run `INSERT INTO mysql.user (host, user) VALUES ('%', 'root');` Run `GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;`.
+Log into the container and first log into `mysql` using `mysql -u root -p`. This will prompt you for that password we created, so now type that in and enter the command line terminal. First, run `CREATE USER 'admin'@'%' IDENTIFIED BY 'password'` Run `GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;`.
