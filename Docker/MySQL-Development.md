@@ -8,6 +8,8 @@ If you are running it on a network, first create the network `docker network cre
 
 `docker run --name sql-test -e MYSQL_ROOT_PASSWORD=password -p 6000:3306 --net dev-env -d mysql/mysql-server:latest`.
 
+Linking `docker run -d -name app-container-name --link mysql-container-name app-image-name`.
+
 ## Updating the local Docker MySQL instance
 
 Log into the container and first log into `mysql` using `mysql -u root -p`. This will prompt you for that password we created, so now type that in and enter the command line terminal. First, run `CREATE USER 'admin'@'%' IDENTIFIED BY 'password';` Run `GRANT ALL PRIVILEGES ON *.* TO 'admin'@'%' WITH GRANT OPTION;`. Finally, run `FLUSH PRIVILEGES;`.
