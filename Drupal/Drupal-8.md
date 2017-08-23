@@ -18,3 +18,5 @@ Using `Content > Add content` to get a list of content that we can add.
 If we create a page `About` and change the settings on the right hand side, we can also begin to add tables for quick access.
 
 ## Publishing Options - Published, Promoted, URL
+
+If we create an article without the default settings, we can then use `saved as unpublished` from the save and publish dropdon.
