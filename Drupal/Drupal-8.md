@@ -56,3 +56,5 @@ From `Structure > Content Type` you can select the `Manage fields` dropdown to e
 As we update the field names, we can see the `machine name` on the left updating - this is important for the database itself.
 
 The next step is asking for global settings themselves.
+
+Next, we can add help text, add `required` and a default value.
