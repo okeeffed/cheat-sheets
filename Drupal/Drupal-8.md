@@ -40,3 +40,6 @@ Extra configuration may be available from the accordian dropdown.
 You can also manage permissions from the `people` section. If you have modules installed, you can see from the accordian dropdown what is required for it to work.
 
 If modules themselves are enabled, they may become directly available on the `content` menu.
+
+### Finding modules
+
