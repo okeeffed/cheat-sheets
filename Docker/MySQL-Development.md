@@ -2,4 +2,4 @@
 
 Firstly, pull `docker pull mysql/mysql-server`.
 
-## Updating
+## Updating the local Docker MySQL instance
