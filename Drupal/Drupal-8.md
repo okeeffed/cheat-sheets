@@ -21,3 +21,4 @@ If we create a page `About` and change the settings on the right hand side, we c
 
 If we create an article without the default settings, we can then use `saved as unpublished` from the save and publish dropdown. If content is not published, you'll be redirected to a login from a private browser and not allowed to use.
 
+On the right-hand side options, we can also edit things out of the box such as comments, the url path, author info, promotion options as well as the previously explored comment settings.
