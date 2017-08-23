@@ -49,4 +49,4 @@ We can search drupal.org and search for modules.
 
 ### Updating an existing content type
 
-What happens if we want to add a field for articles if we want to add photo credit?
+What happens if we want to add a field for articles if we want to add photo credit? If you are building a site for someone else, take them into account.
