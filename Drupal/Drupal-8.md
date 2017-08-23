@@ -34,3 +34,5 @@ Two types: `core` and `contributed`. Contributed is given back from the communit
 Under the `manage > extend` tab, you can manage the modules. Selecting them on or off and seeing more information is available from here.
 
 Extra configuration may be available from the accordian dropdown.
+
+### Forum module
