@@ -51,4 +51,4 @@ We can search drupal.org and search for modules.
 
 What happens if we want to add a field for articles if we want to add photo credit? If you are building a site for someone else, take them into account.
 
-From `Structure > Content Type` you can select the `Manage fields` dropdown to edit existing types.
+From `Structure > Content Type` you can select the `Manage fields` dropdown to edit existing types and what we can easily view.
