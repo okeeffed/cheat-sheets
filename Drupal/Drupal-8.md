@@ -11,3 +11,4 @@ You also need to run `composer install` from your sites root directory.
 
 # Basics of Content Creation
 
+What we deal with out-of-the-box.
