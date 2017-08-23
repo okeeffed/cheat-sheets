@@ -8,3 +8,4 @@ Download Drupal: https://www.drupal.org/download
 
 Go to `localhost/YOUR_DIRECTORY/DRUPAL-CONTENT/` and follow the prompts
 You also need to run `composer install` from your sites root directory.
+
