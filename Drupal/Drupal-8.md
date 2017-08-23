@@ -11,4 +11,4 @@ You also need to run `composer install` from your sites root directory.
 
 # Basics of Content Creation
 
-What we deal with out-of-the-box.
+What we deal with out-of-the-box. Content entry being the most important.
