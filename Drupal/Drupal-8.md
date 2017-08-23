@@ -48,3 +48,5 @@ We can search drupal.org and search for modules.
 ## 9. Creating a site - Content Types
 
 ### Updating an existing content type
+
+What happens if we want to add a field for articles if we want to add photo credit?
