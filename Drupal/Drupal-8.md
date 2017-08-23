@@ -47,4 +47,3 @@ We can search drupal.org and search for modules.
 
 ## 9. Creating a site - Content Types
 
-How do we create content types?
