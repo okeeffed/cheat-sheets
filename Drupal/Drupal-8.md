@@ -14,3 +14,5 @@ You also need to run `composer install` from your sites root directory.
 What we deal with out-of-the-box. Content entry being the most important.
 
 Using `Content > Add content` to get a list of content that we can add.
+
+If we create a page `About` and change the settings on the right hand side, we can also begin to add tables for quick access.
