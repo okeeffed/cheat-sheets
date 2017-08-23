@@ -23,4 +23,7 @@ If we create an article without the default settings, we can then use `saved as 
 
 On the right-hand side options, we can also edit things out of the box such as comments, the url path, author info, promotion options as well as the previously explored comment settings. Promotion options also allow you to deal with `sticky-at-top-of-list`.
 
+## 5. Simple Site - Content
+
 ## 8. Extending Drupal
+
