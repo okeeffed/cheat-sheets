@@ -30,3 +30,5 @@ On the right-hand side options, we can also edit things out of the box such as c
 ### Core Modules
 
 Two types: `core` and `contributed`. Contributed is given back from the community. It's not maintained by the community.
+
+Under the `manage > extend` tab, you can managed the modules.
