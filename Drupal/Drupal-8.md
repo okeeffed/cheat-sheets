@@ -43,3 +43,4 @@ If modules themselves are enabled, they may become directly available on the `co
 
 ### Finding modules
 
+We can search drupal.org and search for modules.
