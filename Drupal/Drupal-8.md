@@ -19,4 +19,4 @@ If we create a page `About` and change the settings on the right hand side, we c
 
 ## Publishing Options - Published, Promoted, URL
 
-If we create an article without the default settings, we can then use `saved as unpublished` from the save and publish dropdon.
+If we create an article without the default settings, we can then use `saved as unpublished` from the save and publish dropdown.
