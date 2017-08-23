@@ -64,3 +64,5 @@ Next, we can add help text, add `required` and a default value.
 From `Structure > Content Type`, we can change the display.
 
 ### Create a new content type - Event
+
+
