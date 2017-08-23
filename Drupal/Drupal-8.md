@@ -60,3 +60,5 @@ The next step is asking for global settings themselves.
 Next, we can add help text, add `required` and a default value.
 
 ### Changing how the content type displays
+
+
