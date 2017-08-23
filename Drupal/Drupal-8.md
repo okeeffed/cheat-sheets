@@ -27,3 +27,4 @@ On the right-hand side options, we can also edit things out of the box such as c
 
 ## 8. Extending Drupal
 
+### Core Modules
