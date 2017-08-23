@@ -54,3 +54,5 @@ What happens if we want to add a field for articles if we want to add photo cred
 From `Structure > Content Type` you can select the `Manage fields` dropdown to edit existing types and what we can easily view. To add something such as a new field, we need to `manage fields`.
 
 As we update the field names, we can see the `machine name` on the left updating - this is important for the database itself.
+
+The next step is asking for global settings themselves.
