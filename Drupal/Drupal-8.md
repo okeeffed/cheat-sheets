@@ -36,3 +36,5 @@ Under the `manage > extend` tab, you can manage the modules. Selecting them on o
 Extra configuration may be available from the accordian dropdown.
 
 ### Forum module
+
+You can also manage permissions from the `people` section.
