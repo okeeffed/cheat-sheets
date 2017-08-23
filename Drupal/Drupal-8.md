@@ -61,4 +61,4 @@ Next, we can add help text, add `required` and a default value.
 
 ### Changing how the content type displays
 
-
+From `Structure > Content Type`, we can change the display.
