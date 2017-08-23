@@ -1,0 +1,8 @@
+{
+	"source": ".",
+	"destination": "./doc",
+	"manual": {
+		"design": ["./Design-Systems/Design-Systems.md"]
+	},
+	"excludes": ["\\.(js)$"]
+}
