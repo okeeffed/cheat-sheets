@@ -9,10 +9,12 @@ Download Drupal: https://www.drupal.org/download
 Go to `localhost/YOUR_DIRECTORY/DRUPAL-CONTENT/` and follow the prompts
 You also need to run `composer install` from your sites root directory.
 
-# Basics of Content Creation
+## Basics of Content Creation
 
 What we deal with out-of-the-box. Content entry being the most important.
 
 Using `Content > Add content` to get a list of content that we can add.
 
 If we create a page `About` and change the settings on the right hand side, we can also begin to add tables for quick access.
+
+## Publishing Options - Published, Promoted, URL
