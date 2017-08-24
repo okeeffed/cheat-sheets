@@ -17,3 +17,101 @@ Using `composer`, you can build out a scaffold using the Slim Framework:
 `composer create-project slim/slim-skeleton [project-name]`.
 
 To install the PHP PassKit helper, run `composer require pkpass/pkpass`.
+
+Once built, you can then hit the routes and just require the pkpass and the routes file may end up looking like this:
+
+```
+<?php
+// Routes
+use PKPass\PKPass;
+
+$app->get('/', function ($request, $response, $args) {
+    // Sample log message
+    $this->logger->info("Slim-Skeleton '/' route");
+
+    // Render index view
+    return $this->renderer->render($response, 'sample.phtml', $args);
+});
+
+$app->get('/pass', function ($request, $response, $args) {
+    // Sample log message
+    $this->logger->info("Slim-Skeleton '/pass' route");
+
+    $pass = new PKPass('<name>.p12', '<insert-password>');
+
+	// Pass content
+	$data = [
+	    'description' => 'Demo pass',
+	    'formatVersion' => 1,
+	    'organizationName' => 'Flight Express',
+	    'passTypeIdentifier' => 'pass.com.<teamname>.<passname>', // Change this!
+	    'serialNumber' => '12345678',
+	    'teamIdentifier' => '<insert-team-id>', // Change this! Found on Apple Dev Portal
+	    'boardingPass' => [
+	        'primaryFields' => [
+	            [
+	                'key' => 'origin',
+	                'label' => 'San Francisco',
+	                'value' => 'SFO',
+	            ],
+	            [
+	                'key' => 'destination',
+	                'label' => 'London',
+	                'value' => 'LHR',
+	            ],
+	        ],
+	        'secondaryFields' => [
+	            [
+	                'key' => 'gate',
+	                'label' => 'Gate',
+	                'value' => 'F12',
+	            ],
+	            [
+	                'key' => 'date',
+	                'label' => 'Departure date',
+	                'value' => '07/11/2012 10:22',
+	            ],
+	        ],
+	        'backFields' => [
+	            [
+	                'key' => 'passenger-name',
+	                'label' => 'Passenger',
+	                'value' => 'John Appleseed',
+	            ],
+	        ],
+	        'transitType' => 'PKTransitTypeAir',
+	    ],
+	    'barcode' => [
+	        'format' => 'PKBarcodeFormatQR',
+	        'message' => 'Flight-GateF12-ID6643679AH7B',
+	        'messageEncoding' => 'iso-8859-1',
+	    ],
+	    'backgroundColor' => 'rgb(32,110,247)',
+	    'logoText' => 'Flight info',
+	    'relevantDate' => date('Y-m-d\TH:i:sP')
+	];
+
+	$pass->setWWDRcertPath('public/wwdr.pem');
+	$pass->setData($data);
+
+	// Add files to the pass package
+	$pass->addFile('public/icon.png');
+	$pass->addFile('public/icon@2x.png');
+	$pass->addFile('public/logo.png');
+
+	if($pass->checkError($error) == true) {
+		// echo $error;
+        // exit('An error occured: ' . $error);
+    }
+
+    // echo 'Here';
+
+	$result = $pass->create(true);
+	if($result == false) {
+	    echo $pass->getError();
+	}
+    // Render index view
+    return $result;
+});
+
+```
