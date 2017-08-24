@@ -20,7 +20,7 @@ To install the PHP PassKit helper, run `composer require pkpass/pkpass`.
 
 Once built, you can then hit the routes and just require the pkpass and the routes file may end up looking like this:
 
-```
+```php
 <?php
 // Routes
 use PKPass\PKPass;
