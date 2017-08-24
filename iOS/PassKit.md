@@ -91,7 +91,7 @@ $app->get('/pass', function ($request, $response, $args) {
 	    'relevantDate' => date('Y-m-d\TH:i:sP')
 	];
 
-	$pass->setWWDRcertPath('public/wwdr.pem');
+	$pass->setWWDRcertPath('<path to wwdr.pem>');
 	$pass->setData($data);
 
 	// Add files to the pass package
