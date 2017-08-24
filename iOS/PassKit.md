@@ -119,3 +119,5 @@ $app->get('/pass', function ($request, $response, $args) {
 If you need to generate a wwdr cert, you can globally install `passbook` eg. `node install -g passbook` and run a command like `node-passbook prepare-keys -p <folder-hosting-exported-keys>` and it can do the conversion for you. Make sure you don't forget the password, though.
 
 Some changes you may need to make are passing `POST` variables to change it for each user.
+
+If you need to change the JSON structure above, refer to https://developer.apple.com/library/content/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html for more info.
