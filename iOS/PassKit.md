@@ -115,3 +115,5 @@ $app->get('/pass', function ($request, $response, $args) {
 });
 
 ```
+
+If you need to generate a wwdr cert, you can globally install `passbook` eg. `node install -g passbook` and run a command like `node-passbook prepare-keys -p <folder-hosting-exported-keys>` and it can do the conversion for you. Make sure you don't forget the password, though.
