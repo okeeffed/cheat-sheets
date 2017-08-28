@@ -10,9 +10,8 @@ type: module
 core: 8.x
 
 # if there are requirements
-name: Hello World
-description: A silly example module
-
-type: module
-core: 8.x
+dependencies:
+  - node
+  - rest
+  - system (>=8.2.0)
 ```
