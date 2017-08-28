@@ -35,3 +35,9 @@ Example: themes/icecream/icecream.libraries.yml
 Defines the responsive design breakpoints used by your theme for Drupal.
 
 Example: themes/icecream/icecream.breakpoints.yml
+
+## config/* directory
+
+Some themes may contain additional configuration for Drupal. A common example is image styles used by your theme. This optional configuration is located in files within the config/ directory.
+
+Example: themes/icecream/config/schema/icecream.schema.yml
