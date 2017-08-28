@@ -80,3 +80,7 @@ Ensure you disable the cache to enable updates on reloads/save changes.
 Regions are areas of a page into which content can be placed. Content is assigned to regions via blocks. If you think of blocks as the base elements that can be used to compose a page, then regions provide the containers within the page where an administrator can place blocks. Regions give your site layout, and your markup its structure.
 
 Regions are defined by themes. Since the theme ultimately controls the layout of a page, it must also specify the set of regions that an administrator is allowed to place content into, and how those regions are represented in the HTML markup of the page. A header region might be rendered as an HTML `<header>` and a left sidebar might be an `<aside>` or a `<div>` depending on the requirements of the theme.
+
+### Confirmation that it is working
+
+Navigate to `Structure > Block` layout (admin/structure/block) to confirm that Drupal is now using your regions.
