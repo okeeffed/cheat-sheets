@@ -41,3 +41,6 @@ Example: themes/icecream/icecream.breakpoints.yml
 Some themes may contain additional configuration for Drupal. A common example is image styles used by your theme. This optional configuration is located in files within the config/ directory.
 
 Example: themes/icecream/config/schema/icecream.schema.yml
+
+## Describing the theme
+
