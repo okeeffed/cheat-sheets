@@ -110,3 +110,15 @@ Tip: When printing regions in your template that are not guaranteed to have cont
   </aside>
 {% endif %}
 ```
+
+## Suggestions added by "hooks"
+
+Theme hook suggestions are provided by one of three hooks. Both modules and themes can add or remove suggestions from the list.
+
+```
+hook_theme_suggestions_HOOK(array $variables)
+hook_theme_suggestions_alter(array &$suggestions, array $variables, $hook)
+hook_theme_suggestions_HOOK_alter(array &$suggestions, array $variables)
+```
+
+For example, if you wanted to use a different template to display nodes for users who are logged in to your site you might add a theme hook suggestion via your theme that makes it so the template node--authenticated.html.twig is added to the list, and thus used, for all logged in users.
