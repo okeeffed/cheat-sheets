@@ -47,3 +47,15 @@ Example: themes/icecream/config/schema/icecream.schema.yml
 ### Generating an info file
 
 `drupal generate:theme` will walk you through theme setup.
+
+### Editing the file
+
+```
+# THEMENAME.info.yml file for Ice Cream example theme.
+name: Ice Cream
+type: theme
+base theme: classy
+description: 'A great theme for warm summer days.'
+package: Custom
+core: 8.x
+```
