@@ -42,5 +42,5 @@ Some themes may contain additional configuration for Drupal. A common example is
 
 Example: themes/icecream/config/schema/icecream.schema.yml
 
-## Describing the theme
+## Describing the theme with an info file
 
