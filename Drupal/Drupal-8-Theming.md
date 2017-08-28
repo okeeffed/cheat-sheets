@@ -44,3 +44,6 @@ Example: themes/icecream/config/schema/icecream.schema.yml
 
 ## Describing the theme with an info file
 
+### Generating an info file
+
+`drupal generate:theme`
