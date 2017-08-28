@@ -126,3 +126,14 @@ For example, if you wanted to use a different template to display nodes for user
 ## THEME.theme proprocessing
 
 Preprocess functions allow Drupal themes to manipulate the variables that are used in Twig template files by using PHP functions to preprocess data before it is exposed to each template. All of the dynamic content available to theme developers within a Twig template file is exposed through a preprocess function. Understanding how preprocess functions work, and the role they play, is important for both module developers and theme developers.
+
+Some examples:
+
+- template_preprocess(&$variables, $hook): Creates a default set of variables for all theme hooks with template implementations. Provided by Drupal Core.
+- template_preprocess_HOOK(&$variables): Should be implemented by the module that registers the theme hook, to set up default variables.
+- MODULE_preprocess(&$variables, $hook): hook_preprocess() is invoked on all implementing modules.
+- MODULE_preprocess_HOOK(&$variables): hook_preprocess_HOOK() is invoked on all implementing modules, so that modules that didn't define the theme hook can alter the variables.
+- ENGINE_engine_preprocess(&$variables, $hook): Allows the theme engine to set necessary variables for all theme hooks with template implementations.
+- ENGINE_engine_preprocess_HOOK(&$variables): Allows the theme engine to set necessary variables for the particular theme hook.
+- THEME_preprocess(&$variables, $hook): Allows the theme to set necessary variables for all theme hooks with template implementations.
+- THEME_preprocess_HOOK(&$variables): Allows the theme to set necessary variables specific to the particular theme hook.
