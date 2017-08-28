@@ -27,3 +27,7 @@ Twig template files provide HTML markup and very basic presentation logic. Templ
 ## THEMENAME.libraries.yml file
 
 Define CSS and JavaScript libraries that can be loaded by your theme. All CSS and JavaScript should be added to the page via an asset library.
+
+## THEMENAME.breakpoints.yml file
+
+Defines the responsive design breakpoints used by your theme for Drupal.
