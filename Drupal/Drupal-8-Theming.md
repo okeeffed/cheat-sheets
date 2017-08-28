@@ -70,3 +70,8 @@ For a complete list of keys:
 - base theme (default = Stable) The machine name of an installed theme to be used as a base theme. If no base theme is set, then the core base theme "Stable" will be used. Classy is the other base theme alternative provided in core. If no base theme should be used, enter "false" as a value for this key.
 
 See more [here](https://www.drupal.org/node/2349827)
+
+## Twig Cache
+
+Ensure you disable the cache to enable updates on reloads/save changes.
+
