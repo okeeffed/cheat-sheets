@@ -124,3 +124,5 @@ hook_theme_suggestions_HOOK_alter(array &$suggestions, array $variables)
 For example, if you wanted to use a different template to display nodes for users who are logged in to your site you might add a theme hook suggestion via your theme that makes it so the template node--authenticated.html.twig is added to the list, and thus used, for all logged in users.
 
 ## THEME.theme proprocessing
+
+Preprocess functions allow Drupal themes to manipulate the variables that are used in Twig template files by using PHP functions to preprocess data before it is exposed to each template. All of the dynamic content available to theme developers within a Twig template file is exposed through a preprocess function. Understanding how preprocess functions work, and the role they play, is important for both module developers and theme developers.
