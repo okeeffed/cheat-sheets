@@ -19,3 +19,9 @@ dependencies:
 ## Hooks
 
 `HOOK_entity_load()`
+
+Generally you can place hooks into one of three categories:
+
+1. Hooks that answer a question
+2. Hooks that alter existing data
+3. Hooks that react to an action
