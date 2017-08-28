@@ -23,3 +23,7 @@ Example: themes/icecream/icecream.theme
 templates/.html.twig files
 
 Twig template files provide HTML markup and very basic presentation logic. Template files in a theme generally follow a specific naming convention and are used to override the default markup output by Drupal. Twig template files are required to be placed within the templates/ sub-directory and may be organized into any number of sub-folders from there.
+
+## THEMENAME.libraries.yml file
+
+Define CSS and JavaScript libraries that can be loaded by your theme. All CSS and JavaScript should be added to the page via an asset library.
