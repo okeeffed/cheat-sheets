@@ -46,4 +46,4 @@ Example: themes/icecream/config/schema/icecream.schema.yml
 
 ### Generating an info file
 
-`drupal generate:theme`
+`drupal generate:theme` will walk you through theme setup.
