@@ -141,3 +141,5 @@ Some examples:
 ## Custom Twig functions
 
 If you want to look up Drupal-specific Twig functions on api.drupal.org, you will need to search for the corresponding PHP callable. You can find the corresponding method in `core/lib/Drupal/Core/Template/TwigExtension.php` inside the method: public function getFunctions().
+
+
