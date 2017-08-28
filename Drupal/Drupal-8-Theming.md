@@ -62,15 +62,10 @@ core: 8.x
 
 For a complete list of keys:
 
-name (required) The human readable name of your theme, displayed in Drupal's UI when administrators are browsing the list of available themes
-
-type (required) Tell Drupal what type of project this is. Required, and will always be set to 'theme' for a Theme.
-
-description A short one-line description used in the UI when listing your theme.
-
-package The package your theme belongs in; used for grouping projects together.
-
-core (required) The version of Drupal core that your theme is compatible with. Required; for Drupal 8 themes this will likely always just be '8.x'.
-
-base theme (default = Stable) The machine name of an installed theme to be used as a base theme. If no base theme is set, then the core base theme "Stable" will be used. Classy is the other base theme alternative provided in core. If no base theme should be used, enter "false" as a value for this key.
+- name (required) The human readable name of your theme, displayed in Drupal's UI when administrators are browsing the list of available themes
+- type (required) Tell Drupal what type of project this is. Required, and will always be set to 'theme' for a Theme.
+- description A short one-line description used in the UI when listing your theme.
+- package The package your theme belongs in; used for grouping projects together.
+- core (required) The version of Drupal core that your theme is compatible with. Required; for Drupal 8 themes this will likely always just be '8.x'.
+- base theme (default = Stable) The machine name of an installed theme to be used as a base theme. If no base theme is set, then the core base theme "Stable" will be used. Classy is the other base theme alternative provided in core. If no base theme should be used, enter "false" as a value for this key.
 
