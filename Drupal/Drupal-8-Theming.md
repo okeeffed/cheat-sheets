@@ -137,3 +137,7 @@ Some examples:
 - ENGINE_engine_preprocess_HOOK(&$variables): Allows the theme engine to set necessary variables for the particular theme hook.
 - THEME_preprocess(&$variables, $hook): Allows the theme to set necessary variables for all theme hooks with template implementations.
 - THEME_preprocess_HOOK(&$variables): Allows the theme to set necessary variables specific to the particular theme hook.
+
+## Custom Twig functions
+
+If you want to look up Drupal-specific Twig functions on api.drupal.org, you will need to search for the corresponding PHP callable. You can find the corresponding method in `core/lib/Drupal/Core/Template/TwigExtension.php` inside the method: public function getFunctions().
