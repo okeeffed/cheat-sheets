@@ -83,4 +83,4 @@ Regions are defined by themes. Since the theme ultimately controls the layout of
 
 ### Confirmation that it is working
 
-Navigate to `Structure > Block` layout (admin/structure/block) to confirm that Drupal is now using your regions.
+Navigate to `Structure > Block` layout (admin/structure/block) to confirm that Drupal is now using your regions. Region names shown in block layout UI.
