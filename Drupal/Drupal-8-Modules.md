@@ -15,3 +15,7 @@ dependencies:
   - rest
   - system (>=8.2.0)
 ```
+
+## Hooks
+
+`HOOK_entity_load()`
