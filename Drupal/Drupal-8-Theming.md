@@ -31,3 +31,5 @@ Define CSS and JavaScript libraries that can be loaded by your theme. All CSS an
 ## THEMENAME.breakpoints.yml file
 
 Defines the responsive design breakpoints used by your theme for Drupal.
+
+Example: themes/icecream/icecream.breakpoints.yml
