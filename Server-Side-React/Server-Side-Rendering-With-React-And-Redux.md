@@ -160,3 +160,7 @@ module.exports = {
 ## The build process
 
 Currently, we have a static base file. We want to watch and re-run the server on changes. This can be done with Nodemon and Webpack's `--watch` option.
+
+# What is Isomorphic Javascript?
+
+`Serverside rendering` isn't necessarily accurate. Univeral/Isomorphic JS basically means that code that is rendered serverside might also be used client side.
