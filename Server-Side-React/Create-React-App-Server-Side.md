@@ -15,7 +15,13 @@ module.exports = {
 ```
 
 3. Create a `webpack.config.server.js` file.
+4. Install `webpack-node-externals`.
 
+As described on the github:
+
+__Webpack allows you to define externals - modules that should not be bundled.__
+
+__When bundling with Webpack for the backend - you usually don't want to bundle its node_modules dependencies. This library creates an externals function that ignores node_modules when bundling in Webpack.__
 
 ```
 const path = require('path');
