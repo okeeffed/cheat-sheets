@@ -19,9 +19,9 @@ module.exports = {
 
 As described on the github:
 
-__Webpack allows you to define externals - modules that should not be bundled.__
+_Webpack allows you to define externals - modules that should not be bundled._
 
-__When bundling with Webpack for the backend - you usually don't want to bundle its node_modules dependencies. This library creates an externals function that ignores node_modules when bundling in Webpack.__
+_When bundling with Webpack for the backend - you usually don't want to bundle its node_modules dependencies. This library creates an externals function that ignores node_modules when bundling in Webpack._
 
 ```
 const path = require('path');
