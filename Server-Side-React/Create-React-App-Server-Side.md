@@ -14,9 +14,7 @@ module.exports = {
 }
 ```
 
-Ignore the file itself in the appropriate places. for the other webpack configs.
-
-Create a `webpack.config.server.js` file.
+3. Create a `webpack.config.server.js` file.
 
 
 ```
