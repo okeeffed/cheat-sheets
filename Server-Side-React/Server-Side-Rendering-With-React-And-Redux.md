@@ -123,4 +123,36 @@ server.listen(port);
 console.log('Server listening on:', port);
 ```
 
+Given a Webpack file like the following, we can bundle the .js file and then use a Node server to run and return the code:
 
+```
+const path = require('path');
+
+module.exports = {
+	// Target Nodehs
+	target: 'node',
+	// Looking for the root of server app
+	entry: './src/app.js',
+	output: {
+		filename: 'server.js',
+		path: path.resolve(__dirname, 'build')
+	},
+	// Run Babel on every file
+	module: {
+		rules: [
+			{
+				test: /\.js?$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/,
+				options: {
+					presets: [
+						'react',
+						'stage-0',
+						['env', { targets: { browsers: ['last 2 versions']}}]
+					]
+				}
+			}
+		]
+	}
+}
+```
