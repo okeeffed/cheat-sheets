@@ -170,6 +170,9 @@ module.exports = {
 }
 ```
 
+Ignore the file itself in the appropriate places.
+
+
 ```
 const path = require('path');
 const paths = require('./paths');
