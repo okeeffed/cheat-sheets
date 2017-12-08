@@ -156,3 +156,7 @@ module.exports = {
 	}
 }
 ```
+
+## The build process
+
+Currently, we have a static base file. We want to watch and re-run the server on changes. This can be done with Nodemon and Webpack.
