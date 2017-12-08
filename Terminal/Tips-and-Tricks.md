@@ -18,3 +18,13 @@ Server: AmazonS3
 
 `dig afxr gitgood.club` - gives back record data.
 
+## Load balancing
+
+`ab -n 1000 -c 50 "https://staging.aemc.prescoapps.co/"` - test Load Balance with reqs
+.
+
+## Ports
+
+`sudo lsof -i :3090` - what's using port 3090.
+
+`telnet redrooster.com.au 22` - Does the server at redrooster.com.au listen on port 22 (standard ssh port)?
