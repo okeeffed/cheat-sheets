@@ -159,6 +159,17 @@ module.exports = {
 
 If using with `create-react-app` - add the following config:
 
+```javascript
+// config/paths.js
+
+module.exports = {
+	...
+	appServer: resolveApp('server'),
+  	serverIndexJs: resolveApp('src/server.js'),
+ 	...
+}
+```
+
 ```
 const path = require('path');
 const paths = require('./paths');
