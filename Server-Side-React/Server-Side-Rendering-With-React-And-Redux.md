@@ -168,3 +168,9 @@ Currently, we have a static base file. We want to watch and re-run the server on
 
 ## Clientside JS
 
+```javascript
+<div className="home">
+	<h1>Home</h1>
+	<button onClick={() => console.log('HI!')}>Press me!</button>
+</div>
+```
