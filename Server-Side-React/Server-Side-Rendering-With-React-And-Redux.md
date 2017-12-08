@@ -17,3 +17,5 @@ Using server side React, the goal is to make one request. The impact of this mea
 5. Send back to the HTML
 
 Back on the browser side, the React application still ensure it fetches the bundle for the client-side interactivity.
+
+## Serverside Architecture
