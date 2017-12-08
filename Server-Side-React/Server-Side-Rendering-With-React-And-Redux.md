@@ -6,3 +6,4 @@ In relation to the index `html` file, we end up with a root div that React targe
 
 The webpage makes the request to the server, then we fetch the JS file, then app boots and we make some requests - all before any content is visible.
 
+Using server side React, the goal is to make one request.
