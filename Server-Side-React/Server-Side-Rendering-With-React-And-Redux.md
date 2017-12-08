@@ -157,6 +157,44 @@ module.exports = {
 }
 ```
 
+If using with `create-react-app` - add the following config:
+
+```
+const path = require('path');
+const paths = require('./paths');
+const webpackNodeExternals = require('webpack-node-externals');
+
+module.exports = {
+	// Target Nodehs
+	target: 'node',
+	// Looking for the root of server app
+	entry: paths.serverIndexJs,
+	output: {
+	    // The build folder.
+	    path: paths.appServer,
+	    filename: 'server.js'
+	},
+	// Run Babel on every file
+	module: {
+		rules: [
+			{
+				test: /\.js?$/,
+				loader: 'babel-loader',
+				exclude: /node_modules/,
+				options: {
+					presets: [
+						'react',
+						'stage-0',
+						['env', { targets: { browsers: ['last 2 versions']}}]
+					]
+				}
+			}
+		]
+	},
+	externals: [webpackNodeExternals()]
+}
+```
+
 ## The build process
 
 Currently, we have a static base file. We want to watch and re-run the server on changes. This can be done with Nodemon and Webpack's `--watch` option.
@@ -174,3 +212,15 @@ Currently, we have a static base file. We want to watch and re-run the server on
 	<button onClick={() => console.log('HI!')}>Press me!</button>
 </div>
 ```
+
+Why doesn't the above work? We are rendering out HTML and 0 JavaScript code being sent to the user browser. How can we ship this down?
+
+
+## Client bundles
+
+We basically want to create 2 bundles:
+
+1. A server + client side bundle
+2. A client side only bundle
+
+
