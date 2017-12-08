@@ -73,4 +73,4 @@ Back on the browser side, the React application still ensure it fetches the bund
 
 ## RenderToString function
 
-
+We use ReactDOM and instead of rendering it, we render it to raw HTML and turn it into string.
