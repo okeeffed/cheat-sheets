@@ -77,7 +77,7 @@ We use ReactDOM and instead of rendering it, we render it to raw HTML and turn i
 
 We can use an example of a Express file like so to run a base file:
 
-```
+```javascript
 /*
 	Use this for the optimized build
 	and serve out with Docker
