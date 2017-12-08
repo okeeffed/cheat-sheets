@@ -26,7 +26,7 @@ Back on the browser side, the React application still ensure it fetches the bund
 
 ## Example base package.json
 
-```
+```javascript
 {
   "name": "react-ssr",
   "version": "1.0.0",
