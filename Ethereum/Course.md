@@ -39,5 +39,5 @@ Some of the common ways:
 
 ## ETH Accounts
 
-
+Metamask creates an account address, public key and private key.
 
