@@ -12,4 +12,3 @@
 ### So what is ETH?
 
 **Primitive description:**
-
