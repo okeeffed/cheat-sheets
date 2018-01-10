@@ -20,4 +20,4 @@
 - Anyone can run a node
 - Each node can contain a full copy of the blockchain
 
-You can also create your own private ETH network for testing etc.
+You can also create your own private ETH network for testing etc. There is not just one network; there are many.
