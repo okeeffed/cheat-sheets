@@ -33,5 +33,7 @@ Some of the common ways:
 - Metamask (Chrome extension to interact)
 - Mist Browser (Full feature web browser)
 
+### Metamask Extension
 
+- Test contracts will be done on Rinkeby Test Network
 
