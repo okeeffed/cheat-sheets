@@ -12,3 +12,12 @@
 ### So what is ETH?
 
 **Primitive description:**
+
+- ETH networks are used to transfer money and store data
+- Different ETH networks
+- Networks are formed by one or more nodes
+- Each node is a machine running an ETH client
+- Anyone can run a node
+- Each node can contain a full copy of the blockchain
+
+You can also create your own private ETH network for testing etc.
