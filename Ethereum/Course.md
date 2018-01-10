@@ -23,3 +23,13 @@
 You can also create your own private ETH network for testing etc. There is not just one network; there are many.
 
 ## Interfacing with ETH networks
+
+Some of the common ways:
+
+**Dev Tech:**
+- web3.js (our "portal" to the ETH network)
+
+**Consumers:**
+- Metamask (Chrome extension to interact)
+- Mist Browser (Full feature web browser)
+
