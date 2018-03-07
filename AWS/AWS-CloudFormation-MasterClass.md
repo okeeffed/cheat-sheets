@@ -381,3 +381,7 @@ Conditions:
     [Logical ID]:
         [Intrinsic function]
 ```
+
+Logical ID is for you to choose. It's how you name the condition.
+
+The intrinsic function (logical) can be any of the following: 
