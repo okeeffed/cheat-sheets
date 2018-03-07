@@ -94,3 +94,4 @@ On the properties under the docs, you can see info about the properties.
 
 Just right click on the CloudFormation and delete the resources.
 
+## CloudFormation template options
