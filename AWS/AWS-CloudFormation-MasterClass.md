@@ -200,3 +200,5 @@ If you look at the docs, if comes up with both JSON and YAML docs.
 2. DeletionPolicy: protect resource from being deleted even if cloudformation is deleted.
 3. CreationPolicy: more info on CFN
 4. Metadata: anything you want!
+
+### FAQ for resources 
