@@ -225,3 +225,19 @@ They allow safer control over the template. Use parameters when the values are _
 Use Fn::FindInMap to return a named value from a specific key.
 
 - !FindInMap [ MapName, TopLevelKey, SecondLevelKey ]
+
+Example:
+
+```yaml
+AWSTemplateFormatVersion: "2010-09-09"
+Mappings:
+    RegionMap:
+        us-east-1:
+            "32": "ami-6411e20d"
+            "64": "ami-7a11e213"
+Resources:
+    myEC2Instance:
+        Type: "AWS::EC2::Instance"
+        Properties:
+            ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", 32]
+            InstanceType: m1.small
