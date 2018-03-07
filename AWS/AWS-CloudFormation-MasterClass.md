@@ -46,3 +46,5 @@ Resources:
       ImageId: ami-a4c7edb2
       InstanceType: t2.micro
 ```
+
+The instance can be created, updated or destroyed.
