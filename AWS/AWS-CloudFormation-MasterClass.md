@@ -21,3 +21,5 @@ CloudFormation will create all of this in the right order with the exact config.
     - Ability to destroy and re-create an infrastructure
     - Automated generation of Diagram for templates 
     - All declarative 
+4. Separation of concern
+    - Many different stacks for many different layers 
