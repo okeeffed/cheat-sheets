@@ -156,3 +156,5 @@ Parameters can be controlled by all these settings:
 - CommaDelimitedList
 - List<Type>
 - AWS Parameter (to help catch invalid values - match against existing values in the AWS Account)
+2. Description 
+3. Constraints 
