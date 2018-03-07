@@ -114,3 +114,5 @@ The template review also gives you an opportunity to estimate cost.
 A visual aid to help build the CF Stack. Ensure the template is also well written.
 
 You can drag and drop basically everything. Dropping it will give you options to selecting documentation etc.
+
+It's great for dragging and dropping templates and giving information for it.
