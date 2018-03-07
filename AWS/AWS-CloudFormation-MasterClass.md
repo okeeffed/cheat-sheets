@@ -128,3 +128,7 @@ There are a number of building blocks for each template:
 5. Conditionals: List of conditions to perform resource creation
 6. Metadata
 
+## Template helpers 
+
+1. References 
+2. Functions 
