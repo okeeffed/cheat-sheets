@@ -83,3 +83,7 @@ Resources: # always the start
 
 1. Updates with no interruption
 2. Replacements are breaking and need to replace the resource
+
+## Properties 
+
+On the properties under the docs, you can see info about the properties.
