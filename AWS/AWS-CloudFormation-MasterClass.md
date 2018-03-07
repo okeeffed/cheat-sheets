@@ -19,3 +19,5 @@ CloudFormation will create all of this in the right order with the exact config.
     - Great savings strategy 
 3. Productivity
     - Ability to destroy and re-create an infrastructure
+    - Automated generation of Diagram for templates 
+    - All declarative 
