@@ -99,10 +99,11 @@ Just right click on the CloudFormation and delete the resources.
 You have a few template options:
 
 1. Tags
-2. Permissions
-3. Notifications Options
-4. Timeouts 
+2. Permissions (IAM role)
+3. Notifications Options (SNS topic)
+4. Timeouts (minutes before calling failure)
 5. Rollback on Failure 
 6. Stack Policy 
 
 These (if you manually do it) all show up on the "create stack" part of CloudFormation.
+
