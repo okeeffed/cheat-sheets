@@ -393,3 +393,4 @@ The intrinsic function (logical) can be any of the following:
 
 ## Conditional Hands On 
 
+- Let's analyze a CF template that optionally creates a volume and mount point only if "prod" is specified as a parameter.
