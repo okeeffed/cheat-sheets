@@ -89,3 +89,7 @@ Resources: # always the start
 ## Properties 
 
 On the properties under the docs, you can see info about the properties.
+
+## Deleting the stack 
+
+Just right click on the CloudFormation and delete the resources.
