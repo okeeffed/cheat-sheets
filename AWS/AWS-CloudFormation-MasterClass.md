@@ -223,3 +223,5 @@ They allow safer control over the template. Use parameters when the values are _
 ### Fn::FindInMap - Accessing Mapping Values
 
 Use Fn::FindInMap to return a named value from a specific key.
+
+- !FindInMap [ MapName, TopLevelKey, SecondLevelKey ]
