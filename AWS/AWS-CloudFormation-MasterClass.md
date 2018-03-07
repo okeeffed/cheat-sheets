@@ -144,3 +144,4 @@ They're important to know about it:
 1. You want to reuse your templates across the company 
 2. Some inputs can not be determined ahead of time
 
+The major benefit: you won't have to re-upload a template to change its content.
