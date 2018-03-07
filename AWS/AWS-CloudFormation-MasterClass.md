@@ -168,3 +168,4 @@ Parameters can be controlled by all these settings:
 
 This can be found in the `0-parameters-hands-on.yaml`.
 
+Again - check the docs.
