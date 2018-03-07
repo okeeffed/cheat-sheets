@@ -118,3 +118,8 @@ You can drag and drop basically everything. Dropping it will give you options to
 It's great for dragging and dropping templates and giving information on that template as well.
 
 ## Building Blocks
+
+There are a number of building blocks for each template:
+
+1. Resources: your AWS resources declared in the template
+2. Parameters: the dynamic inputs for your template
