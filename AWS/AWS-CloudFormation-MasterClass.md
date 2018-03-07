@@ -344,5 +344,18 @@ Outputs:
 
 ### Cross Stack Reference 
 
-We use `Fn::ImportValue`.
+We use `Fn::ImportValue` in a simple block:
 
+```yaml
+Resources:
+  MySecureInstance:
+    # http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-properties-ec2-instance.html
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-a4c7edb2
+      InstanceType: t2.micro
+      SecurityGroups:
+        # we reference the output here, using the Fn::ImportValue function
+        - !ImportValue SSHSecurityGroup
+```
