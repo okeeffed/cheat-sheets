@@ -297,7 +297,7 @@ It's the best way to perform some collaboration cross stack. Let the expert hand
 
 Creating a SSH Security Group as part of one template. We can create an output that references that security group.
 
-```
+```yaml
 Outputs:
     <Logical ID>:
         Description: Information about the value 
