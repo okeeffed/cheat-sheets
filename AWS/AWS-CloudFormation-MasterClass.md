@@ -81,16 +81,16 @@ Resources: # always the start
             BucketName: "www.site.com"
 ```
 
-## Types of updates 
+### Types of updates 
 
 1. Updates with no interruption
 2. Replacements are breaking and need to replace the resource
 
-## Properties 
+### Properties 
 
 On the properties under the docs, you can see info about the properties.
 
-## Deleting the stack 
+### Deleting the stack 
 
 Just right click on the CloudFormation and delete the resources.
 
