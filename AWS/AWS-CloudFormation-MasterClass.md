@@ -202,3 +202,5 @@ If you look at the docs, if comes up with both JSON and YAML docs.
 4. Metadata: anything you want!
 
 ### FAQ for resources 
+
+Can I create a dynamic a dynamic amount of resources? No you can perform code generation.
