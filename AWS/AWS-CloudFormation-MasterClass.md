@@ -242,3 +242,9 @@ Resources:
             ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", 32]
             InstanceType: m1.small
 ```
+
+### Mappings in practise 
+
+```yaml
+Parameters 
+```
