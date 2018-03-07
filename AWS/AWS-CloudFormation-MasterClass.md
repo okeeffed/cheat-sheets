@@ -48,3 +48,5 @@ Resources:
 ```
 
 The instance can be created, updated or destroyed.
+
+You cannot edit the stack itself later, you need to just re-update the stack by uploading a new file.
