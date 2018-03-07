@@ -392,3 +392,4 @@ The intrinsic function (logical) can be any of the following:
     - Fn::Or
 
 ## Conditional Hands On 
+
