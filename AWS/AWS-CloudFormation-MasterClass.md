@@ -111,4 +111,4 @@ The template review also gives you an opportunity to estimate cost.
 
 ## CloudFormation Designer 
 
-A visual aid to help build the CF Stack.
+A visual aid to help build the CF Stack. Ensure the template is also well written.
