@@ -105,3 +105,4 @@ You have a few template options:
 5. Rollback on Failure 
 6. Stack Policy 
 
+These (if you manually do it) all show up on the "create stack" part of CloudFormation
