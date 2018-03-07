@@ -197,3 +197,4 @@ If you look at the docs, if comes up with both JSON and YAML docs.
 ### Optional Attributes for Resources 
 
 1. DependsOn: very useful to draw a dependency between two resources. For example, only create an ECS cluster after creating an ASG (auto scaling group).
+2. DeletionPolicy: protect resource from being deleted even if cloudformation is deleted.
