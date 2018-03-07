@@ -56,3 +56,13 @@ The stack itself can clean up instances after itself too.
 ## YAML Intro
 
 You can use YAML or JSON for writing it - but JSON is tough for it
+
+Array support:
+
+```
+product:
+    - test  : 1
+      quantity: 2
+    - test  : 2
+      quantity: 4
+```
