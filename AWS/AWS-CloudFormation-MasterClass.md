@@ -179,3 +179,7 @@ If you have `!Select` for a CommaDelimitedList, you need to go `Key: !Select [Ar
 - Using the Fn::Ref function. 
 - Shorthand in YAML is !Ref.
 - Can reference block, not just parameter
+
+## Resources 
+
+Resources are the core of your CloudFormation template.
