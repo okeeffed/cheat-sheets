@@ -123,3 +123,4 @@ There are a number of building blocks for each template:
 
 1. Resources: your AWS resources declared in the template
 2. Parameters: the dynamic inputs for your template
+3. Mappins: the static variables for your template
