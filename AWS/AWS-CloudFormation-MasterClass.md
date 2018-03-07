@@ -268,5 +268,5 @@ Resources:
         Type: AWS::EC2::Instance 
         Properties:
             InstanceType: !FindInMap [EnvironmentToInstanceType, !Ref 'EnvironmentName', instanceType]
-            ImageId: !FindInMap [AWSRegionArch2AMI, !Ref 'AWS::Region;, HVM64]
+            ImageId: !FindInMap [AWSRegionArch2AMI, !Ref 'AWS::Region', HVM64]
 ```
