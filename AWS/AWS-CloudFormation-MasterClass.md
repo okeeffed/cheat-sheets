@@ -71,3 +71,7 @@ product:
 
 Googling for the type, you will get the in depth docs from AWS.
 
+```
+---
+Resources: # always the start 
+    MyS3Bucket: # template name
