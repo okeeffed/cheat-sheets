@@ -78,3 +78,8 @@ Resources: # always the start
         Type: "AWS::S3::Bucket"
         Properties: {}
 ```
+
+## Types of updates 
+
+1. Updates with no interruption
+2. Replacements are breaking and need to replace the resource
