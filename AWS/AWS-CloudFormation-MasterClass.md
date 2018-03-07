@@ -4,3 +4,4 @@
 
 Having >50 services, CloudFormation was brought in to help develops scaffold out the requires AWS stack.
 
+Eg. I want a security group, two EC2 machines with it, two elastic IPs, an S3 bucket + a load balancer in front.
