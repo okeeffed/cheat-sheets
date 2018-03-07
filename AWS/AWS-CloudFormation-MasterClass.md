@@ -76,7 +76,9 @@ Googling for the type, you will get the in depth docs from AWS.
 Resources: # always the start 
     MyS3Bucket: # template name
         Type: "AWS::S3::Bucket"
-        Properties: {}
+        Properties: 
+            AccessControl: PublicRead
+            BucketName: "www.site.com"
 ```
 
 ## Types of updates 
