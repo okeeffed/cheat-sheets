@@ -262,4 +262,11 @@ Mappings:
             instanceType: t2.micro 
         production:
             instanceType: t2.small
+
+Resources:
+    EC2Instance: 
+        Type: AWS::EC2::Instance 
+        Properties:
+            InstanceType: !FindInMap [EnvironmentToInstanceType, !Ref 'EnvironmentName', instanceType]
+            ImageId: !FindInMap [AWSRegionArch2AMI, !Ref 'AWS::Region;, HVM64]
 ```
