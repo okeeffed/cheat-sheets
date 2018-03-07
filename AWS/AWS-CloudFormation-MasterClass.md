@@ -212,4 +212,12 @@ What are mappings? Fixed ariables within your CF Template. Great for dev vs prod
 
 Every mapping has top, middle and bottom.
 
+Great to use when you know in advance:
+- Region
+- AZ
+- AWSAccount
+- Environment (dev vs prod)
+
+They allow safer control over the template. Use parameters when the values are _really_ user specific.
+
 
