@@ -132,3 +132,8 @@ There are a number of building blocks for each template:
 
 1. References 
 2. Functions 
+
+## CloudFormation Parameters 
+
+### Overview 
+
