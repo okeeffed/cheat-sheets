@@ -208,4 +208,6 @@ If you look at the docs, if comes up with both JSON and YAML docs.
 
 ## Mappings
 
+What are mappings? Fixed ariables within your CF Template. Great for dev vs prod, regions, AMI types etc.
+
 
