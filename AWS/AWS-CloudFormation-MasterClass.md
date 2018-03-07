@@ -187,3 +187,5 @@ Resources are the core of your CloudFormation template. They represent the diffe
 They are declared and can be references by eachother. AWS figures out creation, updates, deletes etc.
 
 There are over 224 types of resources.
+
+They are identified using the form `AWS::aws-product-name::data-type-name`.
