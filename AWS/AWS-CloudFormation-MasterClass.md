@@ -47,6 +47,8 @@ Resources:
       InstanceType: t2.micro
 ```
 
-The instance can be created, updated or destroyed.
+The stack instance can be created, updated or destroyed.
 
 You cannot edit the stack itself later, you need to just re-update the stack by uploading a new file.
+
+The stack itself can clean up instances after itself too.
