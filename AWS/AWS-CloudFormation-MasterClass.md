@@ -137,3 +137,4 @@ There are a number of building blocks for each template:
 
 ### Overview 
 
+What are they? The way to provide inputs to your AWS CloudFormation template.
