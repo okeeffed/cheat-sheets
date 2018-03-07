@@ -183,3 +183,7 @@ If you have `!Select` for a CommaDelimitedList, you need to go `Key: !Select [Ar
 ## Resources 
 
 Resources are the core of your CloudFormation template. They represent the different AWS Components that will be created and configured.
+
+They are declared and can be references by eachother. AWS figures out creation, updates, deletes etc.
+
+There are over 224 types of resources.
