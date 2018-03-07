@@ -252,4 +252,14 @@ Parameters:
         Type: String 
         AllowedValues: [development, production]
         ConstraintDescription: must be development or production
+
+Mappings: 
+    AWSRegionArch2AMI:
+        us-east-1:
+            HVM64: ami-6869aa05
+    EnvironmentToInstantType:
+        development: 
+            instanceType: t2.micro 
+        production:
+            instanceType: t2.small
 ```
