@@ -220,5 +220,3 @@ Great to use when you know in advance:
 
 They allow safer control over the template. Use parameters when the values are _really_ user specific.
 
-
-
