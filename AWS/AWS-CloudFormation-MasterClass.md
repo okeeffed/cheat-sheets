@@ -372,3 +372,4 @@ Conditions can be whatever you want them to be, but common ones are:
 - AWS Region 
 - Any parameter value 
 
+Each condition can reference another condition, parameter value or mapping.
