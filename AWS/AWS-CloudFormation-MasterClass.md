@@ -138,3 +138,8 @@ There are a number of building blocks for each template:
 ### Overview 
 
 What are they? The way to provide inputs to your AWS CloudFormation template.
+
+They're important to know about it:
+
+1. You want to reuse your templates across the company 
+2. Some inputs can not be determined ahead of time
