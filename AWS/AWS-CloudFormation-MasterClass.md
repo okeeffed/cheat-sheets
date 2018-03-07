@@ -365,3 +365,9 @@ Resources:
 ## Conditions 
 
 Conditionals are used to control the creation of resources or outputs based on a condition.
+
+Conditions can be whatever you want them to be, but common ones are:
+
+- Environment (dev/test/prod)
+- AWS Region 
+- Any parameter value 
