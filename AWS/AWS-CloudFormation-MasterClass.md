@@ -282,3 +282,5 @@ Resources:
 4. AWS::Region
 5. AWS::StackId
 6. AWS::StackName
+
+## CloudFormation Outputs
