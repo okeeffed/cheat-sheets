@@ -378,6 +378,6 @@ Each condition can reference another condition, parameter value or mapping.
 
 ```yaml
 Conditions:
-    <Logical ID>:
-        <Intrinsic function>
+    [Logical ID]:
+        [Intrinsic function]
 ```
