@@ -270,3 +270,8 @@ Resources:
             InstanceType: !FindInMap [EnvironmentToInstanceType, !Ref 'EnvironmentName', instanceType]
             ImageId: !FindInMap [AWSRegionArch2AMI, !Ref 'AWS::Region', HVM64]
 ```
+
+## Concept: Pseudo Parameters 
+
+- AWS offers us pseudo params in any CF template.
+- These can be used at any time and are enabled by default.
