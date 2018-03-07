@@ -385,3 +385,8 @@ Conditions:
 Logical ID is for you to choose. It's how you name the condition.
 
 The intrinsic function (logical) can be any of the following: 
+    - Fn::And
+    - Fn::Equals
+    - Fn::If
+    - Fn::Not
+    - Fn::Or
