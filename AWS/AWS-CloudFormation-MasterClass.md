@@ -170,4 +170,4 @@ This can be found in the `0-parameters-hands-on.yaml`.
 
 Again - check the docs.
 
-To reference a parameter, you then go with `Key: !Ref Reference`
+To reference a parameter, you then go with `Key: !Ref Reference`.
