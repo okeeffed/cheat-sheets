@@ -165,3 +165,4 @@ Parameters can be controlled by all these settings:
 8. AllowedValues (array)
 9. AllowedPattern (regexp)
 10. NoEcho (Boolean)
+
