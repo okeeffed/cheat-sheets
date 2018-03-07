@@ -342,6 +342,8 @@ Outputs:
       Name: SSHSecurityGroup
 ```
 
+It is important to note that for an `output` to be used anywhere, you need to define an `export` value.
+
 ### Cross Stack Reference 
 
 We use `Fn::ImportValue` in a simple block:
