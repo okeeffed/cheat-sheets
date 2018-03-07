@@ -246,5 +246,10 @@ Resources:
 ### Mappings in practise 
 
 ```yaml
-Parameters 
+Parameters:
+    EnvironmentName:
+        Description: Environment Name 
+        Type: String 
+        AllowedValues: [development, production]
+        ConstraintDescription: must be development or production
 ```
