@@ -70,3 +70,4 @@ product:
 ## Creating a S3 Bucket 
 
 Googling for the type, you will get the in depth docs from AWS.
+
