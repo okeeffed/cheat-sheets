@@ -342,3 +342,7 @@ Outputs:
       Name: SSHSecurityGroup
 ```
 
+### Cross Stack Reference 
+
+We use `Fn::ImportValue`.
+
