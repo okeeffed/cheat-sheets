@@ -125,5 +125,6 @@ There are a number of building blocks for each template:
 2. Parameters: the dynamic inputs for your template
 3. Mappins: the static variables for your template
 4. Outputs: References to what has been created
-
+5. Conditionals: List of conditions to perform resource creation
+6. Metadata
 
