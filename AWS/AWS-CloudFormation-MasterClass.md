@@ -469,3 +469,7 @@ Outputs:
     Value:
       !Ref NewVolume
 ```
+
+## Fn::GetAtt 
+
+Get an attribute attached to any resource that exists.
