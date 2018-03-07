@@ -23,3 +23,6 @@ CloudFormation will create all of this in the right order with the exact config.
     - All declarative 
 4. Separation of concern
     - Many different stacks for many different layers 
+
+5. Don't re-invent the wheel
+    - Already so many templates
