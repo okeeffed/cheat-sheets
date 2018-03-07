@@ -203,6 +203,7 @@ If you look at the docs, if comes up with both JSON and YAML docs.
 
 ### FAQ for resources 
 
-Can I create a dynamic a dynamic amount of resources? No you can perform code generation.
+1. Can I create a dynamic a dynamic amount of resources? No you can perform code generation. The work around is the `troposphere` Python library.
+2. Is every AWS Service supported? Almost. Only a select few niches are not there.
 
-The work around is the `troposphere` Python library.
+
