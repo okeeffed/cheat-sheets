@@ -361,3 +361,7 @@ Resources:
         # we reference the output here, using the Fn::ImportValue function
         - !ImportValue SSHSecurityGroup
 ```
+
+## Conditions 
+
+Conditionals are used to control the creation of resources or outputs based on a condition.
