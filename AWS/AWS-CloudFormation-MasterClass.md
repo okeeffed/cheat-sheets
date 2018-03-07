@@ -204,3 +204,5 @@ If you look at the docs, if comes up with both JSON and YAML docs.
 ### FAQ for resources 
 
 Can I create a dynamic a dynamic amount of resources? No you can perform code generation.
+
+The work around is the `troposphere` Python library.
