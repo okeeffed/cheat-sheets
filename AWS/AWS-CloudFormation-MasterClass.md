@@ -52,3 +52,7 @@ The stack instance can be created, updated or destroyed.
 You cannot edit the stack itself later, you need to just re-update the stack by uploading a new file.
 
 The stack itself can clean up instances after itself too.
+
+## YAML Intro
+
+You can use YAML or JSON for writing it - but JSON is tough for it
