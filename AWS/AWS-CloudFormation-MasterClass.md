@@ -158,3 +158,7 @@ Parameters can be controlled by all these settings:
 - AWS Parameter (to help catch invalid values - match against existing values in the AWS Account)
 2. Description 
 3. Constraints 
+4. ConstraintDescription (String)
+5. Min/MaxLength
+6. Min/MaxValue
+7. Defaults 
