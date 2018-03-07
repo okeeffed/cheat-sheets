@@ -7,3 +7,10 @@ Having >50 services, CloudFormation was brought in to help develops scaffold out
 Eg. I want a security group, two EC2 machines with it, two elastic IPs, an S3 bucket + a load balancer in front.
 
 CloudFormation will create all of this in the right order with the exact config.
+
+## Benefits 
+
+1. Infrastructure as code  
+    - No manual creation
+    - Can be version controlled 
+    - Changes to infrastructure are reviewed through code
