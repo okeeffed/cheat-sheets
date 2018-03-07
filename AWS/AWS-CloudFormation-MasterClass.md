@@ -148,3 +148,5 @@ The major benefit: you won't have to re-upload a template to change its content.
 
 ### Theory and hands on 
 
+Parameters can be controlled by all these settings:
+
