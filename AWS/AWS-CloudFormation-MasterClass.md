@@ -275,3 +275,10 @@ Resources:
 
 - AWS offers us pseudo params in any CF template.
 - These can be used at any time and are enabled by default.
+
+1. AWS::AccountId
+2. AWS::NotificationsARNs
+3. AWS::NoValue 
+4. AWS::Region
+5. AWS::StackId
+6. AWS::StackName
