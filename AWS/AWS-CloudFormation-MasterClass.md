@@ -395,3 +395,77 @@ The intrinsic function (logical) can be any of the following:
 
 - Let's analyze a CF template that optionally creates a volume and mount point only if "prod" is specified as a parameter.
 - It utilizes params, mappings, conditionals, outputs
+
+```yaml
+AWSTemplateFormatVersion: "2010-09-09"
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: "ami-a4c7edb2"
+      TestAz: "us-east-1a"
+    us-west-1:
+      AMI: "ami-6df1e514"
+      TestAz: "us-west-1a"
+    us-west-2:
+      AMI: "ami-327f5352"
+      TestAz: "us-west-2a"
+    eu-west-1:
+      AMI: "ami-d7b9a2b1"
+      TestAz: "eu-west-1a"
+    sa-east-1:
+      AMI: "ami-87dab1eb"
+      TestAz: "sa-east-1a"
+    ap-southeast-1:
+      AMI: "ami-77af2014"
+      TestAz: "ap-southeast-1a"
+    ap-southeast-2:
+      AMI: "ami-10918173"
+      TestAz: "ap-southeast-2a"
+    ap-northeast-1:
+      AMI: "ami-e21cc38c"
+      TestAz: "ap-northeast-1a"
+Parameters:
+  EnvType:
+    Description: Environment type.
+    Default: test
+    Type: String
+    AllowedValues:
+      - prod
+      - test
+    ConstraintDescription: must specify prod or test.
+
+Conditions:
+  CreateProdResources: !Equals [ !Ref EnvType, prod ]
+
+Resources:
+  EC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+      InstanceType: t2.micro
+      AvailabilityZone: !FindInMap [RegionMap, !Ref "AWS::Region", TestAz]
+
+  MountPoint:
+    Type: "AWS::EC2::VolumeAttachment"
+    Condition: CreateProdResources
+    Properties:
+      InstanceId:
+        !Ref EC2Instance
+      VolumeId:
+        !Ref NewVolume
+      Device: /dev/sdh
+
+  NewVolume:
+    Type: "AWS::EC2::Volume"
+    Condition: CreateProdResources
+    Properties:
+      Size: 100
+      AvailabilityZone:
+        !GetAtt EC2Instance.AvailabilityZone
+
+Outputs:
+  VolumeId:
+    Condition: CreateProdResources
+    Value:
+      !Ref NewVolume
+```
