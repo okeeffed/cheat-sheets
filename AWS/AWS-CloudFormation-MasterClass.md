@@ -29,3 +29,7 @@ CloudFormation will create all of this in the right order with the exact config.
 
 ## CloudFormation vs Ansible / Terraform
 
+- CF is native, and also contain the latest 
+- CF is state based
+- The others are instruction based - difficult to orchestrate 
+- For new services, Ansible / Terraform can take a long time
