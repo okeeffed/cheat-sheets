@@ -95,3 +95,12 @@ On the properties under the docs, you can see info about the properties.
 Just right click on the CloudFormation and delete the resources.
 
 ## CloudFormation template options
+
+You have a few template options:
+
+1. Tags
+2. Permissions
+3. Notifications Options
+4. Timeouts 
+5. Rollback on Failure 
+6. Stack Policy 
