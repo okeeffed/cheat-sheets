@@ -77,3 +77,5 @@ Resources: # always the start
     MyS3Bucket: # template name
         Type: "AWS::S3::Bucket"
         Properties: {}
+
+```
