@@ -189,3 +189,7 @@ They are declared and can be references by eachother. AWS figures out creation, 
 There are over 224 types of resources.
 
 They are identified using the form `AWS::aws-product-name::data-type-name`.
+
+### Reading the docs for an ES2 Instance 
+
+If you look at the docs, if comes up with both JSON and YAML docs.
