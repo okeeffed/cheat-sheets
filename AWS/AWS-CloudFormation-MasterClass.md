@@ -33,3 +33,16 @@ CloudFormation will create all of this in the right order with the exact config.
 - CF is state based
 - The others are instruction based - difficult to orchestrate 
 - For new services, Ansible / Terraform can take a long time
+
+## First template
+
+```yaml
+---
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-a4c7edb2
+      InstanceType: t2.micro
+```
