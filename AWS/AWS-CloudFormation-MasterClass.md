@@ -150,3 +150,9 @@ The major benefit: you won't have to re-upload a template to change its content.
 
 Parameters can be controlled by all these settings:
 
+1. Type:
+- String
+- Number
+- CommaDelimitedList
+- List<Type>
+- AWS Parameter (to help catch invalid values - match against existing values in the AWS Account)
