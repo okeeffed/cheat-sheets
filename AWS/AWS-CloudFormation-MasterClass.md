@@ -172,4 +172,4 @@ Again - check the docs.
 
 To reference a parameter, you then go with `Key: !Ref Reference`.
 
-If you have `!Select` for a CommaDelimitedList, you need to go `Key: !Select [ArrayNumber, !Ref Reference]`
+If you have `!Select` for a CommaDelimitedList, you need to go `Key: !Select [ArrayNumber, !Ref Reference]`.
