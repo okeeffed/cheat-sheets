@@ -286,3 +286,5 @@ Resources:
 ## CloudFormation Outputs
 
 What are they? They are _optional_ values that we can import into other stacks.
+
+You can also view the outputs in the AWS Console or in using the AWS CLI.
