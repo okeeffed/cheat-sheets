@@ -284,3 +284,4 @@ Resources:
 6. AWS::StackName
 
 ## CloudFormation Outputs
+
