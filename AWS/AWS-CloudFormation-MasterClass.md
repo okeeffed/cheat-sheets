@@ -374,3 +374,5 @@ Conditions can be whatever you want them to be, but common ones are:
 
 Each condition can reference another condition, parameter value or mapping.
 
+### How to define a condition?
+
