@@ -14,3 +14,6 @@ CloudFormation will create all of this in the right order with the exact config.
     - No manual creation
     - Can be version controlled 
     - Changes to infrastructure are reviewed through code
+
+2. Cost 
+    - Each resource will be tagged so you can estimate the costs and figure out which costs what
