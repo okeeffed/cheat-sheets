@@ -25,3 +25,4 @@ CloudFormation will create all of this in the right order with the exact config.
     - Many different stacks for many different layers 
 5. Don't re-invent the wheel
     - Already so many templates
+    - Leverage the docs
