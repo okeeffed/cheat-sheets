@@ -17,3 +17,5 @@ CloudFormation will create all of this in the right order with the exact config.
 
 2. Cost 
     - Each resource will be tagged so you can estimate the costs and figure out which costs what
+    - Great savings strategy 
+
