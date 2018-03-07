@@ -290,3 +290,5 @@ What are they? They are _optional_ values that we can import into other stacks.
 You can also view the outputs in the AWS Console or in using the AWS CLI.
 
 They're very useful for example if you define a network CloudFormation, and output the variables such as VPC ID and your Subnet IDs.
+
+It's the best way to perform some collaboration cross stack. Let the expert handle their part and you handle yours.
