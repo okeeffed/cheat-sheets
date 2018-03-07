@@ -108,3 +108,7 @@ You have a few template options:
 These (if you manually do it) all show up on the "create stack" part of CloudFormation.
 
 The template review also gives you an opportunity to estimate cost.
+
+## CloudFormation Designer 
+
+A visual aid to help build the CF Stack.
