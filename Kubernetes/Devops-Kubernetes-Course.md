@@ -303,3 +303,8 @@ Open source orchestration system for Docker.
     - Will restart a container when it gets killed 
     - Can move containers from one node to another node
 - Instead of just running a few docker containers on one host manually, K8s can manage that for you
+- K8 clusters can go to thousands of nodes 
+- Other orcherstrators:
+    - Docker Swarm
+    - Mesos 
+
