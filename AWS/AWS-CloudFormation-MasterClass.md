@@ -647,3 +647,5 @@ Resources:
 ```
 
 Now that we see the power of this, let's have a look at CF Init.
+
+### CloudFormation Init 
