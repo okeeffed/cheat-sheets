@@ -484,4 +484,8 @@ There are 3 metadata keys that have special meaning:
 
 1. AWS::CloudFormation::Designer
 
-Describes how the resources are laid out in your template. This is automatically added by the AWS Designer.
+Describes how the resources are laid out in your template. This is automatically added by the AWS Designer. This helps the UI (x and y)
+
+2. AWS::CloudFormation::Interface
+
+Define grouping and ordering of input parameters when they are displayed in the AWS Console.
