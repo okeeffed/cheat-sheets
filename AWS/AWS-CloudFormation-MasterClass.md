@@ -675,3 +675,4 @@ A config contains the following and is executed in that order:
 6. Commands: run a series of commands 
 7. Services: launch a list of sysvinit 
 
+You can also have multiple configs and you can run them sequentially etc.
