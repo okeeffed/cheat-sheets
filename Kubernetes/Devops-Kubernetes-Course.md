@@ -20,3 +20,8 @@
 
 All resources are in a github repository.
 
+### Getting Started 
+
+kubectl: Install via brew
+minikube: https://github.com/kubernetes/minikube/releases
+
