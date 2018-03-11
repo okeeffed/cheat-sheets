@@ -687,3 +687,5 @@ You can install packages from the following repositories:
 - rpm 
 - rubygems 
 - yum
+
+Packages are processed in the following order: rpm, yum/apt, and then rubygems and python.
