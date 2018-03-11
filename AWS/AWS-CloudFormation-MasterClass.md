@@ -662,3 +662,6 @@ There are 4 python scripts that come directly with Amazon Linux AMI or can be in
 4. cfn-hup: A daemon to check for updates to metadata and execute custom hooks when the changes are detected.
 
 The usual flow? cfn-init, then cfn-signal, then optionally cfn-hup.
+
+### AWS::CloudFormation::Init 
+
