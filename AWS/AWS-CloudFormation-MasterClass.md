@@ -493,3 +493,5 @@ Define grouping and ordering of input parameters when they are displayed in the 
 3. AWS::CloudFormation::Init
 
 Define configuration tasks for cfn-init. It's the most powerful usage of the metadata. This is very important and a lot to learn about it below.
+
+### AWS::CloudFormation::Designer hands on
