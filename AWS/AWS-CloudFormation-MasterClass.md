@@ -754,7 +754,7 @@ AWS::CloudFormation::Init:
 
 ### Files 
 
-
+Files can be the most used section. Almost all the full power. It can be a specific URL or written inline for what you are doing.
 
 ```yaml
 AWS::CloudFormation::Init:
