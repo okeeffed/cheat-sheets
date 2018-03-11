@@ -327,3 +327,5 @@ Docker is the most popular container software. An alternative is `rkt`.
 Benefits? It works in isolation. You ship the binary with all the dependencies and create a closer parity.
 
 Docker makes development teams able to ship faster.
+
+You can run the same image on prem and in the cloud with what should be the same results.
