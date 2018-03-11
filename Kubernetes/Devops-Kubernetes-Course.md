@@ -332,7 +332,7 @@ You can run the same image on prem and in the cloud with what should be the same
 
 ## Kubernetes Setup
 
-Something to note is that there are more integrations for certain Cloud Providers like AWS & GCE.
+Something to note is that there are more integrations for certain Cloud Providers like AWS & GCE. Thingsl ike "Volumes" and "External Load Balancers" work only with support Cloud Providers.
 
 ### Running locally
 
