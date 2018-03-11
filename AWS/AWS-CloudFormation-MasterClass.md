@@ -691,3 +691,17 @@ You can install packages from the following repositories:
 Packages are processed in the following order: rpm, yum/apt, and then rubygems and python.
 
 You can also specify a version if you want.
+
+```yaml
+AWS::CloudFormation::Init:
+  config:
+    packages:
+      rpm:
+        epel: "http://download...."
+      yum:
+        httpd: [] # means latest 
+        php: []
+        wordpress: []
+      rubygems:
+        chef:
+          - "0.10.2" # get this version
