@@ -715,6 +715,19 @@ If you want to have multiple users and groups (with optional gid) in your ec2 in
 AWS::CloudFormation::Init:
   config:
     groups:
+      groupeOne: {}
+      groupTwo:
+        gid: "45" #gid = group ID
+    users:
+      "apache":
+        groups:
+          - "apache"
+```
+
+```yaml
+AWS::CloudFormation::Init:
+  config:
+    groups:
       apache: {}
     users:
       "apache":
