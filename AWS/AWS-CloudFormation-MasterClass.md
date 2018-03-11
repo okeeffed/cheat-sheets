@@ -650,3 +650,4 @@ Now that we see the power of this, let's have a look at CF Init.
 
 ### CloudFormation Init 
 
+What is the problem with EC2 user data? Well, what happens if we have a large configuration.
