@@ -359,3 +359,5 @@ To check your config after spinning up Kubernetes, use `cat ~/.kube/config`.
 Until EKS comes out, we can spin up a Kubernetes cluster using KOPS.
 
 You need to ensure that you download Vagrant and a VM.
+
+For running the Vagrant box, you can run `vagrant up --provider virtualbox`.
