@@ -978,3 +978,9 @@ Deletion Policy can take up the following values:
 2. Retain: AWS CloudFormation keeps the resource without deleting the resource or its contents when its stack is deleted. You can add this deletion policy to any resource type.
 3. Snapshot: For resources that support snapshots (AWS::EC2::Volume, AWS::ElasticCache::CacheCluster etc)
 
+```yaml
+Resources:
+  myS3Bucket:
+    Type: AWS::S3::Bucket
+    DeletionPolicy: Retain
+```
