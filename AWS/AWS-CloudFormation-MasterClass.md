@@ -709,7 +709,7 @@ AWS::CloudFormation::Init:
 
 ## Groups and Users 
 
-
+If you want to have multiple users and groups (with optional gid) in your ec2 instance, you can add groups and users to CF and metadata.
 
 ```yaml
 AWS::CloudFormation::Init:
