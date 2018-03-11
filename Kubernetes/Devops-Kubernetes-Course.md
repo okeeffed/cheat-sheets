@@ -735,3 +735,5 @@ Finally configure your cluster with: kops update cluster kubernetes.test --yes
 To edit the cluster, run `kops edit cluster kubernetes.test --state=s3://kops-state-oeiajrie93` and then to update run `kops update cluster kubernetes.test --yes --state=s3://kops-state-oeiajrie93`
 
 If we now run `cat ~/.kube/config` we can see the password and username information needed.
+
+To check if the nodes are up, run `kubectl get node`.
