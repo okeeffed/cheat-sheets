@@ -329,3 +329,5 @@ Benefits? It works in isolation. You ship the binary with all the dependencies a
 Docker makes development teams able to ship faster.
 
 You can run the same image on prem and in the cloud with what should be the same results.
+
+## Kubernetes Setup
