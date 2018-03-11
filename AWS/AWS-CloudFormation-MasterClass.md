@@ -669,3 +669,5 @@ A config contains the following and is executed in that order:
 
 1. Packages: install a list of packages on the Linux OS (mysql, wordpress, etc)
 2. Groups: define user groups
+3. Users: define users, and which group they belong to
+4. Sources: download an archive file and place it on the ec2 instance (tar, zip, bz2)
