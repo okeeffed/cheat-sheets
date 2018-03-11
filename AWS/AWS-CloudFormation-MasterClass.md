@@ -742,6 +742,8 @@ AWS::CloudFormation::Init:
 
 ### Sources 
 
+These are conveninence for a compressed archieve.
+
 ```yaml
 AWS::CloudFormation::Init:
   config:
