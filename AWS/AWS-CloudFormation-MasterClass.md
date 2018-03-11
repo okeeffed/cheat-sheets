@@ -874,7 +874,7 @@ AWS::CloudFormation::Init:
       sysvinit:
         httpd:
           enabled: 'true'
-          ensureRunning: 'true'
+          ensureRunning: 'true' 
         sendmail:
           enabled: 'false'
           ensureRunning: 'false'
