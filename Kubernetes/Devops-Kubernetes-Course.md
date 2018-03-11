@@ -336,6 +336,8 @@ Something to note is that there are more integrations for certain Cloud Provider
 
 ### Running locally
 
-
+We can use `minikube` to spin up a local single machine with a Kubernetes cluster.
 
 ### Running on AWS
+
+Until EKS comes out, we can spin up a Kubernetes cluster using KOPS.
