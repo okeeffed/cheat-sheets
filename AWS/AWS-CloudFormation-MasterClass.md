@@ -719,9 +719,12 @@ AWS::CloudFormation::Init:
       groupTwo:
         gid: "45" #gid = group ID
     users:
-      "apache":
+      myUser:
         groups:
-          - "apache"
+          - "groupOne"
+          - "groupTwo"
+        uid: "50"
+        homeDir: "/tmp"
 ```
 
 ```yaml
