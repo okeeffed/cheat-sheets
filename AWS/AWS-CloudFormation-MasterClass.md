@@ -924,4 +924,4 @@ Example from the "files" declation:
   owner: "root"
 ```
 
-### cfn init hands on
+### CFN Init Hands-On
