@@ -751,3 +751,51 @@ AWS::CloudFormation::Init:
     sources:
       "/home/ec2-user/aws-cli": "https://github.com/aws/aws-cli/tarball/master"
 ```
+
+### Files 
+
+
+
+```yaml
+AWS::CloudFormation::Init:
+  config:
+    # where to unpack and from where
+    files:
+      "/tmp/cwlogs/apacheaccess.conf":
+        content: !Sub |
+          [general]
+          state_file= /var/awslogs/agent-state
+          [/var/log/httpd/access_log]
+          file = /var/log/httpd/access_log
+          log_group_name = ${AWS::StackName}
+          log_stream_name = {instance_id}/apache.log
+          datetime_format = %d/%b/%Y:%H:%M:%S
+        mode: '000400'
+        owner: apache
+        group: apache
+      "/var/www/html/index.php":
+        content: !Sub |
+          <?php
+          echo '<h1>AWS CloudFormation sample PHP application for ${AWS::StackName}</h1>';
+          ?>
+        mode: '000644'
+        owner: apache
+        group: apache
+      "/etc/cfn/cfn-hup.conf":
+        content: !Sub |
+          [main]
+          stack=${AWS::StackId}
+          region=${AWS::Region}
+        mode: "000400"
+        owner: "root"
+        group: "root"
+      "/etc/cfn/hooks.d/cfn-auto-reloader.conf":
+        content: !Sub |
+          [cfn-auto-reloader-hook]
+          triggers=post.update
+          path=Resources.WebServerHost.Metadata.AWS::CloudFormation::Init
+          action=/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource WebServerHost --region ${AWS::Region}
+        mode: "000400"
+        owner: "root"
+        group: "root"
+```
