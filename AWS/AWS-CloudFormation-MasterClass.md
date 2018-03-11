@@ -645,3 +645,5 @@ Resources:
         IpProtocol: tcp
         ToPort: '22'
 ```
+
+Now that we see the power of this, let's have a look at CF Init.
