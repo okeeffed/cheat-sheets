@@ -939,3 +939,4 @@ Remember logs for ec2-user data are in `/var/log/cloud-init-output.log` and logs
 Review of current standing: 
 
 - You can check AWS labs templates from `https://github/com/awslabs/aws-cloudformation-templates` to see what you can understand/see good practise.
+
