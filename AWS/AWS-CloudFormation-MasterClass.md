@@ -1004,3 +1004,6 @@ Check online for a walkthrough of custom resources.
 3. Make sure the template is environment agnostic to do dev / test / prod and across regions / accounts seemlessly.
 4. Never embed credentials (use parameters with NoEcho or KMS).
 5. Use specific parameters types and constraints.
+6. Use CFN Init (& latest version of the helper scripts)
+7. Validate templates 
+8. Don't do anything manual on the elements of the stack - that can cause a state mismatch.
