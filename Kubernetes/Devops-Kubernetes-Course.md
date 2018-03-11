@@ -24,6 +24,7 @@ All resources are in a github repository.
 
 kubectl: Install via brew
 minikube: https://github.com/kubernetes/minikube/releases
+kops: Install via brew
 
 Minikube test commands:
 
@@ -31,4 +32,6 @@ Minikube test commands:
 minikube status # check status
 minikube start # start cluster
 ```
+
+
 
