@@ -996,3 +996,5 @@ Custom resources enable you to write custom provisioning logic in templates that
 For example, you might want to include resources that aren't available as AWS CloudFormation resource types.
 
 Check online for a walkthrough of custom resources.
+
+### Best practises to organize your CloudFormation templates
