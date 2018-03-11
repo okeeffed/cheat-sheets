@@ -953,3 +953,5 @@ Once you've downloaded the AWS config, use `aws configure --profile <profile_nam
 To run a CF command, you can use something like the following `aws cloudformation create-stack --stack-name example-cli-stack --template-body file://0-sample-template.yaml --parameters file://0-parameters.json --profile cf-course --region us-east-1`
 
 We can use the `parameters.json` file to set ParameterKey and ParameterValue for all the keys and values we are looking to share.
+
+After running the command, what you get back is the `StackId`.
