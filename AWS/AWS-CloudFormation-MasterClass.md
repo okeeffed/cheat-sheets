@@ -986,3 +986,5 @@ Resources:
 ```
 
 In the above example, it will create the S3 Bucket, you will see the bucket created.
+
+Now if we delete that stack and the deletion policy is retain, you can now have that bucket there.
