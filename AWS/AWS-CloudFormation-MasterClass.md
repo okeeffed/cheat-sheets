@@ -992,3 +992,5 @@ Now if we delete that stack and the deletion policy is retain, you will still ha
 ### Custom Resources with AWS Lambda 
 
 Custom resources enable you to write custom provisioning logic in templates that AWS CloudFormation runs anytime you create, update (if you changed the custom resource) or delete stacks.
+
+For example, you might want to include resources that aren't available as AWS CloudFormation resource types.
