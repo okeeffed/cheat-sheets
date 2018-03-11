@@ -776,7 +776,7 @@ AWS::CloudFormation::Init:
 
 Full example:
 
-Note: !Sub is a function used for making substitution. ie where you see ${AWS::StackName}.
+Note: !Sub is a function used for making substitution. ie where you see `${AWS::StackName}`.
 
 ```yaml
 AWS::CloudFormation::Init:
