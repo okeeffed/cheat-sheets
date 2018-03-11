@@ -825,3 +825,5 @@ AWS::CloudFormation::Init:
 ### Fn::Sub
 
 (Or as !Sub) is used to substitute variables from a text. It's a very handy function that will allow you to fully customize your templates.
+
+For example, you can combine !Sub with References or AWS Pseudo variables.
