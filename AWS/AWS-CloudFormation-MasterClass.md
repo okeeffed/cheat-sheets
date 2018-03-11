@@ -860,5 +860,6 @@ commands:
       MAGIC: "I come from the environment!"
     cwd: "~"
     test: "test ! -e ~/test.txt"
-    ignoreErrors: "false"
+    ignoreErrors: "false" # fail if is doesn't work
 ```
+
