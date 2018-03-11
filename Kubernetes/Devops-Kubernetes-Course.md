@@ -395,3 +395,6 @@ After setting up the AWSCLI, installing Kops and creating a S3 Bucket + setting 
 ### Cluster setup on Kops
 
 First, download Kops for Linux on the Vagrant box and move it.
+
+Before creating the cluster, you will need to create new keys.
+
