@@ -489,3 +489,7 @@ Describes how the resources are laid out in your template. This is automatically
 2. AWS::CloudFormation::Interface
 
 Define grouping and ordering of input parameters when they are displayed in the AWS Console.
+
+3. AWS::CloudFormation::Init
+
+Define configuration tasks for cfn-init. It's the most powerful usage of the metadata.
