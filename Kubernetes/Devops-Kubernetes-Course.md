@@ -308,3 +308,10 @@ Open source orchestration system for Docker.
     - Docker Swarm
     - Mesos 
 
+You can run K8s anywhere:
+
+- One premise (private)
+- Public
+- Hybrid
+
+It is highly modular and open source.
