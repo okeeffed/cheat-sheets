@@ -902,3 +902,24 @@ This is useful in case of a bad update.
 
 - Cfn-hup can be used to tell your EC2 instance to look for Metadata changes every 15 minutes and apply the metadata configuration again.
 - It's very powerful but you really need to try it out to understand how it works.
+
+Example from the "files" declation:
+
+```yaml
+"/etc/cfn/cfn-hup.conf":
+  content: !Sub |
+    [main]
+    stack=${AWS::StackId}
+    region=${AWS::Region}
+  mode: "000400"
+  owner: "root"
+  group: "root"
+"/etc/cfn/hooks.d/cfn-auto-reloader.conf":
+  content: !Sub |
+    [cfn-auto-reloader-hook]
+    triggers=post.update
+    path=Resources.WebServerHost.Metadata.AWS::CloudFormation::Init
+    action=/opt/aws/bin/cfn-init -v --stack ${AWS::StackName} --resource WebServerHost --region ${AWS::Region}
+  mode: "000400"
+  owner: "root"
+```
