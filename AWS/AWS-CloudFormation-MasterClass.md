@@ -888,3 +888,4 @@ Then we use `cfn-signal` to tell when the config is complete, which will let CF 
 
 This has to be used in conjuction with a `CreationPolicy`.
 
+This example means waiting a max of 5 minutes for the instance to come online and be self configured. If we don't hear back by `cfn-signal` by the, CF will fail and rollback.
