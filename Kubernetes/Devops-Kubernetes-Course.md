@@ -331,3 +331,9 @@ Docker makes development teams able to ship faster.
 You can run the same image on prem and in the cloud with what should be the same results.
 
 ## Kubernetes Setup
+
+### Running locally
+
+
+
+### Running on AWS
