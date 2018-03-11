@@ -867,3 +867,15 @@ commands:
 
 ### Services 
 
+```yaml
+AWS::CloudFormation::Init:
+  config:
+    services:
+      sysvinit:
+        httpd:
+          enabled: 'true'
+          ensureRunning: 'true'
+        sendmail:
+          enabled: 'false'
+          ensureRunning: 'false'
+```
