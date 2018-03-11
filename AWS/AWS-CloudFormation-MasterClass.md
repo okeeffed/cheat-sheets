@@ -735,7 +735,7 @@ AWS::CloudFormation::Init:
     users:
       "apache":
         groups:
-          - "apache"
+          - "apache" # user apache belongs to apache
 ```
 
 
