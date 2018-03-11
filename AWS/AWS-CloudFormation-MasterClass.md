@@ -853,5 +853,12 @@ You can also provide a test to control whether the command is executed or not.
 Example: call the echo command only if the file doesn't exist
 
 ```yaml
-
+commands:
+  test:
+    command: "echo \"$MAGIC\" > test.txt"
+    env:
+      MAGIC: "I come from the environment!"
+    cwd: "~"
+    test: "test ! -e ~/test.txt"
+    ignoreErrors: "false"
 ```
