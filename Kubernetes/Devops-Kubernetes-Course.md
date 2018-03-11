@@ -338,6 +338,17 @@ Something to note is that there are more integrations for certain Cloud Provider
 
 We can use `minikube` to spin up a local single machine with a Kubernetes cluster.
 
+#### Minikube
+
+Minikube is a tool that makes running k8s locally easy.
+
+It runs a single-node Kubernetes cluster inside a Linux VM.
+
+It's aimed on users who just want to just test it out or use if for development.
+
+It cannot spin up a roduction cluster, it's a one node machine with no high availability.
+
 ### Running on AWS
 
 Until EKS comes out, we can spin up a Kubernetes cluster using KOPS.
+
