@@ -348,6 +348,8 @@ It's aimed on users who just want to just test it out or use if for development.
 
 It cannot spin up a roduction cluster, it's a one node machine with no high availability.
 
+You need VM to run all this.
+
 ### Running on AWS
 
 Until EKS comes out, we can spin up a Kubernetes cluster using KOPS.
