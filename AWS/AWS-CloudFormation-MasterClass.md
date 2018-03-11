@@ -849,3 +849,9 @@ You can run commands one at a time in the `alphabetical order`.
 You can set a directory from which that command is run, environment variables etc.
 
 You can also provide a test to control whether the command is executed or not.
+
+Example: call the echo command only if the file doesn't exist
+
+```yaml
+
+```
