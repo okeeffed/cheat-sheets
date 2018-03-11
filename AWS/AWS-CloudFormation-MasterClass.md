@@ -741,3 +741,10 @@ AWS::CloudFormation::Init:
 ```
 
 ### Sources 
+
+```yaml
+AWS::CloudFormation::Init:
+  config:
+    sources:
+      "/home/ec2-user/aws-cli": "https://github.com/aws/aws-cli/tarball/master"
+```
