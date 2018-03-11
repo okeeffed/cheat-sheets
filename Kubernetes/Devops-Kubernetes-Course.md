@@ -392,3 +392,4 @@ You will then need to create an AWS account.
 
 After setting up the AWSCLI, installing Kops and creating a S3 Bucket + setting up the Route53 Name Servers (on somewhere like NameCheap), you can move on.
 
+### Cluster setup on Kops
