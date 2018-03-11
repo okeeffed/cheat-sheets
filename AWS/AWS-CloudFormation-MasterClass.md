@@ -587,4 +587,4 @@ You can fully automate the EC2 fleet with CF init.
 
 Example: an EC2 instance that has php and mysql installed on it.
 
-We want a user-data script to get this up and going. From the EC2 management console, you can basically use the advanced section to add a `/bin/bash` section.
+We want a user-data script to get this up and going. From the EC2 management console, you can basically use the advanced section to add a `/bin/bash` section. This is already started to become more tedious than what we want.
