@@ -41,6 +41,8 @@ Install Docker Edge to use the latest features with Kubernetes.
 
 Otherwise follow the base instructions to get everything up and going.
 
+`https://gist.github.com/kevin-smets/b91a34cea662d0c523968472a81788f7`
+
 #### Minikube issues 
 
 ```
