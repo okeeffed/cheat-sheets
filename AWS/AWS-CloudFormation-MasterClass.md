@@ -705,3 +705,5 @@ AWS::CloudFormation::Init:
       rubygems:
         chef:
           - "0.10.2" # get this version
+```
+
