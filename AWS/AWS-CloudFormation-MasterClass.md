@@ -476,3 +476,4 @@ Note that `conditions` can not be applied to `parameters`.
 
 Get an attribute attached to any resource that exists. To know the attributes, check the docs.
 
+## Metadata
