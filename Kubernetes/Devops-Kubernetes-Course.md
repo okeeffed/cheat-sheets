@@ -1,1 +1,2 @@
-# DevOps Kubernetes Courese
+# DevOps Kubernetes Course
+
