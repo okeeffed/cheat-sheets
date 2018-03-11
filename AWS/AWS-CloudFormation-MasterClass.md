@@ -572,3 +572,5 @@ Metadata:
       VPCID:
         default: "Which VPC should this be deployed to?"
 ```
+
+If you deploy a new stack using the above, you will see that the `Parameters` block will then drop you to questions about what configuration you are looking for.
