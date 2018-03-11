@@ -707,4 +707,15 @@ AWS::CloudFormation::Init:
           - "0.10.2" # get this version
 ```
 
+## Groups and Users 
 
+```yaml
+AWS::CloudFormation::Init:
+  config:
+    groups:
+      apache: {}
+    users:
+      "apache":
+        groups:
+          - "apache"
+```
