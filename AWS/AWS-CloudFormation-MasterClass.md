@@ -881,3 +881,7 @@ AWS::CloudFormation::Init:
 ```
 
 ### CFN Init and Signal 
+
+First, we use `cfn-init` to launch the config.
+
+Then we use `cfn-signal` to tell when the config is complete, which will let CF know that the resource creation has been successful.
