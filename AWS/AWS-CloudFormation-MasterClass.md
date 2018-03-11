@@ -496,4 +496,4 @@ Define configuration tasks for cfn-init. It's the most powerful usage of the met
 
 ### AWS::CloudFormation::Designer hands on
 
-This is automatically added for you but worth deleting for online sharing and usage.
+This is automatically added for you but worth deleting for online sharing and usage. When dragging and dropping each resource you will see a huge set of metadata left there.
