@@ -495,3 +495,5 @@ Define grouping and ordering of input parameters when they are displayed in the 
 Define configuration tasks for cfn-init. It's the most powerful usage of the metadata. This is very important and a lot to learn about it below.
 
 ### AWS::CloudFormation::Designer hands on
+
+This is automatically added for you but worth deleting for online sharing and usage.
