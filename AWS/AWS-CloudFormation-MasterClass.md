@@ -829,3 +829,14 @@ AWS::CloudFormation::Init:
 For example, you can combine !Sub with References or AWS Pseudo variables.
 
 Must be in the form `${VarName}`.
+
+Forms: 
+
+```yaml
+# You can do this
+!Sub
+  - String
+  - { Var1Name: Var1Value, Var2Name: Var2Value }
+# or...
+!Sub String
+```
