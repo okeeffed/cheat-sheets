@@ -940,3 +940,4 @@ Review of current standing:
 
 - You can check AWS labs templates from `https://github/com/awslabs/aws-cloudformation-templates` to see what you can understand/see good practise.
 
+The example with WordPress is what is shown in the course.
