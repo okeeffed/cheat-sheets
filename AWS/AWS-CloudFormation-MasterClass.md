@@ -747,6 +747,7 @@ These are conveninence for a compressed archieve.
 ```yaml
 AWS::CloudFormation::Init:
   config:
+    # where to unpack and from where
     sources:
       "/home/ec2-user/aws-cli": "https://github.com/aws/aws-cli/tarball/master"
 ```
