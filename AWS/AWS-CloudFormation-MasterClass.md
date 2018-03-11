@@ -943,3 +943,4 @@ Review of current standing:
 The example with WordPress is what is shown in the course.
 
 ### Using the AWS CLI
+
