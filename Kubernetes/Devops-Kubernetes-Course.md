@@ -33,6 +33,8 @@ minikube status # check status
 minikube start # start cluster
 ```
 
+Install Docker Edge to use the latest features with Kubernetes.
+
 #### Minikube issues 
 
 ```
