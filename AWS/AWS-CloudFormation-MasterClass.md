@@ -586,3 +586,4 @@ Usually, you want to the instances to be self configured so that they can perfor
 You can fully automate the EC2 fleet with CF init.
 
 Example: an EC2 instance that has php and mysql installed on it.
+
