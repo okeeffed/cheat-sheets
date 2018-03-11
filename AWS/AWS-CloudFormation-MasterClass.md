@@ -1010,3 +1010,5 @@ Check online for a walkthrough of custom resources.
 9. Verify changes with changesets (and avoid disasters).
 10. Use stack policies to prevent critical components from being deleted after create (such as your most valuable RDS database).
 
+### Cost estimate for templates
+
