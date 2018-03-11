@@ -821,3 +821,7 @@ AWS::CloudFormation::Init:
         owner: "root"
         group: "root"
 ```
+
+### Fn::Sub
+
+(Or as !Sub) is used to substitute variables from a text. It's a very handy function that will allow you to fully customize your templates.
