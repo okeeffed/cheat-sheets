@@ -927,3 +927,5 @@ Example from the "files" declation:
 ### CFN Init Hands-On
 
 After loading the CFN Init yaml file into CF, it will go through a series of different events.
+
+You can under "status reason" if there is a success message sent back.
