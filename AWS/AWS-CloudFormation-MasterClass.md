@@ -756,6 +756,26 @@ AWS::CloudFormation::Init:
 
 Files can be the most used section. Almost all the full power. It can be a specific URL or written inline for what you are doing.
 
+Base example:
+
+```yaml
+AWS::CloudFormation::Init:
+  config:
+    # where to unpack and from where
+    files:
+      /tmp/setup.mysql:
+        content: !Sub |
+          CREATE DATABASE ${DBName};
+          CREATE USER '${DBUsername}'@'localhost' IDENTIFIED BY '${DBPassword}';
+          GRANT ALL ON ${DBName}.* TO '${DBUsername}'@'localhost';
+          FLUSH PRIVILEDGES;
+        mode: "000644"
+        owner: "root"
+        group: "root"
+```
+
+Full example:
+
 ```yaml
 AWS::CloudFormation::Init:
   config:
