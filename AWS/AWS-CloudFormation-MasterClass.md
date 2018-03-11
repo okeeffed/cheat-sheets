@@ -897,3 +897,7 @@ CreationPolicy:
 ```
 
 This is useful in case of a bad update.
+
+### cfn-hup
+
+- Cfn-hup can be used to tell your EC2 instance to look for Metadata changes every 15 minutes and apply the metadata configuration again.
