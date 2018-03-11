@@ -361,3 +361,5 @@ Until EKS comes out, we can spin up a Kubernetes cluster using KOPS.
 You need to ensure that you download Vagrant and a VM.
 
 For running the Vagrant box, you can run `vagrant up --provider virtualbox`.
+
+You can then use `vagrant ssh` to ssh in.
