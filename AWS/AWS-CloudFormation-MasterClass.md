@@ -709,6 +709,8 @@ AWS::CloudFormation::Init:
 
 ## Groups and Users 
 
+
+
 ```yaml
 AWS::CloudFormation::Init:
   config:
