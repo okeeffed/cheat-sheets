@@ -923,3 +923,5 @@ Example from the "files" declation:
   mode: "000400"
   owner: "root"
 ```
+
+### cfn init hands on
