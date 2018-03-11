@@ -479,3 +479,9 @@ Get an attribute attached to any resource that exists. To know the attributes, c
 ## CF Metadata
 
 This is any optional metadata section to include arbitrary YAML that provide details about the template or resource.
+
+There are 3 metadata keys that have special meaning:
+
+1. AWS::CloudFormation::Designer
+
+Describes how the resources are laid out in your template. This is automatically added by the AWS Designer.
