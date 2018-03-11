@@ -654,4 +654,6 @@ What is the problem with EC2 user data? Well, what happens if we have a large co
 
 Amazon creating CF helper scripts.
 
-There are 4 python scripts that come directly with Amazon Linux AMI or can be installed using `yum` on non-Amazon Linux.
+There are 4 python scripts that come directly with Amazon Linux AMI or can be installed using `yum` on non-Amazon Linux. They are:
+
+1. cfn-init: Used to retrieve and interprety the resouce metadata, installing packages, creating files and starting services.
