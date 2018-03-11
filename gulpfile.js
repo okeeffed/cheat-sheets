@@ -9,7 +9,7 @@ require('dotenv').load();
 gulp.task( "watch", function() {
 	gulp.watch([
 		// "*.md",
-		"AWS/*.md",
+		"Kubernetes/*.md",
 		".env"
 	]).on( "change", function(file) {
 		var list = file.path.split('/');
