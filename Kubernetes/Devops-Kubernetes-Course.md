@@ -17,3 +17,5 @@
 5. To be able to `administer` Kubernetes
 
 ### Support
+
+All resources are in a github repository 
