@@ -727,6 +727,8 @@ AWS::CloudFormation::Init:
         homeDir: "/tmp"
 ```
 
+In the larger example...
+
 ```yaml
 AWS::CloudFormation::Init:
   config:
