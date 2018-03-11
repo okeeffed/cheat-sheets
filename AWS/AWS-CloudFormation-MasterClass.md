@@ -859,7 +859,7 @@ commands:
     env:
       MAGIC: "I come from the environment!"
     cwd: "~"
-    test: "test ! -e ~/test.txt"
+    test: "test ! -e ~/test.txt" # check file exists
     ignoreErrors: "false" # fail if is doesn't work
 ```
 
