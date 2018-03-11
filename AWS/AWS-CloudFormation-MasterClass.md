@@ -984,3 +984,5 @@ Resources:
     Type: AWS::S3::Bucket
     DeletionPolicy: Retain
 ```
+
+In the above example, it will create the S3 Bucket, you will see the bucket created.
