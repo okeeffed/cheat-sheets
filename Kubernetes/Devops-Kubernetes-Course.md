@@ -48,4 +48,3 @@ Otherwise follow the base instructions to get everything up and going.
 ```
 https://github.com/kubernetes/minikube/issues/1382
 ```
-
