@@ -961,3 +961,7 @@ After running the command, what you get back is the `StackId`.
 Troposhere allows you to leverage Python write the templates.
 
 This means you can start using types in your templates for safety.
+
+You will also have valid CF and can dynamically generate CloudFormation.
+
+This means you can also have very complex conditions.
