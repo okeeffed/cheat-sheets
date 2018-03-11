@@ -352,6 +352,8 @@ You need VM to run all this.
 
 To run a cluster, just run `minikube start`.
 
+To check your config after spinning up Kubernetes, use `cat ~/.kube/config`.
+
 ### Running on AWS
 
 Until EKS comes out, we can spin up a Kubernetes cluster using KOPS.
