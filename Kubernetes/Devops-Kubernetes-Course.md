@@ -737,3 +737,5 @@ To edit the cluster, run `kops edit cluster kubernetes.test --state=s3://kops-st
 If we now run `cat ~/.kube/config` we can see the password and username information needed.
 
 To check if the nodes are up, run `kubectl get node`.
+
+Then, we can again run `kubectl run hello-minikube ... `
