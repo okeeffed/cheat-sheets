@@ -314,4 +314,4 @@ You can run K8s anywhere:
 - Public
 - Hybrid
 
-It is highly modular and open source.
+It is highly modular and open source. It is also backed by Google.
