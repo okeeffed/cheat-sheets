@@ -850,6 +850,8 @@ You can set a directory from which that command is run, environment variables et
 
 You can also provide a test to control whether the command is executed or not.
 
+This should be a last resort.
+
 Example: call the echo command only if the file doesn't exist
 
 ```yaml
