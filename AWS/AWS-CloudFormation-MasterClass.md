@@ -505,3 +505,69 @@ Define grouping and ordering of input parameteres when they are displayed in the
 You provide them with grouping, or sorting, that allow them to input parameters efficiently.
 
 Example: Group all the EC2 related params together.
+
+```yaml
+---
+Parameters:
+  KeyName:
+    Description: Name of an existing EC2 key pair for SSH access to the EC2 instance.
+    Type: AWS::EC2::KeyPair::KeyName
+  InstanceType:
+    Description: EC2 instance type.
+    Type: String
+    Default: t2.micro
+    AllowedValues:
+    - t2.micro
+    - t2.small
+    - t2.medium
+    - m3.medium
+    - m3.large
+    - m3.xlarge
+    - m3.2xlarge
+  SSHLocation:
+    Description: The IP address range that can SSH to the EC2 instance.
+    Type: String
+    MinLength: '9'
+    MaxLength: '18'
+    Default: 0.0.0.0/0
+    AllowedPattern: "(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})\\.(\\d{1,3})/(\\d{1,2})"
+    ConstraintDescription: Must be a valid IP CIDR range of the form x.x.x.x/x.
+  VPCID:
+    Description: VPC to operate in
+    Type: AWS::EC2::VPC::Id
+  SubnetID:
+    Description: Subnet ID
+    Type: AWS::EC2::Subnet::Id
+  SecurityGroupID:
+    Description: Security Group
+    Type: AWS::EC2::SecurityGroup::Id
+
+Resources:
+  MyEC2Instance:
+    Type: "AWS::EC2::Instance"
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-a4c7edb2
+      InstanceType: !Ref InstanceType
+      SecurityGroups:
+        - !Ref SecurityGroupID
+      SubnetID: !Ref SubnetID
+
+Metadata:
+  AWS::CloudFormation::Interface:
+    ParameterGroups:
+      - Label:
+          default: "Network Configuration"
+        Parameters:
+          - VPCID
+          - SubnetID
+          - SecurityGroupID
+      - Label:
+          default: "Amazon EC2 Configuration"
+        Parameters:
+          - InstanceType
+          - KeyName
+    ParameterLabels:
+      VPCID:
+        default: "Which VPC should this be deployed to?"
+```
