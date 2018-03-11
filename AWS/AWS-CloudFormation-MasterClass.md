@@ -975,3 +975,4 @@ This policy can prevent resources from being deleted, or in some cases, back the
 Deletion Policy can take up the following values:
 
 1. Delete: AWS CloudFormation will delete the resource and all its content if applicable during stack deletion (does not apply to S3)
+2. Retain: AWS CloudFormation keeps the resource without deleting the resource or its contents when its stack is deleted. You can add this deletion policy to any resource type.
