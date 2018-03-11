@@ -666,3 +666,5 @@ The usual flow? cfn-init, then cfn-signal, then optionally cfn-hup.
 ### AWS::CloudFormation::Init 
 
 A config contains the following and is executed in that order:
+
+1. Packages: install a list of packages on the Linux OS (mysql, wordpress, etc)
