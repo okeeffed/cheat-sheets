@@ -350,6 +350,8 @@ It cannot spin up a roduction cluster, it's a one node machine with no high avai
 
 You need VM to run all this.
 
+To run a cluster, just run `minikube start`.
+
 ### Running on AWS
 
 Until EKS comes out, we can spin up a Kubernetes cluster using KOPS.
