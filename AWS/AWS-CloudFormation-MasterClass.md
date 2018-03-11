@@ -958,3 +958,6 @@ After running the command, what you get back is the `StackId`.
 
 ### Using Troposphere (Python) to generate CloudFormation templates
 
+Troposhere allows you to leverage Python write the templates.
+
+This means you can start using types in your templates for safety.
