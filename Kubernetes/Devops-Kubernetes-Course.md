@@ -319,3 +319,5 @@ It is highly modular and open source. It is also backed by Google.
 ## Containers intro
 
 Container VS VM: No Hypervisor and Guest OS layer.
+
+Containers on Cloud Providers do still use the hypervisor to seperate users.
