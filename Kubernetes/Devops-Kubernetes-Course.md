@@ -325,3 +325,4 @@ Containers on Cloud Providers do still use the hypervisor to seperate users.
 Docker is the most popular container software. An alternative is `rkt`.
 
 Benefits? It works in isolation. You ship the binary with all the dependencies and create a closer parity.
+
