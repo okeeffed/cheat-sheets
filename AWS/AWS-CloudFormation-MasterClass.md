@@ -578,3 +578,5 @@ If you deploy a new stack using the above, you will see that the `Parameters` bl
 ## CFN Init and EC2 User Data
 
 ### EC2 User Data Overview
+
+Many CF templates will be about provisioning computer resources in your AS Cloud.
