@@ -971,3 +971,7 @@ The disadvantage is that the Python needs to generate the JSON for it to be.
 ### DeletionPolicy
 
 This policy can prevent resources from being deleted, or in some cases, back them up before the deletion. This will help prevent doing something really, really bad.
+
+Deletion Policy can take up the following values:
+
+1. Delete: AWS CloudFormation will delete the resource and all its content if applicable during stack deletion
