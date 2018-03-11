@@ -679,3 +679,11 @@ You can also have multiple configs and you can run them sequentially etc.
 
 ### Packages
 
+You can install packages from the following repositories: 
+
+- apt
+- msi
+- python
+- rpm 
+- rubygems 
+- yum
