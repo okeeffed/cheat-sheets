@@ -880,3 +880,4 @@ AWS::CloudFormation::Init:
           ensureRunning: 'false'
 ```
 
+### CFN Init and Signal 
