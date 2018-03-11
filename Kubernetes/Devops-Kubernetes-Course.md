@@ -398,3 +398,4 @@ First, download Kops for Linux on the Vagrant box and move it.
 
 Before creating the cluster, you will need to create new keys. `ssh-keygen -f .ssh/id_rsa`.
 
+To create the cluster (example), run `kops create cluster --name=kubernetes.test --state=s3://kops-state-oeiajrie93 --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=givemeyeezy.online`
