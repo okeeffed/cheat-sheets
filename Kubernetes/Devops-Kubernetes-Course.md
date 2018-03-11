@@ -290,3 +290,15 @@ Creating a certificate request: openssl req -new -key myuser.pem -out myuser-csr
 
 Creating a certificate: openssl x509 -req -in myuser-csr.pem -CA /path/to/kubernetes/ca.crt -CAkey /path/to/kubernetes/ca.key -CAcreateserial -out myuser.crt -days 10000
 ```
+
+## What is Kubernetes?
+
+Open source orchestration system for Docker.
+
+- Let's you schedule containers on a cluster of machines
+- You can run multiple containers on one machine 
+- You can run long running services (like web apps)
+- K8s will manage the state of these containers 
+    - Can start the container on specific nodes 
+    - Will restart a container when it gets killed 
+    - Can move containers from one node to another node
