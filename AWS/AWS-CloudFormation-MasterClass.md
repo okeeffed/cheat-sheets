@@ -850,7 +850,7 @@ You can set a directory from which that command is run, environment variables et
 
 You can also provide a test to control whether the command is executed or not.
 
-This should be a last resort.
+This should be a last resort. You can execute any of the scripts from the above files in this section.
 
 Example: call the echo command only if the file doesn't exist
 
