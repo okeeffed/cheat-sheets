@@ -1000,3 +1000,4 @@ Check online for a walkthrough of custom resources.
 ### Best practises to organize your CloudFormation templates
 
 1. How to organise templates: you can have a layered architecture (horizontal layers) vs service oriented architecture (vertical layers).
+2. Use cross stack references eg. to reference a VPC or subnet
