@@ -363,3 +363,12 @@ You need to ensure that you download Vagrant and a VM.
 For running the Vagrant box, you can run `vagrant up --provider virtualbox`.
 
 You can then use `vagrant ssh` to ssh in.
+
+Ensure that you also download `python-pip`:
+
+```
+sudo apt-get install software-properties-common
+sudo apt-add-repository universe
+sudo apt-get update
+sudo apt-get install python-pip
+```
