@@ -970,3 +970,4 @@ The disadvantage is that the Python needs to generate the JSON for it to be.
 
 ### DeletionPolicy
 
+This policy can prevent resources from being deleted, or in some cases, back them up before the deletion. This will help prevent doing something really, really bad.
