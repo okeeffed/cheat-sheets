@@ -332,6 +332,8 @@ You can run the same image on prem and in the cloud with what should be the same
 
 ## Kubernetes Setup
 
+Something to note is that there are more integrations for certain Cloud Providers like AWS & GCE.
+
 ### Running locally
 
 
