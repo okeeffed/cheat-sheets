@@ -500,3 +500,4 @@ This is automatically added for you but worth deleting for online sharing and us
 
 ### AWS::CloudFormation::Interface hands on
 
+Define grouping and ordering of input parameteres when they are displayed in the AWS Console.
