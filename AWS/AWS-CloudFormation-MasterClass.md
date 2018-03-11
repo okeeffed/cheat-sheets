@@ -671,3 +671,4 @@ A config contains the following and is executed in that order:
 2. Groups: define user groups
 3. Users: define users, and which group they belong to
 4. Sources: download an archive file and place it on the ec2 instance (tar, zip, bz2)
+5. Files: create files on the ec2 instance, using inline or can be pulled from a URL
