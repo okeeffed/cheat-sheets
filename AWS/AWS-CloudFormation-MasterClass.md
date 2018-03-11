@@ -576,3 +576,5 @@ Metadata:
 If you deploy a new stack using the above, you will see that the `Parameters` block will then drop you to questions about what configuration you are looking for.
 
 ## CFN Init and EC2 User Data
+
+### EC2 User Data Overview
