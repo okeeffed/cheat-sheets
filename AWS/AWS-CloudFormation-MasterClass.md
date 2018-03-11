@@ -554,6 +554,7 @@ Resources:
       SubnetID: !Ref SubnetID
 
 Metadata:
+  # This is the important part
   AWS::CloudFormation::Interface:
     ParameterGroups:
       - Label:
