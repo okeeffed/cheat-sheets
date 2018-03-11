@@ -1007,3 +1007,4 @@ Check online for a walkthrough of custom resources.
 6. Use CFN Init (& latest version of the helper scripts)
 7. Validate templates 
 8. Don't do anything manual on the elements of the stack - that can cause a state mismatch.
+9. Verify changes with changesets (and avoid disasters).
