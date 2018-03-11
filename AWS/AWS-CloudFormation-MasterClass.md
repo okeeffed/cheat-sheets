@@ -731,7 +731,7 @@ AWS::CloudFormation::Init:
 AWS::CloudFormation::Init:
   config:
     groups:
-      apache: {}
+      apache: {} # assign any group ID
     users:
       "apache":
         groups:
