@@ -895,3 +895,5 @@ CreationPolicy:
   ResourceSignal:
     Timeout: PT5M
 ```
+
+This is useful in case of a bad update.
