@@ -967,3 +967,5 @@ You will also have valid CF and can dynamically generate CloudFormation.
 This means you can also have very complex conditions.
 
 The disadvantage is that the Python needs to generate the JSON for it to be.
+
+### DeletionPolicy
