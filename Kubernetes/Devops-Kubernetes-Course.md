@@ -33,5 +33,9 @@ minikube status # check status
 minikube start # start cluster
 ```
 
+#### Minikube issues 
 
+```
+https://github.com/kubernetes/minikube/issues/1382
+```
 
