@@ -949,3 +949,5 @@ We can use the AWS CLI to create, update or delete CF templates.
 Super conventient for when you start automating your deployments.
 
 Once you've downloaded the AWS config, use `aws configure --profile <profile_name>` to configure a profile with the ID and Secret Access key.
+
+To run a CF command, you can use something like the following `aws cloudformation create-stack --stack-name example-cli-stack --template-body file://0-sample-template.yaml --parameters file://0-parameters.json --profile cf-course --region us-east-1`
