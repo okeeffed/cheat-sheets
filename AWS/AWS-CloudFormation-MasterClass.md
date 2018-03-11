@@ -650,4 +650,4 @@ Now that we see the power of this, let's have a look at CF Init.
 
 ### CloudFormation Init 
 
-What is the problem with EC2 user data? Well, what happens if we have a large configuration?
+What is the problem with EC2 user data? Well, what happens if we have a large configuration? What if we want to evolve the state without terminating it? How do we make it readable? How do we know or signal that our EC2 user-data script actually completed successfully?
