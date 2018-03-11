@@ -315,3 +315,5 @@ You can run K8s anywhere:
 - Hybrid
 
 It is highly modular and open source. It is also backed by Google.
+
+## Containers intro
