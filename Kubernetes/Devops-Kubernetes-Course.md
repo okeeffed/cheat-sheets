@@ -401,3 +401,333 @@ Before creating the cluster, you will need to create new keys. `ssh-keygen -f .s
 To create the cluster (example), run `kops create cluster --name=kubernetes.test --state=s3://kops-state-oeiajrie93 --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=givemeyeezy.online`
 
 This DNS zone is basically just the one that we set up.
+
+You'll get something back like 
+
+```
+I0311 21:48:46.821364    7553 create_cluster.go:439] Inferred --cloud=aws from zone "ap-southeast-2a"
+I0311 21:48:46.821506    7553 create_cluster.go:971] Using SSH public key: /home/vagrant/.ssh/id_rsa.pub
+I0311 21:48:48.232635    7553 subnets.go:184] Assigned CIDR 172.20.32.0/19 to subnet ap-southeast-2a
+Previewing changes that will be made:
+
+I0311 21:48:52.305360    7553 executor.go:91] Tasks: 0 done / 73 total; 31 can run
+I0311 21:48:53.503124    7553 executor.go:91] Tasks: 31 done / 73 total; 24 can run
+I0311 21:48:53.958875    7553 executor.go:91] Tasks: 55 done / 73 total; 16 can run
+I0311 21:48:54.237870    7553 executor.go:91] Tasks: 71 done / 73 total; 2 can run
+I0311 21:48:54.262347    7553 executor.go:91] Tasks: 73 done / 73 total; 0 can run
+Will create resources:
+  AutoscalingGroup/master-ap-southeast-2a.masters.kubernetes.test
+  	MinSize             	1
+  	MaxSize             	1
+  	Subnets             	[name:ap-southeast-2a.kubernetes.test]
+  	Tags                	{k8s.io/role/master: 1, Name: master-ap-southeast-2a.masters.kubernetes.test, KubernetesCluster: kubernetes.test, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/instancegroup: master-ap-southeast-2a}
+  	LaunchConfiguration 	name:master-ap-southeast-2a.masters.kubernetes.test
+
+  AutoscalingGroup/nodes.kubernetes.test
+  	MinSize             	2
+  	MaxSize             	2
+  	Subnets             	[name:ap-southeast-2a.kubernetes.test]
+  	Tags                	{k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/instancegroup: nodes, k8s.io/role/node: 1, Name: nodes.kubernetes.test, KubernetesCluster: kubernetes.test}
+  	LaunchConfiguration 	name:nodes.kubernetes.test
+
+  DHCPOptions/kubernetes.test
+  	DomainName          	ap-southeast-2.compute.internal
+  	DomainNameServers   	AmazonProvidedDNS
+
+  EBSVolume/a.etcd-events.kubernetes.test
+  	AvailabilityZone    	ap-southeast-2a
+  	VolumeType          	gp2
+  	SizeGB              	20
+  	Encrypted           	false
+  	Tags                	{KubernetesCluster: kubernetes.test, k8s.io/etcd/events: a/a, k8s.io/role/master: 1, Name: a.etcd-events.kubernetes.test}
+
+  EBSVolume/a.etcd-main.kubernetes.test
+  	AvailabilityZone    	ap-southeast-2a
+  	VolumeType          	gp2
+  	SizeGB              	20
+  	Encrypted           	false
+  	Tags                	{k8s.io/etcd/main: a/a, k8s.io/role/master: 1, Name: a.etcd-main.kubernetes.test, KubernetesCluster: kubernetes.test}
+
+  IAMInstanceProfile/masters.kubernetes.test
+
+  IAMInstanceProfile/nodes.kubernetes.test
+
+  IAMInstanceProfileRole/masters.kubernetes.test
+  	InstanceProfile     	name:masters.kubernetes.test id:masters.kubernetes.test
+  	Role                	name:masters.kubernetes.test
+
+  IAMInstanceProfileRole/nodes.kubernetes.test
+  	InstanceProfile     	name:nodes.kubernetes.test id:nodes.kubernetes.test
+  	Role                	name:nodes.kubernetes.test
+
+  IAMRole/masters.kubernetes.test
+  	ExportWithID        	masters
+
+  IAMRole/nodes.kubernetes.test
+  	ExportWithID        	nodes
+
+  IAMRolePolicy/masters.kubernetes.test
+  	Role                	name:masters.kubernetes.test
+
+  IAMRolePolicy/nodes.kubernetes.test
+  	Role                	name:nodes.kubernetes.test
+
+  InternetGateway/kubernetes.test
+  	VPC                 	name:kubernetes.test
+  	Shared              	false
+
+  Keypair/apiserver-aggregator
+  	Subject             	cn=aggregator
+  	Type                	client
+  	Signer              	name:apiserver-aggregator-ca id:cn=apiserver-aggregator-ca
+
+  Keypair/apiserver-aggregator-ca
+  	Subject             	cn=apiserver-aggregator-ca
+  	Type                	ca
+
+  Keypair/apiserver-proxy-client
+  	Subject             	cn=apiserver-proxy-client
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/ca
+  	Subject             	cn=kubernetes
+  	Type                	ca
+
+  Keypair/kops
+  	Subject             	o=system:masters,cn=kops
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/kube-controller-manager
+  	Subject             	cn=system:kube-controller-manager
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/kube-proxy
+  	Subject             	cn=system:kube-proxy
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/kube-scheduler
+  	Subject             	cn=system:kube-scheduler
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/kubecfg
+  	Subject             	o=system:masters,cn=kubecfg
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/kubelet
+  	Subject             	o=system:nodes,cn=kubelet
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/kubelet-api
+  	Subject             	cn=kubelet-api
+  	Type                	client
+  	Signer              	name:ca id:cn=kubernetes
+
+  Keypair/master
+  	Subject             	cn=kubernetes-master
+  	Type                	server
+  	AlternateNames      	[100.64.0.1, 127.0.0.1, api.internal.kubernetes.test, api.kubernetes.test, kubernetes, kubernetes.default, kubernetes.default.svc, kubernetes.default.svc.cluster.local]
+  	Signer              	name:ca id:cn=kubernetes
+
+  LaunchConfiguration/master-ap-southeast-2a.masters.kubernetes.test
+  	ImageID             	kope.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
+  	InstanceType        	t2.micro
+  	SSHKey              	name:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de id:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
+  	SecurityGroups      	[name:masters.kubernetes.test]
+  	AssociatePublicIP   	true
+  	IAMInstanceProfile  	name:masters.kubernetes.test id:masters.kubernetes.test
+  	RootVolumeSize      	64
+  	RootVolumeType      	gp2
+  	SpotPrice
+
+  LaunchConfiguration/nodes.kubernetes.test
+  	ImageID             	kope.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
+  	InstanceType        	t2.micro
+  	SSHKey              	name:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de id:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
+  	SecurityGroups      	[name:nodes.kubernetes.test]
+  	AssociatePublicIP   	true
+  	IAMInstanceProfile  	name:nodes.kubernetes.test id:nodes.kubernetes.test
+  	RootVolumeSize      	128
+  	RootVolumeType      	gp2
+  	SpotPrice
+
+  ManagedFile/kubernetes.test-addons-bootstrap
+  	Location            	addons/bootstrap-channel.yaml
+
+  ManagedFile/kubernetes.test-addons-core.addons.k8s.io
+  	Location            	addons/core.addons.k8s.io/v1.4.0.yaml
+
+  ManagedFile/kubernetes.test-addons-dns-controller.addons.k8s.io-k8s-1.6
+  	Location            	addons/dns-controller.addons.k8s.io/k8s-1.6.yaml
+
+  ManagedFile/kubernetes.test-addons-dns-controller.addons.k8s.io-pre-k8s-1.6
+  	Location            	addons/dns-controller.addons.k8s.io/pre-k8s-1.6.yaml
+
+  ManagedFile/kubernetes.test-addons-kube-dns.addons.k8s.io-k8s-1.6
+  	Location            	addons/kube-dns.addons.k8s.io/k8s-1.6.yaml
+
+  ManagedFile/kubernetes.test-addons-kube-dns.addons.k8s.io-pre-k8s-1.6
+  	Location            	addons/kube-dns.addons.k8s.io/pre-k8s-1.6.yaml
+
+  ManagedFile/kubernetes.test-addons-limit-range.addons.k8s.io
+  	Location            	addons/limit-range.addons.k8s.io/v1.5.0.yaml
+
+  ManagedFile/kubernetes.test-addons-rbac.addons.k8s.io-k8s-1.8
+  	Location            	addons/rbac.addons.k8s.io/k8s-1.8.yaml
+
+  ManagedFile/kubernetes.test-addons-storage-aws.addons.k8s.io-v1.6.0
+  	Location            	addons/storage-aws.addons.k8s.io/v1.6.0.yaml
+
+  ManagedFile/kubernetes.test-addons-storage-aws.addons.k8s.io-v1.7.0
+  	Location            	addons/storage-aws.addons.k8s.io/v1.7.0.yaml
+
+  Route/0.0.0.0/0
+  	RouteTable          	name:kubernetes.test
+  	CIDR                	0.0.0.0/0
+  	InternetGateway     	name:kubernetes.test
+
+  RouteTable/kubernetes.test
+  	VPC                 	name:kubernetes.test
+
+  RouteTableAssociation/ap-southeast-2a.kubernetes.test
+  	RouteTable          	name:kubernetes.test
+  	Subnet              	name:ap-southeast-2a.kubernetes.test
+
+  SSHKey/kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
+  	KeyFingerprint      	c4:89:af:59:a1:1d:6e:ef:7a:9d:12:65:bc:e2:82:4f
+
+  Secret/admin
+
+  Secret/kube
+
+  Secret/kube-proxy
+
+  Secret/kubelet
+
+  Secret/system:controller_manager
+
+  Secret/system:dns
+
+  Secret/system:logging
+
+  Secret/system:monitoring
+
+  Secret/system:scheduler
+
+  SecurityGroup/masters.kubernetes.test
+  	Description         	Security group for masters
+  	VPC                 	name:kubernetes.test
+  	RemoveExtraRules    	[port=22, port=443, port=2380, port=2381, port=4001, port=4002, port=4789, port=179]
+
+  SecurityGroup/nodes.kubernetes.test
+  	Description         	Security group for nodes
+  	VPC                 	name:kubernetes.test
+  	RemoveExtraRules    	[port=22]
+
+  SecurityGroupRule/all-master-to-master
+  	SecurityGroup       	name:masters.kubernetes.test
+  	SourceGroup         	name:masters.kubernetes.test
+
+  SecurityGroupRule/all-master-to-node
+  	SecurityGroup       	name:nodes.kubernetes.test
+  	SourceGroup         	name:masters.kubernetes.test
+
+  SecurityGroupRule/all-node-to-node
+  	SecurityGroup       	name:nodes.kubernetes.test
+  	SourceGroup         	name:nodes.kubernetes.test
+
+  SecurityGroupRule/https-external-to-master-0.0.0.0/0
+  	SecurityGroup       	name:masters.kubernetes.test
+  	CIDR                	0.0.0.0/0
+  	Protocol            	tcp
+  	FromPort            	443
+  	ToPort              	443
+
+  SecurityGroupRule/master-egress
+  	SecurityGroup       	name:masters.kubernetes.test
+  	CIDR                	0.0.0.0/0
+  	Egress              	true
+
+  SecurityGroupRule/node-egress
+  	SecurityGroup       	name:nodes.kubernetes.test
+  	CIDR                	0.0.0.0/0
+  	Egress              	true
+
+  SecurityGroupRule/node-to-master-tcp-1-2379
+  	SecurityGroup       	name:masters.kubernetes.test
+  	Protocol            	tcp
+  	FromPort            	1
+  	ToPort              	2379
+  	SourceGroup         	name:nodes.kubernetes.test
+
+  SecurityGroupRule/node-to-master-tcp-2382-4000
+  	SecurityGroup       	name:masters.kubernetes.test
+  	Protocol            	tcp
+  	FromPort            	2382
+  	ToPort              	4000
+  	SourceGroup         	name:nodes.kubernetes.test
+
+  SecurityGroupRule/node-to-master-tcp-4003-65535
+  	SecurityGroup       	name:masters.kubernetes.test
+  	Protocol            	tcp
+  	FromPort            	4003
+  	ToPort              	65535
+  	SourceGroup         	name:nodes.kubernetes.test
+
+  SecurityGroupRule/node-to-master-udp-1-65535
+  	SecurityGroup       	name:masters.kubernetes.test
+  	Protocol            	udp
+  	FromPort            	1
+  	ToPort              	65535
+  	SourceGroup         	name:nodes.kubernetes.test
+
+  SecurityGroupRule/ssh-external-to-master-0.0.0.0/0
+  	SecurityGroup       	name:masters.kubernetes.test
+  	CIDR                	0.0.0.0/0
+  	Protocol            	tcp
+  	FromPort            	22
+  	ToPort              	22
+
+  SecurityGroupRule/ssh-external-to-node-0.0.0.0/0
+  	SecurityGroup       	name:nodes.kubernetes.test
+  	CIDR                	0.0.0.0/0
+  	Protocol            	tcp
+  	FromPort            	22
+  	ToPort              	22
+
+  Subnet/ap-southeast-2a.kubernetes.test
+  	VPC                 	name:kubernetes.test
+  	AvailabilityZone    	ap-southeast-2a
+  	CIDR                	172.20.32.0/19
+  	Shared              	false
+  	Tags                	{Name: ap-southeast-2a.kubernetes.test, KubernetesCluster: kubernetes.test, kubernetes.io/cluster/kubernetes.test: owned, kubernetes.io/role/elb: 1}
+
+  VPC/kubernetes.test
+  	CIDR                	172.20.0.0/16
+  	EnableDNSHostnames  	true
+  	EnableDNSSupport    	true
+  	Shared              	false
+  	Tags                	{Name: kubernetes.test, KubernetesCluster: kubernetes.test, kubernetes.io/cluster/kubernetes.test: owned}
+
+  VPCDHCPOptionsAssociation/kubernetes.test
+  	VPC                 	name:kubernetes.test
+  	DHCPOptions         	name:kubernetes.test
+
+Must specify --yes to apply changes
+
+Cluster configuration has been created.
+
+Suggestions:
+ * list clusters with: kops get cluster
+ * edit this cluster with: kops edit cluster kubernetes.test
+ * edit your node instance group: kops edit ig --name=kubernetes.test nodes
+ * edit your master instance group: kops edit ig --name=kubernetes.test master-ap-southeast-2a
+
+Finally configure your cluster with: kops update cluster kubernetes.test --yes
+```
