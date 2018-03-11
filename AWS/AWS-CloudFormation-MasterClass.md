@@ -707,7 +707,7 @@ AWS::CloudFormation::Init:
           - "0.10.2" # get this version
 ```
 
-## Groups and Users 
+### Groups and Users 
 
 If you want to have multiple users and groups (with optional gid) in your ec2 instance, you can add groups and users to CF and metadata.
 
