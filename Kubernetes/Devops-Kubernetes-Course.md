@@ -18,4 +18,4 @@
 
 ### Support
 
-All resources are in a github repository 
+All resources are in a github repository.
