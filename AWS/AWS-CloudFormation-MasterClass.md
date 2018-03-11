@@ -579,4 +579,4 @@ If you deploy a new stack using the above, you will see that the `Parameters` bl
 
 ### EC2 User Data Overview
 
-Many CF templates will be about provisioning computer resources in your AS Cloud.
+Many CF templates will be about provisioning computer resources in your AWS Cloud.
