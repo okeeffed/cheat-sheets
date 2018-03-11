@@ -1003,3 +1003,4 @@ Check online for a walkthrough of custom resources.
 2. Use cross stack references eg. to reference a VPC or subnet.
 3. Make sure the template is environment agnostic to do dev / test / prod and across regions / accounts seemlessly.
 4. Never embed credentials (use parameters with NoEcho or KMS).
+5. Use specific parameters types and constraints.
