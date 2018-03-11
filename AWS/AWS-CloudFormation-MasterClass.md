@@ -944,3 +944,4 @@ The example with WordPress is what is shown in the course.
 
 ### Using the AWS CLI
 
+We can use the AWS CLI to create, update or delete CF templates.
