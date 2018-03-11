@@ -674,3 +674,4 @@ A config contains the following and is executed in that order:
 5. Files: create files on the ec2 instance, using inline or can be pulled from a URL
 6. Commands: run a series of commands 
 7. Services: launch a list of sysvinit 
+
