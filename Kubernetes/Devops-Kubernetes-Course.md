@@ -35,6 +35,8 @@ minikube start # start cluster
 
 Install Docker Edge to use the latest features with Kubernetes.
 
+Otherwise follow the base instructions to get everything up and going.
+
 #### Minikube issues 
 
 ```
