@@ -387,3 +387,5 @@ Then install awscli:
 export LC_ALL=C # if run into an error about locale settings
 sudo pip install awscli
 ```
+
+You will then need to create an AWS account.
