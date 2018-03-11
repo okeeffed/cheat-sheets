@@ -998,3 +998,4 @@ For example, you might want to include resources that aren't available as AWS Cl
 Check online for a walkthrough of custom resources.
 
 ### Best practises to organize your CloudFormation templates
+
