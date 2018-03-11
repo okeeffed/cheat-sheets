@@ -1013,3 +1013,5 @@ Check online for a walkthrough of custom resources.
 ### Cost estimate for templates
 
 You can estimate the cost of a stack very easily.
+
+For this, just upload the stack onto the AWS console, enter the params and click "cost".
