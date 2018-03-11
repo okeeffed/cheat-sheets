@@ -931,3 +931,5 @@ After loading the CFN Init yaml file into CF, it will go through a series of dif
 You can under "status reason" if there is a success message sent back.
 
 You need to practise your !Init skilles. It will be extremely handy for creating EC2 Instances or AutoScaling groups.
+
+Remember logs for ec2-user data are in `/var/log/cloud-init-output.log` and logs for cfn-init are in `/var/log/cfn-init.log`, which is really helpful if commands don't complete like you want them to.
