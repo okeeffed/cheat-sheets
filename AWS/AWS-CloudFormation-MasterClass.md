@@ -668,3 +668,4 @@ The usual flow? cfn-init, then cfn-signal, then optionally cfn-hup.
 A config contains the following and is executed in that order:
 
 1. Packages: install a list of packages on the Linux OS (mysql, wordpress, etc)
+2. Groups: define user groups
