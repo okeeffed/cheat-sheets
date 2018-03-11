@@ -478,3 +478,4 @@ Get an attribute attached to any resource that exists. To know the attributes, c
 
 ## CF Metadata
 
+This is any optional metadata section to include arbitrary YAML that provide details about the template or resource.
