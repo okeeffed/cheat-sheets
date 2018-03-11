@@ -389,3 +389,5 @@ sudo pip install awscli
 ```
 
 You will then need to create an AWS account.
+
+After setting up the AWSCLI, installing Kops and creating a S3 Bucket + setting up the Route53 Name Servers, you can move on.
