@@ -837,3 +837,5 @@ kubectl attach <podname> -i								| Attach to pod
 kubectl exec <pod> -- command 							| Execute a command on the pod
 kubectl label pods <pod> mylabel=awesome				| Add new label to pod
 kubectl run -i -tty busybox --image=busybox --restart=Never -- sh | Run a shell in a pod - very useful for debugging
+
+Running `kubectl describe pod nodehelloworld.example.com` will then give us info on what is going on here.
