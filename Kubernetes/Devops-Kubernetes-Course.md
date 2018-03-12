@@ -741,3 +741,16 @@ To check if the nodes are up, run `kubectl get node`.
 Then, we can again run `kubectl run hello-minikube ... `
 
 If you have issues hit up `https://www.digitalocean.com/community/tutorials/how-to-set-up-time-synchronization-on-ubuntu-16-04` for date syncing.
+
+## KOPS QuickList
+
+```
+# create
+kops create cluster --name=kubernetes.test --state=s3://kops-state-oeiajrie93 --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=givemeyeezy.online
+
+# edit
+kops edit cluster kubernetes.test --state=s3://kops-state-oeiajrie93D
+
+# update 
+kops update cluster kubernetes.test --yes --state=s3://kops-state-oeiajrie93
+```
