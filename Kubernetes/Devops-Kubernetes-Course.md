@@ -789,10 +789,8 @@ docker push okeeffed/docker-demo
 
 There are a few limitations for each Docker/Kubernetes relationship:
 
-```
 1. Don't try to create one giant docker image fo you app, but split it up if necessary.
 2. All data in the container is not preserved. You need volumes for this.
 3. Check 12factor.net for methodologies
-```
 
 
