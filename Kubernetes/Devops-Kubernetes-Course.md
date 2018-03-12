@@ -822,3 +822,6 @@ spec:
 			ports:
 				- containerPort: 3000
 ```
+
+To create this pod, we run `kubectl create -f ./pod-helloworld.yml`
+
