@@ -746,16 +746,16 @@ If you have issues hit up `https://www.digitalocean.com/community/tutorials/how-
 
 ```
 # create
-kops create cluster --name=kubernetes.doksandbox.com --state=s3://kops-state-doksandbox --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=doksandbox.com
+kops create cluster --name=doksandbox.com --state=s3://kops-state-doksandbox --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=doksandbox.com
 
 # edit
-kops edit cluster kubernetes.doksandbox.com --state=s3://kops-state-doksandbox 
+kops edit cluster doksandbox.com --state=s3://kops-state-doksandbox 
 
 # update 
-kops update cluster kubernetes.doksandbox.com --yes --state=s3://kops-state-doksandbox 
+kops update cluster doksandbox.com --yes --state=s3://kops-state-doksandbox 
 
 # delete
-kops delete cluster kubernetes.doksandbox.com --yes --state=s3://kops-state-doksandbox 
+kops delete cluster doksandbox.com --yes --state=s3://kops-state-doksandbox 
 
 # suggestions
 kops validate cluster --state=s3://kops-state-doksandbox  # validate cluster
