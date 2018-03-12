@@ -778,3 +778,11 @@ To do a demo, `sudo apt-get install git` and `git clone https://github.com/wardv
 Change in, `sudo docker build .` and then to run the container use `docker run -p 3000:3000 -t <id>`
 
 ### Docker registery 
+
+To upload to the registry:
+
+```
+docker login # fill in login details 
+docker tag imageid okeeffed/docker-demo
+docker push okeeffed/docker-demo
+```
