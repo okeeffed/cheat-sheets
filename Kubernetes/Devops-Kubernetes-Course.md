@@ -746,14 +746,14 @@ If you have issues hit up `https://www.digitalocean.com/community/tutorials/how-
 
 ```
 # create
-kops create cluster --name=kubernetes.test --state=s3://kops-state-oeiajrie93 --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=givemeyeezy.online
+kops create cluster --name=kubernetes.test --state=s3://givemeyeezy.online --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=givemeyeezy.online
 
 # edit
-kops edit cluster kubernetes.test --state=s3://kops-state-oeiajrie93
+kops edit cluster kubernetes.test --state=s3://givemeyeezy.online
 
 # update 
-kops update cluster kubernetes.test --yes --state=s3://kops-state-oeiajrie93
+kops update cluster kubernetes.test --yes --state=s3://givemeyeezy.online
 
 # delete
-kops delete cluster kubernetes.test --yes --state=s3://kops-state-oeiajrie93
+kops delete cluster kubernetes.test --yes --state=s3://givemeyeezy.online
 ```
