@@ -786,3 +786,9 @@ docker login # fill in login details
 docker tag imageid okeeffed/docker-demo
 docker push okeeffed/docker-demo
 ```
+
+There are a few limitations for each Docker/Kubernetes relationship:
+
+```
+1. Don't try to create one giant docker image fo you app, but split it up if necessary
+```
