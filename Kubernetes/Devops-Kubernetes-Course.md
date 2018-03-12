@@ -739,3 +739,5 @@ If we now run `cat ~/.kube/config` we can see the password and username informat
 To check if the nodes are up, run `kubectl get node`.
 
 Then, we can again run `kubectl run hello-minikube ... `
+
+If you have issues hit up `https://www.digitalocean.com/community/tutorials/how-to-set-up-time-synchronization-on-ubuntu-16-04` for date syncing.
