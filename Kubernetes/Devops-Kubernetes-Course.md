@@ -839,3 +839,5 @@ kubectl label pods <pod> mylabel=awesome				| Add new label to pod
 kubectl run -i -tty busybox --image=busybox --restart=Never -- sh | Run a shell in a pod - very useful for debugging
 
 Running `kubectl describe pod nodehelloworld.example.com` will then give us info on what is going on here.
+
+To listen locally, we can port-forward: `kubectl port-forward nodehelloworld.example.com 8081:3000`
