@@ -793,4 +793,4 @@ There are a few limitations for each Docker/Kubernetes relationship:
 2. All data in the container is not preserved. You need volumes for this.
 3. Check 12factor.net for methodologies
 
-
+### Running the Docker app on Kubernetes
