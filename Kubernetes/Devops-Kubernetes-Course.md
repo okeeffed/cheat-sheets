@@ -825,3 +825,9 @@ spec:
 
 To create this pod, we run `kubectl create -f ./pod-helloworld.yml`
 
+**Some useful commands**
+
+Command 												| Description
+kubectl get pod 										| Get info about all running pods
+kubectl describe pod <pod>								| Describe one pod
+kubectl expose pod <pod> --port=444 --name=frontend		| Expose the port of a pod (creates a new service) 	
