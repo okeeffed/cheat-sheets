@@ -834,3 +834,4 @@ kubectl expose pod <pod> --port=444 --name=frontend		| Expose the port of a pod 
 kubectl port-forward <pod> 8080 							| Port forward the local machine 
 kubectl attach <podname> -i									| Attach to pod 
 kubectl exec <pod> -- command 								| Execute a command on the pod
+kubectl label pods <pod> mylabel=awesome					| Add new label to pod
