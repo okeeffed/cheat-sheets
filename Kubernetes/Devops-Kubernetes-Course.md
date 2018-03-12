@@ -803,3 +803,4 @@ A pod can container _one or more tightly coupled containers_ that make up the ap
 
 Those apps can easily communicate with each other using their local **port numbers**.
 
+The app for us at the moment has only one container.
