@@ -795,4 +795,6 @@ There are a few limitations for each Docker/Kubernetes relationship:
 
 ### Running the Docker app on Kubernetes
 
+We need to create a `pod definition`.
 
+This describes an application running on Kubernetes.
