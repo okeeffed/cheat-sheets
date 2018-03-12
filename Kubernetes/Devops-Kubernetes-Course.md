@@ -846,4 +846,4 @@ To listen locally, we can port-forward: `kubectl port-forward nodehelloworld.exa
 
 ### Exposing the pod
 
-`kubectl expose pod nodehelloworld.example.com --type=NodePort`
+`kubectl expose pod nodehelloworld.example.com --type=NodePort --name nodehelloworld-service`
