@@ -756,4 +756,10 @@ kops update cluster kubernetes.givemeyeezy.online --yes --state=s3://givemeyeezy
 
 # delete
 kops delete cluster kubernetes.givemeyeezy.online --yes --state=s3://givemeyeezy.online
+
+# suggestions
+kops validate cluster # validate cluster
+kubectl get nodes --show-labels # list nodes
+ssh -i ~/.ssh/id_rsa admin@api.kubernetes.givemeyeezy.online # ssh to the master
+The admin user is specific to Debian. If not using Debian please use the appropriate user based on your OS.
 ```
