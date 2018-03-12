@@ -774,3 +774,5 @@ To get a basic service up and running, hit `kubectl run hello-minikube --image=g
 If installing onto Linux, check `https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-ce-1`
 
 To do a demo, `sudo apt-get install git` and `git clone https://github.com/wardviaene/docker-demo` to get a demo folder.
+
+Change in, `sudo docker build .` and then to run the container use `docker run -p 3000:3000 -t <id>`
