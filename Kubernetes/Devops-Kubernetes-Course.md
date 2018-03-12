@@ -801,4 +801,4 @@ This describes an application running on Kubernetes.
 
 A pod can container _one or more tightly coupled containers_ that make up the app.
 
-Those apps can easily communicate with each other using their local _*port numbers*_
+Those apps can easily communicate with each other using their local _*port numbers*_.
