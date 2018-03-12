@@ -847,3 +847,7 @@ To listen locally, we can port-forward: `kubectl port-forward nodehelloworld.exa
 ### Exposing the pod
 
 `kubectl expose pod nodehelloworld.example.com --type=NodePort --name nodehelloworld-service`
+
+Check this with `kubectl get service`
+
+When you see what port is being forwarded, you can again open that up on the security settings and direct to that port.
