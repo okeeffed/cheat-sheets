@@ -831,3 +831,6 @@ Command 												| Description
 kubectl get pod 										| Get info about all running pods
 kubectl describe pod <pod>								| Describe one pod
 kubectl expose pod <pod> --port=444 --name=frontend		| Expose the port of a pod (creates a new service) 	
+kubectl port-forward <pod> 8080 							| Port forward the local machine 
+kubectl attach <podname> -i									| Attach to pod 
+kubectl exec <pod> -- command 								| Execute a command on the pod
