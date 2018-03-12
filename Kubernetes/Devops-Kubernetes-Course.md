@@ -770,3 +770,4 @@ dig afxr doksandbox.com
 To get a basic service up and running, hit `kubectl run hello-minikube --image=gcr.io/google_containers/echoserver:1.4 --port=8080` and head to the VPC security network to update and expose that port to all IPs to prove that is all works correctly. The port will be dynamic.
 
 ### Building Docker Containers
+
