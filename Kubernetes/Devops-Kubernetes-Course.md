@@ -843,3 +843,7 @@ kubectl run -i -tty busybox --image=busybox --restart=Never -- sh | Run a shell 
 Running `kubectl describe pod nodehelloworld.example.com` will then give us info on what is going on here.
 
 To listen locally, we can port-forward: `kubectl port-forward nodehelloworld.example.com 8081:3000`
+
+### Exposing the pod
+
+`kubectl expose pod nodehelloworld.example.com --type=NodePort`
