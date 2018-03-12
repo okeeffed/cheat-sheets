@@ -804,3 +804,21 @@ A pod can container _one or more tightly coupled containers_ that make up the ap
 Those apps can easily communicate with each other using their local **port numbers**.
 
 The app for us at the moment has only one container.
+
+To build this, we create a podfile with all the pod definition:
+
+```yaml
+# pod-helloworld.yml
+apiVersion: v1
+kind: Pod 
+metadata:
+	name: nodehelloworld.example.com
+	labels:
+		app: helloworld
+spec:
+	containers:
+		- name: k8s-demo
+			image: okeeffed/docker-demo
+			ports:
+				- containerPort: 3000
+```
