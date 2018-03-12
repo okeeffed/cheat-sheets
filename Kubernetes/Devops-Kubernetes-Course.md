@@ -753,4 +753,7 @@ kops edit cluster kubernetes.test --state=s3://kops-state-oeiajrie93
 
 # update 
 kops update cluster kubernetes.test --yes --state=s3://kops-state-oeiajrie93
+
+# delete
+kops delete cluster kubernetes.test --yes --state=s3://kops-state-oeiajrie93
 ```
