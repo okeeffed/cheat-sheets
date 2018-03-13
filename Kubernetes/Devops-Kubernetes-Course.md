@@ -1077,17 +1077,12 @@ kind: Service # Changed from Pod
 metadata:
 	name: helloworld-service
 spec: # Replation controller also has a spec
-	replicas: 3 # set two pod replicas
-	template:
-		# stand Pod metadata and spec
-		metadata:
-			labels:
-				app: helloworld
-		spec:
-			# The containers are listed here
-			containers:
-				- name: k8s-demo
-					image: okeeffed/docker-demo
-					ports:
-						- containerPort: 3000
+	ports:
+		- port: 31001
+		  nodePort: 31001
+		  targetPort: nodejs-port
+		  protocol: TCP
+	selector: 
+		app: helloworld
+	type: NodePort
 ```
