@@ -881,3 +881,5 @@ Using `kubectl create -f <file>` will create the pods and kops will autoconfigur
 
 Within each node can be a collection of pods routed by iptables and within each pod are the Docker containers.
 
+These containers can talk easily to each other using localhost and ports.
+
