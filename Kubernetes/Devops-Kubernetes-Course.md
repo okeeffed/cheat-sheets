@@ -1309,4 +1309,6 @@ You can use it to:
 2. Creating and modifying individual Kubernetes resources and workloads (like kubectl create and delete)
 3. Retrieve info on state or resources.
 
+You can reach this UI at `https://<kubernetes-master>/ui`
+
 
