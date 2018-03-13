@@ -1034,3 +1034,4 @@ kubectl set image deployment/helloworld-deployment k8s-demo=k8s-demo:2	| Run k8s
 kubectl edit deployment/helloworld-deployment | Edit the deployment object
 kubectl rollout status deployment/helloworld-deployment | Get the status of the rollout
 kubectl rollout history [deployment] | Get the rollout history
+kubectl rollout undo [deployment] | Rollback to previous version
