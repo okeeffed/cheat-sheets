@@ -1187,4 +1187,4 @@ Kubernetes itself uses this Secrets mechanism to provide the credentials to acce
 
 You can use the same mechanism to provide secrets to your application.
 
-`secrets` is just one way to provide secrets that is native to Kubernetes.
+`secrets` is just one way to provide secrets that is native to Kubernetes. There are still other ways to do this.
