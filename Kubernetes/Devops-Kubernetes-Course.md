@@ -1042,3 +1042,7 @@ kubectl rollout undo [deployment] --to-revision=n | Rollback to previous version
 Again, get pods will sho the pods with appended suffixes auto-determined by Kubernetes. 
 
 You can verify rollout status using the commands above.
+
+## Services 
+
+Pods themselves are very dynamic, they come and go on the Kubernetes cluster.
