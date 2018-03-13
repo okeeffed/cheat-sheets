@@ -1153,3 +1153,25 @@ Two types:
 
 The typical prod application behind a load balancer should always have health checks implemented in some way to ensure availability and resiliency.
 
+```yaml
+# pod-helloworld.yml
+apiVersion: v1
+kind: Pod 
+metadata:
+	name: nodehelloworld.example.com
+	labels:
+		app: helloworld
+spec:
+	# The containers are listed here
+	containers:
+		- name: k8s-demo
+			image: okeeffed/docker-demo
+			ports:
+				- containerPort: 3000
+			livenessProbe:
+				httpGet:
+					path: /
+					por: 3000
+				initialDelaySeconds: 15
+				timeoutSeconds: 30
+```
