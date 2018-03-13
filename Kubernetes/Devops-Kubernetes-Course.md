@@ -855,3 +855,20 @@ When you see what port is being forwarded, you can again open that up on the sec
 ### Setting up the external load balancer 
 
 This will allow the outside world to have traffic routed to the correct pod.
+
+To create the service for this:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+	name: helloworld-service
+spec:
+	ports:
+		- port: 80
+		targetPort: nodejs-port
+		protocol: TCP
+	selector:
+		app: helloworld
+	type: LoadBalancer
+```
