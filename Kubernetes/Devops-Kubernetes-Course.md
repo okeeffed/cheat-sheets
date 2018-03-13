@@ -1084,6 +1084,7 @@ spec:
 		  targetPort: nodejs-port
 		  protocol: TCP
 	selector: 
+		# service for this app
 		app: helloworld
 	type: NodePort
 ```
