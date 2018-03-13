@@ -1315,6 +1315,11 @@ If you cannot access it, you can install it manually:
 
 ```bash
 kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+# If the password is asked 
+kubectl config view
+
+# If you're on minikube 
+minikube dashboard
 ```
 
 
