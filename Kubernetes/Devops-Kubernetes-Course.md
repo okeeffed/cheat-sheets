@@ -1231,5 +1231,5 @@ Then, you can generate it as base64 like so:
 
 ```bash
 echo -n "password" | base64
-# pwd
+# > pwd
 ```
