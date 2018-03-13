@@ -1210,4 +1210,6 @@ kubectl create secret generic db-user-pass --from-file=./username.txt --from-fil
 
 A secret can also be a SSH key or SSL cert.
 
-
+```bash
+kubectl create secret generic ssl-cert --from-file=ssh-privatekey=~/.ssh/id_rsa --ssl-cert-=ssl-cert=mysslcert.crt
+```
