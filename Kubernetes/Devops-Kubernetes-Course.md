@@ -940,10 +940,9 @@ apiVersion: v1
 kind: ReplicationController # Changed from Pod 
 metadata:
 	name: helloworld-container
-spec:
-	# The containers are listed here
-	replicas: 2
-	selector: 
+spec: # Replation controller also has a spec
+	replicas: 2 # set replicas
+	selector:  # select the app
 		app: helloworld
 	template:
 		metadata:
