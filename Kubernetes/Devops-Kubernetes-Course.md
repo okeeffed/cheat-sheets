@@ -1299,5 +1299,7 @@ This demo ends up creating a secrets file, a pod definition and a service to exp
 
 However, note that deleting the current setup will result in a container restarting to maintain state, but when that happens the WordPress site has to be re-installed because the data was not saved. The solution for this will be in the volumes lab.
 
+## Web UI
 
+Kubernetes comes with a `Web UI` you can use instead of kubectl commands.
 
