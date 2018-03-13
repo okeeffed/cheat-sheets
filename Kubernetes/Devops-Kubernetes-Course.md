@@ -1030,4 +1030,4 @@ kubectl get deployments | Get info on current deployments
 kubectl get rs 			| Get info about the replica set
 kubectl get pods --show-labels | Get pods + labels attached to pods 
 kubectl rollout status deployment/helloworld-deployment | Get deployment status
-kubectl set image deployment/helloworld-deployment k8s-demo=k8s-demo:2
+kubectl set image deployment/helloworld-deployment k8s-demo=k8s-demo:2	| Run k8s-demo with the image label version 2
