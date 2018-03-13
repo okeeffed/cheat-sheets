@@ -1035,3 +1035,4 @@ kubectl edit deployment/helloworld-deployment | Edit the deployment object
 kubectl rollout status deployment/helloworld-deployment | Get the status of the rollout
 kubectl rollout history [deployment] | Get the rollout history
 kubectl rollout undo [deployment] | Rollback to previous version
+kubectl rollout undo [deployment] --to-revision=n | Rollback to previous version
