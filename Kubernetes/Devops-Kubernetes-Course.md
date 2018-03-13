@@ -1071,11 +1071,11 @@ The `ExternalName` can provide a DNS name for the service e.g. for service disco
 This **only** works when the DNS add-on is enabled.
 
 ```yaml
-# pod-helloworld.yml
-apiVersion: extensions/v1beta1
-kind: Deployment # Changed from Pod 
+# helloworld-service.yml
+apiVersion: v1
+kind: Service # Changed from Pod 
 metadata:
-	name: helloworld-deployment
+	name: helloworld-service
 spec: # Replation controller also has a spec
 	replicas: 3 # set two pod replicas
 	template:
