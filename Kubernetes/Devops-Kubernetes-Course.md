@@ -1039,3 +1039,4 @@ kubectl rollout undo [deployment] --to-revision=n | Rollback to previous version
 
 ### Demo: Deployment notes
 
+Again, get pods will sho the pods with appended suffixes auto-determined by Kubernetes.
