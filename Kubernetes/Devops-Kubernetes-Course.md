@@ -877,3 +877,5 @@ Using `kubectl create -f <file>` will create the pods and kops will autoconfigur
 
 ## Kubernetes Basics 
 
+### Node Architecture 
+
