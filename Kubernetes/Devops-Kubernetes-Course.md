@@ -1028,3 +1028,4 @@ Command 				| Description
 ---						| ---
 kubectl get deployments | Get info on current deployments 
 kubectl get rs 			| Get info about the replica set
+kubectl get pods --show-labels | Get pods + labels attached to pods 
