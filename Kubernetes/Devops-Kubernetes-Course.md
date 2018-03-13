@@ -1292,3 +1292,7 @@ spec:
         secret: 
           secretName: db-secrets          
 ```
+
+### Demo: Secrets
+
+
