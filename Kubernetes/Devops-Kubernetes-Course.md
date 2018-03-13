@@ -1053,3 +1053,4 @@ Pods themselves are very dynamic, they come and go on the Kubernetes cluster.
 That's why Pods should never be accessed directly, but always through a Service.
 
 A service is the `logical bridge` between the "mortal" pods and other services or end-users.
+
