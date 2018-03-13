@@ -913,3 +913,4 @@ spec:
 If your application is `stateless` you can horizontally scale it.
 
 - Stateless = your appllication doesn't have a `state`, it doesn't write any local files / keeps local sessions. This prevents pods from falling out of sync.
+- All traditional databases are `stateful`
