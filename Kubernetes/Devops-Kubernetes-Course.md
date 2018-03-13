@@ -921,3 +921,5 @@ If your application is `stateless` you can horizontally scale it.
 If needed, you can use `volumes` to still run stateful apps.
 
 Those stateful apps can't horizontally scale, but you can run them in a single container and vertically scale (allocate more CPU/Mem/Disk).
+
+Scaling in Kubernetes can be done using the `Replication Controller`.
