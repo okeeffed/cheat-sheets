@@ -1103,3 +1103,4 @@ Labels are not unique. You can then use `label selectors` to match labels.
 
 Eg. a particular pod can only run on a node label with "evironment" equals "development".
 
+More complex matching: "environment" in "development" or "qa".
