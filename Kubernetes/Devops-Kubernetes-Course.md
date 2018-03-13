@@ -1092,3 +1092,7 @@ spec:
 ## Tags
 
 Similar to Labels for AWS
+
+For example, you can label your objects.
+
+For instance: Key could be `environment`, and the value could be `dev`/`staging`/`qa`/`prod`.
