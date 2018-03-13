@@ -1327,3 +1327,5 @@ minikube dashboard # or --url for the url
 Using the web ui you can see some really interesting info and graphs on usage.
 
 ## Service Discovery 
+
+
