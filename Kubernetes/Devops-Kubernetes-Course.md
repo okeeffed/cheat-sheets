@@ -1099,3 +1099,5 @@ For instance: Key could be `environment`, and the value could be `dev`/`staging`
 
 Maybe you could also tag the department that is comes from etc.
 
+Labels are not unique.
+
