@@ -998,4 +998,27 @@ With a deployment object you can:
 4. Roll back
 5. Pause/resume a deployment (ie rollout to only certain percentage of pods)
 
+An example of a deployment:
 
+```yaml
+# pod-helloworld.yml
+apiVersion: v1
+kind: Deployment # Changed from Pod 
+metadata:
+	name: helloworld-deployment
+spec: # Replation controller also has a spec
+	replicas: 3 # set two pod replicas
+	template:
+		# stand Pod metadata and spec
+		metadata:
+			name: nodehelloworld.example.com
+			labels:
+				app: helloworld
+		spec:
+			# The containers are listed here
+			containers:
+				- name: k8s-demo
+					image: okeeffed/docker-demo
+					ports:
+						- containerPort: 3000
+```
