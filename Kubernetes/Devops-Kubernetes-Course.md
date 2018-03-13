@@ -962,3 +962,5 @@ spec: # Replation controller also has a spec
 When this controller is created with `kubectl`, you will see that the two pods are created with a differing suffix.
 
 Now we have horizontally scaled this pod.
+
+If one of these pods is now deleted, the master node will automatically schedule a new one.
