@@ -917,3 +917,7 @@ If your application is `stateless` you can horizontally scale it.
 - Most `web applications` can be made stateless
 	- Session management needs to be done outside the container
 	- Any file to be saved cannot be saved locally
+
+If needed, you can use `volumes` to still run stateful apps.
+
+Those stateful apps can't horizontally scale, but you can run them in a single container and vertically scale (allocate more CPU/Mem/Disk).
