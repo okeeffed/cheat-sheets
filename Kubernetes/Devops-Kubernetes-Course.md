@@ -1303,3 +1303,8 @@ However, note that deleting the current setup will result in a container restart
 
 Kubernetes comes with a `Web UI` you can use instead of kubectl commands.
 
+You can use it to:
+
+1. Get an overview of running applications on your cluster
+2. Creating and modifying individual Kubernetes resources and workloads (like kubectl create and delete)
+
