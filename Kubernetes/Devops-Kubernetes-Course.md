@@ -854,3 +854,4 @@ When you see what port is being forwarded, you can again open that up on the sec
 
 ### Setting up the external load balancer 
 
+This will allow the outside world to have traffic routed to the correct pod.
