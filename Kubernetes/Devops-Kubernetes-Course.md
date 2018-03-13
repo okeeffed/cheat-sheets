@@ -997,3 +997,5 @@ With a deployment object you can:
 3. Do rolling updates (zero downtime deployments)
 4. Roll back
 5. Pause/resume a deployment (ie rollout to only certain percentage of pods)
+
+
