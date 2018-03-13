@@ -1097,3 +1097,5 @@ For example, you can label your objects.
 
 For instance: Key could be `environment`, and the value could be `dev`/`staging`/`qa`/`prod`.
 
+Maybe you could also tag the department that is comes from etc.
+
