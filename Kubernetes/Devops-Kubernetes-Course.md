@@ -1311,6 +1311,10 @@ You can use it to:
 
 You can reach this UI at `https://<kubernetes-master>/ui`
 
-If you cannot access it, you can install it manually.
+If you cannot access it, you can install it manually:
+
+```bash
+kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
+```
 
 
