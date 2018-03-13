@@ -945,6 +945,7 @@ spec: # Replation controller also has a spec
 	selector:  # select the app
 		app: helloworld
 	template:
+		# stand Pod metadata and spec
 		metadata:
 			name: nodehelloworld.example.com
 			labels:
