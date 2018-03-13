@@ -965,4 +965,4 @@ Now we have horizontally scaled this pod.
 
 If one of these pods is now deleted, the master node will automatically schedule a new one.
 
-We can also scale this by using `kubectl scale --replicas=4 -f <replication-controller-name>`
+We can also scale this by using `kubectl scale --replicas=4 -f <replication-controller-name.yml>`
