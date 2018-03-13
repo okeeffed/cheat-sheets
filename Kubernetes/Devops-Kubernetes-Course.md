@@ -989,3 +989,8 @@ A deployment is a declaration that allows you to do app `deployments` and `updat
 When using the deployment object, you definte the `state` of your application. Kubernetes will then make sure the clusters matches your desired state.
 
 Just using the replication controller or replication set might be cumbersome to deploy apps.
+
+With a deployment object you can:
+
+1. Create a deployment (e.g. deploying an app)
+
