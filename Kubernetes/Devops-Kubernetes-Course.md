@@ -1153,6 +1153,8 @@ Two types:
 
 The typical prod application behind a load balancer should always have health checks implemented in some way to ensure availability and resiliency.
 
+Below you can see where the healthcheck is.
+
 ```yaml
 # pod-helloworld.yml
 apiVersion: v1
