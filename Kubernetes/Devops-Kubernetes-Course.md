@@ -1153,7 +1153,7 @@ Two types:
 
 The typical prod application behind a load balancer should always have health checks implemented in some way to ensure availability and resiliency.
 
-Below you can see where the healthcheck is.
+Below you can see where the healthcheck is. You can check the port or container port name.
 
 ```yaml
 # pod-helloworld.yml
