@@ -945,9 +945,16 @@ spec:
 	replicas: 2
 	selector: 
 		app: helloworld
-	containers:
-		- name: k8s-demo
-			image: okeeffed/docker-demo
-			ports:
-				- containerPort: 3000
+	template:
+		metadata:
+			name: nodehelloworld.example.com
+			labels:
+				app: helloworld
+		spec:
+			# The containers are listed here
+			containers:
+				- name: k8s-demo
+					image: okeeffed/docker-demo
+					ports:
+						- containerPort: 3000
 ```
