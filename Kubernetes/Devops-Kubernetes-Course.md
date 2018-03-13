@@ -993,4 +993,7 @@ Just using the replication controller or replication set might be cumbersome to 
 With a deployment object you can:
 
 1. Create a deployment (e.g. deploying an app)
-
+2. Update a deployment (e.g. new version)
+3. Do rolling updates (zero downtime deployments)
+4. Roll back
+5. Pause/resume a deployment (ie rollout to only certain percentage of pods)
