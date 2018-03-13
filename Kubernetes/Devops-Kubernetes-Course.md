@@ -1311,6 +1311,6 @@ You can use it to:
 
 You can reach this UI at `https://<kubernetes-master>/ui`
 
-
+If you cannot access it, you can install it manually.
 
 
