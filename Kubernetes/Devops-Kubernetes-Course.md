@@ -931,3 +931,23 @@ A pod created with the replica controller will automatically be replaced if they
 Using the replication controller is also recommended if you just want to make sure 1 pod is always running, even after reboots.
 
 You can then run a replication controller with just 1 replica to ensure that it is always running.
+
+To create a replication controller:
+
+```yaml
+# pod-helloworld.yml
+apiVersion: v1
+kind: ReplicationController # Changed from Pod 
+metadata:
+	name: helloworld-container
+spec:
+	# The containers are listed here
+	replicas: 2
+	selector: 
+		app: helloworld
+	containers:
+		- name: k8s-demo
+			image: okeeffed/docker-demo
+			ports:
+				- containerPort: 3000
+```
