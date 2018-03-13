@@ -1184,3 +1184,4 @@ spec:
 A way to distribute credentials, keys, passwords or secret data to the pods.
 
 Kubernetes itself uses this Secrets mechanism to provide the credentials to access the internal API.
+
