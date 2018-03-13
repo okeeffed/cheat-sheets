@@ -1186,3 +1186,5 @@ A way to distribute credentials, keys, passwords or secret data to the pods.
 Kubernetes itself uses this Secrets mechanism to provide the credentials to access the internal API.
 
 You can use the same mechanism to provide secrets to your application.
+
+`secrets` is just one way to provide secrets that is native to Kubernetes.
