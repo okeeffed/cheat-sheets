@@ -1143,3 +1143,4 @@ spec:
 It only really makes sense if you have multiple nodes (doesn't really make sense on minikube).
 
 ## Healthchecks 
+
