@@ -1068,4 +1068,4 @@ There is also a possibility to use `DNS Names`
 
 The `ExternalName` can provide a DNS name for the service e.g. for service discovery using DNS.
 
-This only works when the DNS add-on is enabled.
+This **only** works when the DNS add-on is enabled.
