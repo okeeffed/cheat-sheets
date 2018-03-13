@@ -1293,6 +1293,10 @@ spec:
           secretName: db-secrets          
 ```
 
-### Demo: Secrets
+### Demo: Wordpress Secrets
+
+This demo ends up creating a secrets file, a pod definition and a service to expose the wordpress pod.
+
+
 
 
