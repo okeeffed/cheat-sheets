@@ -1174,7 +1174,7 @@ spec:
 			livenessProbe:
 				httpGet:
 					path: /
-					por: 3000
+					port: 3000
 				initialDelaySeconds: 15
 				timeoutSeconds: 30
 ```
