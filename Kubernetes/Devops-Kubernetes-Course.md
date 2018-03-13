@@ -1060,3 +1060,4 @@ Creating a service will create an endpoint for your pod(s):
 
 1. A ClusterIP: a virtual IP address only reachable from within the cluster (this is default)
 2. A NodePort: a port that is the same on each node that is also reachable externally.
+
