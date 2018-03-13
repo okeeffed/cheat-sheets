@@ -1036,3 +1036,5 @@ kubectl rollout status deployment/helloworld-deployment | Get the status of the 
 kubectl rollout history [deployment] | Get the rollout history
 kubectl rollout undo [deployment] | Rollback to previous version
 kubectl rollout undo [deployment] --to-revision=n | Rollback to previous version
+
+### Demo: Deployment notes
