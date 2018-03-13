@@ -885,3 +885,5 @@ These containers can talk easily to each other using localhost and ports.
 
 Each node also has a `kubelet` and `kube-proxy`. The `kubelet` talks to the master node and `kube-proxy` talks to the iptables.
 
+A service itself can be like the load balancer. The service will be publicly available.
+
