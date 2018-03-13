@@ -1051,3 +1051,4 @@ Pods themselves are very dynamic, they come and go on the Kubernetes cluster.
 - Wehn using `Deployments`, when updating the image version, pods are terminated and new pods take the place of older pods.
 
 That's why Pods should never be accessed directly, but always through a Service.
+
