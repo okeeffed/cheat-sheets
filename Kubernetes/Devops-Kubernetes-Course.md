@@ -1073,11 +1073,11 @@ This **only** works when the DNS add-on is enabled.
 ```yaml
 # helloworld-service.yml
 apiVersion: v1
-kind: Service # Changed from Pod 
+kind: Service 
 metadata:
 	name: helloworld-service
-spec: # Replation controller also has a spec
-	ports:
+spec: 
+	ports: # specify the ports the service uses
 		- port: 31001
 		  nodePort: 31001
 		  targetPort: nodejs-port
