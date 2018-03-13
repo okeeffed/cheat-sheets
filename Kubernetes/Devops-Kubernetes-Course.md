@@ -975,3 +975,5 @@ kubectl get rc # get replication controllers
 kubectl scale --replicas=1 rc/helloworld-container
 kubectl get pods # will show only one pod remaining
 ```
+
+## Deployments 
