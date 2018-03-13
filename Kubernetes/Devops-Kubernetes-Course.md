@@ -1088,3 +1088,7 @@ spec:
 		app: helloworld
 	type: NodePort
 ```
+
+## Tags
+
+Similar to Labels for AWS
