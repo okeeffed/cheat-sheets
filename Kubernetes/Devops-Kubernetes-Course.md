@@ -1214,3 +1214,15 @@ A secret can also be a SSH key or SSL cert.
 kubectl create secret generic ssl-cert --from-file=ssh-privatekey=~/.ssh/id_rsa --ssl-cert-=ssl-cert=mysslcert.crt
 ```
 
+To generate secrets using yaml defs:
+
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+	name: db-secret
+type: Opaque
+data:
+	password: pwd
+	username: usr
+```
