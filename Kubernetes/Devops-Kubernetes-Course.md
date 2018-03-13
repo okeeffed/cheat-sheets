@@ -985,3 +985,5 @@ Replication Set is the next gen Replication Controller:
 - This RS is used by the Deployment.
 
 A deployment is a declaration that allows you to do app `deployments` and `updates`.
+
+When using the deployment object, you definte the `state` of your application. Kubernetes will then make sure the clusters matches your desired state.
