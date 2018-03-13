@@ -887,3 +887,21 @@ Each node also has a `kubelet` and `kube-proxy`. The `kubelet` talks to the mast
 
 A service itself can be like the load balancer. The service will be publicly available.
 
+When we look deeper at a pod yaml file, we have the containers called as the specs.
+
+```yaml
+# pod-helloworld.yml
+apiVersion: v1
+kind: Pod 
+metadata:
+	name: nodehelloworld.example.com
+	labels:
+		app: helloworld
+spec:
+	# The containers are listed here
+	containers:
+		- name: k8s-demo
+			image: okeeffed/docker-demo
+			ports:
+				- containerPort: 3000
+```
