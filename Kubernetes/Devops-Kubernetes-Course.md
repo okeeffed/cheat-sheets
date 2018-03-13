@@ -1137,3 +1137,7 @@ spec:
 	nodeSelector:
 		hardware: high-spec
 ```
+
+### Demo: Using tags
+
+It only really makes sense if you have multiple nodes (doesn't really make sense on minikube).
