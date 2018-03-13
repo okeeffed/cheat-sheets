@@ -1152,3 +1152,4 @@ Two types:
 2. Periodic checks on a URL
 
 The typical prod application behind a load balancer should always have health checks implemented in some way to ensure availability and resiliency.
+
