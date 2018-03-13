@@ -958,3 +958,5 @@ spec: # Replation controller also has a spec
 					ports:
 						- containerPort: 3000
 ```
+
+When this controller is created with `kubectl`, you will see that the two pods are created with a differing suffix.
