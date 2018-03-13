@@ -1319,7 +1319,7 @@ kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kube
 kubectl config view
 
 # If you're on minikube 
-minikube dashboard
+minikube dashboard # or --url for the url
 ```
 
 
