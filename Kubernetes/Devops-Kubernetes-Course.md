@@ -1144,3 +1144,4 @@ It only really makes sense if you have multiple nodes (doesn't really make sense
 
 ## Healthchecks 
 
+If the application malfunctions, the pod and container may still be running but the application may no longer be running. This is where health checks come in.
