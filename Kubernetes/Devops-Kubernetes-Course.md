@@ -1046,3 +1046,6 @@ You can verify rollout status using the commands above.
 ## Services 
 
 Pods themselves are very dynamic, they come and go on the Kubernetes cluster.
+
+- When using a `Replication Controller`, pods are termined and created during scaling operations.
+- Wehn using `Deployments`, when updating the image version, pods are terminated and new pods take the place of older pods.
