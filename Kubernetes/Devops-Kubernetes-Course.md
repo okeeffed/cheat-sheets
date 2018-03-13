@@ -987,3 +987,5 @@ Replication Set is the next gen Replication Controller:
 A deployment is a declaration that allows you to do app `deployments` and `updates`.
 
 When using the deployment object, you definte the `state` of your application. Kubernetes will then make sure the clusters matches your desired state.
+
+Just using the replication controller or replication set might be cumbersome to deploy apps.
