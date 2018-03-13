@@ -872,3 +872,5 @@ spec:
 		app: helloworld
 	type: LoadBalancer
 ```
+
+Using `kubectl create -f <file>` will create the pods and kops will autoconfigure what is required.
