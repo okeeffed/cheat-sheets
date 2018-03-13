@@ -941,7 +941,7 @@ kind: ReplicationController # Changed from Pod
 metadata:
 	name: helloworld-container
 spec: # Replation controller also has a spec
-	replicas: 2 # set replicas
+	replicas: 2 # set two pod replicas
 	selector:  # select the app
 		app: helloworld
 	template:
