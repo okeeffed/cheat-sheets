@@ -1001,7 +1001,7 @@ With a deployment object you can:
 An example of a deployment:
 
 ```yaml
-# pod-helloworld.yml
+# deployment-helloworld.yml
 apiVersion: extensions/v1beta1
 kind: Deployment # Changed from Pod 
 metadata:
@@ -1069,3 +1069,25 @@ There is also a possibility to use `DNS Names`
 The `ExternalName` can provide a DNS name for the service e.g. for service discovery using DNS.
 
 This **only** works when the DNS add-on is enabled.
+
+```yaml
+# pod-helloworld.yml
+apiVersion: extensions/v1beta1
+kind: Deployment # Changed from Pod 
+metadata:
+	name: helloworld-deployment
+spec: # Replation controller also has a spec
+	replicas: 3 # set two pod replicas
+	template:
+		# stand Pod metadata and spec
+		metadata:
+			labels:
+				app: helloworld
+		spec:
+			# The containers are listed here
+			containers:
+				- name: k8s-demo
+					image: okeeffed/docker-demo
+					ports:
+						- containerPort: 3000
+```
