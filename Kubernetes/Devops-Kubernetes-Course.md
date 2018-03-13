@@ -1111,3 +1111,7 @@ There are two steps required to run a pod on a specific set of nodes:
 
 1. First you tag the node
 2. Then you add a `nodeSelector` to your pod configuration
+
+```
+kubectl label nodes node1 hardware=high-spec
+```
