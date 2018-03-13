@@ -1297,6 +1297,5 @@ spec:
 
 This demo ends up creating a secrets file, a pod definition and a service to expose the wordpress pod.
 
-
-
+However, note that deleting the current setup will result in a container restarting to maintain state, but when that happens the WordPress site has to be re-installed because the data was not saved.
 
