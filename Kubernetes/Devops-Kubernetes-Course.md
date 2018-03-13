@@ -1197,3 +1197,13 @@ You can use the same mechanism to provide secrets to your application.
 	- In this volume you have files 
 	- This can be use for things like dotenv files
 - You can use an external image to pull secrets (private image registry)
+
+
+Generating:
+
+```bash
+echo -n "root" > ./username.txt
+echo -n "password" > ./password.txt
+kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
+# secret "db-user-pass" created
+```
