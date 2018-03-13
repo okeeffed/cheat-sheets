@@ -971,4 +971,7 @@ We can also use it with the following:
 
 ```
 kubectl get rc # get replication controllers
+# assume helloworld-controller shows up
+kubectl scale --replicas=1 rc/helloworld-container
+kubectl get pods # will show only one pod remaining
 ```
