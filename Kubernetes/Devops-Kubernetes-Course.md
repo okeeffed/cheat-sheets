@@ -1236,3 +1236,31 @@ echo -n "password" | base64
 kubectl create -f secrets-db-secret.yml
 # > secret "db-secret" created
 ```
+
+To create a pod that uses secrets:
+
+```yaml
+# pod-helloworld.yml w/ secrets
+apiVersion: v1
+kind: Pod 
+metadata:
+	name: nodehelloworld.example.com
+	labels:
+		app: helloworld
+spec:
+	# The containers are listed here
+	containers:
+		- name: k8s-demo
+			image: okeeffed/docker-demo
+			ports:
+				- containerPort: 3000
+			# @@@ This are the envs
+			env:
+				- name: SECRET_USERNAME
+				  valueFrom:
+					  secretKeyRef:
+						  name: db-secret
+						  key: username 
+				- name: SECRET_PASSWORD
+				  [...]
+```
