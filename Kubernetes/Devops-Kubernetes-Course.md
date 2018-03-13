@@ -1002,7 +1002,7 @@ An example of a deployment:
 
 ```yaml
 # pod-helloworld.yml
-apiVersion: v1
+apiVersion: extensions/v1beta1
 kind: Deployment # Changed from Pod 
 metadata:
 	name: helloworld-deployment
