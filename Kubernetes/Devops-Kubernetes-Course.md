@@ -935,7 +935,7 @@ You can then run a replication controller with just 1 replica to ensure that it 
 To create a replication controller:
 
 ```yaml
-# pod-helloworld.yml
+# rc-helloworld.yml
 apiVersion: v1
 kind: ReplicationController # Changed from Pod 
 metadata:
@@ -1115,4 +1115,25 @@ There are two steps required to run a pod on a specific set of nodes:
 ```
 kubectl label nodes node1 hardware=high-spec
 kubectl label nodes node1 hardware=low-spec
+```
+
+Secondly, add a pod that uses those labels:
+
+```yaml
+# pod-helloworld.yml
+apiVersion: v1
+kind: Pod 
+metadata:
+	name: nodehelloworld.example.com
+	labels:
+		app: helloworld
+spec:
+	# The containers are listed here
+	containers:
+		- name: k8s-demo
+			image: okeeffed/docker-demo
+			ports:
+				- containerPort: 3000
+	nodeSelector:
+		hardware: high-spec
 ```
