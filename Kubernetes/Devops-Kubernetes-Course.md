@@ -417,190 +417,190 @@ I0311 21:48:54.237870    7553 executor.go:91] Tasks: 71 done / 73 total; 2 can r
 I0311 21:48:54.262347    7553 executor.go:91] Tasks: 73 done / 73 total; 0 can run
 Will create resources:
   AutoscalingGroup/master-ap-southeast-2a.masters.kubernetes.test
-  	MinSize             	1
-  	MaxSize             	1
-  	Subnets             	[name:ap-southeast-2a.kubernetes.test]
-  	Tags                	{k8s.io/role/master: 1, Name: master-ap-southeast-2a.masters.kubernetes.test, KubernetesCluster: kubernetes.test, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/instancegroup: master-ap-southeast-2a}
-  	LaunchConfiguration 	name:master-ap-southeast-2a.masters.kubernetes.test
+      MinSize             	1
+      MaxSize             	1
+      Subnets             	[name:ap-southeast-2a.kubernetes.test]
+      Tags                	{k8s.io/role/master: 1, Name: master-ap-southeast-2a.masters.kubernetes.test, KubernetesCluster: kubernetes.test, k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/instancegroup: master-ap-southeast-2a}
+      LaunchConfiguration 	name:master-ap-southeast-2a.masters.kubernetes.test
 
   AutoscalingGroup/nodes.kubernetes.test
-  	MinSize             	2
-  	MaxSize             	2
-  	Subnets             	[name:ap-southeast-2a.kubernetes.test]
-  	Tags                	{k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/instancegroup: nodes, k8s.io/role/node: 1, Name: nodes.kubernetes.test, KubernetesCluster: kubernetes.test}
-  	LaunchConfiguration 	name:nodes.kubernetes.test
+      MinSize             	2
+      MaxSize             	2
+      Subnets             	[name:ap-southeast-2a.kubernetes.test]
+      Tags                	{k8s.io/cluster-autoscaler/node-template/label/kops.k8s.io/instancegroup: nodes, k8s.io/role/node: 1, Name: nodes.kubernetes.test, KubernetesCluster: kubernetes.test}
+      LaunchConfiguration 	name:nodes.kubernetes.test
 
   DHCPOptions/kubernetes.test
-  	DomainName          	ap-southeast-2.compute.internal
-  	DomainNameServers   	AmazonProvidedDNS
+      DomainName          	ap-southeast-2.compute.internal
+      DomainNameServers   	AmazonProvidedDNS
 
   EBSVolume/a.etcd-events.kubernetes.test
-  	AvailabilityZone    	ap-southeast-2a
-  	VolumeType          	gp2
-  	SizeGB              	20
-  	Encrypted           	false
-  	Tags                	{KubernetesCluster: kubernetes.test, k8s.io/etcd/events: a/a, k8s.io/role/master: 1, Name: a.etcd-events.kubernetes.test}
+      AvailabilityZone    	ap-southeast-2a
+      VolumeType          	gp2
+      SizeGB              	20
+      Encrypted           	false
+      Tags                	{KubernetesCluster: kubernetes.test, k8s.io/etcd/events: a/a, k8s.io/role/master: 1, Name: a.etcd-events.kubernetes.test}
 
   EBSVolume/a.etcd-main.kubernetes.test
-  	AvailabilityZone    	ap-southeast-2a
-  	VolumeType          	gp2
-  	SizeGB              	20
-  	Encrypted           	false
-  	Tags                	{k8s.io/etcd/main: a/a, k8s.io/role/master: 1, Name: a.etcd-main.kubernetes.test, KubernetesCluster: kubernetes.test}
+      AvailabilityZone    	ap-southeast-2a
+      VolumeType          	gp2
+      SizeGB              	20
+      Encrypted           	false
+      Tags                	{k8s.io/etcd/main: a/a, k8s.io/role/master: 1, Name: a.etcd-main.kubernetes.test, KubernetesCluster: kubernetes.test}
 
   IAMInstanceProfile/masters.kubernetes.test
 
   IAMInstanceProfile/nodes.kubernetes.test
 
   IAMInstanceProfileRole/masters.kubernetes.test
-  	InstanceProfile     	name:masters.kubernetes.test id:masters.kubernetes.test
-  	Role                	name:masters.kubernetes.test
+      InstanceProfile     	name:masters.kubernetes.test id:masters.kubernetes.test
+      Role                	name:masters.kubernetes.test
 
   IAMInstanceProfileRole/nodes.kubernetes.test
-  	InstanceProfile     	name:nodes.kubernetes.test id:nodes.kubernetes.test
-  	Role                	name:nodes.kubernetes.test
+      InstanceProfile     	name:nodes.kubernetes.test id:nodes.kubernetes.test
+      Role                	name:nodes.kubernetes.test
 
   IAMRole/masters.kubernetes.test
-  	ExportWithID        	masters
+      ExportWithID        	masters
 
   IAMRole/nodes.kubernetes.test
-  	ExportWithID        	nodes
+      ExportWithID        	nodes
 
   IAMRolePolicy/masters.kubernetes.test
-  	Role                	name:masters.kubernetes.test
+      Role                	name:masters.kubernetes.test
 
   IAMRolePolicy/nodes.kubernetes.test
-  	Role                	name:nodes.kubernetes.test
+      Role                	name:nodes.kubernetes.test
 
   InternetGateway/kubernetes.test
-  	VPC                 	name:kubernetes.test
-  	Shared              	false
+      VPC                 	name:kubernetes.test
+      Shared              	false
 
   Keypair/apiserver-aggregator
-  	Subject             	cn=aggregator
-  	Type                	client
-  	Signer              	name:apiserver-aggregator-ca id:cn=apiserver-aggregator-ca
+      Subject             	cn=aggregator
+      Type                	client
+      Signer              	name:apiserver-aggregator-ca id:cn=apiserver-aggregator-ca
 
   Keypair/apiserver-aggregator-ca
-  	Subject             	cn=apiserver-aggregator-ca
-  	Type                	ca
+      Subject             	cn=apiserver-aggregator-ca
+      Type                	ca
 
   Keypair/apiserver-proxy-client
-  	Subject             	cn=apiserver-proxy-client
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	cn=apiserver-proxy-client
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/ca
-  	Subject             	cn=kubernetes
-  	Type                	ca
+      Subject             	cn=kubernetes
+      Type                	ca
 
   Keypair/kops
-  	Subject             	o=system:masters,cn=kops
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	o=system:masters,cn=kops
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/kube-controller-manager
-  	Subject             	cn=system:kube-controller-manager
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	cn=system:kube-controller-manager
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/kube-proxy
-  	Subject             	cn=system:kube-proxy
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	cn=system:kube-proxy
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/kube-scheduler
-  	Subject             	cn=system:kube-scheduler
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	cn=system:kube-scheduler
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/kubecfg
-  	Subject             	o=system:masters,cn=kubecfg
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	o=system:masters,cn=kubecfg
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/kubelet
-  	Subject             	o=system:nodes,cn=kubelet
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	o=system:nodes,cn=kubelet
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/kubelet-api
-  	Subject             	cn=kubelet-api
-  	Type                	client
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	cn=kubelet-api
+      Type                	client
+      Signer              	name:ca id:cn=kubernetes
 
   Keypair/master
-  	Subject             	cn=kubernetes-master
-  	Type                	server
-  	AlternateNames      	[100.64.0.1, 127.0.0.1, api.internal.kubernetes.test, api.kubernetes.test, kubernetes, kubernetes.default, kubernetes.default.svc, kubernetes.default.svc.cluster.local]
-  	Signer              	name:ca id:cn=kubernetes
+      Subject             	cn=kubernetes-master
+      Type                	server
+      AlternateNames      	[100.64.0.1, 127.0.0.1, api.internal.kubernetes.test, api.kubernetes.test, kubernetes, kubernetes.default, kubernetes.default.svc, kubernetes.default.svc.cluster.local]
+      Signer              	name:ca id:cn=kubernetes
 
   LaunchConfiguration/master-ap-southeast-2a.masters.kubernetes.test
-  	ImageID             	kope.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
-  	InstanceType        	t2.micro
-  	SSHKey              	name:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de id:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
-  	SecurityGroups      	[name:masters.kubernetes.test]
-  	AssociatePublicIP   	true
-  	IAMInstanceProfile  	name:masters.kubernetes.test id:masters.kubernetes.test
-  	RootVolumeSize      	64
-  	RootVolumeType      	gp2
-  	SpotPrice
+      ImageID             	kope.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
+      InstanceType        	t2.micro
+      SSHKey              	name:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de id:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
+      SecurityGroups      	[name:masters.kubernetes.test]
+      AssociatePublicIP   	true
+      IAMInstanceProfile  	name:masters.kubernetes.test id:masters.kubernetes.test
+      RootVolumeSize      	64
+      RootVolumeType      	gp2
+      SpotPrice
 
   LaunchConfiguration/nodes.kubernetes.test
-  	ImageID             	kope.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
-  	InstanceType        	t2.micro
-  	SSHKey              	name:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de id:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
-  	SecurityGroups      	[name:nodes.kubernetes.test]
-  	AssociatePublicIP   	true
-  	IAMInstanceProfile  	name:nodes.kubernetes.test id:nodes.kubernetes.test
-  	RootVolumeSize      	128
-  	RootVolumeType      	gp2
-  	SpotPrice
+      ImageID             	kope.io/k8s-1.8-debian-jessie-amd64-hvm-ebs-2018-01-14
+      InstanceType        	t2.micro
+      SSHKey              	name:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de id:kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
+      SecurityGroups      	[name:nodes.kubernetes.test]
+      AssociatePublicIP   	true
+      IAMInstanceProfile  	name:nodes.kubernetes.test id:nodes.kubernetes.test
+      RootVolumeSize      	128
+      RootVolumeType      	gp2
+      SpotPrice
 
   ManagedFile/kubernetes.test-addons-bootstrap
-  	Location            	addons/bootstrap-channel.yaml
+      Location            	addons/bootstrap-channel.yaml
 
   ManagedFile/kubernetes.test-addons-core.addons.k8s.io
-  	Location            	addons/core.addons.k8s.io/v1.4.0.yaml
+      Location            	addons/core.addons.k8s.io/v1.4.0.yaml
 
   ManagedFile/kubernetes.test-addons-dns-controller.addons.k8s.io-k8s-1.6
-  	Location            	addons/dns-controller.addons.k8s.io/k8s-1.6.yaml
+      Location            	addons/dns-controller.addons.k8s.io/k8s-1.6.yaml
 
   ManagedFile/kubernetes.test-addons-dns-controller.addons.k8s.io-pre-k8s-1.6
-  	Location            	addons/dns-controller.addons.k8s.io/pre-k8s-1.6.yaml
+      Location            	addons/dns-controller.addons.k8s.io/pre-k8s-1.6.yaml
 
   ManagedFile/kubernetes.test-addons-kube-dns.addons.k8s.io-k8s-1.6
-  	Location            	addons/kube-dns.addons.k8s.io/k8s-1.6.yaml
+      Location            	addons/kube-dns.addons.k8s.io/k8s-1.6.yaml
 
   ManagedFile/kubernetes.test-addons-kube-dns.addons.k8s.io-pre-k8s-1.6
-  	Location            	addons/kube-dns.addons.k8s.io/pre-k8s-1.6.yaml
+      Location            	addons/kube-dns.addons.k8s.io/pre-k8s-1.6.yaml
 
   ManagedFile/kubernetes.test-addons-limit-range.addons.k8s.io
-  	Location            	addons/limit-range.addons.k8s.io/v1.5.0.yaml
+      Location            	addons/limit-range.addons.k8s.io/v1.5.0.yaml
 
   ManagedFile/kubernetes.test-addons-rbac.addons.k8s.io-k8s-1.8
-  	Location            	addons/rbac.addons.k8s.io/k8s-1.8.yaml
+      Location            	addons/rbac.addons.k8s.io/k8s-1.8.yaml
 
   ManagedFile/kubernetes.test-addons-storage-aws.addons.k8s.io-v1.6.0
-  	Location            	addons/storage-aws.addons.k8s.io/v1.6.0.yaml
+      Location            	addons/storage-aws.addons.k8s.io/v1.6.0.yaml
 
   ManagedFile/kubernetes.test-addons-storage-aws.addons.k8s.io-v1.7.0
-  	Location            	addons/storage-aws.addons.k8s.io/v1.7.0.yaml
+      Location            	addons/storage-aws.addons.k8s.io/v1.7.0.yaml
 
   Route/0.0.0.0/0
-  	RouteTable          	name:kubernetes.test
-  	CIDR                	0.0.0.0/0
-  	InternetGateway     	name:kubernetes.test
+      RouteTable          	name:kubernetes.test
+      CIDR                	0.0.0.0/0
+      InternetGateway     	name:kubernetes.test
 
   RouteTable/kubernetes.test
-  	VPC                 	name:kubernetes.test
+      VPC                 	name:kubernetes.test
 
   RouteTableAssociation/ap-southeast-2a.kubernetes.test
-  	RouteTable          	name:kubernetes.test
-  	Subnet              	name:ap-southeast-2a.kubernetes.test
+      RouteTable          	name:kubernetes.test
+      Subnet              	name:ap-southeast-2a.kubernetes.test
 
   SSHKey/kubernetes.kubernetes.test-e8:be:8d:cf:90:3b:52:6e:f7:23:29:0a:32:d1:cd:de
-  	KeyFingerprint      	c4:89:af:59:a1:1d:6e:ef:7a:9d:12:65:bc:e2:82:4f
+      KeyFingerprint      	c4:89:af:59:a1:1d:6e:ef:7a:9d:12:65:bc:e2:82:4f
 
   Secret/admin
 
@@ -621,103 +621,103 @@ Will create resources:
   Secret/system:scheduler
 
   SecurityGroup/masters.kubernetes.test
-  	Description         	Security group for masters
-  	VPC                 	name:kubernetes.test
-  	RemoveExtraRules    	[port=22, port=443, port=2380, port=2381, port=4001, port=4002, port=4789, port=179]
+      Description         	Security group for masters
+      VPC                 	name:kubernetes.test
+      RemoveExtraRules    	[port=22, port=443, port=2380, port=2381, port=4001, port=4002, port=4789, port=179]
 
   SecurityGroup/nodes.kubernetes.test
-  	Description         	Security group for nodes
-  	VPC                 	name:kubernetes.test
-  	RemoveExtraRules    	[port=22]
+      Description         	Security group for nodes
+      VPC                 	name:kubernetes.test
+      RemoveExtraRules    	[port=22]
 
   SecurityGroupRule/all-master-to-master
-  	SecurityGroup       	name:masters.kubernetes.test
-  	SourceGroup         	name:masters.kubernetes.test
+      SecurityGroup       	name:masters.kubernetes.test
+      SourceGroup         	name:masters.kubernetes.test
 
   SecurityGroupRule/all-master-to-node
-  	SecurityGroup       	name:nodes.kubernetes.test
-  	SourceGroup         	name:masters.kubernetes.test
+      SecurityGroup       	name:nodes.kubernetes.test
+      SourceGroup         	name:masters.kubernetes.test
 
   SecurityGroupRule/all-node-to-node
-  	SecurityGroup       	name:nodes.kubernetes.test
-  	SourceGroup         	name:nodes.kubernetes.test
+      SecurityGroup       	name:nodes.kubernetes.test
+      SourceGroup         	name:nodes.kubernetes.test
 
   SecurityGroupRule/https-external-to-master-0.0.0.0/0
-  	SecurityGroup       	name:masters.kubernetes.test
-  	CIDR                	0.0.0.0/0
-  	Protocol            	tcp
-  	FromPort            	443
-  	ToPort              	443
+      SecurityGroup       	name:masters.kubernetes.test
+      CIDR                	0.0.0.0/0
+      Protocol            	tcp
+      FromPort            	443
+      ToPort              	443
 
   SecurityGroupRule/master-egress
-  	SecurityGroup       	name:masters.kubernetes.test
-  	CIDR                	0.0.0.0/0
-  	Egress              	true
+      SecurityGroup       	name:masters.kubernetes.test
+      CIDR                	0.0.0.0/0
+      Egress              	true
 
   SecurityGroupRule/node-egress
-  	SecurityGroup       	name:nodes.kubernetes.test
-  	CIDR                	0.0.0.0/0
-  	Egress              	true
+      SecurityGroup       	name:nodes.kubernetes.test
+      CIDR                	0.0.0.0/0
+      Egress              	true
 
   SecurityGroupRule/node-to-master-tcp-1-2379
-  	SecurityGroup       	name:masters.kubernetes.test
-  	Protocol            	tcp
-  	FromPort            	1
-  	ToPort              	2379
-  	SourceGroup         	name:nodes.kubernetes.test
+      SecurityGroup       	name:masters.kubernetes.test
+      Protocol            	tcp
+      FromPort            	1
+      ToPort              	2379
+      SourceGroup         	name:nodes.kubernetes.test
 
   SecurityGroupRule/node-to-master-tcp-2382-4000
-  	SecurityGroup       	name:masters.kubernetes.test
-  	Protocol            	tcp
-  	FromPort            	2382
-  	ToPort              	4000
-  	SourceGroup         	name:nodes.kubernetes.test
+      SecurityGroup       	name:masters.kubernetes.test
+      Protocol            	tcp
+      FromPort            	2382
+      ToPort              	4000
+      SourceGroup         	name:nodes.kubernetes.test
 
   SecurityGroupRule/node-to-master-tcp-4003-65535
-  	SecurityGroup       	name:masters.kubernetes.test
-  	Protocol            	tcp
-  	FromPort            	4003
-  	ToPort              	65535
-  	SourceGroup         	name:nodes.kubernetes.test
+      SecurityGroup       	name:masters.kubernetes.test
+      Protocol            	tcp
+      FromPort            	4003
+      ToPort              	65535
+      SourceGroup         	name:nodes.kubernetes.test
 
   SecurityGroupRule/node-to-master-udp-1-65535
-  	SecurityGroup       	name:masters.kubernetes.test
-  	Protocol            	udp
-  	FromPort            	1
-  	ToPort              	65535
-  	SourceGroup         	name:nodes.kubernetes.test
+      SecurityGroup       	name:masters.kubernetes.test
+      Protocol            	udp
+      FromPort            	1
+      ToPort              	65535
+      SourceGroup         	name:nodes.kubernetes.test
 
   SecurityGroupRule/ssh-external-to-master-0.0.0.0/0
-  	SecurityGroup       	name:masters.kubernetes.test
-  	CIDR                	0.0.0.0/0
-  	Protocol            	tcp
-  	FromPort            	22
-  	ToPort              	22
+      SecurityGroup       	name:masters.kubernetes.test
+      CIDR                	0.0.0.0/0
+      Protocol            	tcp
+      FromPort            	22
+      ToPort              	22
 
   SecurityGroupRule/ssh-external-to-node-0.0.0.0/0
-  	SecurityGroup       	name:nodes.kubernetes.test
-  	CIDR                	0.0.0.0/0
-  	Protocol            	tcp
-  	FromPort            	22
-  	ToPort              	22
+      SecurityGroup       	name:nodes.kubernetes.test
+      CIDR                	0.0.0.0/0
+      Protocol            	tcp
+      FromPort            	22
+      ToPort              	22
 
   Subnet/ap-southeast-2a.kubernetes.test
-  	VPC                 	name:kubernetes.test
-  	AvailabilityZone    	ap-southeast-2a
-  	CIDR                	172.20.32.0/19
-  	Shared              	false
-  	Tags                	{Name: ap-southeast-2a.kubernetes.test, KubernetesCluster: kubernetes.test, kubernetes.io/cluster/kubernetes.test: owned, kubernetes.io/role/elb: 1}
+      VPC                 	name:kubernetes.test
+      AvailabilityZone    	ap-southeast-2a
+      CIDR                	172.20.32.0/19
+      Shared              	false
+      Tags                	{Name: ap-southeast-2a.kubernetes.test, KubernetesCluster: kubernetes.test, kubernetes.io/cluster/kubernetes.test: owned, kubernetes.io/role/elb: 1}
 
   VPC/kubernetes.test
-  	CIDR                	172.20.0.0/16
-  	EnableDNSHostnames  	true
-  	EnableDNSSupport    	true
-  	Shared              	false
-  	Tags                	{Name: kubernetes.test, KubernetesCluster: kubernetes.test, kubernetes.io/cluster/kubernetes.test: owned}
+      CIDR                	172.20.0.0/16
+      EnableDNSHostnames  	true
+      EnableDNSSupport    	true
+      Shared              	false
+      Tags                	{Name: kubernetes.test, KubernetesCluster: kubernetes.test, kubernetes.io/cluster/kubernetes.test: owned}
 
   VPCDHCPOptionsAssociation/kubernetes.test
-  	VPC                 	name:kubernetes.test
-  	DHCPOptions         	name:kubernetes.test
+      VPC                 	name:kubernetes.test
+      DHCPOptions         	name:kubernetes.test
 
 Must specify --yes to apply changes
 
@@ -812,15 +812,15 @@ To build this, we create a podfile with all the pod definition:
 apiVersion: v1
 kind: Pod 
 metadata:
-	name: nodehelloworld.example.com
-	labels:
-		app: helloworld
+    name: nodehelloworld.example.com
+    labels:
+        app: helloworld
 spec:
-	containers:
-		- name: k8s-demo
-			image: okeeffed/docker-demo
-			ports:
-				- containerPort: 3000
+    containers:
+        - name: k8s-demo
+            image: okeeffed/docker-demo
+            ports:
+                - containerPort: 3000
 ```
 
 To create this pod, we run `kubectl create -f ./pod-helloworld.yml`
@@ -862,15 +862,15 @@ To create the service for this:
 apiVersion: v1
 kind: Service
 metadata:
-	name: helloworld-service
+    name: helloworld-service
 spec:
-	ports:
-		- port: 80
-		targetPort: nodejs-port
-		protocol: TCP
-	selector:
-		app: helloworld
-	type: LoadBalancer
+    ports:
+        - port: 80
+        targetPort: nodejs-port
+        protocol: TCP
+    selector:
+        app: helloworld
+    type: LoadBalancer
 ```
 
 Using `kubectl create -f <file>` will create the pods and kops will autoconfigure what is required.
@@ -894,16 +894,16 @@ When we look deeper at a pod yaml file, we have the containers called as the spe
 apiVersion: v1
 kind: Pod 
 metadata:
-	name: nodehelloworld.example.com
-	labels:
-		app: helloworld
+    name: nodehelloworld.example.com
+    labels:
+        app: helloworld
 spec:
-	# The containers are listed here
-	containers:
-		- name: k8s-demo
-			image: okeeffed/docker-demo
-			ports:
-				- containerPort: 3000
+    # The containers are listed here
+    containers:
+        - name: k8s-demo
+            image: okeeffed/docker-demo
+            ports:
+                - containerPort: 3000
 ```
 
 ### Replication Controller
@@ -915,8 +915,8 @@ If your application is `stateless` you can horizontally scale it.
 - Stateless = your appllication doesn't have a `state`, it doesn't write any local files / keeps local sessions. This prevents pods from falling out of sync.
 - All traditional databases are `stateful`
 - Most `web applications` can be made stateless
-	- Session management needs to be done outside the container
-	- Any file to be saved cannot be saved locally
+    - Session management needs to be done outside the container
+    - Any file to be saved cannot be saved locally
 
 If needed, you can use `volumes` to still run stateful apps.
 
@@ -939,24 +939,24 @@ To create a replication controller:
 apiVersion: v1
 kind: ReplicationController # Changed from Pod 
 metadata:
-	name: helloworld-container
+    name: helloworld-container
 spec: # Replation controller also has a spec
-	replicas: 2 # set two pod replicas
-	selector:  # select the app
-		app: helloworld
-	template:
-		# stand Pod metadata and spec
-		metadata:
-			name: nodehelloworld.example.com
-			labels:
-				app: helloworld
-		spec:
-			# The containers are listed here
-			containers:
-				- name: k8s-demo
-					image: okeeffed/docker-demo
-					ports:
-						- containerPort: 3000
+    replicas: 2 # set two pod replicas
+    selector:  # select the app
+        app: helloworld
+    template:
+        # stand Pod metadata and spec
+        metadata:
+            name: nodehelloworld.example.com
+            labels:
+                app: helloworld
+        spec:
+            # The containers are listed here
+            containers:
+                - name: k8s-demo
+                    image: okeeffed/docker-demo
+                    ports:
+                        - containerPort: 3000
 ```
 
 When this controller is created with `kubectl`, you will see that the two pods are created with a differing suffix.
@@ -1005,21 +1005,21 @@ An example of a deployment:
 apiVersion: extensions/v1beta1
 kind: Deployment # Changed from Pod 
 metadata:
-	name: helloworld-deployment
+    name: helloworld-deployment
 spec: # Replation controller also has a spec
-	replicas: 3 # set two pod replicas
-	template:
-		# stand Pod metadata and spec
-		metadata:
-			labels:
-				app: helloworld
-		spec:
-			# The containers are listed here
-			containers:
-				- name: k8s-demo
-					image: okeeffed/docker-demo
-					ports:
-						- containerPort: 3000
+    replicas: 3 # set two pod replicas
+    template:
+        # stand Pod metadata and spec
+        metadata:
+            labels:
+                app: helloworld
+        spec:
+            # The containers are listed here
+            containers:
+                - name: k8s-demo
+                    image: okeeffed/docker-demo
+                    ports:
+                        - containerPort: 3000
 ```
 
 ### Useful commands 
@@ -1075,18 +1075,18 @@ This **only** works when the DNS add-on is enabled.
 apiVersion: v1
 kind: Service 
 metadata:
-	name: helloworld-service
+    name: helloworld-service
 spec: 
-	ports: # specify the ports the service uses
-		- port: 31001
-		  nodePort: 31001
-		  # name below defined from pod
-		  targetPort: nodejs-port
-		  protocol: TCP
-	selector: 
-		# service for this app
-		app: helloworld
-	type: NodePort
+    ports: # specify the ports the service uses
+        - port: 31001
+          nodePort: 31001
+          # name below defined from pod
+          targetPort: nodejs-port
+          protocol: TCP
+    selector: 
+        # service for this app
+        app: helloworld
+    type: NodePort
 ```
 
 ## Tags
@@ -1124,18 +1124,18 @@ Secondly, add a pod that uses those labels:
 apiVersion: v1
 kind: Pod 
 metadata:
-	name: nodehelloworld.example.com
-	labels:
-		app: helloworld
+    name: nodehelloworld.example.com
+    labels:
+        app: helloworld
 spec:
-	# The containers are listed here
-	containers:
-		- name: k8s-demo
-			image: okeeffed/docker-demo
-			ports:
-				- containerPort: 3000
-	nodeSelector:
-		hardware: high-spec
+    # The containers are listed here
+    containers:
+        - name: k8s-demo
+            image: okeeffed/docker-demo
+            ports:
+                - containerPort: 3000
+    nodeSelector:
+        hardware: high-spec
 ```
 
 ### Demo: Using tags
@@ -1160,23 +1160,23 @@ Below you can see where the healthcheck is. You can check the port or container 
 apiVersion: v1
 kind: Pod 
 metadata:
-	name: nodehelloworld.example.com
-	labels:
-		app: helloworld
+    name: nodehelloworld.example.com
+    labels:
+        app: helloworld
 spec:
-	# The containers are listed here
-	containers:
-		- name: k8s-demo
-			image: okeeffed/docker-demo
-			ports:
-				- containerPort: 3000
-			# @@@ This is the health check
-			livenessProbe:
-				httpGet:
-					path: /
-					port: 3000
-				initialDelaySeconds: 15
-				timeoutSeconds: 30
+    # The containers are listed here
+    containers:
+        - name: k8s-demo
+            image: okeeffed/docker-demo
+            ports:
+                - containerPort: 3000
+            # @@@ This is the health check
+            livenessProbe:
+                httpGet:
+                    path: /
+                    port: 3000
+                initialDelaySeconds: 15
+                timeoutSeconds: 30
 ```
 
 ## Secrets
@@ -1193,9 +1193,9 @@ You can use the same mechanism to provide secrets to your application.
 
 - Use as env vars
 - Use as a file in a pod 
-	- This requires volumes to be mounted 
-	- In this volume you have files 
-	- This can be use for things like dotenv files
+    - This requires volumes to be mounted 
+    - In this volume you have files 
+    - This can be use for things like dotenv files
 - You can use an external image to pull secrets (private image registry)
 
 
@@ -1220,11 +1220,11 @@ To generate secrets using yaml defs:
 apiVersion: v1
 kind: Secret
 metadata:
-	name: db-secret
+    name: db-secret
 type: Opaque
 data:
-	password: pwd
-	username: usr
+    password: pwd
+    username: usr
 ```
 
 Then, you can generate it as base64 like so:
@@ -1244,23 +1244,51 @@ To create a pod that uses secrets:
 apiVersion: v1
 kind: Pod 
 metadata:
-	name: nodehelloworld.example.com
-	labels:
-		app: helloworld
+    name: nodehelloworld.example.com
+    labels:
+        app: helloworld
 spec:
-	# The containers are listed here
-	containers:
-		- name: k8s-demo
-			image: okeeffed/docker-demo
-			ports:
-				- containerPort: 3000
-			# @@@ This are the envs
-			env:
-				- name: SECRET_USERNAME
-				  valueFrom:
-					  secretKeyRef:
-						  name: db-secret
-						  key: username 
-				- name: SECRET_PASSWORD
-				  [...]
+    # The containers are listed here
+    containers:
+        - name: k8s-demo
+            image: okeeffed/docker-demo
+            ports:
+                - containerPort: 3000
+            # @@@ This are the envs
+            env:
+                - name: SECRET_USERNAME
+                  valueFrom:
+                      secretKeyRef:
+                          name: db-secret
+                          key: username 
+                - name: SECRET_PASSWORD
+                  [...]
+```
+
+Alternatively when providing in a file:
+
+```yaml
+# pod-helloworld.yml w/ secrets
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: nodehelloworld.example.com
+  labels:
+    app: helloworld
+spec:
+  # The containers are listed here
+  containers:
+    - name: k8s-demo
+      image: okeeffed/docker-demo
+      ports:
+        - containerPort: 3000
+      # @@@ This are the envs in a volume mount
+      volumeMounts:
+        - name: credvolume
+          mountPath: /etc/creds
+          readOnly: true
+  volumes:
+      - name: credvolume
+        secret: 
+          secretName: db-secrets          
 ```
