@@ -1104,3 +1104,10 @@ Labels are not unique. You can then use `label selectors` to match labels.
 Eg. a particular pod can only run on a node label with "evironment" equals "development".
 
 More complex matching: "environment" in "development" or "qa".
+
+You can also use labels to tag nodes. Once tagged, you can use labels selectors to let pods only run on specific nodes.
+
+There are two steps required to run a pod on a specific set of nodes:
+
+1. First you tag the node
+2. Then you add a `nodeSelector` to your pod configuration
