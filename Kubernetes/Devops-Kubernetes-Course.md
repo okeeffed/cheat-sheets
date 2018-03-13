@@ -1234,4 +1234,5 @@ echo -n "password" | base64
 # > pwd
 
 kubectl create -f secrets-db-secret.yml
+# > secret "db-secret" created
 ```
