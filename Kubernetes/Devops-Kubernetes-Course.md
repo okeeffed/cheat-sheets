@@ -1033,4 +1033,4 @@ kubectl rollout status deployment/helloworld-deployment | Get deployment status
 kubectl set image deployment/helloworld-deployment k8s-demo=k8s-demo:2	| Run k8s-demo with the image label version 2
 kubectl edit deployment/helloworld-deployment | Edit the deployment object
 kubectl rollout status deployment/helloworld-deployment | Get the status of the rollout
-kubectl rollout history <deployment> | Get the rollout history
+kubectl rollout history [deployment] | Get the rollout history
