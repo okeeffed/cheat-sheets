@@ -1322,4 +1322,6 @@ kubectl config view
 minikube dashboard # or --url for the url
 ```
 
+### Demo: Web UI
+
 
