@@ -923,3 +923,7 @@ If needed, you can use `volumes` to still run stateful apps.
 Those stateful apps can't horizontally scale, but you can run them in a single container and vertically scale (allocate more CPU/Mem/Disk).
 
 Scaling in Kubernetes can be done using the `Replication Controller`.
+
+The replication controller will ensure a specified number of pod replicas will run at all times.
+
+A pod created with the replica controller will automatically be replaced if they fail, get deleted or are terminated.
