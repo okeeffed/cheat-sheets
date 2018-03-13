@@ -1207,3 +1207,4 @@ echo -n "password" > ./password.txt
 kubectl create secret generic db-user-pass --from-file=./username.txt --from-file=./password.txt
 # secret "db-user-pass" created
 ```
+
