@@ -1021,3 +1021,10 @@ spec: # Replation controller also has a spec
 					ports:
 						- containerPort: 3000
 ```
+
+### Useful commands 
+
+Command 				| Description
+---						| ---
+kubectl get deployments | Get info on current deployments 
+kubectl get rs 			| Get info about the replica set
