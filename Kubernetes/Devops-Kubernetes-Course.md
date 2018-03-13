@@ -1080,6 +1080,7 @@ spec:
 	ports: # specify the ports the service uses
 		- port: 31001
 		  nodePort: 31001
+		  # name below defined from pod
 		  targetPort: nodejs-port
 		  protocol: TCP
 	selector: 
