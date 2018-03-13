@@ -929,3 +929,5 @@ The replication controller will ensure a specified number of pod replicas will r
 A pod created with the replica controller will automatically be replaced if they fail, get deleted or are terminated.
 
 Using the replication controller is also recommended if you just want to make sure 1 pod is always running, even after reboots.
+
+You can then run a replication controller with just 1 replica to ensure that it is always running.
