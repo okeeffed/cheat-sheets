@@ -978,3 +978,4 @@ kubectl get pods # will show only one pod remaining
 
 ## Deployments 
 
+- Replication Set is the next gen Replication Controller
