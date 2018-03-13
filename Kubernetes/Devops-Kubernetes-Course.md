@@ -916,3 +916,4 @@ If your application is `stateless` you can horizontally scale it.
 - All traditional databases are `stateful`
 - Most `web applications` can be made stateless
 	- Session management needs to be done outside the container
+	- Any file to be saved cannot be saved locally
