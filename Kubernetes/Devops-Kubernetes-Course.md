@@ -1179,3 +1179,6 @@ spec:
 				timeoutSeconds: 30
 ```
 
+## Secrets
+
+A way to distribute credentials, keys, passwords or secret data to the pods.
