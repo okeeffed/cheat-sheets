@@ -1114,4 +1114,5 @@ There are two steps required to run a pod on a specific set of nodes:
 
 ```
 kubectl label nodes node1 hardware=high-spec
+kubectl label nodes node1 hardware=low-spec
 ```
