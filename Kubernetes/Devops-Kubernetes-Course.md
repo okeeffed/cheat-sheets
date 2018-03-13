@@ -978,4 +978,6 @@ kubectl get pods # will show only one pod remaining
 
 ## Deployments 
 
-- Replication Set is the next gen Replication Controller
+Replication Set is the next gen Replication Controller:
+
+- It supports new selector that can do selection based on filtering according a set of values eg environment either "dev" or "qa"
