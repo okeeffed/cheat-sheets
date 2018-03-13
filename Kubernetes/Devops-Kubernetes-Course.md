@@ -1054,3 +1054,4 @@ That's why Pods should never be accessed directly, but always through a Service.
 
 A service is the `logical bridge` between the "mortal" pods and other services or end-users.
 
+When using the `kubectl expose` command, you create a service for you pod to be accessed externally.
