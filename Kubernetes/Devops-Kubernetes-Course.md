@@ -905,3 +905,5 @@ spec:
 			ports:
 				- containerPort: 3000
 ```
+
+### Replication Controller
