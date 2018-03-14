@@ -1596,3 +1596,27 @@ To use volumes, you first need to create the volume:
 aws ec2 create-volume --sze 1- --region us-east-1 --availability-zone us-east-1 --volume-type gp2
 ```
 
+Next, we need to create a pod with a volume def:
+
+```yaml
+# pod-helloworld.yml w/ secrets
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: hellonginx.example.com
+  labels:
+  app: hellonginx
+spec:
+  # The containers are listed here
+  containers:
+	- name: k8s-demo
+	image: okeeffed/k8s-demo
+	volumeMounts:
+	- name: myvolume
+	  mountPath: myvolume
+  # @@@ The important mounting
+  volumes:
+	- name: myvolume # @@@ this is referred to above in volumeMounts
+	  awsElasticBlockStore:
+	    volumeID: vol-9835id
+```
