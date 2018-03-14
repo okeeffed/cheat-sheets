@@ -1590,3 +1590,8 @@ With this, we can keep state. You could run a `MySQL` database using persistent 
 
 The use case is that if your node stops working, the pod can be rescheduled on another node, and the volume can be attached to the new node.
 
+To use volumes, you first need to create the volume:
+
+```bash
+aws ec2 create-volume --sze 1- --region us-east-1 --availability-zone us-east-1 --volume-type gp2
+```
