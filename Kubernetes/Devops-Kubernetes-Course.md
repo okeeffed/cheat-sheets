@@ -1586,3 +1586,4 @@ Persistent Volumes in Kubernetes allow you to attach a volume to a container tha
 
 ### Using EBS Storage
 
+With this, we can keep state.
