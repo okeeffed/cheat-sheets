@@ -1458,9 +1458,9 @@ spec:
         - containerPort: 3000
       # @@@ This are the envs in a volume mount
       env:
-        - name: DRIVER
-          valueFrom:
-            configMapKeyRef:
+        - name: DRIVER 
+          valueFrom: # where you get the value from
+            configMapKeyRef: # ensuring the ref comes from the configMap
               name: app-config
               key: driver
         - name: DATABASE
