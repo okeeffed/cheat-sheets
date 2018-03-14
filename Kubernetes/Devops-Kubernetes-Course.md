@@ -1586,4 +1586,4 @@ Persistent Volumes in Kubernetes allow you to attach a volume to a container tha
 
 ### Using EBS Storage
 
-With this, we can keep state.
+With this, we can keep state. You could run a `MySQL` database using persistent volumes, although this may not be ready for production yet.
