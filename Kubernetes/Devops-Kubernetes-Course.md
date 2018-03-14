@@ -1523,4 +1523,4 @@ spec:
 		path: reverseproxy.conf
 ```
 
-After then also creating the service, we can grab the minikube service url and use curl to get info on that request.
+After then also creating the service, we can grab the minikube service url and use curl to get info on that request. From here, would could see that it is `nginx` answer the request and transferring it to the Node port.
