@@ -1595,3 +1595,4 @@ To use volumes, you first need to create the volume:
 ```bash
 aws ec2 create-volume --sze 1- --region us-east-1 --availability-zone us-east-1 --volume-type gp2
 ```
+
