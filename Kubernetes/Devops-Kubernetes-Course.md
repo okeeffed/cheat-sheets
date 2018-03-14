@@ -1525,5 +1525,5 @@ spec:
 
 After then also creating the service, we can grab the minikube service url and use curl to get info on that request. From here, would could see that it is `nginx` answer the request and transferring it to the Node port.
 
-If we then want to jump into the nginx container to see what is going on, we can run `kubectl exec -i -t helloworld-nginx -c nginx -- bash` (-c flag to specify container).
+If we then want to jump into the nginx container to see what is going on, we can run `kubectl exec -i -t helloworld-nginx -c nginx -- bash` (-c flag to specify container) and run `ps x`
 
