@@ -1365,4 +1365,4 @@ Say we have a pod and we run `kubectl run -i -tty busybox --image=busybox --rest
 
 ### Demo: Service Discovery
 
-After creating a secrets type, pod type for a database (SQL using the secrets), and a service for exposing certain ports.
+After creating a secrets type, pod type for a database (SQL using the secrets), and a service for exposing certain ports for the database and then deploying three replicas for a `helloworld-deployment` 
