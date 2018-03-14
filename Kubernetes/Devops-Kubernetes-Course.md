@@ -1655,3 +1655,18 @@ parameters:
 
 Next, you can create a volume claim and specify the size:
 
+```yaml
+# my-volume-claim.yml
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: myclaim
+  annotations:
+    volume.beta.kubernetes.io/storage-class: "standard"
+spec: 
+  accessModes:
+	- ReadWriteOnce
+  resources:
+	requests: 
+	  storage: 8Gi
+```
