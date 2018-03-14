@@ -1652,3 +1652,6 @@ parameters:
   type: gp2
   zone: us-east-1
 ```
+
+Next, you can create a volume claim and specify the size:
+
