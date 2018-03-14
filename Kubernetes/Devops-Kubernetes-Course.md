@@ -1389,3 +1389,14 @@ It can also contain full config files eg. a webserver config file. Then that fil
 
 This was you can `inject` config settings into containers without changing the container itself.
 
+To generate a configmap using files:
+
+```bash
+cat << EOF > app.properties
+driver=jdbc
+database=postgres
+lookandfeel=1
+otherparams=xyz
+param.with.hierarchy=xyz
+EOF
+```
