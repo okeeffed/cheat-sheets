@@ -1403,3 +1403,4 @@ $ kubectl create configmap app-config --from-file=app.properties
 ```
 
 How to use it? You can create a pod that exposes the ConfigMap using a volume.
+
