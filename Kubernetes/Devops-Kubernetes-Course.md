@@ -1579,3 +1579,5 @@ After deploying, if we curl with the -H host flag with `helloworld-v1.whatever.c
 ## Volumes
 
 How can we run stateful apps?
+
+Volumes in kubernetes allow you to store data outside of the container.
