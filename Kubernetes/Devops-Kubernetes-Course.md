@@ -1528,3 +1528,5 @@ After then also creating the service, we can grab the minikube service url and u
 If we then want to jump into the nginx container to see what is going on, we can run `kubectl exec -i -t helloworld-nginx -c nginx -- bash` (-c flag to specify container) and run `ps x` to see the processes and we can `cat /etc/nginx/conf.d/reverseproxy.conf`.
 
 At this stage, we can enable SSL for NGINX.
+
+## Ingress Controller
