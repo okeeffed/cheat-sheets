@@ -1374,3 +1374,4 @@ Running `kubectl logs [deployment-name]` will also show us the logs for that pod
 Again, remember that running `kubectl get svc` will get all the services available.
 
 ## ConfigMap
+
