@@ -1392,11 +1392,12 @@ This was you can `inject` config settings into containers without changing the c
 To generate a configmap using files:
 
 ```bash
-cat << EOF > app.properties
+$ cat << EOF > app.properties
 driver=jdbc
 database=postgres
 lookandfeel=1
 otherparams=xyz
 param.with.hierarchy=xyz
 EOF
+$ kubectl create configmap app-config --from-file=app.properties
 ```
