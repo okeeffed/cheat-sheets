@@ -1370,3 +1370,5 @@ After creating a secrets type, pod type for a database (SQL using the secrets), 
 Running `kubectl get pod` we should see the database plus 3 pods running for the deployment.
 
 Running `kubectl logs [deployment-name]` will also show us the logs for that pod.
+
+Again, remember that running `kubectl get svc` will get all the services available.
