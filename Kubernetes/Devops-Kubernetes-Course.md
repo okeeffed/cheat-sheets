@@ -1339,3 +1339,5 @@ The service can be used within pods to find other services running on the same c
 Multiple containers within 1 pod don't need this service, as they can contact each other directly. A container in the same pod can just use `localhost:port`.
 
 To make DNS work, a pod will need a `service definition`.
+
+How can app 1 reach app 2 using DNS? The container itself can talk to the service of App 2.
