@@ -1358,3 +1358,7 @@ host app2-service.default.svc.cluster.local
 ```
 
 The `default` stands for default namespace. Pods and services can be launched in different namespaces (to logically seperate your cluster).
+
+So how does this resolution work? 
+
+Say we have a pod and we run `kubectl run -i -tty busybox --image=busybox --restart=Never -- sh` and the from the shell run `cat /etc/resolv.conf`, can can see that there will be a `nameserver`.
