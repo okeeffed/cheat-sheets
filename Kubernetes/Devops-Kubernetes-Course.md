@@ -1533,4 +1533,8 @@ At this stage, we can enable SSL for NGINX.
 
 Ingress a solution since Kub 1.1 that allows inbound connections to the cluster.
 
-It's an alternative to the external `LoadBalancer` and `nodePorts`.
+It's an alternative to the external `LoadBalancer` and `nodePorts`. It allows you to easily expose services that need to be accessible from outside to the cluster.
+
+With ingress you can run your own ingress controller (basically a loudbalancer) within the Kub Cluster.
+
+There are default ingress controller available, or you can write your own controller.
