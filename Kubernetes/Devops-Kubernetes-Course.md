@@ -1561,7 +1561,7 @@ spec:
 		  backend:
 			serviceName: helloworld-v1
 			servicePort: 80
-    - host: helloworld-v1.example.com
+    - host: helloworld-v2.example.com
 	  http:
 		paths:
 		  - path: /
