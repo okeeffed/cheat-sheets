@@ -1670,3 +1670,26 @@ spec:
 	requests: 
 	  storage: 8Gi
 ```
+
+Finally, if launching a pod: 
+
+```yaml
+# pod-helloworld.yml w/ secrets
+apiVersion: v1 
+kind: Pod 
+metadata:
+  name: mypod
+spec:
+  # The containers are listed here
+  containers:
+	- name: myfrontend
+	image: nginx
+	volumeMounts:
+	- name: mypd
+	  mountPath: '/var/www/html'
+  # @@@ The important mounting
+  volumes:
+	- name: mypd # @@@ this is referred to above in volumeMounts
+	  persistentVolumeClaim:
+	    claimName: myclaim
+```
