@@ -1625,4 +1625,4 @@ spec:
 
 Using Vagrant for kops, we can first create a volume using the above mentioned command.
 
-After receiving a response, you can replace the .yml pod definition config file to attach that volumeID.
+After receiving a response, you can replace the .yml pod definition config file to attach that volumeID. Once the deployment is created, 
