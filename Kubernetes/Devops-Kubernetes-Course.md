@@ -1523,4 +1523,4 @@ spec:
 		path: reverseproxy.conf
 ```
 
-After then also creating the service, we can grab the minikube service url
+After then also creating the service, we can grab the minikube service url and use curl to get info on that request.
