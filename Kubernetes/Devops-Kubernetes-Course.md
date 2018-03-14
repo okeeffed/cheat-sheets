@@ -1537,4 +1537,4 @@ It's an alternative to the external `LoadBalancer` and `nodePorts`. It allows yo
 
 With ingress you can run your own ingress controller (basically a loudbalancer) within the Kub Cluster.
 
-There are default ingress controller available, or you can write your own controller.
+There are default ingress controller available, or you can write your own ingress controller.
