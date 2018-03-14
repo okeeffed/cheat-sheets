@@ -1386,3 +1386,5 @@ The `ConfigMap` key-value pairs can then be read by the app using:
 3. Using volumes 
 
 It can also contain full config files eg. a webserver config file. Then that file can then be mounted using volumes where the application expects its config file.
+
+This was you can `inject` config settings into containers without changing the container itself.
