@@ -1531,3 +1531,4 @@ At this stage, we can enable SSL for NGINX.
 
 ## Ingress Controller
 
+Ingress a solution since Kub 1.1 that allows inbound connections to the cluster.
