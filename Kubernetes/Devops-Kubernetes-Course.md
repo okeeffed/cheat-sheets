@@ -1468,3 +1468,22 @@ spec:
 ```
 
 ### Demo: Config Map
+
+Using an example for a reverse proxy config for NGINX:
+
+```
+server {
+    listen  80;
+    server_name localhost;
+
+    location / {
+        proxy_bind 127.0.0.1;
+        proxy_pass http://127.0.0.1:3000;
+    }
+
+    error_page  500 502 503 504 /50x.html;
+    location = /50x.html {
+        root    /usr/share/nginx/html;
+    }
+}
+```
