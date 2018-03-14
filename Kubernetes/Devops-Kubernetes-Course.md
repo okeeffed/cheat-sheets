@@ -1356,3 +1356,4 @@ host app2-service.default
 host app2-service.default.svc.cluster.local
 # app2-service.default.svc.cluster.local has addr 10.0.0.2
 ```
+
