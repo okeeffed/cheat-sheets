@@ -1636,3 +1636,5 @@ If you need to remove the ebs volume, you can run `aws ec2 delete-volume --volum
 ## Volume Provisioning 
 
 The kubs plugins have the capability to `provision storage` for you. The AWS Plugin can for instance `provision storage` for you by creating the volumes in AWS before attaching them to a node.
+
+This is done using the `StorageClass` object -- this is beta for the course but should be stable soon.
