@@ -1570,3 +1570,4 @@ spec:
 			servicePort: 80
 ```
 
+### Demo: Ingress Controller
