@@ -1457,19 +1457,12 @@ spec:
       ports:
         - containerPort: 3000
       # @@@ This are the envs in a volume mount
-      volumeMounts:
-        - name: credvolume
-          mountPath: /etc/creds
-          readOnly: true
-        # @@@ For the ConfigMap
-        - name: config-volume
-          mountPath: /etc/config
-  volumes:
-      - name: credvolume
-        secret: 
-          secretName: db-secrets
-      # @@@ For the ConfigMap
-      - name: config-volume
-        configMap: 
-          name: app-config
+      env:
+        - name: DRIVER
+          valueFrom:
+            configMapKeyRef:
+              name: app-config
+              key: driver
+        - name: DATABASE
+        [ ... ]
 ```
