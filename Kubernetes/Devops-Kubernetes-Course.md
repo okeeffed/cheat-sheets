@@ -1341,3 +1341,5 @@ Multiple containers within 1 pod don't need this service, as they can contact ea
 To make DNS work, a pod will need a `service definition`.
 
 How can app 1 reach app 2 using DNS? The container itself can talk to the service of App 2.
+
+If you ran the host for `app1-service` and got back 10.0.0.1, `host app2-service` could get back 10.0.0.2.
