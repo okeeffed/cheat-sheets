@@ -1542,3 +1542,30 @@ There are default ingress controller available, or you can write your own ingres
 How does it work? If you connect over 80/443 you will first hit the `Ingress Controller`. You can use the NGINX controller that comes with Kubernetes. That controller will the dirrect all the traffic.
 
 The `ingress rules` could define that if you go to `host-x.example.com` you go to `Pod 1` etc. You can even redirect slash URLs specifically.
+
+To create an Ingress Controller:
+
+```yaml
+# ingress-controller.yml w/ secrets
+apiVersion: extensions/v1beta1
+kind: Ingress 
+metadata:
+  name: helloworld-rules
+spec:
+  # @@@ Setting the important rules
+  rules:
+	- host: helloworld-v1.example.com
+	  http:
+		paths:
+		  - path: /
+		  backend:
+			serviceName: helloworld-v1
+			servicePort: 80
+    - host: helloworld-v1.example.com
+	  http:
+		paths:
+		  - path: /
+		  backend:
+			serviceName: helloworld-v2
+			servicePort: 80
+```
