@@ -1627,4 +1627,4 @@ Using Vagrant for kops, we can first create a volume using the above mentioned c
 
 After receiving a response, you can replace the .yml pod definition config file to attach that volumeID. Once the deployment is created and deployed. After create and confirmation, we can get the pod name `kubectl get pod` and attach `kubectl exec helloworld-deployment-923id -i -t -- bash` and then run `ls -ahl /myvol/` to check for volume.
 
-If we run `echo 'test' > /myvol/myvol.txt` and `echo 'test 2' > /test.txt` 
+If we run `echo 'test' > /myvol/myvol.txt` and `echo 'test 2' > /test.txt`, we know that the latter file will not persist if the pod is restarted/rescheduled.
