@@ -1361,4 +1361,4 @@ The `default` stands for default namespace. Pods and services can be launched in
 
 So how does this resolution work? 
 
-Say we have a pod and we run `kubectl run -i -tty busybox --image=busybox --restart=Never -- sh` and the from the shell run `cat /etc/resolv.conf`, can can see that there will be a `nameserver`.
+Say we have a pod and we run `kubectl run -i -tty busybox --image=busybox --restart=Never -- sh` and the from the shell run `cat /etc/resolv.conf`, can can see that there will be a `nameserver`. If you do a lookup of the service name in this folder, you'll see why the above works with `.default` and `.default.svc.whatever`.
