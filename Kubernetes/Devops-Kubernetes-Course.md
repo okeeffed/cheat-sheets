@@ -1580,4 +1580,4 @@ After deploying, if we curl with the -H host flag with `helloworld-v1.whatever.c
 
 How can we run stateful apps?
 
-Volumes in kubernetes allow you to store data outside of the container. So far, all the applications have been stateless for this reason. This can be done with external services like a database, caching server (eg MySQL, AWS, S3).
+Volumes in kubernetes allow you to store data outside of the container. So far, all the applications have been stateless for this reason. This can be done with external services like a database, caching server (eg MySQL, AWS S3).
