@@ -1583,3 +1583,5 @@ How can we run stateful apps?
 Volumes in kubernetes allow you to store data outside of the container. So far, all the applications have been stateless for this reason. This can be done with external services like a database, caching server (eg MySQL, AWS S3).
 
 Persistent Volumes in Kubernetes allow you to attach a volume to a container that exists even when the container stops. Volumes can be attached using different volume plugins. Eg local volume, EBS Storage etc.
+
+### Using EBS Storage
