@@ -1585,3 +1585,4 @@ Volumes in kubernetes allow you to store data outside of the container. So far, 
 Persistent Volumes in Kubernetes allow you to attach a volume to a container that exists even when the container stops. Volumes can be attached using different volume plugins. Eg local volume, EBS Storage etc.
 
 ### Using EBS Storage
+
