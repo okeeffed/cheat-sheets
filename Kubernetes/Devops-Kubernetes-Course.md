@@ -1588,3 +1588,4 @@ Persistent Volumes in Kubernetes allow you to attach a volume to a container tha
 
 With this, we can keep state. You could run a `MySQL` database using persistent volumes, although this may not be ready for production yet.
 
+The use case is that if your node stops working, the pod can be rescheduled on another node, and the volume can be attached to the new node.
