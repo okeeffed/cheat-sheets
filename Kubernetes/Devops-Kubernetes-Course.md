@@ -1385,4 +1385,4 @@ The `ConfigMap` key-value pairs can then be read by the app using:
 2. Container commandline args in the Pod config
 3. Using volumes 
 
-It can also contain full config files eg. a webserver config file.
+It can also contain full config files eg. a webserver config file. Then that file can then be mounted using volumes where the application expects its config file.
