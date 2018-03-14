@@ -1572,3 +1572,4 @@ spec:
 
 ### Demo: Ingress Controller
 
+In the example, the ingress controller is a `Replication Controller` to ensure that there is always one up and running.
