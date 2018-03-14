@@ -1501,24 +1501,24 @@ metadata:
 spec:
   # The containers are listed here
   containers:
-  - name: nginx
-  image: nginx:1.11
-  ports:
-  - containerPort: 80
-  # @@@ The import conf stuff
-  volumeMounts:
-  - name: config-volume
-    mountPath: /etc/nginx/conf.d
+	- name: nginx
+	image: nginx:1.11
+	ports:
+	- containerPort: 80
+	# @@@ The import conf stuff
+	volumeMounts:
+	- name: config-volume
+		mountPath: /etc/nginx/conf.d
   - name: k8s-demo
   image: okeeffed/docker-demo
   ports:
-  - containerPort: 3000
+    - containerPort: 3000
   # @@@ The important mounting
   volumes:
-  - name: config-volume
-  configMap:
-    name: nginx-config
-    items:
-      - key: reverseproxy.conf
-      path: reverseproxy.conf
+	- name: config-volume
+	configMap:
+		name: nginx-config
+		items:
+		- key: reverseproxy.conf
+		path: reverseproxy.conf
 ```
