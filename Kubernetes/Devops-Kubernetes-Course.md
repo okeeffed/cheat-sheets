@@ -1623,4 +1623,4 @@ spec:
 
 ### Demo: Volumes
 
-Using Vagrant for kops,
+Using Vagrant for kops, we can first create a volume using the above mentioned command.
