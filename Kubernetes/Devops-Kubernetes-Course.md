@@ -1573,3 +1573,5 @@ spec:
 ### Demo: Ingress Controller
 
 In the example, the ingress controller is a `Replication Controller` to ensure that there is always one up and running.
+
+After deploying, if we curl with the -H host flag with `helloworld-v1.whatever.com`
