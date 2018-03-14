@@ -1357,3 +1357,4 @@ host app2-service.default.svc.cluster.local
 # app2-service.default.svc.cluster.local has addr 10.0.0.2
 ```
 
+The `default` stands for default namespace. Pods and services can be launched in different namespaces (to logically seperate your cluster).
