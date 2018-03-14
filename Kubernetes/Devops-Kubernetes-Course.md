@@ -1574,4 +1574,4 @@ spec:
 
 In the example, the ingress controller is a `Replication Controller` to ensure that there is always one up and running.
 
-After deploying, if we curl with the -H host flag with `helloworld-v1.whatever.com`
+After deploying, if we curl with the -H host flag with `helloworld-v1.whatever.com` and v2 respectively, it would have the ingress controller route to each server.
