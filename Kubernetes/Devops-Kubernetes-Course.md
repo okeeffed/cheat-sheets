@@ -1404,3 +1404,35 @@ $ kubectl create configmap app-config --from-file=app.properties
 
 How to use it? You can create a pod that exposes the ConfigMap using a volume.
 
+```yaml
+# pod-helloworld.yml w/ secrets
+apiVersion: v1
+kind: Pod 
+metadata:
+  name: nodehelloworld.example.com
+  labels:
+    app: helloworld
+spec:
+  # The containers are listed here
+  containers:
+    - name: k8s-demo
+      image: okeeffed/docker-demo
+      ports:
+        - containerPort: 3000
+      # @@@ This are the envs in a volume mount
+      volumeMounts:
+        - name: credvolume
+          mountPath: /etc/creds
+          readOnly: true
+        # @@@ For the ConfigMap
+        - name: config-volume
+          mountPath: /etc/config
+  volumes:
+      - name: credvolume
+        secret: 
+          secretName: db-secrets
+      # @@@ For the ConfigMap
+      - name: config-volume
+        configMap: 
+          name: app-config
+```
