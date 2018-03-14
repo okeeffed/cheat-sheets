@@ -1539,3 +1539,4 @@ With ingress you can run your own ingress controller (basically a loudbalancer) 
 
 There are default ingress controller available, or you can write your own ingress controller.
 
+How does it work? If you connect over 80/443 you will first hit the `Ingress Controller`. You can use the NGINX controller that comes with Kubernetes. That controller will the dirrect all the traffic.
