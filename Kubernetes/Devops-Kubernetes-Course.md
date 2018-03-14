@@ -1364,3 +1364,5 @@ So how does this resolution work?
 Say we have a pod and we run `kubectl run -i -tty busybox --image=busybox --restart=Never -- sh` and the from the shell run `cat /etc/resolv.conf`, can can see that there will be a `nameserver`. If you do a lookup of the service name in this folder, you'll see why the above works with `.default` and `.default.svc.whatever`.
 
 ### Demo: Service Discovery
+
+After creating a secrets type, pod type for a database (SQL using the secrets), and a service for exposing certain ports.
