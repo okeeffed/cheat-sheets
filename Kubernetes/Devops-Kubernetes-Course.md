@@ -1691,5 +1691,5 @@ spec:
   volumes:
 	- name: mypd # @@@ this is referred to above in volumeMounts
 	  persistentVolumeClaim:
-	    claimName: myclaim
+	    claimName: myclaim # @@@ refers to my claim from the previous type definition
 ```
