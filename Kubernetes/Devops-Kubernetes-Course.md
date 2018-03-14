@@ -1436,3 +1436,5 @@ spec:
         configMap: 
           name: app-config
 ```
+
+From `/etc/config` , the config values will be stored in files at `/etc/config/driver` and `/etc/config/param/with/hierarchy`.
