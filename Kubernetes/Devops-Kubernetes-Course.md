@@ -1343,3 +1343,16 @@ To make DNS work, a pod will need a `service definition`.
 How can app 1 reach app 2 using DNS? The container itself can talk to the service of App 2.
 
 If you ran the host for `app1-service` and got back 10.0.0.1, `host app2-service` could get back 10.0.0.2.
+
+Examples from the CL
+
+```bash
+host app1-service
+# has addr 10.0.0.1
+host app2-service
+# has addr 10.0.0.2
+host app2-service.default
+# app2-service.default has address 10.0.0.2
+host app2-service.default.svc.cluster.local
+# app2-service.default.svc.cluster.local has addr 10.0.0.2
+```
