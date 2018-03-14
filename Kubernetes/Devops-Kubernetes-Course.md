@@ -1487,3 +1487,5 @@ server {
     }
 }
 ```
+
+We could then create this config map with `kubectl create configmap nginx-config --from-file=reverseproxy.conf`.
