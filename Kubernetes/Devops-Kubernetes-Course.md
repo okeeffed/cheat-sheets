@@ -1375,3 +1375,11 @@ Again, remember that running `kubectl get svc` will get all the services availab
 
 ## ConfigMap
 
+Config params that are not secret can be put in the ConfigMap.
+
+The input is again key-value pairs.
+
+The `ConfigMap` key-value pairs can then be read by the app using:
+
+1. Env variables
+2. Container commandline args in the Pod config
