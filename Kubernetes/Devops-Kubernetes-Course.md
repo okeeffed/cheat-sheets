@@ -1630,3 +1630,5 @@ After receiving a response, you can replace the .yml pod definition config file 
 If we run `echo 'test' > /myvol/myvol.txt` and `echo 'test 2' > /test.txt`, we know that the latter file will not persist if the pod is restarted/rescheduled.
 
 If we run `kubectl drain ip --force` we can drain the pod. Assuming this is a `Replication Controller` or `Deployment`, another container should spin up. Once that pod is attached to another node, we can also attach back to the pod on the new node with the `exec` command and we can confirm that the `/myvol/myvol.txt` is still there, although the other `/test.txt` is no longer there since it was not saved to the volume.
+
+If you need to remove the ebs volume, you can run `aws ec2 delete-volume --volume-id vol-[id]`.
