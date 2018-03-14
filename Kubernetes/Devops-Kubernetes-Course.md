@@ -1515,7 +1515,7 @@ spec:
     - containerPort: 3000
   # @@@ The important mounting
   volumes:
-	- name: config-volume
+	- name: config-volume # @@@ this is referred to above in volumeMounts
 	configMap:
 		name: nginx-config
 		items:
