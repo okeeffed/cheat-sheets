@@ -1365,4 +1365,4 @@ Say we have a pod and we run `kubectl run -i -tty busybox --image=busybox --rest
 
 ### Demo: Service Discovery
 
-After creating a secrets type, pod type for a database (SQL using the secrets), and a service for exposing certain ports for the database and then deploying three replicas for a `helloworld-deployment`.
+After creating a secrets type, pod type for a database (SQL using the secrets), and a service for exposing certain ports for the database and then deploying three replicas for a `helloworld-deployment` that also has a `index-db.js` file which we run `node index-db.js` which will have code that works on the service.
