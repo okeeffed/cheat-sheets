@@ -1896,3 +1896,5 @@ spec:
     app: wordpress
   type: LoadBalancer
 ```
+
+With the AWS Commandline, you can create a file system and mount target. For the fs, run `aws efs create-file-system --creation-token` and then after grabbing the file-system-id and subnet-id, you can run `aws efs create-mount-target --file-system-id <id> --security-groups <sg>`
