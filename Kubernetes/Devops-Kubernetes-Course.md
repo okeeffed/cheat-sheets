@@ -1902,3 +1902,7 @@ With the AWS Commandline, you can create a file system and mount target. For the
 ## Pet Sets
 
 Stateful dist apps - new feature from Kub 1.3.
+
+It is introduced to be able to run `stateful applications` that need:
+
+1.  A stable pod hostname (instead of podname-randomstr)
