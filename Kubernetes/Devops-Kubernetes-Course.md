@@ -1913,3 +1913,5 @@ A pet set will allow your stateful app to use DNS to find out peers. One running
 The big difference is that you don't want to connect just any specific service, you want to make sure pod whatever definitely connects to another pod.
 
 This pet set also allows order to startup and teardown of pets.
+
+Still a lot of work for future work.
