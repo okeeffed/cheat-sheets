@@ -1784,3 +1784,19 @@ data:
   loggedinsalt: MTQ3ZDVhMTIzYmU1ZTRiMWQ1NzUyOWFlNWE2YzRjY2FhMDkyZGQ5NA==
   noncesalt: MTQ3ZDVhMTIzYmU1ZTRiMWQ1NzUyOWFlNWE2YzRjY2FhMDkyZGQ5NQ==
 ```
+
+To open up the service for the port:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress-db
+spec:
+  ports:
+  - port: 3306
+    protocol: TCP
+  selector:
+    app: wordpress-db
+  type: NodePort
+```
