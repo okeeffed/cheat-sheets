@@ -1898,3 +1898,7 @@ spec:
 ```
 
 With the AWS Commandline, you can create a file system and mount target. For the fs, run `aws efs create-file-system --creation-token` and then after grabbing the file-system-id and subnet-id, you can run `aws efs create-mount-target --file-system-id <id> --security-groups <sg>`. Ensure in the above `nfs` volume you update the fs id.
+
+## Pet Sets
+
+Stateful dist apps - new feature from Kub 1.3.
