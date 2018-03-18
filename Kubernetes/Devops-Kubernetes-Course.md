@@ -1693,3 +1693,6 @@ spec:
 	  persistentVolumeClaim:
 	    claimName: myclaim # @@@ refers to my claim from the previous type definition
 ```
+
+## Demo: Using Wordpress with Volumes
+
