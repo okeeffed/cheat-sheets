@@ -1804,6 +1804,84 @@ spec:
 Opening up the web and web service:
 
 ```yaml
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: wordpress-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: wordpress
+    spec:
+      containers:
+      - name: wordpress
+        image: wordpress:4-php7.0
+        # uncomment to fix perm issue, see also https://github.com/kubernetes/kubernetes/issues/2630
+        # command: ['bash', '-c', 'chown www-data:www-data /var/www/html/wp-content/uploads && apache2-foreground']
+        ports:
+        - name: http-port
+          containerPort: 80
+        env:
+          - name: WORDPRESS_DB_PASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: db-password
+          - name: WORDPRESS_AUTH_KEY
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: authkey
+          - name: WORDPRESS_LOGGED_IN_KEY
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: loggedinkey
+          - name: WORDPRESS_SECURE_AUTH_KEY
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: secureauthkey
+          - name: WORDPRESS_NONCE_KEY
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: noncekey
+          - name: WORDPRESS_AUTH_SALT
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: authsalt
+          - name: WORDPRESS_SECURE_AUTH_SALT
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: secureauthsalt
+          - name: WORDPRESS_LOGGED_IN_SALT
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: loggedinsalt
+          - name: WORDPRESS_NONCE_SALT
+            valueFrom:
+              secretKeyRef:
+                name: wordpress-secrets
+                key: noncesalt
+          - name: WORDPRESS_DB_HOST
+            value: wordpress-db
+        volumeMounts:
+        - mountPath: /var/www/html/wp-content/uploads
+          name: uploads
+      volumes:
+      - name: uploads
+        nfs:
+          server: eu-west-1a.fs-5714e89e.efs.eu-west-1.amazonaws.com
+          path: /
+```
+
+```yaml
 apiVersion: v1
 kind: Service
 metadata:
