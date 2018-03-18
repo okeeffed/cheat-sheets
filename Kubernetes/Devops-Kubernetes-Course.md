@@ -1918,6 +1918,6 @@ Still a lot of work for future work.
 
 ## Daemon Sets
 
-*   Ensure that every single node in the Kubernetes cluster runs the same pod resource.
-
--   test
+*   Ensure that every single node in the Kubernetes cluster runs the same pod resource. This is useful to ensure a certain pod is running on every single kubernetes node.
+*   When a node is added to the cluster, a new pod will be started automatically
+*   Same when a node is removed, the pod will not be rescheduled on another node
