@@ -1872,7 +1872,8 @@ spec:
           - name: WORDPRESS_DB_HOST
             value: wordpress-db
         volumeMounts:
-        - mountPath: /var/www/html/wp-content/uploads # shared storage for things like images
+        # shared storage for things like media
+        - mountPath: /var/www/html/wp-content/uploads
           name: uploads
       volumes:
       - name: uploads
