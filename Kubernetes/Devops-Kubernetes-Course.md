@@ -2,19 +2,18 @@
 
 ## Course layout
 
-1. Introduction
-2. Kubernetes Basics
-3. Advanced Topics
-4. Administration
-
+1.  Introduction
+2.  Kubernetes Basics
+3.  Advanced Topics
+4.  Administration
 
 ### Objectives
 
-1. To understand, deploy and use Kubernetes
-2. To get straight with `containerization` and run those containers on Kubernetes
-3. To use Kubernetes as a single node and on AWS
-4. To be able to run `stateless` and `stateful` applications on Kubernetes
-5. To be able to `administer` Kubernetes
+1.  To understand, deploy and use Kubernetes
+2.  To get straight with `containerization` and run those containers on Kubernetes
+3.  To use Kubernetes as a single node and on AWS
+4.  To be able to run `stateless` and `stateful` applications on Kubernetes
+5.  To be able to `administer` Kubernetes
 
 ### Support
 
@@ -45,7 +44,7 @@ Otherwise follow the base instructions to get everything up and going.
 
 This resolves DL issue: `mv minikube-v0.25.1.iso ~/.minikube/cache/iso/minikube-v0.25.1.iso`.
 
-### Procedure Document 
+### Procedure Document
 
 ```
 Kubernetes Procedure Document
@@ -64,7 +63,7 @@ Linux: https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/linu
 
 MacOS: https://storage.googleapis.com/kubernetes-release/release/v1.6.1/bin/darwin/amd64/kubectl
 
-Windows: 
+Windows:
 https://github.com/eirslett/kubectl-windows/releases/download/v1.6.3/kubectl.exe
 
 Minikube
@@ -295,24 +294,24 @@ Creating a certificate: openssl x509 -req -in myuser-csr.pem -CA /path/to/kubern
 
 Open source orchestration system for Docker.
 
-- Let's you schedule containers on a cluster of machines
-- You can run multiple containers on one machine 
-- You can run long running services (like web apps)
-- K8s will manage the state of these containers 
-  - Can start the container on specific nodes 
-  - Will restart a container when it gets killed 
-  - Can move containers from one node to another node
-- Instead of just running a few docker containers on one host manually, K8s can manage that for you
-- K8 clusters can go to thousands of nodes 
-- Other orcherstrators:
-  - Docker Swarm
-  - Mesos 
+*   Let's you schedule containers on a cluster of machines
+*   You can run multiple containers on one machine
+*   You can run long running services (like web apps)
+*   K8s will manage the state of these containers
+    *   Can start the container on specific nodes
+    *   Will restart a container when it gets killed
+    *   Can move containers from one node to another node
+*   Instead of just running a few docker containers on one host manually, K8s can manage that for you
+*   K8 clusters can go to thousands of nodes
+*   Other orcherstrators:
+    *   Docker Swarm
+    *   Mesos
 
 You can run K8s anywhere:
 
-- One premise (private)
-- Public
-- Hybrid
+*   One premise (private)
+*   Public
+*   Hybrid
 
 It is highly modular and open source. It is also backed by Google.
 
@@ -402,7 +401,7 @@ To create the cluster (example), run `kops create cluster --name=kubernetes.test
 
 This DNS zone is basically just the one that we set up.
 
-You'll get something back like 
+You'll get something back like
 
 ```
 I0311 21:48:46.821364    7553 create_cluster.go:439] Inferred --cloud=aws from zone "ap-southeast-2a"
@@ -738,7 +737,7 @@ If we now run `cat ~/.kube/config` we can see the password and username informat
 
 To check if the nodes are up, run `kubectl get node`.
 
-Then, we can again run `kubectl run hello-minikube ... `
+Then, we can again run `kubectl run hello-minikube ...`
 
 If you have issues hit up `https://www.digitalocean.com/community/tutorials/how-to-set-up-time-synchronization-on-ubuntu-16-04` for date syncing.
 
@@ -749,13 +748,13 @@ If you have issues hit up `https://www.digitalocean.com/community/tutorials/how-
 kops create cluster --name=doksandbox.com --state=s3://kops-state-doksandbox --zones=ap-southeast-2a --node-count=2 --node-size=t2.micro --master-size=t2.micro --dns-zone=doksandbox.com
 
 # edit
-kops edit cluster doksandbox.com --state=s3://kops-state-doksandbox 
+kops edit cluster doksandbox.com --state=s3://kops-state-doksandbox
 
-# update 
-kops update cluster doksandbox.com --yes --state=s3://kops-state-doksandbox 
+# update
+kops update cluster doksandbox.com --yes --state=s3://kops-state-doksandbox
 
 # delete
-kops delete cluster doksandbox.com --yes --state=s3://kops-state-doksandbox 
+kops delete cluster doksandbox.com --yes --state=s3://kops-state-doksandbox
 
 # suggestions
 kops validate cluster --state=s3://kops-state-doksandbox  # validate cluster
@@ -777,21 +776,21 @@ To do a demo, `sudo apt-get install git` and `git clone https://github.com/wardv
 
 Change in, `sudo docker build .` and then to run the container use `docker run -p 3000:3000 -t <id>`
 
-### Docker registery 
+### Docker registery
 
 To upload to the registry:
 
 ```
-docker login # fill in login details 
+docker login # fill in login details
 docker tag imageid okeeffed/docker-demo
 docker push okeeffed/docker-demo
 ```
 
 There are a few limitations for each Docker/Kubernetes relationship:
 
-1. Don't try to create one giant docker image fo you app, but split it up if necessary.
-2. All data in the container is not preserved. You need volumes for this.
-3. Check 12factor.net for methodologies
+1.  Don't try to create one giant docker image fo you app, but split it up if necessary.
+2.  All data in the container is not preserved. You need volumes for this.
+3.  Check 12factor.net for methodologies
 
 ### Running the Docker app on Kubernetes
 
@@ -810,7 +809,7 @@ To build this, we create a podfile with all the pod definition:
 ```yaml
 # pod-helloworld.yml
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -827,16 +826,16 @@ To create this pod, we run `kubectl create -f ./pod-helloworld.yml`
 
 **Some useful commands**
 
-Command 												| Description
----														| ---
-kubectl get pod 										| Get info about all running pods
-kubectl describe pod <pod>								| Describe one pod
-kubectl expose pod <pod> --port=444 --name=frontend		| Expose the port of a pod (creates a new service) 	
-kubectl port-forward <pod> 8080 						| Port forward the local machine 
-kubectl attach <podname> -i								| Attach to pod 
-kubectl exec <pod> -- command 							| Execute a command on the pod
-kubectl label pods <pod> mylabel=awesome				| Add new label to pod
-kubectl run -i -tty busybox --image=busybox --restart=Never -- sh | Run a shell in a pod - very useful for debugging
+| Command                                                           | Description                                      |
+| ----------------------------------------------------------------- | ------------------------------------------------ |
+| kubectl get pod                                                   | Get info about all running pods                  |
+| kubectl describe pod <pod>                                        | Describe one pod                                 |
+| kubectl expose pod <pod> --port=444 --name=frontend               | Expose the port of a pod (creates a new service) |
+| kubectl port-forward <pod> 8080                                   | Port forward the local machine                   |
+| kubectl attach <podname> -i                                       | Attach to pod                                    |
+| kubectl exec <pod> -- command                                     | Execute a command on the pod                     |
+| kubectl label pods <pod> mylabel=awesome                          | Add new label to pod                             |
+| kubectl run -i -tty busybox --image=busybox --restart=Never -- sh | Run a shell in a pod - very useful for debugging |
 
 ### How to port-forward
 
@@ -852,7 +851,7 @@ Check this with `kubectl get service`
 
 When you see what port is being forwarded, you can again open that up on the security settings and direct to that port.
 
-### Setting up the external load balancer 
+### Setting up the external load balancer
 
 This will allow the outside world to have traffic routed to the correct pod.
 
@@ -875,9 +874,9 @@ spec:
 
 Using `kubectl create -f <file>` will create the pods and kops will autoconfigure what is required.
 
-## Kubernetes Basics 
+## Kubernetes Basics
 
-### Node Architecture 
+### Node Architecture
 
 Within each node can be a collection of pods routed by iptables and within each pod are the Docker containers.
 
@@ -892,7 +891,7 @@ When we look deeper at a pod yaml file, we have the containers called as the spe
 ```yaml
 # pod-helloworld.yml
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -908,15 +907,15 @@ spec:
 
 ### Replication Controller
 
-#### Scaling 
+#### Scaling
 
 If your application is `stateless` you can horizontally scale it.
 
-- Stateless = your appllication doesn't have a `state`, it doesn't write any local files / keeps local sessions. This prevents pods from falling out of sync.
-- All traditional databases are `stateful`
-- Most `web applications` can be made stateless
-  - Session management needs to be done outside the container
-  - Any file to be saved cannot be saved locally
+*   Stateless = your appllication doesn't have a `state`, it doesn't write any local files / keeps local sessions. This prevents pods from falling out of sync.
+*   All traditional databases are `stateful`
+*   Most `web applications` can be made stateless
+    *   Session management needs to be done outside the container
+    *   Any file to be saved cannot be saved locally
 
 If needed, you can use `volumes` to still run stateful apps.
 
@@ -937,7 +936,7 @@ To create a replication controller:
 ```yaml
 # rc-helloworld.yml
 apiVersion: v1
-kind: ReplicationController # Changed from Pod 
+kind: ReplicationController # Changed from Pod
 metadata:
   name: helloworld-container
 spec: # Replation controller also has a spec
@@ -976,13 +975,13 @@ kubectl scale --replicas=1 rc/helloworld-container
 kubectl get pods # will show only one pod remaining
 ```
 
-## Deployments 
+## Deployments
 
 Replication Set is the next gen Replication Controller:
 
-- It supports new selector that can do selection based on filtering according a set of values eg environment either "dev" or "qa"
-- It's not only based on equality. You can do more complex things.
-- This RS is used by the Deployment.
+*   It supports new selector that can do selection based on filtering according a set of values eg environment either "dev" or "qa"
+*   It's not only based on equality. You can do more complex things.
+*   This RS is used by the Deployment.
 
 A deployment is a declaration that allows you to do app `deployments` and `updates`.
 
@@ -992,18 +991,18 @@ Just using the replication controller or replication set might be cumbersome to 
 
 With a deployment object you can:
 
-1. Create a deployment (e.g. deploying an app)
-2. Update a deployment (e.g. new version)
-3. Do rolling updates (zero downtime deployments)
-4. Roll back
-5. Pause/resume a deployment (ie rollout to only certain percentage of pods)
+1.  Create a deployment (e.g. deploying an app)
+2.  Update a deployment (e.g. new version)
+3.  Do rolling updates (zero downtime deployments)
+4.  Roll back
+5.  Pause/resume a deployment (ie rollout to only certain percentage of pods)
 
 An example of a deployment:
 
 ```yaml
 # deployment-helloworld.yml
 apiVersion: extensions/v1beta1
-kind: Deployment # Changed from Pod 
+kind: Deployment # Changed from Pod
 metadata:
   name: helloworld-deployment
 spec: # Replation controller also has a spec
@@ -1022,33 +1021,33 @@ spec: # Replation controller also has a spec
       - containerPort: 3000
 ```
 
-### Useful commands 
+### Useful commands
 
-Command 				| Description
----						| ---
-kubectl get deployments | Get info on current deployments 
-kubectl get rs 			| Get info about the replica set
-kubectl get pods --show-labels | Get pods + labels attached to pods 
-kubectl rollout status deployment/helloworld-deployment | Get deployment status
-kubectl set image deployment/helloworld-deployment k8s-demo=k8s-demo:2	| Run k8s-demo with the image label version 2
-kubectl edit deployment/helloworld-deployment | Edit the deployment object
-kubectl rollout status deployment/helloworld-deployment | Get the status of the rollout
-kubectl rollout history [deployment] | Get the rollout history
-kubectl rollout undo [deployment] | Rollback to previous version
-kubectl rollout undo [deployment] --to-revision=n | Rollback to previous version
+| Command                                                                | Description                                 |
+| ---------------------------------------------------------------------- | ------------------------------------------- |
+| kubectl get deployments                                                | Get info on current deployments             |
+| kubectl get rs                                                         | Get info about the replica set              |
+| kubectl get pods --show-labels                                         | Get pods + labels attached to pods          |
+| kubectl rollout status deployment/helloworld-deployment                | Get deployment status                       |
+| kubectl set image deployment/helloworld-deployment k8s-demo=k8s-demo:2 | Run k8s-demo with the image label version 2 |
+| kubectl edit deployment/helloworld-deployment                          | Edit the deployment object                  |
+| kubectl rollout status deployment/helloworld-deployment                | Get the status of the rollout               |
+| kubectl rollout history [deployment]                                   | Get the rollout history                     |
+| kubectl rollout undo [deployment]                                      | Rollback to previous version                |
+| kubectl rollout undo [deployment] --to-revision=n                      | Rollback to previous version                |
 
 ### Demo: Deployment notes
 
-Again, get pods will sho the pods with appended suffixes auto-determined by Kubernetes. 
+Again, get pods will sho the pods with appended suffixes auto-determined by Kubernetes.
 
 You can verify rollout status using the commands above.
 
-## Services 
+## Services
 
 Pods themselves are very dynamic, they come and go on the Kubernetes cluster.
 
-- When using a `Replication Controller`, pods are termined and created during scaling operations.
-- Wehn using `Deployments`, when updating the image version, pods are terminated and new pods take the place of older pods.
+*   When using a `Replication Controller`, pods are termined and created during scaling operations.
+*   Wehn using `Deployments`, when updating the image version, pods are terminated and new pods take the place of older pods.
 
 That's why Pods should never be accessed directly, but always through a Service.
 
@@ -1058,9 +1057,9 @@ When using the `kubectl expose` command, you create a service for you pod to be 
 
 Creating a service will create an endpoint for your pod(s):
 
-1. A ClusterIP: a virtual IP address only reachable from within the cluster (this is default)
-2. A NodePort: a port that is the same on each node that is also reachable externally.
-3. A LoadBalancer: created by the Cloud provider that will route external traffic on every node on the NodePort
+1.  A ClusterIP: a virtual IP address only reachable from within the cluster (this is default)
+2.  A NodePort: a port that is the same on each node that is also reachable externally.
+3.  A LoadBalancer: created by the Cloud provider that will route external traffic on every node on the NodePort
 
 The options shown only allow virtual IPs and ports.
 
@@ -1073,17 +1072,17 @@ This **only** works when the DNS add-on is enabled.
 ```yaml
 # helloworld-service.yml
 apiVersion: v1
-kind: Service 
+kind: Service
 metadata:
   name: helloworld-service
-spec: 
+spec:
   ports: # specify the ports the service uses
   - port: 31001
     nodePort: 31001
     # name below defined from pod
     targetPort: nodejs-port
     protocol: TCP
-  selector: 
+  selector:
   # service for this app
   app: helloworld
   type: NodePort
@@ -1109,8 +1108,8 @@ You can also use labels to tag nodes. Once tagged, you can use labels selectors 
 
 There are two steps required to run a pod on a specific set of nodes:
 
-1. First you tag the node
-2. Then you add a `nodeSelector` to your pod configuration
+1.  First you tag the node
+2.  Then you add a `nodeSelector` to your pod configuration
 
 ```
 kubectl label nodes node1 hardware=high-spec
@@ -1122,7 +1121,7 @@ Secondly, add a pod that uses those labels:
 ```yaml
 # pod-helloworld.yml
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -1142,14 +1141,14 @@ spec:
 
 It only really makes sense if you have multiple nodes (doesn't really make sense on minikube).
 
-## Healthchecks 
+## Healthchecks
 
 If the application malfunctions, the pod and container may still be running but the application may no longer be running. This is where health checks come in.
 
 Two types:
 
-1. Running a command in the container periodically
-2. Periodic checks on a URL
+1.  Running a command in the container periodically
+2.  Periodic checks on a URL
 
 The typical prod application behind a load balancer should always have health checks implemented in some way to ensure availability and resiliency.
 
@@ -1158,7 +1157,7 @@ Below you can see where the healthcheck is. You can check the port or container 
 ```yaml
 # pod-helloworld.yml
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -1191,13 +1190,12 @@ You can use the same mechanism to provide secrets to your application.
 
 ### How to use them
 
-- Use as env vars
-- Use as a file in a pod 
-  - This requires volumes to be mounted 
-  - In this volume you have files 
-  - This can be use for things like dotenv files
-- You can use an external image to pull secrets (private image registry)
-
+*   Use as env vars
+*   Use as a file in a pod
+    *   This requires volumes to be mounted
+    *   In this volume you have files
+    *   This can be use for things like dotenv files
+*   You can use an external image to pull secrets (private image registry)
 
 Generating:
 
@@ -1242,7 +1240,7 @@ To create a pod that uses secrets:
 ```yaml
 # pod-helloworld.yml w/ secrets
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -1260,7 +1258,7 @@ spec:
       valueFrom:
       secretKeyRef:
         name: db-secret
-        key: username 
+        key: username
     - name: SECRET_PASSWORD
       [...]
 ```
@@ -1270,7 +1268,7 @@ Alternatively when providing in a file:
 ```yaml
 # pod-helloworld.yml w/ secrets
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -1289,8 +1287,8 @@ spec:
     readOnly: true
   volumes:
   - name: credvolume
-  secret: 
-    secretName: db-secrets          
+  secret:
+    secretName: db-secrets
 ```
 
 ### Demo: Wordpress Secrets
@@ -1305,9 +1303,9 @@ Kubernetes comes with a `Web UI` you can use instead of kubectl commands.
 
 You can use it to:
 
-1. Get an overview of running applications on your cluster
-2. Creating and modifying individual Kubernetes resources and workloads (like kubectl create and delete)
-3. Retrieve info on state or resources.
+1.  Get an overview of running applications on your cluster
+2.  Creating and modifying individual Kubernetes resources and workloads (like kubectl create and delete)
+3.  Retrieve info on state or resources.
 
 You can reach this UI at `https://<kubernetes-master>/ui`
 
@@ -1315,10 +1313,10 @@ If you cannot access it, you can install it manually:
 
 ```bash
 kubectl create -f https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml
-# If the password is asked 
+# If the password is asked
 kubectl config view
 
-# If you're on minikube 
+# If you're on minikube
 minikube dashboard # or --url for the url
 ```
 
@@ -1328,7 +1326,7 @@ Using the web ui you can see some really interesting info and graphs on usage.
 
 # Advanced Topics
 
-## Service Discovery 
+## Service Discovery
 
 As of Kubernetes 1.3, DNS is a `built-in` service launched automatically using the addon manager.
 
@@ -1359,7 +1357,7 @@ host app2-service.default.svc.cluster.local
 
 The `default` stands for default namespace. Pods and services can be launched in different namespaces (to logically seperate your cluster).
 
-So how does this resolution work? 
+So how does this resolution work?
 
 Say we have a pod and we run `kubectl run -i -tty busybox --image=busybox --restart=Never -- sh` and the from the shell run `cat /etc/resolv.conf`, can can see that there will be a `nameserver`. If you do a lookup of the service name in this folder, you'll see why the above works with `.default` and `.default.svc.whatever`.
 
@@ -1381,9 +1379,9 @@ The input is again key-value pairs.
 
 The `ConfigMap` key-value pairs can then be read by the app using:
 
-1. Env variables
-2. Container commandline args in the Pod config
-3. Using volumes 
+1.  Env variables
+2.  Container commandline args in the Pod config
+3.  Using volumes
 
 It can also contain full config files eg. a webserver config file. Then that file can then be mounted using volumes where the application expects its config file.
 
@@ -1407,7 +1405,7 @@ How to use it? You can create a pod that exposes the ConfigMap using a volume.
 ```yaml
 # pod-helloworld.yml w/ secrets
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -1429,11 +1427,11 @@ spec:
     mountPath: /etc/config
   volumes:
   - name: credvolume
-  secret: 
+  secret:
     secretName: db-secrets
   # @@@ For the ConfigMap
   - name: config-volume
-  configMap: 
+  configMap:
     name: app-config
 ```
 
@@ -1444,7 +1442,7 @@ This is an example of a pod that exposes the ConfigMap as env variables:
 ```yaml
 # pod-helloworld.yml w/ secrets
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: nodehelloworld.example.com
   labels:
@@ -1458,7 +1456,7 @@ spec:
   - containerPort: 3000
   # @@@ This are the envs in a volume mount
   env:
-  - name: DRIVER 
+  - name: DRIVER
     valueFrom: # where you get the value from
     configMapKeyRef: # ensuring the ref comes from the configMap
     name: app-config
@@ -1493,7 +1491,7 @@ We could then create this config map with `kubectl create configmap nginx-config
 ```yaml
 # pod-helloworld.yml w/ secrets
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: hellonginx.example.com
   labels:
@@ -1548,7 +1546,7 @@ To create an Ingress Controller:
 ```yaml
 # ingress-controller.yml w/ secrets
 apiVersion: extensions/v1beta1
-kind: Ingress 
+kind: Ingress
 metadata:
   name: helloworld-rules
 spec:
@@ -1601,7 +1599,7 @@ Next, we need to create a pod with a volume def:
 ```yaml
 # pod-helloworld.yml w/ secrets
 apiVersion: v1
-kind: Pod 
+kind: Pod
 metadata:
   name: hellonginx.example.com
   labels:
@@ -1633,7 +1631,7 @@ If we run `kubectl drain ip --force` we can drain the pod. Assuming this is a `R
 
 If you need to remove the ebs volume, you can run `aws ec2 delete-volume --volume-id vol-[id]`.
 
-## Volume Provisioning 
+## Volume Provisioning
 
 The kubs plugins have the capability to `provision storage` for you. The AWS Plugin can for instance `provision storage` for you by creating the volumes in AWS before attaching them to a node.
 
@@ -1663,20 +1661,20 @@ metadata:
   name: myclaim
   annotations:
     volume.beta.kubernetes.io/storage-class: "standard"
-spec: 
+spec:
   accessModes:
 	- ReadWriteOnce
   resources:
-	requests: 
+	requests:
 	  storage: 8Gi
 ```
 
-Finally, if launching a pod: 
+Finally, if launching a pod:
 
 ```yaml
 # pod-helloworld.yml w/ secrets
-apiVersion: v1 
-kind: Pod 
+apiVersion: v1
+kind: Pod
 metadata:
   name: mypod
 spec:
@@ -1695,4 +1693,3 @@ spec:
 ```
 
 ## Demo: Using Wordpress with Volumes
-
