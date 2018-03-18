@@ -1693,3 +1693,5 @@ spec:
 ```
 
 ## Demo: Using Wordpress with Volumes
+
+After declaring a `StorageClass` class from a yaml file and a `PersistentVolumeClaim` class.
