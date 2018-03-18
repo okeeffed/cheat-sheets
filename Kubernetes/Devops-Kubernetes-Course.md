@@ -1800,3 +1800,20 @@ spec:
     app: wordpress-db
   type: NodePort
 ```
+
+Opening up the web service:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: wordpress
+spec:
+  ports:
+  - port: 80
+    targetPort: http-port
+    protocol: TCP
+  selector:
+    app: wordpress
+  type: LoadBalancer
+```
