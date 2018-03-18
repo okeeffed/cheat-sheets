@@ -1911,3 +1911,5 @@ It is introduced to be able to run `stateful applications` that need:
 A pet set will allow your stateful app to use DNS to find out peers. One running node of the Pet Set is called a `Pet`. Using Pet Sets you can run for instance 5 cassandra nodes on Kubs named cass-1 until cass-5.
 
 The big difference is that you don't want to connect just any specific service, you want to make sure pod whatever definitely connects to another pod.
+
+This pet set also allows order to startup and teardown of pets.
