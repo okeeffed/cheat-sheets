@@ -1801,7 +1801,7 @@ spec:
   type: NodePort
 ```
 
-Opening up the web service:
+Opening up the web and web service:
 
 ```yaml
 apiVersion: v1
