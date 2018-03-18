@@ -1696,4 +1696,4 @@ spec:
 
 After declaring a `StorageClass` class from a yaml file and a `PersistentVolumeClaim` class.
 
-There is also a simple ReplicationController for the Wordpress DB.
+There is also a simple ReplicationController for the Wordpress DB. In the spe for the container for mysql, we declare where the `mountPath` will be.
