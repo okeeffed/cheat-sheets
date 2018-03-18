@@ -1907,3 +1907,5 @@ It is introduced to be able to run `stateful applications` that need:
 
 1.  A stable pod hostname (instead of podname-randomstr) - will have an index ie podname-0, podname-1 etc.
 2.  Stateful app requires multi pods with vols based on their ordinal number. Currently deleting and/or scaling a PetSet down will not deleted volumes associated.
+
+A pet set will allow your stateful app to use DNS to find out peers. One running node of the Pet Set is called a `Pet`. Using Pet Sets you can run for instance 5 cassandra nodes on Kubs named cass-1 until cass-5.
