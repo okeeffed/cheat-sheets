@@ -1695,3 +1695,5 @@ spec:
 ## Demo: Using Wordpress with Volumes
 
 After declaring a `StorageClass` class from a yaml file and a `PersistentVolumeClaim` class.
+
+There is also a simple ReplicationController for the Wordpress-DB
