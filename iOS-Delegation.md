@@ -1,18 +1,29 @@
 # Delegation in iOS
 
+<!-- TOC -->
+
+*   [Delegation in iOS](#delegation-in-ios)
+    *   [IOSD-1: Intro to Design Patterns](#iosd-1-intro-to-design-patterns)
+    *   [IOSD-2: Learning by example - Racing Horses](#iosd-2-learning-by-example---racing-horses)
+    *   [IOSD-3: Acting as a Delegate](#iosd-3-acting-as-a-delegate)
+    *   [IOSD-4: Examples - CLLocation Manager](#iosd-4-examples---cllocation-manager)
+    *   [IOSD-5: Examples - UITextFieldDelegate](#iosd-5-examples---uitextfielddelegate)
+
+<!-- /TOC -->
+
 ## IOSD-1: Intro to Design Patterns
 
 Three common issues developers have come across:
 
-1. Avoiding inflexible objects
-2. Maintaining loose relationships
-3. Avoid tight coupling
+1.  Avoiding inflexible objects
+2.  Maintaining loose relationships
+3.  Avoid tight coupling
 
 We use Design Pattern as a general, reusable solution to a commonly occurring problem within a given context, regardless of the particular domain.
 
 An example - `The Delegate Pattern`
 
-*The Delegate Pattern*
+_The Delegate Pattern_
 
 The delegate pattern is an alteration on the decorator pattern, a structural pattern that is focused on how we can compose objects to form larger objects.
 
@@ -20,7 +31,7 @@ It is concerned with adding responsibilities to objects dynamically.
 
 ## IOSD-2: Learning by example - Racing Horses
 
-*The Horse Class and Race Class*
+_The Horse Class and Race Class_
 
 ```swift
 import Foundation
@@ -33,12 +44,12 @@ class Horse {
     let maxSpeed: Double
     var distanceTraveled = 0.0
     var currentLap = 1
-    
+
     init(name: String, maxSpeed: Double) {
         self.maxSpeed = maxSpeed
         self.name = name
     }
-    
+
     var currentSpeed: Double {
         let random = Double(arc4random())
         return random.truncatingRemainder(dividingBy: maxSpeed - 13) + 13
@@ -51,44 +62,44 @@ class Race {
     let participants: [Horse]
 
     weak var delegate: HorseRaceDelegate?
-    
+
     // since we want to use a delegate, we do not create instances
     // let tracker = Tracker()
     // let broadcaster = RaceBroadcaster()
-    
+
     lazy var timer: Timer = Timer(timeInterval: 1, repeats: true) { timer in
         self.updateProgress()
     }
-    
+
     init(laps: Int, participants: [Horse]) {
         self.laps = laps
         self.participants = participants
     }
-    
+
     func start() {
         RunLoop.main.add(timer, forMode: .defaultRunLoopMode)
         // tracker.updateRaceStart(with: Date())
         delegate?.race(self, didStartAt: Date())
         print("Race in progress...")
     }
-    
+
     func updateProgress() {
         print("....")
         for horse in participants {
             horse.distanceTraveled += horse.currentSpeed
-            
+
             if horse.distanceTraveled >= lapLength {
                 horse.distanceTraveled = 0
 
                 delegate?.addLapLeader(horse, forLap: horse.currentLap, atTime: Date())
-                
+
                 // let lapKey = "\(Tracker.Keys.lapLeader) \(horse.currentLap)"
                 // if !tracker.stats.keys.contains(lapKey) {
                 //     tracker.updateLapLeaderWith(lapNumber: horse.currentLap, horse: horse, time: Date())
                 // }
-                
+
                 horse.currentLap += 1
-                
+
                 if horse.currentLap >= laps + 1 {
                     // tracker.updateRaceEndWith(winner: horse, time: Date())
                     delegate?.raceDidEndAt(self, didEndAt: Date(), withWinner: horse)
@@ -98,7 +109,7 @@ class Race {
             }
         }
     }
-    
+
     func stop() {
         print("Race complete!")
         // timer.invalidate()
@@ -116,22 +127,22 @@ let race = Race(laps: 1, participants: participants)
 race.start()
 ```
 
-***
+---
 
-*The Tracker Class*
+_The Tracker Class_
 
 ```swift
 class Tracker: HorseRaceDelegate {
-    
+
     struct Keys {
         static let raceStartTime = "raceStartTime"
         static let lapLeader = "leaderForLap"
         static let raceEndTime = "raceEndTime"
         static let winner = "winner"
     }
-    
+
     var stats = [String: Any]()
-    
+
     // func updateRaceStart(with time: Date) {
     //     stats.updateValue(time, forKey: Keys.raceStartTime)
     // }
@@ -143,7 +154,7 @@ class Tracker: HorseRaceDelegate {
 	func addLapLeader(_ horse: Horse, forLap lap: Int, atTime time: Date) {
 		let lapLead = "Horse: \(horse.name), time: \(time)"
         let lapLeadKey = "\(Keys.lapLeader) \(number)"
-        
+
         stats.updateValue(lapLead, forKey: lapLeadKey)
 	}
 
@@ -151,37 +162,37 @@ class Tracker: HorseRaceDelegate {
 		stats.updateValue(winner.name, forKey: Keys.winner)
         stats.updateValue(time, forKey: Keys.raceEndTime)
 	}
-    
+
     // get rid of the below method
     func updateLapLeaderWith(lapNumber number: Int, horse: Horse, time: Date) {
         let lapLead = "Horse: \(horse.name), time: \(time)"
         let lapLeadKey = "\(Keys.lapLeader) \(number)"
-        
+
         stats.updateValue(lapLead, forKey: lapLeadKey)
     }
-    
+
     // get rid of the below method
     func updateRaceEndWith(winner: Horse, time: Date) {
         stats.updateValue(winner.name, forKey: Keys.winner)
         stats.updateValue(time, forKey: Keys.raceEndTime)
     }
-    
+
     func printRaceSummary() {
         print("***********")
-        
+
         let raceStartTime = stats[Keys.raceStartTime]!
         print("Race start time: \(raceStartTime)")
-        
+
         for (key, value) in stats where key.contains(Keys.lapLeader) {
             print("\(key): \(value)")
         }
-        
+
         let raceEndTime = stats[Keys.raceEndTime]!
         print("Race end time: \(raceEndTime)")
-        
+
         let winner = stats[Keys.winner]!
         print("Winner: \(winner)")
-        
+
         print("***********")
     }
 }
@@ -209,7 +220,7 @@ We will make a "contract" that uses a protocol.
 
 This will implement the rules that anything that wants to interact with the Race class must adhere to.
 
-*HorseRaceDelegate Protocol*
+_HorseRaceDelegate Protocol_
 
 ```swift
 protocol HorseRaceDelegate: class {
@@ -251,7 +262,7 @@ It will become far more manageable once you start creating Objects that focus on
 
 Analogy:
 
-You are the CEO of an important company and have many tasks to do, but many of them involve other side tasks that are important. 
+You are the CEO of an important company and have many tasks to do, but many of them involve other side tasks that are important.
 
 Instead of doing it all yourself, you delegate it out to an assistant.
 
@@ -271,23 +282,23 @@ Since the Manager also conforms to the HorseRaceDelegate, you can have one that 
 
 ```swift
 class RaceManager: HorseRaceDelegate {
-    
+
     let race: Race
-    
+
     init(race: Race) {
         self.race = race
         race.delegate = self
         race.start()
     }
-    
+
     func race(_ race: Race, didStartAt time: Date) {
         // some implementation
     }
-    
+
     func addLapLeader(_ horse: Horse, forLap lap: Int, atTime time: Date) {
         // some implementation
     }
-    
+
     func race(_ race: Race, didEndAt time: Date, withWinner winner: Horse) {
         // some implementation
     }
@@ -346,8 +357,3 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 In case of the UITextField, we can assign the ViewController that is "listening" as the delegate to recieve the broadcasts.
 
 Then we can implement the methods from the protocol to the class to give us the results.
-
-
-
-
-

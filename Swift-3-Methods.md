@@ -1,6 +1,13 @@
 # Swift 3 Methods
 
-***
+<!-- TOC -->
+
+*   [Swift 3 Methods](#swift-3-methods)
+    *   [Mutating Methods](#mutating-methods)
+
+<!-- /TOC -->
+
+---
 
 ## Mutating Methods
 
@@ -32,7 +39,7 @@ fixedPoint.moveBy(x: 2.0, y: 3.0)
 // this will report an error
 ```
 
-__Assigning to self Within a Mutating Method__
+**Assigning to self Within a Mutating Method**
 
 Mutating methods can assign an entirely new instance to the implicit self property. The Point example shown above could have been written in the following way instead:
 
@@ -72,5 +79,3 @@ ovenLight.next()
 ```
 
 This example defines an enumeration for a three-state switch. The switch cycles between three different power states (off, low and high) every time its next() method is called.
-
-

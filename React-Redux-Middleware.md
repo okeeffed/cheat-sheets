@@ -1,5 +1,12 @@
 # React with Redux - Middleware
 
+<!-- TOC -->
+
+*   [React with Redux - Middleware](#react-with-redux---middleware)
+    *   [REDMID-1: Overview](#redmid-1-overview) - [---- REDMID-1.1: Component Set up](#-----redmid-11-component-set-up) - [---- REDMID-1.2: Controlled Components and Binding Text](#-----redmid-12-controlled-components-and-binding-text)
+
+<!-- /TOC -->
+
 ## REDMID-1: Overview
 
 In the last chapter, we saw some main ideas about Redux. Now, we want to create an app. We will have async (like AJAX) calls in this.
@@ -12,46 +19,48 @@ In general, the components won't make AJAX calls... we want Redux to that for us
 
 #### ---- REDMID-1.1: Component Set up
 
-1. SearchBar
-2. App
-3. ForecastList
-4. Chart
+1.  SearchBar
+2.  App
+3.  ForecastList
+4.  Chart
 
 Ensure that within source, you have the folders that you are looking for.
 
-__In containers > SearchBar.js__
+**In containers > SearchBar.js**
 
 ```javascript
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class SearchBar extends Component {
-	render() {
-		return (
-			<form className="input-group">
-				<input />
-				<span className="input-group-btn">
-					<button type="submit" className="btn btn-secondary">Submit</button>
-				</span>
-			</form>
-		)
-	}
+    render() {
+        return (
+            <form className="input-group">
+                <input />
+                <span className="input-group-btn">
+                    <button type="submit" className="btn btn-secondary">
+                        Submit
+                    </button>
+                </span>
+            </form>
+        );
+    }
 }
 ```
 
-__In components > app.js__
+**In components > app.js**
 
 ```javascript
 import React, { Component } from 'react';
 import SearchBar from '../containers/SearchBar.js';
 
 export default class App extends Component {
-	render() {
-		return (
-			<div>
-				<SearchBar />
-			</div>
-		);
-	}
+    render() {
+        return (
+            <div>
+                <SearchBar />
+            </div>
+        );
+    }
 }
 ```
 
@@ -65,7 +74,7 @@ You can fix this in the constructor by let the instance of search bar to bind "t
 
 The other option sometimes would be to instead of using the constructor, we could us onChange={ () => this.onInputChange }
 
-__In containers > SearchBar.js__
+**In containers > SearchBar.js**
 
 ```javascript
 import React, { Component } from 'react'

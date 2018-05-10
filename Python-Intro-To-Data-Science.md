@@ -1,6 +1,16 @@
 # Python Intro to Data Science
 
-***
+<!-- TOC -->
+
+*   [Python Intro to Data Science](#python-intro-to-data-science)
+    *   [Numpy](#numpy)
+        *   [---- 2D Numpy Arrays](#-----2d-numpy-arrays)
+    *   [Basic Statistics](#basic-statistics)
+*   [args for the 3 params goes dist mean, dist sd, number of samples](#args-for-the-3-params-goes-dist-mean-dist-sd-number-of-samples)
+
+<!-- /TOC -->
+
+---
 
 ## Numpy
 
@@ -29,7 +39,7 @@ Numpy for lists that have more than one data type however should be noted that i
 Numpy arrays are just another Python type that comes with their own methods.
 
 ```
-# Create list baseball 
+# Create list baseball
 baseball = [180, 215, 210, 210, 188, 176, 209, 200]
 
 # Import the numpy package as np
@@ -78,7 +88,7 @@ import numpy as np
 # Create array from height with correct units: np_height_m
 np_height_m = np.array(height) * 0.0254
 
-# Create array from weight with correct units: np_weight_kg 
+# Create array from weight with correct units: np_weight_kg
 np_weight_kg = np.array(weight) * 0.453592
 
 # Calculate the BMI: bmi
@@ -255,26 +265,27 @@ print(np_baseball*conversion)
     [[  75.2303559   168.83775102   23.99      ]
      [  75.02614252  231.09732309   35.69      ]
      [  73.1544228   215.08167641   31.78      ]
-     ..., 
+     ...,
      [  76.09349925  209.23890778   26.19      ]
      [  75.82285669  172.21799965   32.01      ]
      [  73.99484223  203.14402711   28.92      ]]
     [[  1.8796   81.64656  22.99   ]
      [  1.8796   97.52228  34.69   ]
      [  1.8288   95.25432  30.78   ]
-     ..., 
+     ...,
      [  1.905    92.98636  25.19   ]
      [  1.905    86.18248  31.01   ]
      [  1.8542   88.45044  27.92   ]]
 ```
 
-***
+---
 
 ## Basic Statistics
 
-__Generating Data for stubbing__
+**Generating Data for stubbing**
 
 # args for the 3 params goes dist mean, dist sd, number of samples
+
 height = np.round(np.random.normal(1.75, 0.20, 5000), 2)
 weight = np.round(np.random.normal(60.32, 15, 5000), 2)
 np_city = np.column_stack((height, weight))
@@ -352,4 +363,3 @@ print("Median height of other players: " + str(np.median(other_heights)))
     Median height of goalkeepers: 188.0
     Median height of other players: 181.0
 ```
-

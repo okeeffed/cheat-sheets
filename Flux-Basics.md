@@ -1,6 +1,17 @@
 # Flux Help Sheet
 
-__Sources__
+<!-- TOC -->
+
+*   [Flux Help Sheet](#flux-help-sheet)
+    *   [FLUX-1: What is Flux?](#flux-1-what-is-flux)
+    *   [FLUX-2: The Dispatcher](#flux-2-the-dispatcher)
+    *   [FLUX-3: Stores](#flux-3-stores)
+    *   [FLUX-4: Action Creators & Actions](#flux-4-action-creators--actions)
+    *   [FLUX-5: Putting it together](#flux-5-putting-it-together)
+
+<!-- /TOC -->
+
+**Sources**
 
 What is Flux? from [Scotch.io](https://scotch.io/tutorials/getting-to-know-flux-the-react-js-architecture)
 
@@ -12,12 +23,12 @@ Flux is an architecture that Facebook uses internally when working with React. I
 
 That said, Facebook does provide a repo that includes a Dispatcher library. The dispatcher is a sort of global pub/sub handler that broadcasts payloads to registered callbacks.
 
-__4 Components__
+**4 Components**
 
-__1. Actions__ – Helper methods that facilitate passing data to the Dispatcher
-__2. Dispatcher__ – Receives actions and broadcasts payloads to registered callbacks
-__3. Stores__ – Containers for application state & logic that have callbacks registered to the dispatcher
-__4. Controller Views__ – React Components that grab the state from Stores and pass it down via props to child components
+**1. Actions** – Helper methods that facilitate passing data to the Dispatcher
+**2. Dispatcher** – Receives actions and broadcasts payloads to registered callbacks
+**3. Stores** – Containers for application state & logic that have callbacks registered to the dispatcher
+**4. Controller Views** – React Components that grab the state from Stores and pass it down via props to child components
 
 Flux helps to solve some of the difficulty we run into with unidirectional data flow when it comes to changing Application State that is higher up the virtual DOM than the Components that alter that State themselves.
 
@@ -25,36 +36,36 @@ Controllers do exist in a Flux application, but they are controller-views.
 
 Action creators — dispatcher helper methods — are used to support a semantic API that describes all changes that are possible in the application. It can be useful to think of them as a fourth part of the Flux update cycle.
 
-__The graphical process__
+**The graphical process**
 
 <img src="https://cask.scotch.io/2014/10/V70cSEC.png" />
 
-__How does the API relate to this?__
+**How does the API relate to this?**
 
 When you are working with data that is coming from (or going to) the outside, I’ve found that using Actions to introduce the data into the Flux Flow, and subsequently Stores, is the most painless way to go about it.
 
-***
+---
 
 ## FLUX-2: The Dispatcher
 
-__What is it?__
+**What is it?**
 
 The Dispatcher is basically the manager of this entire process. It is the central hub for your application. The dispatcher receives actions and dispatches the actions and data to registered callbacks.
 
 The dispatcher broadcasts the payload to ALL of its registered callbacks, and includes functionality that allows you to invoke the callbacks in a specific order, even waiting for updates before proceeding. There is only ever one dispatcher, and it acts as the central hub within your application. It is not exactly a pub/sub.
 
-__Example Dispatcher__
+**Example Dispatcher**
 
 ```javascript
 var Dispatcher = require('flux').Dispatcher;
 var AppDispatcher = new Dispatcher();
 
 AppDispatcher.handleViewAction = function(action) {
-  this.dispatch({
-    source: 'VIEW_ACTION',
-    action: action
-  });
-}
+    this.dispatch({
+        source: 'VIEW_ACTION',
+        action: action
+    });
+};
 
 module.exports = AppDispatcher;
 ```
@@ -67,16 +78,14 @@ The diagram below illustrates this process:
 
 <img src="https://cask.scotch.io/2014/10/hKbN2q6.png" />
 
-__Dependencies__
+**Dependencies**
 
 One of the coolest parts of the provided Dispatcher module is the ability to define dependencies and marshall the callbacks on our Stores. So if one part of your application is dependent upon another part being updated first, in order to render properly, the Dispatcher’s `waitFor` method will be mighty useful.
 
 In order to utilize this feature, we need to store the return value of the Dispatcher’s registration method on our Store as `dispatcherIndex`, as shown below:
 
 ```javascript
-ShoeStore.dispatcherIndex = AppDispatcher.register(function(payload) {
-
-});
+ShoeStore.dispatcherIndex = AppDispatcher.register(function(payload) {});
 ```
 
 Then in our Store, when handling a dispatched action, we can use the Dispatcher’s `waitFor` method to ensure our ShoeStore has been updated:
@@ -108,57 +117,54 @@ var _shoes = {};
 
 // Method to load shoes from action data
 function loadShoes(data) {
-  _shoes = data.shoes;
+    _shoes = data.shoes;
 }
 
 // Merge our store with Node's Event Emitter
 var ShoeStore = merge(EventEmitter.prototype, {
+    // Returns all shoes
+    getShoes: function() {
+        return _shoes;
+    },
 
-  // Returns all shoes
-  getShoes: function() {
-    return _shoes;
-  },
+    emitChange: function() {
+        this.emit('change');
+    },
 
-  emitChange: function() {
-    this.emit('change');
-  },
+    addChangeListener: function(callback) {
+        this.on('change', callback);
+    },
 
-  addChangeListener: function(callback) {
-    this.on('change', callback);
-  },
-
-  removeChangeListener: function(callback) {
-    this.removeListener('change', callback);
-  }
-
+    removeChangeListener: function(callback) {
+        this.removeListener('change', callback);
+    }
 });
 
 // Register dispatcher callback
 AppDispatcher.register(function(payload) {
-  var action = payload.action;
-  var text;
-  // Define what to do for certain actions
-  switch(action.actionType) {
-    case ShoeConstants.LOAD_SHOES:
-      // Call internal method based upon dispatched action
-      loadShoes(action.data);
-      break;
+    var action = payload.action;
+    var text;
+    // Define what to do for certain actions
+    switch (action.actionType) {
+        case ShoeConstants.LOAD_SHOES:
+            // Call internal method based upon dispatched action
+            loadShoes(action.data);
+            break;
 
-    default:
-      return true;
-  }
+        default:
+            return true;
+    }
 
-  // If action was acted upon, emit change event
-  ShoeStore.emitChange();
+    // If action was acted upon, emit change event
+    ShoeStore.emitChange();
 
-  return true;
-
+    return true;
 });
 
 module.exports = ShoeStore;
 ```
 
-__The most important thing from above__ is extending our store with NodeJS's EventEmitter.
+**The most important thing from above** is extending our store with NodeJS's EventEmitter.
 
 This allows our stores to listen/broadcast events. This allows our Views/Components to update based upon those events. Because our Controller View listens to our Stores, leveraging this to emit change events will let our Controller View know that our application state has changed and its time to retrieve the state to keep things fresh.
 
@@ -170,22 +176,21 @@ import EventEmitter from 'events';
 var CHANGE_EVENT = 'change';
 
 class Store extends EventEmitter {
+    constructor() {
+        super();
+    }
 
-  constructor() {
-    super();
-  }
+    emitChange() {
+        this.emit(CHANGE_EVENT);
+    }
 
-  emitChange() {
-    this.emit(CHANGE_EVENT);
-  }
+    addChangeListener(callback) {
+        this.on(CHANGE_EVENT, callback);
+    }
 
-  addChangeListener(callback) {
-    this.on(CHANGE_EVENT, callback);
-  }
-
-  removeChangeListener(callback) {
-    this.removeListener(CHANGE_EVENT, callback);
-  }
+    removeChangeListener(callback) {
+        this.removeListener(CHANGE_EVENT, callback);
+    }
 }
 
 Store.dispatchToken = null;
@@ -197,9 +202,9 @@ We also registered a callback with our AppDispatcher using its register method. 
 
 <img src="https://cask.scotch.io/2014/10/rHwGUog.png" />
 
-Our public method getShoes is used by our Controller View to retrieve all of the shoes in our _shoes object and use that data in our components state. While this is a simple example, complicated logic can be put here instead of our views and helps keep things tidy.
+Our public method getShoes is used by our Controller View to retrieve all of the shoes in our \_shoes object and use that data in our components state. While this is a simple example, complicated logic can be put here instead of our views and helps keep things tidy.
 
-***
+---
 
 ## FLUX-4: Action Creators & Actions
 
@@ -281,40 +286,36 @@ var ShoesStore = require('../stores/ShoeStore');
 
 // Method to retrieve application state from store
 function getAppState() {
-  return {
-    shoes: ShoeStore.getShoes()
-  };
+    return {
+        shoes: ShoeStore.getShoes()
+    };
 }
 
 // Create our component class
 var ShoeStoreApp = React.createClass({
+    // Use getAppState method to set initial state
+    getInitialState: function() {
+        return getAppState();
+    },
 
-  // Use getAppState method to set initial state
-  getInitialState: function() {
-    return getAppState();
-  },
+    // Listen for changes
+    componentDidMount: function() {
+        ShoeStore.addChangeListener(this._onChange);
+    },
 
-  // Listen for changes
-  componentDidMount: function() {
-    ShoeStore.addChangeListener(this._onChange);
-  },
+    // Unbind change listener
+    componentWillUnmount: function() {
+        ShoesStore.removeChangeListener(this._onChange);
+    },
 
-  // Unbind change listener
-  componentWillUnmount: function() {
-    ShoesStore.removeChangeListener(this._onChange);
-  },
+    render: function() {
+        return <ShoeStore shoes={this.state.shoes} />;
+    },
 
-  render: function() {
-    return (
-      <ShoeStore shoes={this.state.shoes} />
-    );
-  },
-
-  // Update view state when change event is received
-  _onChange: function() {
-    this.setState(getAppState());
-  }
-
+    // Update view state when change event is received
+    _onChange: function() {
+        this.setState(getAppState());
+    }
 });
 
 module.exports = ShoeStoreApp;
@@ -324,7 +325,7 @@ In the example above, we listen for change events using addChangeListener, and u
 
 Our application state data is held in our Stores, so we use the public methods on the Stores to retrieve that data and then set our application state.
 
-***
+---
 
 ## FLUX-5: Putting it together
 

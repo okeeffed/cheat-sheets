@@ -1,5 +1,13 @@
 # Animations in React
 
+<!-- TOC -->
+
+*   [Animations in React](#animations-in-react)
+*   [REACTAN-1: Installation](#reactan-1-installation)
+*   [REACTAN-2: Using CSS to now run the Transitions and Transforms](#reactan-2-using-css-to-now-run-the-transitions-and-transforms)
+
+<!-- /TOC -->
+
 # REACTAN-1: Installation
 
 React Transistions can be done use the `ReactCSSTransitionGroup`.
@@ -17,7 +25,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 ...
 
 class Transition extends Component {
-	
+
 	...
 
 	render() {
@@ -67,7 +75,7 @@ There are a couple of other noteworthy properties:
 	transition: transform 0.5s ease-out;
 }
 
-/* start leave state */ 
+/* start leave state */
 .slide-leave {
 	transform: translateX(0);
 }

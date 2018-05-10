@@ -1,5 +1,21 @@
 # Python Object Orientated
 
+<!-- TOC -->
+
+*   [Python Object Orientated](#python-object-orientated)
+    *   [Table of Contents](#table-of-contents)
+    *   [Objects](#objects)
+        *   [---- Creating Instances](#-----creating-instances)
+        *   [---- Class Methods](#-----class-methods)
+        *   [---- \_ _ init _ \_](#-----_-_-init-_-_)
+    *   [Python Inheritance](#python-inheritance)
+        *   [---- Python Subclassing](#-----python-subclassing)
+        *   [---- \_ _ str _ \_](#-----_-_-str-_-_)
+        *   [---- Instance Methods](#-----instance-methods)
+        *   [---- Overriding Inheritance](#-----overriding-inheritance)
+
+<!-- /TOC -->
+
 ## Table of Contents
 
 <a href="#section">title</a>
@@ -7,7 +23,7 @@
 
 <div id="section"></div>
 
-***
+---
 
 ## Objects
 
@@ -29,7 +45,7 @@
 >>> monster.color
 'blue'
 
-# jubjub instance 
+# jubjub instance
 >>> jubjub = Monster()
 >>> type(jubjub)
 <type 'instance'>
@@ -62,14 +78,14 @@ Code Challenge
 class Store:
     open = 9
     close = 18
-    
+
     def hours(self):
         return "We're open from {} to {}".format(self.open, self.close)
 ```
 
 <div id="objects3"></div>
 
-### ---- _ _ init _ _
+### ---- \_ _ init _ \_
 
 Dealing with the dunder init!
 
@@ -86,7 +102,7 @@ monster = Monster(hit_points=22, color="green")
 
 <div id="inheritance"></div>
 
-***
+---
 
 ## Python Inheritance
 
@@ -127,7 +143,7 @@ fresh.adjective
 
 <div id="inheritance2"></div>
 
-### ---- Python Subclassing 
+### ---- Python Subclassing
 
 ```
 # building on from monster
@@ -147,7 +163,7 @@ class Troll(Monster):
 	min_hp = 3
 	max_hp = 5
 	min_exp = 2
-	max_exp = 6 
+	max_exp = 6
 	sound = 'growl'
 ```
 
@@ -164,7 +180,7 @@ class Dragon(Monster):
 
 <div id="inheritance3"></div>
 
-### ---- _ _ str _ _ 
+### ---- \_ _ str _ \_
 
 This helps us when we print(object)
 
@@ -184,7 +200,7 @@ Challenge
 
 Import Game from game. Make a new class named GameScore that extends Game. Use pass if needed.
 
-Add a __str__ method to GameScore that returns the score in the string "Player 1: 5; Player 2: 10", using the correct values from self.score. self.score is a tuple with Player 1's score and Player 2's score like (5, 10).
+Add a **str** method to GameScore that returns the score in the string "Player 1: 5; Player 2: 10", using the correct values from self.score. self.score is a tuple with Player 1's score and Player 2's score like (5, 10).
 You do not need to define self.score. It comes from the Game class.
 
 ```
@@ -192,7 +208,7 @@ from game import Game
 
 class GameScore(Game):
     pass
-    
+
     def __str__(self):
         return "Player 1: {}; Player 2: {}".format(*self.score)
 ```
@@ -222,7 +238,7 @@ class Character:
 				return 'axe'
 ```
 
-Challenge 
+Challenge
 
 Add a score method to Game that takes a player argument. The player argument will be either 1 or 2. Increase that player's value in self.current_score by 1. You'll need to adjust the index (i.e. player = 1 means self.current_score[0] needs to increase).
 
@@ -230,7 +246,7 @@ Add a score method to Game that takes a player argument. The player argument wil
 class Game:
   def __init__(self):
     self.current_score = [0, 0]
-    
+
   def score(self, player):
     if player in [1,2]:
         if player == 1:
@@ -267,7 +283,7 @@ from animal import Animal
 
 class Sheep(Animal):
     sound = "Bless"
-    
+
     def noise(self):
         return self.sound.upper()
 ```

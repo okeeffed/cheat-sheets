@@ -1,15 +1,30 @@
 # Learning Chef DevOps Deployment
 
+<!-- TOC -->
+
+*   [Learning Chef DevOps Deployment](#learning-chef-devops-deployment)
+    *   [CHEFOPS-1: Introduction to Chef](#chefops-1-introduction-to-chef) - [---- CHEFOPS-1.1: Chef Head first! Build and Deploy a MOTD Recipe.](#-----chefops-11-chef-head-first-build-and-deploy-a-motd-recipe) - [---- CHEFOPS-1.2: What is DevOps and it's relation to Chef?](#-----chefops-12-what-is-devops-and-its-relation-to-chef) - [---- CHEFOPS-1.3: What is Chef?](#-----chefops-13-what-is-chef) - [---- CHEFOPS-1.4: Common Chef Terminology](#-----chefops-14-common-chef-terminology) - [---- CHEFOPS-1.5: Chef Server](#-----chefops-15-chef-server)
+    *   [CHEFOPS-2: Building the Webserver Cookbook](#chefops-2-building-the-webserver-cookbook)
+    *   [CHEFOPS-3: Node Object and Search](#chefops-3-node-object-and-search)
+    *   [CHEFOPS-4: Data-Bags](#chefops-4-data-bags)
+    *   [CHEFOPS-5: Chef Environments](#chefops-5-chef-environments)
+    *   [CHEFOPS-6: Roles](#chefops-6-roles)
+    *   [CHEFOPS-7: Extending Chef](#chefops-7-extending-chef)
+    *   [CHEFOPS-8: Deploying Nodes in Production](#chefops-8-deploying-nodes-in-production)
+    *   [CHEFOPS-9: Using OpenSource Chef Server](#chefops-9-using-opensource-chef-server)
+
+<!-- /TOC -->
+
 ## CHEFOPS-1: Introduction to Chef
 
-__After this, you should know__
+**After this, you should know**
 
-1. Understand DevOps and Chef
-2. Know the role of workstations, nodes, and Chef server
-3. Deploy and automate configurations of nodes
-4. Understanding of writing Recipes and Cookbooks
-5. Understand the Chef work flow
-6. Use Chef to automate the deployment of your infrastructure
+1.  Understand DevOps and Chef
+2.  Know the role of workstations, nodes, and Chef server
+3.  Deploy and automate configurations of nodes
+4.  Understanding of writing Recipes and Cookbooks
+5.  Understand the Chef work flow
+6.  Use Chef to automate the deployment of your infrastructure
 
 Starting with single nodes.
 
@@ -37,13 +52,13 @@ Here, you can change `PermitRootLogin` to allow. To apply, you need to use `serv
 
 We'll use the free tier with Chef to be able to learn and test.
 
-__Chef__
+**Chef**
 
 In the management console, we need to create an Organisation. This will keep our policies seperate to other applications and environments.
 
 Download the StarterKit, then you can move the files across to the workstation using a client like FileZilla.
 
-__In FileZilla__
+**In FileZilla**
 
 Connect using SFTP with the correct port if you are using NAT.
 
@@ -81,7 +96,7 @@ If the Node can communicate with the Chef Server, then our Workstation will uplo
 
 Now, in the "Node" instance, can run `chef-client` and see if we can actually communicate with the Chef Client.
 
-__To create a cookbook__
+**To create a cookbook**
 
 ```
 knife cookbook create motd
@@ -93,7 +108,7 @@ you can now move into cookbooks and see motd. In `motd` we are going to jump ove
 
 Note: chef NEEDS to work as root, so you need to give those root details!
 
-__In recipes/default.rb__
+**In recipes/default.rb**
 
 ```ruby
 // this will create a template
@@ -109,7 +124,7 @@ Now, cd from `recipes` into `templates` and head into the `default` directory.
 
 `nano motd.erb`
 
-__In templates/default/motd.erb__
+**In templates/default/motd.erb**
 
 ```
 // ensure you put the = sign to say
@@ -121,7 +136,7 @@ This is an MOTD created by <%= node["motd"]["author"] %>
 
 Head to the `attributes` folder and create `default.rb` and define an attribute. We need to set the precedence for importance.
 
-__in attributes/default.rb__
+**in attributes/default.rb**
 
 ```
 default["motd"]["author"] = "Dennis"
@@ -179,7 +194,7 @@ This means when you deploy, you need it to touch base with the chef enterprise.
 
 Recipes themselves are built with the Ruby language. Chef also relies on 'resources' - the resource defined the /etc change for `motd` before. Here we can define what packages to get, what directories to make etc. What services to start and at what level.
 
-__What is Chef?__
+**What is Chef?**
 
 Chef relies on either OpenSource Chef server or Chef enterprise to host configuration recipes, cookbooks and node auth for your infrastructure.
 
@@ -208,13 +223,13 @@ We can have chef jump into these servers and update certain things.
 
 If you understand this, it will click quicker.
 
-__Recipes__
+**Recipes**
 
 These are the fundamental configuration element. They are created using the Ruby language using patterns with Ruby code. It is required to cover everything that is part of a system.
 
 Recipes need to be added to a `run list` before being executed and run in order. This is done with the `knife node run_list` command.
 
-__Cookbook__
+**Cookbook**
 
 Defines a scenario and is the fundamental unit of configuration and policy distribution.
 
@@ -222,93 +237,93 @@ It is made up of recipes. We have the ability to set attributes for reusable set
 
 We can specify things like versions, metadata and more of our data in the cookbook for our recipes.
 
-__Chef-Client__
+**Chef-Client**
 
 Agent that runs locally on the node that is registered with the chef server.
 
 This will register and authenticate when it is first run. It will sync the cookbooks and take appropriate action to align with what the cookbook says.
 
-__Convergence__
+**Convergence**
 
 Occurs when chef-client configures the system/node based off the information collected from chef-server.
 
 When we run the convergence, the node will be up to date.
 
-__Configuration Drift__
+**Configuration Drift**
 
 Occurs when the node state does not reflect the updated state of polices/configurations on the chef server.
 
 Recipes are primarily made up of resources and the CD and it configures in liason with the element.
 
-__Resources__
+**Resources**
 
 A statement of configuration policay within a recipe.
 
 Describes the desired state of an element in the infrastructure and steps needed to configure.
 
-__Provider__
+**Provider**
 
 Defines the steps that are needed to bring the piece of the system from its current state to the desired state.
 
 This works with resources and brings the piece of the system from the current state to the desired state.
 
-__Attributes__
+**Attributes**
 
 Specific details about the node, used by chef-client to understand current state of the node, the state of the node on the previous chef-client run, and the state of the node at the end of the client run.
 
-__Data-bags__
+**Data-bags**
 
 A global variables stored as JSON data and is accessible from the Chef server.
 
 We can use these when defining local users on our system.
 
-__Workstation__
+**Workstation**
 
 A computer configured with Knife and used to sync with chef-repo and interact with chef server.
 
 The workstation is what we are going to work on our recipes on. We can configure out Chef server for our node state and server state from the workstation.
 
-__Chef Server__
+**Chef Server**
 
 Chef server is the hub for all configuration data, stores cookbooks, and the policies applied to the node.
 
 The node communicates with the Chef Server and our work to build out policies is done on the workstation and sent to the server and the Node converges with the Chef Client.
 
-__Knife__
+**Knife**
 
 Command line tool which provides an interface between the local chef-repo and chef-server.
 
-__client.rb__
+**client.rb**
 
 Config file for chef_client located at /etc/chef/client.rb on each node.
 
-__Ohai__
+**Ohai**
 
 Tool used to detect attributes on a node and then provide attributes to chef-client at the start of every chef-client run.
 
 _We will use all the above tools to automate our infrastructure._
 
-__Node Object__
+**Node Object**
 
 Consists of run-list and node attributes that describe states of the node.
 
-__Chef-Repo__
+**Chef-Repo**
 
 Located on the workstation and installed with the starter kit, should be synchronised with a version control system and stores Cookbooks, roles, data bags, environments, and config files.
 
-__Organisation__
+**Organisation**
 
 Used in chef enterprise server to restrict access to objects, nodes environments, roles, data-bags etc.
 
 An organisation is used to make sure that your Chef infrastructure or organisation is separate from others.
 
-__Environments__
+**Environments**
 
 Used to organise environments (Prod/Staging/Dev/QA) generally used with cookbook _versions_
 
 You can name things like which versions to use etc.
 
-__Idempotence__
+**Idempotence**
 
 Means a recipe can run multiple times on the same system and the results will always be identical.
 
@@ -316,55 +331,49 @@ If we continue to run a recipe over and over again, it will give the same result
 
 #### ---- CHEFOPS-1.5: Chef Server
 
-__Two Types of Chef Server__
+**Two Types of Chef Server**
 
-1. OpenSource Chef-server
+1.  OpenSource Chef-server
 
-- Free version of Chef
-- Each instance of the server must be configured and managed locally (includes all aspects of managing the server, updates, migrations, scalability etc.)
+*   Free version of Chef
+*   Each instance of the server must be configured and managed locally (includes all aspects of managing the server, updates, migrations, scalability etc.)
 
 The limitations with this is that it is not inherently scalable by default. Organisations also cannot communicate with each other.
 
 Enterprise, however, is scalable by design.
 
-2. Chef-server Enterprise (hosted)
+2.  Chef-server Enterprise (hosted)
 
-- Scalable by design
-- Available organisations
-- Always available
-- Resource-based access control
+*   Scalable by design
+*   Available organisations
+*   Always available
+*   Resource-based access control
 
 This is always available. It is inherently another back up of our set up.
 
-3. Chef-server enterprise (on-premise)
+3.  Chef-server enterprise (on-premise)
 
-- Scalable by design
-- Available organisations
-- Hosted on-premise behind your firewall
-- Managed yourself
+*   Scalable by design
+*   Available organisations
+*   Hosted on-premise behind your firewall
+*   Managed yourself
 
 Onus is on the user to deal with organisations and policies.
 
-__Chef Enterprise__
+**Chef Enterprise**
 
-- Allows the creation of organisations
-	- Organisations separate the infrastructure, policies and cookbooks
-	- Nodes are registered in organisations
-	- Nothing shared between organisations
-	- Enterprise chef server can contain many different organisations
-	- OpenSource chef the local individual server acts as an organisation and does not allow creation of organisations.
-	- Organisations can represent different companies, department, infrastructures, applications and so forth.
-- For each organisation in order to start bootstrapping nodes you need to download the starter kit.
-- Starter kit provides security credentials (validation.pem keys) to authenticate each node to the chef server.
-- Chef enterprise scales by design to handle thousands of nodes and different organisations.
+*   Allows the creation of organisations - Organisations separate the infrastructure, policies and cookbooks - Nodes are registered in organisations - Nothing shared between organisations - Enterprise chef server can contain many different organisations - OpenSource chef the local individual server acts as an organisation and does not allow creation of organisations. - Organisations can represent different companies, department, infrastructures, applications and so forth.
+*   For each organisation in order to start bootstrapping nodes you need to download the starter kit.
+*   Starter kit provides security credentials (validation.pem keys) to authenticate each node to the chef server.
+*   Chef enterprise scales by design to handle thousands of nodes and different organisations.
 
-__Role of the server__
+**Role of the server**
 
-- Stores system config information (policies for nodes)
-- Authenticates workstations and nodes
-- Delivers configurations to nodes
-- Chef server holds the config and the node check-ins to receive instructions on its desired state
-- The node downloads config instructions from the server and does all of the work
+*   Stores system config information (policies for nodes)
+*   Authenticates workstations and nodes
+*   Delivers configurations to nodes
+*   Chef server holds the config and the node check-ins to receive instructions on its desired state
+*   The node downloads config instructions from the server and does all of the work
 
 In the Chef Server website, we can see the policies of what's required and see things like content to see what files are there and what it requires.
 
@@ -372,7 +381,7 @@ Again, the node communicates back with the chef server to figure out how it shou
 
 Ohai will populate attributes about information for the node.
 
-__Summary__
+**Summary**
 
 Everything we stored on our Chef Workstation is backed up on the Chef Server, and the Node will converge with the Chef server. When the info on the server is different to the Node, that is a convergence drift resolved by the convergence.
 

@@ -1,5 +1,25 @@
 # SysOps
 
+<!-- TOC -->
+
+- [SysOps](#sysops)
+    - [Networking](#networking)
+        - [Networking Bottlenecks](#networking-bottlenecks)
+        - [DNS 101](#dns-101)
+            - [Top Level Domains](#top-level-domains)
+            - [Domain Registrars](#domain-registrars)
+            - [SOA Records](#soa-records)
+            - [NS Records](#ns-records)
+            - [A Records](#a-records)
+            - [TTL Record](#ttl-record)
+            - [CNAMES](#cnames)
+            - [Alias records](#alias-records)
+            - [Summary](#summary)
+        - [Registering a Domain Name](#registering-a-domain-name)
+    - [Definitions](#definitions)
+
+<!-- /TOC -->
+
 ## Networking
 
 ### Networking Bottlenecks
@@ -34,16 +54,16 @@ Each domain becomes registered in a central database known as the `WhoIS databas
 
 #### SOA Records
 
-- `Start of Authority`
-- Name of the server that suppised the data for the zone.
-- The administrator of the zone. (The owner)
-- Current version of the data file
-- Number of seconds a secondary name server should wait before checking for updates etc.
-- Default TTL file on resource records
+*   `Start of Authority`
+*   Name of the server that suppised the data for the zone.
+*   The administrator of the zone. (The owner)
+*   Current version of the data file
+*   Number of seconds a secondary name server should wait before checking for updates etc.
+*   Default TTL file on resource records
 
 #### NS Records
 
-- `Name Server records` - used by `Top Level Domain` servers to direct traffic to the Content DNS server which contains the authoritative DNS records.
+*   `Name Server records` - used by `Top Level Domain` servers to direct traffic to the Content DNS server which contains the authoritative DNS records.
 
 #### A Records
 
@@ -67,9 +87,9 @@ The difference, a CNAME can't be used for naked domain names (zone apex).
 
 #### Summary
 
-- ELBs do not have a pre-defined IPv4 address - you need to resolve it using a DNS name.
-- Understand the difference between an Alias Record and a CNAME.
-- Given the choose, always choose an Alias Record over a CNAME. (No charge with Alias Record either)
+*   ELBs do not have a pre-defined IPv4 address - you need to resolve it using a DNS name.
+*   Understand the difference between an Alias Record and a CNAME.
+*   Given the choose, always choose an Alias Record over a CNAME. (No charge with Alias Record either)
 
 ### Registering a Domain Name
 
@@ -79,9 +99,8 @@ Follow the process to go through with details for the SOA record and confirm the
 
 ## Definitions
 
-|			|									|
-|		---	|								---	|
-| ENI		| Elastic Network Interface			|
-| EBS	 	| Elastic Block Store				|
-| DNS		| Domain Name System				|
-
+|     |                           |
+| --- | ------------------------- |
+| ENI | Elastic Network Interface |
+| EBS | Elastic Block Store       |
+| DNS | Domain Name System        |

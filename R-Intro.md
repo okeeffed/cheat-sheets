@@ -1,12 +1,44 @@
 # Introduction to R
 
+<!-- TOC -->
+
+*   [Introduction to R](#introduction-to-r)
+    *   [Table of Contents](#table-of-contents)
+    *   [R-1: How it Works](#r-1-how-it-works)
+        *   [---- Arithmetic with R](#-----arithmetic-with-r)
+        *   [---- Variable Assignment](#-----variable-assignment)
+        *   [---- Basic data types in R](#-----basic-data-types-in-r)
+    *   [R-2: Vectors](#r-2-vectors)
+        *   [---- Naming a Vector](#-----naming-a-vector)
+        *   [---- Vector Selection](#-----vector-selection)
+*   [Poker and roulette winnings from Monday to Friday:](#poker-and-roulette-winnings-from-monday-to-friday)
+*   [Define a new variable based on a selection](#define-a-new-variable-based-on-a-selection) - [---- Selection by Comparison](#-----selection-by-comparison)
+    *   [R-3: Matrices](#r-3-matrices)
+        *   [---- Naming a matrix](#-----naming-a-matrix)
+        *   [---- Adding a Row](#-----adding-a-row)
+        *   [---- All functions for combining](#-----all-functions-for-combining)
+        *   [---- Selection of Matrix Elements](#-----selection-of-matrix-elements)
+        *   [---- Matrix Arithmetic](#-----matrix-arithmetic)
+    *   [Factors in R](#factors-in-r)
+        *   [---- Summarizing a factor](#-----summarizing-a-factor)
+        *   [---- Ordered Factors](#-----ordered-factors)
+    *   [Data Frames](#data-frames)
+        *   [---- Selection of data frame elements](#-----selection-of-data-frame-elements)
+        *   [---- Subsets](#-----subsets)
+        *   [---- Sorting](#-----sorting)
+    *   [Lists](#lists)
+        *   [---- Selecting Elements from a List](#-----selecting-elements-from-a-list)
+        *   [---- Adding more components to a list](#-----adding-more-components-to-a-list)
+
+<!-- /TOC -->
+
 ## Table of Contents
 
 <a href="#1">How it Works</a>
 
 <div id="1"></div>
 
-***
+---
 
 ## R-1: How it Works
 
@@ -24,7 +56,7 @@ In its most basic form, R can be used as a simple calculator. Consider the follo
 
 Addition: +
 Subtraction: -
-Multiplication: *
+Multiplication: \*
 Division: /
 Exponentiation: ^
 Modulo: %%
@@ -67,11 +99,11 @@ my_fruit <- my_apples + my_oranges
 
 R works with numerous data types. Some of the most basic types to get started are:
 
-Decimals values like 4.5 are called __numerics__.
-Natural numbers like 4 are called integers. Integers are also __numerics__.
-Boolean values (TRUE or FALSE) are called __logical__.
-Text (or string) values are called __characters__.
-Note how the quotation marks on the right indicate that "some text" is a __character__.
+Decimals values like 4.5 are called **numerics**.
+Natural numbers like 4 are called integers. Integers are also **numerics**.
+Boolean values (TRUE or FALSE) are called **logical**.
+Text (or string) values are called **characters**.
+Note how the quotation marks on the right indicate that "some text" is a **character**.
 
 Note that R is case sensitive.
 
@@ -88,7 +120,7 @@ my_logical <- FALSE
 # Declare variables of different types
 my_numeric <- 42
 my_character <- "universe"
-my_logical <- FALSE 
+my_logical <- FALSE
 
 # Check class of my_numeric
 class(my_numeric)
@@ -99,9 +131,10 @@ class(my_character)
 # Check class of my_logical
 class(my_logical)
 ```
+
 <div id="vectors"></div>
 
-***
+---
 
 ## R-2: Vectors
 
@@ -130,8 +163,8 @@ names(some_vector) <- c("Name", "Profession")
 This code first creates a vector some_vector and then gives the two elements a name. The first element is assigned the name Name, while the second element is labeled Profession. Printing the contents to the console yields following output:
 
 ```
-          Name     Profession 
-    "John Doe" "poker player" 
+          Name     Profession
+    "John Doe" "poker player"
 ```
 
 ```
@@ -155,7 +188,7 @@ roulette_vector <- c(-24, -50, 100, -350, 10)
 
 # The variable days_vector
 days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
- 
+
 # Assign the names of the day to roulette_vector and poker_vector
 names(poker_vector) <- days_vector
 names(roulette_vector) <- days_vector
@@ -166,7 +199,7 @@ B_vector <- c(4, 5, 6)
 
 # Take the sum of A_vector and B_vector
 total_vector <- A_vector + B_vector
-  
+
 # Print out total_vector
 total_vector
 
@@ -204,15 +237,16 @@ names(roulette_vector) <- days_vector
 total_poker <- sum(poker_vector)
 total_roulette <- sum(roulette_vector)
 
-# Check if you realized higher total gains in poker than in roulette 
+# Check if you realized higher total gains in poker than in roulette
 total_poker > total_roulette
 ```
 
-__Vector Selection__
+**Vector Selection**
 
 ### ---- Vector Selection
 
 # Poker and roulette winnings from Monday to Friday:
+
 poker_vector <- c(140, -50, 20, -120, 240)
 roulette_vector <- c(-24, -50, 100, -350, 10)
 days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
@@ -220,6 +254,7 @@ names(poker_vector) <- days_vector
 names(roulette_vector) <- days_vector
 
 # Define a new variable based on a selection
+
 poker_wednesday <- poker_vector[3]
 
 ```
@@ -234,6 +269,7 @@ names(roulette_vector) <- days_vector
 poker_midweek <- poker_vector[c(2,3,4)]
 poker_midweek
 ```
+
 ```
 # Poker and roulette winnings from Monday to Friday:
 > poker_vector <- c(140, -50, 20, -120, 240)
@@ -241,7 +277,7 @@ poker_midweek
 > days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 > names(poker_vector) <- days_vector
 > names(roulette_vector) <- days_vector
-> 
+>
 # Define a new variable based on a selection
 > roulette_selection_vector <- roulette_vector[2:5]
 ```
@@ -262,10 +298,10 @@ poker_vector[c("Monday","Tuesday")]
 > days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 > names(poker_vector) <- days_vector
 > names(roulette_vector) <- days_vector
-> 
+>
 # Select poker results for Monday, Tuesday and Wednesday
 > poker_start <- poker_vector[c("Monday", "Tuesday", "Wednesday")]
->   
+>
 # Calculate the average of the elements in poker_start
 > mean(poker_start)
 [1] 36.66667
@@ -280,16 +316,17 @@ By making use of comparison operators, we can approach the previous question in 
 The (logical) comparison operators known to R are:
 
 < for less than
+
 > for greater than
-<= for less than or equal to
->= for greater than or equal to
-== for equal to each other
-!= not equal to each other
-As seen in the previous chapter, stating 6 > 5 returns TRUE. The nice thing about R is that you can use these comparison operators also on vectors. For example:
+> <= for less than or equal to
+> = for greater than or equal to
+> == for equal to each other
+> != not equal to each other
+> As seen in the previous chapter, stating 6 > 5 returns TRUE. The nice thing about R is that you can use these comparison operators also on vectors. For example:
 
 > c(4, 5, 6) > 5
-[1] FALSE FALSE TRUE
-This command tests for every element of the vector if the condition stated by the comparison operator is TRUE or FALSE
+> [1] FALSE FALSE TRUE
+> This command tests for every element of the vector if the condition stated by the comparison operator is TRUE or FALSE
 
 ```
 # Poker and roulette winnings from Monday to Friday:
@@ -298,14 +335,14 @@ This command tests for every element of the vector if the condition stated by th
 > days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 > names(poker_vector) <- days_vector
 > names(roulette_vector) <- days_vector
-> 
+>
 # Which days did you make money on poker?
 > selection_vector <- poker_vector > 0
->   
+>
 # Print out selection_vector
 > selection_vector
-   Monday   Tuesday Wednesday  Thursday    Friday 
-     TRUE     FALSE      TRUE     FALSE      TRUE 
+   Monday   Tuesday Wednesday  Thursday    Friday
+     TRUE     FALSE      TRUE     FALSE      TRUE
 ```
 
 Working with comparisons will make your data analytical life easier. Instead of selecting a subset of days to investigate yourself (like before), you can simply ask R to return only those days where you realized a positive return for poker.
@@ -324,20 +361,20 @@ R knows what to do when you pass a logical vector in square brackets: it will on
 > days_vector <- c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday")
 > names(poker_vector) <- days_vector
 > names(roulette_vector) <- days_vector
-> 
+>
 # Which days did you make money on poker?
 > selection_vector <- poker_vector > 0
-> 
+>
 # Select from poker_vector these days
 > poker_winning_days <- poker_vector[selection_vector]
 > poker_winning_days
-   Monday Wednesday    Friday 
-      140        20       240 
+   Monday Wednesday    Friday
+      140        20       240
 ```
 
 <div id="matrix"></div>
 
-***
+---
 
 ## R-3: Matrices
 
@@ -361,28 +398,28 @@ The third argument nrow indicates that the matrix should have three rows.
 [2,]    4    5    6
 [3,]    7    8    9
 > matrix
-function (data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL) 
+function (data = NA, nrow = 1, ncol = 1, byrow = FALSE, dimnames = NULL)
 {
-    if (is.object(data) || !is.atomic(data)) 
+    if (is.object(data) || !is.atomic(data))
         data <- as.vector(data)
-    .Internal(matrix(data, nrow, ncol, byrow, dimnames, missing(nrow), 
+    .Internal(matrix(data, nrow, ncol, byrow, dimnames, missing(nrow),
         missing(ncol)))
 }
 <bytecode: 0xdabe30>
 <environment: namespace:base>
 ```
 
-__Creating a matrix using variables__
+**Creating a matrix using variables**
 
 ```
 # Box office Star Wars (in millions!)
 > new_hope <- c(460.998, 314.4)
 > empire_strikes <- c(290.475, 247.900)
 > return_jedi <- c(309.306, 165.8)
-> 
+>
 # Create box_office
 > box_office <- c(new_hope, empire_strikes, return_jedi)
-> 
+>
 # Construct star_wars_matrix
 > star_wars_matrix <- matrix(box_office, byrow = TRUE, nrow = 3)
 > star_wars_matrix
@@ -407,20 +444,20 @@ We went ahead and prepared two vectors for you: region, and titles. You will nee
 > new_hope <- c(460.998, 314.4)
 > empire_strikes <- c(290.475, 247.900)
 > return_jedi <- c(309.306, 165.8)
-> 
+>
 # Construct matrix
 > star_wars_matrix <- matrix(c(new_hope, empire_strikes, return_jedi), nrow = 3, byrow = TRUE)
-> 
+>
 # Vectors region and titles, used for naming
 > region <- c("US", "non-US")
 > titles <- c("A New Hope", "The Empire Strikes Back", "Return of the Jedi")
-> 
+>
 # Name the columns with region
 > colnames(star_wars_matrix) <- region
-> 
+>
 # Name the rows with titles
 > rownames(star_wars_matrix) <- titles
-> 
+>
 # Print out star_wars_matrix
 > star_wars_matrix
                              US non-US
@@ -437,9 +474,9 @@ In R, the function rowSums() conveniently calculates the totals for each row of 
 # Construct star_wars_matrix
 > box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
 > star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                             dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), 
+                             dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"),
                                              c("US", "non-US")))
-> 
+>
 # Calculate worldwide box office figures
 > worldwide_vector <- rowSums(star_wars_matrix)
 ```
@@ -452,12 +489,12 @@ big_matrix <- cbind(matrix1, matrix2, vector1 ...)
 # Construct star_wars_matrix
 > box_office <- c(460.998, 314.4, 290.475, 247.900, 309.306, 165.8)
 > star_wars_matrix <- matrix(box_office, nrow = 3, byrow = TRUE,
-                             dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"), 
+                             dimnames = list(c("A New Hope", "The Empire Strikes Back", "Return of the Jedi"),
                                              c("US", "non-US")))
-> 
+>
 # The worldwide box office figures
 > worldwide_vector <- rowSums(star_wars_matrix)
-> 
+>
 # Bind the new variable worldwide_vector as a column to star_wars_matrix
 > all_wars_matrix <- cbind(star_wars_matrix, worldwide_vector)
 ```
@@ -475,12 +512,12 @@ Just like every action has a reaction, every cbind() has an rbind(). (We admit, 
 A New Hope              461.0  314.4
 The Empire Strikes Back 290.5  247.9
 Return of the Jedi      309.3  165.8
-> star_wars_matrix2 
+> star_wars_matrix2
                         US non-US
 The Phantom Menace   474.5  552.5
 Attack of the Clones 310.7  338.7
 Revenge of the Sith  380.3  468.5
-> 
+>
 # Combine both Star Wars trilogies in one matrix
 > all_wars_matrix <- rbind(star_wars_matrix, star_wars_matrix2)
 > all_wars_matrix
@@ -513,14 +550,14 @@ Return of the Jedi      309.3  165.8
 The Phantom Menace      474.5  552.5
 Attack of the Clones    310.7  338.7
 Revenge of the Sith     380.3  468.5
-> 
+>
 # Total revenue for US and non-US
 > total_revenue_vector <- colSums(all_wars_matrix)
->   
+>
 # Print out total_revenue_vector
 > total_revenue_vector
-    US non-US 
-2226.3 2087.8 
+    US non-US
+2226.3 2087.8
 ```
 
 <div id="matrixElements"></div>
@@ -545,17 +582,17 @@ Return of the Jedi      309.3  165.8
 The Phantom Menace      474.5  552.5
 Attack of the Clones    310.7  338.7
 Revenge of the Sith     380.3  468.5
-> 
+>
 # Select the non-US revenue for all movies
 > non_us_all <- all_wars_matrix[,2]
->   
+>
 # Average non-US revenue
 > mean(non_us_all)
 [1] 347.9667
->   
+>
 # Select the non-US revenue for first two movies
 > non_us_some <- all_wars_matrix[1:2,2]
->   
+>
 # Average non-US revenue for first two movies
 > mean(non_us_some)
 [1] 281.15
@@ -576,10 +613,10 @@ Return of the Jedi      309.3  165.8
 The Phantom Menace      474.5  552.5
 Attack of the Clones    310.7  338.7
 Revenge of the Sith     380.3  468.5
-> 
+>
 # Estimate the visitors
 > visitors <- all_wars_matrix / 5
->   
+>
 # Print the estimate to the console
 > visitors
                            US non-US
@@ -608,13 +645,13 @@ Return of the Jedi      7.0    7.0
 The Phantom Menace      4.0    4.0
 Attack of the Clones    4.5    4.5
 Revenge of the Sith     4.9    4.9
-> 
+>
 # Estimated number of visitors
 > visitors <- all_wars_matrix / ticket_prices_matrix
-> 
+>
 # US visitors
 > us_visitors <- visitors[,1]
-> 
+>
 # Average number of US visitors
 > mean(us_visitors)
 [1] 75.01401
@@ -630,7 +667,7 @@ Those who are familiar with matrices should note that this is not the standard m
 
 <div id="factors"></div>
 
-***
+---
 
 ## Factors in R
 
@@ -657,16 +694,16 @@ factor_gender_vector <- factor(gender_vector)
 ```
 # Gender vector
 > gender_vector <- c("Male", "Female", "Female", "Male", "Male")
-> 
+>
 # Convert gender_vector to a factor
 > factor_gender_vector <- factor(gender_vector)
-> 
+>
 # Print out factor_gender_vector
 > factor_gender_vector
 [1] Male   Female Female Male   Male  
 Levels: Female Male
 > gender_vector
-[1] "Male"   "Female" "Female" "Male"   "Male" 
+[1] "Male"   "Female" "Female" "Male"   "Male"
 ```
 
 There are two types of categorical variables: a nominal categorical variable and an ordinal categorical variable.
@@ -680,9 +717,9 @@ In contrast, ordinal variables do have a natural ordering. Consider for example 
 > animals_vector <- c("Elephant", "Giraffe", "Donkey", "Horse")
 > factor_animals_vector <- factor(animals_vector)
 > factor_animals_vector
-[1] Elephant Giraffe  Donkey   Horse   
+[1] Elephant Giraffe  Donkey   Horse
 Levels: Donkey Elephant Giraffe Horse
-> 
+>
 # Temperature
 > temperature_vector <- c("High", "Low", "High","Low", "Medium")
 > factor_temperature_vector <- factor(temperature_vector, order = TRUE, levels = c("Low", "Medium", "High"))
@@ -699,10 +736,10 @@ Watch out: the order with which you assign the levels is important. R would assi
 # Code to build factor_survey_vector
 > survey_vector <- c("M", "F", "F", "M", "M")
 > factor_survey_vector <- factor(survey_vector)
-> 
+>
 # Specify the levels of factor_survey_vector
 > levels(factor_survey_vector) <- c("Female", "Male")
-> 
+>
 > factor_survey_vector
 [1] Male   Female Female Male   Male  
 Levels: Female Male
@@ -721,16 +758,16 @@ Levels: Female Male
 > factor_survey_vector
 [1] Male   Female Female Male   Male  
 Levels: Female Male
-> 
+>
 # Generate summary for survey_vector
 > summary(survey_vector)
-   Length     Class      Mode 
-        5 character character 
-> 
+   Length     Class      Mode
+        5 character character
+>
 # Generate summary for factor_survey_vector
 > summary(factor_survey_vector)
-Female   Male 
-     2      3 
+Female   Male
+     2      3
 ```
 
 Gender Neutral
@@ -740,13 +777,13 @@ Gender Neutral
 > survey_vector <- c("M", "F", "F", "M", "M")
 > factor_survey_vector <- factor(survey_vector)
 > levels(factor_survey_vector) <- c("Female", "Male")
-> 
+>
 # Male
 > male <- factor_survey_vector[1]
-> 
+>
 # Female
 > female <- factor_survey_vector[2]
-> 
+>
 # Battle of the sexes: Male 'larger' than female?
 > male > female
 Warning message: '>' not meaningful for factors
@@ -766,17 +803,17 @@ Let us say that you are leading a research team of five data analysts and that y
 ```
 # Create speed_vector
 > speed_vector <- c("fast", "slow", "slow", "fast", "insane")
-> 
+>
 # Convert speed_vector to ordered factor vector
 > factor_speed_vector <- factor(speed_vector, ordered=TRUE, levels = c("slow", "fast", "insane"))
-> 
+>
 # Print factor_speed_vector
 > factor_speed_vector
 [1] fast   slow   slow   fast   insane
 Levels: slow < fast < insane
 > summary(factor_speed_vector)
-  slow   fast insane 
-     2      2      1 
+  slow   fast insane
+     2      2      1
 ```
 
 Then as an example of comparing Ordered Factors
@@ -785,13 +822,13 @@ Then as an example of comparing Ordered Factors
 # Create factor_speed_vector
 > speed_vector <- c("fast", "slow", "slow", "fast", "insane")
 > factor_speed_vector <- factor(speed_vector, ordered = TRUE, levels = c("slow", "fast", "insane"))
-> 
+>
 # Factor value for second data analyst
 > da2 <- factor_speed_vector[2]
-> 
+>
 # Factor value for fifth data analyst
 > da5 <- factor_speed_vector[5]
-> 
+>
 # Is data analyst 2 faster than data analyst 5?
 > da2 > da5
 [1] FALSE
@@ -799,7 +836,7 @@ Then as an example of comparing Ordered Factors
 
 <div id="dataFrames"></div>
 
-***
+---
 
 ## Data Frames
 
@@ -832,11 +869,11 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
 
 Another method that is often used to get a rapid overview of your data is the function str(). The function str() shows you the structure of your data set. For a data frame it tells you:
 
-- The total number of observations (e.g. 32 car types)
-- The total number of variables (e.g. 11 car features)
-- A full list of the variables names (e.g. mpg, cyl ... )
-- The data type of each variable (e.g. num)
-- The first observations
+*   The total number of observations (e.g. 32 car types)
+*   The total number of variables (e.g. 11 car features)
+*   A full list of the variables names (e.g. mpg, cyl ... )
+*   The data type of each variable (e.g. num)
+*   The first observations
 
 Applying the str() function will often be the first thing that you do when receiving a new data set or data frame. It is a great way to get more insight in your data set before diving into the real analysis.
 
@@ -891,7 +928,7 @@ Sometimes you want to select all elements of a row or column. For example, my_df
 # Print out diameter of Mercury (row 1, column 3)
 > planets_df[1,3]
 [1] 0.382
-> 
+>
 # Print out data for Mars (entire fourth row)
 > planets_df[4, ]
   name               type diameter rotation rings
@@ -903,7 +940,7 @@ Sometimes you want to select all elements of a row or column. For example, my_df
 
 # Select the rings variable from planets_df
 > rings_vector <- planets_df[,"rings"]
->   
+>
 # Print out rings_vector
 > rings_vector
 [1] FALSE FALSE FALSE FALSE  TRUE  TRUE  TRUE  TRUE
@@ -1022,19 +1059,19 @@ This means we can use the output of order(a) to reshuffle a:
 
 <div id="lists"></div>
 
-***
+---
 
 ## Lists
 
-__Recap so far__
+**Recap so far**
 
-- Vectors (one dimensional array): can hold numeric, character or logical values. The elements in a vector all have the same data type.
+*   Vectors (one dimensional array): can hold numeric, character or logical values. The elements in a vector all have the same data type.
 
-- Matrices (two dimensional array): can hold numeric, character or logical values. The elements in a matrix all have the same data type.
+*   Matrices (two dimensional array): can hold numeric, character or logical values. The elements in a matrix all have the same data type.
 
-- Data frames (two-dimensional objects): can hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type.
+*   Data frames (two-dimensional objects): can hold numeric, character or logical values. Within a column all elements have the same data type, but different columns can be of different data type.
 
-__Lists__
+**Lists**
 
 A list in R is similar to your to-do list at work or school: the different items on that list most likely differ in length, characteristic, type of activity that has to do be done, ...
 
@@ -1044,18 +1081,18 @@ A list in R allows you to gather a variety of objects under one name (that is, t
 my_list <- list(comp1, comp2, ...)
 ```
 
-The arguments to the list function are the list components. 
+The arguments to the list function are the list components.
 
 ```
 # Vector with numerics from 1 up to 10
-> my_vector <- 1:10 
-> 
+> my_vector <- 1:10
+>
 # Matrix with numerics from 1 up to 9
 > my_matrix <- matrix(1:9, ncol = 3)
-> 
+>
 # First 10 elements of the built-in data frame mtcars
 > my_df <- mtcars[1:10,]
-> 
+>
 # Construct list with these different elements:
 > my_list <- list(my_vector, my_matrix, my_df)
 > my_list
@@ -1082,12 +1119,12 @@ Merc 230          22.8   4 140.8  95 3.92 3.150 22.90  1  0    4    2
 Merc 280          19.2   6 167.6 123 3.92 3.440 18.30  1  0    4    4
 ```
 
-__Naming a List__
+**Naming a List**
 
 We can use the name() function to get around this.
 
 ```
-my_list <- list(name1 = your_comp1, 
+my_list <- list(name1 = your_comp1,
                 name2 = your_comp2)
 ```
 
@@ -1102,7 +1139,7 @@ Continuing on from the above exampe...
 
 ```
 > names(my_list) <- c("vec", "mat", "df")
-> 
+>
 > # Print out my_list
 > my_list
 $vec
@@ -1138,7 +1175,7 @@ $moviename
 
 $actors
 [1] "Jack Nicholson"   "Shelley Duvall"   "Danny Lloyd"      "Scatman Crothers"
-[5] "Barry Nelson"    
+[5] "Barry Nelson"
 
 $reviews
   scores sources                                              comments
@@ -1172,8 +1209,8 @@ Besides selecting components, you often need to select specific elements out of 
 # Print out the vector representing the actors
 > shining_list$actors
 [1] "Jack Nicholson"   "Shelley Duvall"   "Danny Lloyd"      "Scatman Crothers"
-[5] "Barry Nelson"    
-> 
+[5] "Barry Nelson"
+>
 # Print the second element of the vector representing the actors
 > shining_list[["actors"]][2]
 [1] "Shelley Duvall"
@@ -1194,7 +1231,7 @@ This will simply extend the original list, `my_list`, with the component `my_val
 ```
 # We forgot something; add the year to shining_list
 > shining_list_full <- c(shining_list, year = 1980)
-> 
+>
 # Have a look at shining_list_full
 > str(shining_list_full)
 List of 4

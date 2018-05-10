@@ -1,5 +1,16 @@
 # Dependency Management with Gradle
 
+<!-- TOC -->
+
+*   [Dependency Management with Gradle](#dependency-management-with-gradle)
+    *   [GR-1: Gradle the build tool](#gr-1-gradle-the-build-tool)
+        *   [---- GR-1.1: build.gradle](#-----gr-11-buildgradle)
+        *   [---- GR-1.2: gradlew and gradlew.bat](#-----gr-12-gradlew-and-gradlewbat)
+    *   [GR-2: Adding Dependencies](#gr-2-adding-dependencies)
+    *   [GR-3: Source Code](#gr-3-source-code)
+
+<!-- /TOC -->
+
 ## GR-1: Gradle the build tool
 
 There are a lot of tasks when you want to build your project.
@@ -9,7 +20,6 @@ Other build tools include Maven and Ant, and Gradle works well with these two.
 Gradle exposes a Domain Specific Language (DSL) that is based heavily on the [Groovy Programming Language](http://groovy-lang.org/) and is very similar to Groovy.
 
 Gradle has an opinionated way on how things should be done and laid out.
-
 
 If you want to use an IDE for this, the example uses `IntelliJ` and the Gradle template.
 
@@ -53,7 +63,7 @@ The `apply` is for things like folder structure etc. - you may notice that this 
 
 These files are the Gradle wrappers that makes sure that everyone can build and test the project the same way.
 
-***
+---
 
 ## GR-2: Adding Dependencies
 

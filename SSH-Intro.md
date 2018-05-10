@@ -1,33 +1,67 @@
 # SSH Overview
 
-__Sources__
+<!-- TOC -->
+
+*   [SSH Overview](#ssh-overview)
+    *   [SSH-1: How SSH Works](#ssh-1-how-ssh-works)
+    *   [SSH-2: How SSH Authenticates Users](#ssh-2-how-ssh-authenticates-users)
+    *   [SSH-3: Generating and Working with SSH Keys](#ssh-3-generating-and-working-with-ssh-keys)
+        *   [SSH-4: Generate an SSH Key Pair with a Larger Number of Bits](#ssh-4-generate-an-ssh-key-pair-with-a-larger-number-of-bits)
+        *   [SSH-5: Displaying the SSH Key Fingerprint](#ssh-5-displaying-the-ssh-key-fingerprint)
+        *   [SSH-6: Copying your Public SSH Key to a Server with SSH-Copy-ID](#ssh-6-copying-your-public-ssh-key-to-a-server-with-ssh-copy-id)
+        *   [SSH-7: Copying your Public SSH Key to a Server Without SSH-Copy-ID](#ssh-7-copying-your-public-ssh-key-to-a-server-without-ssh-copy-id)
+        *   [SSH-8: Manually copy your Public SSH Key to a Server](#ssh-8-manually-copy-your-public-ssh-key-to-a-server)
+    *   [SSH-9: Basic Connection Instructions](#ssh-9-basic-connection-instructions)
+        *   [SSH-10: Running a Single Command on a Remote Server](#ssh-10-running-a-single-command-on-a-remote-server)
+        *   [SSH-11: Logging into a Server with a Different Port](#ssh-11-logging-into-a-server-with-a-different-port)
+        *   [SSH-12: Adding your SSH Keys to an SSH Agent to Avoid Typing the Passphrase](#ssh-12-adding-your-ssh-keys-to-an-ssh-agent-to-avoid-typing-the-passphrase)
+    *   [SSH-13: Forwarding your SSH Credentials to Use on a Server](#ssh-13-forwarding-your-ssh-credentials-to-use-on-a-server)
+    *   [SSH-14: Server-Side Configuration Options](#ssh-14-server-side-configuration-options)
+        *   [SSH-15: Disabling Password Authentication](#ssh-15-disabling-password-authentication)
+        *   [SSH-16: Changing the Port that the SSH Daemon Runs On](#ssh-16-changing-the-port-that-the-ssh-daemon-runs-on)
+    *   [SSH-17: Limiting the Users who can connect through SSH](#ssh-17-limiting-the-users-who-can-connect-through-ssh)
+    *   [SSH-18: Disabling Root Login](#ssh-18-disabling-root-login)
+    *   [SSH-19: Allowing Root Access for Specific Commands](#ssh-19-allowing-root-access-for-specific-commands)
+    *   [SSH-20: Forwarding X Application Displays to the Client](#ssh-20-forwarding-x-application-displays-to-the-client)
+    *   [SSH-21: Client Side Configuration Options](#ssh-21-client-side-configuration-options)
+        *   [SSH-22: Keep Connections Alive to Avoid Timeout](#ssh-22-keep-connections-alive-to-avoid-timeout)
+    *   [SSH-23: Disabling Host Checking](#ssh-23-disabling-host-checking)
+        *   [SSH-24: Multiplexing SSH Over a Single TCP Connection](#ssh-24-multiplexing-ssh-over-a-single-tcp-connection)
+    *   [SSH-25: Setting Up SSH Tunnels](#ssh-25-setting-up-ssh-tunnels)
+    *   [UBU-1: Installing Ubuntu onto VirtualBox](#ubu-1-installing-ubuntu-onto-virtualbox)
+
+<!-- /TOC -->
+
+**Sources**
 
 Justin Ellingwood form [Digital Ocean](https://www.digitalocean.com/community/tutorials/ssh-essentials-working-with-ssh-servers-clients-and-keys)
 
-[Daemon (computing)](https://en.wikipedia.org/wiki/Daemon_(computing))
+[Daemon (computing)](<https://en.wikipedia.org/wiki/Daemon_(computing)>)
 
 [Grymoire](http://www.grymoire.com/Unix/) - Great resource for UNIX!
 
 Setting up [Ubuntu on Virtual Box](http://www.simplehelp.net/2015/06/09/how-to-install-ubuntu-on-your-mac/)
 
-***
+---
 
-__Major Section Index__
+**Major Section Index**
 
-- <a href="#SSH-1"><p>SSH-1: How SSH Works</p></a>
+*   <a href="#SSH-1"><p>SSH-1: How SSH Works</p></a>
 
-__Pre-requisites__
-- <a href="#UBU-1"><p>UBU-1: Installing Ubuntu Onto Virtual Box</p></a>
+**Pre-requisites**
 
-***
+*   <a href="#UBU-1"><p>UBU-1: Installing Ubuntu Onto Virtual Box</p></a>
 
-__Abstract__
+---
+
+**Abstract**
 
 SSH is a secure protocol used as the primary means of connecting to Linux servers remotely. It provides a text-based interface by spawning a remote shell. After connecting, all commands you type in your local terminal are sent to the remote server and executed there.
 
 The most common way of connecting to a remote Linux server is through SSH. SSH stands for Secure Shell and provides a safe and secure way of executing commands, making changes, and configuring services remotely. When you connect through SSH, you log in using an account that exists on the remote server.
 
-***
+---
+
 <div id="SSH-1"></div>
 ## SSH-1: How SSH Works
 
@@ -39,7 +73,7 @@ The user's computer must have an SSH client. This is a piece of software that kn
 
 Refer to the "Managing Ubuntu Help Sheet" MU-1 for more information about setting up the SSH Client and SSH Server.
 
-***
+---
 
 ## SSH-2: How SSH Authenticates Users
 
@@ -47,11 +81,13 @@ Clients generally authenticate either using passwords (less secure and not recom
 
 We recommend always setting up SSH-based authentication for most configurations.
 
-***
+---
+
 **Definition: _SSH keys_**
 
 SSH keys are a matching set of cryptographic keys which can be used for authentication. Each set contains a public and a private key. The public key can be shared freely without concern, while the private key must be vigilantly guarded and never exposed to anyone.
-***
+
+---
 
 To authenticate using SSH keys, a user must have an SSH key pair on their local computer. On the remote server, the public key must be copied to a file within the user's home directory at `~/.ssh/authorized_keys`. This file contains a list of public keys, one-per-line, that are authorized to log into this account.
 
@@ -59,11 +95,11 @@ When a client connects to the host, wishing to use SSH key authentication, it wi
 
 Upon receipt of this message, the client will decrypt it using the private key and combine the random string that is revealed with a previously negotiated session ID. It then generates an MD5 hash of this value and transmits it back to the server. The server already had the original message and the session ID, so it can compare an MD5 hash generated by those values and determine that the client must have the private key.
 
-***
+---
 
 ## SSH-3: Generating and Working with SSH Keys
 
-__Generating a SSH Key Pair__
+**Generating a SSH Key Pair**
 
 Generating a new SSH public and private key pair on your local computer is the first step towards authenticating with a remote server without a password. Unless there is a good reason not to, you should always authenticate using SSH keys.
 
@@ -112,10 +148,10 @@ The key's randomart image is:
 
 This procedure has generated an RSA SSH key pair, located in the .ssh hidden directory within your user's home directory. These files are:
 
-- ~/.ssh/id_rsa: The private key. __DO NOT SHARE THIS FILE!__
-- ~/.ssh/id_rsa.pub: The associated public key. This can be shared freely without consequence.
+*   ~/.ssh/id_rsa: The private key. **DO NOT SHARE THIS FILE!**
+*   ~/.ssh/id_rsa.pub: The associated public key. This can be shared freely without consequence.
 
-***
+---
 
 ### SSH-4: Generate an SSH Key Pair with a Larger Number of Bits
 
@@ -137,7 +173,7 @@ _Show caution we you are looking to overwrite keys_
 
 You may also be prompted to enter the old passphrase if you had one before generating a new one.
 
-***
+---
 
 ### SSH-5: Displaying the SSH Key Fingerprint
 
@@ -159,7 +195,7 @@ You can press ENTER if that is the correct location of the key, else enter the r
 4096 8e:c4:82:47:87:c2:26:4b:68:ff:96:1a:39:62:9e:4e  demo@test (RSA)
 ```
 
-***
+---
 
 ### SSH-6: Copying your Public SSH Key to a Server with SSH-Copy-ID
 
@@ -188,21 +224,21 @@ After entering the password, your key will be copied, allowing you to log in wit
 
 ssh username@remote_IP_host
 
-***
+---
 
 ### SSH-7: Copying your Public SSH Key to a Server Without SSH-Copy-ID
 
 If you do not have the `ssh-copy-id` utility available, but still have password-based SSH access to the remote server, you can copy the contents of your public key in a different way.
 
-You can output the contents of the key and pipe it into the `ssh` command. On the remote side, you can ensure that the ``~/.ssh` directory exists, and then append the piped contents into the ``~/.ssh/authorized_keys` file:
+You can output the contents of the key and pipe it into the `ssh` command. On the remote side, you can ensure that the `` ~/.ssh` directory exists, and then append the piped contents into the ``~/.ssh/authorized_keys` file:
 
 ```
 cat ~/.ssh/id_rsa.pub | ssh username@remote_host "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
 ```
 
-__Note:__ You may also need to include the -i <yourkey.pem> flat in the ssh command to gain access for this.
+**Note:** You may also need to include the -i <yourkey.pem> flat in the ssh command to gain access for this.
 
-***
+---
 
 ### SSH-8: Manually copy your Public SSH Key to a Server
 
@@ -228,11 +264,11 @@ Afterward, you can create or append the ~/.ssh/authorized_keys file by typing:
 echo public_key_string >> ~/.ssh/authorized_keys
 ```
 
-***
+---
 
 ## SSH-9: Basic Connection Instructions
 
-__Connecting to a Remote Server__
+**Connecting to a Remote Server**
 
 `ssh remote_host`
 
@@ -252,7 +288,7 @@ Are you sure you want to continue connecting (yes/no)? yes
 
 If you are using password authentication, you will be prompted for the password for the remote account here. If you are using SSH keys, you will be prompted for your private key's passphrase if one is set, otherwise you will be logged in automatically.
 
-***
+---
 
 ### SSH-10: Running a Single Command on a Remote Server
 
@@ -266,7 +302,7 @@ eg.
 
 The connection immediately closes afterwards.
 
-***
+---
 
 ### SSH-11: Logging into a Server with a Different Port
 
@@ -286,7 +322,7 @@ Host remote_alias
     Port port_num
 ```
 
-***
+---
 
 ### SSH-12: Adding your SSH Keys to an SSH Agent to Avoid Typing the Passphrase
 
@@ -313,7 +349,7 @@ Identity added: /home/demo/.ssh/id_rsa (/home/demo/.ssh/id_rsa)
 
 You will have to enter your passphrase (if one is set). Afterwards, your identity file is added to the agent, allowing you to use your key to sign in without having re-enter the passphrase again.
 
-***
+---
 
 ## SSH-13: Forwarding your SSH Credentials to Use on a Server
 
@@ -325,13 +361,13 @@ To start, you must have your SSH agent started and your SSH key added to the age
 
 From here, you can SSH into any other host that your SSH key is authorized to access. You will connect as if your private SSH key were located on this server.
 
-***
+---
 
 ## SSH-14: Server-Side Configuration Options
 
 This section will explain server-side config options and the way the server responds and what types of connection are allowed.
 
-***
+---
 
 ### SSH-15: Disabling Password Authentication
 
@@ -358,13 +394,15 @@ sudo service ssh restart
 
 ### SSH-16: Changing the Port that the SSH Daemon Runs On
 
-***
-__Definition: Daemon__ A daemon is a computer program that runs as a background process rather than being in direct control of an interactive user. Traditionally, the process names of a daemon end with the letter d, for clarification that the process is, in fact, a daemon, and for differentiation between a daemon and a normal computer program. For example, syslogd is the daemon that implements the system logging facility, and sshd is a daemon that serves incoming SSH connections.
+---
+
+**Definition: Daemon** A daemon is a computer program that runs as a background process rather than being in direct control of an interactive user. Traditionally, the process names of a daemon end with the letter d, for clarification that the process is, in fact, a daemon, and for differentiation between a daemon and a normal computer program. For example, syslogd is the daemon that implements the system logging facility, and sshd is a daemon that serves incoming SSH connections.
 
 In a Unix environment, the parent process of a daemon is often, but not always, the init process. A daemon is usually either created by a process forking a child process and then immediately exiting, thus causing init to adopt the child process, or by the init process directly launching the daemon. In addition, a daemon launched by forking and exiting typically must perform other operations, such as dissociating the process from any controlling terminal (tty). Such procedures are often implemented in various convenience routines such as daemon(3) in Unix.
 
-Systems often start daemons at boot time and serve the function of responding to network requests, hardware activity, or other programs by performing some task. Daemons can also configure hardware (like udevd on some Linux systems), run scheduled tasks (like cron), and perform a variety of other tasks.  
-***
+Systems often start daemons at boot time and serve the function of responding to network requests, hardware activity, or other programs by performing some task. Daemons can also configure hardware (like udevd on some Linux systems), run scheduled tasks (like cron), and perform a variety of other tasks.
+
+---
 
 Some administrators suggest that you change the default port that SSH runs on. This can help decrease the number of authentication attempts your server is subjected to from automated bots.
 
@@ -385,7 +423,7 @@ Afterwards, run the `sudo service ssh restart` command
 
 After the daemon restarts, you will need to authenticate by specifying the port number (demonstrated in SSH-11).
 
-***
+---
 
 ## SSH-17: Limiting the Users who can connect through SSH
 
@@ -428,7 +466,7 @@ sudo usermod -a -G sshmembers user2
 
 Now, restart the SSH daemon to implement your changes with `sudo service ssh restart`.
 
-***
+---
 
 ## SSH-18: Disabling Root Login
 
@@ -494,7 +532,8 @@ PermitRootLogin forced-commands-only
 
 Save and close the file. Restart the SSH daemon to implement your changes. `sudo service ssh restart`
 
-***
+---
+
 <div id="SSH-20"></div>
 ## SSH-20: Forwarding X Application Displays to the Client
 
@@ -520,11 +559,12 @@ ssh -X username@remote_host
 
 Graphical applications started on the server through this session should be displayed on the local computer. The performance might be a bit slow, but it is very helpful in a pinch.
 
-***
+---
+
 <div id="SSH-21"></div>
 ## SSH-21: Client Side Configuration Options
 
-__Defining Server-Specific Connection Info__
+**Defining Server-Specific Connection Info**
 
 On your local computer, you can define individual configurations for some or all of the servers you connect to. These can be stored in the ~/.ssh/config file, which is read by your SSH client each time it is called.
 
@@ -570,7 +610,8 @@ Host testhost
 
 Save and close the file when you are done.
 
-***
+---
+
 <div id="SSH-22"></div>
 ### SSH-22: Keep Connections Alive to Avoid Timeout
 
@@ -589,7 +630,8 @@ Host *
 
 Save and close.
 
-***
+---
+
 <div id="SSH-23"></div>
 ## SSH-23: Disabling Host Checking
 
@@ -630,17 +672,18 @@ Host testhost
     UserKnownHostsFile /home/demo/.ssh/known_hosts
 ```
 
-***
+---
+
 <div id="SSH-24"></div>
 ### SSH-24: Multiplexing SSH Over a Single TCP Connection
 
-***
+---
 
-__Definition: Multiplexing__
+**Definition: Multiplexing**
 
 Generally speaking, multiplexing is the ability to carry multiple signals over a single connection. Similarly, SSH multiplexing is the ability to carry multiple SSH sessions over a single TCP connection. [This Wikibook article](https://en.wikibooks.org/wiki/OpenSSH/Cookbook/Multiplexing) goes into more detail on SSH multiplexing; in particular, I would call your attention to the table under the “Advantages of Multiplexing” to better understand the idea of multiple SSH sessions with a single TCP connection.
 
-***
+---
 
 There are situations where establishing a new TCP connection can take longer than you would like. If you are making multiple connections to the same machine, you can take advantage of multiplexing.
 
@@ -654,7 +697,7 @@ To configure multiplexing, edit your SSH client's configuration file on your loc
 nano ~/.ssh/config
 ```
 
-If you do not already have a wildcard host definition at the top of the file, add one now (as Host *). We will be setting the `ControlMaster, ControlPath, and ControlPersist` values to establish our multiplexing configuration.
+If you do not already have a wildcard host definition at the top of the file, add one now (as Host \*). We will be setting the `ControlMaster, ControlPath, and ControlPersist` values to establish our multiplexing configuration.
 
 The `ControlMaster` should be set to "auto" in able to automatically allow multiplexing if possible. The `ControlPath` will establish the path to control socket. The first session will create this socket and subsequent sessions will be able to find it because it is labeled by username, host, and port.
 
@@ -681,13 +724,15 @@ If for some reason you need to bypass the multiplexing configuration temporarily
 ssh -S none username@remote_host
 ```
 
-***
+---
+
 <div id="SSH-25"></div>
 ## SSH-25: Setting Up SSH Tunnels
 
 // todo
 
-***
+---
+
 <div id="UBU-1"></div>
 ## UBU-1: Installing Ubuntu onto VirtualBox
 

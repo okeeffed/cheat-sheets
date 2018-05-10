@@ -1,5 +1,16 @@
 # PassKit
 
+<!-- TOC -->
+
+*   [PassKit](#passkit)
+    *   [Adding the certificate](#adding-the-certificate)
+    *   [PHP Server](#php-server)
+        *   [Plan ticket example](#plan-ticket-example)
+        *   [Store card example](#store-card-example)
+    *   [More info](#more-info)
+
+<!-- /TOC -->
+
 ## Adding the certificate
 
 Head to the iOS dev portal and add the appropriate certificate.
@@ -115,7 +126,6 @@ $app->get('/pass', function ($request, $response, $args) {
     // Render index view
     return $result;
 });
-
 ```
 
 ### Store card example
@@ -212,5 +222,3 @@ If you need to generate a wwdr cert, you can globally install `passbook` eg. `no
 Some changes you may need to make are passing `POST` variables to change it for each user.
 
 If you need to change the JSON structure above, refer to https://developer.apple.com/library/content/documentation/UserExperience/Reference/PassKit_Bundle/Chapters/Introduction.html for more info.
-
-

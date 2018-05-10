@@ -1,17 +1,44 @@
 # Machine Learning - Udemy A-Z
 
-***
+---
+
+<!-- TOC -->
+
+- [Machine Learning - Udemy A-Z](#machine-learning---udemy-a-z)
+    - [Part 1 - Data Preprocessing](#part-1---data-preprocessing)
+    - [1.0: The initial data](#10--the-initial-data)
+        - [Importing the Libraries](#importing-the-libraries)
+        - [Importing the Dataset](#importing-the-dataset)
+        - [Missing Data](#missing-data)
+        - [Catagorical Variables](#catagorical-variables)
+        - [Splitting the data into a Training Set and Test Set](#splitting-the-data-into-a-training-set-and-test-set)
+        - [Feature Scaling](#feature-scaling)
+        - [Templating Data Preprocessing](#templating-data-preprocessing)
+    - [Part 2: Regression](#part-2--regression)
+    - [2.1: Simple Linear Regression](#21--simple-linear-regression)
+        - [Intuition](#intuition)
+        - [IN PYTHON](#in-python)
+    - [2.2 Multiple Linear Regression](#22-multiple-linear-regression)
+        - [Intuition](#intuition)
+        - [How to build MLR models (step-by-step)](#how-to-build-mlr-models-step-by-step)
+        - [IN PYTHON](#in-python)
+        - [Backward Elimination - Multiple Linear Regression](#backward-elimination---multiple-linear-regression)
+    - [2.3 Polynomial Linear Regression](#23-polynomial-linear-regression)
+        - [Interpretation](#interpretation)
+    - [Support Vector Regression](#support-vector-regression)
+
+<!-- /TOC -->
 
 ## Part 1 - Data Preprocessing
 
 ## 1.0: The initial data
 
-Dataset		| Example set
----			| ---
-Country		| String
-Age			| Int
-Salary		| Int
-Purchased 	| Boolean
+| Dataset   | Example set |
+| --------- | ----------- |
+| Country   | String      |
+| Age       | Int         |
+| Salary    | Int         |
+| Purchased | Boolean     |
 
 This dataset also has `independent vs dependent` variables, with the `dependent` variable being the Purchased data.
 
@@ -21,11 +48,11 @@ So using the first three variables, we will predict the fourth column.
 
 **In Python**
 
-Libraries		| What for?
----				| ---
-matplotlib 		| Has a bunch of very useful and intuitive tools
-numpy			| Help with math
-pandas			| Imports and manages data sets
+| Libraries  | What for?                                      |
+| ---------- | ---------------------------------------------- |
+| matplotlib | Has a bunch of very useful and intuitive tools |
+| numpy      | Help with math                                 |
+| pandas     | Imports and manages data sets                  |
 
 ```python
 import numpy as np
@@ -343,7 +370,7 @@ In simple linear regression, we also don't need to worry about `Feature Scaling`
 
 **Fitting Simple Linear Regression to the Training Set**
 
-- `fit` the `regressor`
+*   `fit` the `regressor`
 
 ```python
 # Add to the above code
@@ -419,11 +446,11 @@ y = b[0] + b[1]*x[1] + b[2]*x[2] + ... + b[n]*x[n] + b[n+1]*D[1] + ... + b[n+m]*
 
 **The Assumptions of Linear Regression**
 
-1. Linearity
-2. Homoscedasticity
-3. Multivariate normality
-4. Independence of errors
-5. Lack of mulicollinearity
+1.  Linearity
+2.  Homoscedasticity
+3.  Multivariate normality
+4.  Independence of errors
+5.  Lack of mulicollinearity
 
 **Dummy Variables**
 
@@ -441,60 +468,61 @@ Back with one IV and one DV, life was great, but now that we have many columns w
 
 **Why throw out columns and use everything?**
 
-1. Garbage in -> Garbage out. If you throw everything in, you may also add in garbage.
-2. Shows an understanding of variables
+1.  Garbage in -> Garbage out. If you throw everything in, you may also add in garbage.
+2.  Shows an understanding of variables
 
 **5 Methods of Building Models**
 
-1. All-in
-2. Backward Elimination
-3. Forward Selection
-4. Bidirectional Elimination
-5. Score Comparison
+1.  All-in
+2.  Backward Elimination
+3.  Forward Selection
+4.  Bidirectional Elimination
+5.  Score Comparison
 
 `2, 3 and 4` are sometimes referred to as `Stepwise Regression` or sometimes just `4`.
 
 **All in**
 
 Throw in `everything`. When to do it?
-- You have prior knowledge that these are the true predictors
-- You have to: maybe a framework where you have to use them
-- Preparing for `Backward Elimination` type of regression
+
+*   You have prior knowledge that these are the true predictors
+*   You have to: maybe a framework where you have to use them
+*   Preparing for `Backward Elimination` type of regression
 
 **Backward Elimination**
 
-1. Select a significance level to stay in the model (eg SL = 0.05)
-2. Fit the full model with all possible predictors
-3. Consider the predictor with the `highest P-value` - if `P > SL`, go to step 4, else fin
-4. Remove the predictor
-5. Fit model without this variable*, rebuild the entire model with the other vars
-6. Return to step 3 with the new model
-FIN. When `P > SL`, you come here and the model is ready
+1.  Select a significance level to stay in the model (eg SL = 0.05)
+2.  Fit the full model with all possible predictors
+3.  Consider the predictor with the `highest P-value` - if `P > SL`, go to step 4, else fin
+4.  Remove the predictor
+5.  Fit model without this variable\*, rebuild the entire model with the other vars
+6.  Return to step 3 with the new model
+    FIN. When `P > SL`, you come here and the model is ready
 
 **Forward Elimination**
 
-1. Select a significance level to stay in the model (eg SL = 0.05)
-2. Fit all simple regression models `y ~ x[n]` - select the one with the lower P-value
-3. Keep this variable and fit all possible models with one extra predictor added to the one(s) you already have
-4. Consider the predictor with the `lowest P-value`. `If P < SL`, go to Step 3, otherwise go to `FIN`
-FIN. Keep the previous model
+1.  Select a significance level to stay in the model (eg SL = 0.05)
+2.  Fit all simple regression models `y ~ x[n]` - select the one with the lower P-value
+3.  Keep this variable and fit all possible models with one extra predictor added to the one(s) you already have
+4.  Consider the predictor with the `lowest P-value`. `If P < SL`, go to Step 3, otherwise go to `FIN`
+    FIN. Keep the previous model
 
 **Bidirectional Elimination**
 
-1. Select a significance level to enter and one to stay in the model (eg SLENTER, SLSTAY = 0.05)
-2. Perform the next step of `Forward Selection` (new variables must have: `P < SLENTER` to enter)
-3. Perform ALL steps of Backward Elimination (old variables must have `P < SLSTAY` to stay) - very iterative process
-4. No new variables can enter and no old variables can exit, go to FIN
-FIN. Model is ready
+1.  Select a significance level to enter and one to stay in the model (eg SLENTER, SLSTAY = 0.05)
+2.  Perform the next step of `Forward Selection` (new variables must have: `P < SLENTER` to enter)
+3.  Perform ALL steps of Backward Elimination (old variables must have `P < SLSTAY` to stay) - very iterative process
+4.  No new variables can enter and no old variables can exit, go to FIN
+    FIN. Model is ready
 
 **All Possible Models**
 
 Most thorough approach, but also the most consuming.
 
-1. Select a criterion of goodness of fit (eg. Akaike criterion)
-2. Construct All Possible Regression Models: `(2^N) - 1` total combinations
-3. Select the one with the best criterion
-FIN. Your model is ready
+1.  Select a criterion of goodness of fit (eg. Akaike criterion)
+2.  Construct All Possible Regression Models: `(2^N) - 1` total combinations
+3.  Select the one with the best criterion
+    FIN. Your model is ready
 
 If you have 10 columns in your data, that means 1023 models (ridiculous)
 
@@ -858,4 +886,3 @@ plt.show()
 # plt.show()
 # plt.close()
 ```
-

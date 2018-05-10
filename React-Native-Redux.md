@@ -1,26 +1,57 @@
 # React Native with Redux
 
+<!-- TOC -->
+
+*   [React Native with Redux](#react-native-with-redux)
+    *   [RNREDUX-1: Intro](#rnredux-1-intro)
+    *   [RNREDUX-2: React Native 101](#rnredux-2-react-native-101)
+        *   [---- RNREDUX-2.1: Project Directory/Screen Content](#-----rnredux-21-project-directoryscreen-content)
+        *   [---- RNREDUX-2.2: React vs React Native](#-----rnredux-22-react-vs-react-native)
+    *   [RNREDUX-4: HTTP Requests with React Native](#rnredux-4-http-requests-with-react-native)
+        *   [---- RNREDUX-4.1: Sourcing Album Data](#-----rnredux-41-sourcing-album-data)
+        *   [---- RNREDUX-4.2: Functional Component vs Class Component](#-----rnredux-42-functional-component-vs-class-component)
+        *   [---- RNREDUX-4.3: Fetching Data with Lifecycle Methods](#-----rnredux-43-fetching-data-with-lifecycle-methods)
+        *   [---- RNREDUX-4.4: Rendering a List of Components](#-----rnredux-44-rendering-a-list-of-components)
+        *   [---- RNREDUX-4.5: Creating Reusable Components](#-----rnredux-45-creating-reusable-components)
+        *   [---- RNREDUX-4.5: Turn a Component into Sections](#-----rnredux-45-turn-a-component-into-sections)
+    *   [RNREDUX-5: Handling Component Layout](#rnredux-5-handling-component-layout)
+        *   [---- RNREDUX-5.1: Mastering Layout with Flexbox](#-----rnredux-51-mastering-layout-with-flexbox)
+        *   [---- RNREDUX-5.2: Making Content Scrollable and Handling Input](#-----rnredux-52-making-content-scrollable-and-handling-input)
+        *   [---- RNREDUX-5.3: Responding to User Input](#-----rnredux-53-responding-to-user-input)
+    *   [RNREDUX-8: Redux inside of React Native](#rnredux-8-redux-inside-of-react-native)
+        *   [---- RNREDUX-8.1: Redux Boilerplate](#-----rnredux-81-redux-boilerplate)
+        *   [---- RNREDUX-8.2: Reducer and State Design](#-----rnredux-82-reducer-and-state-design)
+    *   [Redux Thunk](#redux-thunk)
+    *   [Dealing with Navigation](#dealing-with-navigation)
+        *   [---- Navigation in the Router](#-----navigation-in-the-router)
+        *   [---- Navigating between routes](#-----navigating-between-routes)
+        *   [---- Grouping Scenes with 'Buckets'](#-----grouping-scenes-with-buckets)
+        *   [---- Actions to navigate between buckets](#-----actions-to-navigate-between-buckets)
+        *   [---- Form updates at a reducer level / Dynamic Property updates](#-----form-updates-at-a-reducer-level--dynamic-property-updates)
+
+<!-- /TOC -->
+
 ## RNREDUX-1: Intro
 
-__Roadmap__
+**Roadmap**
 
 Setting up RN for iOS and Android.
 
-__Installing the Dependencies for OSX__
+**Installing the Dependencies for OSX**
 
 ## RNREDUX-2: React Native 101
 
 ### ---- RNREDUX-2.1: Project Directory/Screen Content
 
-__ios and android__
+**ios and android**
 
 The project folders rarely need to be adjusted unless we want to work at a low-level.
 
-__index.ios.js vs index.android.js__
+**index.ios.js vs index.android.js**
 
 Entry points for our applications. When Android or iOS run, these two files are the first platform entry points respectively.
 
-__Steps for components__
+**Steps for components**
 
 ```
 // Import a library to help create a component
@@ -58,15 +89,15 @@ Both are distinct libraries. RN is essentially the handle to getting things onto
 
 `import` is required to working with `outside code` eg. other libraries/modules.
 
-__React__
+**React**
 
-- Knows how a component should behave
-- Knows how to take a bunch of components and make them work together
+*   Knows how a component should behave
+*   Knows how to take a bunch of components and make them work together
 
-__React Native__
+**React Native**
 
-- Knows how to take the output from a component and place it on the screen
-- Provides default core components (image, text)
+*   Knows how to take the output from a component and place it on the screen
+*   Provides default core components (image, text)
 
 ## RNREDUX-4: HTTP Requests with React Native
 
@@ -77,7 +108,7 @@ For the idea of creating is a label is to create two components.
 a) The AlbumList
 b) The AlbumDetail
 
-__AlbumList Component__
+**AlbumList Component**
 
 Note: If you are embedding more than one component, wrap around in <View>.
 
@@ -97,32 +128,32 @@ export default AlbumList;
 
 ### ---- RNREDUX-4.2: Functional Component vs Class Component
 
-__Functional Component__
+**Functional Component**
 
-- Used for presenting static data
-- Can't handle fetching data
-- Easy to write
+*   Used for presenting static data
+*   Can't handle fetching data
+*   Easy to write
 
-__Class Component__
+**Class Component**
 
-- Used for dynamic sources of data
-- Handles any data that might change (fetching data, user events, etc)
-- Knows when it gets rerendered to the device (useful for data fetching)
-- More code to write
+*   Used for dynamic sources of data
+*   Handles any data that might change (fetching data, user events, etc)
+*   Knows when it gets rerendered to the device (useful for data fetching)
+*   More code to write
 
 ```javascript
 // functional component
 
 const Header = () => {
-	return <Text>Hi there!</Text>
-}
+    return <Text>Hi there!</Text>;
+};
 
 // class component
 
 class Header extends Component {
-	render() {
-		return <Text>Hi there!</Text>
-	}
+    render() {
+        return <Text>Hi there!</Text>;
+    }
 }
 ```
 
@@ -151,7 +182,7 @@ Class based components themselves KNOW when they're about to rendered.
 
 Example Lifecycle Methods include `componentWillMount()`
 
-__Network Requests__
+**Network Requests**
 
 How do we make the HTTP request? It's quite straight forward.
 
@@ -159,25 +190,25 @@ How do we make the HTTP request? It's quite straight forward.
 
 Ensure you need to have some logic to rerender the components after the AJAX returns and the promise is fulfilled.
 
-__Component Level State__
+**Component Level State**
 
 Components will already be on the screen before we can get our promise back. Our state so far will look like the following...
 
 We need to use component level state for it all to rerender
 
-1. Set up a default state (class level property)
-2. Update the state (needs to use `this.setState`!)
+1.  Set up a default state (class level property)
+2.  Update the state (needs to use `this.setState`!)
 
-__Rules of State__
+**Rules of State**
 
-- Definition of State: a plain JS object used to record and respond to 'user-triggered events'.
-- When we need to update what a component shows, call `this.setState`.
-- Only change state with 'setState' not this.state='something'.
+*   Definition of State: a plain JS object used to record and respond to 'user-triggered events'.
+*   When we need to update what a component shows, call `this.setState`.
+*   Only change state with 'setState' not this.state='something'.
 
-__When do we use props?__
+**When do we use props?**
 
-- props is for parent to child communication
-- state is internal record keeping
+*   props is for parent to child communication
+*   state is internal record keeping
 
 ```
 // before
@@ -191,7 +222,6 @@ state = {
 	]
 };
 ```
-
 
 ```javascript
 import React, { Component } from 'react';
@@ -233,7 +263,7 @@ For each album now, we want to create one component using `map`.
 
 Ensure that each property has a unique key!
 
-__AlbumList__
+**AlbumList**
 
 ```javascript
 import React, { Component } from 'react';
@@ -274,7 +304,7 @@ class AlbumView extends Component {
 export default AlbumList;
 ```
 
-__Creating an AlbumDetail__
+**Creating an AlbumDetail**
 
 Does it need to be a Class or Functional component?
 
@@ -293,7 +323,7 @@ const AlbumDetail = (props) => {
 export default AlbumDetail;
 ```
 
-__Final AlbumList__
+**Final AlbumList**
 
 Import AlbumDetail, reset the "renderAlbums" function to render the AlbumDetail and then use props to pass down from parent to child.
 
@@ -342,11 +372,11 @@ export default AlbumList;
 
 For styling, it is sometimes useful to make components within components for layout purposes!
 
-__Passing components as props__
+**Passing components as props**
 
 We can pass `props` as a parameter and then use {props.children} to make a reference to it.
 
-__Card.js__
+**Card.js**
 
 ```
 import React from 'react';
@@ -380,7 +410,7 @@ const styles = {
 export default Card;
 ```
 
-__AlbumDetail__
+**AlbumDetail**
 
 We want to use this to pass down props for `Card`
 
@@ -402,36 +432,32 @@ export default AlbumDetail;
 
 ### ---- RNREDUX-4.5: Turn a Component into Sections
 
-__CardSection.js__
+**CardSection.js**
 
 ```javascript
 import React from 'react';
 import { View } from 'react-native';
 
 const CardSection = (props) => {
-	render (
-		<View style={styles.containerStyle}>
-			{props.children}
-		</View>
-	);
-}
+    render(<View style={styles.containerStyle}>{props.children}</View>);
+};
 
 const styles = {
-	containerStyle: {
-		borderBottomWidth: 1,
-		padding: 5,
-		backgroundColor: '#fff',
-		justifyContent: 'flex-start',
-		flexDirection: 'row',
-		borderColor: '#ddd',
-		position: 'relative'
-	}
+    containerStyle: {
+        borderBottomWidth: 1,
+        padding: 5,
+        backgroundColor: '#fff',
+        justifyContent: 'flex-start',
+        flexDirection: 'row',
+        borderColor: '#ddd',
+        position: 'relative'
+    }
 };
 
 export default CardSection;
 ```
 
-__AlbumDetail__
+**AlbumDetail**
 
 We want to use this to pass down props for `Card`
 
@@ -474,7 +500,7 @@ Imaging a layout like the following.
 </Card>
 ```
 
-__Positioning of elements__
+**Positioning of elements**
 
 How do we want to apply flexbox to our particular layout? What we can do is use <View> to wrap the images - this is similar to using things like <div>.
 
@@ -482,13 +508,13 @@ We can then use flex direction to style our views for column and what is within 
 
 Unless we define a height, it will just flex to have just enough height!
 
-__Images with React Native__
+**Images with React Native**
 
 We can import `image` primitive from React Native!
 
 However, images will not expand to fit by default. We need to manually add in a styling rule!
 
-__Notes__
+**Notes**
 
 Destructure album objects if there is more than one.
 
@@ -559,7 +585,7 @@ const styles = {
 
 ### ---- RNREDUX-5.2: Making Content Scrollable and Handling Input
 
-__ScrollView__
+**ScrollView**
 
 Scrolling is definitely one of the differenes between React and React Native. To make them scrollable, we just import `ScrollView` and use that on the outside.
 
@@ -569,11 +595,11 @@ We can just replace View with ScrollView.
 
 You also MUST find the root view and set it to flex: 1.
 
-__Handling Input__
+**Handling Input**
 
 Time to make a button.
 
-__Button.js__
+**Button.js**
 
 ```
 import React from 'react';
@@ -633,75 +659,71 @@ export default Button;
 
 ### ---- RNREDUX-5.3: Responding to User Input
 
-__Card.js__
+**Card.js**
 
 ```javascript
 // have your imports
 // the album and const is for destructuring
 
 const Card = ({ album }) => {
-	const { title, artist, thumbnail_image, url } = album;
+    const { title, artist, thumbnail_image, url } = album;
 
-	return (
-		<Card>
-			<CardSection>
-				<View style={styles.thumbnailContainerStyle}>
-					// <Image source={{ uri: props.album.thumbnail_image }}/>
-					//destructured
-					<Image
-						style={styles.thumbnailStyle}
-						source={{ uri: thumbnail_image }}/>
-				</View>
-				<View style={styles.headerContentStyle}>
-					//<Text>{props.album.title}</Text>
-					//<Text>{props.album.artist}</Text>
-					// Destructured
-					<Text style={styles.headerTextStyle}>{title}</Text>
-					<Text>{artist}</Text>
-				</View>
-			</CardSection>
-			<CardSection>
-				<Image
-					style={style.imageStyle}
-					source={{ uri: image }} />
-			</CardSection>
-			<CardSection>
-				<Button
-					onPress={() => openURL(album.url)}>
-					Buy now
-				</Button>
-			</CardSection>
-		</Card>
-	);
-}
+    return (
+        <Card>
+            <CardSection>
+                <View style={styles.thumbnailContainerStyle}>
+                    // <Image source={{ uri: props.album.thumbnail_image }} />
+                    //destructured
+                    <Image
+                        style={styles.thumbnailStyle}
+                        source={{ uri: thumbnail_image }}
+                    />
+                </View>
+                <View style={styles.headerContentStyle}>
+                    //<Text>{props.album.title}</Text>
+                    //<Text>{props.album.artist}</Text>
+                    // Destructured
+                    <Text style={styles.headerTextStyle}>{title}</Text>
+                    <Text>{artist}</Text>
+                </View>
+            </CardSection>
+            <CardSection>
+                <Image style={style.imageStyle} source={{ uri: image }} />
+            </CardSection>
+            <CardSection>
+                <Button onPress={() => openURL(album.url)}>Buy now</Button>
+            </CardSection>
+        </Card>
+    );
+};
 
 const styles = {
-	headerContentStyle: {
-		flexDirection: 'column',
-		justifyContent: 'space-around'
-	},
-	headerTextStyle: {
-		fontSize: 18
-	},
-	thumbnailStyle: {
-		height: 50,
-		width: 50
-	},
-	thumbnailContainerStyle: {
-		justifyContent: 'center',
-		alignItems: 'center',
-		marginLeft: 10,
-		marginRight: 10
-	},
-	imageStyle: {
-		height: 300,
-		flex: 1,
-		width: null
-	},
+    headerContentStyle: {
+        flexDirection: 'column',
+        justifyContent: 'space-around'
+    },
+    headerTextStyle: {
+        fontSize: 18
+    },
+    thumbnailStyle: {
+        height: 50,
+        width: 50
+    },
+    thumbnailContainerStyle: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginLeft: 10,
+        marginRight: 10
+    },
+    imageStyle: {
+        height: 300,
+        flex: 1,
+        width: null
+    }
 };
 ```
 
-__Button.js__
+**Button.js**
 
 ```
 import React from 'react';
@@ -750,14 +772,14 @@ The <Provider> tag works together with the Store. The Store is what holds the Ap
 
 The Provider is the communication with React. `react-redux` is the glue for React and Redux.
 
-__Steps__
+**Steps**
 
-1. import { Provider } from 'react-redux' and import { createStore } from 'redux'.
-2. Wrap app view in <Provider store={createStore(reducers)}
-3. Create reducers/index.js
-4. Import {combineReducers } from 'redux' in this new file and export default combineReducers with the reducers inside.
+1.  import { Provider } from 'react-redux' and import { createStore } from 'redux'.
+2.  Wrap app view in <Provider store={createStore(reducers)}
+3.  Create reducers/index.js
+4.  Import {combineReducers } from 'redux' in this new file and export default combineReducers with the reducers inside.
 
-__app.js for React-Native Redux__
+**app.js for React-Native Redux**
 
 ```javascript
 import React from 'react';
@@ -767,17 +789,17 @@ import { createStore } from 'redux';
 import reducers from './reducers';
 
 const App = () => {
-	return (
-		<Provider store={createStore(reducers)}>
-			<View />
-		</Provider>
-	);
+    return (
+        <Provider store={createStore(reducers)}>
+            <View />
+        </Provider>
+    );
 };
 
 export default App;
 ```
 
-__reducers/index.js__
+**reducers/index.js**
 
 Create `libraries` as basis to always return an array.
 
@@ -808,19 +830,16 @@ b) currently selected library
 
 // Library Reducer
 
-[
-	{ id: 1, name: 'React' },
-	{ id: 2, name: 'Redux' }
-]
+[{ id: 1, name: 'React' }, { id: 2, name: 'Redux' }];
 
 // Selection Reducer
 
-1
+1;
 ```
 
-***
+---
 
-__Library list of data__
+**Library list of data**
 
 `Connect` function: Used to connect up the reducers and state.
 
@@ -888,7 +907,7 @@ export default connect(mapStateToProps)(LibraryList);
 
 <div id="thunk"></div>
 
-***
+---
 
 ## Redux Thunk
 
@@ -916,7 +935,7 @@ const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 Now that ReduxThunk is set up, we can use it inside an action creator.
 
 ```
-// Action Creators 
+// Action Creators
 export const selectAction = ({ email, password }) => {
 	return (dispatch) -> {
 		firebase.auth().signInWithEmailAndPassword(email, password)
@@ -934,7 +953,7 @@ The Action Creator `WILL NOW RETURN A FUNCTION`. If ReduxThunk sees a function r
 This will then start our login request. The app will wait and the .then will automatically run and we will then dispatch our action.
 
 ```
-// Action Creators 
+// Action Creators
 export const selectAction = ({ email, password }) => {
 	return (dispatch) -> {
 		firebase.auth().signInWithEmailAndPassword(email, password)
@@ -947,7 +966,7 @@ export const selectAction = ({ email, password }) => {
 
 <div id="nav"></div>
 
-***
+---
 
 ## Dealing with Navigation
 
@@ -968,7 +987,7 @@ We essentially define a `Scene` for each distinct screens. For example.
 
 // All the props you can pass to the scene
 
-<Scene 
+<Scene
 	key="login" 				// call Actions.login() to show this screen
 	component={LoginForm} 		// component to show
 	title="Login"				// make nav bar and give it a title - this is built in
@@ -981,7 +1000,7 @@ We essentially define a `Scene` for each distinct screens. For example.
 ### ---- Navigation in the Router
 
 ```
-// Create a router.js 
+// Create a router.js
 
 import React from 'react';
 import { Scene, Router } from 'react-native-router-flux';
@@ -1001,7 +1020,7 @@ const RouterComponent = () => {
 
 export default RouterComponent;
 
-// in app.js 
+// in app.js
 
 ...
 import Router from './router';
@@ -1032,7 +1051,7 @@ Navigation will happen from an action.
 // import actions
 import { Actions } from 'react-native-router-flux';
 
-// Action Creators 
+// Action Creators
 export const loginUserSuccess = (dispatch, user) => {
 	dispatch({
 		type: LOGIN_USER_SUCCESS,
@@ -1052,7 +1071,7 @@ Making decisions on how the header should render.
 We can do `scene nesting` to group these screens. There is one 'gotcha' though. Now for the actions, we need to actually use Actions.main().
 
 ```
-// router.js 
+// router.js
 
 const RouterComponent = () => {
 	return (
@@ -1062,14 +1081,14 @@ const RouterComponent = () => {
 			</Scene>
 			<Scene key="flow">
 				<Scene key="example" component={ExampleComponent} title="App" />
-				<Scene 
+				<Scene
 					// for action, you normally call Actions.key()
 					onRight={() => console.log('right!!!')}
 					rightTitle="Add"
-					key="table" 
-					component={Table} 
-					title="Table" 
-					initial 
+					key="table"
+					component={Table}
+					title="Table"
+					initial
 				/>
 			</Scene>
 		</Router>
@@ -1081,14 +1100,14 @@ We can use the `initial` prop within these `buckets` to let which component with
 
 ### ---- Actions to navigate between buckets
 
-These actions can be added using 
+These actions can be added using
 
 ```
 import { Actions } from 'react-native-router-flux';
 
 // Action Creators - exammple thunk action creator
 const loginUserSuccess = (dispatch, user) => {
-	dispatch({ 
+	dispatch({
 		type: LOGIN_USER_SUCCESS,
 		payload: user
 	});
@@ -1101,7 +1120,7 @@ const loginUserSuccess = (dispatch, user) => {
 
 ### ---- Form updates at a reducer level / Dynamic Property updates
 
-Example reducer function with ES6 dynamic change. 
+Example reducer function with ES6 dynamic change.
 
 ```
 export default (state = INITIAL_STATE, action) => {
@@ -1113,21 +1132,3 @@ export default (state = INITIAL_STATE, action) => {
 	}
 }
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

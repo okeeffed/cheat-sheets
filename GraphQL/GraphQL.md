@@ -1,9 +1,60 @@
 # GraphQL - Udemy
 
+<!-- TOC -->
+
+- [GraphQL - Udemy](#graphql---udemy)
+    - [RESTful Router Primer](#restful-router-primer)
+    - [The shortcomings of RESTful routing](#the-shortcomings-of-restful-routing)
+        - [Complex example](#complex-example)
+    - [Starting with GraphQL](#starting-with-graphql)
+    - [Working with GraphQL](#working-with-graphql)
+    - [Registering GraphQL with Express](#registering-graphql-with-express)
+    - [GraphQL Schemas](#graphql-schemas)
+    - [The Graphiql tool](#the-graphiql-tool)
+    - [A realistic data source](#a-realistic-data-source)
+    - [Async Resolve functions](#async-resolve-functions)
+- [How do we hook up relating a company to a user?](#how-do-we-hook-up-relating-a-company-to-a-user)
+    - [Updating the Schema](#updating-the-schema)
+    - [Multiple Root Query Points](#multiple-root-query-points)
+    - [Bidirectional Relations](#bidirectional-relations)
+    - [Query Fragments](#query-fragments)
+    - [Mutations](#mutations)
+        - [Non-null fields and Mutations](#non-null-fields-and-mutations)
+        - [Deleting mutations](#deleting-mutations)
+        - [Editing mutations](#editing-mutations)
+    - [GraphQL Clients - Apollo vs Relay](#graphql-clients---apollo-vs-relay)
+        - [Apollo Server vs GraphQL Server](#apollo-server-vs-graphql-server)
+        - [Setting up MongoLab](#setting-up-mongolab)
+        - [Running the project](#running-the-project)
+        - [Setting up Apollo Client](#setting-up-apollo-client)
+        - [GQL Queries in React](#gql-queries-in-react)
+        - [Bonding queries with components](#bonding-queries-with-components)
+        - [Handling Pending Queries](#handling-pending-queries)
+        - [Adding React Router](#adding-react-router)
+    - [Mutations in React](#mutations-in-react)
+        - [Query Params](#query-params)
+        - [Passing variables in React](#passing-variables-in-react)
+        - [Refetching Lists](#refetching-lists)
+        - [Deletion mutations](#deletion-mutations)
+        - [Fetching a particular item](#fetching-a-particular-item)
+        - [Adding fetchSong to the component](#adding-fetchsong-to-the-component)
+        - [Watching for Data](#watching-for-data)
+        - [More action submitting](#more-action-submitting)
+        - [Submitting the lyrics](#submitting-the-lyrics)
+        - [Extending Queries](#extending-queries)
+    - [Caching with dataIdFromObject](#caching-with-dataidfromobject)
+    - [More on Mutations](#more-on-mutations)
+        - [Optimistic mutations](#optimistic-mutations)
+- [Authentication Applications - concerned with both the front and back end](#authentication-applications---concerned-with-both-the-front-and-back-end)
+        - [Delegating to an Authentication Service](#delegating-to-an-authentication-service)
+    - [Handling Errors Gracefully](#handling-errors-gracefully)
+        - [Handling Errors Around Signup](#handling-errors-around-signup)
+
+<!-- /TOC -->
+
 ## RESTful Router Primer
 
-- Given a collection of records on a server, there should be a uniform URL and HTTP request method used to utilize that collection of records.
-
+*   Given a collection of records on a server, there should be a uniform URL and HTTP request method used to utilize that collection of records.
 
 Having the ability to use CRUD requests to interact with data on the server.
 
@@ -70,8 +121,8 @@ query {
 
 How can we get this to come together?
 
-1. Make an Express server and hook it up to a datastore
-2. Hook it up to a prebuilt app called GraphiQL to make a couple of test queries
+1.  Make an Express server and hook it up to a datastore
+2.  Hook it up to a prebuilt app called GraphiQL to make a couple of test queries
 
 For installation on the test `users` project, let's `yarn add express express-graphql graphql lodash`
 
@@ -204,7 +255,6 @@ new GraphQLSchema({
 
 This tool has been given to us by the GraphQL team. On the left hand side, we can write a query and run it to see what happens.
 
-
 The `docs` auto generates docs for us to see the type of queries we can make.
 
 ```
@@ -298,15 +348,15 @@ Once we have...
 
 ```json
 {
-	"users": [
-		{ "id": "23", "firstName": "Bill", "age": 20, "companyId": "1" },
-		{ "id": "47", "firstName": "Sam", "age": 21, "companyId": "2" },
-		{ "id": "41", "firstName": "Milly", "age": 41, "companyId": "2" }
-	],
-	"companies": [
-		{ "id": "1", "name": "Apple", "description": "iPhone"},
-		{ "id": "2", "name": "Google", "description": "Search"}
-	]
+    "users": [
+        { "id": "23", "firstName": "Bill", "age": 20, "companyId": "1" },
+        { "id": "47", "firstName": "Sam", "age": 21, "companyId": "2" },
+        { "id": "41", "firstName": "Milly", "age": 41, "companyId": "2" }
+    ],
+    "companies": [
+        { "id": "1", "name": "Apple", "description": "iPhone" },
+        { "id": "2", "name": "Google", "description": "Search" }
+    ]
 }
 ```
 
@@ -318,23 +368,23 @@ Now in the schema we can update to have the following.
 
 ```javascript
 const CompanyType = new GraphQLObjectType({
-	name: 'Company',
-	fields: {
-		id: { type: GraphQLString },
-		name: { type: GraphQLString },
-		description: { type: GraphQLString },
-	}
+    name: 'Company',
+    fields: {
+        id: { type: GraphQLString },
+        name: { type: GraphQLString },
+        description: { type: GraphQLString }
+    }
 });
 
 const UserType = new GraphQLObjectType({
-	name: 'User',
-	fields: {
-		id: { type: GraphQLString },
-		firstName: { type: GraphQLString },
-		age: { type: GraphQLInt },
-		// note: this is from the previously declared type
-		company: { type: CompanyType }
-	}
+    name: 'User',
+    fields: {
+        id: { type: GraphQLString },
+        firstName: { type: GraphQLString },
+        age: { type: GraphQLInt },
+        // note: this is from the previously declared type
+        company: { type: CompanyType }
+    }
 });
 ```
 
@@ -348,32 +398,33 @@ We can adjust this with adding to the Root Query.
 
 ```javascript
 const RootQuery = new GraphQLObjectType({
-	name: 'RootQueryType',
-	fields: {
-		user: {
-			type: UserType,
-			args: { id: { type: GraphQLString } },
-			resolve(parentValue, args) {
-				return axios.get(`http://localhost:3000/users/${args.id}`)
-					.then(res => res.data);
-			}
-		},
-		company: {
-			type: CompanyType,
-			args: { id: { type: GraphQLString } },
-			resolve(parentValue, args) {
-				return axios.get(`http://localhost:3000/companies/${args.id}`)
-					.then(res => res.data);
-			}
-		}
-	}
+    name: 'RootQueryType',
+    fields: {
+        user: {
+            type: UserType,
+            args: { id: { type: GraphQLString } },
+            resolve(parentValue, args) {
+                return axios
+                    .get(`http://localhost:3000/users/${args.id}`)
+                    .then((res) => res.data);
+            }
+        },
+        company: {
+            type: CompanyType,
+            args: { id: { type: GraphQLString } },
+            resolve(parentValue, args) {
+                return axios
+                    .get(`http://localhost:3000/companies/${args.id}`)
+                    .then((res) => res.data);
+            }
+        }
+    }
 });
 ```
 
 ## Bidirectional Relations
 
 Given the one-to-many relationship we can find between companies and users, how can find the users that work for a company?
-
 
 We can use a `GraphQLList` to return a list of different entities.
 
@@ -383,21 +434,26 @@ The issue itself is more of closures and closure scopes.
 
 ```javascript
 const CompanyType = new GraphQLObjectType({
-	name: 'Company',
-	fields: () => ({
-		id: { type: GraphQLString },
-		name: { type: GraphQLString },
-		description: { type: GraphQLString },
-		users: {
-			// UserType may not yet be defined error may occur
-			// because of a circular reference
-			type: new GraphQLList(UserType),
-			resolve(parentValue, args) {
-				return axios.get(`http://localhost:3000/companies/${parentValue.id}/users`)
-					.then(res => res.data);
-			}
-		}
-	})
+    name: 'Company',
+    fields: () => ({
+        id: { type: GraphQLString },
+        name: { type: GraphQLString },
+        description: { type: GraphQLString },
+        users: {
+            // UserType may not yet be defined error may occur
+            // because of a circular reference
+            type: new GraphQLList(UserType),
+            resolve(parentValue, args) {
+                return axios
+                    .get(
+                        `http://localhost:3000/companies/${
+                            parentValue.id
+                        }/users`
+                    )
+                    .then((res) => res.data);
+            }
+        }
+    })
 });
 ```
 
@@ -497,10 +553,8 @@ In order for updating, we create completely separate objects that we can manipul
 
 ```javascript
 const mutation = new GraphQLObjectType({
-	name: 'Mutation',
-	fields: {
-
-	}
+    name: 'Mutation',
+    fields: {}
 });
 ```
 
@@ -954,36 +1008,37 @@ Setting this as our class allows for deletion:
 
 ```javascript
 class SongList extends Component {
-	onSongDelete(id) {
-		// refetch will fetch any queries
-		// with this component
-		this.props.mutate({ variables: { id } })
-			.then(() => this.props.data.refetch());
-	}
+    onSongDelete(id) {
+        // refetch will fetch any queries
+        // with this component
+        this.props
+            .mutate({ variables: { id } })
+            .then(() => this.props.data.refetch());
+    }
 
-	renderSongs() {
-		return this.props.data.songs.map(({ title, id }) => {
-			return (
-				<li key={id} className="collection-item">
-					{ title }
-					<i className="material-icons"
-						onClick={() => this.onSongDelete(id) } >
-						delete
-					</i>
-				</li>
-			);
-		});
-	}
+    renderSongs() {
+        return this.props.data.songs.map(({ title, id }) => {
+            return (
+                <li key={id} className="collection-item">
+                    {title}
+                    <i
+                        className="material-icons"
+                        onClick={() => this.onSongDelete(id)}
+                    >
+                        delete
+                    </i>
+                </li>
+            );
+        });
+    }
 
-	render() {
-		console.log(this.props);
-		if (this.props.data.loading) { return <div>Loading...</div> };
-		return (
-			<ul className="collection">
-				{ this.renderSongs() }
-			</ul>
-		);
-	}
+    render() {
+        console.log(this.props);
+        if (this.props.data.loading) {
+            return <div>Loading...</div>;
+        }
+        return <ul className="collection">{this.renderSongs()}</ul>;
+    }
 }
 ```
 
@@ -1035,14 +1090,14 @@ import { graphql } from 'react-apollo';
 import FetchSong from '../queries/fetchSong';
 
 class SongDetail extends Component {
-	render() {
-		console.log(this.props);
-		return (
-			<div>
-				<h3>SongDetail!</h3>
-			</div>
-		);
-	}
+    render() {
+        console.log(this.props);
+        return (
+            <div>
+                <h3>SongDetail!</h3>
+            </div>
+        );
+    }
 }
 
 export default graphql(FetchSong)(SongDetail);
@@ -1073,22 +1128,26 @@ import { Link } from 'react-router';
 import FetchSong from '../queries/fetchSong';
 
 class SongDetail extends Component {
-	render() {
-		console.log(this.props);
-		const { song } = this.props.data;
-		if (!song) { return <div></div>; }
+    render() {
+        console.log(this.props);
+        const { song } = this.props.data;
+        if (!song) {
+            return <div />;
+        }
 
-		return (
-			<div>
-				<Link to="/">Back</Link>
-				<h3>{ song.title }</h3>
-			</div>
-		);
-	}
+        return (
+            <div>
+                <Link to="/">Back</Link>
+                <h3>{song.title}</h3>
+            </div>
+        );
+    }
 }
 
 export default graphql(FetchSong, {
-	options: (props) => { return { variables: { id: props.params.id } } }
+    options: (props) => {
+        return { variables: { id: props.params.id } };
+    }
 })(SongDetail);
 ```
 
@@ -1098,28 +1157,30 @@ export default graphql(FetchSong, {
 import React, { Component } from 'react';
 
 class LyricCreate extends Component {
-	constructor(props) {
-		super(props);
+    constructor(props) {
+        super(props);
 
-		this.state = { content: '' };
-	}
+        this.state = { content: '' };
+    }
 
-	onSubmit(event) {
-		event.preventDefault();
-	}
+    onSubmit(event) {
+        event.preventDefault();
+    }
 
-	render() {
-		return (
-			<form action="">
-				<label>Add a lyric</label>
-				<input
-					value={this.state.content}
-					onChange={ (event) => this.setState({content: event.target.value}) }
-					// onSubmit={ (event) => this.onSubmit(event) }
-				/>
-			</form>
-		);
-	}
+    render() {
+        return (
+            <form action="">
+                <label>Add a lyric</label>
+                <input
+                    value={this.state.content}
+                    onChange={(event) =>
+                        this.setState({ content: event.target.value })
+                    }
+                    // onSubmit={ (event) => this.onSubmit(event) }
+                />
+            </form>
+        );
+    }
 }
 
 export default LyricCreate;
@@ -1131,15 +1192,15 @@ export default LyricCreate;
 import gql from 'graphql-tag';
 
 export default gql`
-	mutation AddLyricToSong($content: String!, $songId: ID!) {
-		addLyricToSong(content: $content, songId: $songId) {
-			id
-			title
-			lyrics {
-				content
-			}
-		}
-	}
+    mutation AddLyricToSong($content: String!, $songId: ID!) {
+        addLyricToSong(content: $content, songId: $songId) {
+            id
+            title
+            lyrics {
+                content
+            }
+        }
+    }
 `;
 ```
 
@@ -1207,26 +1268,23 @@ Now that `Apollo` can see that the song with an `id` has been updated, Apollo ca
 
 ```javascript
 const client = new ApolloClient({
-	dataIdFromObject: obj => obj.id
+    dataIdFromObject: (obj) => obj.id
 });
 
 const Root = () => {
-	return (
-		<ApolloProvider client={client}>
-			<Router history={hashHistory}>
-				<Route path="/" component={App}>
-					<IndexRoute component={SongList} />
-					<Route path="songs/new" component={SongCreate} />
-					<Route path="songs/:id" component={SongDetail} />
-				</Route>
-			</Router>
-		</ApolloProvider>
-	);
+    return (
+        <ApolloProvider client={client}>
+            <Router history={hashHistory}>
+                <Route path="/" component={App}>
+                    <IndexRoute component={SongList} />
+                    <Route path="songs/new" component={SongCreate} />
+                    <Route path="songs/:id" component={SongDetail} />
+                </Route>
+            </Router>
+        </ApolloProvider>
+    );
 };
-ReactDOM.render(
-  <Root />,
-  document.querySelector('#root')
-);
+ReactDOM.render(<Root />, document.querySelector('#root'));
 ```
 
 ## More on Mutations
@@ -1235,12 +1293,12 @@ Liking a lyric
 
 ```javascript
 const mutation = gql`
-	mutation LikeLyric($id:ID) {
-		likeLyric(id: $id) {
-			id
-			likes
-		}
-	}
+    mutation LikeLyric($id: ID) {
+        likeLyric(id: $id) {
+            id
+            likes
+        }
+    }
 `;
 ```
 
@@ -1266,11 +1324,11 @@ onLike(id, likes) {
 
 **Challenges**
 
-Challenge 			| Solution
----					| ---
-Multiple pages		| React Router
-Data store 			| MongoDB
-Authentication 		| PassportJS
+| Challenge      | Solution     |
+| -------------- | ------------ |
+| Multiple pages | React Router |
+| Data store     | MongoDB      |
+| Authentication | PassportJS   |
 
 But Passport isn't designed with GraphQL in mind.
 
@@ -1278,8 +1336,8 @@ But Passport isn't designed with GraphQL in mind.
 
 There are two approaches that we can take to auth with GraphQL and Passport.
 
-1. Decoupled approach
-2. Coupled approach
+1.  Decoupled approach
+2.  Coupled approach
 
 **Coupled vs Decoupled**
 
@@ -1290,15 +1348,18 @@ So, which one? Why would we ever have `Passport` involved with `GraphQL`? You co
 **Coupled**
 
 Pros:
-- using Graphql in the way it was intended
+
+*   using Graphql in the way it was intended
 
 **Decoupled**
 
 Pros:
-- Once authenticated, you do not need to continue the authentication process.
+
+*   Once authenticated, you do not need to continue the authentication process.
 
 Cons:
-- part of the React app would not use GraphQL at all
+
+*   part of the React app would not use GraphQL at all
 
 In the example given, they are used together - however, usually the argument is that maybe they should remain decoupled.
 
@@ -1319,5 +1380,4 @@ this.props.mutate({
 });
 
 ### The Needs for a HOC
-
-
+```

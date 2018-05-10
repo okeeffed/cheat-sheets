@@ -1,21 +1,32 @@
 # Swift 3 Extensions
 
-***
+<!-- TOC -->
+
+*   [Swift 3 Extensions](#swift-3-extensions)
+    *   [Extensions](#extensions)
+        *   [---- Computed Properties](#-----computed-properties)
+        *   [---- Mutating Instance Methods](#-----mutating-instance-methods)
+        *   [---- Subscripts](#-----subscripts)
+        *   [---- Nested Types](#-----nested-types)
+
+<!-- /TOC -->
+
+---
 
 ## Extensions
 
-Extensions add new functionality to an existing class, structure, enumeration, or protocol type. 
+Extensions add new functionality to an existing class, structure, enumeration, or protocol type.
 
 This includes the ability to extend types for which you do not have access to the original source code (known as retroactive modeling). Extensions are similar to categories in Objective-C. (Unlike Objective-C categories, Swift extensions do not have names.)
 
 Extensions in Swift can:
 
-- Add computed instance properties and computed type properties
-- Define instance methods and type methods
-- Provide new initializers
-- Define subscripts
-- Define and use new nested types
-- Make an existing type conform to a protocol
+*   Add computed instance properties and computed type properties
+*   Define instance methods and type methods
+*   Provide new initializers
+*   Define subscripts
+*   Define and use new nested types
+*   Make an existing type conform to a protocol
 
 ```
 extension SomeType: SomeProtocol, AnotherProtocol {
@@ -161,5 +172,3 @@ func printIntegerKinds(_ numbers: [Int]) {
 printIntegerKinds([3, 19, -27, 0, -6, 0, 7])
 // Prints "+ + - 0 - 0 + "
 ```
-
-

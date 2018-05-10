@@ -1,5 +1,20 @@
 # Server side Rendering with React and Redux
 
+<!-- TOC -->
+
+*   [Server side Rendering with React and Redux](#server-side-rendering-with-react-and-redux)
+    *   [How do tradition React apps work?](#how-do-tradition-react-apps-work)
+    *   [Serverside - What happens](#serverside---what-happens)
+    *   [Serverside Architecture](#serverside-architecture)
+    *   [Example base package.json](#example-base-packagejson)
+    *   [RenderToString function](#rendertostring-function)
+    *   [The build process](#the-build-process)
+    *   [What is Isomorphic Javascript?](#what-is-isomorphic-javascript)
+    *   [Clientside JS](#clientside-js)
+    *   [Client bundles](#client-bundles)
+
+<!-- /TOC -->
+
 ## How do tradition React apps work?
 
 In relation to the index `html` file, we end up with a root div that React targets onto.
@@ -10,19 +25,17 @@ Using server side React, the goal is to make one request. The impact of this mea
 
 ## Serverside - What happens
 
-1. Receive the request
-2. Load up React app in memory
-3. Fetch any required data
-4. Render app
-5. Send back to the HTML
+1.  Receive the request
+2.  Load up React app in memory
+3.  Fetch any required data
+4.  Render app
+5.  Send back to the HTML
 
 Back on the browser side, the React application still ensure it fetches the bundle for the client-side interactivity.
 
 ## Serverside Architecture
 
-- Run two back end server. One for the API, the other for rendering.
-	- The API layer is to deal wth DB access, validation, auth etc.
-	- The View layer just focuses on producing data.
+*   Run two back end server. One for the API, the other for rendering. - The API layer is to deal wth DB access, validation, auth etc. - The View layer just focuses on producing data.
 
 ## Example base package.json
 
@@ -68,7 +81,6 @@ Back on the browser side, the React application still ensure it fetches the bund
     "webpack-node-externals": "1.6.0"
   }
 }
-
 ```
 
 ## RenderToString function
@@ -88,15 +100,15 @@ var dotenv = require('dotenv').config;
 
 // Main starting point of the application
 const express = require('express');
-const http 			= require('http');
-const bodyParser 	= require('body-parser');
-const morgan 		= require('morgan');
-const app 			= express();
-const cors 			= require('cors');
-const spawn 		= require('child_process').spawn;
-const path 			= require('path');
-const React 		= require('react');
-const renderToString 	= require('react-dom/server').renderToString;
+const http = require('http');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
+const app = express();
+const cors = require('cors');
+const spawn = require('child_process').spawn;
+const path = require('path');
+const React = require('react');
+const renderToString = require('react-dom/server').renderToString;
 const Home = require('./components/home/Home').default;
 
 // App Setup
@@ -106,14 +118,14 @@ app.use(bodyParser.json({ type: '*/*' }));
 
 app.use(express.static(path.resolve(__dirname, 'build')));
 
-app.get('/', (req,res) => {
-	const content = renderToString(<Home />);
+app.get('/', (req, res) => {
+    const content = renderToString(<Home />);
 
-	res.send(content);
+    res.send(content);
 });
 
 app.get('*', (req, res) => {
-	res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
+    res.sendFile(path.resolve(__dirname, 'build', 'index.html'));
 });
 
 // Server Setup
@@ -174,7 +186,6 @@ Ignore the file itself in the appropriate places. for the other webpack configs.
 
 Create a `webpack.config.server.js` file.
 
-
 ```
 const path = require('path');
 const paths = require('./paths');
@@ -219,24 +230,20 @@ Currently, we have a static base file. We want to watch and re-run the server on
 
 `Serverside rendering` isn't necessarily accurate. Univeral/Isomorphic JS basically means that code that is rendered serverside might also be used client side.
 
-
 ## Clientside JS
 
 ```javascript
 <div className="home">
-	<h1>Home</h1>
-	<button onClick={() => console.log('HI!')}>Press me!</button>
+    <h1>Home</h1>
+    <button onClick={() => console.log('HI!')}>Press me!</button>
 </div>
 ```
 
 Why doesn't the above work? We are rendering out HTML and 0 JavaScript code being sent to the user browser. How can we ship this down?
 
-
 ## Client bundles
 
 We basically want to create 2 bundles:
 
-1. A server + client side bundle
-2. A client side only bundle
-
-
+1.  A server + client side bundle
+2.  A client side only bundle

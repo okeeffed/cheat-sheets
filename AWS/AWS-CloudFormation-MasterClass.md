@@ -1,5 +1,67 @@
 # CloudFormation Master Class
 
+<!-- TOC -->
+
+*   [CloudFormation Master Class](#cloudformation-master-class)
+    *   [What is CloudFormation](#what-is-cloudformation)
+    *   [Benefits](#benefits)
+    *   [CloudFormation vs Ansible / Terraform](#cloudformation-vs-ansible--terraform)
+    *   [First template](#first-template)
+    *   [YAML Intro](#yaml-intro)
+    *   [Creating a S3 Bucket](#creating-a-s3-bucket)
+        *   [Types of updates](#types-of-updates)
+        *   [Properties](#properties)
+        *   [Deleting the stack](#deleting-the-stack)
+    *   [CloudFormation template options](#cloudformation-template-options)
+    *   [CloudFormation Designer](#cloudformation-designer)
+    *   [Building Blocks](#building-blocks)
+    *   [Template helpers](#template-helpers)
+    *   [CloudFormation Parameters](#cloudformation-parameters)
+        *   [Overview](#overview)
+        *   [Theory and hands on](#theory-and-hands-on)
+    *   [How to reference a parameter](#how-to-reference-a-parameter)
+    *   [Resources](#resources)
+        *   [Reading the docs for an ES2 Instance](#reading-the-docs-for-an-es2-instance)
+        *   [Optional Attributes for Resources](#optional-attributes-for-resources)
+        *   [FAQ for resources](#faq-for-resources)
+    *   [Mappings](#mappings)
+        *   [Fn::FindInMap - Accessing Mapping Values](#fnfindinmap---accessing-mapping-values)
+        *   [Mappings in practise](#mappings-in-practise)
+    *   [Concept: Pseudo Parameters](#concept-pseudo-parameters)
+    *   [CloudFormation Outputs](#cloudformation-outputs)
+        *   [Outputs Hands-On](#outputs-hands-on)
+        *   [Cross Stack Reference](#cross-stack-reference)
+    *   [Conditions](#conditions)
+        *   [How to define a condition?](#how-to-define-a-condition)
+    *   [Conditional Hands On](#conditional-hands-on)
+    *   [Fn::GetAtt](#fngetatt)
+    *   [CF Metadata](#cf-metadata)
+        *   [AWS::CloudFormation::Designer hands on](#awscloudformationdesigner-hands-on)
+        *   [AWS::CloudFormation::Interface hands on](#awscloudformationinterface-hands-on)
+    *   [CFN Init and EC2 User Data](#cfn-init-and-ec2-user-data)
+        *   [EC2 User Data Overview](#ec2-user-data-overview)
+        *   [CloudFormation Init](#cloudformation-init)
+        *   [AWS::CloudFormation::Init](#awscloudformationinit)
+        *   [Packages](#packages)
+        *   [Groups and Users](#groups-and-users)
+        *   [Sources](#sources)
+        *   [Files](#files)
+        *   [Fn::Sub](#fnsub)
+        *   [Commands](#commands)
+        *   [Services](#services)
+        *   [CFN Init and Signal](#cfn-init-and-signal)
+        *   [cfn-hup](#cfn-hup)
+        *   [CFN Init Hands-On](#cfn-init-hands-on)
+    *   [Advanced CF Concepts](#advanced-cf-concepts)
+        *   [Using the AWS CLI](#using-the-aws-cli)
+        *   [Using Troposphere (Python) to generate CloudFormation templates](#using-troposphere-python-to-generate-cloudformation-templates)
+        *   [DeletionPolicy](#deletionpolicy)
+        *   [Custom Resources with AWS Lambda](#custom-resources-with-aws-lambda)
+        *   [Best practises to organize your CloudFormation templates](#best-practises-to-organize-your-cloudformation-templates)
+        *   [Cost estimate for templates](#cost-estimate-for-templates)
+
+<!-- /TOC -->
+
 ## What is CloudFormation
 
 Having >50 services, CloudFormation was brought in to help develops scaffold out the requires AWS stack.
@@ -8,31 +70,31 @@ Eg. I want a security group, two EC2 machines with it, two elastic IPs, an S3 bu
 
 CloudFormation will create all of this in the right order with the exact config.
 
-## Benefits 
+## Benefits
 
-1. Infrastructure as code  
-    - No manual creation
-    - Can be version controlled 
-    - Changes to infrastructure are reviewed through code
-2. Cost 
-    - Each resource will be tagged so you can estimate the costs and figure out which costs what
-    - Great savings strategy 
-3. Productivity
-    - Ability to destroy and re-create an infrastructure
-    - Automated generation of Diagram for templates 
-    - All declarative 
-4. Separation of concern
-    - Many different stacks for many different layers 
-5. Don't re-invent the wheel
-    - Already so many templates
-    - Leverage the docs
+1.  Infrastructure as code
+    *   No manual creation
+    *   Can be version controlled
+    *   Changes to infrastructure are reviewed through code
+2.  Cost
+    *   Each resource will be tagged so you can estimate the costs and figure out which costs what
+    *   Great savings strategy
+3.  Productivity
+    *   Ability to destroy and re-create an infrastructure
+    *   Automated generation of Diagram for templates
+    *   All declarative
+4.  Separation of concern
+    *   Many different stacks for many different layers
+5.  Don't re-invent the wheel
+    *   Already so many templates
+    *   Leverage the docs
 
 ## CloudFormation vs Ansible / Terraform
 
-- CF is native, and also contain the latest 
-- CF is state based
-- The others are instruction based - difficult to orchestrate 
-- For new services, Ansible / Terraform can take a long time
+*   CF is native, and also contain the latest
+*   CF is state based
+*   The others are instruction based - difficult to orchestrate
+*   For new services, Ansible / Terraform can take a long time
 
 ## First template
 
@@ -67,30 +129,30 @@ product:
       quantity: 4
 ```
 
-## Creating a S3 Bucket 
+## Creating a S3 Bucket
 
 Googling for the type, you will get the in depth docs from AWS.
 
 ```
 ---
-Resources: # always the start 
+Resources: # always the start
     MyS3Bucket: # template name
         Type: "AWS::S3::Bucket"
-        Properties: 
+        Properties:
             AccessControl: PublicRead
             BucketName: "www.site.com"
 ```
 
-### Types of updates 
+### Types of updates
 
-1. Updates with no interruption
-2. Replacements are breaking and need to replace the resource
+1.  Updates with no interruption
+2.  Replacements are breaking and need to replace the resource
 
-### Properties 
+### Properties
 
 On the properties under the docs, you can see info about the properties.
 
-### Deleting the stack 
+### Deleting the stack
 
 Just right click on the CloudFormation and delete the resources.
 
@@ -98,18 +160,18 @@ Just right click on the CloudFormation and delete the resources.
 
 You have a few template options:
 
-1. Tags
-2. Permissions (IAM role)
-3. Notifications Options (SNS topic)
-4. Timeouts (minutes before calling failure)
-5. Rollback on Failure 
-6. Stack Policy 
+1.  Tags
+2.  Permissions (IAM role)
+3.  Notifications Options (SNS topic)
+4.  Timeouts (minutes before calling failure)
+5.  Rollback on Failure
+6.  Stack Policy
 
 These (if you manually do it) all show up on the "create stack" part of CloudFormation.
 
 The template review also gives you an opportunity to estimate cost.
 
-## CloudFormation Designer 
+## CloudFormation Designer
 
 A visual aid to help build the CF Stack. Ensure the template is also well written.
 
@@ -121,49 +183,51 @@ It's great for dragging and dropping templates and giving information on that te
 
 There are a number of building blocks for each template:
 
-1. Resources: your AWS resources declared in the template
-2. Parameters: the dynamic inputs for your template
-3. Mappings: the static variables for your template
-4. Outputs: References to what has been created
-5. Conditionals: List of conditions to perform resource creation
-6. Metadata
+1.  Resources: your AWS resources declared in the template
+2.  Parameters: the dynamic inputs for your template
+3.  Mappings: the static variables for your template
+4.  Outputs: References to what has been created
+5.  Conditionals: List of conditions to perform resource creation
+6.  Metadata
 
-## Template helpers 
+## Template helpers
 
-1. References 
-2. Functions 
+1.  References
+2.  Functions
 
-## CloudFormation Parameters 
+## CloudFormation Parameters
 
-### Overview 
+### Overview
 
 What are they? The way to provide inputs to your AWS CloudFormation template.
 
 They're important to know about it:
 
-1. You want to reuse your templates across the company 
-2. Some inputs can not be determined ahead of time
+1.  You want to reuse your templates across the company
+2.  Some inputs can not be determined ahead of time
 
 The major benefit: you won't have to re-upload a template to change its content.
 
-### Theory and hands on 
+### Theory and hands on
 
 Parameters can be controlled by all these settings:
 
-1. Type:
-- String
-- Number
-- CommaDelimitedList
-- List<Type>
-- AWS Parameter (to help catch invalid values - match against existing values in the AWS Account)
-2. Description 
-3. Constraints 
-4. ConstraintDescription (String)
-5. Min/MaxLength
-6. Min/MaxValue
-7. Defaults 
-8. AllowedValues (array)
-9. AllowedPattern (regexp)
+1.  Type:
+
+*   String
+*   Number
+*   CommaDelimitedList
+*   List<Type>
+*   AWS Parameter (to help catch invalid values - match against existing values in the AWS Account)
+
+2.  Description
+3.  Constraints
+4.  ConstraintDescription (String)
+5.  Min/MaxLength
+6.  Min/MaxValue
+7.  Defaults
+8.  AllowedValues (array)
+9.  AllowedPattern (regexp)
 10. NoEcho (Boolean)
 
 This can be found in the `0-parameters-hands-on.yaml`.
@@ -174,13 +238,13 @@ To reference a parameter, you then go with `Key: !Ref Reference`.
 
 If you have `!Select` for a CommaDelimitedList, you need to go `Key: !Select [ArrayNumber, !Ref Reference]`.
 
-## How to reference a parameter 
+## How to reference a parameter
 
-- Using the Fn::Ref function. 
-- Shorthand in YAML is !Ref.
-- Can reference block, not just parameter
+*   Using the Fn::Ref function.
+*   Shorthand in YAML is !Ref.
+*   Can reference block, not just parameter
 
-## Resources 
+## Resources
 
 Resources are the core of your CloudFormation template. They represent the different AWS Components that will be created and configured.
 
@@ -190,21 +254,21 @@ There are over 224 types of resources.
 
 They are identified using the form `AWS::aws-product-name::data-type-name`.
 
-### Reading the docs for an ES2 Instance 
+### Reading the docs for an ES2 Instance
 
 If you look at the docs, if comes up with both JSON and YAML docs.
 
-### Optional Attributes for Resources 
+### Optional Attributes for Resources
 
-1. DependsOn: very useful to draw a dependency between two resources. For example, only create an ECS cluster after creating an ASG (auto scaling group).
-2. DeletionPolicy: protect resource from being deleted even if cloudformation is deleted.
-3. CreationPolicy: more info on CFN
-4. Metadata: anything you want!
+1.  DependsOn: very useful to draw a dependency between two resources. For example, only create an ECS cluster after creating an ASG (auto scaling group).
+2.  DeletionPolicy: protect resource from being deleted even if cloudformation is deleted.
+3.  CreationPolicy: more info on CFN
+4.  Metadata: anything you want!
 
-### FAQ for resources 
+### FAQ for resources
 
-1. Can I create a dynamic a dynamic amount of resources? No you can perform code generation. The work around is the `troposphere` Python library.
-2. Is every AWS Service supported? Almost. Only a select few niches are not there.
+1.  Can I create a dynamic a dynamic amount of resources? No you can perform code generation. The work around is the `troposphere` Python library.
+2.  Is every AWS Service supported? Almost. Only a select few niches are not there.
 
 ## Mappings
 
@@ -213,10 +277,11 @@ What are mappings? Fixed ariables within your CF Template. Great for dev vs prod
 Every mapping has top, middle and bottom.
 
 Great to use when you know in advance:
-- Region
-- AZ
-- AWSAccount
-- Environment (dev vs prod)
+
+*   Region
+*   AZ
+*   AWSAccount
+*   Environment (dev vs prod)
 
 They allow safer control over the template. Use parameters when the values are _really_ user specific.
 
@@ -224,7 +289,7 @@ They allow safer control over the template. Use parameters when the values are _
 
 Use Fn::FindInMap to return a named value from a specific key.
 
-- !FindInMap [ MapName, TopLevelKey, SecondLevelKey ]
+*   !FindInMap [ MapName, TopLevelKey, SecondLevelKey ]
 
 Example:
 
@@ -243,45 +308,45 @@ Resources:
             InstanceType: m1.small
 ```
 
-### Mappings in practise 
+### Mappings in practise
 
 ```yaml
 Parameters:
     EnvironmentName:
-        Description: Environment Name 
-        Type: String 
+        Description: Environment Name
+        Type: String
         AllowedValues: [development, production]
         ConstraintDescription: must be development or production
 
-Mappings: 
+Mappings:
     AWSRegionArch2AMI:
         us-east-1:
             HVM64: ami-6869aa05
     EnvironmentToInstantType:
-        development: 
-            instanceType: t2.micro 
+        development:
+            instanceType: t2.micro
         production:
             instanceType: t2.small
 
 Resources:
-    EC2Instance: 
-        Type: AWS::EC2::Instance 
+    EC2Instance:
+        Type: AWS::EC2::Instance
         Properties:
             InstanceType: !FindInMap [EnvironmentToInstanceType, !Ref 'EnvironmentName', instanceType]
             ImageId: !FindInMap [AWSRegionArch2AMI, !Ref 'AWS::Region', HVM64]
 ```
 
-## Concept: Pseudo Parameters 
+## Concept: Pseudo Parameters
 
-- AWS offers us pseudo params in any CF template.
-- These can be used at any time and are enabled by default.
+*   AWS offers us pseudo params in any CF template.
+*   These can be used at any time and are enabled by default.
 
-1. AWS::AccountId
-2. AWS::NotificationsARNs
-3. AWS::NoValue 
-4. AWS::Region
-5. AWS::StackId
-6. AWS::StackName
+1.  AWS::AccountId
+2.  AWS::NotificationsARNs
+3.  AWS::NoValue
+4.  AWS::Region
+5.  AWS::StackId
+6.  AWS::StackName
 
 ## CloudFormation Outputs
 
@@ -300,8 +365,8 @@ Creating a SSH Security Group as part of one template. We can create an output t
 ```yaml
 Outputs:
     <Logical ID>:
-        Description: Information about the value 
-        Value: Value to return 
+        Description: Information about the value
+        Value: Value to return
         Export:
             Name: Value to export
 ```
@@ -344,7 +409,7 @@ Outputs:
 
 It is important to note that for an `output` to be used anywhere, you need to define an `export` value.
 
-### Cross Stack Reference 
+### Cross Stack Reference
 
 We use `Fn::ImportValue` in a simple block:
 
@@ -362,15 +427,15 @@ Resources:
         - !ImportValue SSHSecurityGroup
 ```
 
-## Conditions 
+## Conditions
 
 Conditionals are used to control the creation of resources or outputs based on a condition.
 
 Conditions can be whatever you want them to be, but common ones are:
 
-- Environment (dev/test/prod)
-- AWS Region 
-- Any parameter value 
+*   Environment (dev/test/prod)
+*   AWS Region
+*   Any parameter value
 
 Each condition can reference another condition, parameter value or mapping.
 
@@ -384,17 +449,12 @@ Conditions:
 
 Logical ID is for you to choose. It's how you name the condition.
 
-The intrinsic function (logical) can be any of the following: 
-    - Fn::And
-    - Fn::Equals
-    - Fn::If
-    - Fn::Not
-    - Fn::Or
+The intrinsic function (logical) can be any of the following: - Fn::And - Fn::Equals - Fn::If - Fn::Not - Fn::Or
 
-## Conditional Hands On 
+## Conditional Hands On
 
-- Let's analyze a CF template that optionally creates a volume and mount point only if "prod" is specified as a parameter.
-- It utilizes params, mappings, conditionals, outputs
+*   Let's analyze a CF template that optionally creates a volume and mount point only if "prod" is specified as a parameter.
+*   It utilizes params, mappings, conditionals, outputs
 
 ```yaml
 AWSTemplateFormatVersion: "2010-09-09"
@@ -472,7 +532,7 @@ Outputs:
 
 Note that `conditions` can not be applied to `parameters`.
 
-## Fn::GetAtt 
+## Fn::GetAtt
 
 Get an attribute attached to any resource that exists. To know the attributes, check the docs.
 
@@ -482,15 +542,15 @@ This is any optional metadata section to include arbitrary YAML that provide det
 
 There are 3 metadata keys that have special meaning:
 
-1. AWS::CloudFormation::Designer
+1.  AWS::CloudFormation::Designer
 
 Describes how the resources are laid out in your template. This is automatically added by the AWS Designer. This helps the UI (x and y)
 
-2. AWS::CloudFormation::Interface
+2.  AWS::CloudFormation::Interface
 
 Define grouping and ordering of input parameters when they are displayed in the AWS Console.
 
-3. AWS::CloudFormation::Init
+3.  AWS::CloudFormation::Init
 
 Define configuration tasks for cfn-init. It's the most powerful usage of the metadata. This is very important and a lot to learn about it below.
 
@@ -648,7 +708,7 @@ Resources:
 
 Now that we see the power of this, let's have a look at CF Init.
 
-### CloudFormation Init 
+### CloudFormation Init
 
 What is the problem with EC2 user data? Well, what happens if we have a large configuration? What if we want to evolve the state without terminating it? How do we make it readable? How do we know or signal that our EC2 user-data script actually completed successfully?
 
@@ -656,37 +716,37 @@ Amazon creating CF helper scripts.
 
 There are 4 python scripts that come directly with Amazon Linux AMI or can be installed using `yum` on non-Amazon Linux. They are:
 
-1. cfn-init: Used to retrieve and interprety the resouce metadata, installing packages, creating files and starting services.
-2. cfn-signal: A simple wrapper to signal an AWS CloudFormation CreationPolicy or WaitCondition, enabling you to sync other resources in the stack with the application being ready. This can give us the yes/no if succssful.
-3. cfn-get-metadata: A wrapper script making it easy to retrieve either all metadata defined for a resource or path to a specific key or subtree of the resource metadata.
-4. cfn-hup: A daemon to check for updates to metadata and execute custom hooks when the changes are detected.
+1.  cfn-init: Used to retrieve and interprety the resouce metadata, installing packages, creating files and starting services.
+2.  cfn-signal: A simple wrapper to signal an AWS CloudFormation CreationPolicy or WaitCondition, enabling you to sync other resources in the stack with the application being ready. This can give us the yes/no if succssful.
+3.  cfn-get-metadata: A wrapper script making it easy to retrieve either all metadata defined for a resource or path to a specific key or subtree of the resource metadata.
+4.  cfn-hup: A daemon to check for updates to metadata and execute custom hooks when the changes are detected.
 
 The usual flow? cfn-init, then cfn-signal, then optionally cfn-hup.
 
-### AWS::CloudFormation::Init 
+### AWS::CloudFormation::Init
 
 A config contains the following and is executed in that order:
 
-1. Packages: install a list of packages on the Linux OS (mysql, wordpress, etc)
-2. Groups: define user groups
-3. Users: define users, and which group they belong to
-4. Sources: download an archive file and place it on the ec2 instance (tar, zip, bz2)
-5. Files: create files on the ec2 instance, using inline or can be pulled from a URL
-6. Commands: run a series of commands 
-7. Services: launch a list of sysvinit 
+1.  Packages: install a list of packages on the Linux OS (mysql, wordpress, etc)
+2.  Groups: define user groups
+3.  Users: define users, and which group they belong to
+4.  Sources: download an archive file and place it on the ec2 instance (tar, zip, bz2)
+5.  Files: create files on the ec2 instance, using inline or can be pulled from a URL
+6.  Commands: run a series of commands
+7.  Services: launch a list of sysvinit
 
 You can also have multiple configs and you can run them sequentially etc.
 
 ### Packages
 
-You can install packages from the following repositories: 
+You can install packages from the following repositories:
 
-- apt
-- msi
-- python
-- rpm 
-- rubygems 
-- yum
+*   apt
+*   msi
+*   python
+*   rpm
+*   rubygems
+*   yum
 
 Packages are processed in the following order: rpm, yum/apt, and then rubygems and python.
 
@@ -699,7 +759,7 @@ AWS::CloudFormation::Init:
       rpm:
         epel: "http://download...."
       yum:
-        httpd: [] # means latest 
+        httpd: [] # means latest
         php: []
         wordpress: []
       rubygems:
@@ -707,7 +767,7 @@ AWS::CloudFormation::Init:
           - "0.10.2" # get this version
 ```
 
-### Groups and Users 
+### Groups and Users
 
 If you want to have multiple users and groups (with optional gid) in your ec2 instance, you can add groups and users to CF and metadata.
 
@@ -740,7 +800,7 @@ AWS::CloudFormation::Init:
           - "apache" # user apache belongs to apache
 ```
 
-### Sources 
+### Sources
 
 These are conveninence for a compressed archieve.
 
@@ -752,7 +812,7 @@ AWS::CloudFormation::Init:
       "/home/ec2-user/aws-cli": "https://github.com/aws/aws-cli/tarball/master"
 ```
 
-### Files 
+### Files
 
 Files can be the most used section. Almost all the full power. It can be a specific URL or written inline for what you are doing.
 
@@ -830,7 +890,7 @@ For example, you can combine !Sub with References or AWS Pseudo variables.
 
 Must be in the form `${VarName}`.
 
-Forms: 
+Forms:
 
 ```yaml
 # You can do this
@@ -842,7 +902,7 @@ Forms:
 !Sub String
 ```
 
-### Commands 
+### Commands
 
 You can run commands one at a time in the `alphabetical order`.
 
@@ -865,7 +925,7 @@ commands:
     ignoreErrors: "false" # fail if is doesn't work
 ```
 
-### Services 
+### Services
 
 ```yaml
 AWS::CloudFormation::Init:
@@ -874,13 +934,13 @@ AWS::CloudFormation::Init:
       sysvinit:
         httpd:
           enabled: 'true'
-          ensureRunning: 'true' 
+          ensureRunning: 'true'
         sendmail:
           enabled: 'false'
           ensureRunning: 'false'
 ```
 
-### CFN Init and Signal 
+### CFN Init and Signal
 
 First, we use `cfn-init` to launch the config.
 
@@ -900,8 +960,8 @@ This is useful in case of a bad update.
 
 ### cfn-hup
 
-- Cfn-hup can be used to tell your EC2 instance to look for Metadata changes every 15 minutes and apply the metadata configuration again.
-- It's very powerful but you really need to try it out to understand how it works.
+*   Cfn-hup can be used to tell your EC2 instance to look for Metadata changes every 15 minutes and apply the metadata configuration again.
+*   It's very powerful but you really need to try it out to understand how it works.
 
 Example from the "files" declation:
 
@@ -936,9 +996,9 @@ Remember logs for ec2-user data are in `/var/log/cloud-init-output.log` and logs
 
 ## Advanced CF Concepts
 
-Review of current standing: 
+Review of current standing:
 
-- You can check AWS labs templates from `https://github/com/awslabs/aws-cloudformation-templates` to see what you can understand/see good practise.
+*   You can check AWS labs templates from `https://github/com/awslabs/aws-cloudformation-templates` to see what you can understand/see good practise.
 
 The example with WordPress is what is shown in the course.
 
@@ -974,9 +1034,9 @@ This policy can prevent resources from being deleted, or in some cases, back the
 
 Deletion Policy can take up the following values:
 
-1. Delete: AWS CloudFormation will delete the resource and all its content if applicable during stack deletion (does not apply to S3)
-2. Retain: AWS CloudFormation keeps the resource without deleting the resource or its contents when its stack is deleted. You can add this deletion policy to any resource type.
-3. Snapshot: For resources that support snapshots (AWS::EC2::Volume, AWS::ElasticCache::CacheCluster etc)
+1.  Delete: AWS CloudFormation will delete the resource and all its content if applicable during stack deletion (does not apply to S3)
+2.  Retain: AWS CloudFormation keeps the resource without deleting the resource or its contents when its stack is deleted. You can add this deletion policy to any resource type.
+3.  Snapshot: For resources that support snapshots (AWS::EC2::Volume, AWS::ElasticCache::CacheCluster etc)
 
 ```yaml
 Resources:
@@ -989,7 +1049,7 @@ In the above example, it will create the S3 Bucket, you will see the bucket crea
 
 Now if we delete that stack and the deletion policy is retain, you will still have that bucket there.
 
-### Custom Resources with AWS Lambda 
+### Custom Resources with AWS Lambda
 
 Custom resources enable you to write custom provisioning logic in templates that AWS CloudFormation runs anytime you create, update (if you changed the custom resource) or delete stacks.
 
@@ -999,15 +1059,15 @@ Check online for a walkthrough of custom resources.
 
 ### Best practises to organize your CloudFormation templates
 
-1. How to organise templates: you can have a layered architecture (horizontal layers) vs service oriented architecture (vertical layers).
-2. Use cross stack references eg. to reference a VPC or subnet.
-3. Make sure the template is environment agnostic to do dev / test / prod and across regions / accounts seemlessly.
-4. Never embed credentials (use parameters with NoEcho or KMS).
-5. Use specific parameters types and constraints.
-6. Use CFN Init (& latest version of the helper scripts)
-7. Validate templates 
-8. Don't do anything manual on the elements of the stack - that can cause a state mismatch.
-9. Verify changes with changesets (and avoid disasters).
+1.  How to organise templates: you can have a layered architecture (horizontal layers) vs service oriented architecture (vertical layers).
+2.  Use cross stack references eg. to reference a VPC or subnet.
+3.  Make sure the template is environment agnostic to do dev / test / prod and across regions / accounts seemlessly.
+4.  Never embed credentials (use parameters with NoEcho or KMS).
+5.  Use specific parameters types and constraints.
+6.  Use CFN Init (& latest version of the helper scripts)
+7.  Validate templates
+8.  Don't do anything manual on the elements of the stack - that can cause a state mismatch.
+9.  Verify changes with changesets (and avoid disasters).
 10. Use stack policies to prevent critical components from being deleted after create (such as your most valuable RDS database).
 
 ### Cost estimate for templates

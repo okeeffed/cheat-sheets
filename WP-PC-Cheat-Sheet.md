@@ -1,5 +1,16 @@
 # WP PRES COMPANY CHEAT SHEET
 
+<!-- TOC -->
+
+*   [WP PRES COMPANY CHEAT SHEET](#wp-pres-company-cheat-sheet)
+    *   [WPPRES-1: FAQ](#wppres-1-faq)
+    *   [WPPRES-2: Custom Type Relationships](#wppres-2-custom-type-relationships)
+    *   [WPPRES-3: Example of Rendering a .twig file using Timber WP functions](#wppres-3-example-of-rendering-a-twig-file-using-timber-wp-functions)
+    *   [WPPRES-4: Example PHP functions.php](#wppres-4-example-php-functionsphp)
+    *   [WPPRES-5: Creating AJAX (Loading example)](#wppres-5-creating-ajax-loading-example)
+
+<!-- /TOC -->
+
 ## WPPRES-1: FAQ
 
 **Q: I'm having a database connection failure through MAMP**
@@ -15,7 +26,6 @@ A: Add it as an argument in twig or create a custom function adjusting the posts
 **Q: Where can I find what I need?**
 
 A: Check against the staging website if it is up to grab things like taxonomies, types, and to figure out the layout.
-
 
 ## WPPRES-2: Custom Type Relationships
 
@@ -84,10 +94,10 @@ Timber::render('author.twig', $data);
 ```
 
 ## WPPRES-3: Example of Rendering a .twig file using Timber WP functions
-- using the above examples
+
+*   using the above examples
 
 ```html
-
 // __author.twig__
 
 {% if post.article_author %}
@@ -183,7 +193,7 @@ if (!is_admin()) {
 
 Using twig, variables were passed down to be used for things such as `loadmore.twig`, while a PHP class, routes and functions were set up to interact with the JS file.
 
-__function.php__
+**function.php**
 
 ```php
 <?php
@@ -193,7 +203,7 @@ require_once('functions/load_more.php');
 ?>
 ```
 
-__loadmore.php__
+**loadmore.php**
 
 ```php
 <?php
@@ -224,7 +234,7 @@ class LoadMore {
 ?>
 ```
 
-__routes.php__
+**routes.php**
 
 ```php
 ...
@@ -236,105 +246,121 @@ Routes::map(':section/:cat/:page', function($params){
 ...
 ```
 
-```
-
+````
 __loadmore.twig__
 
 ```html
 <div class="loadmore-container" data-page='1' data-section='{{ section }}' data-category='{{ category }}'>
 	<a>Load More</a>
 </div>
-```
+````
 
-__load-more.js__
+**load-more.js**
 
 ```javascript
 var titleTagline = require('./title-tagline.js');
 
 var loadMore = {
-	$loadMoreContainer: $('.loadmore-container'),
-	category: $('.loadmore-container').data('category'),
-	section: $('.loadmore-container').data('section'),
-	search: $('.loadmore-container').data('search'),
-	page: $('.loadmore-container').data('page'),
-	base_url: $('meta[name=base_url]').attr('content'),
-	perPage: 6,
+    $loadMoreContainer: $('.loadmore-container'),
+    category: $('.loadmore-container').data('category'),
+    section: $('.loadmore-container').data('section'),
+    search: $('.loadmore-container').data('search'),
+    page: $('.loadmore-container').data('page'),
+    base_url: $('meta[name=base_url]').attr('content'),
+    perPage: 6,
 
-	init: function () {
+    init: function() {
+        // Show mega-menu when mega-menu link is focused
+        loadMore.$loadMoreContainer.on('click', function(e) {
+            e.preventDefault();
+            if ($('ul.grid').length > 0) {
+                loadMore.loadNextSection();
+            } else {
+                loadMore.loadNextSearch();
+            }
+        });
+    },
 
-		// Show mega-menu when mega-menu link is focused
-		loadMore.$loadMoreContainer.on('click', function (e) {
-			e.preventDefault();
-			if ($('ul.grid').length > 0) {
-				loadMore.loadNextSection();
-			} else {
-				loadMore.loadNextSearch();
-			}
-		});
-	},
+    loadNextSection: function() {
+        return $.ajax({
+            url:
+                loadMore.base_url +
+                '/section/' +
+                loadMore.section +
+                '/' +
+                loadMore.category +
+                '/' +
+                loadMore.page,
+            type: 'GET',
+            success: loadMore.resultsSection,
+            error: loadMore.outputError
+        });
+    },
 
-	loadNextSection: function () {
+    loadNextSearch: function() {
+        var urlString = loadMore.search;
+        urlString = urlString.replace(' ', '+');
+        console.log(urlString);
+        return $.ajax({
+            url:
+                loadMore.base_url +
+                '/search/' +
+                urlString +
+                '/' +
+                loadMore.page,
+            type: 'GET',
+            success: loadMore.resultsSearch,
+            error: loadMore.outputError
+        });
+    },
 
-		return $.ajax({
-			url: loadMore.base_url + '/section/' + loadMore.section + '/' + loadMore.category + '/' + loadMore.page,
-			type: 'GET',
-			success: loadMore.resultsSection,
-			error: loadMore.outputError,
-		});
-	},
+    resultsSection: function(data) {
+        var numPosts = $(data).find('li.-post').length;
+        loadMore.page = parseInt(loadMore.page) + 1;
+        var render = $(data)
+            .find('li.-post')
+            .unwrap();
+        $('ul.grid')
+            .last()
+            .append(render);
 
-	loadNextSearch: function () {
-		var urlString = loadMore.search;
-		urlString = urlString.replace(' ', '+');
-		console.log(urlString);
-		return $.ajax({
-			url: loadMore.base_url + '/search/' + urlString + '/' + loadMore.page,
-			type: 'GET',
-			success: loadMore.resultsSearch,
-			error: loadMore.outputError,
-		});
-	},
+        if (numPosts < loadMore.perPage) {
+            loadMore.hideViewAll();
+        }
 
-	resultsSection: function (data) {
-		var numPosts = $(data).find('li.-post').length;
-		loadMore.page = parseInt(loadMore.page) + 1;
-		var render = $(data).find('li.-post').unwrap();
-		$('ul.grid').last().append(render);
+        titleTagline.init();
+        titleTagline.doneResizing();
+    },
 
-		if (numPosts < loadMore.perPage) {
-			loadMore.hideViewAll();
-		}
+    resultsSearch: function(data) {
+        console.log(data);
 
-		titleTagline.init();
-		titleTagline.doneResizing();
-	},
+        var numPosts = $(data).find('li.list-item').length;
+        loadMore.page = parseInt(loadMore.page) + 1;
 
-	resultsSearch: function (data) {
+        var render = $(data)
+            .find('li.list-item')
+            .unwrap();
+        $('ul.list')
+            .last()
+            .append(render);
 
-		console.log(data);
+        if (numPosts < loadMore.perPage) {
+            loadMore.hideViewAll();
+        }
+    },
 
-		var numPosts = $(data).find('li.list-item').length;
-		loadMore.page = parseInt(loadMore.page) + 1;
-
-		var render = $(data).find('li.list-item').unwrap();
-		$('ul.list').last().append(render);
-
-		if (numPosts < loadMore.perPage) {
-			loadMore.hideViewAll();
-		}
-	},
-
-	hideViewAll: function () {
-		loadMore.$loadMoreContainer.css('display', 'none');
-	},
+    hideViewAll: function() {
+        loadMore.$loadMoreContainer.css('display', 'none');
+    }
 };
 
 module.exports = {
-	init: loadMore.init,
+    init: loadMore.init
 };
 ```
 
-__loadmore.php__
+**loadmore.php**
 
 ```php
 <?php
@@ -418,6 +444,7 @@ class LoadMore {
 
 ?>
 ```
+
 ## WPPRES-6: Custom Search Terms
 
 This example was taken from YAC when it was required to search for a CPT ID and then use it to get some post ids returned with the latest meta data values.

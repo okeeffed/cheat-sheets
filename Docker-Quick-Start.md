@@ -1,6 +1,19 @@
 # Docker Quickstart
 
-***
+---
+
+<!-- TOC -->
+
+*   [Docker Quickstart](#docker-quickstart)
+    *   [Basic commands](#basic-commands)
+    *   [Running the whalesay container](#running-the-whalesay-container)
+    *   [Inspecting Docker images](#inspecting-docker-images)
+    *   [Container Lifecycle](#container-lifecycle)
+    *   [Image and Container Management](#image-and-container-management)
+    *   [Redirection - Ports and Volumes](#redirection---ports-and-volumes)
+    *   [The Dockerfile](#the-dockerfile)
+
+<!-- /TOC -->
 
 ## Basic commands
 
@@ -198,7 +211,7 @@ docker inspect whalesay
 ]
 ```
 
-***
+---
 
 ## Container Lifecycle
 
@@ -214,7 +227,7 @@ docker exec -it LifeCycle1 /bin/bash
 
 We don't have to attach to the container with the `exec` command. We can just connect to is just to execute a command - like a `ssh` prompt!
 
-***
+---
 
 ## Image and Container Management
 
@@ -226,11 +239,11 @@ docker rmi image-name
 docker rm `docker ps -a -q`
 ```
 
-***
+---
 
 ## Redirection - Ports and Volumes
 
-__Ports__
+**Ports**
 
 Ports are exposed in a container so that you can connect via the container IP but must be exposed via the `dockerfile`.
 
@@ -241,7 +254,7 @@ We can direct the port for a http container to a port on the underlying host.
 To find all the address redirection, we can write `docker port WebServer1 $CONTAINERPORT`
 
 ```
-okeeffe_d@dok ~$ docker port WebServer1 $CONTAINERPORT                                   
+okeeffe_d@dok ~$ docker port WebServer1 $CONTAINERPORT
 
 443/tcp -> 0.0.0.0:32768
 80/tcp -> 0.0.0.0:32769
@@ -263,7 +276,7 @@ Good practise is to keep the container as emphemeral as possible. It should not 
 
 // 15 min mark
 
-If we create a basic file and create a HTML page, we could then run 
+If we create a basic file and create a HTML page, we could then run
 
 ```
 docker run -d -p 8080:80 --name=webserver -v /home/user/www:/usr/share/nginx/html nginx:latest
@@ -271,7 +284,7 @@ docker run -d -p 8080:80 --name=webserver -v /home/user/www:/usr/share/nginx/htm
 // this will mount the file and mount it to that directory. We can push multiple mounts!
 ```
 
-***
+---
 
 ## The Dockerfile
 
@@ -306,7 +319,7 @@ docker run -it dockerhubid/myapache:latest /bin/bash
 my-value
 ```
 
-__Exposing or preventing exposing ports__
+**Exposing or preventing exposing ports**
 
 ```
 # most have FROM which image

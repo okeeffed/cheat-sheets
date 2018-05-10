@@ -1,5 +1,32 @@
 # Ruby Basics Help Sheet
 
+<!-- TOC -->
+
+*   [Ruby Basics Help Sheet](#ruby-basics-help-sheet)
+    *   [RUBY-1: Comments](#ruby-1-comments)
+*   [This is an example comment](#this-is-an-example-comment)
+    *   [RUBY-2: Variables](#ruby-2-variables)
+    *   [RUBY-3: Console puts](#ruby-3-console-puts)
+    *   [RUBY-4: Call a method](#ruby-4-call-a-method)
+    *   [RUBY-5: Define a method](#ruby-5-define-a-method)
+    *   [RUBY-6: Equality](#ruby-6-equality)
+    *   [RUBY-7: Inequality](#ruby-7-inequality)
+    *   [RUBY-8: Decisions with if](#ruby-8-decisions-with-if)
+    *   [RUBY-9: Constants](#ruby-9-constants)
+    *   [RUBY-10: Strings](#ruby-10-strings)
+    *   [RUBY-11: Concatentation](#ruby-11-concatentation)
+    *   [RUBY-12: Substitute](#ruby-12-substitute)
+    *   [RUBY-13: String Access](#ruby-13-string-access)
+    *   [RUBY-14: Arrays](#ruby-14-arrays)
+    *   [RUBY-15: add an array element](#ruby-15-add-an-array-element)
+    *   [RUBY-16: Hashes](#ruby-16-hashes)
+    *   [THRUBY-1: TH Ruby Basics](#thruby-1-th-ruby-basics)
+    *   [THRUBY-2: Ruby Strings](#thruby-2-ruby-strings)
+    *   [THRUBY-2: Ruby Numbers](#thruby-2-ruby-numbers)
+    *   [THRUBY-2: Ruby Methods](#thruby-2-ruby-methods)
+
+<!-- /TOC -->
+
 ## RUBY-1: Comments
 
 # This is an example comment
@@ -191,7 +218,7 @@ hash.delete(:a)
 hash # => {:b=>10}
 ```
 
-***
+---
 
 ## THRUBY-1: TH Ruby Basics
 
@@ -216,7 +243,7 @@ def hi
 end
 ```
 
-- if the method does not take parameters, then you do not need to define the curly braces
+*   if the method does not take parameters, then you do not need to define the curly braces
 
 **Classes**
 
@@ -237,7 +264,7 @@ end
 greeter = Greeter.new("Pat")
 ```
 
-- Using attr_accessor defined two new methods for us, name to get the value, and name= to set it.
+*   Using attr_accessor defined two new methods for us, name to get the value, and name= to set it.
 
 **LOOPING**
 
@@ -263,8 +290,8 @@ end
 
 Giving input to the variable.
 
-- puts auto creates \n
-- print does not
+*   puts auto creates \n
+*   print does not
 
 ```ruby
 # name = "Jason"
@@ -274,13 +301,13 @@ name = gets # this is what is going to take the input
 puts "Hello #{name}!"
 ```
 
-***
+---
 
 ## THRUBY-2: Ruby Strings
 
-__What are Strings?__
+**What are Strings?**
 
-- Using double quotes when creating a string will cause variables in the string to be interpolated.
+*   Using double quotes when creating a string will cause variables in the string to be interpolated.
 
 ```ruby
 # this will all print out as is
@@ -295,20 +322,20 @@ a multiline String
 "
 ```
 
-__Whitespace__
+**Whitespace**
 
 \n -> new line
 \s -> space
-\t -> new tab 
+\t -> new tab
 
 ```ruby
 example = "New line \nhere"
 ```
 
-***
+---
 
 ## THRUBY-2: Ruby Numbers
 
-***
+---
 
 ## THRUBY-2: Ruby Methods

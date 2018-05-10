@@ -6,6 +6,7 @@
 *   [10 Ways to Evaluate the Market](#10-ways-to-evaluate-the-market)
 *   [12 Standard forms of value](#12-standard-forms-of-value)
 *   [Percieved value](#percieved-value)
+*   [The Iteration Cycle](#the-iteration-cycle)
 
 <!-- /TOC -->
 

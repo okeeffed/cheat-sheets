@@ -1,10 +1,28 @@
 # Drupal 8
 
+<!-- TOC -->
+
+*   [Drupal 8](#drupal-8)
+    *   [Installation](#installation)
+    *   [Basics of Content Creation](#basics-of-content-creation)
+    *   [Publishing Options - Published, Promoted, URL](#publishing-options---published-promoted-url)
+    *   [5. Simple Site - Content](#5-simple-site---content)
+    *   [8. Extending Drupal](#8-extending-drupal)
+        *   [Core Modules](#core-modules)
+        *   [Forum module](#forum-module)
+        *   [Finding modules](#finding-modules)
+    *   [9. Creating a site - Content Types](#9-creating-a-site---content-types)
+        *   [Updating an existing content type](#updating-an-existing-content-type)
+        *   [Changing how the content type displays](#changing-how-the-content-type-displays)
+        *   [Create a new content type - Event](#create-a-new-content-type---event)
+
+<!-- /TOC -->
+
 ## Installation
 
 Download Drupal: https://www.drupal.org/download
 
-- Save the contents at the base of your new repo/directory i.e. so the url will be `localhost/YOUR_DIRECTORY/DRUPAL-CONTENT/`
+*   Save the contents at the base of your new repo/directory i.e. so the url will be `localhost/YOUR_DIRECTORY/DRUPAL-CONTENT/`
 
 Go to `localhost/YOUR_DIRECTORY/DRUPAL-CONTENT/` and follow the prompts
 You also need to run `composer install` from your sites root directory.
@@ -64,5 +82,3 @@ Next, we can add help text, add `required` and a default value.
 From `Structure > Content Type`, we can change the display.
 
 ### Create a new content type - Event
-
-

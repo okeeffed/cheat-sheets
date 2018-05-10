@@ -1,5 +1,24 @@
 # TWIG CHEAT SHEET
 
+<!-- TOC -->
+
+*   [TWIG CHEAT SHEET](#twig-cheat-sheet)
+    *   [Web Synopsis](#web-synopsis)
+    *   [Attributes](#attributes)
+    *   [Setting Variables](#setting-variables)
+    *   [Filters](#filters)
+    *   [Functions](#functions)
+    *   [Named Arguments](#named-arguments)
+    *   [Control Flow Structure](#control-flow-structure)
+    *   [Comments](#comments)
+    *   [Include](#include)
+    *   [Extends](#extends)
+    *   [Template Inheritance](#template-inheritance)
+    *   [Manual Escaping](#manual-escaping)
+    *   [Macros (add in if you think it is relevant)](#macros-add-in-if-you-think-it-is-relevant)
+
+<!-- /TOC -->
+
 // references
 
 http://twig.sensiolabs.org/doc/templates.html
@@ -161,6 +180,7 @@ http://twig.sensiolabs.org/doc/tags/index.html
 ## Comments
 
 To comment-out part of a line in a template, use the comment syntax {# ... #}. This is useful for debugging or to add information for other template designers or yourself:
+
 ```
 {# note: disabled template because we no longer use this
     {% for user in users %}
@@ -189,7 +209,7 @@ Use extends to include the layout and then use the block headers to import the r
 {% extends "master.twig" %}
 
 {% block header %}
-  {% include 'partials/header.twig' with {				
+  {% include 'partials/header.twig' with {
     'title': artist.title
   } %}
 {% endblock %}

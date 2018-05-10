@@ -1,5 +1,35 @@
 # Advanced React and Redux
 
+<!-- TOC -->
+
+*   [Advanced React and Redux](#advanced-react-and-redux)
+    *   [1. Testing](#1-testing)
+        *   [Test Reporting](#test-reporting)
+    *   [3. Higher Order Components](#3-higher-order-components)
+        *   [Require Auth HOC](#require-auth-hoc)
+        *   [Nesting Higher Order Components](#nesting-higher-order-components)
+    *   [3. Middlewares](#3-middlewares)
+    *   [4. Authentication](#4-authentication)
+        *   [Cookies vs Tokens](#cookies-vs-tokens)
+        *   [Scalable Architecture](#scalable-architecture)
+        *   [Server Setup](#server-setup)
+        *   [Express Middleware](#express-middleware)
+        *   [Seeing the MongoDB Database](#seeing-the-mongodb-database)
+        *   [Authentication Controller](#authentication-controller)
+        *   [JWT Overview](#jwt-overview)
+        *   [Passport](#passport)
+        *   [Using Strategies with Passport](#using-strategies-with-passport)
+        *   [Using Postman](#using-postman)
+    *   [Client Side (React App)](#client-side-react-app)
+        *   [Dealing with CORS errors with a request (CORS in a nutshell)](#dealing-with-cors-errors-with-a-request-cors-in-a-nutshell)
+        *   [Local storage on the client and JWT](#local-storage-on-the-client-and-jwt)
+        *   [Form vaidation](#form-vaidation)
+        *   [Signup Action Creator](#signup-action-creator)
+        *   [Checking auth at the start of the application](#checking-auth-at-the-start-of-the-application)
+        *   [Making Authenticated API Requests](#making-authenticated-api-requests)
+
+<!-- /TOC -->
+
 ## 1. Testing
 
 Jumping into examples are normally more useful as you are learning.
@@ -18,7 +48,7 @@ This gives us back an `enchanced/composed` componenet. These are heavily used in
 
 **Connect and Provider**
 
-```javascript 
+```javascript
 import { connect } from 'react-redux';
 
 class App extends Component {
@@ -35,13 +65,14 @@ export default connect(mapStateToProps)(App);
 
 How about the Provider?
 
-```javascript 
-// in index.js or whatever ReactDOM we're using 
+```javascript
+// in index.js or whatever ReactDOM we're using
 ReactDOM.render(
-	<Provider store={createStoreWithMiddleware(reducers)}>
-		<App />
-	</Provider>
-, document.querySelector('.container'));
+    <Provider store={createStoreWithMiddleware(reducers)}>
+        <App />
+    </Provider>,
+    document.querySelector('.container')
+);
 ```
 
 The `Provider` is a HOC to the `Redux Store`. Whenever the `Redux Store` changing, the `Provider` notices and broadcasts down to any connected component (using the `connect` function).
@@ -54,17 +85,17 @@ How can we use a HOC to help with authentication?
 import React from 'react';
 
 export default () => {
-	return (
-		<div>
-			Super Special Secret Recipe
-			<ul>
-				<li class="example">1 Cup Sugar</li>
-				<li class="example">1 Cup Salt</li>
-				<li class="example">Another piece of stuff</li>
-			</ul>
-		</div>
-	)
-}
+    return (
+        <div>
+            Super Special Secret Recipe
+            <ul>
+                <li class="example">1 Cup Sugar</li>
+                <li class="example">1 Cup Salt</li>
+                <li class="example">Another piece of stuff</li>
+            </ul>
+        </div>
+    );
+};
 ```
 
 If we pass this basic component to the router, we can wrap the component using a HOC.
@@ -72,17 +103,15 @@ If we pass this basic component to the router, we can wrap the component using a
 You need to create `actions` and `reducers` for the correct Auth action and reducer.
 
 ```javascript
-// src > actions > index.js 
+// src > actions > index.js
 // doesn't include the reducer code
-import {
-	CHANGE_AUTH
-} from './types';
+import { CHANGE_AUTH } from './types';
 
 export function authenticate(isLoggedIn) {
-	return {
-		type: CHANGE_AUTH,
-		payload: isLoggedIn
-	};
+    return {
+        type: CHANGE_AUTH,
+        payload: isLoggedIn
+    };
 }
 ```
 
@@ -94,25 +123,25 @@ export function authenticate(isLoggedIn) {
 import React, { Component } from 'react';
 
 export default function(ComposedComponent) {
-	class Authentication extends Component {
-		render() {
-			return <ComposedComponent {...this.props} />
-		}
-	}
+    class Authentication extends Component {
+        render() {
+            return <ComposedComponent {...this.props} />;
+        }
+    }
 
-	return Authentication;
+    return Authentication;
 }
 ```
 
-*What's going on here?*
+_What's going on here?_
 
 In some other location, we want to use this HOC.
 
-eg. another render method 
+eg. another render method
 
 ```
-import Authentication 
-import Resources // the component to wrap 
+import Authentication
+import Resources // the component to wrap
 
 const ComposedComponent = Authentication(Resources);
 
@@ -122,7 +151,7 @@ render() {
 	<ComposedComponent resources={resourceList} />
 }
 
-// OR MORE USEFULLY IN THE REACT ROUTER 
+// OR MORE USEFULLY IN THE REACT ROUTER
 
 <Route path="/" component={Authentication(Resources)} />
 ```
@@ -138,24 +167,24 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 export default function(ComposedComponent) {
-	class Authentication extends Component {
-		// to get data ahead of time 
-		// this is part of "Class Level Properties"
-		// console.log(this.context) will show nav properties!
-		static contextTypes = {
-			router: React.PropTypes.object
-		}
+    class Authentication extends Component {
+        // to get data ahead of time
+        // this is part of "Class Level Properties"
+        // console.log(this.context) will show nav properties!
+        static contextTypes = {
+            router: React.PropTypes.object
+        };
 
-		render() {
-			return <ComposedComponent {...this.props} />
-		}
-	}
+        render() {
+            return <ComposedComponent {...this.props} />;
+        }
+    }
 
-	function mapStateToProps(state) {
-		return { authenticated: state.authenticated }
-	}
+    function mapStateToProps(state) {
+        return { authenticated: state.authenticated };
+    }
 
-	return connect(mapStateToProps)(Authentication);
+    return connect(mapStateToProps)(Authentication);
 }
 ```
 
@@ -167,7 +196,7 @@ In the React-Redux cycle, the action is sent to the middleware before it forward
 
 Middleware has the opportunity to log, stop, modify or not touch an action.
 
-```javascript 
+```javascript
 export default function({dispatch}) {
 	return next => action => {
 		console.log(action);
@@ -176,9 +205,9 @@ export default function({dispatch}) {
 	}
 }
 
-// vanilla es5 
+// vanilla es5
 export default function({dispatch}) {
-	return function(next) { 
+	return function(next) {
 		return function(action) {
 			console.log(action);
 
@@ -192,21 +221,20 @@ Now with this `async`, we can apply it to the main file where `createStoreWithMi
 
 It's important that we just target the actions that we want - send the others on using the `next()` function.
 
-```javascript 
-export default function({dispatch}) {
-	return next => action => {
-		if (!action.payload || !action.payload.then) {
-			return next(action);
-		}
+```javascript
+export default function({ dispatch }) {
+    return (next) => (action) => {
+        if (!action.payload || !action.payload.then) {
+            return next(action);
+        }
 
-		// if there is a promise
-		action.payload
-			.then(response => {
-				// knock off and replace response
-				const newAction = {...action, payload: response}
-				dispatch(newAction);
-			});
-	}
+        // if there is a promise
+        action.payload.then((response) => {
+            // knock off and replace response
+            const newAction = { ...action, payload: response };
+            dispatch(newAction);
+        });
+    };
 }
 ```
 
@@ -228,31 +256,32 @@ In conclusion, we just want `Here is my cookie OR token for a protected resource
 
 **Cookies**
 
-- Automatically included on all requests 
-- Unique to each domain 
-- Cannot be sent to different domains 
+*   Automatically included on all requests
+*   Unique to each domain
+*   Cannot be sent to different domains
 
 Headers - `cookie: {}`
-Body - JSON 
+Body - JSON
 
 The point of cookies is to bring `state` to something `stateless`
 
 **Token**
 
-- Have to manually wire up
-- Can be sent to any domain 
+*   Have to manually wire up
+*   Can be sent to any domain
 
 Headers - `authorization: jioeajteioa`
 Body - JSON
 
 Being able to send this to any domain we wish is a benefit with a token.
 
-### Scalable Architecture 
+### Scalable Architecture
 
 So we've decided to go with tokens, which is also aligned with how the industry is trending.
 
 If we served `index.html` and `bundle.js` from a Content Server, we can make that server work with no auth req'd.
-- Very easy to redistribute 
+
+*   Very easy to redistribute
 
 If we had our API server on another server, we would use a token because cookies would not be able to access the domain with the cookie. It also means we could keep a single location for both mobile and web application.
 
@@ -266,7 +295,7 @@ Time to start writing some code.
 
 `mkdir server && cd server`
 
-An example `package.json` will look like so 
+An example `package.json` will look like so
 
 ```javascript
 {
@@ -339,11 +368,11 @@ app.use(bodyParser.json({ type: '*/*' }));
 router(app);
 ```
 
-- Morgan is a logging framework - quite good for giving the type of requests!
-- Cors allows you the server to use Cross Origin.
-- bodyParser will parse incoming requests. At the moment, it's just for JSON but you may need to change this if you are expecting a file etc.
+*   Morgan is a logging framework - quite good for giving the type of requests!
+*   Cors allows you the server to use Cross Origin.
+*   bodyParser will parse incoming requests. At the moment, it's just for JSON but you may need to change this if you are expecting a file etc.
 
-### Seeing the MongoDB Database 
+### Seeing the MongoDB Database
 
 Worthwhile downloading `Robomongo` if you are keen to visually see a GUI with MongoDB.
 
@@ -359,13 +388,13 @@ In `router.js`, we can use the functions exported from the controller to create 
 
 There are two phases for the lifecycle.
 
-1. When signing in 
+1.  When signing in
 
 `User ID` + `Secret String` = `JSON Web Token`
 
 In the future, the user can now use this token for future requests.
 
-2. Authenticated calls after signin 
+2.  Authenticated calls after signin
 
 `JSON Web Token` + `Secret String` = `User ID`
 
@@ -380,13 +409,13 @@ const jwt = require('jwt-simple');
 const config = require('../config');
 
 function tokenForUser(user) {
-	const timestamp = new Date().getTime();
-	// convention will have sub for subject, iat for issued at time
-	return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
+    const timestamp = new Date().getTime();
+    // convention will have sub for subject, iat for issued at time
+    return jwt.encode({ sub: user.id, iat: timestamp }, config.secret);
 }
 ```
 
-### Passport 
+### Passport
 
 So once they've signed up, how do we exchange and give them a token? We need to handle the login case. We also need to make sure they're authenticated when they try accessing a protected resource.
 
@@ -406,44 +435,58 @@ const LocalStrategy = require('passport-local');
 
 // Create local strategy
 const localOptions = { usernameField: 'email' };
-const localLogin = new LocalStrategy(localOptions, function(email, password, done) {
-  // Verify this email and password, call done with the user
-  // if it is the correct email and password
-  // otherwise, call done with false
-  User.findOne({ email: email }, function(err, user) {
-    if (err) { return done(err); }
-    if (!user) { return done(null, false); }
+const localLogin = new LocalStrategy(localOptions, function(
+    email,
+    password,
+    done
+) {
+    // Verify this email and password, call done with the user
+    // if it is the correct email and password
+    // otherwise, call done with false
+    User.findOne({ email: email }, function(err, user) {
+        if (err) {
+            return done(err);
+        }
+        if (!user) {
+            return done(null, false);
+        }
 
-    // compare passwords - is `password` equal to user.password?
-    user.comparePassword(password, function(err, isMatch) {
-      if (err) { return done(err); }
-      if (!isMatch) { return done(null, false); }
+        // compare passwords - is `password` equal to user.password?
+        user.comparePassword(password, function(err, isMatch) {
+            if (err) {
+                return done(err);
+            }
+            if (!isMatch) {
+                return done(null, false);
+            }
 
-      return done(null, user);
+            return done(null, user);
+        });
     });
-  });
 });
 
 // Setup options for JWT Strategy
 const jwtOptions = {
-  jwtFromRequest: ExtractJwt.fromHeader('authorization'),
-  secretOrKey: config.secret
+    jwtFromRequest: ExtractJwt.fromHeader('authorization'),
+    secretOrKey: config.secret
 };
 
 // Create JWT strategy
 const jwtLogin = new JwtStrategy(jwtOptions, function(payload, done) {
-  // See if the user ID in the payload exists in our database
-  // If it does, call 'done' with that other
-  // otherwise, call done without a user object
-  User.findById(payload.sub, function(err, user) {
-    if (err) { return done(err, false); }
+    // See if the user ID in the payload exists in our database
+    // If it does, call 'done' with that other
+    // otherwise, call done without a user object
+    User.findById(payload.sub, function(err, user) {
+        if (err) {
+            return done(err, false);
+        }
 
-    if (user) {
-      done(null, user);
-    } else {
-      done(null, false);
-    }
-  });
+        if (user) {
+            done(null, user);
+        } else {
+            done(null, false);
+        }
+    });
 });
 
 // Tell passport to use this strategy
@@ -455,7 +498,7 @@ Passport is more of an ecosystem of strategies. A strategy is a method for authe
 
 In the Jwt Strategy, the payload comes from the `sub` and `iat` we created.
 
-### Using Strategies with Passport 
+### Using Strategies with Passport
 
 Reminder: Stategies are a plugin of sorts that works with Passport.
 
@@ -478,14 +521,14 @@ const requireAuth = passport.authenticate('jwt', { session: false });
 const requireSignin = passport.authenticate('local', { session: false });
 
 module.exports = function(app) {
-	// here we wish to actually use require auth as middleware
-	// before processing
-	app.get('/', requireAuth, function(req, res) {
-		res.send({ message: 'Super secret code is ABC123' });
-	});
-	app.post('/signin', requireSignin, Authentication.signin);
-	app.post('/signup', Authentication.signup);
-}
+    // here we wish to actually use require auth as middleware
+    // before processing
+    app.get('/', requireAuth, function(req, res) {
+        res.send({ message: 'Super secret code is ABC123' });
+    });
+    app.post('/signin', requireSignin, Authentication.signin);
+    app.post('/signup', Authentication.signup);
+};
 ```
 
 Using `Postman`, we can then make a `signup` attempt, grab the token and then try make a get request to `/`. If we add a header `authorization` and add in the token we get, we can see that we will get success. Changing this token slightly will give you an unauthorized response.
@@ -506,7 +549,7 @@ Then, in the future, when they wish to make a request, we verify the token and g
 
 If we then need to use the schema defined `comparePassword` method.
 
-### Using Postman 
+### Using Postman
 
 Whenever you are willing to test the server using postman, startup the `mongod` daemon (if using mongo) and `nodemon index.js` on the server file, and then you can make GET and POST requests to the localhost port.
 
@@ -540,7 +583,7 @@ We can use `cors` on the server to help with this. We will just use `app.use(cor
 
 The idea with the JWT token is to save that and be able to use it. Having the JWT in local storage, it also means that it is persistent and available again for a user once they come back.
 
-### Form vaidation 
+### Form vaidation
 
 `redux-validation` can really help us out here!
 
@@ -548,32 +591,32 @@ With a form, create a function `validate()` that will take the `formProps` and r
 
 ```javascript
 function validate(formProps) {
-	const errors = {};
+    const errors = {};
 
-	console.log(formProps); // this would be linked up to the email, password and passwordConfirm
+    console.log(formProps); // this would be linked up to the email, password and passwordConfirm
 
-	// do this for each field
-	if (!formProps.email) {
-		errors.email = 'Please enter an email';
-	}
+    // do this for each field
+    if (!formProps.email) {
+        errors.email = 'Please enter an email';
+    }
 
-	if (formProps.password !== formProps.passwordConfirm) {
-		errors.password = 'Passwords must match';
-	}
+    if (formProps.password !== formProps.passwordConfirm) {
+        errors.password = 'Passwords must match';
+    }
 
-	return errors;
+    return errors;
 }
 ```
 
 You can then set `{password.touched && password.error && <div className="error">{password.error}</div>}` for the error to show on the component.
 
-### Signup Action Creator 
+### Signup Action Creator
 
 For the form component, create an action handler for `onSubmit` with `<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}`.
 
 In order to protect routes from being accessed without authentication, we use Higher Order Components in order to wrap other components.
 
-### Checking auth at the start of the application 
+### Checking auth at the start of the application
 
 With we use redux and `createStoreWithMiddleware(reducers)`, we can start applying some intricate details.
 
@@ -581,14 +624,14 @@ With we use redux and `createStoreWithMiddleware(reducers)`, we can start applyi
 // create a store ahead of time
 const store = createStoreWithMiddleware(reducers);
 const token = localStorage.getItem('token');
-// if we have a token, consider the user to be signed in 
+// if we have a token, consider the user to be signed in
 if (token) {
-	// we need to update application state - the dispatch method 
-	// any action can be sent off in the dispatch
-	store.dispatch({
-		// make sure you import AUTH_USER first
-		type: AUTH_USER
-	});
+    // we need to update application state - the dispatch method
+    // any action can be sent off in the dispatch
+    store.dispatch({
+        // make sure you import AUTH_USER first
+        type: AUTH_USER
+    });
 }
 ```
 
@@ -602,18 +645,19 @@ With Axios, we can make an auth request like so:
 
 ```javascript
 export function fetchMessage() {
-	return function(dispatch) {
-		axios.get(ROOT_URL, {
-			headers: { authorization: localStorage.getItem('token') }
-		})
-		.then(response => {
-			console.log(response);
-			dispatch({
-				type: TYPE,
-				payload: response.data.message
-			});
-		});
-	}
+    return function(dispatch) {
+        axios
+            .get(ROOT_URL, {
+                headers: { authorization: localStorage.getItem('token') }
+            })
+            .then((response) => {
+                console.log(response);
+                dispatch({
+                    type: TYPE,
+                    payload: response.data.message
+                });
+            });
+    };
 }
 ```
 
@@ -621,13 +665,13 @@ This can also be done with `Redux Promise` in such a clean way:
 
 ```javascript
 export function fetchMessage() {
-	const request = axios.get(ROOT_URL, {
-		headers: { authorization: localStorage.getItem('token') }
-	});
+    const request = axios.get(ROOT_URL, {
+        headers: { authorization: localStorage.getItem('token') }
+    });
 
-	return {
-		type: TYPE,
-		payload: response.data.message
-	}
+    return {
+        type: TYPE,
+        payload: response.data.message
+    };
 }
 ```

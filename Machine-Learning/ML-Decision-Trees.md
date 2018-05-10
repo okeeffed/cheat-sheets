@@ -1,5 +1,13 @@
 # Decision Trees
 
+<!-- TOC -->
+
+*   [Decision Trees](#decision-trees)
+    *   [Intuition](#intuition)
+    *   [Decision Tree Regression in Python](#decision-tree-regression-in-python)
+
+<!-- /TOC -->
+
 ## Intuition
 
 **CART: Classification and Regression Trees**

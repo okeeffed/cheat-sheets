@@ -1,7 +1,7 @@
 # create-react-app Server Side bootstrapping
 
-1. npm run eject
-2. Update config/paths.js
+1.  npm run eject
+2.  Update config/paths.js
 
 ```javascript
 // config/paths.js
@@ -14,8 +14,8 @@ module.exports = {
 }
 ```
 
-3. Create a `webpack.config.server.js` file.
-4. Install `webpack-node-externals`.
+3.  Create a `webpack.config.server.js` file.
+4.  Install `webpack-node-externals`.
 
 As described on the github:
 

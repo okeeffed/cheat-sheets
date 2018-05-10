@@ -1,8 +1,41 @@
 ## Docker Deep Dive
 
-***
+---
 
-## Docker Basics 
+<!-- TOC -->
+
+*   [Docker Deep Dive](#docker-deep-dive)
+*   [Docker Basics](#docker-basics)
+    *   [---- Working with Multiple Images](#-----working-with-multiple-images)
+    *   [---- Packaging A Customized Container](#-----packaging-a-customized-container)
+    *   [---- Container Commands](#-----container-commands)
+    *   [---- Exposing ports](#-----exposing-ports)
+*   [The Dockerfile, Builds and Network Configuration](#the-dockerfile-builds-and-network-configuration)
+    *   [---- USER and RUN](#-----user-and-run)
+    *   [---- ENV](#-----env)
+    *   [---- CMD vs RUN](#-----cmd-vs-run)
+    *   [---- ENTRYPOINT](#-----entrypoint)
+    *   [---- EXPOSE](#-----expose)
+    *   [---- Container Volume Management](#-----container-volume-management)
+    *   [---- Docker Network: List and Inspect](#-----docker-network-list-and-inspect)
+    *   [---- Docker Network: Assign to Containers](#-----docker-network-assign-to-containers)
+*   [Docker commands and structures](#docker-commands-and-structures)
+    *   [---- Inspect Container Processes](#-----inspect-container-processes)
+    *   [---- Previous Container Management](#-----previous-container-management)
+    *   [---- Controlling Port Exposure on Containers](#-----controlling-port-exposure-on-containers)
+    *   [---- Naming Containers](#-----naming-containers)
+    *   [---- Docker Events](#-----docker-events)
+    *   [---- Managing and Removing Base Images](#-----managing-and-removing-base-images)
+    *   [---- Saving and Loading Docker Images](#-----saving-and-loading-docker-images)
+    *   [---- Image History](#-----image-history)
+    *   [---- Take Control of Our Tags](#-----take-control-of-our-tags)
+    *   [---- Pushing to Docker Hub](#-----pushing-to-docker-hub)
+*   [Integration and Use Cases](#integration-and-use-cases)
+    *   [---- Building a Web Farm for Development and Testing](#-----building-a-web-farm-for-development-and-testing)
+
+<!-- /TOC -->
+
+## Docker Basics
 
 ### ---- Working with Multiple Images
 
@@ -14,7 +47,7 @@ docker run -i -t -d ubuntu:latest /bin/bash
 docker attach container_name
 ```
 
-***
+---
 
 ### ---- Packaging A Customized Container
 
@@ -78,7 +111,7 @@ USER user
 
 To connect as the root, you just need to start the container and run `docker exec -u 0 -it sleepy_allen /bin/bash`
 
-__Order of Execution__
+**Order of Execution**
 
 We had to run a super user command to add the User. Now let's say we want to run another command.
 
@@ -178,7 +211,7 @@ RUN echo "This is a custom index file built during the image creation" > /var/ww
 ENTRYPOINT apachectl "-DFOREGROUND"
 ```
 
-However, if we don't expose any ports, then using `-P` won't automatically expose those ports. We can still forcably expose ports using `docker run --name apacheweb -d -p 8080:80 container 
+However, if we don't expose any ports, then using `-P` won't automatically expose those ports. We can still forcably expose ports using `docker run --name apacheweb -d -p 8080:80 container
 
 To auto-expose, we can do this...
 
@@ -200,7 +233,7 @@ ENTRYPOINT apachectl "-DFOREGROUND"
 
 How do we work with mounts and file systems?
 
-We can mount using `-v` for mounting volumes. 
+We can mount using `-v` for mounting volumes.
 
 Scenario One: Create a directory at launchtime called `mydata`
 
@@ -235,7 +268,7 @@ docker network ls --no-trunc # to see the full address
 docker network inspect bridge
 ```
 
-__Creating Docker network configs__
+**Creating Docker network configs**
 
 To see things like a `man` page for docker, you essential just put dashes between multi-word commands.
 
@@ -269,7 +302,7 @@ docker run -it --name nettest1 --net bridge04 --ip 10.1.4.100 centos:latest /bin
 # if we docker inspect nettest1 | grep IP we can see the address set at 10.1.4.100
 ```
 
-***
+---
 
 ## Docker commands and structures
 
@@ -291,7 +324,7 @@ This will ensure that the container doesn't stop, but will actually run two inst
 
 So far, this can give us a momentary snap shot.
 
-__See the history of previous processes and performances__
+**See the history of previous processes and performances**
 
 We can use `docker stats` to see a live set of information for that container.
 
@@ -304,7 +337,6 @@ This will keep a view that is constantly updated to see what is going on.
 Just to see the previous containers not running with just their ids, we can run `docker ps -a -q`
 
 Of course, for removing older containers, we can `docker rm` previous containers.
-
 
 We can also remove containers from the `/var/lib/docker` folder as the super user. If you do it this way, you want to ensure that you have `systemctl stop/restart docker` to ensure that there aren't any issues with Docker.
 
@@ -340,7 +372,7 @@ If we run `docker events`, it will begin a program to wait and register certain 
 
 If we run `docker events --since '1h'`, we can then see all the events that have happened in the last hour.
 
-If we run just `docker events` and run a `dok exec -it mycontainerid /bin/bash` command, we will then see those events registered. This is useful for debugging and monitoring the entire host. 
+If we run just `docker events` and run a `dok exec -it mycontainerid /bin/bash` command, we will then see those events registered. This is useful for debugging and monitoring the entire host.
 
 We may not care about every event though. What happens if we just care about an attachment?
 
@@ -356,7 +388,7 @@ If you remove an image by name, then if there is a double up of the same ID, it 
 
 ### ---- Saving and Loading Docker Images
 
-__Saving__
+**Saving**
 
 When we pull images, we can pull from local or from Docker Hub. You will use base of an official release usually etc.
 
@@ -366,7 +398,7 @@ How can we manage our custom images? We can `tar` any file and migrate it to ano
 
 This will allow us to save the image but remove the containers!
 
-We can use 
+We can use
 
 ```
 docker save --output centos.latest.tar centos:latest
@@ -374,12 +406,11 @@ docker save --output centos.latest.tar centos:latest
 
 If you `ls` the tar file, it will give you details about the image/container.
 
-__Restoring__
+**Restoring**
 
 `docker load --input centos.latest.tar`
 
 If we have `gzip` a tar file, we can also load it directly from the `.tar.gz` file.
-
 
 ### ---- Image History
 
@@ -405,57 +436,16 @@ One authenticated, `docker push image`
 
 Of course, to bring it back down, you will hit `docker pull name`
 
-***
+---
 
 ## Integration and Use Cases
 
 ### ---- Building a Web Farm for Development and Testing
 
-*Prerequisites*
+_Prerequisites_
 
 So far, we have not had a specific purpose for Docker containers. These following examples are for real world use cases.
 
 Set up a web farm with two Apache web nodes on port 80 - both sharing one or more file systems.
 
-*Part One*
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+_Part One_

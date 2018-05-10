@@ -1,5 +1,28 @@
 # Title
 
+<!-- TOC -->
+
+*   [Title](#title)
+    *   [Table of Contents](#table-of-contents)
+    *   [Intro to Python Collections](#intro-to-python-collections)
+        *   [---- Extending Collections](#-----extending-collections)
+        *   [---- Shopping List](#-----shopping-list)
+        *   [---- Removing Items from a List](#-----removing-items-from-a-list)
+        *   [---- Removing vowels from a list of words and capitalising them](#-----removing-vowels-from-a-list-of-words-and-capitalising-them)
+        *   [---- Pop an item from the list](#-----pop-an-item-from-the-list)
+    *   [Slices](#slices)
+        *   [---- Slicing with a Step](#-----slicing-with-a-step)
+        *   [---- Deleting or Replacing Slices](#-----deleting-or-replacing-slices)
+    *   [Dictionaries](#dictionaries)
+        *   [---- Managing Keys](#-----managing-keys)
+        *   [---- Unpacking Dictionaries](#-----unpacking-dictionaries)
+        *   [---- Dictionary Iteration](#-----dictionary-iteration)
+    *   [Tuples](#tuples)
+        *   [---- Tuple Packing and Unpacking](#-----tuple-packing-and-unpacking)
+        *   [---- Tuples with functions](#-----tuples-with-functions)
+
+<!-- /TOC -->
+
 ## Table of Contents
 
 <a href="#intro">title</a>
@@ -7,7 +30,7 @@
 
 <div id="intro"></div>
 
-***
+---
 
 ## Intro to Python Collections
 
@@ -35,9 +58,9 @@ For splitting strings themselves we can use `str.split(str="", num=string.count(
 
 ### ---- Extending Collections
 
- Normally cleaner for larger lists than the `+` symbol.
+Normally cleaner for larger lists than the `+` symbol.
 
- ```python
+```python
 >>> our_list
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 >>> our_list.extend(range(13, 20))
@@ -45,9 +68,9 @@ For splitting strings themselves we can use `str.split(str="", num=string.count(
 [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]
 ```
 
- How do add new items inside the list?
+How do add new items inside the list?
 
- ```python
+```python
 >>> alpha= list('acdf')
 >>> alpha
 ['a', 'c', 'd', 'f']
@@ -89,7 +112,7 @@ while True:
 		#do other stuff
 		break
 	else
-		... 
+		...
 ```
 
 <div id="3"></div>
@@ -125,7 +148,7 @@ output = []
 
 for name in names:
 	name_list = list(name.lower())
-	
+
 	for vowel in vowels:
 		while True:
 			try:
@@ -162,7 +185,7 @@ the_list.insert(0, the_list.pop(3))
 
 <div id="slices"></div>
 
-***
+---
 
 ## Slices
 
@@ -226,7 +249,7 @@ my_list = [1,2, 'a', 'b', 5,6,'f','g']
 my_list[4:7] = ['e','f']
 ```
 
-__Code Challenge__
+**Code Challenge**
 
 ```
 def sillycase(c):
@@ -235,7 +258,7 @@ def sillycase(c):
 
 <div id="dict1"></div>
 
-***
+---
 
 ## Dictionaries
 
@@ -259,7 +282,7 @@ game_dict = {(1,2) : True}
 game_dict[(1,2)]
 ```
 
-Challenge: Check if a dict key is in the list 
+Challenge: Check if a dict key is in the list
 
 ```
 def members(dict, keys):
@@ -429,7 +452,7 @@ def courses(teachers):
 
 <div id="tuples"></div>
 
-***
+---
 
 ## Tuples
 
@@ -528,7 +551,7 @@ We can use enumerate for some packing etc.
 ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 >>> dir(enumerate)
 ['__class__', '__delattr__', '__doc__', '__format__', '__getattribute__', '__hash__', '__init__', '__iter__', '__new__', '__reduce__', '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__', 'next']
-# prints the help 
+# prints the help
 >>> help(enumerate)
 >>> for (index, letter) in enumerate(alpha):
 ...     print('{}: {}').format(index,letter)
@@ -643,17 +666,3 @@ def combo(iter1, iter2):
     combo_list.append(tuple)
   return combo_list
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-

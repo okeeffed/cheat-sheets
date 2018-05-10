@@ -1,13 +1,32 @@
 # Docker and Elastic Beanstalk
 
+<!-- TOC -->
+
+*   [Docker and Elastic Beanstalk](#docker-and-elastic-beanstalk)
+    *   [DOCKED-1: Introduction](#docked-1-introduction)
+        *   [---- DOCKED-1.1: Syllabus](#-----docked-11-syllabus)
+        *   [---- DOCKED-1.2: Container Discussion](#-----docked-12-container-discussion)
+        *   [---- DOCKED-1.3: Container Architecture](#-----docked-13-container-architecture)
+        *   [---- DOCKED-1.4: Introduction to Docker](#-----docked-14-introduction-to-docker)
+        *   [---- DOCKED-1.5: Introduction to Elastic Beanstalk](#-----docked-15-introduction-to-elastic-beanstalk)
+    *   [DOCKED-2: Setup and Config](#docked-2-setup-and-config)
+        *   [---- DOCKED-2.1: Install and Configure](#-----docked-21-install-and-configure)
+        *   [---- DOCKED-2.2: Docker Command Line Basics](#-----docked-22-docker-command-line-basics)
+        *   [---- DOCKED-2.3: Installing AWS CLI and EB CLI Tools](#-----docked-23-installing-aws-cli-and-eb-cli-tools)
+        *   [---- DOCKED-2.4: Elastic Beanstalk Accounts and Groups](#-----docked-24-elastic-beanstalk-accounts-and-groups)
+    *   [DOCKED-3: Components and Usage](#docked-3-components-and-usage)
+        *   [---- DOCKED-3.1: The First App Using the EB Wizard](#-----docked-31-the-first-app-using-the-eb-wizard)
+
+<!-- /TOC -->
+
 ## DOCKED-1: Introduction
 
 ### ---- DOCKED-1.1: Syllabus
 
-- What is Elastic Beanstalk?
-- What is a container?
-- Container Architecture
-- Introduction to Docker
+*   What is Elastic Beanstalk?
+*   What is a container?
+*   Container Architecture
+*   Introduction to Docker
 
 Docker itself is a wrapper around containers.
 
@@ -15,25 +34,25 @@ It has managed to get containers to a point where it is reusable and consistent.
 
 We'll also...
 
-- Install and configure Docker
-- The Docker Hub
-- Install the AWS CLI and EB CLI
-- Create an account and assign privileges
-- Configure the EB CLI
-- Verify the EB CLI
+*   Install and configure Docker
+*   The Docker Hub
+*   Install the AWS CLI and EB CLI
+*   Create an account and assign privileges
+*   Configure the EB CLI
+*   Verify the EB CLI
 
-__Components and Usage__
+**Components and Usage**
 
-- Managing applications
-- Configure and Manage the Environment
-- Monitoring
-- AWS Integration
-- The Local Development Environment
-- Deploying with Docker
+*   Managing applications
+*   Configure and Manage the Environment
+*   Monitoring
+*   AWS Integration
+*   The Local Development Environment
+*   Deploying with Docker
 
 ### ---- DOCKED-1.2: Container Discussion
 
-__What is a container?__
+**What is a container?**
 
 What is a virtual machine? A virtual machine is an emulation of a specific computer system type. They operate based on the architecture and functions of that real computer.
 
@@ -55,28 +74,28 @@ Docker is a client/server application where both the daemon and the client can b
 
 Docker clients and daemons communicate via sockets or through a RESTful API (xml file that has details for it).
 
-__Docker Main Components__
+**Docker Main Components**
 
-- Daemon
-- Client
-- Docker io registery - local and remote (Docker Hub)
+*   Daemon
+*   Client
+*   Docker io registery - local and remote (Docker Hub)
 
 The container architecture is generic - nothing itself is related to Docker specifically. The Docker engine is not necessarily unique itself.
 
 You only need disk and CPU appropriate to the application and its libraries and binaries.
 
-__Containers vs VMs__
+**Containers vs VMs**
 
 _VM_
 
-App A		App A'		App B
-|			|			|
-|			|			|
-Bins/libs 	Bins/libs 	Bins/libs  		
-|			|			|
-Guest OS	Guest OS	Guest OS
-|			|			|
-|			|			|
+App A App A' App B
+| | |
+| | |
+Bins/libs Bins/libs Bins/libs
+| | |
+Guest OS Guest OS Guest OS
+| | |
+| | |
 <--Hypervisor (type 2)-->
 |
 |
@@ -95,7 +114,7 @@ Don't mistake the Docker Engine (or the LXC process) as the equivalent of a hype
 
 Well, for VMs, do we need the guest OS? Depends on the architecture you are trying to run. For the containers, we have this lightweight Docker engine to help the communication between the app and the Host OS. We no longer have to do it through a guest OS.
 
-__Summary__
+**Summary**
 
 The architecture of Docker and the containers that it relies on are not new concepts, having been around since the early part of this century. However, hardware virtualization performance has now become almost indistinguishable from bare metal so that further virtualization on the technology stack can be realized.
 
@@ -109,14 +128,14 @@ To run it on Windows/OSX, you need a lightweight VM like Vagrant.
 
 For Docker, you will build an instance of an OS container. You can then distribute that system on anything that runs on a Linux kernel.
 
-__Why Docker?__
+**Why Docker?**
 
-- Configuration Simplification
-- Enhance Developer Productivity
-- Server Consolidation and management
-- Application isolation
-- Rapid Deployment
-- Build Management
+*   Configuration Simplification
+*   Enhance Developer Productivity
+*   Server Consolidation and management
+*   Application isolation
+*   Rapid Deployment
+*   Build Management
 
 You no longer have to worry about translating or re-compiling. You just have it run on that container on top of the OS.
 
@@ -124,7 +143,7 @@ If you deploy this as just one image, and if there are any issues, you just take
 
 Build management therefore becomes easy.
 
-__Summary__
+**Summary**
 
 Isolate applications, standardize the build and deployment process.
 
@@ -138,11 +157,11 @@ Create Application
 |
 |
 Upload Version <-----
-|					|
-|					|
-Launch Environment	|
-|					|
-|					|
+| |
+| |
+Launch Environment |
+| |
+| |
 Manage Environment <-
 
 It helps us automatically look after all of our AWS resources.
@@ -153,7 +172,7 @@ One of the best parts of it is, there are no additional charges for EB services.
 
 Amazon has put a lot of emphasis on containers - especially with the wide adoption of Docker.
 
-***
+---
 
 ## DOCKED-2: Setup and Config
 
@@ -195,7 +214,7 @@ Docker is getting ready for Docker 2.0, however we are running 1.12.0 at the tim
 
 Everything is contained in the snapshots that can be committed to other images. Easier to see in action.
 
-To pull down latest copy of CentOS from  as an example from with Ubuntu.
+To pull down latest copy of CentOS from as an example from with Ubuntu.
 
 ```
 docker pull centos:latest
@@ -214,7 +233,7 @@ This below will open up centos in the terminal running running a bash script
 docker run -it centos:latest /bin/bash
 ```
 
-__hint:__ `docker ps` will show you docker processes.
+**hint:** `docker ps` will show you docker processes.
 
 When you actually within the container, you can start installing things and it runs it separately to your computer... It's running within the container!
 
@@ -270,7 +289,7 @@ We need to now create a security group associated with beanstalk. We can do this
 
 From an enterprise perspective, ensure that you aren't installing using root. Ensure you set the alias and create a user. In this case, it's probably more important to create a role. Give `administrator access` for this role.
 
-***
+---
 
 ## DOCKED-3: Components and Usage
 

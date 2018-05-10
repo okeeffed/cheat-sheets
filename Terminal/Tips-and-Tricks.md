@@ -1,5 +1,14 @@
 # Tips and Tricks
 
+<!-- TOC -->
+
+*   [Tips and Tricks](#tips-and-tricks)
+    *   [Dealing with records](#dealing-with-records)
+    *   [Load balancing](#load-balancing)
+    *   [Ports](#ports)
+
+<!-- /TOC -->
+
 ## Dealing with records
 
 `curl -I <domain>`

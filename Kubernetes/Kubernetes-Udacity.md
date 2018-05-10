@@ -1,5 +1,30 @@
 # Kubernetes Udacity Course
 
+<!-- TOC -->
+
+*   [Kubernetes Udacity Course](#kubernetes-udacity-course)
+    *   [Introduction to Microservices](#introduction-to-microservices)
+        *   [The Evolution of Applications](#the-evolution-of-applications)
+        *   [Microservices](#microservices)
+        *   [The app on Google Cloud](#the-app-on-google-cloud)
+        *   [12 factor apps](#12-factor-apps)
+        *   [Refactor to MSA](#refactor-to-msa)
+        *   [JSON Web Tokens](#json-web-tokens)
+    *   [Lesson 2: Building the Containers with Docker](#lesson-2-building-the-containers-with-docker)
+        *   [What is Docker?](#what-is-docker)
+    *   [Lesson 3: Kubernetes](#lesson-3-kubernetes)
+        *   [How to learn k8s](#how-to-learn-k8s)
+        *   [Kubernetes Intro](#kubernetes-intro)
+        *   [Pods](#pods)
+        *   [Monitoring and Health Checks](#monitoring-and-health-checks)
+        *   [App Config and Security Overview](#app-config-and-security-overview)
+        *   [Create a service](#create-a-service)
+        *   [Adding labels to pods](#adding-labels-to-pods)
+    *   [Lesson 4: Deploying Microservices](#lesson-4-deploying-microservices)
+        *   [Deployment](#deployment)
+
+<!-- /TOC -->
+
 ## Introduction to Microservices
 
 Microservices helps the method for "always on" apps.
@@ -8,9 +33,9 @@ Distributed systems will be taught to add ontop of tools we may already use like
 
 Order:
 
-1. Understanding the basics
-2. How to package and distribute apps
-3. Running applications using a distributed platform that can scale
+1.  Understanding the basics
+2.  How to package and distribute apps
+3.  Running applications using a distributed platform that can scale
 
 ### The Evolution of Applications
 
@@ -27,9 +52,10 @@ If we think of a simple setup being done through things like Chef. Co-ordination
 ### Microservices
 
 What does it mean? It's just an architectual approach. It's goes for:
-- Modularity
-- Scalability
-- Ease of deployment
+
+*   Modularity
+*   Scalability
+*   Ease of deployment
 
 The design pattern applies to any application. It just refers to rapid deployments and continuous delivery. it pushes the automation tools to their limits.
 
@@ -131,10 +157,10 @@ So what is Kubernetes?
 
 Packaging the containers is like 5% of the problem. We still need to deal with:
 
-1. App configuration
-2. Service discovery
-3. Managing updates
-4. Monitoring
+1.  App configuration
+2.  Service discovery
+3.  Managing updates
+4.  Monitoring
 
 While we build all those things on Docker, we're better off leveraging a platform to manage all that complexity for us.
 
@@ -159,10 +185,9 @@ Kubernetes just creating a load balancer and exposed it to port 80.
 
 Pods are a logical application.
 
-- one of more containers eg. having an nginx and monolith containers
-- volumes that are data divs, they can be used by any containers in the pod
-	- this allows the containers within the pod to communicate with each other.
-- there is also one IP per pod
+*   one of more containers eg. having an nginx and monolith containers
+*   volumes that are data divs, they can be used by any containers in the pod - this allows the containers within the pod to communicate with each other.
+*   there is also one IP per pod
 
 **Creating Pods**
 

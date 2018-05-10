@@ -2,12 +2,40 @@
 
 ## Table of Contents
 
-<a href="#section">title</a>
----- <a href="#subsection">title</a>
+<!-- TOC -->
 
-<div id="section"></div>
+*   [Intro to Machine Learning](#intro-to-machine-learning)
+    *   [Table of Contents](#table-of-contents)
+    *   [What is Machine Learning?](#what-is-machine-learning)
+        *   [---- Basic Model Prediction](#-----basic-model-prediction)
+    *   [Classification, Regression, Clustering](#classification-regression-clustering)
+        *   [---- Classification Example: Filtering Spam](#-----classification-example-filtering-spam)
+        *   [---- Regression Example: LinkedIn Views](#-----regression-example-linkedin-views)
+        *   [---- Clustering Example: Separating the Iris Species](#-----clustering-example-separating-the-iris-species)
+        *   [---- Supervised vs. Unsupervised](#-----supervised-vs-unsupervised)
+        *   [---- Getting practical with supervised learning](#-----getting-practical-with-supervised-learning)
+        *   [---- Getting practical with unsupervised learning](#-----getting-practical-with-unsupervised-learning)
+    *   [Performance Measures](#performance-measures)
+        *   [---- Confusion Matrix](#-----confusion-matrix)
+        *   [---- Calculating the RMSE of air data](#-----calculating-the-rmse-of-air-data)
+        *   [---- Clustering dataset example](#-----clustering-dataset-example)
+        *   [---- Training Set and Test Set](#-----training-set-and-test-set)
+        *   [---- Split the Sets](#-----split-the-sets)
+        *   [---- Using Cross Validation](#-----using-cross-validation)
+        *   [---- Bias and Variance](#-----bias-and-variance)
+        *   [---- Overfitting the Spam](#-----overfitting-the-spam)
+    *   [Classification](#classification)
+        *   [---- Learn a Decision Tree](#-----learn-a-decision-tree)
+        *   [---- Classify with the Decision Tree](#-----classify-with-the-decision-tree)
+        *   [---- Pruning the Tree](#-----pruning-the-tree)
+        *   [---- Gini Criterion](#-----gini-criterion)
+        *   [---- k-Nearest Neighbors](#-----k-nearest-neighbors)
+        *   [---- Scaling Example](#-----scaling-example)
+        *   [---- Interpreting a Voronoi Diagram](#-----interpreting-a-voronoi-diagram)
 
-***
+<!-- /TOC -->
+
+---
 
 ## What is Machine Learning?
 
@@ -50,8 +78,8 @@ Input -> _Estimated Function_ -> Output
  $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
 > dim(iris)
 [1] 150   5
-> 
-> 
+>
+>
 # Show first and last observations in the iris data set
 > head(iris)
   Sepal.Length Sepal.Width Petal.Length Petal.Width Species
@@ -69,11 +97,11 @@ Input -> _Estimated Function_ -> Output
 148          6.5         3.0          5.2         2.0 virginica
 149          6.2         3.4          5.4         2.3 virginica
 150          5.9         3.0          5.1         1.8 virginica
-> 
-> 
+>
+>
 # Summarize the iris data set
 > summary(iris)
-  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width
  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
@@ -84,7 +112,7 @@ Input -> _Estimated Function_ -> Output
  setosa    :50  
  versicolor:50  
  virginica :50  
- ```
+```
 
 <div id="subsection"></div>
 
@@ -111,28 +139,28 @@ With this linear model lm_wage, which is built with data that contain informatio
  $ health_ins: Factor w/ 2 levels "1. Yes","2. No": 2 2 1 1 1 1 1 1 1 1 ...
  $ logwage   : num  4.32 4.26 4.88 5.04 4.32 ...
  $ wage      : num  75 70.5 131 154.7 75 ...
-> 
+>
 # Build Linear Model: lm_wage (coded already)
 > lm_wage <- lm(wage ~ age, data = Wage)
-> 
+>
 # Define data.frame: unseen (coded already)
 > unseen <- data.frame(age = 60)
-> 
+>
 # Predict the wage for a 60-year old worker
 > predict(lm_wage, unseen)
-       1 
-124.1413 
+       1
+124.1413
 ```
 
 <div id="newSection"></div>
 
-***
+---
 
 ## Classification, Regression, Clustering
 
 These are the three common types of ML Problems.
 
-__Classification__
+**Classification**
 
 Predicting category through historical classifying.
 
@@ -144,7 +172,7 @@ Application: Medical Diagnosis, Animal Recognition
 
 Important: Qualitative Output, Predefined Classes
 
-__Regression__
+**Regression**
 
 We are trying to estimate a function that will render the correct response.
 
@@ -156,7 +184,7 @@ Application: Modelling Payments for Credit Scores, YouTube Subscriptions over ti
 
 Important: Quantitative Output, previous input-output observations
 
-__Clustering__
+**Clustering**
 
 Grouping objects that are `similar` in clusters and `dissimilar` between clusters. It's like classification without saying which class an object need to relate to.
 
@@ -174,13 +202,13 @@ In the following exercise you'll work with the dataset emails, which is loaded i
 
 In the code, you'll find a crude spam filter we built for you, spamClassifier() that uses avgCapitalSeq to predict whether an email is spam or not. In the function definition, it's important to realize that x refers to avgCapitalSeq. So where the avgCapitalSeq is greater than 4, spamClassifier() predicts the email is spam (1), if avgCapitalSeq is inclusively between 3 and 4, it predicts not spam (0), and so on. This classifier's methodology of predicting whether an email is spam or not seems pretty random, but let's see how it does anyways!
 
-Your job is to inspect the emails dataset, apply spamClassifier to it, and compare the predicted labels with the true labels. 
+Your job is to inspect the emails dataset, apply spamClassifier to it, and compare the predicted labels with the true labels.
 
 ```
 # Show the dimensions of emails
 > dim(emails)
 [1] 13  2
-> 
+>
 # Inspect definition of spam_classifier()
 > spam_classifier <- function(x){
     prediction <- rep(NA, length(x)) # initialize prediction vector
@@ -192,10 +220,10 @@ Your job is to inspect the emails dataset, apply spamClassifier to it, and compa
     prediction[x <= 1.25] <- 0
     return(prediction) # prediction is either 0 or 1
   }
-> 
+>
 # Apply the classifier to the avgCapitalSeq column: spam_pred
 > spamPred <- sapply(emails$avgCapitalSeq, spamClassifier)
-> 
+>
 # Compare spam_pred to emails$spam. Use ==
 > spam_pred == emails$spam
  [1] TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE TRUE
@@ -211,17 +239,17 @@ The instructions will help you predict the number of profile views for the next 
 
 ```
 # linkedin is already available in your workspace
-> 
+>
 # Create the days vector
 > days <- c(seq(1:21))
-> 
+>
 # Fit a linear model called on the linkedin views per day: linkedin_lm
 > linkedin_lm <- lm(linkedin ~ days)
-> 
+>
 # Predict the number of views for the next three days: linkedin_pred
 > future_days <- data.frame(days = 22:24)
 > linkedin_pred <- predict(linkedin_lm, future_days)
-> 
+>
 # Plot historical data and predictions
 > plot(linkedin ~ days, xlim = c(1, 24))
 > points(22:24, linkedin_pred, col = "green")
@@ -242,22 +270,22 @@ Note: In problems that have a random aspect (like this problem with kmeans()), t
 ```
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Chop up iris in my_iris and species
 > my_iris <- iris[-5]
 > species <- iris$Species
-> 
+>
 # Perform k-means clustering on my_iris: kmeans_iris
 > kmeans_iris <- kmeans(my_iris, 3)
-> 
+>
 # Compare the actual Species to the clustering using table()
 > table(species, kmeans_iris$cluster)
-            
+
 species       1  2  3
   setosa     50  0  0
   versicolor  0  2 48
   virginica   0 36 14
-> 
+>
 # Plot Petal.Width against Petal.Length, coloring by cluster
 > plot(Petal.Length ~ Petal.Width, data = my_iris, col = kmeans_iris$cluster)
 ```
@@ -272,18 +300,11 @@ If we can `find` function f which can be used to assign a class or value to unse
 
 `Labelling` can be tedious and are normally done by humans. Those that don't require labels is known as `Unsupervised Learning` - example being the clustering that we did before. Clustering will find group observations that are similar.
 
-__Performance of the model__
+**Performance of the model**
 
-- Supervised learning
-	- `Compare` real labels with `predicted` labels
-- Unsupervised Learning
-	- No real labels to compare
-	- Techniques will be explained later down the track
-	- Things aren't always black and white
-- Semi-Supervised Learning
-	- Mixed of unlabeled and labeled observationed
-	- Eg clustering information and classes of labeled observations to assign a class to unlabeled observations
-	- More labeled observations for `supervised learning`
+*   Supervised learning - `Compare` real labels with `predicted` labels
+*   Unsupervised Learning - No real labels to compare - Techniques will be explained later down the track - Things aren't always black and white
+*   Semi-Supervised Learning - Mixed of unlabeled and labeled observationed - Eg clustering information and classes of labeled observations to assign a class to unlabeled observations - More labeled observations for `supervised learning`
 
 <div id="superPrac"></div>
 
@@ -295,14 +316,14 @@ Take a look at the iris dataset, using str() and summary().
 
 The code that builds a supervised learning model with the rpart() function from the rpart package is already provided for you. This model trains a decision tree on the iris dataset.
 
-Use the predict() function with the tree model as the first argument. The second argument should be a data frame containing observations of which you want to predict the label. In this case, you can use the predefined unseen data frame. The third argument should be type = "class". 
+Use the predict() function with the tree model as the first argument. The second argument should be a data frame containing observations of which you want to predict the label. In this case, you can use the predefined unseen data frame. The third argument should be type = "class".
 
 Simply print out the result of this prediction step.
 
 ```
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Take a look at the iris dataset
 > str(iris)
 'data.frame':	150 obs. of  5 variables:
@@ -312,7 +333,7 @@ Simply print out the result of this prediction step.
  $ Petal.Width : num  0.2 0.2 0.2 0.2 0.2 0.4 0.3 0.2 0.2 0.1 ...
  $ Species     : Factor w/ 3 levels "setosa","versicolor",..: 1 1 1 1 1 1 1 1 1 1 ...
 > summary(iris)
-  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width   
+  Sepal.Length    Sepal.Width     Petal.Length    Petal.Width
  Min.   :4.300   Min.   :2.000   Min.   :1.000   Min.   :0.100  
  1st Qu.:5.100   1st Qu.:2.800   1st Qu.:1.600   1st Qu.:0.300  
  Median :5.800   Median :3.000   Median :4.350   Median :1.300  
@@ -322,22 +343,22 @@ Simply print out the result of this prediction step.
        Species  
  setosa    :50  
  versicolor:50  
- virginica :50          
-> 
+ virginica :50
+>
 # A decision tree model has been built for you
 > tree <- rpart(Species ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width,
                 data = iris, method = "class")
-> 
+>
 # A dataframe containing unseen observations
 > unseen <- data.frame(Sepal.Length = c(5.3, 7.2),
                        Sepal.Width = c(2.9, 3.9),
                        Petal.Length = c(1.7, 5.4),
                        Petal.Width = c(0.8, 2.3))
-> 
+>
 # Predict the label of the unseen observations. Print out the result.
 > predict(tree, unseen, type="class")
-        1         2 
-   setosa virginica 
+        1         2
+   setosa virginica
 Levels: setosa versicolor virginica
 ```
 
@@ -355,46 +376,46 @@ Hornet 4 Drive    3.215 110
 Hornet Sportabout 3.440 175
 Valiant           3.460 105
 > # The cars data frame is pre-loaded
-> 
+>
 > # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 > # Explore the cars dataset
-> 
+>
 > str(cars)
 'data.frame':	32 obs. of  2 variables:
  $ wt: num  2.62 2.88 2.32 3.21 3.44 ...
  $ hp: num  110 110 93 110 175 105 245 62 95 123 ...
 > summary(cars)
-       wt              hp       
+       wt              hp
  Min.   :1.513   Min.   : 52.0  
  1st Qu.:2.581   1st Qu.: 96.5  
  Median :3.325   Median :123.0  
  Mean   :3.217   Mean   :146.7  
  3rd Qu.:3.610   3rd Qu.:180.0  
  Max.   :5.424   Max.   :335.0  
-> 
+>
 > # Group the dataset into two clusters: km_cars
 > km_cars <- kmeans(cars, 2)
-> 
+>
 > # Print out the contents of each cluster
 > km_cars$cluster
-          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
-                  1                   1                   1                   1 
-  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
-                  2                   1                   2                   1 
-           Merc 230            Merc 280           Merc 280C          Merc 450SE 
-                  1                   1                   1                   2 
-         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
-                  2                   2                   2                   2 
-  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
-                  2                   1                   1                   1 
-      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
-                  1                   1                   1                   2 
-   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
-                  2                   1                   1                   1 
-     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
-                  2                   2                   2                   1 
+          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive
+                  1                   1                   1                   1
+  Hornet Sportabout             Valiant          Duster 360           Merc 240D
+                  2                   1                   2                   1
+           Merc 230            Merc 280           Merc 280C          Merc 450SE
+                  1                   1                   1                   2
+         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental
+                  2                   2                   2                   2
+  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla
+                  2                   1                   1                   1
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28
+                  1                   1                   1                   2
+   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa
+                  2                   1                   1                   1
+     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E
+                  2                   2                   2                   1
 
 # see km_cars in general
 > km_cars
@@ -406,22 +427,22 @@ Cluster means:
 2 3.984923 215.69231
 
 Clustering vector:
-          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive 
-                  1                   1                   1                   1 
-  Hornet Sportabout             Valiant          Duster 360           Merc 240D 
-                  2                   1                   2                   1 
-           Merc 230            Merc 280           Merc 280C          Merc 450SE 
-                  1                   1                   1                   2 
-         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental 
-                  2                   2                   2                   2 
-  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla 
-                  2                   1                   1                   1 
-      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28 
-                  1                   1                   1                   2 
-   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa 
-                  2                   1                   1                   1 
-     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E 
-                  2                   2                   2                   1 
+          Mazda RX4       Mazda RX4 Wag          Datsun 710      Hornet 4 Drive
+                  1                   1                   1                   1
+  Hornet Sportabout             Valiant          Duster 360           Merc 240D
+                  2                   1                   2                   1
+           Merc 230            Merc 280           Merc 280C          Merc 450SE
+                  1                   1                   1                   2
+         Merc 450SL         Merc 450SLC  Cadillac Fleetwood Lincoln Continental
+                  2                   2                   2                   2
+  Chrysler Imperial            Fiat 128         Honda Civic      Toyota Corolla
+                  2                   1                   1                   1
+      Toyota Corona    Dodge Challenger         AMC Javelin          Camaro Z28
+                  1                   1                   1                   2
+   Pontiac Firebird           Fiat X1-9       Porsche 914-2        Lotus Europa
+                  2                   1                   1                   1
+     Ford Pantera L        Ferrari Dino       Maserati Bora          Volvo 142E
+                  2                   2                   2                   1
 
 Within cluster sum of squares by cluster:
 [1] 14085.06 27403.23
@@ -430,7 +451,7 @@ Within cluster sum of squares by cluster:
 Available components:
 
 [1] "cluster"      "centers"      "totss"        "withinss"     "tot.withinss"
-[6] "betweenss"    "size"         "iter"         "ifault"    
+[6] "betweenss"    "size"         "iter"         "ifault"
 ```
 
 An important part in machine learning is understanding your results. In the case of clustering, visualization is key to interpretation! One way to achieve this is by plotting the features of the cars and coloring the points based on their corresponding cluster.
@@ -439,39 +460,39 @@ In this exercise you'll summarize your results in a comprehensive figure. The da
 
 ```
 # The cars data frame is pre-loaded
-> 
+>
 # Set random seed. Don't remove this line
 > set.seed(1)
-> 
+>
 # Group the dataset into two clusters: km_cars
 > km_cars <- kmeans(cars, 2)
-> 
+>
 # Add code: color the points in the plot based on the clusters
 > plot(cars, col=km_cars$cluster)
-> 
+>
 # Print out the cluster centroids
 > km_cars$centers
         wt        hp
 1 2.692000  99.47368
 2 3.984923 215.69231
-> 
+>
 # Replace the ___ part: add the centroids to the plot
 > points(km_cars$centers, pch = 22, bg = c(1, 2), cex = 2)
 ```
 
 <div id="performance"></div>
 
-***
+---
 
 ## Performance Measures
 
 How is our model any good? It depends on how you define performance. This could be...
 
-- Accuracy
-- Computation Time
-- Interpretability 
+*   Accuracy
+*   Computation Time
+*   Interpretability
 
-__Classification Testing__
+**Classification Testing**
 
 Accuray and Error are how we can help define classification performance.
 
@@ -495,30 +516,32 @@ Accuracy calculation then becomes `(TP+TN)/sum(all squares)`.
 
 This means for the `rare heart disease` example, we could be looking at a recall of 0% and other results that are `undefined`.
 
-__Regression Testing__
+**Regression Testing**
 
 RMSE: Root Mean Squared Error.
 
-__Clustering Testing__
+**Clustering Testing**
 
 Here, we have no label info, so we need to go with distance metrics between points.
 
 Performance measure consists of 2 elements.
 
-1. Similarity within each cluster - we want this to be high
-2. Similarity between clusters - we want this to be low
+1.  Similarity within each cluster - we want this to be high
+2.  Similarity between clusters - we want this to be low
 
 There are a number techniques.
 
 Within clusters:
-- Within sum of squares(WSS)
-- Diameter
-- Minimize 
+
+*   Within sum of squares(WSS)
+*   Diameter
+*   Minimize
 
 Between clusters:
-- Between cluster sum of squares (BSS)
-- Intercluster distance
-- Maximise
+
+*   Between cluster sum of squares (BSS)
+*   Intercluster distance
+*   Maximise
 
 A popular index for comparing is the Dunn's index: `minimal intercluster distance/maximal diameter`
 
@@ -536,10 +559,10 @@ Note: As in the previous chapter, there are functions that have a random aspect.
 
 ```
 # The titanic dataset is already loaded into your workspace
-> 
+>
 # Set random seed. Don't remove this line
 > set.seed(1)
-> 
+>
 # Have a look at the structure of titanic
 > str(titanic)
 'data.frame':	714 obs. of  4 variables:
@@ -547,20 +570,20 @@ Note: As in the previous chapter, there are functions that have a random aspect.
  $ Pclass  : int  3 1 3 1 3 1 3 3 2 3 ...
  $ Sex     : Factor w/ 2 levels "female","male": 2 1 1 1 2 2 2 1 1 1 ...
  $ Age     : num  22 38 26 35 35 54 2 27 14 4 ...
-> 
+>
 # A decision tree classification model is built on the data
 > tree <- rpart(Survived ~ ., data = titanic, method = "class")
-> 
+>
 # Use the predict() method to make predictions, assign to pred
 > pred <- predict(tree, titanic, type="class")
-> 
+>
 # Use the table() method to make the confusion matrix
 > table(titanic$Survived, pred)
    pred
       1   0
   1 212  78
   0  53 371
-  ```
+```
 
 The confusion matrix from the last exercise provides you with the raw performance of the decision tree:
 
@@ -571,28 +594,28 @@ The deceased who were correctly predicted to have perished: true negatives (TN)
 
 ```
 > conf
-   
+
       1   0
   1 212  78
   0  53 371
 # The confusion matrix is available in your workspace as conf
-> 
+>
 # Assign TP, FN, FP and TN using conf
 > TP <- conf[1, 1] # this will be 212
 > FN <- conf[1, 2] # this will be 78
 > FP <- conf[2, 1] # fill in
 > TN <- conf[2, 2] # fill in
-> 
+>
 # Calculate and print the accuracy: acc
 > acc <- (TP + TN) / (TP + FN + FP + TN)
 > acc
 [1] 0.8165266
-> 
+>
 # Calculate and print out the precision: prec
 > prec <- TP/(TP+FP)
 > prec
 [1] 0.8
-> 
+>
 # Calculate and print out the recall: rec
 > rec <- TP/(TP+FN)
 > rec
@@ -603,7 +626,7 @@ The deceased who were correctly predicted to have perished: true negatives (TN)
 
 ```
 # The air dataset is already loaded into your workspace
-> 
+>
 # Take a look at the structure of air
 > str(air)
 'data.frame':	1503 obs. of  6 variables:
@@ -613,16 +636,16 @@ The deceased who were correctly predicted to have perished: true negatives (TN)
  $ velocity : num  71.3 71.3 71.3 71.3 71.3 71.3 71.3 71.3 71.3 71.3 ...
  $ thickness: num  0.00266 0.00266 0.00266 0.00266 0.00266 ...
  $ dec      : num  126 125 126 128 127 ...
-> 
+>
 # Inspect your colleague's code to build the model
 > fit <- lm(dec ~ freq + angle + ch_length, data = air)
-> 
+>
 # Use the model to predict for all values: pred
 > pred <- predict(fit)
-> 
-# Use air$dec and pred to calculate the RMSE 
+>
+# Use air$dec and pred to calculate the RMSE
 > rmse <- sqrt((1/nrow(air)) * sum( (air$dec - pred) ^ 2))
-> 
+>
 # Print out rmse
 > rmse
 [1] 5.215778
@@ -637,23 +660,22 @@ Using the `rmse` result for comparison with another result
 > rmse <- sqrt(sum( (air$dec - pred) ^ 2) / nrow(air))
 > rmse
 [1] 5.215778
-> 
+>
 # Your colleague's more complex model
 > fit2 <- lm(dec ~ freq + angle + ch_length + velocity + thickness, data = air)
-> 
+>
 # Use the model to predict for all values: pred2
 > pred2 <- predict(fit2)
-> 
+>
 # Calculate rmse2
 > rmse2 <- sqrt(sum( (air$dec - pred2) ^ 2) / nrow(air))
-> 
+>
 # Print out rmse2
 > rmse2
 [1] 4.799244
 ```
 
 Adding complexity seems to have caused the RMSE to decrease, from 5.216 to 4.799. But there's more going on here; perhaps adding more variables to a regression always leads to a decrease of your RMSE? There will be more on this later.
-
 
 ### ---- Clustering dataset example
 
@@ -663,16 +685,16 @@ The code on the right groups the seeds into three clusters (km_seeds), but is it
 
 There are two initial steps you could take:
 
-1. Visualize the distribution of cluster assignments among two variables, for example length and compactness.
+1.  Visualize the distribution of cluster assignments among two variables, for example length and compactness.
 
-2. Verify if the clusters are well separated and compact. To do this, you can calculate the between and within cluster sum of squares respectively.
+2.  Verify if the clusters are well separated and compact. To do this, you can calculate the between and within cluster sum of squares respectively.
 
 ```
 # The seeds dataset is already loaded into your workspace
-> 
+>
 # Set random seed. Don't remove this line
 > set.seed(1)
-> 
+>
 # Explore the structure of the dataset
 > str(seeds)
 'data.frame':	210 obs. of  7 variables:
@@ -683,13 +705,13 @@ There are two initial steps you could take:
  $ width        : num  3.31 3.33 3.34 3.38 3.56 ...
  $ asymmetry    : num  2.22 1.02 2.7 2.26 1.35 ...
  $ groove_length: num  5.22 4.96 4.83 4.8 5.17 ...
-> 
+>
 # Group the seeds in three clusters
 > km_seeds <- kmeans(seeds, 3)
-> 
+>
 # Color the points in the plot based on the clusters
 > plot(length ~ compactness, data = seeds, col = km_seeds$cluster)
-> 
+>
 # Print out the ratio of the WSS to the BSS
 > km_seeds$tot.withinss / km_seeds$betweenss
 [1] 0.2762846
@@ -703,21 +725,13 @@ The within sum of squares is far lower than the between sum of squares. Indicati
 
 Looking at the different between supervised learning, Machine learning and other data models.
 
-Supervised learning will have a strong predictive power.
-	- unseen observations
+Supervised learning will have a strong predictive power. - unseen observations
 
-Classical statistics: model must fit data
-	- explain or describe data
+Classical statistics: model must fit data - explain or describe data
 
-Predictive Model
-	- Training 
-		- `not` on complete dataset
-		- training set
-	- `Test set` to evaluate performance of model
-	- Sets are `disjoint` - NO OVERLAP
-	- Model testing on `unseen` observations - Generalization!
+Predictive Model - Training - `not` on complete dataset - training set - `Test set` to evaluate performance of model - Sets are `disjoint` - NO OVERLAP - Model testing on `unseen` observations - Generalization!
 
-__Split the dataset__
+**Split the dataset**
 
 Assume you have a dataset with N observations: x, K features: F and Class labels: y.
 
@@ -725,11 +739,11 @@ We can break this down into a training set and a test set.
 
 The test set are used for the observations from x(r+1).
 
-__When do we use this?__
+**When do we use this?**
 
 Only important for supervised learning set. It would not be relevant to things like clustering where the data itself isn't labelled.
 
-__How to split the sets?__
+**How to split the sets?**
 
 The `training set` should be larger than the `test set`. Typically a ratio of 3:1 - although this is arbitrary. The more data you use to train, the better the model. Although, we still don't want the `test set` to be too small!
 
@@ -762,20 +776,20 @@ test <- shuffled_df[test_indices, ]
 
 ```
 # The titanic dataset is already loaded into your workspace
-> 
+>
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Shuffle the dataset, call the result shuffled
 > n <- nrow(titanic)
 > shuffled <- titanic[sample(n),]
-> 
+>
 # Split the data in train and test
 > train_indices <- 1:round(0.7 * n)
 > train <- shuffled[train_indices, ]
 > test_indices <- (round(0.7 * n) + 1):n
 > test <- shuffled[test_indices, ]
-> 
+>
 # Print the structure of train and test
 > str(train)
 'data.frame':	500 obs. of  4 variables:
@@ -789,7 +803,7 @@ test <- shuffled_df[test_indices, ]
  $ Pclass  : int  2 3 2 2 1 1 3 3 2 3 ...
  $ Sex     : Factor w/ 2 levels "female","male": 1 2 2 1 2 2 2 2 2 1 ...
  $ Age     : num  18 16 36 45 61 31 40.5 28 30 2 ...
- ```
+```
 
 Time to redo the model training from before. The titanic data frame is again available in your workspace. This time, however, you'll want to build a decision tree on the training set, and next assess its predictive power on a set that has not been used for training: the test set.
 
@@ -797,25 +811,25 @@ On the right, the code that splits titanic up in train and test has already been
 
 ```
 # The titanic dataset is already loaded into your workspace
-> 
+>
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Shuffle the dataset; build train and test
 > n <- nrow(titanic)
 > shuffled <- titanic[sample(n),]
 > train <- shuffled[1:round(0.7 * n),]
 > test <- shuffled[(round(0.7 * n) + 1):n,]
-> 
+>
 # Fill in the model that has been learned.
 > tree <- rpart(Survived ~ ., train, method = "class")
-> 
+>
 # Predict the outcome on the test set with tree: pred
 > pred <- predict(tree, test, type="class")
-> 
+>
 # Calculate the confusion matrix: conf
 > conf <- table(test$Survived, pred)
-> 
+>
 # Print this confusion matrix
 > conf
    pred
@@ -835,33 +849,33 @@ Note: Other performance measures, such as recall or precision, could also be use
 ```
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Initialize the accs vector
 > accs <- rep(0,6)
-> 
+>
 > for (i in 1:6) {
     # These indices indicate the interval of the test set
     indices <- (((i-1) * round((1/6)*nrow(shuffled))) + 1):((i*round((1/6) * nrow(shuffled))))
-    
+
     # Exclude them from the train set
     train <- shuffled[-indices,]
-    
+
     # Include them in the test set
     test <- shuffled[indices,]
-    
+
     # A model is learned using each training set
     tree <- rpart(Survived ~ ., train, method = "class")
-    
+
     # Make a prediction on the test set using tree
     pred <- predict(tree, test, type="class")
-    
+
     # Assign the confusion matrix to conf
     conf <- table(test$Survived, pred)
-    
+
     # Assign the accuracy of this model to the ith index in accs
     accs[i] <- sum(diag(conf))/sum(conf)
   }
-> 
+>
 > accs
 [1] 0.7983193 0.7983193 0.7899160 0.8067227 0.8235294 0.7899160
 # Print out the mean of accs
@@ -887,8 +901,7 @@ Reducible: error due to unfit model - this we want to minimize!
 _Bias Error_
 
 Error due to bias: wrong assumptions.
-Difference in predictions and truth.
-	- using models trained by specific `learning algorithm`
+Difference in predictions and truth. - using models trained by specific `learning algorithm`
 
 Eg. suppose you have points on a x/y map that can be fit by quadratic data. If you decide to use linear regression here, you will have a high error since you are restricting your model.
 
@@ -908,7 +921,7 @@ Low bias = high variance
 Low variance = high bias
 ```
 
-__Overfitting and Underfitting__
+**Overfitting and Underfitting**
 
 `Accuracy` will depend on dataset split (train/test)
 High variance will heavily depend on split.
@@ -922,10 +935,10 @@ Underfitting = restricting the model too much
 Eg. if you need to decide if email is spam.
 
 Email Training set - exception with 50 capital letters and 30 exclamation marks.
-	-> capital letters
-	-> exclamation marks
+-> capital letters
+-> exclamation marks
 
-Our trust set has yes to both of the above data sets are spam and not if no. 
+Our trust set has yes to both of the above data sets are spam and not if no.
 
 An `underfit` model may mark spam if more than 10 capital letters. This is `too general`.
 
@@ -937,7 +950,7 @@ An `underfit` model may mark spam if more than 10 capital letters. This is `too 
 # The spam filter that has been 'learned' for you
 > spam_classifier <- function(x){
     prediction <- rep(NA, length(x)) # initialize prediction vector
-    prediction[x > 4] <- 1 
+    prediction[x > 4] <- 1
     prediction[x >= 3 & x <= 4] <- 0
     prediction[x >= 2.2 & x < 3] <- 1
     prediction[x >= 1.4 & x < 2.2] <- 0
@@ -945,16 +958,16 @@ An `underfit` model may mark spam if more than 10 capital letters. This is `too 
     prediction[x <= 1.25] <- 0
     return(factor(prediction, levels = c("1", "0"))) # prediction is either 0 or 1
   }
-> 
+>
 # Apply spam_classifier to emails_full: pred_full
 > pred_full <- spam_classifier(emails_full$avg_capital_seq)
-> 
+>
 # Build confusion matrix for emails_full: conf_full
 > conf_full <- table(emails_full$spam, pred_full)
-> 
+>
 # Calculate the accuracy with conf_full: acc_full
 > acc_full <- sum(diag(conf_full))/sum(conf_full)
-> 
+>
 # Print acc_full
 > acc_full
 [1] 0.6561617
@@ -979,29 +992,29 @@ Your job is to simplify the rules of spamClassifier and calculate the accuracy f
     prediction[x <= 4] <- 0
     return(factor(prediction, levels = c("1", "0")))
   }
-> 
+>
 # conf_small and acc_small have been calculated for you
 > conf_small <- table(emails_small$spam, spam_classifier(emails_small$avg_capital_seq))
 > acc_small <- sum(diag(conf_small)) / sum(conf_small)
 > acc_small
 [1] 0.7692308
-> 
+>
 # Apply spam_classifier to emails_full and calculate the confusion matrix: conf_full
 > conf_full <- table(emails_full$spam, spam_classifier(emails_full$avg_capital_seq))
-> 
+>
 # Calculate acc_full
 > acc_full <- sum(diag(conf_full)) / sum(conf_full)
-> 
+>
 # Print acc_full
 > acc_full
 [1] 0.7259291
 ```
 
-The model no longer fits the small dataset perfectly but it fits the big dataset better. You increased the bias on the model and caused it to generalize better over the complete dataset. While the first classifier overfits the data, an accuracy of 73% is far from satisfying for a spam filter. 
+The model no longer fits the small dataset perfectly but it fits the big dataset better. You increased the bias on the model and caused it to generalize better over the complete dataset. While the first classifier overfits the data, an accuracy of 73% is far from satisfying for a spam filter.
 
 <div id="classification"></div>
 
-***
+---
 
 ## Classification
 
@@ -1015,20 +1028,15 @@ The classification model will automatically assign a class based on previous obs
 
 `Multiclass classification`: More than two classes.
 
-__Example__
+**Example**
 
-- a dataset consisting of persons
-- features: age, weight and income
-- class:
-	- binary: happy or not happy
-	- multiclass: happy, satisfied, not happy
-- features can be numerical
-	- height
-	- age
-- features can be categorical
-	- travel class
+*   a dataset consisting of persons
+*   features: age, weight and income
+*   class: - binary: happy or not happy - multiclass: happy, satisfied, not happy
+*   features can be numerical - height - age
+*   features can be categorical - travel class
 
-__Decision Trees__
+**Decision Trees**
 
 Suppose you want a patient as sick or not sick (1 or 0).
 
@@ -1036,7 +1044,7 @@ Best task would be to start asking some questions.
 
 Eg. are they young or old?
 If old, have you smoked more than 10 years?
-If young, is the patient vaccinated against measles? 
+If young, is the patient vaccinated against measles?
 
 These questions will begin to form a tree.
 
@@ -1048,35 +1056,25 @@ There is also a parent-child relation.
 
 The questions on the tree are simply queries about the features.
 
-__Categorical feature__
+**Categorical feature**
 
-- Can be a feature test on itself
-- travelClass: coach, business or first
+*   Can be a feature test on itself
+*   travelClass: coach, business or first
 
-__Learn a tree__
+**Learn a tree**
 
-- use a training set
-- come up with queries (feature tests) at each node
-- at each node
-	- iterate over different feature tests
-	- choose the best one
-- comes down to two parts
-	- make a list 
-	- choose the best one
+*   use a training set
+*   come up with queries (feature tests) at each node
+*   at each node - iterate over different feature tests - choose the best one
+*   comes down to two parts - make a list - choose the best one
 
-__Construct list of tests__
+**Construct list of tests**
 
-- categorical
-	- people/categories who haven't used the test yet
-- numerical
-	- choose feature
-	- choose threshold for split
-- choose best feature test
-	- more complex
-	- use splitting criteria to decide which is the best to use
-	- `information gain` - entropy
+*   categorical - people/categories who haven't used the test yet
+*   numerical - choose feature - choose threshold for split
+*   choose best feature test - more complex - use splitting criteria to decide which is the best to use - `information gain` - entropy
 
-__Information Gain__
+**Information Gain**
 
 Defines how much info you gain about your training instances when you perform the split based on the feature test.
 
@@ -1085,11 +1083,10 @@ If tests lead to scrambled classes -> low information gain.
 
 Choose the test with the best information gain.
 
-__Pruning__
+**Pruning**
 
-- number of nodes influences the chance of overfit.
-- restrict size - higher bias
-	- decreases the chance of an overfit
+*   number of nodes influences the chance of overfit.
+*   restrict size - higher bias - decreases the chance of an overfit
 
 <div id="classification1"></div>
 
@@ -1101,22 +1098,21 @@ In this exercise, you'll need train to build a decision tree. You can use the rp
 
 Finally, a fancy plot can help you interpret the tree. You will need the rattle, rpart.plot, and RColorBrewer packages to display this.
 
-
 ```
 # The train and test set are loaded into your workspace.
-> 
+>
 # Set random seed. Don't remove this line
 > set.seed(1)
-> 
+>
 # Load the rpart, rattle, rpart.plot and RColorBrewer package
 > library(rpart)
 > library(rattle)
-> library(rpart.plot) 
+> library(rpart.plot)
 > library(RColorBrewer)
-> 
+>
 # Fill in the ___, build a tree model: tree
 > tree <- rpart(Survived ~ ., train, method="class")
-> 
+>
 # Draw the decision tree - this in the console generates the decision tree
 > fancyRpartPlot(tree)
 ```
@@ -1133,18 +1129,18 @@ Now you are going to classify the instances that are in the test set. As before,
 
 ```
 # The train and test set are loaded into your workspace.
-> 
+>
 # Code from previous exercise
 > set.seed(1)
 > library(rpart)
 > tree <- rpart(Survived ~ ., train, method = "class")
-> 
+>
 # Predict the values of the test set: pred
 > pred <- predict(tree, test, type="class")
-> 
+>
 # Construct the confusion matrix: conf
 > conf <- table(test$Survived, pred)
-> 
+>
 # Print out the accuracy
 > sum(diag(conf)) / sum(conf)
 [1] 0.7990654
@@ -1160,13 +1156,13 @@ Looking good! What does the accuracy tell you? Around 80 percent of all test ins
 # Calculation of a complex tree
 > set.seed(1)
 > tree <- rpart(Survived ~ ., train, method = "class", control = rpart.control(cp=0.00001))
-> 
+>
 # Draw the complex tree
 > fancyRpartPlot(tree)
-> 
+>
 # Prune the tree: pruned
 > pruned <- prune(tree, cp=0.01)
-> 
+>
 # Draw pruned
 > fancyRpartPlot(pruned)
 ```
@@ -1180,24 +1176,24 @@ Another way to check if you overfit your model is by comparing the accuracy on t
 ```
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Train and test tree with gini criterion
 > tree_g <- rpart(spam ~ ., train, method = "class")
 > pred_g <- predict(tree_g, test, type = "class")
 > conf_g <- table(test$spam, pred_g)
 > acc_g <- sum(diag(conf_g)) / sum(conf_g)
-> 
+>
 # Change the first line of code to use information gain as splitting criterion
 > tree_i <- rpart(spam ~ ., train, method = "class", parms = list(split = "information"))
 > pred_i <- predict(tree_i, test, type = "class")
 > conf_i <- table(test$spam, pred_i)
 > acc_i <- sum(diag(conf_i)) / sum(conf_i)
-> 
+>
 # Draw a fancy plot of both tree_g and tree_i
 > fancyRpartPlot(tree_g)
 > fancyRpartPlot(tree_i)
-> 
-> 
+>
+>
 # Print out acc_g and acc_i
 > acc_i
 [1] 0.8963768
@@ -1209,15 +1205,16 @@ Another way to check if you overfit your model is by comparing the accuracy on t
 
 Getting acquinted with instance based learning.
 
-- Save training set in memory
-- No real model like `decision tree`
-- `Compare` unseen instances to training set
-- `Predict` using the `comparison` of `unseen data` and the `training set`
+*   Save training set in memory
+*   No real model like `decision tree`
+*   `Compare` unseen instances to training set
+*   `Predict` using the `comparison` of `unseen data` and the `training set`
 
 k-Nearest Neighbour example
 
 2 features: x1, x2
-- all have red or blue class - binary classification problem
+
+*   all have red or blue class - binary classification problem
 
 This will save the complete training set
 
@@ -1236,38 +1233,40 @@ Manhattan Distance: `sum(abs(a[i] - b[i]))`
 
 ### ---- Scaling Example
 
-- Dataset with
-  - 2 features: weight and height
-  - 3 observations
+*   Dataset with
+    *   2 features: weight and height
+    *   3 observations
 
-1. Normalize all features - eg rescale values between 0 and 1
-  - this gives a better measurement between the distances
-  - don't forget to scale the new observations accordingly
+1.  Normalize all features - eg rescale values between 0 and 1
 
-2. Categorical features
-  - How to use in distance metric?
-  - Use `dummy` variables
-  - eg mother tongue: Spanish, Italian or French.
-    - create new features with possible 1 or 0
+*   this gives a better measurement between the distances
+*   don't forget to scale the new observations accordingly
+
+2.  Categorical features
+
+*   How to use in distance metric?
+*   Use `dummy` variables
+*   eg mother tongue: Spanish, Italian or French.
+    *   create new features with possible 1 or 0
 
 ```
 > train_labels <- train$Survived
 > test_labels <- test$Survived
-> 
+>
 # Copy train and test to knn_train and knn_test
 > knn_train <- train
 > knn_test <- test
-> 
+>
 # Drop Survived column for knn_train and knn_test
 > knn_train$Survived <- NULL
 > knn_test$Survived <- NULL
-> 
+>
 # Normalize Pclass
 > min_class <- min(knn_train$Pclass)
 > max_class <- max(knn_train$Pclass)
 > knn_train$Pclass <- (knn_train$Pclass - min_class) / (max_class - min_class)
 > knn_test$Pclass <- (knn_test$Pclass - min_class) / (max_class - min_class)
-> 
+>
 # Normalize Age
 > min_age <- min(knn_train$Age)
 > max_age <- max(knn_train$Age)
@@ -1277,19 +1276,19 @@ Manhattan Distance: `sum(abs(a[i] - b[i]))`
 
 ```
 # knn_train, knn_test, train_labels and test_labels are pre-loaded
-> 
+>
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Load the class package
 > library(class)
-> 
+>
 # Fill in the ___, make predictions using knn: pred
 > pred <- knn(train = knn_train, test = knn_test, cl = train_labels, k = 5)
-> 
+>
 # Construct the confusion matrix: conf
 > conf <- table(test_labels, pred)
-> 
+>
 # Print out the confusion matrix
 > conf
            pred
@@ -1300,30 +1299,30 @@ test_labels   1   0
 
 ```
 # knn_train, knn_test, train_labels and test_labels are pre-loaded
-> 
+>
 # Set random seed. Don't remove this line.
 > set.seed(1)
-> 
+>
 # Load the class package, define range and accs
 > library(class)
 > range <- 1:round(0.2 * nrow(knn_train))
 > accs <- rep(0, length(range))
-> 
+>
 > for (k in range) {
-  
+
     # Fill in the ___, make predictions using knn: pred
     pred <- knn(train = knn_train, test = knn_test, cl = train_labels, k = k)
-  
+
     # Fill in the ___, construct the confusion matrix: conf
     conf <- table(test_labels, pred)
-  
+
     # Fill in the ___, calculate the accuracy and store it in accs[k]
     accs[k] <- sum(diag(conf)/sum(conf))
   }
-> 
+>
 # Plot the accuracies. Title of x-axis is "k".
 > plot(range, accs, xlab = "k")
-> 
+>
 # Calculate the best k
 > which.max(accs)
 [1] 73
@@ -1334,8 +1333,3 @@ test_labels   1   0
 A cool way to visualize how 1-Nearest Neighbor works with two-dimensional features is the Voronoi Diagram. It's basically a plot of all the training instances, together with a set of tiles around the points. This tile represents the region of influence of each point. When you want to classify a new observation, it will receive the class of the tile in which the coordinates fall. Pretty cool, right?
 
 In the plot on the right you can see training instances that belong to either the blue or the red class. Each instance has two features: xx and yy. The top left instance, for example, has an xx value of around 0.05 and a yy value of 0.9.
-
-
-
-
-

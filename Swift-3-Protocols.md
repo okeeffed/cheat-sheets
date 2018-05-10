@@ -1,6 +1,20 @@
 # Swift 3 Protocols
 
-***
+<!-- TOC -->
+
+*   [Swift 3 Protocols](#swift-3-protocols)
+    *   [Protocols](#protocols)
+        *   [---- Protocol functions](#-----protocol-functions)
+        *   [---- Initialiser Requirements](#-----initialiser-requirements)
+        *   [---- Protocol Delegation](#-----protocol-delegation)
+        *   [---- Protocol Conformance](#-----protocol-conformance)
+        *   [---- Protocol Inheritance](#-----protocol-inheritance)
+        *   [---- Protocol Composition](#-----protocol-composition)
+        *   [---- Protocol Conformance](#-----protocol-conformance-1)
+
+<!-- /TOC -->
+
+---
 
 ## Protocols
 
@@ -57,7 +71,6 @@ enum OnOffSwitch: Togglable {
 var lightSwitch = OnOffSwitch.off
 lightSwitch.toggle()
 // lightSwitch is now equal to .on
-
 ```
 
 <div id="init"></div>
@@ -82,13 +95,13 @@ There are also required overrides.
 protocol SomeProtocol {
     init()
 }
- 
+
 class SomeSuperClass {
     init() {
         // initializer implementation goes here
     }
 }
- 
+
 class SomeSubClass: SomeSuperClass, SomeProtocol {
     // "required" from SomeProtocol conformance; "override" from SomeSuperClass
     required override init() {
@@ -173,7 +186,6 @@ game.play()
 // Rolled a 4
 // Rolled a 5
 // The game lasted for 4 turns
-
 ```
 
 <div id="conforming"></div>
@@ -192,8 +204,7 @@ extension Dice: TextRepresentable {
 }
 ```
 
-__Declaring Protocol Adoption with an Extension__
-
+**Declaring Protocol Adoption with an Extension**
 
 If a type already conforms to all of the requirements of a protocol, but has not yet stated that it adopts that protocol, you can make it adopt the protocol with an empty extension:
 
@@ -229,7 +240,7 @@ for thing in things {
 
 <div id="inheritance"></div>
 
-### ---- Protocol Inheritance 
+### ---- Protocol Inheritance
 
 A protocol can inherit one or more other protocols and can add further requirements on top of the requirements it inherits. The syntax for protocol inheritance is similar to the syntax for class inheritance, but with the option to list multiple inherited protocols, separated by commas:
 
@@ -310,4 +321,3 @@ for object in objects {
 // Area is 243610.0
 // Something that doesn't have an area
 ```
-

@@ -1,5 +1,20 @@
 # Classification: Logistic Regression
 
+<!-- TOC -->
+
+*   [Classification: Logistic Regression](#classification-logistic-regression)
+    *   [Logistic Regression Intuition](#logistic-regression-intuition)
+        *   [The scientific approach](#the-scientific-approach)
+    *   [Implementation in Python](#implementation-in-python)
+        *   [Fitting the logistic regression model to the Training Set](#fitting-the-logistic-regression-model-to-the-training-set)
+        *   [Checking the fit predictions using the Confusion Matrix](#checking-the-fit-predictions-using-the-confusion-matrix)
+        *   [Visualising the predictive power using a graph](#visualising-the-predictive-power-using-a-graph)
+        *   [How do we interpret the graph?](#how-do-we-interpret-the-graph)
+        *   [What is the point of the classifiers?](#what-is-the-point-of-the-classifiers)
+        *   [Checking the results when applied to the Test Set](#checking-the-results-when-applied-to-the-test-set)
+
+<!-- /TOC -->
+
 ## Logistic Regression Intuition
 
 This section can be quite difficult - there will be some **math**.

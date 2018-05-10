@@ -1,6 +1,20 @@
-alias# Swift 3 OOP
+# Swift 3 OOP
 
-***
+<!-- TOC -->
+
+*   [Swift 3 OOP](#swift-3-oop)
+    *   [Structs](#structs)
+    *   [Instances of Objects](#instances-of-objects)
+    *   [Methods](#methods)
+    *   [Initialisers and Self](#initialisers-and-self)
+    *   [Class](#class)
+    *   [Inheritance](#inheritance)
+    *   [Structs vs Classes](#structs-vs-classes)
+        *   [---- Value type vs Reference type](#-----value-type-vs-reference-type)
+
+<!-- /TOC -->
+
+---
 
 ## Structs
 
@@ -19,7 +33,7 @@ let p1 = Point(x: 1, y: 0)
 p1
 ```
 
-***
+---
 
 ## Instances of Objects
 
@@ -42,38 +56,38 @@ Login.password
 
 <div id="newSection"></div>
 
-***
+---
 
 ## Methods
 
-- Declaring empty arrays that infer a type `var results: [Point] = []`
-- Declaring it the preferred way `var results = [Point]()`
+*   Declaring empty arrays that infer a type `var results: [Point] = []`
+*   Declaring it the preferred way `var results = [Point]()`
 
 ```
 struct PointTwo {
   let x: Int
   let y: Int
-  
+
   // three slashes helps with definitions
-  
+
   /// Returns the surrounding points in range of
   /// the current one
   func points(inRange range: Int = 1) -> [PointTwo] {
     var results = [PointTwo]()
-    
+
     let lowerBoundOfXRange = x - range
     let upperBoundOfXRange = x + range
-    
+
     let lowerBoundOfYRange = y - range
     let upperBoundOfYRange = y + range
-    
+
     for xCoordinate in lowerBoundOfXRange...upperBoundOfXRange {
       for yCoordinate in lowerBoundOfYRange...upperBoundOfYRange {
         let coordinatePoint = PointTwo(x: xCoordinate, y: yCoordinate)
         results.append(coordinatePoint)
       }
     }
-    
+
     return results
   }
 }
@@ -89,7 +103,7 @@ rangeReturn[3].y
 struct Person {
     let firstName: String
     let lastName: String
-    
+
     func fullName() -> String {
       return firstName + " " + lastName
     }
@@ -99,7 +113,7 @@ let aPerson = Person(firstName: "Billy", lastName: "Bob")
 let myFullName = aPerson.fullName()
 ```
 
-***
+---
 
 ## Initialisers and Self
 
@@ -109,7 +123,7 @@ Self is generally only used in Swift in the init method or when differentiating
 struct Point {
   let x: Int
   let y: Int
-  
+
   init(x: Int, y: Int) {
     self.x = x;
     self.y = x;
@@ -121,16 +135,16 @@ struct RGBColor {
   let green: Double
   let blue: Double
   let alpha: Double
-  
+
   let description: String
-  
+
   // Add your code below
   init(red: Double, green: Double, blue: Double, alpha: Double) {
     self.red = red
     self.green = green
     self.blue = blue
     self.alpha = alpha
-    
+
     self.description = "red: \(self.red), green: \(self.green), blue: \(self.blue), alpha: \(self.alpha)"
   }
 }
@@ -141,7 +155,7 @@ test.description
 
 <div id="classes"></div>
 
-***
+---
 
 ## Class
 
@@ -168,7 +182,7 @@ struct Location {
 class Business {
   var name: String
   var location: Location
-  
+
   init(name: String, location: Location) {
     self.name = name
     self.location = location
@@ -176,12 +190,11 @@ class Business {
 }
 
 let someBusiness = Business(name: "Quiry", location: Location(latitude: 341, longitude: 82))
-
 ```
 
 <div id="inheritance"></div>
 
-***
+---
 
 ## Inheritance
 
@@ -200,7 +213,7 @@ class SuperEnemy: Enemy {
 class Vehicle {
   var numberOfDoors: Int
   var numberOfWheels: Int
-    
+
   init(withDoors doors: Int, andWheels wheels: Int) {
       self.numberOfDoors = doors
       self.numberOfWheels = wheels
@@ -213,7 +226,7 @@ class Car: Vehicle {
   override init(withDoors doors: Int, andWheels wheels: Int) {
     super.init(withDoors: doors, andWheels: wheels)
   }
-  
+
 }
 
 let someCar = Car(withDoors: 4, andWheels: 4)
@@ -222,7 +235,7 @@ let someCar = Car(withDoors: 4, andWheels: 4)
 ```
 class Person {
   let firstName: String
-  let lastName: String 
+  let lastName: String
 
   init(firstName: String, lastName: String) {
     self.firstName = firstName
@@ -251,7 +264,7 @@ let someDoctor = Doctor(firstName: "Sam", lastName: "Smith")
 
 <div id="final"></div>
 
-***
+---
 
 ## Structs vs Classes
 
@@ -282,7 +295,7 @@ class Person {
   var fullName: String
   var email: String
   var age: Int
-  
+
   init(name: String, email: String, age: Int) {
     self.fullName = name
     self.email = email

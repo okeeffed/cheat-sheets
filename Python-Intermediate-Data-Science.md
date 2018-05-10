@@ -1,5 +1,13 @@
 # Python - Intermediate Data Science
 
+<!-- TOC -->
+
+*   [Python - Intermediate Data Science](#python---intermediate-data-science)
+    *   [PYINT-1: Matplotlib](#pyint-1-matplotlib)
+        *   [---- PYINT-1.1: Basic plots](#-----pyint-11-basic-plots)
+
+<!-- /TOC -->
+
 ## PYINT-1: Matplotlib
 
 ### ---- PYINT-1.1: Basic plots

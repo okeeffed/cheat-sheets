@@ -2,14 +2,46 @@
 
 [Style Guides Website](http://styleguides.io/examples.html)
 
+<!-- TOC -->
+
+*   [Design Systems](#design-systems)
+    *   [From the podcast](#from-the-podcast)
+    *   [Design System Links](#design-system-links)
+    *   [Carbon Design System](#carbon-design-system)
+        *   [Guidelines](#guidelines)
+            *   [Accessibility](#accessibility)
+            *   [Content](#content)
+            *   [Principles](#principles)
+        *   [Style](#style)
+        *   [Components](#components)
+    *   [A11y Style Guide](#a11y-style-guide)
+    *   [Material Design](#material-design)
+        *   [Colour](#colour)
+        *   [Patterns](#patterns)
+        *   [Growth & communications](#growth--communications)
+        *   [Platforms](#platforms)
+    *   [viljamisdesign.com](#viljamisdesigncom)
+    *   [Atlassian design](#atlassian-design)
+    *   [Dropbox Branding](#dropbox-branding)
+    *   [Government Guidelines](#government-guidelines)
+    *   [Microservices](#microservices)
+        *   [Logging](#logging)
+    *   [Coding](#coding)
+        *   [Concerning factors](#concerning-factors)
+    *   [Workplace Best Practises](#workplace-best-practises)
+    *   [Mathemetic Concepts](#mathemetic-concepts)
+    *   [Inspiration](#inspiration)
+
+<!-- /TOC -->
+
 ## From the podcast
 
-1. IBM Carbon
-2. Animation - following important preset guidelines or enforcing something flexible to deal with brand identity
-	1. Easing timings
-	2. Bezier curves
-3. Having a company set structure for their own “Bootstrap” or “Material UI”
-	1. Structure being something that can be documented or readily altered
+1.  IBM Carbon
+2.  Animation - following important preset guidelines or enforcing something flexible to deal with brand identity
+    1.  Easing timings
+    2.  Bezier curves
+3.  Having a company set structure for their own “Bootstrap” or “Material UI”
+    1.  Structure being something that can be documented or readily altered
 
 ## Design System Links
 
@@ -37,11 +69,11 @@ Tense and sentence structure have continued to haunt me since high school Englis
 
 #### Principles
 
-1. Be essential
-2. Be inclusive
-3. Be consistent
-4. Be humanistic
-5. Be delightful
+1.  Be essential
+2.  Be inclusive
+3.  Be consistent
+4.  Be humanistic
+5.  Be delightful
 
 ### Style
 
@@ -57,13 +89,13 @@ When it comes to accessibility, your goto reference must be the [A11y style guid
 
 The structure is broken down into the following:
 
-0. Overview
-1. Forms
-2. General
-3. Media
-4. Navigation
-5. Structure
-6. Resources
+0.  Overview
+1.  Forms
+1.  General
+1.  Media
+1.  Navigation
+1.  Structure
+1.  Resources
 
 For anyone who has had the pleasure of writing forms in HTML, this style guide is worth its weight in gold.
 
@@ -113,8 +145,8 @@ Hot off the heels of their new AUD$10 billion dollar valued office in Sydney CBD
 
 [Dropbox Brading](https://www.dropbox.com/branding/)
 
-- Screenshots and press releases
-- Application icons
+*   Screenshots and press releases
+*   Application icons
 
 ## Government Guidelines
 
@@ -129,40 +161,40 @@ Hot off the heels of their new AUD$10 billion dollar valued office in Sydney CBD
 
 ## Coding
 
-- [Data Structures](https://medium.freecodecamp.org/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b)
-- [The Basic Principles of Visual Design](https://blog.prototypr.io/10-basic-principles-of-visual-design-55b86b9f7241)
-- [Creating Usability With Motion](https://medium.com/ux-in-motion/creating-usability-with-motion-the-ux-in-motion-manifesto-a87a4584ddc)
-- [12 Steps for Software-as-a-Service apps](https://12factor.net/)
-- [RSCSS](http://rscss.io/)
+*   [Data Structures](https://medium.freecodecamp.org/10-common-data-structures-explained-with-videos-exercises-aaff6c06fb2b)
+*   [The Basic Principles of Visual Design](https://blog.prototypr.io/10-basic-principles-of-visual-design-55b86b9f7241)
+*   [Creating Usability With Motion](https://medium.com/ux-in-motion/creating-usability-with-motion-the-ux-in-motion-manifesto-a87a4584ddc)
+*   [12 Steps for Software-as-a-Service apps](https://12factor.net/)
+*   [RSCSS](http://rscss.io/)
 
 ### Concerning factors
 
-1. Keeping processes as stateless `processes are stateless and share-nothing` and require a `backing service` to deal with this.
-2. [Logging](https://logmatic.io/blog/beyond-application-monitoring-discover-logging-best-practices/)
-3. [Response status codes](https://httpstatuses.com/)
-4. Network Configuration
-	- [VPC Best Practises](http://blog.flux7.com/blogs/aws/vpc-best-configuration-practices)
-5. Typography
-	- [Typography Handbook](http://typographyhandbook.com/)
+1.  Keeping processes as stateless `processes are stateless and share-nothing` and require a `backing service` to deal with this.
+2.  [Logging](https://logmatic.io/blog/beyond-application-monitoring-discover-logging-best-practices/)
+3.  [Response status codes](https://httpstatuses.com/)
+4.  Network Configuration
+    *   [VPC Best Practises](http://blog.flux7.com/blogs/aws/vpc-best-configuration-practices)
+5.  Typography
+    *   [Typography Handbook](http://typographyhandbook.com/)
 
 ## Workplace Best Practises
 
-1. Password storage
-2. Communication within the team
-3. [Agile Methodology and Retrospectives](https://www.atlassian.com/agile)
-4. Continuous Integration, Contiunous Delivery and Continuous Deployment
-	- [Electric Cloud on continuous integration](http://electric-cloud.com/plugins/continuous-integration/)
-	- [Assembla Blog on CI vs CD](https://blog.assembla.com/assemblablog/tabid/12618/bid/92411/continuous-delivery-vs-continuous-deployment-vs-continuous-integration-wait-huh.aspx)
-	- [Atlassian](https://www.atlassian.com/continuous-delivery/ci-vs-ci-vs-cd)
-5. Feedback
-6. Client relations
-7. [API Design Standards](https://softwareengineeringdaily.com/2017/04/05/api-design-standards-with-andy-beier/)
-8. [Berkerley Citations](http://guides.lib.berkeley.edu/citation_management)
+1.  Password storage
+2.  Communication within the team
+3.  [Agile Methodology and Retrospectives](https://www.atlassian.com/agile)
+4.  Continuous Integration, Contiunous Delivery and Continuous Deployment
+    *   [Electric Cloud on continuous integration](http://electric-cloud.com/plugins/continuous-integration/)
+    *   [Assembla Blog on CI vs CD](https://blog.assembla.com/assemblablog/tabid/12618/bid/92411/continuous-delivery-vs-continuous-deployment-vs-continuous-integration-wait-huh.aspx)
+    *   [Atlassian](https://www.atlassian.com/continuous-delivery/ci-vs-ci-vs-cd)
+5.  Feedback
+6.  Client relations
+7.  [API Design Standards](https://softwareengineeringdaily.com/2017/04/05/api-design-standards-with-andy-beier/)
+8.  [Berkerley Citations](http://guides.lib.berkeley.edu/citation_management)
 
 ## Mathemetic Concepts
 
-- [Graph Theory](https://www.youtube.com/watch?v=HmQR8Xy9DeM)
+*   [Graph Theory](https://www.youtube.com/watch?v=HmQR8Xy9DeM)
 
 ## Inspiration
 
-- [Hi Five Bro](http://www.highfivebro.com/)
+*   [Hi Five Bro](http://www.highfivebro.com/)

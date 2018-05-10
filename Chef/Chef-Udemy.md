@@ -1,5 +1,29 @@
 # Chef - Udemy Course
 
+<!-- TOC -->
+
+*   [Chef - Udemy Course](#chef---udemy-course)
+    *   [Configuration Management](#configuration-management)
+    *   [Infrastructure as Code](#infrastructure-as-code)
+    *   [Your First Chef Recipe](#your-first-chef-recipe)
+    *   [Chef Resources](#chef-resources)
+    *   [Exploring system resources](#exploring-system-resources)
+    *   [Convergence and Desired State](#convergence-and-desired-state)
+    *   [Creating an "Exercise Work Station"](#creating-an-exercise-work-station)
+    *   [Organising Resources with Ruby](#organising-resources-with-ruby)
+    *   [Cookbooks](#cookbooks)
+        *   [How do you keep track of changes to the recipes?](#how-do-you-keep-track-of-changes-to-the-recipes)
+        *   [Cookbook Components](#cookbook-components)
+        *   [Tracking changes to the Cookbooks](#tracking-changes-to-the-cookbooks)
+        *   [Setting up an Apache Cookbook](#setting-up-an-apache-cookbook)
+    *   [Chef Client](#chef-client)
+        *   [include_recipe](#include_recipe)
+        *   [default.rb example](#defaultrb-example)
+    *   [Ohai](#ohai)
+        *   [An object called 'node'](#an-object-called-node)
+
+<!-- /TOC -->
+
 ## Configuration Management
 
 Maintaining consistency for server integrity.
@@ -16,8 +40,8 @@ Revision control systems can also be version controlled with `infrastructure as 
 
 Examples:
 
-- version control
-- testing
+*   version control
+*   testing
 
 These all helps to validate infrastructure code.
 
@@ -25,9 +49,9 @@ You can manage multiple cloud platforms etc.
 
 The three things covered:
 
-- chef development kit
-- chef client
-- chef server
+*   chef development kit
+*   chef client
+*   chef server
 
 The Chef DK allows you to run local tools to write code and then upload it to a chef server. A node will be a server or machine managed by Chef.
 
@@ -155,18 +179,20 @@ Cookbooks allow a way to package up the recipes and give it a version number and
 When creating the cookbook, is describes a config for a particular scenario.
 
 What to use cookbooks for:
-- Specifiy resources to use and in which order they are applied
-- Attribute values
-- File distributions
-- Templates
-- Extensions to Chef (lib, definitions and custom resources)
-- Version Control
+
+*   Specifiy resources to use and in which order they are applied
+*   Attribute values
+*   File distributions
+*   Templates
+*   Extensions to Chef (lib, definitions and custom resources)
+*   Version Control
 
 Cookbook components:
-- README
-- metadata
-- recipes
-- testing directories (spec + test)
+
+*   README
+*   metadata
+*   recipes
+*   testing directories (spec + test)
 
 ### Cookbook Components
 

@@ -1,5 +1,11 @@
 # Unity Basics
 
+<!-- TOC -->
+
+*   [Unity Basics](#unity-basics) - [Overview](#overview) - [Scene View - Navigation and Positioning](#scene-view---navigation-and-positioning) - [Scene View Controls](#scene-view-controls) - [The Game View](#the-game-view) - [The Toolbar](#the-toolbar)
+
+<!-- /TOC -->
+
 The initial `default layout` is the initial arrangement. You can change the layout on the top right.
 
 ### Overview
@@ -22,12 +28,12 @@ A quick navigation is to right click and use the arrows to move around. You can 
 
 You can orbit by holding `alt` and dragging.
 
-| Position Tools 	|
-| ---				|
-| Q: Pan 			|
-| W: Move 			|
-| E: Rotate 		|
-| R: Scale 			|
+| Position Tools |
+| -------------- |
+| Q: Pan         |
+| W: Move        |
+| E: Rotate      |
+| R: Scale       |
 
 ### Scene View Controls
 
@@ -48,4 +54,3 @@ The game view will show what the game will look like at the end.
 You can select 2 by 3 to see a view of everything.
 
 ### The Toolbar
-

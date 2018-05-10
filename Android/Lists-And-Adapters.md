@@ -32,3 +32,4 @@ static class DailyForecastActivity extends ListActivity {
 		setListAdapter(adapter);
 	}
 }
+```

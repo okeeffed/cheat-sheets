@@ -1,21 +1,45 @@
 # Amazon EC2 Container Services
 
+<!-- TOC -->
+
+*   [Amazon EC2 Container Services](#amazon-ec2-container-services)
+    *   [1.0: Container Architecture](#10-container-architecture)
+    *   [1.1: Amazon EC2 Introduction](#11-amazon-ec2-introduction)
+    *   [2.0: Creating an ECS User and Group](#20-creating-an-ecs-user-and-group)
+    *   [2.1: Logging into the Console](#21-logging-into-the-console)
+    *   [2.2: Create Instance Key-Pairs](#22-create-instance-key-pairs)
+    *   [2.3: Create a Cluster Virtual Private Cloud](#23-create-a-cluster-virtual-private-cloud)
+    *   [2.4: Security Groups and ECS Clusters](#24-security-groups-and-ecs-clusters)
+    *   [2.5: Installing AWS CLI](#25-installing-aws-cli)
+    *   [3.0: Using the Wizard for Sample Cluster Creation](#30-using-the-wizard-for-sample-cluster-creation)
+    *   [3.1: Exploring the Sample Cluster](#31-exploring-the-sample-cluster)
+    *   [3.2: Customizing the EC2 Cluster](#32-customizing-the-ec2-cluster)
+    *   [3.3: Cluster Security Group Customization](#33-cluster-security-group-customization)
+    *   [3.4: Container Instance Scaling](#34-container-instance-scaling)
+    *   [3.5: ELB - Container Registration and Config](#35-elb---container-registration-and-config)
+    *   [3.6: ECS - Creating a Custom Container](#36-ecs---creating-a-custom-container)
+    *   [3.7: Creating a Custom Task Definition for our Containers in ECS](#37-creating-a-custom-task-definition-for-our-containers-in-ecs)
+    *   [3.8: Running Multiple Container Types in the Cluster](#38-running-multiple-container-types-in-the-cluster)
+    *   [4.0: Troubleshooting](#40-troubleshooting)
+
+<!-- /TOC -->
+
 **Goals**
 
-1. Create a User and Look at Security Settings
-2. Create a Role and Generate a Key Pair
-3. Create a VPC for our Cluster
-4. Create a Security Group for our Cluster
-5. Install and Configure the AWS CLI
+1.  Create a User and Look at Security Settings
+2.  Create a Role and Generate a Key Pair
+3.  Create a VPC for our Cluster
+4.  Create a Security Group for our Cluster
+5.  Install and Configure the AWS CLI
 
 **Components and Usage**
 
-- Clusters
-- Container instances (how to register too)
-- The Agent
-- Scheduling Tasks
-- Repositories
-- IAM Policies and Roles
+*   Clusters
+*   Container instances (how to register too)
+*   The Agent
+*   Scheduling Tasks
+*   Repositories
+*   IAM Policies and Roles
 
 ## 1.0: Container Architecture
 
@@ -25,15 +49,15 @@ Highly scalable and fast container management service. Easily can start, stop an
 
 **What makes up the ECS?**
 
-1. Clusters - the grouping of container instances that we 'do stuff' on.
-2. Container instances - EC2 Instances running the ECS agent and registered in a cluster.
-3. Task Definitions - Description of an application with one or more container definitions.
-4. Scheduling - How we get our tasks on the container instances.
-5. Servies - An ECS service allows us to run or maintain a number of instances of a task definition.
-6. Tasks - an instance of a Task definition
-7. Containers - A Linux Container (Docker for example) created as part of a Task.
+1.  Clusters - the grouping of container instances that we 'do stuff' on.
+2.  Container instances - EC2 Instances running the ECS agent and registered in a cluster.
+3.  Task Definitions - Description of an application with one or more container definitions.
+4.  Scheduling - How we get our tasks on the container instances.
+5.  Servies - An ECS service allows us to run or maintain a number of instances of a task definition.
+6.  Tasks - an instance of a Task definition
+7.  Containers - A Linux Container (Docker for example) created as part of a Task.
 
-***
+---
 
 ## 2.0: Creating an ECS User and Group
 
@@ -107,7 +131,7 @@ We recommend that you only open up SSH to a few IP ranges.
 
 `aws configure` allows us to put in our id and secret key, and commands such as `aws ec2 describe-regions` allow us to see available regions for instances.
 
-***
+---
 
 ## 3.0: Using the Wizard for Sample Cluster Creation
 
@@ -129,7 +153,7 @@ If we look at the advanved settings, we can look at environment, network setting
 
 We can also mount additional volumes external from the container.
 
-***
+---
 
 On the next step, we can edit the Service name and we can also have a multiple number of tasks running.
 
@@ -141,7 +165,7 @@ Key-Pairs are also region specific and you'll need a new key-pair for another cl
 
 We need to make sure `ecsinstanceRole` IAM policy is also currently allowed.
 
-***
+---
 
 In the review, you will get an overview of what is being created and the cluster configuration.
 
@@ -172,8 +196,9 @@ Let's take a look at how we can set up a cluster with a basic web app.
 If we head back to the EC2 container service, let's walk through how we can customize our cluster initially and can use it in a manner more enterprise ready.
 
 **Task Definition**
-- give a solid name about least definition to a task definition
-- again, select the mappings etc that you want
+
+*   give a solid name about least definition to a task definition
+*   again, select the mappings etc that you want
 
 Now, in the advaned options, we want to make some changes.
 
@@ -263,7 +288,7 @@ With the repo available for a docker pull, what we can now do is create a new ta
 
 **Creating the task definition**
 
-- Can be done by either console or CLI
+*   Can be done by either console or CLI
 
 Select `ECS > Task Definitions > Create a new definition`.
 
@@ -291,16 +316,12 @@ One thing to notice is that the task definition list cannot be removed.
 
 Once the task has run, get the IP that is provisioned and see if you can head to it - which you can!
 
-***
+---
 
 ## 4.0: Troubleshooting
 
-- Service Health is important to decide if it's with the cluster and not AWS.
-- Another option is to check events.
-- Check the instances, which also has deeper information
-- Check the Load Balancer have the in service status.
-	- Health checks here can be configured.
-- We can check the cluster itself
-	- Check primary service is `ACTIVE`
-	- Check the instances and the tasks
-
+*   Service Health is important to decide if it's with the cluster and not AWS.
+*   Another option is to check events.
+*   Check the instances, which also has deeper information
+*   Check the Load Balancer have the in service status. - Health checks here can be configured.
+*   We can check the cluster itself - Check primary service is `ACTIVE` - Check the instances and the tasks

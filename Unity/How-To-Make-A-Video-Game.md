@@ -1,10 +1,42 @@
 # How to make a video game
 
+<!-- TOC -->
+
+*   [How to make a video game](#how-to-make-a-video-game) - [What is a game engine?](#what-is-a-game-engine)
+    *   [Part 2](#part-2)
+        *   [Unity Interface](#unity-interface)
+            *   [Prefabs](#prefabs)
+        *   [Setup the project](#setup-the-project)
+        *   [Navigating the Scene View](#navigating-the-scene-view)
+        *   [Position the camera](#position-the-camera)
+        *   [Image effects and asset stores](#image-effects-and-asset-stores)
+    *   [Programming Games](#programming-games)
+        *   [Programming with C# with Unity](#programming-with-c-with-unity)
+        *   [Gather Player Input](#gather-player-input)
+        *   [Moving a player with animation](#moving-a-player-with-animation)
+        *   [Quaternions](#quaternions)
+            *   [Target rotation](#target-rotation)
+        *   [Making a follow camera](#making-a-follow-camera)
+    *   [Section 3](#section-3)
+        *   [Adding the flies to the swamp](#adding-the-flies-to-the-swamp)
+        *   [Adding the Fly Pickup](#adding-the-fly-pickup)
+            *   [Pickup Particles](#pickup-particles)
+        *   [Creating the enemy in the game](#creating-the-enemy-in-the-game)
+        *   [Monitor Player Health](#monitor-player-health)
+        *   [Managing the game state](#managing-the-game-state)
+    *   [Adding Audio](#adding-audio)
+        *   [Game audio](#game-audio)
+        *   [Controlling sounds on game objects](#controlling-sounds-on-game-objects)
+        *   [Audio mixing](#audio-mixing)
+        *   [Exporting the game](#exporting-the-game)
+
+<!-- /TOC -->
+
 How are games made?
 
-- Game designers
-- Game artists
-- Game developers
+*   Game designers
+*   Game artists
+*   Game developers
 
 These roles can be between one or thousands of people.
 
@@ -142,7 +174,6 @@ After adding the script to update the script, we need to animate the frog.
 The animator components with now be on the inspector for the player.
 
 We will use the playerAnimator to access to Animator component.
-
 
 ```csharp
 using System.Collections;
@@ -402,6 +433,7 @@ Stopping Distance: 5
 Radius: 1
 Height: 4
 ```
+
 We now need to create a `Nav Mesh`. The `NavMeshAgent` allows us to set a destination target that the "enemy" can follow. It is a component that can be attached to a game object so that it can interact with the `NavMesh`.
 
 ```csharp
@@ -609,5 +641,3 @@ We need to update the scripts to ensure that these clips play at the appropriate
 Use the audio mixer, create groups and assign these groups via the `AudioComponent` on the hierarchy or prefab.
 
 ### Exporting the game
-
-

@@ -1,11 +1,42 @@
 # Go Language Overview
 
+<!-- TOC -->
+
+*   [Go Language Overview](#go-language-overview)
+    *   [Types](#types)
+    *   [Packages - public and private variables](#packages---public-and-private-variables)
+    *   [Variables](#variables)
+        *   [Variable declarations and assigning](#variable-declarations-and-assigning)
+    *   [Functions](#functions)
+        *   [Multiple return values](#multiple-return-values)
+        *   [The Go Formatting Tool](#the-go-formatting-tool)
+    *   [Control Structures](#control-structures)
+        *   [For loops](#for-loops)
+        *   [If statements](#if-statements)
+        *   [Switch statement](#switch-statement)
+    *   [Data Structures](#data-structures)
+        *   [Pointers](#pointers)
+        *   [Arrays](#arrays)
+        *   [Slices](#slices)
+        *   [Maps](#maps)
+    *   [Custom Types](#custom-types)
+        *   [Methods](#methods)
+        *   [Structs](#structs)
+        *   [Interfaces](#interfaces)
+            *   [Challenge](#challenge)
+    *   [Concurrency](#concurrency)
+        *   [Channels](#channels)
+            *   [Challenge](#challenge-1)
+    *   [Summary](#summary)
+
+<!-- /TOC -->
+
 ## Types
 
-- int, int8 etc
-- bool
-- string
-- float32, float64 (64 by default)
+*   int, int8 etc
+*   bool
+*   string
+*   float32, float64 (64 by default)
 
 ## Packages - public and private variables
 
@@ -45,14 +76,13 @@ func main() {
 }
 ```
 
-- Variable names must start with a letter
-- Uppercase variables and funcs can be used outside of the package
-- Lowercase cannot
-- Declaring type can come after the variable name eg `var floating float64 = 1.4`
-- Casting `float64(variable)`
-- Errors are thrown for mismatched types
-- For scope, you are able to declare blocks by themselves
-	- Each package is a implicit block
+*   Variable names must start with a letter
+*   Uppercase variables and funcs can be used outside of the package
+*   Lowercase cannot
+*   Declaring type can come after the variable name eg `var floating float64 = 1.4`
+*   Casting `float64(variable)`
+*   Errors are thrown for mismatched types
+*   For scope, you are able to declare blocks by themselves - Each package is a implicit block
 
 ## Functions
 
@@ -73,11 +103,12 @@ func MyPublicFunction() {
 
 You can enforce type safety for parameters by adding the type expected to the function `func myFunc(test string, number int) {}`
 
-- Go doesn't allow default parameter values
-- No named values
-- No method overloading
+*   Go doesn't allow default parameter values
+*   No named values
+*   No method overloading
 
 For returning a certain value, you can enfore this by the following
+
 ```
 func myFunc(test string, number int) int {}
 func myFuncTwo(numberOne int, number int) (sum int) {
@@ -166,7 +197,6 @@ for i := 1; i <= 3; i++ {
 
 ### If statements
 
-
 ```go
 if true {
 	fmt.Println("You'll come here")
@@ -219,8 +249,8 @@ func main() {
 
 There are situations where the pointer is better to use than using a value directly.
 
-1. Functions that need to affect their argument. Args in funcs are always passed by value. The function recieves a copy of the value.
-2. Passing a complex value to a function - example a complex struct
+1.  Functions that need to affect their argument. Args in funcs are always passed by value. The function recieves a copy of the value.
+2.  Passing a complex value to a function - example a complex struct
 
 ```go
 // Example
@@ -286,7 +316,8 @@ func main() {
 	}
 }
 ```
- The main limitation arrays are used are because you cannot assign values to an array larger than it's initial allocated memory size.
+
+The main limitation arrays are used are because you cannot assign values to an array larger than it's initial allocated memory size.
 
 ### Slices
 
@@ -366,7 +397,6 @@ func main() {
 ## Custom Types
 
 We can use the `type` keyword to define a type and it's underlying type.
-
 
 ```go
 package main
@@ -665,12 +695,10 @@ func readFromChannel() string {
 
 In the course, we've looked at:
 
-- Packages
-- Type
-- Functions
-- Go format tool
-- Arrays, Slices and Maps
-- Structs for field aggregation
-	- Adding methods
-	- Interfaces
-- Using Go routines and Channels
+*   Packages
+*   Type
+*   Functions
+*   Go format tool
+*   Arrays, Slices and Maps
+*   Structs for field aggregation - Adding methods - Interfaces
+*   Using Go routines and Channels

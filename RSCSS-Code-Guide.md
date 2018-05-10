@@ -1,5 +1,34 @@
 # RSCSS CHEAT SHEET
 
+<!-- TOC -->
+
+*   [RSCSS CHEAT SHEET](#rscss-cheat-sheet)
+    *   [RSCSS-1: Naming Components](#rscss-1-naming-components)
+    *   [RSCSS-2: Naming Elements](#rscss-2-naming-elements)
+    *   [RSCSS-3: Element Selectors](#rscss-3-element-selectors)
+    *   [RSCSS-4: Multiple Words](#rscss-4-multiple-words)
+    *   [RSCSS-5: Avoid Tag Selectors](#rscss-5-avoid-tag-selectors)
+    *   [RSCSS-6: Variants](#rscss-6-variants)
+    *   [RSCSS-7: Naming Variants](#rscss-7-naming-variants)
+    *   [RSCSS-8: Element Variants](#rscss-8-element-variants)
+    *   [RSCSS-9: Nested Components](#rscss-9-nested-components)
+    *   [RSCSS-10: Simplifying Nested Components](#rscss-10-simplifying-nested-components)
+    *   [RSCSS-11: Layouts](#rscss-11-layouts)
+    *   [RSCSS-12: Avoid positioning properties](#rscss-12-avoid-positioning-properties)
+    *   [RSCSS-13: Fixed Dimensions](#rscss-13-fixed-dimensions)
+    *   [RSCSS-14: Define Position in Parents](#rscss-14-define-position-in-parents)
+    *   [RSCSS-15: Helpers](#rscss-15-helpers)
+    *   [RSCSS-16: Naming Helpers](#rscss-16-naming-helpers)
+    *   [RSCSS-17: Organising Helpers](#rscss-17-organising-helpers)
+    *   [RSCSS-18: CSS Structure](#rscss-18-css-structure)
+    *   [RSCSS-19: One Component Per File](#rscss-19-one-component-per-file)
+    *   [RSCSS-20: Avoid Overnesting](#rscss-20-avoid-overnesting)
+    *   [RSCSS-21: Pitfalls](#rscss-21-pitfalls)
+    *   [RSCSS-22: Bleeding Through Nested Components](#rscss-22-bleeding-through-nested-components)
+    *   [RSCSS-23: Apprehensions](#rscss-23-apprehensions)
+
+<!-- /TOC -->
+
 ## RSCSS-1: Naming Components
 
 Components will be named with at least two words, separated by a dash. Examples of components:
@@ -14,8 +43,12 @@ Each component may have elements. They should have classes that are only one wor
 
 ```css
 .search-form {
-  > .field { /* ... */ }
-  > .action { /* ... */ }
+    > .field {
+        /* ... */
+    }
+    > .action {
+        /* ... */
+    }
 }
 ```
 
@@ -25,8 +58,12 @@ Prefer to use the > child selector whenever possible. This prevents bleeding thr
 
 ```css
 .article-card {
-  .title     { /* okay */ }
-  > .author  { /* ✓ better */ }
+    .title {
+        /* okay */
+    }
+    > .author {
+        /* ✓ better */
+    }
 }
 ```
 
@@ -36,9 +73,15 @@ For those that need two or more words, concatenate them without dashes or unders
 
 ```css
 .profile-box {
-  > .firstname { /* ... */ }
-  > .lastname { /* ... */ }
-  > .avatar { /* ... */ }
+    > .firstname {
+        /* ... */
+    }
+    > .lastname {
+        /* ... */
+    }
+    > .avatar {
+        /* ... */
+    }
 }
 ```
 
@@ -48,8 +91,12 @@ Use classnames whenever possible. Tag selectors are fine, but they may come at a
 
 ```css
 .article-card {
-  > h3    { /* ✗ avoid */ }
-  > .name { /* ✓ better */ }
+    > h3 {
+        /* ✗ avoid */
+    }
+    > .name {
+        /* ✓ better */
+    }
 }
 ```
 
@@ -58,6 +105,7 @@ Use classnames whenever possible. Tag selectors are fine, but they may come at a
 Components may have variants. Elements may have variants, too.
 
 eg.
+
 ```css
 .search-form
 .search-form .-prefixed
@@ -82,8 +130,12 @@ Elements may also have variants.
 
 ```css
 .shopping-card {
-  > .title { /* ... */ }
-  > .title.-small { /* ... */ }
+    > .title {
+        /* ... */
+    }
+    > .title.-small {
+        /* ... */
+    }
 }
 ```
 
@@ -92,7 +144,7 @@ Dash prefixes
 Dashes are the preferred prefix for variants.
 
 It prevents ambiguity with elements.
-A CSS class can only start with a letter, _ or -.
+A CSS class can only start with a letter, \_ or -.
 Dashes are easier to type than underscores.
 It kind of resembles switches in UNIX commands (gcc -O2 -Wall -emit-last).
 
@@ -114,7 +166,9 @@ A component may need to appear a certain way when nested in another component. A
 
 ```css
 .article-header {
-  > .vote-box > .up { /* ✗ avoid this */ }
+    > .vote-box > .up {
+        /* ✗ avoid this */
+    }
 }
 ```
 
@@ -128,9 +182,12 @@ Instead, prefer to add a variant to the nested component and apply it from the c
   ...
 </div>
 ```
+
 ```css
 .vote-box {
-  &.-highlight > .up { /* ... */ }
+    &.-highlight > .up {
+        /* ... */
+    }
 }
 ```
 
@@ -150,17 +207,18 @@ You can simplify this by using your CSS preprocessor's @extend mechanism:
   <button class='submit'></button>
 </div>
 ```
+
 ```css
 .search-form {
-  > .submit {
-    @extend .search-button;
-    @extend .search-button.-red;
-    @extend .search-button.-large;
-  }
+    > .submit {
+        @extend .search-button;
+        @extend .search-button.-red;
+        @extend .search-button.-large;
+    }
 }
 ```
 
-***
+---
 
 ## RSCSS-11: Layouts
 
@@ -178,7 +236,7 @@ Components should be made in a way that they're reusable in different contexts. 
 Positioning (position, top, left, right, bottom)
 Floats (float, clear)
 Margins (margin)
-Dimensions (width, height) *
+Dimensions (width, height) \*
 
 ## RSCSS-13: Fixed Dimensions
 
@@ -190,35 +248,51 @@ If you need to define these, try to define them in whatever context they will be
 
 ```css
 .article-list {
-  & {
-    @include clearfix;
-  }
+    & {
+        @include clearfix;
+    }
 
-  > .article-card {
-    width: 33.3%;
-    float: left;
-  }
+    > .article-card {
+        width: 33.3%;
+        float: left;
+    }
 }
 
 .article-card {
-  & { /* ... */ }
-  > .image { /* ... */ }
-  > .title { /* ... */ }
-  > .category { /* ... */ }
+    & {
+        /* ... */
+    }
+    > .image {
+        /* ... */
+    }
+    > .title {
+        /* ... */
+    }
+    > .category {
+        /* ... */
+    }
 }
 ```
 
-***
+---
 
 ## RSCSS-15: Helpers
 
 For general-purpose classes meant to override values, put them in a separate file and name them beginning with an underscore. They are typically things that are tagged with !important. Use them very sparingly.
 
 ```css
-._unmargin { margin: 0 !important; }
-._center { text-align: center !important; }
-._pull-left { float: left !important; }
-._pull-right { float: right !important; }
+._unmargin {
+    margin: 0 !important;
+}
+._center {
+    text-align: center !important;
+}
+._pull-left {
+    float: left !important;
+}
+._pull-right {
+    float: right !important;
+}
 ```
 
 ## RSCSS-16: Naming Helpers
@@ -234,7 +308,7 @@ Prefix classnames with an underscore. This will make it easy to differentiate th
 
 Place all helpers in one file called helpers. While you can separate them into multiple files, it's very preferrable to keep your number of helpers to a minimum.
 
-***
+---
 
 ## RSCSS-18: CSS Structure
 
@@ -245,13 +319,23 @@ For each component, place them in their own file.
 ```css
 /* css/components/search-form.scss */
 .search-form {
-  > .button { /* ... */ }
-  > .field { /* ... */ }
-  > .label { /* ... */ }
+    > .button {
+        /* ... */
+    }
+    > .field {
+        /* ... */
+    }
+    > .label {
+        /* ... */
+    }
 
-  // variants
-  &.-small { /* ... */ }
-  &.-wide { /* ... */ }
+    // variants
+    &.-small {
+        /* ... */
+    }
+    &.-wide {
+        /* ... */
+    }
 }
 ```
 
@@ -270,28 +354,31 @@ Use no more than 1 level of nesting. It's easy to get lost with too much nesting
 ```css
 /* ✗ Avoid: 3 levels of nesting */
 .image-frame {
-  > .description {
-    /* ... */
+    > .description {
+        /* ... */
 
-    > .icon {
-      /* ... */
+        > .icon {
+            /* ... */
+        }
     }
-  }
 }
 
 /* ✓ Better: 2 levels */
 .image-frame {
-  > .description { /* ... */ }
-  > .description > .icon { /* ... */ }
+    > .description {
+        /* ... */
+    }
+    > .description > .icon {
+        /* ... */
+    }
 }
 ```
 
-***
+---
 
 ## RSCSS-21: Pitfalls
 
 ## RSCSS-22: Bleeding Through Nested Components
-
 
 Be careful about nested components with elements sharing the same name as elements in its container.
 
@@ -307,22 +394,33 @@ Be careful about nested components with elements sharing the same name as elemen
   <p class='count'>3 votes</p>
 </article>
 ```
+
 ```css
 .article-link {
-  > .title { /* ... */ }
-  > .count { /* ... (!!!) */ }
+    > .title {
+        /* ... */
+    }
+    > .count {
+        /* ... (!!!) */
+    }
 }
 
 .vote-box {
-  > .up { /* ... */ }
-  > .down { /* ... */ }
-  > .count { /* ... */ }
+    > .up {
+        /* ... */
+    }
+    > .down {
+        /* ... */
+    }
+    > .count {
+        /* ... */
+    }
 }
 ```
 
 In this case, if .article-link > .count did not have the > (child) selector, it will also apply to the .vote-box .count element. This is one of the reasons why child selectors are preferred.
 
-***
+---
 
 ## RSCSS-23: Apprehensions
 
@@ -337,11 +435,5 @@ You're free to omit them and just use regular words, but keep the rest of the id
 Some components will only need one word to express their purpose, such as alert. In these cases, consider that using some suffixes will make it clearer that it's a block-level element:
 
 ```css
-.alert-box
-.alert-card
-.alert-block
-Or for inlines:
-
-.link-button
-.link-span
+.alert-box.alert-card .alert-block Or for inlines: .link-button .link-span;
 ```

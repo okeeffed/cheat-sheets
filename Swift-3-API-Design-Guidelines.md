@@ -1,5 +1,19 @@
 # API Design Guidelines in Swift 3
 
+<!-- TOC -->
+
+*   [API Design Guidelines in Swift 3](#api-design-guidelines-in-swift-3)
+    *   [SWD-1: Why do we need guidelines?](#swd-1-why-do-we-need-guidelines)
+    *   [SWD-2: Guidelines for Naming Types](#swd-2-guidelines-for-naming-types)
+    *   [SWD-3: Guidelines for Naming Methods](#swd-3-guidelines-for-naming-methods)
+    *   [SWD-4: Fluent Usage](#swd-4-fluent-usage)
+    *   [SWD-5: Prepositional vs Grammatical Phrases](#swd-5-prepositional-vs-grammatical-phrases)
+    *   [SWD-6: Recap on Naming](#swd-6-recap-on-naming)
+    *   [SWD-7: Side-Effects and Mutation](#swd-7-side-effects-and-mutation)
+    *   [SWD-8: Conventions](#swd-8-conventions)
+
+<!-- /TOC -->
+
 ## SWD-1: Why do we need guidelines?
 
 Initially when Swift was created, there were no real guidelines.
@@ -25,7 +39,7 @@ var someValue = 12	// bad choice
 var counter = 12	// better choice
 ```
 
-*Rules for Naming*
+_Rules for Naming_
 
 Names of types properties, variables and constants should _read as nouns_.
 
@@ -49,12 +63,12 @@ In the second parametere, `offsetBy` is the external name.
 
 If there is just one parameter, then that will be both the external and local name. You can use `_` to offset the parameter external name.
 
-*Rule 1*
+_Rule 1_
 We should always check how functions read and use sites when we write them.
 
 Example: `func insert(_ e: Element, atPosition: Int)` is better than `insert(element: "a", position: 1)`.
 
-*Rule 2*
+_Rule 2_
 Avoid Ambiguity
 
 `func remove(atIndex: Int).` over `func remove(_ index: Int)`
@@ -69,17 +83,17 @@ Here, Any and String both have weak type information.
 
 `func updateValue(_ value: Any, forKey key: String)`
 
-*Summary*
+_Summary_
 
-- Omit needless information
-- Include all words need to avoid ambiguity
-- Compensate for weak type information
+*   Omit needless information
+*   Include all words need to avoid ambiguity
+*   Compensate for weak type information
 
 ## SWD-4: Fluent Usage
 
-The high level guidelines don't give too many details. 
+The high level guidelines don't give too many details.
 
-*Fluent Usage*
+_Fluent Usage_
 
 Methods and functions should be read as grammatical English phrases at the use site.
 
@@ -113,7 +127,7 @@ Normally we would say "move to position", however if we need to use that preposi
 
 Another example would be `x.removeBoxes(havingLength: 12)`.
 
-The exception to this would be that only one argument governed the function. 
+The exception to this would be that only one argument governed the function.
 
 Example, `func move(toX: Int, y: Int)`
 
@@ -127,23 +141,23 @@ Another example for context:
 
 ## SWD-6: Recap on Naming
 
-*Prepositional Phrase: Exception*
+_Prepositional Phrase: Exception_
 
 `view.fadeTo(red: a, green: b, blue: c)`
 
-*Grammatical Phrase*
+_Grammatical Phrase_
 
 `view.addSubview(y)`
 
-*Neither Gammatical Nor Prepositional*
+_Neither Gammatical Nor Prepositional_
 
 `func dismiss(animated: Bool)`
 
-- Omit needless words
-- Avoid ambiguity
-- Avoid needless words
+*   Omit needless words
+*   Avoid ambiguity
+*   Avoid needless words
 
-*More Examples of Methods from the Swift SDK*
+_More Examples of Methods from the Swift SDK_
 
 ```
 func activate(_ constraints: [NSLayoutConstraint])
@@ -165,7 +179,7 @@ This is one that mutates the current state. If it effects the current state, it 
 
 An example would adding an element to the array. This effects the state of the array as it mutates it.
 
-`func append(_ newElement: Element)` 
+`func append(_ newElement: Element)`
 
 Nouns are used for when the state is not effected.
 
@@ -177,14 +191,14 @@ Then we use the imperitive form for the verb.
 
 `anArray.filter(isEven)` - filter being the verb mutating the array state.
 
-*Mutating verse non-mutation of the state*
+_Mutating verse non-mutation of the state_
 
 Mutating example: `anArray.sort()`
 Non-mutating example: `let sortedArray = anArray.sorted()`
 
 Suffixes that can be used include `-ed` and when it doesn't sound right `-ing`.
 
-*Mutation for nouns*
+_Mutation for nouns_
 
 This is simpler. We use noun for non-mutating and form prefix for mutating counterpart.
 
@@ -201,16 +215,15 @@ Then noun form for non-mutating version of nouns and form prefix for mutating me
 
 ## SWD-8: Conventions
 
-*Boolean Methods*
+_Boolean Methods_
 
 `func isInRange(of point: Point)`
 
+_Parameters_
 
-*Parameters*
-
-- Choose parameter names that serve documentation.
-- Use default values where possible to simplify function signatures.
-- In Swift, default args are preferred to method families.
+*   Choose parameter names that serve documentation.
+*   Use default values where possible to simplify function signatures.
+*   In Swift, default args are preferred to method families.
 
 ```
 let order = lastName.compare(royalFamilyName, options: [], range: nil, local: nil)
@@ -219,17 +232,3 @@ let order = lastName.compare(royalFamilyName, options: [], range: nil, local: ni
 Keep parameters with default parameters to sit at the end of the function.
 
 Same basenames are also fine if they operate within different domains.
-
-
-
-
-
-
-
-
-
-
-
-
-
-
