@@ -1,6 +1,7 @@
 <!-- TOC -->
 
 *   [5 Parts of every business](#5-parts-of-every-business)
+*   [5 Interdependent core parts](#5-interdependent-core-parts)
 *   [5 Core Human Drives](#5-core-human-drives)
 *   [10 Ways to Evaluate the Market](#10-ways-to-evaluate-the-market)
 
@@ -44,3 +45,22 @@ Kaufman, Josh. The Personal MBA: A World-Class Business Education in a Single Vo
 8.  Up-Front Investment— How much will you have to invest before you’re ready to sell? (To be a housekeeper, all you need is a set of inexpensive cleaning products. To mine for gold, you need millions to purchase land and excavating equipment.)
 9.  Upsell Potential — Are there related secondary offers that you could also present to purchasing customers? (Customers who purchase razors need shaving cream and extra blades as well; buy a Frisbee, and you won’t need another unless you lose it.)
 10. Evergreen Potential — Once the initial offer has been created, how much additional work will you have to put into it in order to continue selling? (Business consulting requires ongoing work to get paid; a book can be produced once, then sold over and over as is.)
+
+## 12 Standard forms of value
+
+1.  Product. Create a single tangible item or entity, then sell and deliver it for more than what it cost to make.
+2.  Service. Provide help or assistance, then charge a fee for the benefits rendered.
+3.  Shared Resource. Create a durable asset that can be used by many people, then charge for access.
+4.  Subscription. Offer a benefit on an ongoing basis, and charge a recurring fee.
+5.  Resale. Acquire an asset from a wholesaler, then sell that asset to a retail buyer at a higher price.
+6.  Lease. Acquire an asset, then allow another person to use that asset for a predefined amount of time in exchange for a fee.
+7.  Agency. Market and sell an asset or service you don’t own on behalf of a third party, then collect a percentage of the transaction price as a fee.
+8.  Audience Aggregation. Get the attention of a group of people with certain characteristics, then sell access in the form of advertising to another business looking to reach that audience.
+9.  Loan. Lend a certain amount of money, then collect payments over a predefined period of time equal to the original loan plus a predefined interest rate.
+10. Option. Offer the ability to take a predefined action for a fixed period of time in exchange for a fee.
+11. Insurance. Take on the risk of some specific bad thing happening to the policy holder in exchange for a predefined series of payments, then pay out claims only when the bad thing actually happens.
+12. Capital. Purchase an ownership stake in a business, then collect a corresponding portion of the profit as a one-time payout or ongoing dividend.
+
+Kaufman, Josh. The Personal MBA: A World-Class Business Education in a Single Volume (pp. 49-50). Penguin Books Ltd. Kindle Edition.
+
+Kaufman, Josh. The Personal MBA: A World-Class Business Education in a Single Volume (p. 49). Penguin Books Ltd. Kindle Edition.
