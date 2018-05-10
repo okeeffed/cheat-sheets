@@ -5,6 +5,7 @@
 *   [5 Core Human Drives](#5-core-human-drives)
 *   [10 Ways to Evaluate the Market](#10-ways-to-evaluate-the-market)
 *   [12 Standard forms of value](#12-standard-forms-of-value)
+*   [Percieved value](#percieved-value)
 
 <!-- /TOC -->
 
@@ -69,3 +70,9 @@ Kaufman, Josh. The Personal MBA: A World-Class Business Education in a Single Vo
 Perceived Value determines how much your customers will be willing to pay for what you’re offering. The more valuable a prospect believes your offer is, the more likely they’ll be to buy it, and the more they’ll be willing to pay. The most valuable offers do one or more of the following: Satisfy one or more of the prospect’s Core Human Drives. Offer an attractive and easy-to-visualize End Result (discussed later). Command the highest Hassle Premium by reducing end-user involvement as much as possible. Satisfy the prospect’s Status Seeking tendency by providing desirable Social Signals (discussed later) that help them look good in the eyes of other people.
 
 Kaufman, Josh. The Personal MBA: A World-Class Business Education in a Single Volume (pp. 64-65). Penguin Books Ltd. Kindle Edition.
+
+## The Iteration Cycle
+
+The Iteration Cycle is a process you can use to make anything better over time. There’s nothing wasteful about the inevitable changes and revisions that these artists made to their creations: every iteration brought the project one step closer to completion. Iteration has six major steps, which I call the WIGWAM method: Watch— What’s happening? What’s working and what’s not? Ideate— What could you improve? What are your options? Guess— Based on what you’ve learned so far, which of your ideas do you think will make the biggest impact? Which?— Decide which change to make. Act— Actually make the change. Measure— What happened? Was the change positive or negative? Should you keep the change, or go back to how things were before this iteration?
+
+Kaufman, Josh. The Personal MBA: A World-Class Business Education in a Single Volume (pp. 68-69). Penguin Books Ltd. Kindle Edition.
