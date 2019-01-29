@@ -1,10 +1,11 @@
-# cheat sheets repo
+# Cheat Sheets
 
-## RM-1: Styles for editing
+This repo is more-than-deprecated. I've hardly pushed any notes here for the last year.
 
-1. Use H2 for Major headings with unique code. Lower headings for subsections if required.
-2. Mark all major Sections with a Code and a numeral for the section.
-3. Use `***` for line breaks between major sections
-4. Use `__<title>__` for subheadings that aren't worthy enough to require a heading tag to prevent Section increases in Dash.
-5. For hints, have `***` above and below and put "hint" in bold italics.
-6. Add `<div id="..."></div>` above each section with a separator in order to target sections and create indexes. 
+Since I've come back to surprising interest, there is a separate repo that I have just made public that has a bunch more notes on top of these and other concepts I've had to deal with in more recent years (think Deep Learning, Kubernetes etc).
+
+That repo can be found here https://github.com/okeeffed/developer-notes
+
+That repo also publishes notes on a CD pipeline to here https://docs.dennisokeeffe.com/
+
+Follow me on Twitter for rancid dev chat and good times https://twitter.com/d_okeeffe
