@@ -1,6 +1,6 @@
 # Cheat Sheets
 
-This repo is more-than-deprecated. I've hardly pushed any notes here for the last year.
+This repo is more than deprecated. I've hardly pushed any notes here for the last year.
 
 Since I've come back to surprising interest, there is a separate repo that I have just made public that has a bunch more notes on top of these and other concepts I've had to deal with in more recent years (think Deep Learning, Kubernetes etc).
 
