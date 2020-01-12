@@ -97,9 +97,9 @@ cellC2$.subscribe((value) => {
 *   any data sitting there that you "ask" for at some point - example refresh button - manual button trigger - time interval
 *   observable (stream) which is a reactive data source - produces items over a period of time that will either error, complete, or never complete until a page closes - not telling the stream when to get data, it has inbuilt logic on how to get data - we may transform this data - the display of the data is actually part of the description
 
-An an example for a `pull` based code, we can think of a window.setInterval() that fires every 5000 seconds.
+An example for a `pull` based code, we can think of a `window.setInterval()` that fires every 5000 seconds.
 
-An example of a push would be to have a function fire and then the return continutes to filter, flatMap, map and subscribe.
+An example of a push would be to have a function fire and then the return continues to `filter`, `flatMap`, `map` and `subscribe`.
 
 **Core Concept 2: Everything is a database**
 
